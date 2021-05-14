@@ -56,17 +56,17 @@ indicatorgegevens1 <- indicatorgegevens1 %>%
     ),
     Schaal = factor(
       Schaal, ordered = TRUE,
-      levels = c("Landschap" ,"Ecosysteem" ,"Soort","Gen")
+      levels = c("Landschap", "Ecosysteem", "Soort", "Gen")
     )
-  ) 
+  )
 indicatorgegevens3 <- indicatorgegevens1 %>%
-  filter(aantal>0) %>%
+  filter(aantal > 0) %>%
   group_by(kwadrant) %>%
-  mutate(lab.ypos = cumsum(aantal) - 0.5*aantal) %>%
+  mutate(lab.ypos = cumsum(aantal) - 0.5 * aantal) %>%
   ungroup()
 
 ggplot(indicatorgegevens1, aes(x = kwadrant, y = aantal, fill = Schaal)) +
-  geom_bar(stat = "identity", width =0.9) +
+  geom_bar(stat = "identity", width = 0.9) +
   coord_polar() +
   labs(x = "", y = "") +
   geom_hline(
@@ -86,8 +86,8 @@ ggplot(indicatorgegevens1, aes(x = kwadrant, y = aantal, fill = Schaal)) +
         axis.ticks.y = element_blank(),
         axis.text.y = element_blank(),
         legend.position = "right",
-        plot.margin = unit(c(0,0,0,0), "null"),
-        panel.spacing = unit(c(0,0,0,0), "null"),
+        plot.margin = unit(c(0, 0, 0, 0), "null"),
+        panel.spacing = unit(c(0, 0, 0, 0), "null"),
         panel.border = element_blank(),
         panel.grid = element_blank(),
         legend.key.size = unit(0.3, "cm"),
@@ -104,7 +104,7 @@ ggplot(indicatorgegevens1, aes(x = kwadrant, y = aantal, fill = Schaal)) +
   annotate(
     geom = "text", x = 2.5, y = 60, hjust = 0, size = 6, label = "60",
     color = inbo_rood
-  ) 
+  )
 ```
 
 ## Definitie

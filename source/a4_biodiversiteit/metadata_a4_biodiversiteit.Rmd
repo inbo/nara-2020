@@ -68,17 +68,17 @@ Het is ook mogelijk om zoektermen in te geven (search) en om de indicatoren te o
 Het resultaat kan gedownload, gekopieerd of geprint worden.
 
 ```{r Tabel 1, echo=FALSE, message=FALSE, warning=FALSE}
-indicatorlijst %>% 
+indicatorlijst %>%
   mutate_all(linebreak) %>%
   datatable(
     caption = "Tabel 1. Classificatie van indicatoren van het Natuurrapport naar
-invalshoek en schaalniveau", 
+invalshoek en schaalniveau",
     rownames = FALSE,
     colnames = c(
       "nummer", "hoofdstuk", "naam indicator", "eigenaar", "type", "invalshoek",
       "schaal"
     ),
-    extensions = c('KeyTable', 'Select', 'SearchPanes', 'Scroller'),
+    extensions = c("KeyTable", "Select", "SearchPanes", "Scroller"),
     options = list(
       filter = "none", keys = TRUE,
       language = list(searchPanes = list(collapse = "Selecteer")),
