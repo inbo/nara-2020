@@ -259,7 +259,7 @@ changed_path <- function(path = ".") {
     }
   )
   changes <- unlist(changes)
-  unique(dirname(changes[grepl(".Rmd$", changes)]))
+  unique(dirname(changes[grepl("^source.*\\.Rmd$", changes)]))
 }
 
 render_one <- function(path, pure_id, root_dir) {
