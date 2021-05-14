@@ -1,0 +1,595 @@
+..generic:
+  git2rdata: 0.2.1
+  optimize: no
+  NA string: NA
+  sorting:
+  - nummer
+  - hoofdstuk
+  hash: 6ecca8a4f277bd5800f8fc8e4aff2e9c8ac033eb
+  data_hash: 41ea380ff2052aaa5710ae1d3102d98da9779951
+nummer:
+  class: integer
+hoofdstuk:
+  class: factor
+  labels:
+  - Agroecosystemen
+  - Algemene biodiversiteitstrends
+  - Bescherming en beheer in Vlaanderen
+  - Biodiversiteit van Europees belang
+  - Bos
+  - Druk op de biodiversiteit wereldwijd
+  - Heide
+  - Invasieve uitheemse soorten
+  - Klimaatverandering
+  - Kustduinen
+  - Landgebruiksverandering
+  - Moeras
+  - Noordzee
+  - Onze impact op de biodiversiteit
+  - Oppervlaktewateren
+  - Verdroging
+  - Vermesting en verzuring
+  - Verontreiniging
+  - Versnippering
+  - Wat is biodiversiteit?
+  - Wat is het belang van biodiversiteit?
+  - We leven op grote voet
+  index:
+  - 1
+  - 2
+  - 3
+  - 4
+  - 5
+  - 6
+  - 7
+  - 8
+  - 9
+  - 10
+  - 11
+  - 12
+  - 13
+  - 14
+  - 15
+  - 16
+  - 17
+  - 18
+  - 19
+  - 20
+  - 21
+  - 22
+  ordered: no
+Naam_indicator:
+  class: factor
+  labels:
+  - 'aandeel meetplaatsen met één of meerdere normoverschrijdingen voor gewasbeschermingsmiddelen
+    tussen 2004 en 2018 '
+  - aandeel migrerende vissen per meetplaats in beken en rivieren
+  - 'aandeel uitheemse plantensoorten binnen de globale plantensamenstelling in Vlaanderen '
+  - 'aandeel van de totale impact van de Belgische consumptie op de biodiversiteit
+    per land van herkomst van de geconsumeerde producten en diensten en per drukfactor '
+  - aandeel van heidehabitat van Europees belang binnen habitatrichtlijngebied
+  - aandeel van moerashabitat van Europees belang binnen habitatrichtlijngebied
+  - aandeel van oppervlaktewaterhabitat van Europees belang in habitatrichtlijngebied
+  - aandeel van strand- en kustduinhabitat van Europees belang binnen habitatrichtlijngebied
+  - aantal bezette kilometerhokken van 3 typische bosvlindersoorten in Vlaanderen
+    tussen 2009 en 2019
+  - 'aantal habitattypes per ecosysteem waarvoor de ruimtelijke samenhang als gunstig
+    of ongunstig beoordeeld wordt op basis van de oppervlakte van de habitatvlekken
+    en de oppervlakte van de functionele clusters '
+  - aantal indicatoren per invalshoek en per schaalniveau
+  - 'aantal introducties van uitheemse soorten in Vlaanderen tussen 1950 en 2019 via
+    de verschillende introductiemechanismen '
+  - aantal stekelroggen in de Belgische wateren in de periode 2011-2016
+  - aantal visdieven in de Belgische wateren in de periode 2011-2016
+  - aantal waargenomen Zuid-Europese libellensoorten in Vlaanderen tussen 1984 en
+    2019
+  - beoordeling van de staat van instandhouding en trend van de habitatrichtlijnsoorten
+    in 2019 in Vlaanderen
+  - 'bevolkingsdichtheid en urbanisatie in Vlaanderen en 9 andere sociaal-economische
+    topregio’s in 2018 '
+  - bioaccumulatie van PCB in paling
+  - bioaccumulatie van persistente stoffen in spierweefsel van baars en paling
+  - biodiversiteitsvoetafdruk import en export
+  - biodiversity Intactness Index voor Vlaanderen
+  - biomassaverdeling grote zoogdieren in Vlaanderen
+  - 'bosindex van Europese landen en 9 regio’s die qua bevolkingsdichtheid, welvaartspeil
+    en oppervlakte vergelijkbaar zijn met Vlaanderen '
+  - bosoppervlakte per provincie in beide periodes van de bosinventaris
+  - broedvogels in agro-ecosystemen voor de periode 2008 – 2019
+  - broeikasgasemissies in Vlaanderen versus de evolutie van de koolstofvoetafdruk
+    (i.e. alle broeikasgasemissies binnen én buiten Vlaanderen) van de Vlaamse consumptie
+  - buffercapaciteit van de Belgische wateren in de periode 2017-2019
+  - chorofyl in de Belgische wateren in de periode 2011-2016
+  - concentraties van opgelost anorganisch fosfor in de Belgische wateren in de periode
+    2011-2016
+  - concentraties van opgelost anorganisch stikstof in de Belgische wateren in de
+    periode 2011-2016
+  - 'cumulatief aantal uitheemse diersoorten in terrestrische, zoetwater, estuariene
+    en mariene ecosystemen binnen Vlaanderen tussen 1950 en 2020 '
+  - deel van de landvoetafdruk gelegen in landen met een hoog tot zeer hoog risico
+    op ontbossing.
+  - 'dekking van het ecosysteem heide (in hectare en %) door verschillende vormen
+    van natuur- en bosbeheer, juridische en planologische bescherming '
+  - 'dekking van het ecosysteem moeras (in hectare en %) door verschillende vormen
+    van natuur- en bosbeheer, juridische en planologische bescherming '
+  - 'dekking van het ecosysteem strand en kustduinen (in hectare en %) door verschillende
+    vormen van natuur- en bosbeheer, juridische en planologische bescherming '
+  - druk op waterleven door gewasbescherming
+  - ecosysteemveranderingen (ha) tussen 2013 en 2016 (landgebruiksbestand Vlaanderen)
+  - Ecosysteemveranderingen tussen 1990 en 2018 (Corine)
+  - ecosysteemvoorraad (km²) in 2013 en 2016 (Landgebruiksbestand Vlaanderen)
+  - estuariene habitatoppervlakte van ondiep water, slik en schor in de periode 2010-2016
+  - 'Evolutie van de Belgische officiële ontwikkelingshulp (ODA) met biodiversiteit
+    als hoofd- of significant nevendoel tussen 2010 en 2017 '
+  - 'Evolutie van de fosforconcentratie in het oppervlaktewater tussen 2007 en 2019 '
+  - evolutie van de jaargemiddelde temperatuur in Ukkel tussen 1833 en 2019, uitgedrukt
+    als afwijking ten opzichte van het jaargemiddelde in de periode 1850-1899
+  - Evolutie van de nitraatconcentratie in het oppervlaktewater tussen 2007 en 2019
+  - 'evolutie van de oppervlakte aan gebieden met een goedgekeurd (natuur)beheerplan '
+  - evolutie van het aantal dagen met zware neerslag (een neerslaghoeveelheid van
+    20 mm of meer) in Ukkel, tussen 1892 en 2019
+  - 'evolutie van het aantal soortbeschermingsplannen en -programma’s '
+  - 'gemiddeld aantal boomsoorten per PNV-hoofdtype in de vegetatieopnames van de
+    Vlaamse bosinventaris '
+  - 'gemiddeld aantal dagen per jaar dat het grondwaterpeil op 58 meetlocaties onder
+    een kritische minimumdrempel daalt (1985-2018): '
+  - 'gemiddeld aantal kruidachtigen per PNV-hoofdtype in de vegetatieopnames van de
+    Vlaamse bosinventaris '
+  - gemiddeld aantal vlinders in functie van de verstedelijkingsgraad
+  - gemiddeld aantal vlindersoorten in functie van de verstedelijkingsgraad
+  - gemiddeld bestandsvolume in private en publieke bossen
+  - gemiddelde Ellenbergwaarde voor stikstof en op basis van de vegetatieopnames  van
+    de bosinventaris
+  - 'gemiddelde soortenrijkdom van oud-bosplanten in oude (voor 1850) en recente (na
+    1850) bossen in de vegetatieopnames van de Vlaamse bosinventaris '
+  - 'gemiddelde stikstofconcentratie in bladeren en naalden tussen 1995 en 2017 in
+    de proefvlakken van het langetermijnmeetnet in bossen '
+  - 'gemiddelde van de functionele diversiteit (FDis = functionele dispersie - Laliberté
+    & Legendre, 2010) van bomen per PNV-hoofdtype in de bosbouwproefvlakken van de
+    Vlaamse bosinventaris (VBI). '
+  - 'gemiddelde van de totaalscore en deelscores van de authenticiteitsindex voor
+    de verschillende bestandtypes in de Vlaamse bosinventaris '
+  - gestrande bruinvissen in de Belgische wateren
+  - goede ecologische toestand fytobenthos voor periode 2007-2012 en periode 2013-2018
+  - goede ecologische toestand fytoplankton voor periode 2007-2012 en periode 2013-2018
+  - goede ecologische toestand macro-invertebraten voor periode 2007-2012 en periode
+    2013-2018
+  - goede ecologische toestand macrofyten voor periode 2007-2012 en periode 2013-2018
+  - goede ecologische toestand van rivieren, meren en estuaria
+  - goede ecologische toestand vis voor periode 2007-2012 en periode 2013-2018
+  - habitatverlies  in de Belgische wateren in de periode 2011-2016
+  - habitatverstoring  in de Belgische wateren in de periode 2011-2016
+  - 'high Nature Value farmland per landgebruiksklasse in 2013 en 2016 '
+  - 'hoeveel vlinders en vlindersoorten in tuinen worden waargenomen, hangt af van
+    jaarlijkse variatie (bv. door de weersomstandigheden), van de grootte van de tuin,
+    van de tuininrichting en van de verstedelijkingsgraad van de omgeving. '
+  - 'impact van de Belgische consumptie op de biodiversiteit wereldwijd per consumptiesector '
+  - 'impact van de Belgische consumptie van 7 product(groep)en op de biodiversiteit
+    in de 20 meest getroffen landen, uitgedrukt in mondiale PDF (potentially disappeared
+    fraction of species) en herschaald naar een cijfer tussen 0 en 100 '
+  - index van de aantallen van broedvogels van bosgebieden in Vlaanderen tussen 2008
+    en 2019
+  - Intensiteit van de landbouwproductie in de periode 1980-2018
+  - koolstofgehalte in de bodem van agro-ecosystemen
+  - 'landgebruikscategorieën in Vlaanderen en 9 andere sociaal-economische topregio’s
+    in 2018 '
+  - living Planet Index fauna voor de periode 1990-2019 in Vlaanderen
+  - Living planet index voor amfibiesoorten in de periode 1990-2018 in Vlaanderen
+  - Living planet index voor vlinders, libellen en vogels in Vlaanderen, op basis
+    van 78 soorten, opgedeeld in warmteminnende en koudeminnende soorten
+  - 'mate van verspreiding van de Unielijstsoorten in Vlaanderen voor het in werking
+    treden van de Europese Verordening betreffende de preventie en beheersing van
+    de introductie en verspreiding van invasieve uitheemse soorten (2000-datum oplijsting)
+    en tijdens de eerste rapporteringsperiode in het kader van de verordening (januari
+    2015-december 2018 '
+  - 'maximale waarde van het cumulatief neerslagtekort tussen 1901 en '
+  - Meff-score natuurruimte
+  - Meff-score openruimte
+  - 'minimale en maximale inschatting van de grasleeftijd van geregistreerde cultuurgraslanden
+    in 2018 '
+  - 'mulltisoortindex voor akkerlandflora in de periode 1950-2018 '
+  - 'mulltisoortindex voor graslandflora in de periode 1950-2018 '
+  - multisoortenindex voor flora gebaseerd op de kans op voorkomen van 385 vaatplanten
+    in Vlaanderen, opgedeeld per temperatuurvoorkeur volgens Ellenberg
+  - multisoortenindex voor flora gebaseerd op de kans op voorkomen van 46 soorten
+    van zure milieus, 112 soorten van matig zure milieus en 201 soorten van (matig)
+    basische milieus tussen 1950 en 2018 in Vlaanderen
+  - multisoortenindex voor flora gebaseerd op de kans op voorkomen van 88 soorten
+    van stikstofarme milieus, 208 soorten van matig stikstofrijke milieus en 151 soorten
+    van stikstofrijke milieus tussen 1950 en 2018 in Vlaanderen
+  - Multisoortenindex voor heideplanten in de periode 1950-2018 in Vlaanderen
+  - Multisoortenindex voor moerasplanten in de periode 1950-2018 in Vlaanderen
+  - multisoortenindex voor plantensoorten in de periode 1950-2018 in Vlaanderen
+  - 'Multisoortindex voor plantensoorten van aquatische systemen in de periode 1950-2018 '
+  - natuurbescherming & -beheer van de Noordzee
+  - natuurbescherming en -beheer bij oppervlaktewateren
+  - natuurbescherming en beheer van halfnatuurlijk gras
+  - oppervlakte bos met beheeplan
+  - oppervlakte bos met planologische bestemming bos
+  - oppervlakte en lengte van natuurgerichte beheerovereenkomsten in agro-ecosystemen
+  - oppervlakte natuurbeheer in agro-ecosysteem
+  - Oppervlakte natuurverwevingsgebieden
+  - 'oppervlakte van agro-ecosystemen in Vlaanderen in 2013 en 2016 '
+  - 'oppervlakte van de landgebruiksveranderingen tussen 2013 en 2016 op basis van
+    de kaart (punten) en de gevalideerde punten (horizontale balken) voor de geaggregeerde
+    klassen. '
+  - Oppervlakte van de vegetatietypes van heide in 2010 en 2019 op basis van de Biologische
+    Waarderingskaart
+  - Oppervlakte van de vegetatietypes van kustduinen en strand in 2010 en 2019 op
+    basis van de Biologische Waarderingskaart
+  - Oppervlakte van de vegetatietypes van moeras in 2010 en 2019 op basis van de Biologische
+    Waarderingskaart
+  - oppervlakte zonevreemd bos
+  - oppervlakteaandeel dat alleen wettelijk beschermd is en dat zowel wettelijk beschermd
+    is als natuurgericht beheerd wordt voor Vlaanderen en de ecosystemen
+  - oppervlakteaandeel gelegen in een zone waarbinnen natuur een of andere vorm van
+    juridische bescherming geniet
+  - Oppervlakteverdeling van natuurclusters in Vlaanderen
+  - overschijding kritische lasten vermesting
+  - overschrijding kritische lasten stikstof bij bos
+  - overschrijding kritische lasten verzuring
+  - 'overzicht van de 16 habitats (gedefinieerd in bijlage 5 van het Vlaams Natura
+    2000-programma 2016-2020) die zich in 2020 in een gunstige of verbeterde staat
+    van instandhouding moesten bevinden met de status en trend zoals gerapporteerd
+    in 2019 '
+  - Overzicht van de drukfactoren en bedreigingen voor heidehabitats van Europees
+    belang
+  - Overzicht van de drukfactoren en bedreigingen voor moerashabitats van Europees
+    belang
+  - Overzicht van de drukfactoren en bedreigingen voor strand- en kustduinhabitats
+    van Europees belang
+  - overzicht van de gemiddelde afstand (%) tot de populatiedoelen die voor de broedvogels
+    in de gewestelijke instandhoudingsdoelen vastgesteld zijn
+  - overzicht van de gemiddelde afstand (%) tot de populatiedoelen die voor de overwinterende
+    watervogels in de gewestelijke instandhoudingsdoelen vastgesteld zijn
+  - overzicht van de populatietrends op korte (2007-2018) en lange (1973-2018) termijn
+    voor 26 broedvogelsoorten van Europees belang in Vlaanderen
+  - overzicht van de populatietrends op korte en lange termijn van 19 overwinterende
+    watervogelsoorten van Europees belang in Vlaanderen
+  - paaibiomassa van commerciële vissoorten in de Noordzee
+  - percentage beschadigde bomen in het bosvitaliteitsmeetnet tussen 1987 en 2019
+  - Rekening ecosysteemvoorraad (km²) in 1990 en 2018 (Corine)
+  - 'relatie tussen de versnipperingsgraad en de gemiddelde soortenrijkdom van kruidachtigen
+    in de kruidlaag van de Vlaamse bosinventaris '
+  - rode Lijst-status van planten- en diersoorten gebonden aan heide
+  - rode Lijst-status van planten- en diersoorten gebonden aan moeras
+  - rode Lijst-status van planten- en diersoorten gebonden aan strand en duinen
+  - rode lijst status soorten
+  - staat van instandhouding  van boshabitats van Europees belang (habitattypische
+    soorten)
+  - staat van instandhouding  van estuaria van Europees belang (ruimtelijke samenhang)
+  - staat van instandhouding  van graslanden van Europees belang (habitattypische
+    soorten)
+  - staat van instandhouding  van habitats van Europees belang (habitattypische soorten)
+    - atlantische regio
+  - staat van instandhouding  van habitats van Europees belang (habitattypische soorten)
+    - per ecosysteem
+  - staat van instandhouding  van habitats van Europees belang (habitattypische soorten)
+    -algemeen
+  - staat van instandhouding  van heidehabitats van Europees belang (habitattypische
+    soorten)
+  - staat van instandhouding  van meren van Europees belang (habitattypische soorten)
+  - staat van instandhouding  van moerashabitats van Europees belang (habitattypische
+    soorten)
+  - staat van instandhouding  van rivieren van Europees belang (oppervlakte  en areaal)
+  - staat van instandhouding  van rivieren van Europees belang (ruimtelijke samenhang)
+  - staat van instandhouding  van strand- en kustduinhabitats van Europees belang
+    (habitattypische soorten)
+  - staat van instandhouding van boshabitats van Europees belang (oppervlakte  en
+    areaal)
+  - staat van instandhouding van boshabitats van Europees belang (ruimtelijke samenhang)
+  - staat van instandhouding van estuaria van Europees belang (habitattypische soorten)
+  - staat van instandhouding van estuaria van Europees belang (oppervlakte  en areaal)
+  - staat van instandhouding van graslanden van Europees belang (oppervlakte  en areaal)
+  - staat van instandhouding van graslanden van Europees belang (ruimtelijke samenhang)
+  - staat van instandhouding van habitats van Europees belang (oppervlakte  en areaal)
+    - atlantische regio
+  - staat van instandhouding van habitats van Europees belang (oppervlakte  en areaal)
+    - per ecosysteem
+  - staat van instandhouding van habitats van Europees belang (oppervlakte  en areaal)
+    -algemeen
+  - staat van instandhouding van habitats van Europees belang (ruimtelijke samenhang)
+    - algemeen
+  - staat van instandhouding van habitats van Europees belang (ruimtelijke samenhang)
+    - atlantische regio
+  - staat van instandhouding van habitats van Europees belang (ruimtelijke samenhang)
+    - per ecosysteem
+  - staat van instandhouding van heidehabitats van Europees belang (oppervlakte  en
+    areaal)
+  - staat van instandhouding van heidehabitats van Europees belang (ruimtelijke samenhang)
+  - staat van instandhouding van meren van Europees belang (oppervlakte  en areaal)
+  - staat van instandhouding van meren van Europees belang (ruimtelijke samenhang)
+  - staat van instandhouding van moerashabitats van Europees belang (oppervlakte  en
+    areaal)
+  - staat van instandhouding van moerashabitats van Europees belang (ruimtelijke samenhang)
+  - staat van instandhouding van rivieren van Europees belang (habitattypische soorten)
+  - staat van instandhouding van strand- en kustduinhabitats van Europees belang (oppervlakte  en
+    areaal)
+  - staat van instandhouding van strand- en kustduinhabitats van Europees belang (ruimtelijke
+    samenhang)
+  - timing van de jaarlijkse piek van stuifmeelconcentratie in de lucht voor berk
+    en grassen, waargenomen in Elsene tussen 1975 en 2019
+  - 'toename van de oppervlakte bebouwde percelen in Vlaanderen in hectare per dag '
+  - toestand van benthische habitats in de Belgische wateren in de periode 2011-2016
+  - toestand van grindbedden in de Belgische wateren in de periode 2011-2016
+  - 'totale afvoer, de basisafvoer en de oppervlakkige afvoer ter hoogte van 15 meetpunten
+    in onbevaarbare waterlopen op Vlaams grondgebied (1990-2017) '
+  - Trend algemene broedvogels
+  - trend bladontwikkeling van eik en beuk
+  - trend niet-aasetende zeevogelsoorten  in de Belgische wateren in de periode 2011-2016
+  - 'trend van de nachtegaal van 2008 tot 2019 '
+  - vergelijking van de staat van instandhouding van de habitatrichtlijnsoorten in
+    Vlaanderen met de staat van instandhouding van diezelfde soorten in het Atlantische
+    deel van België, Nederland, Duitsland en Frankrijk en in de volledige Atlantische
+    regio voor de rapportageperiode 2019
+  - 'verhouding tussen de ecologische voetafdruk van elk land versus de welzijnsindicator
+    Human Development Index '
+  - versnippering van bos - oppervlakteverdeling bos
+  - versnippering van bos op basis van de Boswijzer 2.0 (aandeel randhabitat)
+  - Vismigratieknelpunten
+  - visserijsterfte van commerciële vissoorten in de Noodzee
+  - 'vraag en aanbod van zestien ecosysteemdiensten in Vlaanderen '
+  - 'watergebruik in Vlaanderen, exclusief koelwater en scheepvaart tussen 2000 en
+    2018 '
+  - watervogels in het Schelde-estuarium tussen 1993 en 2016
+  - zuurtegraad van de Belgische wateren in de periode 2017-2019
+  index:
+  - 1
+  - 2
+  - 3
+  - 4
+  - 5
+  - 6
+  - 7
+  - 8
+  - 9
+  - 10
+  - 11
+  - 12
+  - 13
+  - 14
+  - 15
+  - 16
+  - 17
+  - 18
+  - 19
+  - 20
+  - 21
+  - 22
+  - 23
+  - 24
+  - 25
+  - 26
+  - 27
+  - 28
+  - 29
+  - 30
+  - 31
+  - 32
+  - 33
+  - 34
+  - 35
+  - 36
+  - 37
+  - 38
+  - 39
+  - 40
+  - 41
+  - 42
+  - 43
+  - 44
+  - 45
+  - 46
+  - 47
+  - 48
+  - 49
+  - 50
+  - 51
+  - 52
+  - 53
+  - 54
+  - 55
+  - 56
+  - 57
+  - 58
+  - 59
+  - 60
+  - 61
+  - 62
+  - 63
+  - 64
+  - 65
+  - 66
+  - 67
+  - 68
+  - 69
+  - 70
+  - 71
+  - 72
+  - 73
+  - 74
+  - 75
+  - 76
+  - 77
+  - 78
+  - 79
+  - 80
+  - 81
+  - 82
+  - 83
+  - 84
+  - 85
+  - 86
+  - 87
+  - 88
+  - 89
+  - 90
+  - 91
+  - 92
+  - 93
+  - 94
+  - 95
+  - 96
+  - 97
+  - 98
+  - 99
+  - 100
+  - 101
+  - 102
+  - 103
+  - 104
+  - 105
+  - 106
+  - 107
+  - 108
+  - 109
+  - 110
+  - 111
+  - 112
+  - 113
+  - 114
+  - 115
+  - 116
+  - 117
+  - 118
+  - 119
+  - 120
+  - 121
+  - 122
+  - 123
+  - 124
+  - 125
+  - 126
+  - 127
+  - 128
+  - 129
+  - 130
+  - 131
+  - 132
+  - 133
+  - 134
+  - 135
+  - 136
+  - 137
+  - 138
+  - 139
+  - 140
+  - 141
+  - 142
+  - 143
+  - 144
+  - 145
+  - 146
+  - 147
+  - 148
+  - 149
+  - 150
+  - 151
+  - 152
+  - 153
+  - 154
+  - 155
+  - 156
+  - 157
+  - 158
+  - 159
+  - 160
+  - 161
+  - 162
+  - 163
+  - 164
+  - 165
+  - 166
+  - 167
+  - 168
+  - 169
+  - 170
+  - 171
+  - 172
+  - 173
+  - 174
+  - 175
+  - 176
+  - 177
+  - 178
+  - 179
+  - 180
+  ordered: no
+eigenaar:
+  class: factor
+  labels:
+  - ANB
+  - diverse
+  - EEA
+  - EFI_Europe
+  - FOD/INBO
+  - ILVO
+  - INBO
+  - INBO/KMI
+  - KBIN
+  - KUL/NP
+  - mariene_atlas
+  - Statbel
+  - STATBEL
+  - VLIZ
+  - VLM
+  - VMM
+  - WWF
+  - WWF/INBO
+  index:
+  - 1
+  - 2
+  - 3
+  - 4
+  - 5
+  - 6
+  - 7
+  - 8
+  - 9
+  - 10
+  - 11
+  - 12
+  - 13
+  - 14
+  - 15
+  - 16
+  - 17
+  - 18
+  ordered: no
+type:
+  class: factor
+  labels:
+  - analyse
+  - indicator
+  index:
+  - 1
+  - 2
+  ordered: no
+kwadrant:
+  class: factor
+  labels:
+  - functies
+  - geen
+  - samenstelling
+  - structuur
+  - voorraad
+  index:
+  - 1
+  - 2
+  - 3
+  - 4
+  - 5
+  ordered: no
+schaal:
+  class: factor
+  labels:
+  - ecosysteem
+  - geen
+  - landschap
+  - soort
+  index:
+  - 1
+  - 2
+  - 3
+  - 4
+  ordered: no

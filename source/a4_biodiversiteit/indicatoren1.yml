@@ -1,0 +1,37 @@
+..generic:
+  git2rdata: 0.2.1
+  optimize: no
+  NA string: ''
+  sorting:
+  - kwadrant
+  - Schaal
+  hash: 9f76d5e860428fd41a224e6eaf28d6739deacd56
+  data_hash: 5e1936e228606661cc9c16cc6257608cc48af861
+kwadrant:
+  class: factor
+  labels:
+  - Functies (n = 19)
+  - Samenstelling (n = 47)
+  - Structuren (n = 19)
+  - Voorraad (n = 69)
+  index:
+  - 1
+  - 2
+  - 3
+  - 4
+  ordered: no
+Schaal:
+  class: factor
+  labels:
+  - Ecosysteem
+  - Gen
+  - Landschap
+  - Soort
+  index:
+  - 1
+  - 2
+  - 3
+  - 4
+  ordered: no
+aantal:
+  class: integer

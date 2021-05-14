@@ -1,0 +1,153 @@
+---
+title: "Biodiversiteit: het fundament van ons ecosysteem - Indicatorenset biodiversiteit"
+date: 2020-07-01T10:00:00
+bibliography: ../references.bib
+link-citations: TRUE
+hoofdstuk: 1
+thema:
+  - Natuur & maatschappij
+keywords:
+  - biodiversiteit
+  - typologie
+  - ecologische functies
+  - soorten
+  - ecosystemen
+lang: nl
+tab: indicator
+verantwoordelijke:
+- Anik Schneiders <anik.schneiders@inbo.be>
+output: html_document
+---
+
+```{r setup, include=FALSE}
+library(knitr)
+opts_chunk$set(
+  message = FALSE,
+  warning = FALSE,
+  echo = FALSE
+)
+library(git2rdata)
+library(tidyverse)
+library(INBOtheme)
+library(htmlwidgets)
+
+theme_set(theme_nara()) # het nara-kleurenpallet selecteren
+switch_colour(inbo_hoofd) # het INBO-kleurenpallet activeren
+set.seed(20200520)
+setWidgetIdSeed(20200520)
+options(htmlwidgets.TOJSON_ARGS = list(pretty = TRUE))
+```
+
+```{r data_inlezen}
+indicatorgegevens1 <- read_vc("indicatoren1")
+```
+
+Indicatoren helpen het biodiversiteitsbeleid te onderbouwen. De focus van de huidige indicatorenset ligt vooral op oppervlakte- of voorraadindicatoren en soortindicatoren. Indicatoren voor genetische diversiteit ontbreken.
+
+```{r biodiversiteit}
+indicatorgegevens1 <- indicatorgegevens1 %>%
+  mutate(
+    kwadrant = factor(
+      kwadrant, ordered = TRUE,
+      levels = c(
+        "Samenstelling (n = 47)", "Functies (n = 19)", "Structuren (n = 19)",
+        "Voorraad (n = 69)"
+      )
+    ),
+    Schaal = factor(
+      Schaal, ordered = TRUE,
+      levels = c("Landschap" ,"Ecosysteem" ,"Soort","Gen")
+    )
+  ) 
+indicatorgegevens3 <- indicatorgegevens1 %>%
+  filter(aantal>0) %>%
+  group_by(kwadrant) %>%
+  mutate(lab.ypos = cumsum(aantal) - 0.5*aantal) %>%
+  ungroup()
+
+ggplot(indicatorgegevens1, aes(x = kwadrant, y = aantal, fill = Schaal)) +
+  geom_bar(stat = "identity", width =0.9) +
+  coord_polar() +
+  labs(x = "", y = "") +
+  geom_hline(
+    yintercept = seq(0, 80, by = 20), color = "black", linetype = "solid",
+    size = .1
+  ) +
+  scale_y_continuous(limits = c(0, 80)) +
+  scale_fill_manual(
+    breaks = c("Gen", "Soort", "Ecosysteem", "Landschap"),
+    values = c(
+      "Landschap" = inbo_lichtblauw, "Ecosysteem" = inbo_geelgr,
+      "Soort" = inbo_oranje, "Gen" = inbo_rood
+    )
+  ) +
+  theme(text = element_text(size = 20),
+        axis.line = element_blank(),
+        axis.ticks.y = element_blank(),
+        axis.text.y = element_blank(),
+        legend.position = "right",
+        plot.margin = unit(c(0,0,0,0), "null"),
+        panel.spacing = unit(c(0,0,0,0), "null"),
+        panel.border = element_blank(),
+        panel.grid = element_blank(),
+        legend.key.size = unit(0.3, "cm"),
+        axis.text.x = element_text(color = inbo_hoofd)) +
+  guides(fill = guide_legend(ncol = 1)) +
+  geom_text(
+    data = indicatorgegevens3, aes(y = lab.ypos, label = aantal), size = 6,
+    color = "black"
+  ) +
+  annotate(
+    geom = "text", x = 2.5, y = 40, hjust = 0, size = 6, label = "40",
+    color = inbo_rood
+  ) +
+  annotate(
+    geom = "text", x = 2.5, y = 60, hjust = 0, size = 6, label = "60",
+    color = inbo_rood
+  ) 
+```
+
+## Definitie
+
+Biodiversiteitsindicatoren zijn een maatstaf om de toestand van de biodiversiteit in beeld te brengen en te evalueren. Ze moeten informatie geven over de **vier organisatieniveaus** die met elkaar interageren: diversiteit in genen, soorten, ecosystemen en landschappen [@demolder_h_hoofdstuk_2014; @noss_indicators_1990; @pereira_essential_2013]. 
+Soortendiversiteit is veruit het meest bestudeerd, gevolgd door ecosysteemdiversiteit. 
+De mens heeft op elk niveau een grote invloed: hij creëert nieuwe genetische variëteiten, verplaatst soorten, beïnvloedt de relaties tussen soorten, beïnvloedt de ruimtelijke patronen in landschappen, vernielt landschappen maar creëert er ook nieuwe. 
+Het is essentieel om de werking van, en interacties tussen, de schaalniveaus en de impact van de mens daarop te begrijpen om de problematiek van de achteruitgang van de biodiversiteit te vatten en kansen voor herstel te identificeren en te benutten [@schneiders_hoofdstuk_2014].
+
+Elk organisatieniveau kan vanuit vier complementaire ecologische invalshoeken bestudeerd worden [@demolder_h_hoofdstuk_2014; @noss_indicators_1990; @pereira_essential_2013] (zie Figuur): 
+
+- **samenstelling**: het bestuderen van de samenstellende componenten; dit omvat onder meer het opstellen van soortenlijsten of het beschrijven van de status van specifieke soorten, en het typeren van ecosystemen of historische landschappen,
+-	**functies en processen**: onder meer het bestuderen van de werking van ecosystemen en de relaties tussen soorten zoals predatie, competitie, bestuiving, productie of afbraak van organisch materiaal,
+-	**structuren en patronen**: onder meer het bestuderen van de habitatstructuur, de versnipperingsgraad of connectiviteit van een landschap, en het beschrijven van de gelaagdheden van een vegetatie,
+-	**voorraden**: de invalshoek van de voorraadkamer benadrukt het belang van biomassa, van de grootte van populaties, van de oppervlakte van ecosystemen en van de uitgestrektheid van landschappen voor het behoud van de biodiversiteit en het leveren van ecosysteemdiensten. 
+
+Elke invalshoek levert complementaire kennis en informatie voor het herstel van biodiversiteit en de bijhorende ecosysteemdiensten.
+
+De analyse toont hoe de huidige biodiversiteitsindicatoren verdeeld zijn over de vier invalshoeken en de vier schaalniveaus. Waar ligt de focus en waar zitten grote kennishiaten?
+
+## Bespreking
+
+In het natuurrapport 2020 worden 154 biodiversiteitsindicatoren besproken.
+De figuur legt de beschikbare informatie door de gebruikte indicatoren bloot:
+
+-	De oppervlakte- of voorraadindicatoren domineren het plaatje.
+Voorbeelden zijn de oppervlakte beschermde of beheerde natuur, de oppervlakte bos en het verspreidingsareaal en de oppervlakte van specifieke habitats. 
+Talrijke beleidsdoelen zijn op dat niveau uitgewerkt. 
+-	De tweede belangrijkste invalshoek is het oplijsten van specifieke componenten ("samenstelling"). 
+Er bestaat wereldwijd een lange traditie in het noteren van soortenlijsten en het beschrijven van vegetatietypes. 
+Daar zijn zeer diverse indicatoren uit ontstaan. 
+Voorbeelden zijn de Rode Lijsten en de multisoortenindices. 
+-	Er zijn veel minder indicatoren voor ecosysteemfuncties, -processen en -patronen. 
+Nochtans zijn ze essentieel om de gezondheid van populaties en ecosystemen te evalueren en systeemveranderingen op te starten.
+Functionele groepen zoals bestuivers, filtervoeders of predatoren spelen een belangrijke rol, zowel in het natuurlijk functioneren als in het ondersteunen van regulerende ecosysteemdiensten. 
+Voor aquatische ecosystemen en bos zijn zulke indicatoren al goed uitgewerkt. 
+Een voorbeeld is de visindex, waarbij de verhouding tussen de functionele groepen (‘ecologische gildes’) een maat is voor een gezonde visgemeenschap. 
+-	Indicatoren die informatie geven over de structuren en patronen van ecosystemen zijn eveneens zeldzaam. 
+Denk aan analyses over landschapspatronen, connectiviteit, gelaagdheden in de vegetatie of habitatpatronen. 
+Een voorbeeld is de fragmentatie-indicator voor natuurruimte en de ruimtelijke samenhang voor de Europees te beschermen habitats. 
+
+De figuur toont ook dat het organisatieniveau "genetische diversiteit" ontbreekt.
+Zulke indicatoren leveren nochtans essentiële informatie op over de veerkracht en het adaptatievermogen van soorten en populaties. 
+In het kader van de post-2020-strategie worden mondiale genetische doelen en een bijhorende indicatorenset voor natuurlijke populaties uitgewerkt [@hoban_genetic_2020].
+
+## Referenties
