@@ -1,0 +1,64 @@
+---
+title: "Metadata over indicator XYZ"
+date: 2050-01-01T10:00:00+01:00
+bibliography: ../references.bib
+link-citations: TRUE
+thema:
+  - category 1
+  - category 2
+keywords:
+  - tag 1
+  - tag 2
+  - tag 3
+lang: nl
+tab: metadata
+verantwoordelijke:
+  - Voornaam Naam <voornaam.naam@inbo.be>
+ 
+output: html_document
+---
+## Technische informatie
+
+```{r setup, include=FALSE}
+library(knitr)
+opts_chunk$set(echo = FALSE, message = FALSE, warning = FALSE)
+library(git2rdata)
+```
+
+```{r}
+databereik <- paste(range(read_vc("naam_data")$Jaar), collapse = "-")
+```
+
+- Periodiciteit: {periodiciteit}
+- Volgende update: {datum volgende update}
+- Databereik: `r databereik`
+
+## Databron
+
+- Producent: {producent}
+- Dataset: {dataset}
+- Gegevensinzameling: {zet hier link naar documentatie of korte beschrijving}
+
+## Berekeningswijze
+
+{berekeningswijze}
+
+## Opmerkingen bij de gegevenskwaliteit en betrouwbaarheid {optioneel}
+
+## Download
+
+```{r child = "../../template/download_tabel.Rmd"}
+```
+
+```{r tsv-tabel, results = "asis"}
+download_tabel(
+  rmd = "indicator.Rmd",
+  tsv = c(
+    data1 = "Korte beschrijving van data1",
+    data2 = "Korte beschrijving van data2"
+  ),
+  rel_path = "../mapnaam_indicator"
+)
+```
+
+## Referenties {indien referenties}

@@ -2,8 +2,9 @@
 .Rhistory
 .RData
 .Ruserdata
+libs
+publish
 *.html
 *_files
-libs
 *.bak
 *.sav
