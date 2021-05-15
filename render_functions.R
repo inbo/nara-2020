@@ -416,8 +416,19 @@ check_publicatiedatum <- function(path) {
   return(TRUE)
 }
 
+on_main <- function(path = ".") {
+  if (Sys.getenv("GITHUB_ACTIONS") == "true") {
+    return(Sys.getenv("GITHUB_REF") == "refs/heads/main")
+  }
+  if (!interactive()) {
+    return(FALSE)
+  }
+  branch_name <- repository_head(path)$name
+  !is.null(branch_name) && branch_name == "main"
+}
+
 render_all <- function(everything = FALSE) {
-  if (everything) {
+  if (everything || on_main(here())) {
     path <- "source"
   } else {
     path <- changed_path(here())
