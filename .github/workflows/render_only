@@ -1,0 +1,18 @@
+on:
+  push:
+    branches-ignore:
+      - main
+      - publish
+
+name: render_only
+
+jobs:
+  render-indicator:
+    runs-on: ubuntu-latest
+    name: render-changes
+    steps:
+      - uses: inbo/actions/render_nara@master
+        name: Render Rmd files
+        with:
+          token: ${{ secrets.pat }}
+          publish: 0
