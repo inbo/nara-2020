@@ -1,0 +1,181 @@
+nummer	hoofdstuk	Naam_indicator	eigenaar	type	kwadrant	schaal
+1	Wat is biodiversiteit?	aantal indicatoren per invalshoek en per schaalniveau	INBO	analyse	geen	geen
+2	Wat is het belang van biodiversiteit?	vraag en aanbod van zestien ecosysteemdiensten in Vlaanderen 	INBO	analyse	voorraad	landschap
+3	We leven op grote voet	verhouding tussen de ecologische voetafdruk van elk land versus de welzijnsindicator Human Development Index 	EEA	indicator	geen	geen
+4	Onze impact op de biodiversiteit	biomassaverdeling grote zoogdieren in Vlaanderen	INBO	analyse	voorraad	soort
+5	Onze impact op de biodiversiteit	landgebruikscategorieën in Vlaanderen en 9 andere sociaal-economische topregio’s in 2018 	INBO	analyse	voorraad	landschap
+6	Onze impact op de biodiversiteit	bevolkingsdichtheid en urbanisatie in Vlaanderen en 9 andere sociaal-economische topregio’s in 2018 	INBO	analyse	geen	geen
+7	Onze impact op de biodiversiteit	biodiversity Intactness Index voor Vlaanderen	INBO	analyse	voorraad	landschap
+8	Algemene biodiversiteitstrends	living Planet Index fauna voor de periode 1990-2019 in Vlaanderen	WWF	indicator	voorraad	soort
+9	Algemene biodiversiteitstrends	multisoortenindex voor plantensoorten in de periode 1950-2018 in Vlaanderen	INBO	indicator	samenstelling	soort
+10	Algemene biodiversiteitstrends	Trend algemene broedvogels	INBO	indicator	samenstelling	soort
+11	Algemene biodiversiteitstrends	rode lijst status soorten	INBO	indicator	samenstelling	soort
+12	Biodiversiteit van Europees belang	staat van instandhouding van habitats van Europees belang (oppervlakte  en areaal) -algemeen	INBO	indicator	voorraad	ecosysteem
+13	Biodiversiteit van Europees belang	staat van instandhouding van habitats van Europees belang (ruimtelijke samenhang) - algemeen	INBO	indicator	samenstelling	ecosysteem
+14	Biodiversiteit van Europees belang	staat van instandhouding  van habitats van Europees belang (habitattypische soorten) -algemeen	INBO	indicator	structuur	ecosysteem
+15	Biodiversiteit van Europees belang	staat van instandhouding van habitats van Europees belang (oppervlakte  en areaal) - per ecosysteem	INBO	analyse	voorraad	ecosysteem
+16	Biodiversiteit van Europees belang	staat van instandhouding van habitats van Europees belang (ruimtelijke samenhang) - per ecosysteem	INBO	analyse	samenstelling	ecosysteem
+17	Biodiversiteit van Europees belang	staat van instandhouding  van habitats van Europees belang (habitattypische soorten) - per ecosysteem	INBO	analyse	structuur	ecosysteem
+18	Biodiversiteit van Europees belang	staat van instandhouding van habitats van Europees belang (oppervlakte  en areaal) - atlantische regio	INBO	analyse	voorraad	ecosysteem
+19	Biodiversiteit van Europees belang	staat van instandhouding van habitats van Europees belang (ruimtelijke samenhang) - atlantische regio	INBO	analyse	samenstelling	ecosysteem
+20	Biodiversiteit van Europees belang	staat van instandhouding  van habitats van Europees belang (habitattypische soorten) - atlantische regio	INBO	analyse	structuur	ecosysteem
+21	Biodiversiteit van Europees belang	beoordeling van de staat van instandhouding en trend van de habitatrichtlijnsoorten in 2019 in Vlaanderen	INBO	indicator	samenstelling	soort
+22	Biodiversiteit van Europees belang	vergelijking van de staat van instandhouding van de habitatrichtlijnsoorten in Vlaanderen met de staat van instandhouding van diezelfde soorten in het Atlantische deel van België, Nederland, Duitsland en Frankrijk en in de volledige Atlantische regio voor de rapportageperiode 2019	INBO	analyse	samenstelling	soort
+23	Biodiversiteit van Europees belang	overzicht van de gemiddelde afstand (%) tot de populatiedoelen die voor de broedvogels in de gewestelijke instandhoudingsdoelen vastgesteld zijn	INBO	indicator	samenstelling	soort
+24	Biodiversiteit van Europees belang	overzicht van de populatietrends op korte (2007-2018) en lange (1973-2018) termijn voor 26 broedvogelsoorten van Europees belang in Vlaanderen	INBO	indicator	samenstelling	soort
+25	Biodiversiteit van Europees belang	overzicht van de gemiddelde afstand (%) tot de populatiedoelen die voor de overwinterende watervogels in de gewestelijke instandhoudingsdoelen vastgesteld zijn	INBO	indicator	voorraad	soort
+26	Biodiversiteit van Europees belang	overzicht van de populatietrends op korte en lange termijn van 19 overwinterende watervogelsoorten van Europees belang in Vlaanderen	INBO	indicator	voorraad	soort
+27	Biodiversiteit van Europees belang	overzicht van de 16 habitats (gedefinieerd in bijlage 5 van het Vlaams Natura 2000-programma 2016-2020) die zich in 2020 in een gunstige of verbeterde staat van instandhouding moesten bevinden met de status en trend zoals gerapporteerd in 2019 	INBO	analyse	samenstelling	ecosysteem
+28	Bescherming en beheer in Vlaanderen	oppervlakteaandeel gelegen in een zone waarbinnen natuur een of andere vorm van juridische bescherming geniet	INBO	analyse	voorraad	ecosysteem
+29	Bescherming en beheer in Vlaanderen	evolutie van de oppervlakte aan gebieden met een goedgekeurd (natuur)beheerplan 	INBO	indicator	voorraad	landschap
+30	Bescherming en beheer in Vlaanderen	oppervlakteaandeel dat alleen wettelijk beschermd is en dat zowel wettelijk beschermd is als natuurgericht beheerd wordt voor Vlaanderen en de ecosystemen	INBO	analyse	voorraad	landschap
+31	Bescherming en beheer in Vlaanderen	evolutie van het aantal soortbeschermingsplannen en -programma’s 	INBO	indicator	samenstelling	soort
+32	Landgebruiksverandering	Rekening ecosysteemvoorraad (km²) in 1990 en 2018 (Corine)	INBO	indicator	voorraad	landschap
+33	Landgebruiksverandering	Ecosysteemveranderingen tussen 1990 en 2018 (Corine)	INBO	indicator	voorraad	landschap
+34	Landgebruiksverandering	ecosysteemvoorraad (km²) in 2013 en 2016 (Landgebruiksbestand Vlaanderen)	INBO	indicator	voorraad	landschap
+35	Landgebruiksverandering	ecosysteemveranderingen (ha) tussen 2013 en 2016 (landgebruiksbestand Vlaanderen)	INBO	indicator	voorraad	landschap
+36	Landgebruiksverandering	oppervlakte van de landgebruiksveranderingen tussen 2013 en 2016 op basis van de kaart (punten) en de gevalideerde punten (horizontale balken) voor de geaggregeerde klassen. 	INBO	indicator	geen	geen
+37	Landgebruiksverandering	trend van de nachtegaal van 2008 tot 2019 	INBO	indicator	samenstelling	soort
+38	Landgebruiksverandering	hoeveel vlinders en vlindersoorten in tuinen worden waargenomen, hangt af van jaarlijkse variatie (bv. door de weersomstandigheden), van de grootte van de tuin, van de tuininrichting en van de verstedelijkingsgraad van de omgeving. 	INBO	analyse	samenstelling	soort
+39	Landgebruiksverandering	gemiddeld aantal vlindersoorten in functie van de verstedelijkingsgraad	INBO	analyse	samenstelling	soort
+40	Landgebruiksverandering	gemiddeld aantal vlinders in functie van de verstedelijkingsgraad	INBO	analyse	voorraad	soort
+41	Landgebruiksverandering	toename van de oppervlakte bebouwde percelen in Vlaanderen in hectare per dag 	Statbel	analyse	geen	geen
+42	Versnippering	Meff-score openruimte	INBO	analyse	structuur	landschap
+43	Versnippering	Meff-score natuurruimte	INBO	analyse	structuur	landschap
+44	Versnippering	Oppervlakteverdeling van natuurclusters in Vlaanderen	INBO	analyse	voorraad	landschap
+45	Versnippering	aantal habitattypes per ecosysteem waarvoor de ruimtelijke samenhang als gunstig of ongunstig beoordeeld wordt op basis van de oppervlakte van de habitatvlekken en de oppervlakte van de functionele clusters 	INBO	analyse	structuur	ecosysteem
+46	Versnippering	Oppervlakte natuurverwevingsgebieden	INBO	indicator	voorraad	landschap
+47	Versnippering	Vismigratieknelpunten	INBO	indicator	geen	geen
+48	Verontreiniging	druk op waterleven door gewasbescherming	VMM	indicator	geen	ecosysteem
+49	Verontreiniging	aandeel meetplaatsen met één of meerdere normoverschrijdingen voor gewasbeschermingsmiddelen tussen 2004 en 2018 	VMM	indicator	geen	ecosysteem
+50	Verontreiniging	bioaccumulatie van persistente stoffen in spierweefsel van baars en paling	INBO	indicator	functies	soort
+51	Vermesting en verzuring	overschijding kritische lasten vermesting	VMM	indicator	geen	ecosysteem
+52	Vermesting en verzuring	overschrijding kritische lasten verzuring	VMM	indicator	geen	ecosysteem
+53	Vermesting en verzuring	Evolutie van de nitraatconcentratie in het oppervlaktewater tussen 2007 en 2019	VMM	indicator	geen	ecosysteem
+54	Vermesting en verzuring	Evolutie van de fosforconcentratie in het oppervlaktewater tussen 2007 en 2019 	VMM	indicator	geen	ecosysteem
+55	Vermesting en verzuring	multisoortenindex voor flora gebaseerd op de kans op voorkomen van 88 soorten van stikstofarme milieus, 208 soorten van matig stikstofrijke milieus en 151 soorten van stikstofrijke milieus tussen 1950 en 2018 in Vlaanderen	WWF	indicator	samenstelling	soort
+56	Vermesting en verzuring	multisoortenindex voor flora gebaseerd op de kans op voorkomen van 46 soorten van zure milieus, 112 soorten van matig zure milieus en 201 soorten van (matig) basische milieus tussen 1950 en 2018 in Vlaanderen	WWF	indicator	samenstelling	soort
+57	Verdroging	maximale waarde van het cumulatief neerslagtekort tussen 1901 en 	VMM	indicator	geen	geen
+58	Verdroging	watergebruik in Vlaanderen, exclusief koelwater en scheepvaart tussen 2000 en 2018 	VMM	indicator	geen	geen
+59	Verdroging	gemiddeld aantal dagen per jaar dat het grondwaterpeil op 58 meetlocaties onder een kritische minimumdrempel daalt (1985-2018): 	INBO	indicator	geen	geen
+60	Verdroging	totale afvoer, de basisafvoer en de oppervlakkige afvoer ter hoogte van 15 meetpunten in onbevaarbare waterlopen op Vlaams grondgebied (1990-2017) 	VMM	indicator	geen	geen
+61	Invasieve uitheemse soorten	aandeel uitheemse plantensoorten binnen de globale plantensamenstelling in Vlaanderen 	INBO	indicator	samenstelling	soort
+62	Invasieve uitheemse soorten	cumulatief aantal uitheemse diersoorten in terrestrische, zoetwater, estuariene en mariene ecosystemen binnen Vlaanderen tussen 1950 en 2020 	INBO	indicator	samenstelling	soort
+63	Invasieve uitheemse soorten	mate van verspreiding van de Unielijstsoorten in Vlaanderen voor het in werking treden van de Europese Verordening betreffende de preventie en beheersing van de introductie en verspreiding van invasieve uitheemse soorten (2000-datum oplijsting) en tijdens de eerste rapporteringsperiode in het kader van de verordening (januari 2015-december 2018 	INBO	indicator	samenstelling	soort
+64	Invasieve uitheemse soorten	aantal introducties van uitheemse soorten in Vlaanderen tussen 1950 en 2019 via de verschillende introductiemechanismen 	INBO	indicator	geen	geen
+65	Klimaatverandering	evolutie van de jaargemiddelde temperatuur in Ukkel tussen 1833 en 2019, uitgedrukt als afwijking ten opzichte van het jaargemiddelde in de periode 1850-1899	VMM	indicator	geen	geen
+66	Klimaatverandering	evolutie van het aantal dagen met zware neerslag (een neerslaghoeveelheid van 20 mm of meer) in Ukkel, tussen 1892 en 2019	VMM	indicator	geen	geen
+67	Klimaatverandering	aantal waargenomen Zuid-Europese libellensoorten in Vlaanderen tussen 1984 en 2019	INBO	indicator	samenstelling	soort
+68	Klimaatverandering	Living planet index voor vlinders, libellen en vogels in Vlaanderen, op basis van 78 soorten, opgedeeld in warmteminnende en koudeminnende soorten	WWF	indicator	samenstelling	soort
+69	Klimaatverandering	multisoortenindex voor flora gebaseerd op de kans op voorkomen van 385 vaatplanten in Vlaanderen, opgedeeld per temperatuurvoorkeur volgens Ellenberg	INBO	indicator	samenstelling	soort
+70	Klimaatverandering	timing van de jaarlijkse piek van stuifmeelconcentratie in de lucht voor berk en grassen, waargenomen in Elsene tussen 1975 en 2019	INBO/KMI	indicator	functies	soort
+71	Druk op de biodiversiteit wereldwijd	broeikasgasemissies in Vlaanderen versus de evolutie van de koolstofvoetafdruk (i.e. alle broeikasgasemissies binnen én buiten Vlaanderen) van de Vlaamse consumptie	VMM	indicator	voorraad	landschap
+72	Druk op de biodiversiteit wereldwijd	biodiversiteitsvoetafdruk import en export	INBO	analyse	voorraad	landschap
+73	Druk op de biodiversiteit wereldwijd	aandeel van de totale impact van de Belgische consumptie op de biodiversiteit per land van herkomst van de geconsumeerde producten en diensten en per drukfactor 	INBO	analyse	voorraad	landschap
+74	Druk op de biodiversiteit wereldwijd	impact van de Belgische consumptie op de biodiversiteit wereldwijd per consumptiesector 	INBO	analyse	voorraad	landschap
+75	Druk op de biodiversiteit wereldwijd	deel van de landvoetafdruk gelegen in landen met een hoog tot zeer hoog risico op ontbossing.	WWF/INBO	analyse	voorraad	landschap
+76	Druk op de biodiversiteit wereldwijd	impact van de Belgische consumptie van 7 product(groep)en op de biodiversiteit in de 20 meest getroffen landen, uitgedrukt in mondiale PDF (potentially disappeared fraction of species) en herschaald naar een cijfer tussen 0 en 100 	WWF/INBO	analyse	voorraad	landschap
+77	Druk op de biodiversiteit wereldwijd	Evolutie van de Belgische officiële ontwikkelingshulp (ODA) met biodiversiteit als hoofd- of significant nevendoel tussen 2010 en 2017 	FOD/INBO	indicator	geen	landschap
+78	Bos	bosindex van Europese landen en 9 regio’s die qua bevolkingsdichtheid, welvaartspeil en oppervlakte vergelijkbaar zijn met Vlaanderen 	EFI_Europe	analyse	voorraad	ecosysteem
+79	Bos	bosoppervlakte per provincie in beide periodes van de bosinventaris	ANB	indicator	voorraad	ecosysteem
+80	Bos	gemiddeld aantal boomsoorten per PNV-hoofdtype in de vegetatieopnames van de Vlaamse bosinventaris 	INBO	indicator	samenstelling	soort
+81	Bos	gemiddeld aantal kruidachtigen per PNV-hoofdtype in de vegetatieopnames van de Vlaamse bosinventaris 	INBO	indicator	samenstelling	soort
+82	Bos	gemiddelde soortenrijkdom van oud-bosplanten in oude (voor 1850) en recente (na 1850) bossen in de vegetatieopnames van de Vlaamse bosinventaris 	INBO	indicator	samenstelling	soort
+83	Bos	index van de aantallen van broedvogels van bosgebieden in Vlaanderen tussen 2008 en 2019	INBO	indicator	samenstelling	soort
+84	Bos	aantal bezette kilometerhokken van 3 typische bosvlindersoorten in Vlaanderen tussen 2009 en 2019	KUL/NP	indicator	samenstelling	soort
+85	Bos	gemiddelde van de functionele diversiteit (FDis = functionele dispersie - Laliberté & Legendre, 2010) van bomen per PNV-hoofdtype in de bosbouwproefvlakken van de Vlaamse bosinventaris (VBI). 	INBO	indicator	functies	ecosysteem
+86	Bos	gemiddelde van de totaalscore en deelscores van de authenticiteitsindex voor de verschillende bestandtypes in de Vlaamse bosinventaris 	INBO	indicator	functies	ecosysteem
+87	Bos	percentage beschadigde bomen in het bosvitaliteitsmeetnet tussen 1987 en 2019	INBO	indicator	functies	ecosysteem
+88	Bos	staat van instandhouding van boshabitats van Europees belang (oppervlakte  en areaal)	INBO	analyse	voorraad	ecosysteem
+89	Bos	staat van instandhouding van boshabitats van Europees belang (ruimtelijke samenhang)	INBO	analyse	samenstelling	ecosysteem
+90	Bos	staat van instandhouding  van boshabitats van Europees belang (habitattypische soorten)	INBO	analyse	structuur	ecosysteem
+91	Bos	versnippering van bos op basis van de Boswijzer 2.0 (aandeel randhabitat)	INBO	indicator	structuur	ecosysteem
+92	Bos	versnippering van bos - oppervlakteverdeling bos	INBO	indicator	voorraad	ecosysteem
+93	Bos	relatie tussen de versnipperingsgraad en de gemiddelde soortenrijkdom van kruidachtigen in de kruidlaag van de Vlaamse bosinventaris 	INBO	analyse	samenstelling	ecosysteem
+94	Bos	overschrijding kritische lasten stikstof bij bos	INBO	indicator	geen	geen
+95	Bos	gemiddelde stikstofconcentratie in bladeren en naalden tussen 1995 en 2017 in de proefvlakken van het langetermijnmeetnet in bossen 	INBO	indicator	functies	ecosysteem
+96	Bos	gemiddelde Ellenbergwaarde voor stikstof en op basis van de vegetatieopnames  van de bosinventaris	INBO	indicator	functies	ecosysteem
+97	Bos	trend bladontwikkeling van eik en beuk	INBO	indicator	functies	soort
+98	Bos	gemiddeld bestandsvolume in private en publieke bossen	INBO	indicator	voorraad	ecosysteem
+99	Bos	oppervlakte bos met planologische bestemming bos	INBO	indicator	voorraad	ecosysteem
+100	Bos	oppervlakte zonevreemd bos	INBO	analyse	voorraad	ecosysteem
+101	Bos	oppervlakte bos met beheeplan	ANB	indicator	voorraad	ecosysteem
+102	Heide	Oppervlakte van de vegetatietypes van heide in 2010 en 2019 op basis van de Biologische Waarderingskaart	INBO	indicator	voorraad	ecosysteem
+103	Heide	Multisoortenindex voor heideplanten in de periode 1950-2018 in Vlaanderen	INBO	indicator	samenstelling	soort
+104	Heide	rode Lijst-status van planten- en diersoorten gebonden aan heide	INBO	analyse	samenstelling	ecosysteem
+105	Heide	staat van instandhouding van heidehabitats van Europees belang (oppervlakte  en areaal)	INBO	analyse	voorraad	ecosysteem
+106	Heide	staat van instandhouding van heidehabitats van Europees belang (ruimtelijke samenhang)	INBO	analyse	samenstelling	ecosysteem
+107	Heide	staat van instandhouding  van heidehabitats van Europees belang (habitattypische soorten)	INBO	analyse	structuur	ecosysteem
+108	Heide	Overzicht van de drukfactoren en bedreigingen voor heidehabitats van Europees belang	INBO	analyse	geen	geen
+109	Heide	dekking van het ecosysteem heide (in hectare en %) door verschillende vormen van natuur- en bosbeheer, juridische en planologische bescherming 	INBO	analyse	voorraad	ecosysteem
+110	Heide	aandeel van heidehabitat van Europees belang binnen habitatrichtlijngebied	INBO	analyse	voorraad	ecosysteem
+111	Moeras	Oppervlakte van de vegetatietypes van moeras in 2010 en 2019 op basis van de Biologische Waarderingskaart	INBO	indicator	voorraad	ecosysteem
+112	Moeras	Multisoortenindex voor moerasplanten in de periode 1950-2018 in Vlaanderen	INBO	indicator	samenstelling	ecosysteem
+113	Moeras	rode Lijst-status van planten- en diersoorten gebonden aan moeras	INBO	analyse	samenstelling	soort
+114	Moeras	staat van instandhouding van moerashabitats van Europees belang (oppervlakte  en areaal)	INBO	analyse	voorraad	ecosysteem
+115	Moeras	staat van instandhouding van moerashabitats van Europees belang (ruimtelijke samenhang)	INBO	analyse	samenstelling	ecosysteem
+116	Moeras	staat van instandhouding  van moerashabitats van Europees belang (habitattypische soorten)	INBO	analyse	structuur	ecosysteem
+117	Moeras	Overzicht van de drukfactoren en bedreigingen voor moerashabitats van Europees belang	INBO	analyse	geen	geen
+118	Moeras	dekking van het ecosysteem moeras (in hectare en %) door verschillende vormen van natuur- en bosbeheer, juridische en planologische bescherming 	INBO	analyse	voorraad	ecosysteem
+119	Moeras	aandeel van moerashabitat van Europees belang binnen habitatrichtlijngebied	INBO	analyse	voorraad	ecosysteem
+120	Kustduinen	Oppervlakte van de vegetatietypes van kustduinen en strand in 2010 en 2019 op basis van de Biologische Waarderingskaart	INBO	indicator	voorraad	ecosysteem
+121	Kustduinen	rode Lijst-status van planten- en diersoorten gebonden aan strand en duinen	INBO	analyse	samenstelling	ecosysteem
+122	Kustduinen	staat van instandhouding van strand- en kustduinhabitats van Europees belang (oppervlakte  en areaal)	INBO	analyse	voorraad	ecosysteem
+123	Kustduinen	staat van instandhouding van strand- en kustduinhabitats van Europees belang (ruimtelijke samenhang)	INBO	analyse	samenstelling	ecosysteem
+124	Kustduinen	staat van instandhouding  van strand- en kustduinhabitats van Europees belang (habitattypische soorten)	INBO	analyse	structuur	ecosysteem
+125	Kustduinen	Overzicht van de drukfactoren en bedreigingen voor strand- en kustduinhabitats van Europees belang	INBO	analyse	geen	geen
+126	Kustduinen	dekking van het ecosysteem strand en kustduinen (in hectare en %) door verschillende vormen van natuur- en bosbeheer, juridische en planologische bescherming 	INBO	analyse	voorraad	ecosysteem
+127	Kustduinen	aandeel van strand- en kustduinhabitat van Europees belang binnen habitatrichtlijngebied	INBO	analyse	voorraad	ecosysteem
+128	Agroecosystemen	oppervlakte van agro-ecosystemen in Vlaanderen in 2013 en 2016 	INBO	indicator	voorraad	ecosysteem
+129	Agroecosystemen	high Nature Value farmland per landgebruiksklasse in 2013 en 2016 	INBO	indicator	voorraad	ecosysteem
+130	Agroecosystemen	minimale en maximale inschatting van de grasleeftijd van geregistreerde cultuurgraslanden in 2018 	INBO	indicator	functies	ecosysteem
+131	Agroecosystemen	broedvogels in agro-ecosystemen voor de periode 2008 – 2019	INBO	indicator	samenstelling	ecosysteem
+132	Agroecosystemen	mulltisoortindex voor akkerlandflora in de periode 1950-2018 	INBO	indicator	samenstelling	soort
+133	Agroecosystemen	mulltisoortindex voor graslandflora in de periode 1950-2018 	INBO	indicator	samenstelling	soort
+134	Agroecosystemen	staat van instandhouding van graslanden van Europees belang (oppervlakte  en areaal)	INBO	analyse	voorraad	ecosysteem
+135	Agroecosystemen	staat van instandhouding van graslanden van Europees belang (ruimtelijke samenhang)	INBO	analyse	samenstelling	ecosysteem
+136	Agroecosystemen	staat van instandhouding  van graslanden van Europees belang (habitattypische soorten)	INBO	analyse	structuur	ecosysteem
+137	Agroecosystemen	Intensiteit van de landbouwproductie in de periode 1980-2018	STATBEL	indicator	structuur	ecosysteem
+138	Agroecosystemen	koolstofgehalte in de bodem van agro-ecosystemen	diverse	analyse	voorraad	ecosysteem
+139	Agroecosystemen	natuurbescherming en beheer van halfnatuurlijk gras	INBO	analyse	voorraad	ecosysteem
+140	Agroecosystemen	oppervlakte natuurbeheer in agro-ecosysteem	INBO	analyse	voorraad	ecosysteem
+141	Agroecosystemen	oppervlakte en lengte van natuurgerichte beheerovereenkomsten in agro-ecosystemen	VLM	indicator	structuur	ecosysteem
+142	Oppervlaktewateren	Multisoortindex voor plantensoorten van aquatische systemen in de periode 1950-2018 	INBO	indicator	samenstelling	soort
+143	Oppervlaktewateren	Living planet index voor amfibiesoorten in de periode 1990-2018 in Vlaanderen	WWF	indicator	samenstelling	soort
+144	Oppervlaktewateren	goede ecologische toestand van rivieren, meren en estuaria	INBO	indicator	functies	ecosysteem
+145	Oppervlaktewateren	goede ecologische toestand fytobenthos voor periode 2007-2012 en periode 2013-2018	INBO	indicator	functies	soort
+146	Oppervlaktewateren	goede ecologische toestand fytoplankton voor periode 2007-2012 en periode 2013-2018	INBO	indicator	functies	soort
+147	Oppervlaktewateren	goede ecologische toestand macrofyten voor periode 2007-2012 en periode 2013-2018	INBO	indicator	functies	soort
+148	Oppervlaktewateren	goede ecologische toestand macro-invertebraten voor periode 2007-2012 en periode 2013-2018	INBO	indicator	functies	soort
+149	Oppervlaktewateren	goede ecologische toestand vis voor periode 2007-2012 en periode 2013-2018	INBO	indicator	functies	soort
+150	Oppervlaktewateren	aandeel migrerende vissen per meetplaats in beken en rivieren	INBO	indicator	functies	soort
+151	Oppervlaktewateren	estuariene habitatoppervlakte van ondiep water, slik en schor in de periode 2010-2016	INBO	indicator	voorraad	ecosysteem
+152	Oppervlaktewateren	watervogels in het Schelde-estuarium tussen 1993 en 2016	INBO	indicator	voorraad	soort
+153	Oppervlaktewateren	staat van instandhouding van meren van Europees belang (oppervlakte  en areaal)	INBO	analyse	voorraad	ecosysteem
+154	Oppervlaktewateren	staat van instandhouding van meren van Europees belang (ruimtelijke samenhang)	INBO	analyse	samenstelling	ecosysteem
+155	Oppervlaktewateren	staat van instandhouding  van meren van Europees belang (habitattypische soorten)	INBO	analyse	structuur	ecosysteem
+156	Oppervlaktewateren	staat van instandhouding  van rivieren van Europees belang (oppervlakte  en areaal)	INBO	analyse	voorraad	ecosysteem
+157	Oppervlaktewateren	staat van instandhouding  van rivieren van Europees belang (ruimtelijke samenhang)	INBO	analyse	samenstelling	ecosysteem
+158	Oppervlaktewateren	staat van instandhouding van rivieren van Europees belang (habitattypische soorten)	INBO	analyse	structuur	ecosysteem
+159	Oppervlaktewateren	staat van instandhouding van estuaria van Europees belang (oppervlakte  en areaal)	INBO	analyse	voorraad	ecosysteem
+160	Oppervlaktewateren	staat van instandhouding  van estuaria van Europees belang (ruimtelijke samenhang)	INBO	analyse	samenstelling	ecosysteem
+161	Oppervlaktewateren	staat van instandhouding van estuaria van Europees belang (habitattypische soorten)	INBO	analyse	structuur	ecosysteem
+162	Oppervlaktewateren	bioaccumulatie van PCB in paling	INBO	analyse	functies	soort
+163	Oppervlaktewateren	natuurbescherming en -beheer bij oppervlaktewateren	INBO	analyse	voorraad	ecosysteem
+164	Oppervlaktewateren	aandeel van oppervlaktewaterhabitat van Europees belang in habitatrichtlijngebied	INBO	analyse	voorraad	ecosysteem
+165	Noordzee	habitatverlies  in de Belgische wateren in de periode 2011-2016	KBIN	indicator	voorraad	ecosysteem
+166	Noordzee	habitatverstoring  in de Belgische wateren in de periode 2011-2016	KBIN	indicator	voorraad	ecosysteem
+167	Noordzee	toestand van grindbedden in de Belgische wateren in de periode 2011-2016	KBIN	indicator	structuur	ecosysteem
+168	Noordzee	toestand van benthische habitats in de Belgische wateren in de periode 2011-2016	KBIN	indicator	structuur	ecosysteem
+169	Noordzee	aantal stekelroggen in de Belgische wateren in de periode 2011-2016	KBIN	indicator	voorraad	soort
+170	Noordzee	aantal visdieven in de Belgische wateren in de periode 2011-2016	KBIN	indicator	voorraad	soort
+171	Noordzee	trend niet-aasetende zeevogelsoorten  in de Belgische wateren in de periode 2011-2016	INBO	indicator	voorraad	soort
+172	Noordzee	paaibiomassa van commerciële vissoorten in de Noordzee	ILVO	indicator	voorraad	ecosysteem
+173	Noordzee	visserijsterfte van commerciële vissoorten in de Noodzee	ILVO	indicator	voorraad	ecosysteem
+174	Noordzee	gestrande bruinvissen in de Belgische wateren	KBIN	indicator	voorraad	soort
+175	Noordzee	concentraties van opgelost anorganisch fosfor in de Belgische wateren in de periode 2011-2016	KBIN	indicator	geen	geen
+176	Noordzee	concentraties van opgelost anorganisch stikstof in de Belgische wateren in de periode 2011-2016	KBIN	indicator	geen	geen
+177	Noordzee	chorofyl in de Belgische wateren in de periode 2011-2016	KBIN	analyse	functies	ecosysteem
+178	Noordzee	buffercapaciteit van de Belgische wateren in de periode 2017-2019	VLIZ	indicator	geen	geen
+179	Noordzee	zuurtegraad van de Belgische wateren in de periode 2017-2019	VLIZ	indicator	geen	geen
+180	Noordzee	natuurbescherming & -beheer van de Noordzee	mariene_atlas	indicator	voorraad	ecosysteem

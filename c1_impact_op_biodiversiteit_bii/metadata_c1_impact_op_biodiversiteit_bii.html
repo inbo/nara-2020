@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+
+<html lang="nl" xml:lang="nl">
+
+<head>
+<meta name="INBO-publication-date" content="2020-07-01T10:00:00" /><!-- ISO 8601 timezone: CET/CEST -->
+<meta name="INBO-keywords" content="abundantie, ongereptheid, planetaire grenzen, IPBES" />
+<meta name="INBO-name" content="Metadata biodiversity intactness index (BII)" />
+<meta name="INBO-tab" content="metadata" />
+<meta name="INBO-chapter" content="3" />
+<meta name="INBO-theme" content="Natuur &amp; maatschappij, Beschermde natuur" />
+<meta name="INBO-PureId" content="18013686, 18013709" />
+<meta name="INBO-language" content="nl" /><!-- ISO 639-1 -->
+<!-- end INBO meta data-->
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+
+<title>Metadata biodiversity intactness index (BII)</title>
+
+<script src="../libs/jquery-1.11.3/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="../libs/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
+<script src="../libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="../libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="../libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<style>h1 {font-size: 34px;}
+       h1.title {font-size: 38px;}
+       h2 {font-size: 30px;}
+       h3 {font-size: 24px;}
+       h4 {font-size: 18px;}
+       h5 {font-size: 16px;}
+       h6 {font-size: 12px;}
+       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+       pre:not([class]) { background-color: white }</style>
+<script src="../libs/navigation-1.1/tabsets.js"></script>
+<script src="../libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
+<script src="../libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="../libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
+
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+
+<body>
+
+
+<h1 class="title toc-ignore">Metadata biodiversity intactness index (BII)</h1>
+
+<div id="technische-informatie" class="section level2">
+<h2>Technische informatie</h2>
+<p>- <strong>Periodiciteit</strong>: eenmalig - <strong>Volgende update</strong>: onbekend - <strong>Databereik</strong>: 2016</p>
+</div>
+<div id="databron" class="section level2">
+<h2>Databron</h2>
+<ul>
+<li><strong>Producent</strong>: Instituut voor Natuur- en Bosonderzoek</li>
+<li><strong>Dataset</strong>: <a href="https://www.geopunt.be/catalogus/datasetfolder/78e82101-8fbc-4a75-b649-b208df2b77be">Landgebruiksbestand Vlaanderen 2016</a></li>
+<li><strong>Gegevensinzameling</strong>: De opmaak van het landgebruiksbestand Vlaanderen wordt beschreven in <span class="citation">Poelmans, Janssen, en Hambsch (<a href="#ref-poelmans_landgebruik_2019" role="doc-biblioref">2019</a>)</span>.</li>
+</ul>
+</div>
+<div id="berekeningswijze" class="section level2">
+<h2>Berekeningswijze</h2>
+<p>De BII-kaart van Vlaanderen wordt opgemaakt door elk van de klassen van de landgebruikskaart 2016 een BII-score toe te kennen op basis van de landgebruik x intensiteit tabel uit <span class="citation">Newbold e.a. (<a href="#ref-newbold_global_2015" role="doc-biblioref">2015</a>)</span>. De BII kan berekend worden voor zowel de soortenrijkdom als voor de abundantie van de soorten. Voor onze analyse gebruiken we de <strong>abundantie</strong>-BII omdat deze gebruikt wordt als indicator voor de biotische integriteit binnen het kader van planetaire grenzen <span class="citation">(Newbold e.a. <a href="#ref-newbold_has_2016" role="doc-biblioref">2016</a>; Steffen e.a. <a href="#ref-steffen_planetary_2015" role="doc-biblioref">2015</a>)</span>. De regressiemodellen waarmee de BII berekend wordt, houden rekening met het landgebruik, de landgebruiksintensiteit, de bevolkingsdichtheid, de afstand tot grote wegen en de reistijd tot grote steden. Omdat landgebruik en intensiteit veruit de belangrijkste verklarende variabelen zijn, worden alleen deze mee in rekening gebracht in de berekening van de BII voor Vlaanderen <span class="citation">(Newbold e.a. <a href="#ref-newbold_global_2015" role="doc-biblioref">2015</a>)</span>.</p>
+<p>De landgebruikskaart 2016 is gebaseerd op het landgebruiksbestand Vlaanderen 2016 <span class="citation">(Poelmans, Janssen, en Hambsch <a href="#ref-poelmans_landgebruik_2019" role="doc-biblioref">2019</a>)</span>. Dit bestand bestaat uit vier thematische lagen: de bodembedekking (niveau 1), verstedelijkt landgebruik (niveau 2), multifunctioneel landgebruik (niveau 3) en haventerreinen en militaire domeinen (niveau 4). De bodembedekkingslaag vormt de basis van de landgebruikskaart waarmee de BII berekend werd. Een aantal klassen is aangepast voor het Natuurrapport 2020 (Zie fiche landgebruiksverandering).</p>
+<p>Tabel 1 geeft de BII-score voor elk van de landgebruiksklassen en de overeenkomstige indeling en de interpretatie van het landgebruik en de intensiteit uit <span class="citation">Newbold e.a. (<a href="#ref-newbold_global_2015" role="doc-biblioref">2015</a>)</span>. De scores uit deze tabel geven de BII-Waarden ten opzichte van een niet-beïnvloede referentiesituatie (primaire vegetatie, minimale gebruiksintensiteit). De andere drukvariabelen (bevolkingsdichtheid, afstand tot grote wegen en reistijd tot grote steden) worden op de mediaan van de waargenomen waarden gehouden. De scores voor <em>Overig laag en hoog groen</em> worden verlaagd indien er een overlap is met het verstedelijkt landgebruik (niveau 2) van het landgebruiksbestand. De intensiteit voor <em>loofbos</em> en <em>alluviaal bos</em> wordt bijgesteld naar ‘minimal’ (BII-score 10.4) indien de percelen onder natuurbeheer vallen.</p>
+<div style="border: 1px solid #ddd; padding: 0px; overflow-y: scroll; height:400px; overflow-x: scroll; width:100%; ">
+<table class="table table-striped table-hover table table-striped table-hover" style="width: auto !important; margin-left: auto; margin-right: auto; width: auto !important; margin-left: auto; margin-right: auto;">
+<caption>
+Tabel 1. BII-score per landgebruiksklasse voor de abundantie van soorten. De score wordt aan een landgebruiksklasse toegekend op basis van landgebruik en intensiteit volgens Newbold et al., 2015.
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+Klasse_LG2016
+</th>
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+Land use BII
+</th>
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+Toelichting landgebruik Newbold et al., 2015
+</th>
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+Land use intensity BII
+</th>
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+Toelichting intensiteit Newbold et al., 2015
+</th>
+<th style="text-align:right;position: sticky; top:0; background-color: #FFFFFF;">
+BII
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+Ruigte
+</td>
+<td style="text-align:left;">
+young secondary
+</td>
+<td style="text-align:left;">
+early successional stage
+</td>
+<td style="text-align:left;">
+light
+</td>
+<td style="text-align:left;">
+disturbance of moderate intensity
+</td>
+<td style="text-align:right;">
+85.5
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Loofbos
+</td>
+<td style="text-align:left;">
+mature secondary
+</td>
+<td style="text-align:left;">
++/- completed succession (&gt; 75 y)
+</td>
+<td style="text-align:left;">
+light
+</td>
+<td style="text-align:left;">
+disturbance of moderate intensity (selective logging)
+</td>
+<td style="text-align:right;">
+128.5
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Populieren
+</td>
+<td style="text-align:left;">
+plantation forest
+</td>
+<td style="text-align:left;">
+crop trees for commercial harvesting of wood
+</td>
+<td style="text-align:left;">
+light
+</td>
+<td style="text-align:left;">
+monoculture timber plantations of mixed age with no recent (&lt; 20y) clear-fellings
+</td>
+<td style="text-align:right;">
+77.8
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Naaldbos
+</td>
+<td style="text-align:left;">
+intermediate secondary
+</td>
+<td style="text-align:left;">
+abandoned plantation &gt; 30y
+</td>
+<td style="text-align:left;">
+light
+</td>
+<td style="text-align:left;">
+disturbance of moderate intensity (selective logging)
+</td>
+<td style="text-align:right;">
+76.6
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Alluviaal bos
+</td>
+<td style="text-align:left;">
+mature secondary
+</td>
+<td style="text-align:left;">
++/- completed succession (&gt; 75 y)
+</td>
+<td style="text-align:left;">
+light
+</td>
+<td style="text-align:left;">
+disturbance of moderate intensity
+</td>
+<td style="text-align:right;">
+128.5
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Halfnatuurlijk grasland
+</td>
+<td style="text-align:left;">
+pasture
+</td>
+<td style="text-align:left;">
+grazed land
+</td>
+<td style="text-align:left;">
+minimal
+</td>
+<td style="text-align:left;">
+minimal input of fertiliser and pesticide, and with low stock density
+</td>
+<td style="text-align:right;">
+95.2
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Heide
+</td>
+<td style="text-align:left;">
+young secondary
+</td>
+<td style="text-align:left;">
+young secondary vegetation
+</td>
+<td style="text-align:left;">
+light
+</td>
+<td style="text-align:left;">
+disturbance of moderate intensity (management)
+</td>
+<td style="text-align:right;">
+85.5
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Kustduin
+</td>
+<td style="text-align:left;">
+primary
+</td>
+<td style="text-align:left;">
+Physical conditions determinative
+</td>
+<td style="text-align:left;">
+light
+</td>
+<td style="text-align:left;">
+not fundamental alterations to habitat architecture
+</td>
+<td style="text-align:right;">
+103.8
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Moeras
+</td>
+<td style="text-align:left;">
+primary
+</td>
+<td style="text-align:left;">
+Physical conditions determinative
+</td>
+<td style="text-align:left;">
+light
+</td>
+<td style="text-align:left;">
+not fundamental alterations to habitat architecture
+</td>
+<td style="text-align:right;">
+103.8
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Slik en schorre
+</td>
+<td style="text-align:left;">
+primary
+</td>
+<td style="text-align:left;">
+Physical conditions determinative
+</td>
+<td style="text-align:left;">
+intense
+</td>
+<td style="text-align:left;">
+fundamental alterations to habitat architecture
+</td>
+<td style="text-align:right;">
+130.7
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Akker
+</td>
+<td style="text-align:left;">
+cropland
+</td>
+<td style="text-align:left;">
+planted with herbaceous crops
+</td>
+<td style="text-align:left;">
+intense
+</td>
+<td style="text-align:left;">
+large fields, annual ploughing, inorganic fertiliser application, pesticide application, irrigation, mechanisation, no crop rotation
+</td>
+<td style="text-align:right;">
+68.7
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Niet geregistreerde landbouw
+</td>
+<td style="text-align:left;">
+cropland
+</td>
+<td style="text-align:left;">
+planted with herbaceous crops
+</td>
+<td style="text-align:left;">
+intense
+</td>
+<td style="text-align:left;">
+idem akker
+</td>
+<td style="text-align:right;">
+68.7
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Hoogstam
+</td>
+<td style="text-align:left;">
+pasture
+</td>
+<td style="text-align:left;">
+grazed land
+</td>
+<td style="text-align:left;">
+minimal
+</td>
+<td style="text-align:left;">
+minimal input of fertiliser and pesticide, and with low stock density
+</td>
+<td style="text-align:right;">
+95.2
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Laagstam
+</td>
+<td style="text-align:left;">
+cropland
+</td>
+<td style="text-align:left;">
+crop trees for commercial harvesting of fruit
+</td>
+<td style="text-align:left;">
+intense
+</td>
+<td style="text-align:left;">
+monoculture fruit plantations with significant pesticide input
+</td>
+<td style="text-align:right;">
+68.7
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Cultuurgrasland permanent
+</td>
+<td style="text-align:left;">
+cropland
+</td>
+<td style="text-align:left;">
+cropland
+</td>
+<td style="text-align:left;">
+minimal
+</td>
+<td style="text-align:left;">
+little or no inorganic fertiliser use, little or no pesticide use, little or no ploughing, little or no irrigation, little or no mechanisation
+</td>
+<td style="text-align:right;">
+89.4
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Gebouw
+</td>
+<td style="text-align:left;">
+urban
+</td>
+<td style="text-align:left;">
+human habitation and/or buildings
+</td>
+<td style="text-align:left;">
+intense
+</td>
+<td style="text-align:left;">
+Fully urban with no significant green spaces.
+</td>
+<td style="text-align:right;">
+37.6
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Overig laag groen urbaan
+</td>
+<td style="text-align:left;">
+urban
+</td>
+<td style="text-align:left;">
+primary vegetation removed and managed for civic or personal amenity
+</td>
+<td style="text-align:left;">
+light
+</td>
+<td style="text-align:left;">
+Suburban (e.g. gardens), or small managed or unmanaged green spaces in cities.
+</td>
+<td style="text-align:right;">
+55.1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Overig laag groen (vooral wegbermen)
+</td>
+<td style="text-align:left;">
+young secondary
+</td>
+<td style="text-align:left;">
+early successional stage
+</td>
+<td style="text-align:left;">
+light
+</td>
+<td style="text-align:left;">
+light use in suburban settings
+</td>
+<td style="text-align:right;">
+85.5
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Overig hoog groen urbaan
+</td>
+<td style="text-align:left;">
+urban
+</td>
+<td style="text-align:left;">
+primary vegetation removed and managed for civic or personal amenity
+</td>
+<td style="text-align:left;">
+light
+</td>
+<td style="text-align:left;">
+Suburban (e.g. gardens), or small managed or unmanaged green spaces in cities.
+</td>
+<td style="text-align:right;">
+55.1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Overig hoog groen
+</td>
+<td style="text-align:left;">
+mature secondary
+</td>
+<td style="text-align:left;">
+structural complexity like forests
+</td>
+<td style="text-align:left;">
+light
+</td>
+<td style="text-align:left;">
+light use in suburban settings
+</td>
+<td style="text-align:right;">
+128.5
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Weg
+</td>
+<td style="text-align:left;">
+urban
+</td>
+<td style="text-align:left;">
+human habitation and/or buildings
+</td>
+<td style="text-align:left;">
+intense
+</td>
+<td style="text-align:left;">
+Fully urban with no significant green spaces.
+</td>
+<td style="text-align:right;">
+37.6
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Spoorweg
+</td>
+<td style="text-align:left;">
+urban
+</td>
+<td style="text-align:left;">
+human habitation and/or buildings
+</td>
+<td style="text-align:left;">
+intense
+</td>
+<td style="text-align:left;">
+Fully urban with no significant green spaces.
+</td>
+<td style="text-align:right;">
+37.6
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Overig
+</td>
+<td style="text-align:left;">
+urban
+</td>
+<td style="text-align:left;">
+human habitation and/or buildings
+</td>
+<td style="text-align:left;">
+intense
+</td>
+<td style="text-align:left;">
+Fully urban with no significant green spaces.
+</td>
+<td style="text-align:right;">
+37.6
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Struweel
+</td>
+<td style="text-align:left;">
+young secondary
+</td>
+<td style="text-align:left;">
+early successional stage
+</td>
+<td style="text-align:left;">
+light
+</td>
+<td style="text-align:left;">
+disturbance of moderate intensity
+</td>
+<td style="text-align:right;">
+85.5
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Water
+</td>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+No score for water
+</td>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+</td>
+<td style="text-align:right;">
+0.0
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Overgangswater
+</td>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+No score for water
+</td>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+</td>
+<td style="text-align:right;">
+0.0
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Marien
+</td>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+No score for water
+</td>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+</td>
+<td style="text-align:right;">
+0.0
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="opmerkingen-bij-de-gegevenskwaliteit-en-betrouwbaarheid" class="section level2">
+<h2>Opmerkingen bij de gegevenskwaliteit en betrouwbaarheid</h2>
+<p>Drukken zoals klimaatverandering, verdroging, vervuiling en vermesting worden niet expliciet in rekening gebracht. Deze worden deels impliciet in rekening gebracht via landgebruik en intensiteit, maar hun ware impact blijft waarschijnlijk onderbelicht in de scores.</p>
+</div>
+<div id="download" class="section level2">
+<h2>Download</h2>
+<p><strong>Broncode indicator</strong>: <a href="../c1_impact_op_biodiversiteit_bii/c1_impact_op_biodiversiteit_bii.Rmd">c1_impact_op_biodiversiteit_bii.Rmd</a> - <strong>Basisdata</strong>: <a href="../c1_impact_op_biodiversiteit_bii/bii_lgnara2020.tsv">bii_lgnara2020.tsv</a> - <strong>Metadata basisdata</strong>: <a href="../c1_impact_op_biodiversiteit_bii/bii_lgnara2020.yml">bii_lgnara2020.yml</a></p>
+</div>
+<div id="referenties" class="section level2 unnumbered">
+<h2>Referenties</h2>
+<div id="refs" class="references">
+<div id="ref-newbold_has_2016">
+<p>Newbold, Tim, Lawrence N. Hudson, Andrew P. Arnell, Sara Contu, Adriana De Palma, Simon Ferrier, Samantha L. L. Hill, e.a. 2016. “Has land use pushed terrestrial biodiversity beyond the planetary boundary? A global assessment”. <em>Science</em> 353 (6296): 288–91. <a href="https://doi.org/10.1126/science.aaf2201">https://doi.org/10.1126/science.aaf2201</a>.</p>
+</div>
+<div id="ref-newbold_global_2015">
+<p>Newbold, Tim, Lawrence N. Hudson, Samantha L. L. Hill, Sara Contu, Igor Lysenko, Rebecca A. Senior, Luca Börger, e.a. 2015. “Global effects of land use on local terrestrial biodiversity”. <em>Nature</em> 520 (7545): 45–50. <a href="https://doi.org/10.1038/nature14324">https://doi.org/10.1038/nature14324</a>.</p>
+</div>
+<div id="ref-poelmans_landgebruik_2019">
+<p>Poelmans, Lien, Liliane Janssen, en Lorenz Hambsch. 2019. “Landgebruik en ruimtebeslag in Vlaanderen, toestand 2016, uitgevoerd in opdracht van het Vlaams Planbureau voor Omgeving.” Mol: VITO.</p>
+</div>
+<div id="ref-steffen_planetary_2015">
+<p>Steffen, Will, Katherine Richardson, Johan Rockström, Sarah E. Cornell, Ingo Fetzer, Elena M. Bennett, Reinette Biggs, e.a. 2015. “Planetary boundaries: Guiding human development on a changing planet”. <em>Science</em> 347 (6223). <a href="https://doi.org/10.1126/science.1259855">https://doi.org/10.1126/science.1259855</a>.</p>
+</div>
+</div>
+</div>
+
+<h2>Meer weten?</h2>
+
+<ul>
+<li><a href = "mailto:maarten.stevens@inbo.be">maarten.stevens@inbo.be</a></li>
+</ul>
+
+
+</body>
+</html>

@@ -1,0 +1,20 @@
+..generic:
+  git2rdata: 0.2.1
+  optimize: no
+  NA string: ''
+  sorting: Categorie
+  hash: d94095d90fc15c524d7ba4c0b732ddce10294c27
+  data_hash: 633d7b5f6d181cc7896a6738a1e0c5fb8fc6e8d7
+Categorie:
+  class: factor
+  labels:
+  - herten
+  - reeen
+  - wilde zwijnen
+  index:
+  - 1
+  - 2
+  - 3
+  ordered: no
+Biomassa:
+  class: numeric
