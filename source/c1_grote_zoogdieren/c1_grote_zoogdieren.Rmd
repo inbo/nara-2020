@@ -76,7 +76,7 @@ p <- ggplot(totaalgegevens, aes(x = "", y = biomassa_kton, fill = Categorie)) +
   ) +
   theme(aspect.ratio = 0.35) +
   labs(x = "", y = "BIOMASSA (kton)") +
-  scale_y_continuous(expand = c(0, 0), labels = scaleFUN) +
+  scale_y_continuous(expand = c(0, 0), labels = scale_fun) +
   scale_fill_manual(
     breaks = c("mensen", "varkens", "runderen", "wilde zoogdieren"),
     values = c(
