@@ -6,6 +6,7 @@ library(assertthat)
 library(git2r)
 library(git2rdata)
 library(bibtex)
+library(INBOmd)
 check_metadata <- function(path, theme) {
   meta <- yaml_front_matter(path)
   assert_that(
@@ -293,6 +294,12 @@ render_one <- function(path, pure_id, root_dir) {
     keep_md = TRUE,
     template = here("template/default.html"),
     pandoc_args = c(
+      pandoc_variable_arg(
+        "cls",
+        system.file(
+          "research-institute-for-nature-and-forest.csl", package = "INBOmd"
+        )
+      ),
       pandoc_variable_arg(
         "pure_id", paste(pure_id[[path]], collapse = ", ")
       ),
