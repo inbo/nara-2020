@@ -6,6 +6,7 @@ library(assertthat)
 library(git2r)
 library(git2rdata)
 library(bibtex)
+library(INBOmd)
 check_metadata <- function(path, theme) {
   meta <- yaml_front_matter(path)
   assert_that(
@@ -221,12 +222,26 @@ check_structuur <- function(path) {
     )
     return(TRUE)
   }
-  bib <- normalizePath(file.path(dirname(path), meta$bibliography))
-  bib <- read.bib(bib, encoding = "UTF-8")
+
   refs <- unlist(strsplit(rmd, " "))
-  refs <- any(sapply(paste0("@", names(bib)), grepl, refs))
+  refs_aanwezig <- unique(refs[grepl("\\[?@.*", refs)])
+  refs_aanwezig <- refs_aanwezig[!grepl("<.*?@.*?>", refs_aanwezig)]
+  if (length(refs_aanwezig) > 0) {
+    bib <- normalizePath(file.path(dirname(path), meta$bibliography))
+    bib <- read.bib(bib, encoding = "UTF-8")
+    refs_beschikbaar <- paste0("@", names(bib))
+    beschikbaar <- sapply(refs_beschikbaar, grepl, refs_aanwezig)
+    beschikbaar <- rowSums(beschikbaar) > 0
+    assert_that(
+      all(beschikbaar),
+      msg = paste(
+        "Ontbrekende referentie in bibliografie van", path, sep = "\n",
+        paste(refs_aanwezig[!beschikbaar], collapse = "\n")
+      )
+    )
+  }
   assert_that(
-    !any(xor(refs, ref_aanwezig)),
+    !any(xor(ref_aanwezig, length(refs_aanwezig) > 0)),
     msg = paste(
       path,
     "Referentietitel en BibTex referenties moeten beiden aan- of afwezig zijn",
@@ -279,6 +294,12 @@ render_one <- function(path, pure_id, root_dir) {
     keep_md = TRUE,
     template = here("template/default.html"),
     pandoc_args = c(
+      pandoc_variable_arg(
+        "cls",
+        system.file(
+          "research-institute-for-nature-and-forest.csl", package = "INBOmd"
+        )
+      ),
       pandoc_variable_arg(
         "pure_id", paste(pure_id[[path]], collapse = ", ")
       ),
@@ -416,6 +437,45 @@ check_publicatiedatum <- function(path) {
   return(TRUE)
 }
 
+check_hoofdstuk <- function(path) {
+  correct <- read_vc("template/hoofdstuk")
+  dirs <- unique(dirname(path))
+  dirs <- dirs[basename(dirs) != "generiek"]
+  sapply(
+    dirs,
+    function(i) {
+      input <- list.files(i, pattern = "\\.[Rr]md$", full.names = TRUE)
+      x <- lapply(input, yaml_front_matter)
+      x <- setNames(x, input)
+      x <- sapply(x, `[[`, "hoofdstuk")
+      ok <- sapply(x, is.number)
+      assert_that(
+        all(ok),
+        msg = paste0(
+          "'hoofdstuk' moet een geheel getal zijn in\n",
+          paste(names(x)[!ok], collapse = "\n")
+        )
+      )
+      ok <- x %in% correct$hoofdstuk
+      assert_that(
+        all(ok),
+        msg = paste0(
+          "verkeerd 'hoofdstuk' nummer in\n",
+          paste(names(x)[!ok], collapse = "\n")
+        )
+      )
+      assert_that(
+        length(unique(x)) == 1,
+        msg = paste0(
+          "verschillende nummers in 'hoofdstuk' in\n",
+          paste(names(x), collapse = "\n")
+        )
+      )
+    }
+  )
+  return(invisible(NULL))
+}
+
 on_main <- function(path = ".") {
   if (Sys.getenv("GITHUB_ACTIONS") == "true") {
     return(Sys.getenv("GITHUB_REF") == "refs/heads/main")
@@ -441,6 +501,7 @@ render_all <- function(everything = FALSE) {
   names(pure_id) <- to_do
   sapply(to_do, check_structuur)
   check_publicatiedatum(to_do)
+  check_hoofdstuk(to_do)
   root_dir <- getwd()
   on.exit(setwd(root_dir), add = TRUE)
   rendered <- sapply(to_do, render_one, pure_id = pure_id, root_dir = root_dir)

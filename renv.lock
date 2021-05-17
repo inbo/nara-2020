@@ -34,6 +34,19 @@
       "Repository": "CRAN",
       "Hash": "a7d6660c869d4f41f856504828af4645"
     },
+    "INBOmd": {
+      "Package": "INBOmd",
+      "Version": "0.4.9",
+      "Source": "GitHub",
+      "RemoteType": "github",
+      "RemoteHost": "api.github.com",
+      "RemoteUsername": "inbo",
+      "RemoteRepo": "INBOmd",
+      "RemoteRef": "main",
+      "RemoteSha": "6a00c0b5e65ee8df08b286ede425de19aed07c6c",
+      "Remotes": "inbo/INBOtheme, thierryo/qrcode",
+      "Hash": "c3897ce5ec5e4b7d737c4227375eceb8"
+    },
     "INBOtheme": {
       "Package": "INBOtheme",
       "Version": "0.5.8",
@@ -60,6 +73,27 @@
       "Source": "Repository",
       "Repository": "CRAN",
       "Hash": "df57c82e79600601287edfdcef92c2d6"
+    },
+    "R.methodsS3": {
+      "Package": "R.methodsS3",
+      "Version": "1.8.1",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Hash": "4bf6453323755202d5909697b6f7c109"
+    },
+    "R.oo": {
+      "Package": "R.oo",
+      "Version": "1.24.0",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Hash": "5709328352717e2f0a9c012be8a97554"
+    },
+    "R.utils": {
+      "Package": "R.utils",
+      "Version": "2.10.1",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Hash": "a9e316277ff12a43997266f2f6567780"
     },
     "R6": {
       "Package": "R6",
@@ -778,6 +812,18 @@
       "Source": "Repository",
       "Repository": "CRAN",
       "Hash": "97def703420c8ab10d8f0e6c72101e02"
+    },
+    "qrcode": {
+      "Package": "qrcode",
+      "Version": "0.1.2",
+      "Source": "GitHub",
+      "RemoteType": "github",
+      "RemoteHost": "api.github.com",
+      "RemoteUsername": "thierryo",
+      "RemoteRepo": "qrcode",
+      "RemoteRef": "master",
+      "RemoteSha": "378d76b94577f0ed1495fa97326f10bd84b5201c",
+      "Hash": "f9e3e6314795796bf22778338313ac55"
     },
     "rappdirs": {
       "Package": "rappdirs",

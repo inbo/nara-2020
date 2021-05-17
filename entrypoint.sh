@@ -31,7 +31,7 @@ echo 'Publishing the rendered files...\n'
 git clone --branch=publish https://$2@github.com/$1
 git config --global user.email "info@inbo.be"
 git config --global user.name "INBO"
-cd indicatoren
+cd $1
 git rm -r .
 cp -R ../publish/. .
 if ! git diff-index --quiet HEAD --; then
