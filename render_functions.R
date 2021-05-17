@@ -120,7 +120,7 @@ check_metadata <- function(path, theme) {
   assert_that(
     all(grepl("^.+ <.+@.+>$", meta$verantwoordelijke)),
     msg =
-      "verantwoordelijk moet het formaat `Voornaam Naam <email@domeinnaam>` zijn"
+    "verantwoordelijk moet het formaat `Voornaam Naam <email@domeinnaam>` zijn"
   )
   return(pure_id)
 }
@@ -229,7 +229,7 @@ check_structuur <- function(path) {
     !any(xor(refs, ref_aanwezig)),
     msg = paste(
       path,
-      "Referentietitel en BibTex referenties moeten beiden aan- of afwezig zijn",
+    "Referentietitel en BibTex referenties moeten beiden aan- of afwezig zijn",
       sep = "\n"
     )
   )
@@ -408,7 +408,7 @@ check_publicatiedatum <- function(path) {
     length(aantal_data) == 0,
     msg = paste(
       c(
-        "Indicatoren met verschillende publicatiedatum tussen indicator en metadata.",
+  "Indicatoren met verschillende publicatiedatum tussen indicator en metadata.",
         aantal_data),
       collapse = "\n"
     )
@@ -439,7 +439,7 @@ render_all <- function(everything = FALSE) {
   theme <- read_vc("template/thema")
   pure_id <- lapply(to_do, check_metadata, theme = theme)
   names(pure_id) <- to_do
-  ok <- sapply(to_do, check_structuur)
+  sapply(to_do, check_structuur)
   check_publicatiedatum(to_do)
   root_dir <- getwd()
   on.exit(setwd(root_dir), add = TRUE)
