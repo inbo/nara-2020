@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+
+<html lang="$lang$" xml:lang="$lang$">
+
+<head>
+<meta name="INBO-publication-date" content="$date$" /><!-- ISO 8601 timezone: CET/CEST -->
+<meta name="INBO-keywords" content="$for(keywords)$$keywords$$sep$, $endfor$" />
+<meta name="INBO-name" content="$title$" />
+<meta name="INBO-tab" content="$tab$" />
+<meta name="INBO-theme" content="$for(thema)$$thema$$sep$, $endfor$" />
+<meta name="INBO-PureId" content="$for(pure_id)$$pure_id$$sep$, $endfor$" />
+<meta name="INBO-language" content="$lang$" /><!-- ISO 639-1 -->
+$if(generic)$
+<meta name="INBO-Generic" content="$generic$" />
+$endif$
+$for(add_generic)$
+<meta name="INBO-Add-Generic" content="$add_generic$" />
+$endfor$
+<!-- end INBO meta data-->
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+
+<title>$title$</title>
+
+$for(header-includes)$
+$header-includes$
+$endfor$
+
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+
+<body>
+
+$for(include-before)$
+$include-before$
+$endfor$
+
+$if(title)$
+<h1 class="title toc-ignore">$title$</h1>
+$endif$
+
+$body$
+
+<h2>Meer weten?</h2>
+
+<ul>
+$for(meerweten)$
+<li><a href = "mailto:$meerweten$">$meerweten$</a></li>
+$endfor$
+</ul>
+
+$for(include-after)$
+$include-after$
+$endfor$
+
+</body>
+</html>
