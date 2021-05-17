@@ -416,6 +416,45 @@ check_publicatiedatum <- function(path) {
   return(TRUE)
 }
 
+check_hoofdstuk <- function(path) {
+  correct <- read_vc("template/hoofdstuk")
+  dirs <- unique(dirname(path))
+  dirs <- dirs[basename(dirs) != "generiek"]
+  sapply(
+    dirs,
+    function(i) {
+      input <- list.files(i, pattern = "\\.[Rr]md$", full.names = TRUE)
+      x <- lapply(input, yaml_front_matter)
+      x <- setNames(x, input)
+      x <- sapply(x, `[[`, "hoofdstuk")
+      ok <- sapply(x, is.number)
+      assert_that(
+        all(ok),
+        msg = paste0(
+          "'hoofdstuk' moet een geheel getal zijn in\n",
+          paste(names(x)[!ok], collapse = "\n")
+        )
+      )
+      ok <- x %in% correct$hoofdstuk
+      assert_that(
+        all(ok),
+        msg = paste0(
+          "verkeerd 'hoofdstuk' nummer in\n",
+          paste(names(x)[!ok], collapse = "\n")
+        )
+      )
+      assert_that(
+        length(unique(x)) == 1,
+        msg = paste0(
+          "verschillende nummers in 'hoofdstuk' in\n",
+          paste(names(x), collapse = "\n")
+        )
+      )
+    }
+  )
+  return(invisible(NULL))
+}
+
 on_main <- function(path = ".") {
   if (Sys.getenv("GITHUB_ACTIONS") == "true") {
     return(Sys.getenv("GITHUB_REF") == "refs/heads/main")
@@ -441,6 +480,7 @@ render_all <- function(everything = FALSE) {
   names(pure_id) <- to_do
   sapply(to_do, check_structuur)
   check_publicatiedatum(to_do)
+  check_hoofdstuk(to_do)
   root_dir <- getwd()
   on.exit(setwd(root_dir), add = TRUE)
   rendered <- sapply(to_do, render_one, pure_id = pure_id, root_dir = root_dir)

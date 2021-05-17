@@ -1,0 +1,13 @@
+..generic:
+  git2rdata: 0.3.1
+  optimize: no
+  NA string: NA
+  sorting: hoofdstuk
+  hash: 5e2a53d5bf29cbf0b835dea8b62dd3a28be809cb
+  data_hash: be17e5deeb4801a3023b4db3ba6dadadd6d6e224
+hoofdstuk:
+  class: numeric
+volledig:
+  class: character
+kort:
+  class: character
