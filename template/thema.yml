@@ -1,0 +1,63 @@
+..generic:
+  git2rdata: 0.2.1
+  optimize: no
+  NA string: NA
+  sorting: PureId
+  hash: d18faf852f6eb4396a1faa4f8b60f10785c28529
+  data_hash: 26bc525da61643f3c1240a93d0a138c35e9d59c4
+PureId:
+  class: numeric
+Term:
+  class: factor
+  labels:
+  - Andere
+  - Beschermde natuur
+  - Bodem & lucht
+  - Bos
+  - Data & Infrastructuur
+  - Faunabeheer
+  - Invasieve soorten
+  - Klimaat
+  - Landbouw
+  - Natuur & maatschappij
+  - Water
+  index:
+  - 1
+  - 2
+  - 3
+  - 4
+  - 5
+  - 6
+  - 7
+  - 8
+  - 9
+  - 10
+  - 11
+  ordered: no
+TermEN:
+  class: factor
+  labels:
+  - Agriculture
+  - Climate
+  - Data & infrastructure
+  - Forest
+  - Invasive species
+  - Nature & society
+  - Other
+  - Protected nature
+  - Soil & air
+  - Water
+  - Wildlife management
+  index:
+  - 1
+  - 2
+  - 3
+  - 4
+  - 5
+  - 6
+  - 7
+  - 8
+  - 9
+  - 10
+  - 11
+  ordered: no

@@ -1,0 +1,105 @@
+---
+title: "Metadata Biodiversiteit: het fundament van ons ecosysteem - Indicatorenset biodiversiteit"
+date: 2020-07-01T10:00:00
+bibliography: ../references.bib
+thema:
+  - Natuur & maatschappij
+keywords:
+  - biodiversiteit
+  - typologie
+  - ecologische functies
+  - soorten
+  - ecosystemen
+lang: nl
+tab: metadata
+verantwoordelijke:
+- Anik Schneiders <anik.schneiders@inbo.be>
+output: html_document
+---
+## Technische informatie
+
+```{r setup, include=FALSE}
+library(knitr)
+opts_chunk$set(echo = FALSE, message = FALSE, warning = FALSE)
+library(git2rdata)
+library(tidyverse)
+library(kableExtra)
+library(DT)
+```
+
+```{r databereik}
+databereik <- 2020
+```
+
+- **Periodiciteit**: eenmalig
+- **Volgende update**: onbekend
+- **Databereik**: `r databereik`
+
+## Databron
+
+- **Producent**: Instituut voor Natuur- en Bosonderzoek
+- **Datasets**: De indicatoren uit het Natuurrapport 2020 die ingaan op toestand en trend van biodiversiteit.
+- **Gegevensinzameling**: /
+
+```{r data_inlezen}
+indicatorlijst <- read_vc("indicatorenlijst")
+```
+
+## Berekeningswijze
+
+Indicatoren zijn een essentiële tool om de toestand en trend van biodiversiteit in beeld te brengen.
+De huidige set vertelt slechts een deel van het biodiversiteitsverhaal.
+Om dit duidelijk te maken is een typologie opgesteld. 
+Indicatoren zouden informatie moeten geven over vier interagerende biologische **organisatieniveaus**: genen, soorten, ecosystemen en landschappen.
+
+Daarnaast leveren vier diverse **ecologische invalshoeken** complementaire informatie en kennis over de toestand van de biodiversiteit en over de aanknopingspunten voor herstel:
+
+- invalshoek 1: het bestuderen van de samenstellende componenten;
+- invalshoek 2: het begrijpen van ecologische functies en processen;
+- invalshoek 3: het analyseren van ruimtelijke structuren en patronen;
+- invalshoek 4: het besturderen van de toale voorraadkamer gaande van biomassa van populaties tot de totale oppervlakte van ecosystemen of open ruimte.
+
+Deze 4X4 typologie levert 16 mogelijke combinaties op die elk een deel van het biodiveriteitsverhaal brengen. 
+
+Het toepassen van deze typologie op de huidige indicatorenset, toont waar op dit ogenblik de focus ligt en waar er nog grote kennishiaten zijn. Voor elke indicator ging het kernteam na welk organisatieniveau en welke ecologische invalshoek bestudeerd werd (Tabel 1).Nadien werden de aantallen per organisatieniveau en per invalshoek gesommeerd.
+
+Tabel 1 laat toe om indicatoren te selecteren per invalshoek of schaalniveau (selecteer).
+Het is ook mogelijk om zoektermen in te geven (search) en om de indicatoren te ordenen (van a tot z en omgekeerd). 
+Het resultaat kan gedownload, gekopieerd of geprint worden.
+
+```{r Tabel 1, echo=FALSE, message=FALSE, warning=FALSE}
+indicatorlijst %>%
+  mutate_all(linebreak) %>%
+  datatable(
+    caption = "Tabel 1. Classificatie van indicatoren van het Natuurrapport naar
+invalshoek en schaalniveau",
+    rownames = FALSE,
+    colnames = c(
+      "nummer", "hoofdstuk", "naam indicator", "eigenaar", "type", "invalshoek",
+      "schaal"
+    ),
+    extensions = c("KeyTable", "Select", "SearchPanes", "Scroller"),
+    options = list(
+      filter = "none", keys = TRUE,
+      language = list(searchPanes = list(collapse = "Selecteer")),
+      scrollY = 390, scrollX = FALSE, scrollCollapse = TRUE, paging = FALSE,
+      columnDefs = list(
+        list(searchPanes = list(show = FALSE), targets = 1:4),
+        list(searchPanes = list(controls = FALSE), targets = 0:2),
+        list(className = "dt-center", targets = 0:6)
+      )
+    )
+  )
+```
+
+
+## Opmerkingen bij de gegevenskwaliteit en betrouwbaarheid
+Sommige indicatoren zijn samengesteld uit diverse deelindicatoren. 
+Zo is de de SVI (staat van instandhouding) van N2000-habitats opgebouwd uit een score voor areaal (voorraad) en een score voor habitattypische soorten (samenstelling). 
+In dat geval zijn beide deelscores meegenomen in de tabel en in de berekening van de totale som per compartiment.
+
+## Download
+
+- **Broncode indicator**: [a4_biodiversiteit.Rmd](../a4_biodiversiteit/a4_biodiversiteit.Rmd)
+- **Basisdata**: [indicatoren1.tsv](../a4_biodiversiteit/indicatoren1.tsv) en [indicatorenlijst.tsv](../a4_biodiversiteit/indicatorenlijst.tsv)
+- **Metadata basisdata**: [indicatoren1.yml](../a4_biodiversiteit/indicatoren1.yml) en [indicatorenlijst.yml](../a4_biodiversiteit/indicatorenlijst.yml)

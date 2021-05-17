@@ -1,0 +1,55 @@
+---
+title: "Titel"
+date: 2050-01-01T10:00:00+01:00
+bibliography: ../references.bib
+link-citations: TRUE
+thema:
+  - thema 1
+  - thema 2
+keywords:
+  - tag 1
+  - tag 2
+lang: nl
+tab: indicator
+verantwoordelijke:
+  - Voornaam Achternaam <voornaam.achternaam@inbo.be>
+  - Voornaam Achternaam <voornaam.achternaam@inbo.be>
+
+output: html_document
+---
+
+```{r setup, include=FALSE}
+library(knitr)
+opts_chunk$set(
+  message = FALSE,
+  warning = FALSE,
+  echo = FALSE
+)
+library(tidyverse)
+library(git2rdata)
+library(plotly)
+source("../../inbo_theme.R")
+library(htmlwidgets)
+set.seed(20200520)
+setWidgetIdSeed(20200520)
+options(htmlwidgets.TOJSON_ARGS = list(pretty = TRUE))
+```
+
+```{r data_inlezen}
+dataset <- read_vc("naam_data")
+```
+
+{hoofdlijn}
+
+{r code hoofdfiguur}
+
+## Definitie
+
+{defitinie}
+
+## Bespreking
+
+{bespreking}
+{eventueel bijkomende figuren}
+
+## Referenties {indien referenties}
