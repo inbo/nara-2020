@@ -1,0 +1,155 @@
+---
+title: "Algemene toestand en trends in Vlaanderen - Biomassa grote zoogdieren"
+date: 2020-07-01T10:00:00
+bibliography: ../references.bib
+link-citations: TRUE
+thema:
+  - Natuur & maatschappij
+keywords:
+  - antropoceen
+  - biomassa
+  - gedomesticieerde dieren
+  - wilde dieren
+lang: nl
+tab: analyse
+verantwoordelijke:
+- Anik Schneiders <anik.schneiders@inbo.be>
+output: html_document
+---
+
+
+```{r setup, include=FALSE}
+library(knitr)
+opts_chunk$set(
+  message = FALSE,
+  warning = FALSE,
+  echo = FALSE
+)
+library(tidyverse)
+library(git2rdata)
+library(plotly)
+library(INBOtheme)
+library(htmlwidgets)
+
+theme_set(theme_nara()) # het nara-kleurenpallet selecteren
+switch_colour(inbo_hoofd) # het INBO-kleurenpallet activeren
+
+set.seed(20200520)
+setWidgetIdSeed(20200520)
+options(htmlwidgets.TOJSON_ARGS = list(pretty = TRUE))
+```
+
+```{r data_inlezen}
+totaalgegevens <- read_vc("biomassa_totaal")
+wildgegevens <- read_vc("wilde_zoogdieren")
+fingegevens <- read_vc("biomassa_fin")
+```
+
+Biomassa van grote zoogdieren bestaat in Vlaanderen in hoofdzaak uit mensen, runderen en varkens.
+
+```{r totaal, fig.width = 7, fig.height = 2}
+totaalgegevens <- totaalgegevens %>%
+  mutate(
+    biomassa_kton = Biomassa/1000,
+    Categorie = factor(
+      Categorie, ordered = TRUE,
+      levels = c("wilde zoogdieren", "runderen", "varkens", "mensen")
+    ),
+    Type = "Totale biomassa"
+  )
+wildgegevens <- wildgegevens %>%
+  mutate(
+    biomassa_kton = Biomassa/1000,
+    Categorie = factor(
+      Categorie, ordered = TRUE, levels = c("herten", "reeen", "wilde zwijnen")
+    ),
+    Type = "wildbiomassa"
+  )
+
+scaleFUN <- function(x) sprintf("%.0f", x)
+
+p <- ggplot(totaalgegevens, aes(x = "", y = biomassa_kton, fill = Categorie)) +
+  geom_bar(
+    aes(text = paste("Biomassa:", round(biomassa_kton, 1), "kton")),
+    stat = "identity", width = 0.5
+  ) +
+  theme(aspect.ratio = 0.35) +
+  labs(x = "", y = "BIOMASSA (kton)") +
+  scale_y_continuous(expand = c(0,0), labels = scaleFUN) +
+  scale_fill_manual(
+    breaks = c("mensen", "varkens", "runderen", "wilde zoogdieren"),
+    values = c(
+      "mensen" = inbo_hoofd, "varkens" = inbo_oranje,
+      "runderen" = inbo_lichtgrijs, "wilde zoogdieren" = inbo_geelgr
+    )
+  ) +
+  theme(
+    axis.title = element_blank(),  axis.ticks.y = element_blank(),
+    legend.text = element_text(margin = margin(t = 2)),
+    legend.title = element_blank(), legend.position = "bottom",
+    plot.margin = unit(c(0, 0, 0, 0), "cm")
+  ) +
+  coord_flip() + 
+  theme(
+    panel.grid.major.y = element_blank(),
+    panel.grid.major.x = element_line( size = 0.1, color = "black")
+  )
+ggplotly(p, tooltip = c("fill", "text"))
+```
+```{r wild, fig.width = 7, fig.height = 2, fig.cap = "Figuur 1. Biomassaverdeling (in kton) van grote zoogdieren in Vlaanderen."}
+scaleFUN2 <- function(x) sprintf("%.2f", x)
+q <- ggplot(wildgegevens, aes(x = "", y = biomassa_kton, fill = Categorie)) +
+  geom_bar(
+    aes(text = paste("Biomassa:", round(biomassa_kton, 1), "kton")),
+    stat = "identity", width = 0.5
+  ) +
+  theme(aspect.ratio = 0.35) +
+  labs(x = "", y = "BIOMASSA (kton)") +
+  scale_y_continuous(expand = c(0,0), labels = scaleFUN2) +
+  scale_fill_manual(
+    breaks = c("wilde zwijnen", "reeen", "herten"),
+    values = c(
+      "wilde zwijnen" = inbo_lichtgroen, "reeen" = inbo_groen,
+      "herten" = inbo_donkergroen
+    )
+  ) +
+  theme(
+    axis.title = element_text(
+      margin = margin(t = 0, r = 0, b = 0, l = 0), hjust = 0.5
+    ), 
+    axis.ticks.y = element_blank(), legend.title = element_blank(),
+    legend.text = element_text(margin = margin(t = 2)),
+    legend.position = "bottom", plot.margin = unit(c(0, 0, 0, 0), "cm")
+  ) +
+  coord_flip() + 
+  theme(
+    panel.grid.major.y = element_blank(),
+    panel.grid.major.x = element_line(size = .1, color = "black" )
+  )
+ggplotly(q, tooltip = c("fill", "text"))
+```
+
+## Definitie
+
+Naar analogie met de analyse wereldwijd [@bar-on_biomass_2018], vergelijken we de biomassa van de mens en de gedomesticeerde dieren met de biomassa van de wilde soorten. Voor Vlaanderen zijn data beschikbaar voor grote zoogdieren: mensen, runderen, varkens, herten, reeën en everzwijnen.
+
+## Bespreking
+
+In Vlaanderen bestaat meer dan 99,9 procent van de biomassa uit mensen, runderen en varkens en minder dan 0,1 procent uit wilde zoogdiersoorten, zoals everzwijnen, reeën en herten. 
+Dit aandeel ligt hoger dan het wereldwijd gemiddelde. Wetenschappers schatten het aandeel van de mens en gedomesticeerde zoogdieren op 96%. Het aandeel van wilde dieren op 4 procent. 
+De biomassa van die laatste groep is er door de mens sterk op achteruitgegaan [@bar-on_biomass_2018].  
+
+Ondanks dat uitgesproken onevenwicht ervaren we in Vlaanderen het groeiende aantal zoogdieren, zoals everzwijnen, als een toenemende druk op de leefomgeving. 
+Dat komt vooral door de economische schade die ze toebrengen aan landbouwgewassen, en door de mogelijke overdracht van ziektes op gedomesticeerde varkens. 
+Andere grote zoogdieren - zoals de wolf die zich voorzichtig begint te vestigen - worden verwelkomd door de ene, terwijl anderen ze als een bedreiging ervaren. 
+Nochtans spelen carnivoren een essentiële rol in het evenwicht van natuurlijke levensgemeenschappen [@dirzo_defaunation_2014].
+
+## Gelayoute figuur Natuurrapport 2020
+
+In het NARA2020 staat een meer gelayoute figuur. 
+
+```{r layout, echo=FALSE, out.width="70%"}
+knitr::include_graphics("biomassa_layout.jpg")
+```
+
+## Referenties
