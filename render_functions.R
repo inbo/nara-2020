@@ -221,12 +221,26 @@ check_structuur <- function(path) {
     )
     return(TRUE)
   }
-  bib <- normalizePath(file.path(dirname(path), meta$bibliography))
-  bib <- read.bib(bib, encoding = "UTF-8")
+
   refs <- unlist(strsplit(rmd, " "))
-  refs <- any(sapply(paste0("@", names(bib)), grepl, refs))
+  refs_aanwezig <- unique(refs[grepl("\\[?@.*", refs)])
+  refs_aanwezig <- refs_aanwezig[!grepl("<.*?@.*?>", refs_aanwezig)]
+  if (length(refs_aanwezig) > 0) {
+    bib <- normalizePath(file.path(dirname(path), meta$bibliography))
+    bib <- read.bib(bib, encoding = "UTF-8")
+    refs_beschikbaar <- paste0("@", names(bib))
+    beschikbaar <- sapply(refs_beschikbaar, grepl, refs_aanwezig)
+    beschikbaar <- rowSums(beschikbaar) > 0
+    assert_that(
+      all(beschikbaar),
+      msg = paste(
+        "Ontbrekende referentie in bibliografie van", path, sep = "\n",
+        paste(refs_aanwezig[!beschikbaar], collapse = "\n")
+      )
+    )
+  }
   assert_that(
-    !any(xor(refs, ref_aanwezig)),
+    !any(xor(ref_aanwezig, length(refs_aanwezig) > 0)),
     msg = paste(
       path,
     "Referentietitel en BibTex referenties moeten beiden aan- of afwezig zijn",

@@ -2,10 +2,8 @@
 title: "Metadata Algemene toestand en trends in Vlaanderen - Biomassa grote zoogdieren"
 date: 2020-07-01T10:00:00
 bibliography: ../references.bib
-csl: research-institute-for-nature-and-forest.csl
 link-citations: TRUE
-nocite: |
-  @drieskens_gezondheidsenquete_2019
+hoofdstuk: 3
 thema:
   - Natuur & maatschappij
 keywords:
@@ -14,7 +12,7 @@ keywords:
   - gedomesticieerde dieren
   - wilde dieren
 lang: nl
-tab: analyse
+tab: metadata
 verantwoordelijke:
 - Anik Schneiders <anik.schneiders@inbo.be>
 output: html_document
@@ -24,7 +22,6 @@ output: html_document
 ```{r setup, include=FALSE}
 library(knitr)
 opts_chunk$set(echo = FALSE, message = FALSE, warning = FALSE)
-library(git2rdata)
 ```
 
 ```{r databereik}
@@ -110,5 +107,3 @@ Bij de bespreking wordt aangegeven dat de bijdrage < 0.1%.
 **Broncode indicator**: [c1_grote_zoogdieren.Rmd](../c1_grote_zoogdieren/c1_grote_zoogdieren.Rmd)
 - **Basisdata**: [biomassa_totaal.tsv](../c1_grote_zoogdieren/biomassa_totaal.tsv) en [wilde_zoogdieren.tsv](../c1_grote_zoogdieren/wilde_zoogdieren.tsv)
 - **Metadata basisdata**: [biomassa_totaal.yml](../c1_grote_zoogdieren/biomassa_totaal.yml) en [wilde_zoogdieren.yml](../c1_grote_zoogdieren/wilde_zoogdieren.yml)
-
-### Referenties

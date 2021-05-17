@@ -3,6 +3,7 @@ title: "Algemene toestand en trends in Vlaanderen - Biomassa grote zoogdieren"
 date: 2020-07-01T10:00:00
 bibliography: ../references.bib
 link-citations: TRUE
+hoofdstuk: 3
 thema:
   - Natuur & maatschappij
 keywords:
@@ -11,7 +12,7 @@ keywords:
   - gedomesticieerde dieren
   - wilde dieren
 lang: nl
-tab: analyse
+tab: indicator
 verantwoordelijke:
 - Anik Schneiders <anik.schneiders@inbo.be>
 output: html_document
@@ -50,7 +51,7 @@ Biomassa van grote zoogdieren bestaat in Vlaanderen in hoofdzaak uit mensen, run
 ```{r totaal, fig.width = 7, fig.height = 2}
 totaalgegevens <- totaalgegevens %>%
   mutate(
-    biomassa_kton = Biomassa/1000,
+    biomassa_kton = Biomassa / 1000,
     Categorie = factor(
       Categorie, ordered = TRUE,
       levels = c("wilde zoogdieren", "runderen", "varkens", "mensen")
@@ -59,14 +60,14 @@ totaalgegevens <- totaalgegevens %>%
   )
 wildgegevens <- wildgegevens %>%
   mutate(
-    biomassa_kton = Biomassa/1000,
+    biomassa_kton = Biomassa / 1000,
     Categorie = factor(
       Categorie, ordered = TRUE, levels = c("herten", "reeen", "wilde zwijnen")
     ),
     Type = "wildbiomassa"
   )
 
-scaleFUN <- function(x) sprintf("%.0f", x)
+scale_fun <- function(x) sprintf("%.0f", x)
 
 p <- ggplot(totaalgegevens, aes(x = "", y = biomassa_kton, fill = Categorie)) +
   geom_bar(
@@ -75,7 +76,7 @@ p <- ggplot(totaalgegevens, aes(x = "", y = biomassa_kton, fill = Categorie)) +
   ) +
   theme(aspect.ratio = 0.35) +
   labs(x = "", y = "BIOMASSA (kton)") +
-  scale_y_continuous(expand = c(0,0), labels = scaleFUN) +
+  scale_y_continuous(expand = c(0, 0), labels = scaleFUN) +
   scale_fill_manual(
     breaks = c("mensen", "varkens", "runderen", "wilde zoogdieren"),
     values = c(
@@ -89,15 +90,15 @@ p <- ggplot(totaalgegevens, aes(x = "", y = biomassa_kton, fill = Categorie)) +
     legend.title = element_blank(), legend.position = "bottom",
     plot.margin = unit(c(0, 0, 0, 0), "cm")
   ) +
-  coord_flip() + 
+  coord_flip() +
   theme(
     panel.grid.major.y = element_blank(),
-    panel.grid.major.x = element_line( size = 0.1, color = "black")
+    panel.grid.major.x = element_line(size = 0.1, color = "black")
   )
 ggplotly(p, tooltip = c("fill", "text"))
 ```
 ```{r wild, fig.width = 7, fig.height = 2, fig.cap = "Figuur 1. Biomassaverdeling (in kton) van grote zoogdieren in Vlaanderen."}
-scaleFUN2 <- function(x) sprintf("%.2f", x)
+scale_fun2 <- function(x) sprintf("%.2f", x)
 q <- ggplot(wildgegevens, aes(x = "", y = biomassa_kton, fill = Categorie)) +
   geom_bar(
     aes(text = paste("Biomassa:", round(biomassa_kton, 1), "kton")),
@@ -105,7 +106,7 @@ q <- ggplot(wildgegevens, aes(x = "", y = biomassa_kton, fill = Categorie)) +
   ) +
   theme(aspect.ratio = 0.35) +
   labs(x = "", y = "BIOMASSA (kton)") +
-  scale_y_continuous(expand = c(0,0), labels = scaleFUN2) +
+  scale_y_continuous(expand = c(0, 0), labels = scale_fun2) +
   scale_fill_manual(
     breaks = c("wilde zwijnen", "reeen", "herten"),
     values = c(
@@ -116,15 +117,15 @@ q <- ggplot(wildgegevens, aes(x = "", y = biomassa_kton, fill = Categorie)) +
   theme(
     axis.title = element_text(
       margin = margin(t = 0, r = 0, b = 0, l = 0), hjust = 0.5
-    ), 
+    ),
     axis.ticks.y = element_blank(), legend.title = element_blank(),
     legend.text = element_text(margin = margin(t = 2)),
     legend.position = "bottom", plot.margin = unit(c(0, 0, 0, 0), "cm")
   ) +
-  coord_flip() + 
+  coord_flip() +
   theme(
     panel.grid.major.y = element_blank(),
-    panel.grid.major.x = element_line(size = .1, color = "black" )
+    panel.grid.major.x = element_line(size = 0.1, color = "black")
   )
 ggplotly(q, tooltip = c("fill", "text"))
 ```
@@ -144,7 +145,7 @@ Dat komt vooral door de economische schade die ze toebrengen aan landbouwgewasse
 Andere grote zoogdieren - zoals de wolf die zich voorzichtig begint te vestigen - worden verwelkomd door de ene, terwijl anderen ze als een bedreiging ervaren. 
 Nochtans spelen carnivoren een essentiële rol in het evenwicht van natuurlijke levensgemeenschappen [@dirzo_defaunation_2014].
 
-## Gelayoute figuur Natuurrapport 2020
+### Gelayoute figuur Natuurrapport 2020
 
 In het NARA2020 staat een meer gelayoute figuur. 
 
