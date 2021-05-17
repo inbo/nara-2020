@@ -150,7 +150,7 @@ Nochtans spelen carnivoren een essentiële rol in het evenwicht van natuurlijke 
 In het NARA2020 staat een meer gelayoute figuur. 
 
 ```{r layout, echo=FALSE, out.width="70%"}
-knitr::include_graphics("biomassa_layout.jpg")
+knitr::include_graphics("biomassa-layout.jpg")
 ```
 
 ## Referenties
