@@ -28,12 +28,12 @@ if [ $3 -eq 0 ]; then
 fi
 
 echo 'Publishing the rendered files...\n'
-git clone --branch=publish https://$2@github.com/$1
+git clone --branch=publish https://$2@github.com/$1 /publish
+cd /publish
 git config --global user.email "info@inbo.be"
 git config --global user.name "INBO"
-cd $1
 git rm -r .
-cp -R ../publish/. .
+cp -R /render/publish/. .
 if ! git diff-index --quiet HEAD --; then
     git add --all
     git commit --amend --message="Te publiceren versie van de NARA-2020 achtergronddocumenten"
