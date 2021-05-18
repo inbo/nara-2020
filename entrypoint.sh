@@ -33,7 +33,7 @@ cd /publish
 git config --global user.email "info@inbo.be"
 git config --global user.name "INBO"
 git rm -r .
-cp -R /render/publish/. .
+cp -R /$GITHUB_WORKSPACE/publish/. .
 if ! git diff-index --quiet HEAD --; then
     git add --all
     git commit --amend --message="Te publiceren versie van de NARA-2020 achtergronddocumenten"
