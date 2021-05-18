@@ -1,0 +1,437 @@
+---
+title: "Landgebruiksverandering - Ecosysteemvoorraad Landgebruiksbestand Vlaanderen"
+date: "Laatste update tekst: `r format(Sys.time(), '%d %B %Y')`"
+bibliography: ../references.bib
+link-citations: TRUE
+hoofdstuk: 4
+thema:
+  - Natuur & maatschappij
+keywords:
+  - landgebruiksverandering
+  - ruimtebeslag
+  - natuurlijk kapitaal
+  - natural capital accounting
+  - ecosystem extent
+lang: nl
+tab: indicator
+verantwoordelijke:
+- Wouter Van Reeth <wouter.vanreeth@inbo.be>
+output: html_document
+---
+
+```{r setup, include=FALSE}
+library(knitr)
+opts_chunk$set(
+  message = FALSE,
+  warning = FALSE,
+  echo = FALSE
+)
+library(git2rdata)
+library(plotly)
+library(tidyverse)
+library(INBOtheme)
+library(htmlwidgets)
+library(kableExtra)
+library(sankeyD3)
+set.seed(20200520)
+setWidgetIdSeed(20200520)
+options(htmlwidgets.TOJSON_ARGS = list(pretty = TRUE))
+theme_set(theme_nara()) # het nara-kleurenpallet selecteren
+switch_colour(inbo_hoofd) # het INBO-kleurenpallet activeren
+```
+
+```{r data_inlezen_lgv-stock-graph}
+ecos <- c(
+  "Stedelijk en bebouwd gebied", "Akker", "Grasland",
+  "Bos en houtige vegetatie", "Heide en landduin", "Strand en kustduin",
+  "Moeras", "Zoetwater", "Marien - estuarium", "Marien - zee"
+)
+gegevens <- read_vc("datastglgv") %>%
+  mutate(
+    Jaar = factor(Jaar),
+    Ecosysteem = factor(
+      Ecosysteem,
+      levels = ecos,
+      labels = str_wrap(ecos, 15)
+    )
+  )
+
+gegevens %>%
+  arrange(Jaar) %>%
+  group_by(Ecosysteem) %>%
+  summarise(
+    Verschil = diff(Extent) / Extent[1],
+    Jaar = tail(Jaar, 1),
+    Extent = max(Extent)) %>%
+    mutate(labypos = Extent + 250) %>%
+    mutate(Verschil = sprintf("%+.1f%%", 100 * Verschil)) -> verschil
+```
+
+```{r data_inlezen_lgv-stock-account}
+gegevens_sta <- read_vc("datastalgv") %>%
+  arrange(
+    match(
+      LandCover,
+      c(
+        "Urb", "Crop", "Gras", "For", "Heath", "Dune", "Marsh", "Water", "Estu",
+        "Sea"
+      )
+    )
+  ) %>%
+  mutate(
+    NetChange = Loss + Gain,
+    PercNetChange = NetChange * 100 / OpeningStock,
+    TotChange = -Loss + Gain,
+    PercTotChange = TotChange * 100 / OpeningStock,
+    StabStock = OpeningStock - TotChange,
+    PercStabStock = StabStock * 100 / OpeningStock,
+    ClosingStock = OpeningStock + NetChange) %>%
+  mutate(
+    OpeningStock = sprintf("%.0f", OpeningStock),
+    ClosingStock = sprintf("%.0f", ClosingStock),
+    Loss = sprintf("%+.0f", Loss),
+    Gain = sprintf("%+.0f", Gain),
+    NetChange = sprintf("%+.0f", NetChange),
+    PercNetChange = sprintf("%+.1f%%", PercNetChange),
+    TotChange = sprintf("%.0f", TotChange),
+    PercTotChange = sprintf("%.1f%%", PercTotChange),
+    StabStock = sprintf("%.0f", StabStock),
+    PercStabStock = sprintf("%.1f%%", PercStabStock)
+  )
+```
+
+```{r data_inlezen_lgv-flow-graph}
+sank_pre <- read_vc("dataflglgv")
+code <- read_vc("dataflglgvcode") %>%
+  select(c(lg_code, nara10_code, nara10_label, nara10_labels))
+```
+
+```{r data_bewerken_lgv-flow-graph}
+# Data groeperen per NARA-klasse
+
+sank <- sank_pre %>%
+  left_join(code, by = c("c2013" = "lg_code")) %>%
+  rename("from" = "nara10_code") %>%
+  rename("labelS" = "nara10_labels") %>%
+  left_join(code, by = c("c2016" = "lg_code")) %>%
+  rename("to" = "nara10_code") %>%
+  rename("labelT" = "nara10_labels") %>%
+  group_by(from, to) %>%
+  summarise(
+    value = sum(count), labelS = unique(labelS), labelT = unique(labelT)
+  ) %>%
+  ungroup() %>%
+  mutate("jaarS" = 2013) %>%
+  mutate("jaarT" = 2016)
+
+# Dataframe met nodes (= codes van landgebruiksklassen en bijhorende labels)
+
+cp1 <- sank %>%
+  unite("cp1", c("jaarS", "from")) %>%
+  distinct(cp1) %>%
+  rename("codetxt" = cp1)
+cp2 <- sank %>%
+  unite("cp2", c("jaarT", "to")) %>%
+  distinct(cp2) %>%
+  rename("codetxt" = cp2)
+
+nodes <- cp1 %>%
+  bind_rows(cp2) %>%
+  distinct(codetxt) %>%
+  rownames_to_column() %>%
+  rename("code" = rowname) %>%
+  mutate(code = as.numeric(code) - 1)
+
+# Dataframe met links (= source (van), target (naar) en value (oppervlakte))
+
+links_pre <- sank %>%
+  unite("cp1", c("jaarS", "from")) %>%
+  unite("cp2", c("jaarT", "to")) %>%
+  left_join(nodes, by = c("cp1" = "codetxt")) %>%
+  rename(source = code) %>%
+  left_join(nodes, by = c("cp2" = "codetxt")) %>%
+  rename(target = code) %>%
+  dplyr::select(c(source, target, value))
+
+# Groepen aanmaken voor kleuren in grafiek en labels
+
+groups <- sank %>%
+  unite("cp1", c("jaarS", "from"), remove = FALSE) %>%
+  unite("cp2", c("jaarT", "to"), remove = FALSE) %>%
+  left_join(nodes, by = c("cp1" = "codetxt")) %>%
+  rename(source = code) %>%
+  left_join(nodes, by = c("cp2" = "codetxt")) %>%
+  rename(target = code)
+groups_links <- groups %>%
+  dplyr::select(labelS, source) %>%
+  distinct(source, .keep_all = TRUE)
+
+# Groepen toewijzen aan nodes en links
+
+links <- links_pre %>%
+  left_join(groups_links, by = "source") %>%
+  rename("group" = "labelS")
+
+nodes <- nodes %>%
+  left_join(select(groups, cp1, labelS), by = c("codetxt" = "cp1")) %>%
+  left_join(select(groups, cp2, labelT), by = c("codetxt" = "cp2")) %>%
+  distinct(code, .keep_all = TRUE) %>%
+  mutate(group = coalesce(labelS, labelT))
+
+# Aaneen plakken nodes en links in een List object
+
+data <- list(nodes = nodes, links = links)
+```
+
+```{r data_inlezen_lgv-flow-account}
+gegevens_fla <- read_vc("dataflalgv") %>%
+  arrange(
+    match(
+      LandCover,
+      c(
+        "Urb", "Crop", "Gras", "For", "Heath", "Dune", "Marsh", "Water", "Estu",
+        "Sea", "Total"
+      )
+    )
+  ) %>%
+  mutate(
+    CLCFSum = CLaCoFlo1 + CLaCoFlo2 + CLaCoFlo3 + CLaCoFlo4 + CLaCoFlo5 +
+      CLaCoFlo6 + CLaCoFlo7 + CLaCoFlo8 + CLaCoFlo9 + CLaCoFlo10,
+    CNoFlo = COpeningStock - CLCFSum,
+    PLCFSum = PLaCoFlo1 + PLaCoFlo2 + PLaCoFlo3 + PLaCoFlo4 + PLaCoFlo5 +
+      PLaCoFlo6 + PLaCoFlo7 + PLaCoFlo8 + PLaCoFlo9 + PLaCoFlo10,
+    PNoFlo = PClosingStock - PLCFSum
+  ) %>%
+  mutate(
+    COpeningStock = sprintf("%.0f", COpeningStock),
+    CLCFSum = sprintf("%.0f", CLCFSum),
+    CLaCoFlo1 = sprintf("%.0f", CLaCoFlo1),
+    CLaCoFlo2 = sprintf("%.0f", CLaCoFlo2),
+    CLaCoFlo3 = sprintf("%.0f", CLaCoFlo3),
+    CLaCoFlo4 = sprintf("%.0f", CLaCoFlo4),
+    CLaCoFlo5 = sprintf("%.0f", CLaCoFlo5),
+    CLaCoFlo6 = sprintf("%.0f", CLaCoFlo6),
+    CLaCoFlo7 = sprintf("%.0f", CLaCoFlo7),
+    CLaCoFlo8 = sprintf("%.0f", CLaCoFlo8),
+    CNoFlo = sprintf("%.0f", CNoFlo),
+    PLCFSum = sprintf("%.0f", PLCFSum),
+    PLaCoFlo1 = sprintf("%.0f", PLaCoFlo1),
+    PLaCoFlo2 = sprintf("%.0f", PLaCoFlo2),
+    PLaCoFlo3 = sprintf("%.0f", PLaCoFlo3),
+    PLaCoFlo4 = sprintf("%.0f", PLaCoFlo4),
+    PLaCoFlo5 = sprintf("%.0f", PLaCoFlo5),
+    PLaCoFlo6 = sprintf("%.0f", PLaCoFlo6),
+    PLaCoFlo7 = sprintf("%.0f", PLaCoFlo7),
+    PLaCoFlo8 = sprintf("%.0f", PLaCoFlo8),
+    PNoFlo = sprintf("%.0f", PNoFlo),
+    PClosingStock = sprintf("%.0f", PClosingStock)
+  )
+```
+
+Tussen 2013 en 2016 waren de afname van grasland en de toename van stedelijk en bebouwd gebied de voornaamste landgebruiksveranderingen.
+
+```{r staafdiagram lgv-stock10-graph, echo =  FALSE, fig.width = 8, fig.height = 5, fig.cap = "Figuur 1. Ecosysteemvoorraad (km²) in 2013 en 2016 (Bron: Departement Omgeving, INBO). Deze figuur verwijst naar Figuur 29 in het Natuurrapport 2020. De cijfers van de grafiek zijn terug te vinden in de rekening ecosysteemvoorraad (Tabel 1).", fig.pos = "H"}
+p <- ggplot(
+  gegevens,
+  aes(
+    x = Ecosysteem, y = Extent, fill = Jaar,
+    text = paste(
+      "Ecosysteem:", Ecosysteem, "<br>", "Jaar:", Jaar, "<br>", "Extent:",
+      sprintf("%0.1f", Extent))
+  )
+) +
+  geom_col(position = "dodge", width = 0.7) +
+  scale_y_continuous(
+    expand = c(0, 0), limits = c(0, 5500), breaks = seq(0, 5000, by = 1000)
+  ) +
+  scale_fill_manual(
+     values = c("2016" = inbo_steun_geelgroen, "2013" = inbo_hoofd),
+     limits = c("2016", "2013")) +
+  xlab("") +
+  ylab("ECOSYSTEEMVOORRAAD (km²)") +
+  theme(
+    axis.title = element_text(
+      size = 9, margin = margin(t = 0, r = 0, b = 0, l = 0), hjust = 0
+    ),
+    axis.text = element_text(size = 8), legend.text = element_text(size = 8),
+    legend.title = element_blank(), legend.position = "bottom",
+    legend.key.size = unit(0.3, "cm")
+  ) +
+  coord_flip() +
+  theme(
+    panel.grid.major.y = element_blank(),
+    panel.grid.major.x = element_line(size = 0.1, color = "black")
+  ) +
+  geom_text(
+    data = verschil, aes(y = labypos, label = Verschil), size = 3,
+    color = "black"
+  )
+
+if (interactive() || opts_knit$get("rmarkdown.pandoc.to") == "html") {
+  ggplotly(p, tooltip = c("text")) %>%
+  plotly::config(
+    modeBarButtonsToRemove = list(
+      "lasso2d", "select2d", "hoverClosestCartesian",
+      "hoverCompareCartesian", "toggleSpikelines"
+    ),
+    displaylogo = FALSE
+  )
+} else {
+  p
+}
+```
+
+De voorraad grasland nam af met bijna 4,7% (11 ha/dag) ten opzichte van 2013 en het stedelijk en bebouwd gebied nam toe met 1,6% (6,5 ha/dag).
+De omvang van het agro-ecosysteem daalde met bijna 3%.
+Heide en landduin kende met een toename van ruim 10% de grootste relatieve verandering.
+
+```{r rekening lgv-stock10-account}
+gegevens_sta_2 <- gegevens_sta[, c(1, 11, 2, 3, 4, 5, 6, 7, 8, 9, 10)]
+tabel_sta <- data.frame(t(gegevens_sta_2[-1]))
+rownames(tabel_sta) <- c(
+  "Ecosysteemvoorraad 2013", "Ecosysteemvoorraad 2016", "Verlies",
+  "Uitbreiding", "Nettoverandering", "% nettoverandering t.o.v. 2013",
+  "Totale verandering", "% totale verandering t.o.v. 2013",
+  "Stabiele ecosysteemvoorraad", "% stabiele ecosysteemvoorraad"
+)
+tabel_sta %>%
+  kable(
+    caption =
+"Tabel 1: Rekening ecosysteemvoorrraad (km²) in 2013 en 2016 (Bron: Departement
+Omgeving, INBO). Deze tabel verwijst naar Tabel 6 in het Natuurrapport 2020.",
+    col.names = c(
+      "Stedelijk en bebouwd gebied", "Akker", "Grasland",
+      "Bos en houtige vegetatie", "Heide en landduin", "Strand en kustduin",
+      "Moeras", "Zoetwater", "Marien - estuarium", "Marien - zee"
+    ),
+    align = "cccccccccc"
+  ) %>%
+  column_spec(1, width = "10em") %>%
+  column_spec(2:9, width = "10em") %>%
+  column_spec(10, width = "7em") %>%
+  row_spec(c(0), bold = TRUE,  color = "black") %>%
+  row_spec(c(1:2), bold = TRUE,  color = "black", background = "#acb2b4") %>%
+  row_spec(c(6, 8), bold = TRUE,  color = "black", background = "#e5e7e9") %>%
+  kable_styling(full_width = FALSE)
+```
+
+## Definitie
+
+De ecosysteemvoorraad (*ecosystem extent*) is een maat voor de omvang van het natuurlijk kapitaal van een gebied. 
+Hij wordt berekend op basis van de oppervlakte van verschillende types bodembedekking en landgebruik [@costanza_goals_1991; @costanza_natural_1992; @daily_value_2000; @eea_land_2006; @eea_natural_2018; @ekins_four-capital_1992].
+Landgebruiksveranderingen leiden tot toe- of afnames van ecosysteemvoorraden.
+De ecosysteemvoorraad (Figuur 1) is een indicator van de *toestand van* ecosystemen, de ecosysteemverandering (Figuur 2) geeft een indicatie van de *druk op* die ecosystemen. 
+
+## Bespreking
+
+De belangrijkste veranderingen in absolute termen in de ecosysteemvoorraden van Vlaanderen tussen 2013 en 2016 zijn de afname van blijvend (vijfjarig) grasland en de uitbreiding van stedelijk en bebouwd gebied en van akker.
+De uitbreiding van stedelijk en bebouwd gebied in deze periode is voor twee derde toe te schrijven aan de toename van huizen met tuinen.
+Heide en landduin kenden met een toename van 10,3% relatief de sterkste verandering.
+Zoetwater nam met een groei van 3,5% relatief sterk in oppervlakte toe.
+De voorraden van de andere terrestrische ecosystemen (bos, duinen, moeras) bleven netto quasi onveranderd.
+
+Een onbekend deel van de geregistreerde veranderingen is het gevolg van verbeteringen in de karteringsmethode.
+De kaart en afgeleide indicatoren en rekeningen weerspiegelen dus niet volledig een werkelijke toe- of afname op het terrein. 
+Bovendien worden sommige kaartlagen, waaronder de Biologische Waarderingskaart, niet volledig om de drie jaar geactualiseerd.
+Een deel van de landgebruiksveranderingen geregistreerd tussen 2013 en 2016 dateert dus van vóór 2013.
+
+De totale verandering van ecosysteemvoorraden (Tabel 1) is mogelijk heel wat groter dan de cijfers van de nettoveranderingen (Figuur 1) suggereren.
+Zo zouden bijna één derde van de oppervlakte heide en meer dan een kwart van de oppervlakte moeras betrokken zijn bij een bepaalde verandering van landgebruik of bodembedekking.
+Het deel van het ecosysteem dat niet betrokken is bij zo'n verandering wordt ook wel de stabiele ecosysteemvoorraad genoemd [@eea_land_2006; @eea_natural_2018].
+Hoe groter het aandeel van een ecosysteem dat betrokken is bij een landgebruiksverandering, des te kleiner de stabiliteit van dat ecosysteem.
+Biologisch waardevolle ecosystemen als soortenrijke graslanden en oude bossen hebben meerdere decennia tot eeuwen nodig om hun kenmerkende ecosysteemvoorraden, -structuren, -processen en soortensamenstelling te ontwikkelen.
+Voor de biodiversiteit dergelijke systemen is een hoge dynamiek in het landgebruik problematisch.
+
+De veranderingen besproken in Tabel 1 betreffen enkel veranderingen *tussen* de 10 ecosystemen. 
+Veranderingen *binnen* een ecosysteemklasse zoals van 'huizen met tuinen' naar 'andere bebouwde terreinen', de teeltrotatie op akkers of de omvorming van naaldbos naar loofbos, zijn niet mee in rekening gebracht.
+Voor ecosystemen met een dalende voorraad geeft de verhouding tussen de nettoverandering en de ecosysteemvoorraad 2013 een indicatie van de 'volhoudbaarheid' of duurzaamheid van de landgebruiksveranderingen.
+
+Figuur 2 en Tabel 2 tonen welke maatschappelijke processen aan de basis liggen van de veranderingen in ecosysteemvoorraden. 
+Urbanisatie of de uitbreiding van stedelijk en bebouwd gebied, en de intensivering van de landbouw zijn daarbij de spreekwoordelijke 'olifanten in de kamer'.
+
+
+```{r lgv-flow10-graph-voorbereiding, include = FALSE}
+# Sankeydiagram maken
+sankeyNetwork(
+  Links = data$links, Nodes = data$nodes, Source = "source", Target = "target",
+  Value = "value", NodeID = "codetxt", units = "ha", fontSize = 12,
+  nodeWidth = 25, nodePadding = 20
+)
+```
+
+```{r lgv-flow10-graph, echo =  FALSE, fig.cap = "Figuur 2. Ecosysteemverandering (hectare) tussen 2013 en 2016 (Bron: Departement Omgeving, INBO). De gekleurde balken aan de linkerzijde tonen hoeveel hectare van een ecosysteemvoorraad geconsumeerd werden. Die aan de rechterzijde tonen met hoeveel hectare de ecosysteemvoorraad uitbreidde. Deze figuur verwijst naar Figuur 30 in het Natuurrapport 2020. De cijfers van de grafiek zijn terug te vinden in de rekening ecosysteemverandering.", fig.pos = "H"}
+colors <- "d3.scaleOrdinal() .domain([\"akker\", \"urbaan\", \"grasland\",
+\"bos\", \"heide\", \"duinen\", \"moeras\", \"zoetwater\", \"estuarium\",
+\"zee\"])
+.range([\"#feb24c\", \"#a50f15\", \"#38d138\", \"#346e31\", \"#b93d88\",
+\"#eef37f\", \"#5b8a2e\", \"#6baed6\", \"#38a98e\", \"#023858\"])"
+
+sankeyNetwork(
+  Links = data$links, Nodes = data$nodes, Source = "source", Target = "target",
+  Value = "value", NodeID = "group", units = "ha", fontSize = 12,
+  nodeWidth = 25, nodePadding = 20, NodeGroup = "group", LinkGroup = "group",
+  colourScale = colors, linkOpacity = 0.4, showNodeValues = FALSE,
+  iterations = 0
+)
+```
+
+Van de bijna 12.000 ha grasland die netto verloren gingen (-40.520 + 28.541, Tabel 2) is 43% omgezet naar akker, 36% naar stedelijk en bebouwd gebied, 11% naar bos, 5% naar heide en 4,5% naar zoetwater.
+Van de nettotoename van stedelijk en bebouwd gebied met ruim 7.000 ha (-6.786 + 13.964, Tabel 2) is meer dan de helft afkomstig van grasland, een derde van akker en minder dan een tiende van bos.
+
+De rekening ecosysteemverandering laat eveneens toe na te gaan welke ecosystemen relatief (t.o.v. de initiële voorraad) het sterkst onder druk staan van bepaalde landgebruiksveranderingen. Urbanisatie verbruikte netto 1,7% (-7.076 + 2.806, Tabel 2) van de voorraad blijvend grasland, 0,4% van de voorraad bos en hoog groen en 0,5% van de voorraad akker.
+
+```{r lgv-flow10-account}
+gegevens_fla_2 <- gegevens_fla[,
+  c(
+    1, 2, 24, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 25, 26, 13, 14, 15, 16, 17, 18,
+    19, 20, 21, 22, 27, 23
+  )
+]
+tabel_fla <- data.frame(t(gegevens_fla_2[-1]))
+rownames(tabel_fla) <- c(
+  "Ecosysteemvoorraad 2013", "Consumptie bestaande voorraad",
+  "C1. Uitbreiding van stedelijk en bebouwd gebied",
+  "C2. Uitbreiding van akker", "C3. Uitbreidig van grasland",
+  "C4. Uitbreiding van bos en houtige vegetatie",
+  "C5. Uitbreiding van heide en landduin",
+  "C6. Uitbreiding van strand en kustduin", "C7. Uitbreiding van moeras",
+  "C8. Uitbreiding van zoetwater", "C9. Uitbreiding van estuarium",
+  "C10. Uitbreiding marien ecosysteem", "Niet verbruikte voorraad",
+  "Vorming nieuwe voorraad", "P1. Uitbreiding van stedelijk en bebouwd gebied",
+  "P2. Uitbreiding van akker", "P3. Uitbreiding van grasland",
+  "P4. Uitbreiding van bos en houtige vegetatie",
+  "P5. Uitbreiding van heide en landduin",
+  "P6. Uitbreiding van strand en kustduin",
+  "P7. Uitbreiding van moeras", "P8. Uitbreiding van zoetwater",
+  "P9. Uitbreiding van estuarium", "P10. Uitbreiding marien ecosysteem",
+  "Reeds bestaande voorraad",
+  "Ecosysteemvoorraad 2016"
+)
+tabel_fla %>%
+  kable(
+    caption =
+"Tabel 2. Rekening ecosysteemverandering (hectare) tussen 2013 en 2016 (Bron:
+Departement Omgeving, INBO).",
+    col.names = c(
+      "Stedelijk en bebouwd gebied", "Akker", "Grasland",
+      "Bos en houtige vegetatie", "Heide en landduin", "Strand en kustduin",
+      "Moeras", "Zoetwater", "Marien - estuarium", "Marien - zee", "Totaal"
+    ),
+    align = "ccccccccccc"
+  ) %>%
+  column_spec(1, width = "16em") %>%
+  column_spec(2:10, width = "9em") %>%
+  column_spec(11:12, width = "7em") %>%
+  row_spec(c(1, 26), bold = TRUE,  color = "black", background = "#acb2b4") %>%
+  row_spec(c(2, 14), bold = TRUE, color = "black", background = "#e5e7e9") %>%
+  row_spec(c(13, 25), bold = TRUE, color = "black") %>%
+  row_spec(1:10, hline = TRUE) %>%
+  kable_styling(full_width = FALSE)
+```
+
+De cijfers van de ecosysteemvoorraden, en vooral die van de landgebruiksveranderingen tussen 2013 en 2016, moeten met de nodige voorzichtigheid worden geïnterpreteerd.
+De gemiddelde accuraatheid van de landgebruikskaart wordt op basis van een validatie geraamd op 90-91%, met 99% voor de cellen waarvan het landgebruik tussen 2013 en 2016 niet veranderde en (slechts) 20% voor de cellen die wel veranderden [zie fiche Landgebruiksverandering -  Validate](https://www.vlaanderen.be/inbo/natuurrapport-2020/landgebruiksverandering-validatie).
+Voor de landgebruiksverandering naar stedelijk en bebouwd gebied of naar akker is de betrouwbaarheid hoger. 
+We raden daarom aan om deze indicatoren en rekeningen veeleer te gebruiken om de grootteorde van de ecosystemen en de voornaamste landgebruiksveranderingen in te schatten maar niet voor een gedetailleerde analyse van de andere veranderingen op korte termijn.
+
+## Referenties

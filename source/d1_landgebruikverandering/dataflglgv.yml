@@ -1,0 +1,15 @@
+..generic:
+  git2rdata: 0.2.1
+  optimize: no
+  NA string: NA
+  sorting: value
+  hash: 8348aafe4564acc18479b0808e7d478ae321b54d
+  data_hash: e41eaa5bb2455613de21323d9a2fd83d8d260243
+value:
+  class: integer
+count:
+  class: numeric
+c2013:
+  class: integer
+c2016:
+  class: integer
