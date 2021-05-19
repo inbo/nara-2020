@@ -1,0 +1,128 @@
+---
+title: "Onze impact op biodiversiteit - Biodiversity intactness index (BII)"
+date: 2020-07-01T10:00:00
+bibliography: ../references.bib
+link-citations: TRUE
+hoofdstuk: 3
+thema:
+  - Natuur & maatschappij
+  - Beschermde natuur
+keywords:
+  - abundantie
+  - ongereptheid
+  - planetaire grenzen
+  - IPBES
+lang: nl
+tab: indicator
+verantwoordelijke:
+- Maarten Stevens <maarten.stevens@inbo.be>
+output: html_document
+---
+
+```{r setup, include=FALSE}
+
+library(knitr)
+opts_chunk$set(
+  message = FALSE,
+  warning = FALSE,
+  echo = FALSE
+)
+library(tidyverse)
+library(git2rdata)
+library(plotly)
+library(INBOtheme)
+library(htmlwidgets)
+library(raster)
+library(leaflet)
+
+theme_set(theme_nara()) # het nara-kleurenpallet selecteren
+switch_colour(inbo_hoofd) # het INBO-kleurenpallet activeren
+
+set.seed(20200520)
+setWidgetIdSeed(20200520)
+options(htmlwidgets.TOJSON_ARGS = list(pretty = TRUE))
+```
+
+```{r data_inlezen, cache = TRUE}
+# BII-kaart (tiff) inlezen
+bii16 <- raster("./bii_abund_2016_klassen_100m.tif")
+
+gegevens <- read_vc("bii_lgnara2020")# Dataset voor staafdiagrammen
+
+```
+
+```{r data_bewerken, results='hide', cache = TRUE}
+dataplot <- gegevens %>%
+  mutate(opp = value / 10000) %>%
+  mutate(type = recode_factor(type, "spec" = "soorten", "abund" = "abundantie")) %>%
+  group_by(type) %>%
+  mutate(opptot = sum(opp)) %>%
+  ungroup() %>%
+  mutate(propa = opp / opptot) %>%
+  rename("class" = "klasse") %>%
+  mutate(class = fct_relevel(class, "> 0,9", "0,8 - 0,9", "0,7 - 0,8", "0,6 - 0,7", "0,5 - 0,6", "< 0,5")) %>%
+  mutate(classperc = recode(class, "> 0,9" = "> 90%", "0,8 - 0,9" = "80% - 90%", "0,7 - 0,8" = "70% - 80%", "0,6 - 0,7" = "60% - 70%", "0,5 - 0,6" = "50% - 60%", "< 0,5" = "< 50%"))
+```
+
+Het gemiddelde aantal organismen in Vlaanderen is een derde lager dan in een onverstoorde situatie.
+
+```{r kaart, fig.align = 'center', fig.width = 10, fig.height = 5}
+pal <- c("6" = inbo_steun_blauw, "5" = "#73782b", "4" = inbo_groen, "3" = inbo_lichtgroen, "2" = inbo_hoofd, "1" = inbo_steun_donkerroos)
+palinv <- rev(pal) # Volgorde omdraaien
+
+leaflet() %>%
+  addTiles(group = "BII", options = providerTileOptions(minZoom = 8, maxZoom = 10)) %>%
+  addRasterImage(bii16, colors = palinv, opacity = 0.8, group = "BII") %>%
+  addLayersControl(
+    overlayGroups = c("BII"),
+    options = layersControlOptions(collapsed = FALSE)) %>%
+  addLegend(values = values(bii16), colors = palinv, labels = c("< 50%", "50% - 60%", "60% - 70%", "70% - 80%", "80% - 90%", "> 90%"), title = "BII 2016<br>(abundantie)")
+
+```
+```{r staafdiagram, fig.width = 8, fig.height = 2, fig.cap = "Figuur 1. Biodiversity Intactness Index (BII), berekend op basis van de coëfficiënten uit Newbold et al. (2015) en de gedetailleerde landgebruikskaart van 2016. Deze figuur verwijst naar figuur 10 uit het Natuurrapport 2020."}
+
+pal2 <- c("> 90%" = inbo_steun_blauw, "80% - 90%" = "#73782b", "70% - 80%" = inbo_groen, "60% - 70%" = inbo_lichtgroen, "50% - 60%" = inbo_hoofd, "< 50%" = inbo_steun_donkerroos)
+
+p <- ggplot(dataplot %>% filter(type == "abundantie"), aes(x = "2016", y = propa, fill = classperc,
+                                                           text = paste("BI klasse: ", classperc,
+                                                                        "\nAandeel: ", scales::percent(propa)))) +
+  geom_bar(stat = "identity", position = "stack", width = 0.5) +
+  scale_y_continuous(labels = scales::percent) +
+  scale_x_discrete(expand = c(0, 0)) +
+  scale_fill_manual(values = pal2) +
+  labs(fill = "BII 2016\n(abundantie)", y = "% OPP. VLAANDEREN") +
+  theme(axis.line = element_blank(),
+        axis.title.x = element_blank(),
+        axis.ticks.x = element_blank(),
+        axis.title.y = element_blank(),
+        panel.grid.major = element_blank(),
+        legend.position = "none") +
+  coord_flip()
+
+ggplotly(p, tooltip = c("text"))
+```
+
+## Definitie
+
+De *Biodiversity Intactness Index* (BII) geeft een gemodelleerde schatting van de terrestrische biodiversiteit ten opzichte van een situatie met minimale menselijke verstoring [@newbold_global_2015]. 
+De index schaalt tussen 0 procent (volledig verstoord systeem) en 100 procent (ongerepte natuurlijke situatie), maar kan hoger dan 100 procent zijn als er zich extra soorten in het gebied vestigen door (lichte) menselijke verstoring.
+@steffen_planetary_2015 stellen een BII-waarde van 90 % voor als veilige planetaire grens voor de biodiversiteit.
+
+## Bespreking
+
+De gemiddelde BII-score in Vlaanderen is 67 procent (Figuur 1). 
+Dat betekent dat het gemiddelde aantal organismen in Vlaanderen een derde lager is dan in een onverstoorde situatie. 
+Op wereldschaal is het gemiddelde aantal organismen gedaald tot 78 procent van een onverstoorde situatie [@hill_worldwide_2018].
+Slechts 8,5 procent van Vlaanderen heeft een BII-waarde binnen de theoretische planetaire grens van 10 procent verlies.
+
+In tegenstelling tot gelijkaardige indices, die vaak beperkt zijn tot gewervelden, houdt de BII rekening met een groot aantal taxonomische groepen, waaronder planten, ongewervelden, gewervelden en fungi.
+De index is gebaseerd op een globale dataset ([PREDICTS](https://www.nhm.ac.uk/our-science/our-work/biodiversity/predicts.html)) van een groot aantal studies en experimenten die de lokale biodiversiteit (soortenrijkdom en abundanties) in locaties met een verschillend landgebruik en verschillende drukfactoren vergelijken.
+Op basis van die dataset wordt voor elke combinatie van landgebruik en landgebruiksintensiteit een BII-score berekend [@newbold_global_2015].
+De modellen houden rekening met de drukfactoren landgebruik, landgebruiksintensiteit, bevolkingsdichtheid en afstand tot wegen.
+Het effect van andere drukfactoren, zoals klimaatverandering of verontreiniging, wordt niet (rechtstreeks) in rekening gebracht.
+
+De BII is een van de kernindicatoren in de assessments van het IPBES^[IPBES is het Intergouvernementeel Platform voor Biodiversiteit en Ecosysteemdiensten. Het is een onafhankelijke intergouvernementele organisatie, opgericht door 94 staten, om de interface tussen wetenschap en politiek inzake biodiversiteit en ecosysteemdiensten te versterken.] en wordt gebruikt als voorlopige metriek voor de biosfeerintegriteit binnen het kader van planetaire grenzen [@ipbes_global_2019; @steffen_planetary_2015]. 
+Als veilige grens voor de biosfeerintegriteit stellen @steffen_planetary_2015 een BII-waarde voor van 90 procent (range 30-90%).
+De breedte van dat interval reflecteert de huidige hiaten in de kennis over de relatie tussen de BII en het functioneel belang van biodiversiteit op wereldschaal.
+
+## Referenties

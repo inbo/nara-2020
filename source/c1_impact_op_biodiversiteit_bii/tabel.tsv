@@ -1,0 +1,28 @@
+Klasse_LG2016	Land.use.BII	Toelichting.Newbold.et.al...2015	Land.use.intensity.BII	Toelichting.Newbold.et.al...2015.1	BII
+Ruigte	young secondary	early successional stage	light	disturbance of moderate intensity	85.5
+Loofbos	mature secondary	+/- completed succession (> 75 y)	light	disturbance of moderate intensity (selective logging)	128.5
+Populieren	plantation forest	crop trees for commercial harvesting of wood	light	monoculture timber plantations of mixed age with no recent (< 20y) clear-fellings	77.8
+Naaldbos	intermediate secondary	abandoned plantation > 30y	light	disturbance of moderate intensity (selective logging)	76.6
+Alluviaal bos	mature secondary	+/- completed succession (> 75 y)	light	disturbance of moderate intensity	128.5
+Halfnatuurlijk grasland	pasture	grazed land	minimal	minimal input of fertiliser and pesticide, and with low stock density	95.2
+Heide	young secondary	young secondary vegetation 	light	disturbance of moderate intensity (management)	85.5
+Kustduin	primary	Physical conditions determinative	light	not fundamental alterations to habitat architecture	103.8
+Moeras	primary	Physical conditions determinative	light	not fundamental alterations to habitat architecture	103.8
+Slik en schorre	primary	Physical conditions determinative	intense	fundamental alterations to habitat architecture	130.7
+Akker	cropland	planted with herbaceous crops	intense	large fields, annual ploughing, inorganic fertiliser application, pesticide application, irrigation, mechanisation, no crop rotation	68.7
+Niet geregistreerde landbouw	cropland	planted with herbaceous crops	intense	idem akker	68.7
+Hoogstam	pasture	grazed land	minimal	minimal input of fertiliser and pesticide, and with low stock density	95.2
+Laagstam	cropland	crop trees for commercial harvesting of fruit	intense	monoculture fruit plantations with significant pesticide input	68.7
+Cultuurgrasland permanent	cropland	cropland	minimal	little or no inorganic fertiliser use, little or no pesticide use, little or no ploughing, little or no irrigation, little or no mechanisation	89.4
+Gebouw	urban	human habitation and/or buildings	intense	Fully urban with no significant green spaces.	37.6
+Overig laag groen urbaan	urban	primary vegetation removed and managed for civic or personal amenity	light	Suburban (e.g. gardens), or small managed or unmanaged green spaces in cities.	55.1
+Overig laag groen (vooral wegbermen)	young secondary	early successional stage	light	light use in suburban settings	85.5
+Overig hoog groen urbaan	urban	primary vegetation removed and managed for civic or personal amenity	light	Suburban (e.g. gardens), or small managed or unmanaged green spaces in cities.	55.1
+Overig hoog groen	mature secondary	structural complexity like forests	light	light use in suburban settings	128.5
+Weg	urban	human habitation and/or buildings	intense	Fully urban with no significant green spaces.	37.6
+Spoorweg	urban	human habitation and/or buildings	intense	Fully urban with no significant green spaces.	37.6
+Overig	urban	human habitation and/or buildings	intense	Fully urban with no significant green spaces.	37.6
+Struweel	young secondary	early successional stage	light	disturbance of moderate intensity	85.5
+Water		No score for water			0
+Overgangswater		No score for water			0
+Marien		No score for water			0

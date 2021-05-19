@@ -1,0 +1,173 @@
+..generic:
+  git2rdata: 0.3.1
+  optimize: no
+  NA string: NA
+  hash: 1a766dcd09e88216729c3bf426056c52ec0eadcb
+  data_hash: 97714879da7897ae6926e5e4aa40edd4906fc9d4
+Klasse_LG2016:
+  class: factor
+  labels:
+  - Akker
+  - Alluviaal bos
+  - Cultuurgrasland permanent
+  - Gebouw
+  - Halfnatuurlijk grasland
+  - Heide
+  - Hoogstam
+  - Kustduin
+  - Laagstam
+  - Loofbos
+  - Marien
+  - Moeras
+  - Naaldbos
+  - Niet geregistreerde landbouw
+  - Overgangswater
+  - Overig
+  - Overig hoog groen
+  - Overig hoog groen urbaan
+  - Overig laag groen (vooral wegbermen)
+  - Overig laag groen urbaan
+  - Populieren
+  - Ruigte
+  - Slik en schorre
+  - Spoorweg
+  - Struweel
+  - Water
+  - Weg
+  index:
+  - 1
+  - 2
+  - 3
+  - 4
+  - 5
+  - 6
+  - 7
+  - 8
+  - 9
+  - 10
+  - 11
+  - 12
+  - 13
+  - 14
+  - 15
+  - 16
+  - 17
+  - 18
+  - 19
+  - 20
+  - 21
+  - 22
+  - 23
+  - 24
+  - 25
+  - 26
+  - 27
+  ordered: no
+Land.use.BII:
+  class: factor
+  labels:
+  - ''
+  - cropland
+  - intermediate secondary
+  - mature secondary
+  - pasture
+  - plantation forest
+  - primary
+  - urban
+  - young secondary
+  index:
+  - 1
+  - 2
+  - 3
+  - 4
+  - 5
+  - 6
+  - 7
+  - 8
+  - 9
+  ordered: no
+Toelichting.Newbold.et.al...2015:
+  class: factor
+  labels:
+  - +/- completed succession (> 75 y)
+  - abandoned plantation > 30y
+  - crop trees for commercial harvesting of fruit
+  - crop trees for commercial harvesting of wood
+  - cropland
+  - early successional stage
+  - grazed land
+  - human habitation and/or buildings
+  - No score for water
+  - Physical conditions determinative
+  - planted with herbaceous crops
+  - primary vegetation removed and managed for civic or personal amenity
+  - structural complexity like forests
+  - 'young secondary vegetation '
+  index:
+  - 1
+  - 2
+  - 3
+  - 4
+  - 5
+  - 6
+  - 7
+  - 8
+  - 9
+  - 10
+  - 11
+  - 12
+  - 13
+  - 14
+  ordered: no
+Land.use.intensity.BII:
+  class: factor
+  labels:
+  - ''
+  - intense
+  - light
+  - minimal
+  index:
+  - 1
+  - 2
+  - 3
+  - 4
+  ordered: no
+Toelichting.Newbold.et.al...2015.1:
+  class: factor
+  labels:
+  - ''
+  - disturbance of moderate intensity
+  - disturbance of moderate intensity (management)
+  - disturbance of moderate intensity (selective logging)
+  - Fully urban with no significant green spaces.
+  - fundamental alterations to habitat architecture
+  - idem akker
+  - large fields, annual ploughing, inorganic fertiliser application, pesticide application,
+    irrigation, mechanisation, no crop rotation
+  - light use in suburban settings
+  - little or no inorganic fertiliser use, little or no pesticide use, little or no
+    ploughing, little or no irrigation, little or no mechanisation
+  - minimal input of fertiliser and pesticide, and with low stock density
+  - monoculture fruit plantations with significant pesticide input
+  - monoculture timber plantations of mixed age with no recent (< 20y) clear-fellings
+  - not fundamental alterations to habitat architecture
+  - Suburban (e.g. gardens), or small managed or unmanaged green spaces in cities.
+  index:
+  - 1
+  - 2
+  - 3
+  - 4
+  - 5
+  - 6
+  - 7
+  - 8
+  - 9
+  - 10
+  - 11
+  - 12
+  - 13
+  - 14
+  - 15
+  ordered: no
+BII:
+  class: numeric
