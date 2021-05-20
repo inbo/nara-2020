@@ -63,8 +63,15 @@ De intensiteit voor *loofbos* en *alluviaal bos* wordt bijgesteld naar 'minimal'
 
 ```{r tabel, echo=FALSE, message=FALSE, warning=FALSE}
 read_vc("tabel") %>%
-  rename("Toelichting landgebruik Newbold et al., 2015" = "Toelichting.Newbold.et.al...2015", "Toelichting intensiteit Newbold et al., 2015" = "Toelichting.Newbold.et.al...2015.1", "Land use BII" = "Land.use.BII", "Land use intensity BII" = "Land.use.intensity.BII") %>%
-  kbl(caption = "Tabel 1. BII-score per landgebruiksklasse voor de abundantie van soorten. De score wordt aan een landgebruiksklasse toegekend op basis van landgebruik en intensiteit volgens Newbold et al., 2015.") %>%
+  rename("Toelichting landgebruik Newbold et al., 2015" =
+           "Toelichting.Newbold.et.al...2015",
+         "Toelichting intensiteit Newbold et al., 2015" =
+           "Toelichting.Newbold.et.al...2015.1", "Land use BII" =
+           "Land.use.BII", "Land use intensity BII" =
+           "Land.use.intensity.BII") %>%
+  kbl(caption = "Tabel 1. BII-score per landgebruiksklasse voor de abundantie
+      van soorten. De score wordt aan een landgebruiksklasse toegekend op basis
+      van landgebruik en intensiteit volgens Newbold et al., 2015.") %>%
   kable_styling(c("striped", "hover"), full_width = F) %>%
   scroll_box(width = "100%", height = "400px")
 ```
@@ -77,8 +84,8 @@ Deze worden deels impliciet in rekening gebracht via landgebruik en intensiteit,
 ## Download
 
 **Broncode indicator**:
-[c1_impact_op_biodiversiteit_bii.Rmd](c1_impact_op_biodiversiteit_bii.Rmd)
-- **Basisdata**: [bii_lgnara2020.tsv](bii_lgnara2020.tsv)
-- **Metadata basisdata**: [bii_lgnara2020.yml](bii_lgnara2020.yml)
+[c1_impact_op_biodiversiteit_bii.Rmd](../c1_impact_op_biodiversiteit_bii/c1_impact_op_biodiversiteit_bii.Rmd)
+- **Basisdata**: [bii_lgnara2020.tsv](../c1_impact_op_biodiversiteit_bii/bii_lgnara2020.tsv)
+- **Metadata basisdata**: [bii_lgnara2020.yml](../c1_impact_op_biodiversiteit_bii/bii_lgnara2020.yml)
 
 ## Referenties
