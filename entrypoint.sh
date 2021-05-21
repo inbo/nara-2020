@@ -28,10 +28,10 @@ if [ $3 -eq 0 ]; then
 fi
 
 echo 'Publishing the rendered files...\n'
-git clone --branch=publish https://$2@github.com/$1
+git clone --branch=publish https://$2@github.com/$1 /publish
 git config --global user.email "info@inbo.be"
 git config --global user.name "INBO"
-cd $1
+cd /publish
 git rm -r .
 cp -R ../publish/. .
 if ! git diff-index --quiet HEAD --; then
