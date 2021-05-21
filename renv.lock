@@ -935,6 +935,13 @@
       "Repository": "CRAN",
       "Hash": "093584b944440c5cd07a696b3c8e0e4c"
     },
+    "rgdal": {
+      "Package": "rgdal",
+      "Version": "1.5-23",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Hash": "bb6f643247d35c947e9f113567e2bf7a"
+    },
     "rlang": {
       "Package": "rlang",
       "Version": "0.4.11",
