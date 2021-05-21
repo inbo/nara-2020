@@ -1,0 +1,101 @@
+..generic:
+  git2rdata: 0.3.1
+  optimize: no
+  NA string: NA
+  hash: 72c235a0fcb09bf0e526c7eb19aa5ff8ea3b4508
+  data_hash: eb48888e7057d7115a655a67b44fae0e95a91aa8
+Landgebruiksklasse:
+  class: factor
+  labels:
+  - Akker
+  - Alluviaal bos
+  - Cultuurgrasland permanent
+  - Gebouw
+  - Halfnatuurlijk grasland
+  - Heide
+  - Hoogstam boomgaard
+  - Kustduin
+  - Laagstam boomgaard
+  - Loofbos
+  - Marien
+  - Moeras
+  - Naaldbos
+  - Niet geregistreerde landbouw
+  - Overgangswater
+  - Overig
+  - Overig hoog groen
+  - Overig laag groen
+  - Populieren
+  - Ruigte
+  - Slik en schorre
+  - Spoorweg
+  - Struweel
+  - Water
+  - Weg
+  index:
+  - 1
+  - 2
+  - 3
+  - 4
+  - 5
+  - 6
+  - 7
+  - 8
+  - 9
+  - 10
+  - 11
+  - 12
+  - 13
+  - 14
+  - 15
+  - 16
+  - 17
+  - 18
+  - 19
+  - 20
+  - 21
+  - 22
+  - 23
+  - 24
+  - 25
+  ordered: no
+Validatieklasse:
+  class: factor
+  labels:
+  - Akker
+  - Bos
+  - Grasland
+  - Hoog groen
+  - Laag groen
+  - Open natuur
+  - Overig
+  - Urbaan
+  - Water
+  index:
+  - 1
+  - 2
+  - 3
+  - 4
+  - 5
+  - 6
+  - 7
+  - 8
+  - 9
+  ordered: no
+Geaggregeerde.klasse:
+  class: factor
+  labels:
+  - Akker
+  - Hoog groen
+  - Open natuur
+  - Overig
+  - Urbaan
+  - Water
+  index:
+  - 1
+  - 2
+  - 3
+  - 4
+  - 5
+  - 6
+  ordered: no
