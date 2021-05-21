@@ -9,3 +9,4 @@ publish
 *_files
 *.bak
 *.sav
+*.rds
