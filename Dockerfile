@@ -76,6 +76,12 @@ RUN  wget https://github.com/jgm/pandoc/releases/download/2.7.3/pandoc-2.7.3-1-a
   && dpkg -i pandoc-2.7.3-1-amd64.deb \
   && rm pandoc-2.7.3-1-amd64.deb
 
+## Install git
+RUN apt-get update \
+  && apt-get install -y --no-install-recommends \
+    git \
+    openssh-client
+
 ## Install curl dependencies
 RUN  apt-get update \
   && apt-get install -y --no-install-recommends \
@@ -86,11 +92,13 @@ RUN  apt-get update \
   && apt-get install -y --no-install-recommends \
     libfreetype6-dev
 
-## Install git
+## Install rgdal dependencies
 RUN apt-get update \
   && apt-get install -y --no-install-recommends \
-    git \
-    openssh-client
+    gdal-bin \
+    libgdal-dev \
+    libproj-dev \
+    proj-bin
 
 ## Install openssl dependencies
 RUN apt-get update \

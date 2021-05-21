@@ -1,0 +1,92 @@
+---
+title: "Metadata biodiversity intactness index (BII)"
+date: 2020-07-01T10:00:00
+bibliography: ../references.bib
+link-citations: TRUE
+hoofdstuk: 3
+thema:
+  - Natuur & maatschappij
+  - Beschermde natuur
+keywords:
+  - abundantie
+  - ongereptheid
+  - planetaire grenzen
+  - IPBES
+lang: nl
+tab: metadata
+verantwoordelijke:
+- Maarten Stevens <maarten.stevens@inbo.be>
+output: html_document
+---
+## Technische informatie
+
+```{r setup, include=FALSE}
+library(tidyverse)
+library(knitr)
+opts_chunk$set(echo = FALSE, message = FALSE, warning = FALSE)
+library(git2rdata)
+library(kableExtra)
+```
+
+```{r databereik}
+databereik <- "2016"
+```
+\- **Periodiciteit**: eenmalig
+\- **Volgende update**: onbekend
+\- **Databereik**: `r databereik`
+
+## Databron
+
+- **Producent**: Instituut voor Natuur- en Bosonderzoek
+- **Dataset**: [Landgebruiksbestand Vlaanderen 2016](https://www.geopunt.be/catalogus/datasetfolder/78e82101-8fbc-4a75-b649-b208df2b77be)
+- **Gegevensinzameling**: De opmaak van het landgebruiksbestand Vlaanderen wordt beschreven in @poelmans_landgebruik_2019.
+
+## Berekeningswijze
+
+De BII-kaart van Vlaanderen wordt opgemaakt door elk van de klassen van de landgebruikskaart 2016 een BII-score toe te kennen op basis van de landgebruik x intensiteit tabel uit @newbold_global_2015.
+De BII kan berekend worden voor zowel de soortenrijkdom als voor de abundantie van de soorten.
+Voor onze analyse gebruiken we de **abundantie**-BII omdat deze gebruikt wordt als indicator voor de biotische
+integriteit binnen het kader van planetaire grenzen [@newbold_has_2016; @steffen_planetary_2015].
+De regressiemodellen waarmee de BII berekend wordt, houden rekening met het landgebruik, de landgebruiksintensiteit, de bevolkingsdichtheid, de afstand tot grote wegen en de reistijd tot grote steden.
+Omdat landgebruik en intensiteit veruit de belangrijkste verklarende variabelen zijn, worden alleen deze mee in rekening gebracht in de berekening van de BII voor Vlaanderen [@newbold_global_2015].
+
+De landgebruikskaart 2016 is gebaseerd op het landgebruiksbestand Vlaanderen 2016 [@poelmans_landgebruik_2019].
+Dit bestand bestaat uit vier thematische lagen: de bodembedekking (niveau 1), verstedelijkt landgebruik (niveau 2), multifunctioneel landgebruik (niveau 3) en haventerreinen en militaire domeinen (niveau 4).
+De bodembedekkingslaag vormt de basis van de landgebruikskaart waarmee de BII berekend werd. 
+Een aantal klassen is aangepast voor het Natuurrapport 2020 (Zie fiche landgebruiksverandering).
+
+Tabel 1 geeft de BII-score voor elk van de landgebruiksklassen en de overeenkomstige indeling en de interpretatie van het landgebruik en de intensiteit uit @newbold_global_2015.
+De scores uit deze tabel geven de BII-Waarden ten opzichte van een niet-beïnvloede referentiesituatie (primaire vegetatie, minimale gebruiksintensiteit). 
+De andere drukvariabelen (bevolkingsdichtheid, afstand tot grote wegen en reistijd tot grote steden) worden op de mediaan van de waargenomen waarden gehouden.
+De scores voor *Overig laag en hoog groen* worden verlaagd indien er een overlap is met het verstedelijkt landgebruik (niveau 2) van het landgebruiksbestand.
+De intensiteit voor *loofbos* en *alluviaal bos* wordt bijgesteld naar 'minimal' (BII-score 10.4) indien de percelen onder natuurbeheer vallen.
+
+```{r tabel, echo=FALSE, message=FALSE, warning=FALSE}
+read_vc("tabel") %>%
+  rename("Toelichting landgebruik Newbold et al., 2015" =
+           "Toelichting.Newbold.et.al...2015",
+         "Toelichting intensiteit Newbold et al., 2015" =
+           "Toelichting.Newbold.et.al...2015.1", "Land use BII" =
+           "Land.use.BII", "Land use intensity BII" =
+           "Land.use.intensity.BII") %>%
+  kbl(caption = "Tabel 1. BII-score per landgebruiksklasse voor de abundantie
+      van soorten. De score wordt aan een landgebruiksklasse toegekend op basis
+      van landgebruik en intensiteit volgens Newbold et al., 2015.") %>%
+  kable_styling(c("striped", "hover"), full_width = FALSE) %>%
+  kable_styling(c("striped", "hover"), full_width = FALSE) %>%
+  scroll_box(width = "100%", height = "400px")
+```
+
+## Opmerkingen bij de gegevenskwaliteit en betrouwbaarheid
+
+Drukken zoals klimaatverandering, verdroging, vervuiling en vermesting worden niet expliciet in rekening gebracht.
+Deze worden deels impliciet in rekening gebracht via landgebruik en intensiteit, maar hun ware impact blijft waarschijnlijk onderbelicht in de scores.
+
+## Download
+
+**Broncode indicator**:
+[c1_impact_op_biodiversiteit_bii.Rmd](../c1_impact_op_biodiversiteit_bii/c1_impact_op_biodiversiteit_bii.Rmd)
+- **Basisdata**: [bii_lgnara2020.tsv](../c1_impact_op_biodiversiteit_bii/bii_lgnara2020.tsv)
+- **Metadata basisdata**: [bii_lgnara2020.yml](../c1_impact_op_biodiversiteit_bii/bii_lgnara2020.yml)
+
+## Referenties

@@ -1,0 +1,36 @@
+..generic:
+  git2rdata: 0.2.1
+  optimize: no
+  NA string: NA
+  hash: 972cc84eca06bcc7ca98db1f52eabf2ee38840c9
+  data_hash: 6e3f01f710d045de5afd8afbae62b3e84f8dc74e
+klassenr:
+  class: integer
+klasse:
+  class: factor
+  labels:
+  - 0,5 - 0,6
+  - 0,6 - 0,7
+  - 0,7 - 0,8
+  - 0,8 - 0,9
+  - < 0,5
+  - '> 0,9'
+  index:
+  - 1
+  - 2
+  - 3
+  - 4
+  - 5
+  - 6
+  ordered: no
+type:
+  class: factor
+  labels:
+  - abund
+  - spec
+  index:
+  - 1
+  - 2
+  ordered: no
+value:
+  class: integer
