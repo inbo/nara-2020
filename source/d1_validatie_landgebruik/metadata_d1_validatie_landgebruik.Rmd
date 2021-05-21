@@ -53,6 +53,17 @@ lg2016trans <- projectRaster(lg2016, lg2013trans)
 ptn <- readOGR("punten.shp")
 ptn <- ptn[, - (5:8)]
 ptn_shp <- spTransform(ptn, CRS(SRS_string = "EPSG:4326"))
+lg2013 <- raster("lg2013_changeclasses_100m.tif")
+lg2013trans <- projectRaster(lg2013,
+  crs = "+proj=longlat +datum=WGS84",
+  method = "ngb"
+)
+lg2016 <- raster("lg2016_changeclasses_100m.tif")
+lg2016trans <- projectRaster(lg2016, lg2013trans)
+
+ptn <- readOGR("punten.shp")
+ptn <- ptn[, - (5:8)]
+ptn_shp <- spTransform(ptn, CRS(SRS_string = "EPSG:4326"))
 ```
 
 - **Producent**: Instituut voor Natuur- en Bosonderzoek

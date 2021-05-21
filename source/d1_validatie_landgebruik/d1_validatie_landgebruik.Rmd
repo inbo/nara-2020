@@ -371,6 +371,7 @@ validation <- function(ma, maparea) {
 
   # estimate confidence intervals for the accuracies
   v_oa <- sum(propmaparea^2 * ua * (1 - ua) / (ni - 1), na.rm = TRUE) # variance of overall accuracy (Eq. 5 in Olofsson et al. 2014)
+
   v_ua <- ua * (1 - ua) / (rowSums(ma) - 1) # variance of user's accuracy (Eq. 6 in Olofsson et al. 2014)
 
   # variance of producer's accuracy (Eq. 7 in Olofsson et al. 2014)
