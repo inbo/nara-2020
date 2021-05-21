@@ -5,6 +5,7 @@
 libs
 publish
 *.html
+*_cache
 *_files
 *.bak
 *.sav
