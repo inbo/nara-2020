@@ -1,0 +1,21 @@
+..generic:
+  git2rdata: 0.2.1
+  optimize: no
+  NA string: NA
+  hash: f329c3ff5870b32401d16b413b8e52752239902f
+  data_hash: 4eddda6c8ddb660928e7f43c551e26921c41140e
+OBJECTID:
+  class: integer
+type:
+  class: factor
+  labels:
+  - change
+  - nochange
+  index:
+  - 1
+  - 2
+  ordered: no
+x:
+  class: integer
+'y':
+  class: numeric

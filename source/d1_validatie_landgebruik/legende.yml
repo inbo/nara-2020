@@ -1,0 +1,31 @@
+..generic:
+  git2rdata: 0.3.1
+  optimize: no
+  NA string: NA
+  hash: de5ba722f3eef56475418a7d5b8a144bc03eb4cc
+  data_hash: f27bdfcf90e5d8d92d9a5593096f99e3981c8fba
+num:
+  class: integer
+name:
+  class: factor
+  labels:
+  - Akker
+  - Bos
+  - Grasland
+  - Hoog groen
+  - Laag groen
+  - Open natuur
+  - Overig
+  - Urbaan
+  - Water
+  index:
+  - 1
+  - 2
+  - 3
+  - 4
+  - 5
+  - 6
+  - 7
+  - 8
+  - 9
+  ordered: no
