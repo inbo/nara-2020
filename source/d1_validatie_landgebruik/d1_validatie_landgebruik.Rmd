@@ -44,7 +44,9 @@ options(htmlwidgets.TOJSON_ARGS = list(pretty = TRUE))
 ```{r data_inlezen, cache = TRUE}
 
 punten <- read_vc("validatiepunten") # Gevalideerde punten
-combine <- read_vc("combine") # Combine van de validatieklassenkaart van 2013 en 2016 -> geeft de oppervlakte van de landgebruiksveranderingen en van de stabiele klassen
+combine <- read_vc("combine") # Combine van de validatieklassenkaart van 2013
+# en 2016 -> geeft de oppervlakte van de landgebruiksveranderingen en
+# van de stabiele klassen
 
 # Omzettingstabel landgebruiken
 lu <- c(
@@ -63,7 +65,13 @@ tbltrans <- data.frame(lu, lucode, valid, validcode) %>%
 
 ```{r data_bewerken, results='hide', cache = TRUE}
 # OPMAAK DATASET -----------------------------------------------------
-# De dataset met validatiepunten bevat informatie over de verandering van een cel (0/1) en de aard van de verandering (klasse A -> klasse B). Voor de validatie werden achteraf een aantal moeilijk te onderscheiden klassen samengenomen. De analyse kan dus op 3 niveaus uitgevoerd worden: (1) verandering - geen verandering, (2) originele landgebruiksklassen en (3) de geaggregeerde klassen. In het onderstaande script worden deze drie validatiesets apart aangemaakt.
+# De dataset met validatiepunten bevat informatie over de verandering van een
+# cel (0/1) en de aard van de verandering (klasse A -> klasse B). Voor de
+# validatie werden achteraf een aantal moeilijk te onderscheiden klassen
+# samengenomen. De analyse kan dus op 3 niveaus uitgevoerd worden:
+#   (1) verandering - geen verandering, (2) originele landgebruiksklassen en
+# (3) de geaggregeerde klassen. In het onderstaande script worden deze
+# drie validatiesets apart aangemaakt.
 
 # 1. Puntenset -----
 points <- punten %>%
@@ -109,7 +117,8 @@ points <- punten %>%
   mutate(change_c = ifelse(verandering == oordeel,
     1, 0
   )) %>%
-  # Check of de beoordeling "change/nochange" overeenkomt met die van de LG-kaart
+  # Check of de beoordeling "change/nochange" overeenkomt met die van de
+  # LG-kaart
   ungroup() %>%
   group_by(objectid) %>%
   mutate(n = n() / 3) %>%
@@ -130,7 +139,8 @@ points <- punten %>%
       "nochange", "change"
     ), oordeelval
   )) %>%
-  # Aanpassen beoordeling "verandering" -> als de validatieklasse 2 x hetzelfde is per evaluator, dan "nochange"
+  # Aanpassen beoordeling "verandering" -> als de validatieklasse 2 x hetzelfde
+  # is per evaluator, dan "nochange"
   rowwise() %>%
   mutate(veranderingval = ifelse(luval13 == luval16, "nochange", "change")) %>%
   mutate(luval_c = ifelse(klasse == "lu2013" & luval13 == oordeelval, 1,
@@ -138,7 +148,8 @@ points <- punten %>%
   )) %>%
   # Check of de gevalideerde landgebruiken overeenkomen met de LG van de kaart
   mutate(changeval_c = ifelse(veranderingval == oordeelval, 1, 0)) %>%
-  # Check of de beoordeling "change/nochange" overeenkomt met die van de LG-kaart
+  # Check of de beoordeling "change/nochange" overeenkomt met die van
+  # de LG-kaart
   ungroup()
 
 saveRDS(points, file = "points.rds")
@@ -181,7 +192,12 @@ points_val <- as.data.frame(points_id) %>%
   ) %>%
   dplyr::select(objectid, changeclass, changeclassref)
 
-# Alleen de verandering ON_W werd gevalideerd. In 38 van de 40 gevalideerde punten verandert er niets (water blijft water), de andere 2 punten blijken ook onveranderlijk (O_O en ON_ON). Hieruit besluiten we dat de kaart de klasse ON_W heel slecht weergeeft en dat we niet van een significante verandering kunnen spreken. Voor de rest van de validatie laten we de waterklassen volledig weg.
+# Alleen de verandering ON_W werd gevalideerd. In 38 van de 40 gevalideerde
+# punten verandert er niets (water blijft water), de andere 2 punten blijken
+# ook onveranderlijk (O_O en ON_ON). Hieruit besluiten we dat de kaart de
+# klasse ON_W heel slecht weergeeft en dat we niet van een significante
+# verandering kunnen spreken. Voor de rest van de validatie laten we de
+# waterklassen volledig weg.
 
 points_val <- points_val %>%
   filter(
@@ -231,7 +247,8 @@ points_lu <- as.data.frame(points_id_orig) %>%
   dplyr::select(objectid, changeclass, changeclassref)
 
 points_lu <- points_lu %>%
-  filter(!str_detect(changeclass, "W"), !str_detect(changeclassref, "W")) %>% # alles met water in weglaten
+  filter(!str_detect(changeclass, "W"), !str_detect(changeclassref, "W")) %>%
+  # alles met water in weglaten
   droplevels()
 
 points_lu <- points_lu %>%
@@ -340,8 +357,7 @@ ma_change <- as.data.frame.matrix(confus_change$table)
 ma_lu <- as.data.frame.matrix(confus_lu$table)
 
 # VALIDATIE -------------------------------------------------------
-# Methode Olofsson et al., 2014 - Code uit het FAO tool (d'Annunzio et al. 2016)
-# https://github.com/openforis/accuracy-assessment/blob/master/Rscripts/error_matrix_analysis.R
+# Methode Olofsson et al., 2014 - Code uit het FAO tool
 
 # Hulpvariabelen
 maparea_val <- lgarea %>% # Analyse validatieklassen
@@ -365,19 +381,24 @@ validation <- function(ma, maparea) {
   propma[is.nan(propma)] <- 0 # for classes with ni. = 0
 
   # estimate the accuracies now
-  oa <- sum(diag(propma)) # overall accuracy (Eq. 1 in Olofsson et al. 2014)
-  ua <- diag(propma) / rowSums(propma) # user's accuracy (Eq. 2 in Olofsson et al. 2014)
-  pa <- diag(propma) / colSums(propma) # producer's accuracy (Eq. 3 in Olofsson et al. 2014)
+  oa <- sum(diag(propma))
+  # overall accuracy (Eq. 1 in Olofsson et al. 2014)
+  ua <- diag(propma) / rowSums(propma)
+  # user's accuracy (Eq. 2 in Olofsson et al. 2014)
+  pa <- diag(propma) / colSums(propma)
+  # producer's accuracy (Eq. 3 in Olofsson et al. 2014)
 
   # estimate confidence intervals for the accuracies
-  v_oa <- sum(propmaparea^2 * ua * (1 - ua) / (ni - 1), na.rm = TRUE) # variance of overall accuracy (Eq. 5 in Olofsson et al. 2014)
+  v_oa <- sum(propmaparea^2 * ua * (1 - ua) / (ni - 1), na.rm = TRUE)
+  # variance of overall accuracy (Eq. 5 in Olofsson et al. 2014)
 
-  v_ua <- ua * (1 - ua) / (rowSums(ma) - 1) # variance of user's accuracy (Eq. 6 in Olofsson et al. 2014)
+  v_ua <- ua * (1 - ua) / (rowSums(ma) - 1)
+  # variance of user's accuracy (Eq. 6 in Olofsson et al. 2014)
 
   # variance of producer's accuracy (Eq. 7 in Olofsson et al. 2014)
   n_j <- array(0, dim = length(dyn))
   aftersumsign <- array(0, dim = length(dyn))
-  for (cj in 1:length(dyn)) {
+  for (cj in seq_len(length(dyn))) {
     n_j[cj] <- sum(maparea / ni * ma[, cj], na.rm = TRUE)
     aftersumsign[cj] <- sum(maparea[-cj]^2 * ma[-cj, cj] / ni[-cj] *
       (1 - ma[-cj, cj] / ni[-cj]) /
@@ -390,12 +411,12 @@ validation <- function(ma, maparea) {
   ### Estimate area
 
   # proportional area estimation
-  propareaest <- colSums(propma) # proportion of area (Eq. 8 in Olofsson et al. 2014)
-  # areaest <- propareaest * sum(maparea) # estimated area
+  propareaest <- colSums(propma)
+  # proportion of area (Eq. 8 in Olofsson et al. 2014)
 
   # standard errors of the area estimation (Eq. 10 in Olofsson et al. 2014)
   v_propareaest <- array(0, dim = length(dyn))
-  for (cj in 1:length(dyn)) {
+  for (cj in seq_len(length(dyn))) {
     v_propareaest[cj] <- sum((propmaparea * propma[, cj] - propma[, cj]^2) /
       (rowSums(ma) + 0.001 - 1)) # + 0.001 voor klassen met maar 1 punt
   }
@@ -410,8 +431,10 @@ validation <- function(ma, maparea) {
   ov$prop_area <- round(propmaparea, 3)
   ov$adj_proparea <- round(propareaest, 3)
   ov$ci_adj_proparea <- round(1.96 * sqrt(v_propareaest), 3)
-  ov$adj_area <- round(ov$adj_proparea * aoi * pixelsize, 3) # in ha
-  ov$ci_adj_area <- round(1.96 * sqrt(v_propareaest) * aoi * pixelsize, 3) # in ha
+  ov$adj_area <- round(ov$adj_proparea * aoi * pixelsize, 3)
+  # in ha
+  ov$ci_adj_area <- round(1.96 * sqrt(v_propareaest) * aoi * pixelsize, 3)
+  # in ha
   ov$ua <- round(ua, 3)
   ov$ci_ua <- round(1.96 * sqrt(v_ua), 3)
   ov$pa <- round(pa, 3)
@@ -419,7 +442,6 @@ validation <- function(ma, maparea) {
   rownames(ov) <- colnames(ma)
   ov$oa <- c(round(oa, 3), rep(NA, times = length(dyn) - 1))
   ov$ci_oa <- c(round(1.96 * sqrt(v_oa), 3), rep(NA, times = length(dyn) - 1))
-  # ov$repr <- Represent$rep
   ov
 }
 
@@ -427,105 +449,114 @@ ov_val <- validation(ma = ma_val, maparea = maparea_val)
 ov_change <- validation(ma = ma_change, maparea = maparea_change)
 ov_lu <- validation(ma = ma_lu, maparea = maparea_lu)
 
-# save(ov_val, file = "./data/Analyse_validatieklassen.Rdata") # Analyse met validatieklassen (geaggreg. LG-klassen)
-# save(ov_change, file = "./data/Analyse_change.Rdata") # Analyse met change - no change
-# save(ov_lu, file = "./data/Analyse_lu.Rdata") # Analyse met originele landgebruiksklassen
+```
+```{r evaluatoren, eval = FALSE}
+# Overeenkomst tussen evaluatoren (not run)
+eval <- points %>%
+  dplyr::select(objectid, verandering, lu2013, lu2016, klasse,
+                oordeel, eval, n) %>%
+  filter(n >= 2 & n < 3) %>%
+  # selecteer punten die 2 keer geëvalueerd werden. Eval = nr evaluator
+  rename("verandmap" = "verandering", "lu13map" = "lu2013",
+         "lu16map" = "lu2016") %>%
+  spread(key = klasse, value = oordeel) %>%
+  rename("verandref" = "verandering", "lu13ref" = "lu2013",
+         "lu16ref" = "lu2016") %>%
+  left_join(dplyr::select(tbltrans, valid, lu), by = c("lu13map" = "lu")) %>%
+  rename(lu13mapval = valid) %>%
+  # validatieklassen toevoegen (= aggregatie van oorspronkelijke lu-klassen)
+  left_join(dplyr::select(tbltrans, valid, lu), by = c("lu16map" = "lu")) %>%
+  rename(lu16mapval = valid) %>%
+  left_join(dplyr::select(tbltrans, valid, lu), by = c("lu13ref" = "lu")) %>%
+  rename(lu13refval = valid) %>%
+  # validatieklassen toevoegen (= aggregatie van oorspronkelijke lu-klassen)
+  left_join(dplyr::select(tbltrans, valid, lu), by = c("lu16ref" = "lu")) %>%
+  rename(lu16refval = valid)
 
-#############################################
-# Overeenkomst tussen evaluatoren (not run) #
-#############################################
+eval_perid <- eval %>%
+  group_by(objectid) %>%
+  summarise(verand = identical(verandref[1], verandref[2]),
+            lu2013 = identical(lu13ref[1], lu13ref[2]),
+            lu2016 = identical(lu16ref[1], lu16ref[2]),
+            lu2013val = identical(lu13refval[1], lu13refval[2]),
+            lu2016val = identical(lu16refval[1], lu16refval[2])) %>%
+  mutate(verand_klasse = ifelse(lu2013 == TRUE & lu2016 == TRUE,
+                                TRUE, FALSE)) %>%
+  mutate(verand_klasseval = ifelse(lu2013val == TRUE &
+                                     lu2016val == TRUE, TRUE, FALSE)) %>%
+  left_join(eval, by = "objectid") %>%
+  # dplyr::select(-c(eval:lu16refval)) %>%
+  distinct()
 
-# eval <- points %>%
-#   dplyr::select(objectid, verandering, lu2013, lu2016, klasse, oordeel, eval, n) %>%
-#   filter(n >= 2 & n < 3) %>% # selecteer punten die 2 keer geëvalueerd werden. Eval = nr evaluator
-#   rename("verandmap" = "verandering", "lu13map" = "lu2013", "lu16map" = "lu2016") %>%
-#   spread(key = klasse, value = oordeel) %>%
-#   rename("verandref" = "verandering", "lu13ref" = "lu2013", "lu16ref" = "lu2016") %>%
-#   left_join(dplyr::select(tbltrans, valid, lu), by = c("lu13map" = "lu")) %>% rename(lu13mapval = valid) %>% # validatieklassen toevoegen (= aggregatie van oorspronkelijke lu-klassen)
-#   left_join(dplyr::select(tbltrans, valid, lu), by = c("lu16map" = "lu")) %>% rename(lu16mapval = valid) %>%
-#   left_join(dplyr::select(tbltrans, valid, lu), by = c("lu13ref" = "lu")) %>% rename(lu13refval = valid) %>% # validatieklassen toevoegen (= aggregatie van oorspronkelijke lu-klassen)
-#   left_join(dplyr::select(tbltrans, valid, lu), by = c("lu16ref" = "lu")) %>% rename(lu16refval = valid)
-#
-# eval_perid <- eval %>%
-#   group_by(objectid) %>%
-#   summarise(verand = identical(verandref[1], verandref[2]),
-#             lu2013 = identical(lu13ref[1], lu13ref[2]),
-#             lu2016 = identical(lu16ref[1], lu16ref[2]),
-#             lu2013val = identical(lu13refval[1], lu13refval[2]),
-#             lu2016val = identical(lu16refval[1], lu16refval[2])) %>%
-#   mutate(verand_klasse = ifelse(lu2013 == TRUE & lu2016 == TRUE, TRUE, FALSE)) %>%
-#   mutate(verand_klasseval = ifelse(lu2013val == TRUE & lu2016val == TRUE, TRUE, FALSE)) %>%
-#   left_join(eval, by = "objectid") %>%
-#   # dplyr::select(-c(eval:lu16refval)) %>%
-#   distinct()
-#
-# tbl_eval <- eval_perid %>% # Voor de oorspronkelijke klassen
-#   group_by(lu13map, lu16map) %>%
-#   summarise(n = n(), verand = sum(verand[TRUE]), verand_klasse = sum(verand_klasse[TRUE]))
-#
-# tbl_evalval <- eval_perid %>% # Voor de geaggregeerde klassen
-#   group_by(lu13mapval, lu16mapval) %>%
-#   summarise(n = n(), verand = sum(verand[TRUE]), verand_klasse = sum(verand_klasseval[TRUE]))
-#
-## Originele klassen
-# totaal <- tbl_eval %>%
-#   ungroup() %>%
-#   summarise(
-#     verandering = sum(verand)/sum(n),
-#     type_verandering = sum(verand_klasse)/sum(n)
-#   ) %>%
-#   mutate(naam = "Totaal")
-# veranderend <- tbl_eval %>%
-#   ungroup() %>%
-#   filter(lu13map != lu16map) %>%
-#   summarise(
-#     verandering = sum(verand)/sum(n),
-#     type_verandering = sum(verand_klasse)/sum(n)
-#   ) %>%
-#   mutate(naam = "Veranderende cellen")
-# onveranderd <- tbl_eval %>%
-#   ungroup() %>%
-#   filter(lu13map == lu16map) %>%
-#   summarise(
-#     verandering = sum(verand)/sum(n),
-#     type_verandering = sum(verand_klasse)/sum(n)
-#   ) %>%
-#   mutate(naam = "Onveranderlijke cellen")
-# #
-# bind_rows(totaal, veranderend, onveranderd)
+tbl_eval <- eval_perid %>% # Voor de oorspronkelijke klassen
+  group_by(lu13map, lu16map) %>%
+  summarise(n = n(), verand = sum(verand[TRUE]),
+            verand_klasse = sum(verand_klasse[TRUE]))
+
+tbl_evalval <- eval_perid %>% # Voor de geaggregeerde klassen
+  group_by(lu13mapval, lu16mapval) %>%
+  summarise(n = n(), verand = sum(verand[TRUE]),
+            verand_klasse = sum(verand_klasseval[TRUE]))
+
+# Originele klassen
+totaal <- tbl_eval %>%
+  ungroup() %>%
+  summarise(
+    verandering = sum(verand) / sum(n),
+    type_verandering = sum(verand_klasse) / sum(n)
+  ) %>%
+  mutate(naam = "Totaal")
+veranderend <- tbl_eval %>%
+  ungroup() %>%
+  filter(lu13map != lu16map) %>%
+  summarise(
+    verandering = sum(verand) / sum(n),
+    type_verandering = sum(verand_klasse) / sum(n)
+  ) %>%
+  mutate(naam = "Veranderende cellen")
+onveranderd <- tbl_eval %>%
+  ungroup() %>%
+  filter(lu13map == lu16map) %>%
+  summarise(
+    verandering = sum(verand) / sum(n),
+    type_verandering = sum(verand_klasse) / sum(n)
+  ) %>%
+  mutate(naam = "Onveranderlijke cellen")
+
+bind_rows(totaal, veranderend, onveranderd)
 
 ### Resultaat:
 # verandering type_verandering naam
 # 0.9136213	  0.7574751	       Totaal
 # 0.8916667	  0.7333333	       Veranderende cellen
 # 1.0000000	  0.8524590	       Onveranderlijke cellen
-#
+
 ## Geaggregeerde klassen
-# totaal <- tbl_evalval %>%
-#   ungroup() %>%
-#   summarise(
-#     verandering = sum(verand)/sum(n),
-#     type_verandering = sum(verand_klasse)/sum(n)
-#   ) %>%
-#   mutate(naam = "Totaal")
-# veranderend <- tbl_evalval %>%
-#   ungroup() %>%
-#   filter(lu13mapval != lu16mapval) %>%
-#   summarise(
-#     verandering = sum(verand)/sum(n),
-#     type_verandering = sum(verand_klasse)/sum(n)
-#   ) %>%
-#   mutate(naam = "Veranderende cellen")
-# onveranderd <- tbl_evalval %>%
-#   ungroup() %>%
-#   filter(lu13mapval == lu16mapval) %>%
-#   summarise(
-#     verandering = sum(verand)/sum(n),
-#     type_verandering = sum(verand_klasse)/sum(n)
-#   ) %>%
-#   mutate(naam = "Onveranderlijke cellen")
-# #
-# bind_rows(totaal, veranderend, onveranderd)
+totaal <- tbl_evalval %>%
+  ungroup() %>%
+  summarise(
+    verandering = sum(verand) / sum(n),
+    type_verandering = sum(verand_klasse) / sum(n)
+  ) %>%
+  mutate(naam = "Totaal")
+veranderend <- tbl_evalval %>%
+  ungroup() %>%
+  filter(lu13mapval != lu16mapval) %>%
+  summarise(
+    verandering = sum(verand) / sum(n),
+    type_verandering = sum(verand_klasse) / sum(n)
+  ) %>%
+  mutate(naam = "Veranderende cellen")
+onveranderd <- tbl_evalval %>%
+  ungroup() %>%
+  filter(lu13mapval == lu16mapval) %>%
+  summarise(
+    verandering = sum(verand) / sum(n),
+    type_verandering = sum(verand_klasse) / sum(n)
+  ) %>%
+  mutate(naam = "Onveranderlijke cellen")
+
+bind_rows(totaal, veranderend, onveranderd)
 ### Resultaat:
 #   verandering type_verandering  naam
 #   0.914       0.811             Totaal
@@ -711,7 +742,7 @@ plot_lu <- ov_lu %>%
     "LG" = "Laag groen"
   ))
 
-theme_set(theme_inbo2015())
+theme_set(theme_inbo())
 
 bar_lu <- ggplot(
   plot_lu %>% filter(!class %in% c(

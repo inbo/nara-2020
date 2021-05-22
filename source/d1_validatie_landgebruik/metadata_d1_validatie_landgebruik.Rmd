@@ -118,7 +118,7 @@ Voor elk punt noteerde de evaluator of het landgebruik tussen 2013 en 2016 veran
 Per evaluator werden telkens 30 punten ook door een tweede evaluator gecontroleerd om zicht te krijgen op de variatie tussen de evaluatoren.
 
 Op basis van de evaluatie van de referentiepunten wordt een foutenmatrix opgesteld, die voor elke landgebruiksklasse aangeeft welk aandeel juist geclassificeerd is en hoe de foutief geclassificeerde punten verdeeld zijn over de andere klassen.
-Via de foutenmatrix kunnen ten slotte een aantal accuraatheidsmaten worden berekend, waaronder de *overall accuracy* (OA) en de *producers accuracy* (PA) [@olofsson_good_2014 - zie [script analyse](D1_validatie-landgebruik.Rmd)].
+Via de foutenmatrix kunnen ten slotte een aantal accuraatheidsmaten worden berekend, waaronder de *overall accuracy* (OA) en de *producers accuracy* (PA) [@olofsson_good_2014 - zie [script analyse](../d1_validatie_landgebruik/d1_validatie_landgebruik.Rmd)].
 De methode van @olofsson_good_2014 laat ook toe om de oppervlakte van de gevalideerde klassen en het bijhorende betrouwbaarheidsinterval te berekenen.
 
 ```{r kaart, fig.width = 10, fig.height = 5, fig.cap = "Figuur 4. Validatiepunten en vereenvoudigde landgebruikskaart (2013) die gebruikt werden voor de validatie. De resolutie van de getoonde rasterkaart bedraagt 100 m. Voor de validatie werden de originele rasterbestanden met resolutie van 10 m gebruikt. De kleur van de validatiepunten geeft aan of het landgebruik van de cel al dan niet verandert volgens de landgebruikskaarten."}
