@@ -110,6 +110,11 @@ RUN  apt-get update \
   && apt-get install -y --no-install-recommends \
     libfontconfig1-dev
 
+## Install utils dependencies
+RUN  apt-get update \
+  && apt-get install -y --no-install-recommends \
+    libudunits2-dev
+
 ## Install xml2 dependencies
 RUN apt-get update \
   && apt-get install -y --no-install-recommends \
