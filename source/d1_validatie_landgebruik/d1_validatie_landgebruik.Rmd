@@ -425,7 +425,7 @@ validation <- function(ma, maparea) {
   # produce the overview table
   ov <- as.data.frame(round(propma, 3))
   ov$class <- rownames(ov)
-  ov <- ov %>% dplyr::select(class)
+  ov <- dplyr::select(ov, class)
   ov$totpunt <- rowSums(ma)
   ov$area_ha <- round(maparea * pixelsize) # in ha
   ov$prop_area <- round(propmaparea, 3)
