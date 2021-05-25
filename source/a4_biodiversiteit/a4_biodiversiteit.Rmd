@@ -6,7 +6,7 @@ link-citations: TRUE
 hoofdstuk: 1
 thema:
   - Natuur & maatschappij
-  - Data & infrastructuur
+  - Data & Infrastructuur
 keywords:
   - biodiversiteit
   - typologie
