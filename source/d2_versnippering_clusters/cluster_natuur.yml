@@ -1,0 +1,14 @@
+..generic:
+  git2rdata: 0.2.1
+  optimize: no
+  NA string: NA
+  hash: bb154ebfeb3379148426bb387241b3dcd6acf0ff
+  data_hash: ed5f5a12e00f21d90eddf91091e3f19843ed28cd
+OBJECTID:
+  class: integer
+Value:
+  class: integer
+Count:
+  class: numeric
+LINK:
+  class: integer
