@@ -6,6 +6,7 @@ link-citations: TRUE
 hoofdstuk: 1
 thema:
   - Natuur & maatschappij
+  - Data & infrastructuur
 keywords:
   - biodiversiteit
   - typologie
@@ -42,7 +43,8 @@ options(htmlwidgets.TOJSON_ARGS = list(pretty = TRUE))
 indicatorgegevens1 <- read_vc("indicatoren1")
 ```
 
-Indicatoren helpen het biodiversiteitsbeleid te onderbouwen. De focus van de huidige indicatorenset ligt vooral op oppervlakte- of voorraadindicatoren en soortindicatoren. Indicatoren voor genetische diversiteit ontbreken.
+Indicatoren helpen het biodiversiteitsbeleid te onderbouwen. De focus van de huidige indicatorenset ligt vooral op oppervlakte- of voorraadindicatoren en soortindicatoren.
+Indicatoren voor genetische diversiteit ontbreken.
 
 ```{r biodiversiteit}
 indicatorgegevens1 <- indicatorgegevens1 %>%
@@ -109,12 +111,12 @@ ggplot(indicatorgegevens1, aes(x = kwadrant, y = aantal, fill = Schaal)) +
 
 ## Definitie
 
-Biodiversiteitsindicatoren zijn een maatstaf om de toestand van de biodiversiteit in beeld te brengen en te evalueren. Ze moeten informatie geven over de **vier organisatieniveaus** die met elkaar interageren: diversiteit in genen, soorten, ecosystemen en landschappen [@demolder_h_hoofdstuk_2014; @noss_indicators_1990; @pereira_essential_2013]. 
+Biodiversiteitsindicatoren zijn een maatstaf om de toestand van de biodiversiteit in beeld te brengen en te evalueren. Ze moeten informatie geven over de **vier organisatieniveaus** die met elkaar interageren: diversiteit in genen, soorten, ecosystemen en landschappen [@demolder_hoofdstuk_2014; @noss_indicators_1990; @pereira_essential_2013]. 
 Soortendiversiteit is veruit het meest bestudeerd, gevolgd door ecosysteemdiversiteit. 
 De mens heeft op elk niveau een grote invloed: hij creëert nieuwe genetische variëteiten, verplaatst soorten, beïnvloedt de relaties tussen soorten, beïnvloedt de ruimtelijke patronen in landschappen, vernielt landschappen maar creëert er ook nieuwe. 
 Het is essentieel om de werking van, en interacties tussen, de schaalniveaus en de impact van de mens daarop te begrijpen om de problematiek van de achteruitgang van de biodiversiteit te vatten en kansen voor herstel te identificeren en te benutten [@schneiders_hoofdstuk_2014].
 
-Elk organisatieniveau kan vanuit vier complementaire ecologische invalshoeken bestudeerd worden [@demolder_h_hoofdstuk_2014; @noss_indicators_1990; @pereira_essential_2013] (zie Figuur): 
+Elk organisatieniveau kan vanuit vier complementaire ecologische invalshoeken bestudeerd worden [@demolder_hoofdstuk_2014; @noss_indicators_1990; @pereira_essential_2013] (zie Figuur): 
 
 - **samenstelling**: het bestuderen van de samenstellende componenten; dit omvat onder meer het opstellen van soortenlijsten of het beschrijven van de status van specifieke soorten, en het typeren van ecosystemen of historische landschappen,
 -	**functies en processen**: onder meer het bestuderen van de werking van ecosystemen en de relaties tussen soorten zoals predatie, competitie, bestuiving, productie of afbraak van organisch materiaal,

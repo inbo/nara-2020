@@ -5,6 +5,7 @@ bibliography: ../references.bib
 hoofdstuk: 1
 thema:
   - Natuur & maatschappij
+  - Data & infrastructuur
 keywords:
   - biodiversiteit
   - typologie
@@ -46,7 +47,7 @@ databereik <- 2020
 indicatorlijst <- read_vc("indicatorenlijst")
 ```
 
-## Berekeningswijze
+## Achtergrond
 
 Indicatoren zijn een essentiële tool om de toestand en trend van biodiversiteit in beeld te brengen.
 De huidige set vertelt slechts een deel van het biodiversiteitsverhaal.
@@ -60,13 +61,15 @@ Daarnaast leveren vier diverse **ecologische invalshoeken** complementaire infor
 - invalshoek 3: het analyseren van ruimtelijke structuren en patronen;
 - invalshoek 4: het besturderen van de toale voorraadkamer gaande van biomassa van populaties tot de totale oppervlakte van ecosystemen of open ruimte.
 
-Deze 4X4 typologie levert 16 mogelijke combinaties op die elk een deel van het biodiveriteitsverhaal brengen. 
+Deze 4X4 typologie levert 16 mogelijke combinaties op die elk een deel van het biodiveriteitsverhaal brengen.
+
+## Berekeningswijze
 
 Het toepassen van deze typologie op de huidige indicatorenset, toont waar op dit ogenblik de focus ligt en waar er nog grote kennishiaten zijn. Voor elke indicator ging het kernteam na welk organisatieniveau en welke ecologische invalshoek bestudeerd werd (Tabel 1).Nadien werden de aantallen per organisatieniveau en per invalshoek gesommeerd.
 
 Tabel 1 laat toe om indicatoren te selecteren per invalshoek of schaalniveau (selecteer).
 Het is ook mogelijk om zoektermen in te geven (search) en om de indicatoren te ordenen (van a tot z en omgekeerd). 
-Het resultaat kan gedownload, gekopieerd of geprint worden.
+Het resultaat kan gekopieerd of geprint worden.
 
 ```{r Tabel 1, echo=FALSE, message=FALSE, warning=FALSE}
 indicatorlijst %>%
