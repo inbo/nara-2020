@@ -1,0 +1,132 @@
+---
+title: "Versnippering - Oppervlakteverdeling natuurclusters"
+date: 2020-07-01T10:00:00
+bibliography: ../references.bib
+link-citations: TRUE
+hoofdstuk: 4
+thema:
+  - Natuur & maatschappij
+  - Beschermde natuur
+keywords:
+  - versnippering
+  - landgebruiksveranderingen
+  - connectiviteit
+  - open ruimte
+  - natuur
+lang: nl
+tab: indicator
+verantwoordelijke:
+- Maarten Stevens <maarten.stevens@inbo.be>
+output: html_document
+---
+
+```{r setup, include=FALSE}
+
+library(knitr)
+opts_chunk$set(
+  message = FALSE,
+  warning = FALSE,
+  echo = FALSE
+)
+library(tidyverse)
+library(git2rdata)
+library(plotly)
+library(INBOtheme)
+library(htmlwidgets)
+
+theme_set(theme_nara()) # het nara-kleurenpallet selecteren
+switch_colour(inbo_hoofd) # het INBO-kleurenpallet activeren
+
+set.seed(20200520)
+setWidgetIdSeed(20200520)
+options(htmlwidgets.TOJSON_ARGS = list(pretty = TRUE))
+```
+
+```{r data_inlezen, cache = TRUE}
+gegevensnr <- read_vc("cluster_natuur") # Dataset voor staafdiagrammen
+```
+
+```{r data_bewerken, results='hide', cache = TRUE}
+plotdatanr5k <- gegevensnr %>%
+  dplyr::select(Count) %>%
+  rename("area" = "Count") %>%
+  mutate(area = 100 * area / 10000) %>%
+  # area in ha
+  mutate(class = cut(area,
+    breaks = c(-0.5, 0.5, 1, 5, 10, 25, 50, 100, 500, 1000, 5000, 100000),
+    labels = c("0 tot < 0.5", "0.5 tot < 1", "1 tot < 5", "5 tot < 10",
+               "10 tot < 25", "25 tot < 50", "50 tot < 100", "100 tot < 500",
+               "500 tot < 1000", "1000 tot < 5000", ">5000")
+  )) %>%
+  mutate(class5 = cut(area,
+    breaks = c(-0.5, 1, 10, 100, 1000, 100000),
+    labels = c("< 1", "1 tot 10", "10 tot 100", "100 tot 1000", "> 1000")
+  )) %>%
+  group_by(class5) %>%
+  summarise(n = n(), area = sum(area)) %>%
+  ungroup() %>%
+  mutate(propn = n / sum(n), propa = area / sum(area)) %>%
+  gather(key = type, value = prop, propn:propa) %>%
+  mutate(typefull = ifelse(type == "propn", "Aantal", "Oppervlakte"))
+```
+
+Bijna 90 procent van de natuurclusters is kleiner dan 1 hectare.
+
+```{r staafdiagram, fig.width = 5, fig.height = 5, fig.cap = "Figuur 1. Oppervlakteverdeling van natuurclusters in Vlaanderen in 2016. Het linkse diagram toont de verdeling van clusters met een bepaalde grootte als percentage van het totale aantal clusters in de natuurruimte. Het rechtse diagram toont de verdeling als percentage van de totale oppervlakte van de natuurruimte. Deze figuur verwijst naar figuur 37 uit het Natuurrapport 2020."}
+
+# Kleurschaal voor indeling natuurruimte met 5 klassen
+colhigh <- scales::seq_gradient_pal(inbo_steun_donkerroos, inbo_hoofd,
+                                    "Lab")(seq(0, 1, length.out = 3))
+collow <- scales::seq_gradient_pal(inbo_steun_geelgroen, inbo_groen,
+                                   "Lab")(seq(0, 1, length.out = 2))
+pal <- c(colhigh, collow)
+
+bar <- ggplot(plotdatanr5k, aes(
+  x = typefull, y = prop, fill = class5,
+  text = paste(
+    "Clustergrootte: ", class5, " ha",
+    "\nAandeel: ", scales::percent((prop))
+  )
+)) +
+  geom_bar(stat = "identity", position = "stack", width = 0.7) +
+  scale_y_continuous(position = "left", labels = scales::percent,
+                     expand = c(0, 0)) +
+  scale_fill_manual(values = pal) +
+  labs(fill = "Cluster (ha)", y = "% NATUURRUIMTE") +
+  theme(
+    axis.title.x = element_blank(),
+    axis.line.x = element_line(color = "black"),
+    axis.title.y = element_text(margin = margin(t = 0, r = 10, b = 0, l = 0),
+                                hjust = 0),
+    axis.line.y = element_line(color = "black"),
+    legend.title = element_text(margin = margin(r = 10)),
+    panel.background = element_rect(
+      fill = "white", colour = "white",
+      size = 0.5, linetype = "solid"
+    ),
+    panel.grid.major.y = element_line(colour = "grey", linetype = "dotted"),
+    legend.key.size = unit(0.3, "cm"),
+    legend.position = "bottom"
+  ) +
+  guides(fill = guide_legend(nrow = 2))
+
+ggplotly(bar, tooltip = c("text"))
+```
+
+## Definitie
+
+Versnippering of fragmentatie is het opdelen van het leefgebied van soorten in verschillende kleinere gebieden door een barrière die de uitwisseling van soorten tussen de deelgebieden verhindert of vermindert.
+De clustergrootte toont de oppervlakteverdeling van de gebieden van aaneengesloten cellen die tot natuur gerekend worden.
+
+## Bespreking
+
+Bijna 90 procent van de natuurclusters is kleiner dan 1 hectare en 27 procent van de totale oppervlakte natuur is verdeeld over gebiedjes die kleiner zijn dan 10 hectare (Figuur 1).
+De analyse toont aan dat de natuurlijke ruimte zeer sterk versnipperd is. 
+Op enkele uitzonderingen na, in het noorden en oosten van Vlaanderen, komen er geen grote aaneengesloten natuurzones voor (zie ook Versnippering - Effective mesh size (Meff)).
+
+Versnippering heeft directe en indirecte effecten op de overleving en instandhouding van soorten en populaties.
+Sommige barrières die aan de basis liggen van de versnippering, zoals wegen of turbines op waterlopen, veroorzaken rechtstreekse sterfte van dieren.
+Daarnaast beïnvloeden de gevolgen van de versnippering, zoals kleinere habitatfragmenten, een toenemende isolatie van soorten en meer randeffecten, de omvang van populaties, de samenstelling van levensgemeenschappen en de soortenrijkdom [@chase_ecosystem_2020; @damschen_ongoing_2019].
+Op die manier kan versnippering op middellange en lange termijn leiden tot het verdwijnen van soorten en de aantasting van ecosysteemfuncties [@figueiredo_understanding_2019; @haddad_habitat_2015].
+
+## Referenties
