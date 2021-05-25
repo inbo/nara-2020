@@ -47,7 +47,7 @@ databereik <- 2020
 indicatorlijst <- read_vc("indicatorenlijst")
 ```
 
-## Achtergrond
+## Berekeningswijze
 
 Indicatoren zijn een essentiële tool om de toestand en trend van biodiversiteit in beeld te brengen.
 De huidige set vertelt slechts een deel van het biodiversiteitsverhaal.
