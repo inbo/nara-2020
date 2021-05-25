@@ -231,7 +231,11 @@ check_structuur <- function(path) {
     bib <- read.bib(bib, encoding = "UTF-8")
     refs_beschikbaar <- paste0("@", names(bib))
     beschikbaar <- sapply(refs_beschikbaar, grepl, refs_aanwezig)
-    beschikbaar <- rowSums(beschikbaar) > 0
+    if (length(dim(beschikbaar)) > 1) {
+      beschikbaar <- rowSums(beschikbaar) > 0
+    } else {
+      beschikbaar <- sum(beschikbaar)
+    }
     assert_that(
       all(beschikbaar),
       msg = paste(

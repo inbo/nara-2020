@@ -1,0 +1,26 @@
+Landgebruiksklasse	Validatieklasse	Geaggregeerde.klasse
+Ruigte	Open natuur	Open natuur
+Struweel	Bos	Hoog groen
+Loofbos	Bos	Hoog groen
+Populieren	Bos	Hoog groen
+Naaldbos	Bos	Hoog groen
+Alluviaal bos	Bos	Hoog groen
+Halfnatuurlijk grasland	Grasland	Open natuur
+Heide	Open natuur	Open natuur
+Kustduin	Open natuur	Open natuur
+Moeras	Open natuur	Open natuur
+Slik en schorre	Open natuur	Open natuur
+Akker	Akker	Akker
+Niet geregistreerde landbouw	Akker	Akker
+Hoogstam boomgaard	Grasland	Open natuur
+Laagstam boomgaard	Akker	Akker
+Cultuurgrasland permanent	Grasland	Open natuur
+Gebouw	Urbaan	Urbaan
+Overig laag groen	Laag groen	Open natuur
+Overig hoog groen	Hoog groen	Hoog groen
+Weg	Urbaan	Urbaan
+Spoorweg	Urbaan	Urbaan
+Water	Water	Water
+Overig	Overig	Overig
+Overgangswater	Water	Water
+Marien	Water	Water
