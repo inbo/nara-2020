@@ -1,0 +1,130 @@
+---
+title: "Druk op de biodiversiteit wereldwijd - Biodiversiteit in ontwikkelingssamenwerking"
+date: 2020-07-01T10:00:00
+bibliography: ../references.bib
+link-citations: TRUE
+hoofdstuk: 4
+thema:
+  - Natuur & maatschappij
+keywords:
+  - ontwikkelingshulp
+  - ontwikkelingssamenwerking
+  - ODA
+  - financiering
+  - biodiversiteit
+  - wereld
+  - mondiaal
+lang: nl
+tab: indicator
+verantwoordelijke:
+- Katrijn Alaerts <katrijn.alaerts@inbo.be>
+output: html_document
+---
+
+```{r setup, include=FALSE}
+library(knitr)
+opts_chunk$set(message = FALSE, warning = FALSE, echo = FALSE)
+library(tidyverse)
+library(git2rdata)
+library(plotly)
+library(INBOtheme)
+library(htmlwidgets)
+
+theme_set(theme_nara())
+switch_colour(inbo_hoofd)
+
+set.seed(20200520)
+setWidgetIdSeed(20200520)
+options(htmlwidgets.TOJSON_ARGS = list(pretty = TRUE))
+```
+
+```{r data_inlezen} 
+gegevens <- read_vc("biodiversiteitsgerelateerde_ontwikkelingshulp")
+```
+De overheidsfinanciering voor ontwikkelingssamenwerking gericht op het herstel, de bescherming en de ontwikkeling van biodiversiteit daalt.
+
+```{r grafiek, fig.width = 7, fig.height = 5, fig.cap = "Figuur 1. Belgische officiële ontwikkelingshulp (ODA) met biodiversiteit als hoofd- of significant nevendoel tussen 2010 en 2017. Brondata: Federale Overheidsdienst Buitenlandse Zaken. Deze figuur verwijst naar Figuur 68 in het Natuurrapport 2020."}
+
+gegevens <- gegevens %>%
+  gather(key = Type, value = Bedrag, -jaar) %>%
+  mutate(Type = as.factor(Type), Jaar = jaar) %>%
+  mutate(Type = factor(Type,
+    ordered = TRUE,
+    levels = c("nevendoel", "hoofddoel")
+  )) %>%
+  mutate(Type = recode(Type,
+    hoofddoel = "Biodiversiteit hoofddoel",
+    nevendoel = "Biodiversiteit significant nevendoel"
+  ))
+
+p <- ggplot(gegevens, aes(
+  x = Jaar, y = Bedrag, fill = Type,
+  text = paste(
+    "Bedrag:", round(Bedrag, 1),
+    "miljoen euro"
+  )
+)) +
+  geom_bar(stat = "identity", width = 0.5) +
+  labs(
+    x = "",
+    y = str_wrap(
+      "BELGISCHE OFFICIELE ONTWIKKELINGSHULP (miljoen euro)",
+      40
+    )
+  ) +
+  scale_y_continuous(
+    expand = c(0, 0), limits = c(0, 40),
+    breaks = c(0, 5, 10, 15, 20, 25, 30, 35)
+  ) +
+  scale_x_continuous(breaks = seq(2010, 2020, by = 1)) +
+  theme(
+    axis.title = element_text(
+      margin = margin(t = 0, r = 0, b = 0, l = 0),
+      hjust = 0
+    ),
+    legend.title = element_blank(),
+    legend.key.size = unit(0.3, "cm")
+  ) +
+  scale_fill_manual(
+    breaks = c(
+      "Biodiversiteit hoofddoel",
+      "Biodiversiteit significant nevendoel"
+    ),
+    values = c(
+      "Biodiversiteit hoofddoel" = inbo_steun_geelgroen,
+      "Biodiversiteit significant nevendoel" = inbo_hoofd
+    )
+  )
+
+if (interactive() || opts_knit$get("rmarkdown.pandoc.to") == "html") {
+  ggplotly(p, tooltip = c("x", "text", "fill")) %>%
+    plotly::config(
+      modeBarButtonsToRemove = list(
+        "lasso2d", "select2d", "hoverClosestCartesian",
+        "hoverCompareCartesian", "toggleSpikelines"
+      ),
+      displaylogo = FALSE
+    )
+} else {
+  p
+}
+```
+## Definitie
+De indicator toont hoeveel van onze **officiële ontwikkelingshulp** (*Official Development Assistance*, ODA) aan **biodiversiteitsgerelateerde doelen** wordt gespendeerd. 
+Biodiversiteitsherstel, -bescherming of -ontwikkeling kunnen het hoofddoel zijn of een significant nevendoel vormen.
+In dat laatste geval wordt niet het hele projectbudget in rekening genomen, maar slechts het geschatte aandeel dat naar biodiversiteitsdoelen gaat.
+
+De ODA omvat het budget dat onze **overheden** (federaal, regionaal, provinciaal en lokaal) besteden aan de ondersteuning van economische ontwikkeling en welvaart in ontwikkelingslanden. 
+Dat kan bilateraal (tussen donor en ontvanger) of via multilaterale organisaties zoals de VN en de Wereldbank worden toegekend, en zowel via giften, leningen als technische assistentie. 
+De uitgaven voor biodiversiteit **zonder overheidstussenkomst**, en financiering van andere dan de erkende ontwikkelingslanden zitten **niet in de cijfers vervat** (zie metadata).
+
+## Bespreking
+Het gedeelte van de Belgische officiële ontwikkelingshulp dat gericht is op biodiversiteitsgerelateerde doelen **schommelt** door de jaren heen. 
+Het **totale budget is het hoogst in 2010**. De financiering voor projecten en organisaties met biodiversiteit als hoofddoel is de laatste jaren drastisch gedaald: ze bedraagt in 2014 - 2017 nog minder dan de helft van het budget in 2010. De bijdragen met biodiversiteit als nevendoel nemen toe. 
+
+Internationale beleidskaders zoals de Agenda 2030 van de Verenigde Naties en de Europese Biodiversiteitsstrategie zetten een **toename van het budget voor biodiversiteitsgerelateerde ontwikkelingssamenwerking voorop**.
+Ook de Belgische Biodiversiteitsstrategie 2020 stelt als doel om de jaarlijkse financiële bijdragen tegen 2015 te verdubbelen ten opzichte van de gemiddelde jaarlijkse bijdragen in de periode 2006-2010.
+Hoe die bijdragen precies berekend moeten worden en welke vormen van financiering voor ontwikkelingssamenwerking meetellen, is niet vastgelegd. 
+
+Over de laatste 5 jaar (2013-2017) bedraagt de biodiversiteitsgerelateerde ODA gemiddeld zo’n 24 miljoen euro per jaar of **1,2 procent van de totale Belgische ODA**.
+De Vlaamse gewestelijke overheid neemt daarvan 14 procent voor haar rekening. Daarnaast wordt, voornamelijk vanuit de federale overheid, jaarlijks gemiddeld 65 miljoen euro gespendeerd aan de **centrale werking van multilaterale milieu- of landbouworganisaties**, die vaak ook biodiversiteitsdoelen dienen.
