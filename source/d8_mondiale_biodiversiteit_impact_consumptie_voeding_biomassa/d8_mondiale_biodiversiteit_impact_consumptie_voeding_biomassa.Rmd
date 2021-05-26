@@ -1,0 +1,258 @@
+---
+title: "Druk op de biodiversiteit wereldwijd - Impact consumptie voeding en biomassa"
+date: 2020-07-01T10:00:00
+bibliography: ../references.bib
+link-citations: TRUE
+hoofdstuk: 4
+thema:
+  - Natuur & maatschappij
+keywords:
+  - voetafdruk
+  - landvoetafdruk
+  - consumptie
+  - import
+  - invoer
+  - LCA
+  - levenscyclusanalyse
+  - mondiaal
+  - wereld
+  - biodiversiteitsverlies
+  - biomassa
+  - voeding
+  - hout
+  - papier
+  - soja
+  - rundsvlees
+  - leder
+  - rubber
+  - koffie
+  - cacao
+  - palmolie
+
+lang: nl
+tab: indicator
+verantwoordelijke:
+- Katrijn Alaerts <katrijn.alaerts@inbo.be>
+output: html_document
+---
+
+```{r setup, include=FALSE}
+library(knitr)
+opts_chunk$set(message = FALSE, warning = FALSE, echo = FALSE)
+library(tidyverse)
+library(git2rdata)
+library(plotly)
+library(INBOtheme)
+library(htmlwidgets)
+
+theme_set(theme_nara())
+switch_colour(inbo_hoofd)
+
+set.seed(20200520)
+setWidgetIdSeed(20200520)
+options(htmlwidgets.TOJSON_ARGS = list(pretty = TRUE))
+```
+
+```{r data_inlezen} 
+gegevens <- read_vc("landvoetafdruk_biomassagoederen")
+gegevens_biodiv <- read_vc("biodiversiteitsvoetafdruk_biomassagoederen")
+```
+De invoer van zeven voedings- en biomassastromen (soja, cacao, rundsvlees en leder, palmolie, koffie, natuurlijk rubber, hout en papier en hun afgeleide producten) voor Belgische consumptie veroorzaakt een landvoetafdruk die groter is dan België. Iets minder dan de helft van die oppervlakte bevindt zich in landen met een hoog risico op ontbossing. De consumptie van palmolie uit Indonesië en Maleisië, soja uit Brazilië en cacao uit Ivoorkust, Ecuador en de Dominicaanse Republiek veroorzaakt de grootste biodiversiteitsverliezen.
+
+```{r grafiek, fig.width = 9, fig.height = 6, fig.cap = "Figuur 1. Links: impact van de Belgische consumptie van 7 product(groep)en op het landgebruik in het buitenland^[Correctie van de tekst uit het Natuurrapport 2020: de figuur toont de impact van de Belgische consumptie van de 7 productgroepen op het landgebruik in het buitenland, niet: “in binnen- en buitenland”. De Belgische binnenlandse productie is niet meegenomen. De figuur geeft het gedeelte van onze invoer weer dat bestemd is voor consumptie in België.] (landvoetafdruk, in ha). Rechts: deel van de landvoetafdruk gelegen in landen met een hoog tot zeer hoog risico op ontbossing. Brondata: @jennings_risky_2019. Deze figuur verwijst naar Figuur 66 in het Natuurrapport 2020."}
+
+gegevens1 <- gegevens %>%
+  filter(voetafdruktype == "consumptie") %>%
+  mutate(prop = voetafdruk_ha / sum(voetafdruk_ha)) %>%
+  mutate(label = scales::percent(prop, accuracy = 1)) %>%
+  mutate(label2 = paste0(product, " \n", label)) %>%
+  mutate(product = factor(product,
+    levels = product[order(voetafdruk_ha,
+      decreasing = FALSE
+    )]
+  )) %>%
+  arrange(desc(product))
+
+gegevens2 <- gegevens %>%
+  filter(voetafdruktype == "consumptie met hoog ontbossingsrisico") %>%
+  mutate(prop = voetafdruk_ha / sum(voetafdruk_ha)) %>%
+  mutate(label = scales::percent(prop, accuracy = 1)) %>%
+  mutate(label2 = paste0(product, " \n", label)) %>%
+  mutate(product = factor(product, levels = levels(gegevens1$product))) %>%
+  arrange(desc(product))
+
+kleuren <- c(
+  inbo_groen, inbo_geelgr, inbo_rood, inbo_oranje,
+  inbo_steun_geelgroen, inbo_bruinrood, inbo_lichtgrijs
+)
+fig <- plot_ly(
+  data = gegevens1, labels = ~product, values = ~voetafdruk_ha,
+  marker = list(colors = kleuren),
+  direction = "clockwise",
+  textposition = "outside",
+  scalegroup = "YES",
+  textinfo = "text",
+  outsidetextfont = list(size = 12),
+  text = paste(gegevens1$label2),
+  hovertemplate = paste(
+    "</br>%{label}",
+    "<br>Voetafdruk: %{value:.0f} ha"
+  )
+) %>%
+  add_pie(
+    hole = 0.6,
+    name = "",
+    domain = list(x = c(0.05, 0.35), y = c(0, 0.9))
+  ) %>%
+  add_pie(
+    data = gegevens2,
+    labels = ~product,
+    values = ~voetafdruk_ha,
+    marker = list(colors = kleuren),
+    direction = "clockwise",
+    textposition = "outside",
+    textinfo = "text",
+    text = paste(gegevens2$label2),
+    sort = FALSE,
+    hovertemplate = paste(
+      "</br>%{label}",
+      "<br>Voetafdruk: %{value:.0f} ha"
+    ),
+    hole = 0.6,
+    name = "",
+    domain = list(x = c(0.60, 0.90), y = c(0, 0.9))
+  ) %>%
+  layout(
+    showlegend = FALSE,
+    legend = list(orientation = "h", font = list(size = 12)),
+    xaxis = list(
+      showgrid = FALSE,
+      zeroline = FALSE,
+      showticklabels = FALSE
+    ),
+    yaxis = list(
+      showgrid = FALSE,
+      zeroline = FALSE,
+      showticklabels = FALSE
+    ),
+    hoverlabel = list(font = list(size = 12)),
+    annotations = (list(
+      x = c(.08, .95),
+      y = c(.95, .95),
+      text = c(
+        "<b>Landvoetafdruk consumptie:\n3,8 Mha<b>",
+        "<b>Landvoetafdruk consumptie met hoog ontbossingsrisico:\n1,5 Mha<b>"
+      ),
+      xref = "paper",
+      yref = "paper",
+      showarrow = F, font = list(size = 12)
+    ))
+  )
+fig
+```
+
+```{r grafiek2, fig.width = 7, fig.height = 5, fig.cap = "Figuur 2. Impact van de Belgische consumptie van 7 ingevoerde product(groep)en op de biodiversiteit in de 20 meest getroffen landen, uitgedrukt in mondiale PDF (*potentially disappeared fraction of species*) en herschaald naar een cijfer tussen 0 en 100. Brondata: @jennings_risky_2019 en @chaudhary_land_2018. Deze figuur verwijst naar Figuur 67 in het Natuurrapport 2020."}
+
+biovoetafdruk <- gegevens_biodiv %>%
+  group_by(land) %>%
+  mutate(totaal = sum(score)) %>%
+  arrange(desc(totaal)) %>%
+  ungroup(land) %>%
+  group_by(product) %>%
+  mutate(tot_prod = sum(score)) %>%
+  arrange(desc(tot_prod)) %>%
+  ungroup(product)
+
+levels_land <- biovoetafdruk %>%
+  distinct(totaal, .keep_all = TRUE) %>%
+  arrange(totaal) %>%
+  dplyr::pull(land)
+
+levels_prod <- biovoetafdruk %>%
+  distinct(tot_prod, .keep_all = TRUE) %>%
+  arrange(tot_prod) %>%
+  dplyr::pull(product)
+
+biovoetafdruk <- biovoetafdruk %>%
+  mutate(land = factor(land, levels = levels_land)) %>%
+  mutate(product = factor(product, levels = levels_prod))
+
+p <- ggplot(
+  biovoetafdruk,
+  aes(
+    x = land, y = score, fill = product, width = 0.75,
+    text = paste0(
+      product, "\n Voetafdruk: ",
+      round(score, digits = 1)
+    )
+  )
+) +
+  geom_bar(stat = "identity") +
+  labs(x = "", y = "VOETAFDRUK CONSUMPTIE (PDF, herschaald)") +
+  scale_y_continuous(
+    expand = c(0, 0), limits = c(0, 110),
+    breaks = c(0, 20, 40, 60, 80, 100)
+  ) +
+  theme(
+    legend.title = element_blank(),
+    axis.title = element_text(
+      size = 9,
+      margin = margin(t = 0, r = 0, b = 0, l = 0),
+      hjust = 0
+    )
+  ) +
+  scale_fill_manual(values = c(
+    "Koffie" = inbo_bruinrood,
+    "Soja" = inbo_geelgr,
+    "Cacao" = inbo_rood,
+    "Rundsvlees en leder" = inbo_oranje,
+    "Palmolie" = inbo_steun_geelgroen,
+    "Natuurlijk rubber" = inbo_lichtgrijs,
+    "Hout en papier" = inbo_groen
+  )) +
+  coord_flip() +
+  theme(
+    panel.grid.major.y = element_blank(),
+    panel.grid.major.x = element_line(size = .1, color = "black")
+  ) +
+  guides(fill = guide_legend(reverse = TRUE))
+
+if (interactive() || opts_knit$get("rmarkdown.pandoc.to") == "html") {
+  ggplotly(p, tooltip = c("text")) %>%
+    plotly::config(
+      modeBarButtonsToRemove = list(
+        "lasso2d", "select2d", "hoverClosestCartesian",
+        "hoverCompareCartesian", "toggleSpikelines"
+      ),
+      displaylogo = FALSE
+    )
+} else {
+  p
+}
+```
+
+## Definitie
+De landvoetafdruk van onze consumptie is de hoeveelheid land die (jaarlijks) nodig is om de benodigde grond- en hulpstoffen te telen. 
+Figuur 1 toont de **landvoetafdruk van de Belgische consumptie** (ha) van zeven ingevoerde productgroepen (aandeel in %): hout en papier, rundsvlees en leder, soja, cacao, palmolie, koffie, natuurlijk rubber en hun afgeleide producten (bv. meubels, veevoer, kip of varkensvlees, chocolade, koekjes, schoonmaakproducten, biodiesel). 
+Die productgroepen staan wereldwijd bekend om hun grote impact op ontbossing. 
+Een deel van de benodigde oppervlakte bevindt zich in landen waar het risico op ontbossing hoog is.
+
+Figuur 2 toont het **biodiversiteitsverlies** dat met het land- of bosbouwgebruik samengaat, per productgroep en per land van herkomst van de grondstoffen. Hoeveel biodiversiteit verloren gaat - ten opzichte van een natuurlijke referentiesituatie - hangt af van waar (in welk land) het landgebruik zich situeert en welke productiemethodes gehanteerd worden. 
+De gebruikte maat voor biodiversiteitsverlies is de mondiale PDF (*potentially disappeared fraction of species*): het is een een maat voor het potentieel uitsterven van soorten op wereldschaal door het verlies van geschikt leefgebied.
+
+## Bespreking
+De totale buitenlandse voetafdruk van onze **consumptie** van de zeven bestudeerde productgroepen bedraagt **jaarlijks gemiddeld 3,8 megahectare of 1,2 keer de oppervlakte van België**. 
+Iets minder dan de helft daarvan bevindt zich in landen met een hoog risico op ontbossing. 
+Door de plaats, de manier en de schaal van productie dragen **cacao, soja en hun afgeleide producten het belangrijkste risico op ontbossing** in zich. 
+Ze worden op de voet gevolgd door hout- en papierproducten en in iets mindere mate ook palmolieproducten.
+
+Consumptiecijfers alleen vertellen niet het volledige verhaal. 
+Ook voor de productie van en handel in goederen die we later weer uitvoeren, gebruiken we veelvuldig grondstoffen en producten uit het buitenland. 
+De totale hoeveelheden die België van de zeven bestudeerde goederen **invoert**^[Correctie van de tekst uit het Natuurrapport 2020: het gaat om de hoeveelheden die België invoert, de eigen productie wordt niet meegeteld.] veroorzaken een landvoetafdruk van zo’n **10,4 megahectare, of 3,5 keer de oppervlakte van België**. Opnieuw bevindt iets minder dan de helft (4,2 Mha) zich in landen met een hoog risico op ontbossing (data hier niet getoond).
+
+Ontbossing leidt tot een aanzienlijk biodiversiteitsverlies, maar is niet de enige oorzaak. 
+De landvoetafdruk van de bestudeerde productstromen kan, voor de belangrijkste landen van herkomst, omgerekend worden naar een bredere maat voor **biodiversiteitsverlies op wereldschaal**. 
+Figuur 2 toont de twintig landen waarin de Belgische consumptie van de zeven goederen de grootste biodiversiteitsverliezen veroorzaakt. 
+**Palmolie uit Indonesië en Maleisië, cacao uit Ivoorkust, Ecuador en de Dominicaanse Republiek en soja uit Brazilië** hebben de grootste impact.
+
+## Referenties
