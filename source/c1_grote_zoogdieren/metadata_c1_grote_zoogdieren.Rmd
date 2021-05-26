@@ -21,9 +21,16 @@ output: html_document
 
 ```{r setup, include=FALSE}
 library(knitr)
+library(git2rdata)
+library(tidyverse)
+library(kableExtra)
+library(DT)
 opts_chunk$set(echo = FALSE, message = FALSE, warning = FALSE)
 ```
-
+```{r data_inlezen, include=FALSE}
+mensgegevens <- read_vc("biomassa_mens")
+veegegevens <- read_vc("biomassa_vee")
+```
 ```{r databereik}
 databereik <- 2018
 ```
@@ -48,7 +55,6 @@ De grootte van de provincie bepaalt het aantal groepen (van 50 te bevragen perso
   * vee (databron is STATBEL): 
     * het aantal runderen en varkens binnen STATBEL wordt bepaald via het Systeem van registratie en van toezicht op de Belgische veestapel [SANITEL](https://www.vlaanderen.be/identificatie-en-registratie-van-landbouwdieren-via-sanitel).
 
-
 ## Berekeningswijze
 
 ### Vee
@@ -57,6 +63,22 @@ De STATBEL-dataset geeft voor varkens aantal per gewichtsklasse en voor runderen
 Voor de open gewichtsklasse (bv. 50 kg en meer) bij varkens wordt op basis van [literatuur](https://lv.vlaanderen.be/sites/default/files/attachments/aanvulling_rapport_bedrijfseconomische_richtwaarden_full.pdf) een inschatting gemaakt van het gemiddeld gewicht van deze klasse: reforme zeugen bij mestvarkens werden ingeschat als 110 kg, mestvarkens van 110 kg en meer als 114 kg en fokvarkens van 50 kg en meer als 85 kg.
 De leeftijdklassen van runderen werden op basis van internetbronnen (https://deavonturenvaneenboerenmeid.com/2018/02/12/van-kalf-tot-koe-op-twee-jaar/, http://www.agripress.be/_STUDIOEMMA_UPLOADS/downloads/thesis2009288.pdf)  vertaald naar gewichtsklassen: jonger dan 1 jaar (40 tot 360 kg), 1 tot 2 jaar (360 tot 550 kg), mannelijke van meer dan 2 jaar (550 tot 1200 kg), vaarzen van meer dan 2 jaar (550 tot 750 kg) en koeien van meer dan 2 jaar (550 tot 650 kg).
 De aantallen per gewichtsklasse worden met het gemiddelde van de gewichtsklasse vermenigvuldigd.
+De berekening van de biomassa is weergegeven in Tabel 1.
+
+```{r tabel vee}
+options(OutDec = ",")
+veegegevens %>%
+  mutate_all(linebreak) %>%
+  kable(caption = "Tabel 1. Biomassaberekening runderen en varkens",
+        booktabs = TRUE,
+        escape = FALSE,
+        col.names = linebreak(
+          c("Categorie", "Aantal", "Gewichtsklasse", "Gewicht",
+            "Biomassa")),
+        align = c("l")) %>%
+  kable_styling(latex_options = c("striped", "HOLD_position"))
+```
+
 
 ### Mensen
 
@@ -66,8 +88,30 @@ Om de biomassa van mensen te berekenen op basis van de beschikbare databronnen d
 
 -	Volwassen (18+): voor volwassen mensen vonden we alleen data over de BMI. We berekenden hierbij een gemiddelde BMI per leeftijdsklasse (zie ook ¨[Tabel B.9 uit Drieskens et al. 2018](https://his.wiv-isp.be/nl/Gedeelde%20%20documenten/NS_NL_2018.pdf)). 
 We corrigeerden hierbij voor geslacht: mannen hebben een gemiddelde BMI van 26 en vrouwen van 24.8, het gemiddelde voor de Vlaming bedraagt 25.5.
-Om van BMI naar gewicht te gaan hielden we rekening met de huidige gemiddelde lengte van 166 voor vrouwen en 180 voor mannen en met een [toename van 10 cm op 100 jaar tijd](https://www.gezondheid.be/index.cfm?fuseaction=art&art_id=2819#:~:text=De%20VUB%2C%20KU%20Leuven%20en,groter%20zijn%20dan%20de%20Walen). Deze lengte komt ook overeen met de lengte van de VUB groeicurven op een leeftijd van 20 jaar. We verminderden de lengte per leeftijdsklasse met 1 cm per 10 jaar.
-De bekomen gewichten werden vermenigvuldigd met [het aantal mannen en vrouwen per leeftijdsklassen](https://www.statistiekvlaanderen.be/nl/bevolking-naar-leeftijd-en-geslacht).
+Om van BMI naar gewicht te gaan hielden we rekening met de huidige gemiddelde lengte van 166 voor vrouwen en 180 voor mannen en met een [toename van 10 cm op 100 jaar tijd](https://www.gezondheid.be/index.cfm?fuseaction=art&art_id=2819#:~:text=De%20VUB%2C%20KU%20Leuven%20en,groter%20zijn%20dan%20de%20Walen). 
+Deze lengte komt ook overeen met de lengte van de VUB groeicurven op een leeftijd van 20 jaar. We verminderden de lengte per leeftijdsklasse met 1 cm per 10 jaar.
+De bekomen gewichten werden vermenigvuldigd met [het aantal mannen en vrouwen per leeftijdsklassen](https://www.statistiekvlaanderen.be/nl/bevolking-naar-leeftijd-en-geslacht). 
+
+De berekening van de biomassa is weergegeven in Tabel 2.
+
+```{r tabel mens}
+
+options(OutDec = ",", knitr.kable.NA = "")
+mensgegevens <- mensgegevens %>%
+  arrange(Orde)
+mensgegevens %>%
+  mutate_all(linebreak) %>%
+ kable(caption = "Tabel 1. Biomassaberekening mensen",
+       booktabs = TRUE,
+       escape = FALSE,
+       col.names = linebreak(
+         c("nr", "Leeftijdsgroep", "Geslacht", "Aantal",
+         "Gemiddelde BMI", "BMI geslacht", "Lengte (m)",
+         "Gewicht (kg/pers)", "Biomassa (kg)")),
+       align = c("l")) %>%
+  kable_styling(latex_options = c("striped", "HOLD_position")) %>%
+ scroll_box(width = "800px", height = "600px")
+```
 
 ### Herten, reeën, everzwijnen
 
@@ -75,11 +119,15 @@ De aantallen en gewichten werden ingeschat op basis van terreinwaarnemingen besc
 
 - everzwijnen: tussen 2500 en 6000, in de berekening werd er rekening gehouden met 3500 everzwijnen,
 - reeën tussen 20.000 en 45.000, in de berekening werd er rekening gehouden met 30.000 reeën,
-- edelherten: 80
+- edelherten: 80,
 - damherten: 100
 
 Voor de gewichten per dier werd vertrokken van velddata. 
-Meestal betrof het data van leeggewicht. Er werd 1/4 extra gewicht bijgeteld voor de ingewanden. Het gemiddelde gewicht per everzwijn betrof 39.73 kg + 9.93 kg = 49.66 kg. Het gemiddelde gewicht per ree betrof 14.62 kg + 3.66 kg + 18.28 kg. Het gewicht van een edelhert werd geschat op 100 kg, een damhert op 60 kg.
+Meestal betrof het data van leeggewicht. 
+Er werd 1/4 extra gewicht bijgeteld voor de ingewanden. 
+Het gemiddelde gewicht per everzwijn betrof 39.73 kg + 9.93 kg = 49.66 kg. 
+Het gemiddelde gewicht per ree betrof 14.62 kg + 3.66 kg + 18.28 kg. 
+Het gewicht van een edelhert werd geschat op 100 kg, een damhert op 60 kg.
 
 De aantallen werden vermenigvuldigd met het gemiddelde gewicht. 
 Dit brengt de totale bijdrage aan biomassa voor everzwijnen op 173.819 kg, voor reeën op 548.250 kg en voor herten op 14.000 kg.
@@ -87,7 +135,7 @@ Dit brengt de totale bijdrage aan biomassa voor everzwijnen op 173.819 kg, voor 
 ## Opmerkingen bij de gegevenskwaliteit en betrouwbaarheid
 
 ### Vee
-De inschatting van het gewicht van zeugen is misschien te laag (zie bv. https://www.wur.nl/upload_mm/4/3/9/0e189b2b-509c-4881-b826-cc1cd81cde67_factsheet%20voeding%20dragende%20zeugen.pdf).
+De inschatting van het gewicht van zeugen is misschien te laag (zie bv.het [Praktijkboek Veehouderij](https://www.wur.nl/upload_mm/4/3/9/0e189b2b-509c-4881-b826-cc1cd81cde67_factsheet%20voeding%20dragende%20zeugen.pdf)).
 CBS data geeft een gemiddelde van 121 kg bij slachtingen.
 
 ### Mensen
