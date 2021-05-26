@@ -1,0 +1,258 @@
+..generic:
+  git2rdata: 0.2.1
+  optimize: no
+  NA string: NA
+  sorting: Sector
+  hash: 48a7fd946ea0e6804a1711802f020a57d23ddb4a
+  data_hash: b59ef124efadaf4b99138764466e8c79350c7a39
+Sector:
+  class: factor
+  labels:
+  - Administratieve kosten van budgethouders
+  - Bevolking en reproductieve gezondheid - Gezondheidszorg i.v.m. vruchtbaarheid
+  - Bevolking en reproductieve gezondheid - Opleiding gezondheidspersoneel
+  - Bosbouw - Bosbouwbeleid en administratief beheer
+  - Bosbouw - Bosbouwdiensten
+  - Bosbouw - Bosbouwonderzoek
+  - Bosbouw - Bosbouwontwikkeling
+  - Bosbouw - Brandhout en houtskool
+  - Bosbouw - Opleiding en vorming
+  - Conflict Vrede Veiligheid - Conflictpreventie -resolutie en Vredesopbouw
+  - Constructie - Constructiebeleid en administratief beheer
+  - Energie - Algemeen - Energiebeleid en administratief beheer
+  - Energie - Energiebeleid en administratief beheer
+  - Energie - Energieproductie van hernieuwbare bronnen
+  - Energie - Hernieuwbaar - algemeen
+  - Energie - Hernieuwbaar - Biomassa
+  - Energie - Hydro-elektrische centrales en stuwdammen
+  - Energie - Transmissie en verdeling van elektriciteit
+  - Energie - Windenergie
+  - Energie - Zonne-energie
+  - Financiën/Banken - Microkrediet
+  - Gezondheid - Basisgezondheid - Basisgezondheidszorg
+  - Gezondheid - Basisgezondheid - Basisvoeding
+  - Gezondheid - Basisgezondheid - Besmettelijke ziekten
+  - Gezondheid - Basisgezondheid - Educatie basisgezondheid
+  - Gezondheid - Basisgezondheid - Infrastructuur basisgezondheid
+  - Gezondheid - Basisgezondheid - Malaria
+  - Gezondheid - Basisgezondheid - Tuberculose
+  - Gezondheid - Gezondheidsbeleid en administratief beheer
+  - Gezondheid - Medisch onderwijs en vorming
+  - Gezondheid - Medisch onderzoek
+  - Gezondheid - Medische diensten en centra
+  - Handel - Handel vergemakkelijken
+  - Handel - Handelsbeleid en administratief beheer
+  - Handel - Technische handelsbelemmeringen
+  - Humanitaire hulp - Noodhulp - Andere dan voedselhulp
+  - Humanitaire hulp - Noodhulp - Coördinatie van noodhulp - Bescherming en ondersteunende
+    diensten
+  - Humanitaire hulp - Noodhulp - Noodvoedselhulp
+  - Humanitaire hulp - Preventie van en voorbereiding op rampen
+  - Humanitaire hulp - Reconstructie en rehabilitatie
+  - Industrie - Agro-industrie
+  - Industrie - Mijnbouw - Beleid en administratief beheer
+  - Industrie - Ontwikkeling van KMO's
+  - Landbouw en veeteelt - Alternatieve landbouwteelten (tegen drugteelt)
+  - Landbouw en veeteelt - Bescherming van gewassen en oogst, strijd tegen plagen
+  - Landbouw en veeteelt - Diergeneeskundige diensten
+  - Landbouw en veeteelt - Exportgewassen en industriële landbouwteelt
+  - Landbouw en veeteelt - Landbouwbeleid en administratief beheer
+  - Landbouw en veeteelt - Landbouwcoöperatieven
+  - Landbouw en veeteelt - Landbouwdiensten
+  - Landbouw en veeteelt - Landbouwgronden
+  - Landbouw en veeteelt - Landbouwhervormingen
+  - Landbouw en veeteelt - Landbouwkrediet
+  - Landbouw en veeteelt - Landbouwontwikkeling
+  - Landbouw en veeteelt - Landbouwproductie voor voeding
+  - Landbouw en veeteelt - Landbouwvoorlichting
+  - Landbouw en veeteelt - Onderzoek
+  - Landbouw en veeteelt - Opleiding en vorming
+  - Landbouw en veeteelt - Producten voor landbouwgebruik
+  - Landbouw en veeteelt - Veeteelt
+  - Landbouw en veeteelt - Waterhulpmiddelen voor landbouwgebruik
+  - Milieubescherming - Beleid en administratief beheer
+  - Milieubescherming - Bescherming van de biosfeer
+  - Milieubescherming - Bescherming van landschapsmonumenten
+  - Milieubescherming - Biodiversiteit
+  - Milieubescherming - Onderzoek i.v.m. het leefmilieu
+  - Milieubescherming - Opvoeding en vorming i.v.m. het leefmilieu
+  - Milieubescherming - Preventie en strijd tegen overstromingen
+  - Multisector - Multisector opleiding en vorming
+  - Multisector - Onderzoeks/wetenschappelijke instituten
+  - Multisector - Plattelandsontwikkeling
+  - Multisector - Stedelijke ontwikkeling en stadsbeheer
+  - Multisector algemeen
+  - NGO - Algemene steun voor Belgische NGO (van donorland)
+  - Onbepaald
+  - Ondernemingen - Diensten voor Commerciële doeleinden
+  - 'Onderwijs - Basis '
+  - Onderwijs - Beroepsvorming
+  - Onderwijs - Fundamentele vaardigheden voor levenskwaliteit
+  - Onderwijs - Hoger onderwijs
+  - Onderwijs - Hogere technische opleiding
+  - Onderwijs - Onderwijsbeleid en administratief beheer
+  - Onderwijs - Uitrusting en vorming
+  - Onderwijs - Vorming onderwijzend personeel
+  - Overheid en Civiele Maatschappij - Anticorruptie organisaties en instellingen
+  - Overheid en Civiele Maatschappij - Beheer van de openbare financiën
+  - Overheid en Civiele Maatschappij - Decentralisatie en steun aan subnationale overheden
+  - Overheid en Civiele Maatschappij - Democratische participatie en inspraak van
+    de burgers
+  - Overheid en Civiele Maatschappij - Mensenrechten
+  - Overheid en Civiele Maatschappij - Ontwikkeling van wettelijke en gerechtelijke
+    diensten
+  - Overheid en Civiele Maatschappij - Organisaties en instellingen voor gendergelijkheid
+  - 'Overheid en Civiele Maatschappij - Publieke sector: beleid en management'
+  - Overheid en Civiele Maatschappij - Studiefonds of expertisefonds
+  - Schuldverlichting - Algemeen
+  - Sensibilisering over hulp in het donorland
+  - Sociale infrastructuur - Cultuur en vrijetijdsbesteding
+  - Sociale infrastructuur - Plurisectorale hulp voor elementaire sociale diensten
+  - Sociale infrastructuur - Sociale diensten
+  - Sociale infrastructuur - Werkgelegenheidsbeleid en administratief beheer
+  - Toerisme - Beleid en administratief beheer
+  - Transport en opslag - Spoorvervoer
+  - Transport en opslag - Watervervoer
+  - Transport en opslag - Wegvervoer
+  - Visvangst en aquacultuur - Opleiding en vorming
+  - Visvangst en aquacultuur - Visvangstbeleid en administratief beheer
+  - Visvangst en aquacultuur - Visvangstdiensten
+  - Visvangst en aquacultuur - Visvangstonderzoek
+  - Visvangst en aquacultuur - Visvangstontwikkeling
+  - Voedselhulp - Programma's voor voedselveiligheid en -hulp
+  - Watervoorziening en -sanering - Afvalverwerking
+  - Watervoorziening en -sanering - Beleid voor watervoorziening en administratief
+    beheer
+  - Watervoorziening en -sanering - Bescherming watervoorraden
+  - Watervoorziening en -sanering - Grootschalig
+  - Watervoorziening en -sanering - Kleinschalig
+  - Watervoorziening en -sanering - Opleiding waterverdeling en sanering
+  - Watervoorziening en -sanering - Rivieren
+  - Watervoorziening en -sanering - Sanering grootschalig
+  - Watervoorziening en -sanering - Sanering kleinschalig
+  - Watervoorziening en -sanering - Watervoorziening grootschalig
+  - Watervoorziening en -sanering - Watervoorziening kleinschalig
+  index:
+  - 1
+  - 2
+  - 3
+  - 4
+  - 5
+  - 6
+  - 7
+  - 8
+  - 9
+  - 10
+  - 11
+  - 12
+  - 13
+  - 14
+  - 15
+  - 16
+  - 17
+  - 18
+  - 19
+  - 20
+  - 21
+  - 22
+  - 23
+  - 24
+  - 25
+  - 26
+  - 27
+  - 28
+  - 29
+  - 30
+  - 31
+  - 32
+  - 33
+  - 34
+  - 35
+  - 36
+  - 37
+  - 38
+  - 39
+  - 40
+  - 41
+  - 42
+  - 43
+  - 44
+  - 45
+  - 46
+  - 47
+  - 48
+  - 49
+  - 50
+  - 51
+  - 52
+  - 53
+  - 54
+  - 55
+  - 56
+  - 57
+  - 58
+  - 59
+  - 60
+  - 61
+  - 62
+  - 63
+  - 64
+  - 65
+  - 66
+  - 67
+  - 68
+  - 69
+  - 70
+  - 71
+  - 72
+  - 73
+  - 74
+  - 75
+  - 76
+  - 77
+  - 78
+  - 79
+  - 80
+  - 81
+  - 82
+  - 83
+  - 84
+  - 85
+  - 86
+  - 87
+  - 88
+  - 89
+  - 90
+  - 91
+  - 92
+  - 93
+  - 94
+  - 95
+  - 96
+  - 97
+  - 98
+  - 99
+  - 100
+  - 101
+  - 102
+  - 103
+  - 104
+  - 105
+  - 106
+  - 107
+  - 108
+  - 109
+  - 110
+  - 111
+  - 112
+  - 113
+  - 114
+  - 115
+  - 116
+  - 117
+  - 118
+  - 119
+  - 120
+  ordered: no
+Biodiversiteitsfactor:
+  class: numeric

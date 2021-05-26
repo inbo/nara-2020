@@ -1,0 +1,94 @@
+---
+title: "Metadadat druk op de biodiversiteit wereldwijd - Biodiversiteit in ontwikkelingssamenwerking"
+date: 2020-07-01T10:00:00
+bibliography: ../references.bib
+link-citations: TRUE
+hoofdstuk: 4
+thema:
+  - Natuur & maatschappij
+keywords:
+  - ontwikkelingshulp
+  - ontwikkelingssamenwerking
+  - ODA
+  - financiering
+  - biodiversiteit
+  - wereld
+  - mondiaal
+lang: nl
+tab: metadata
+verantwoordelijke:
+- Katrijn Alaerts <katrijn.alaerts@inbo.be>
+output: html_document
+---
+
+```{r setup, include=FALSE}
+library(knitr)
+opts_chunk$set(message = FALSE, warning = FALSE, echo = FALSE)
+library(git2rdata)
+```
+## Technische informatie
+**Periodiciteit**: eenmalig
+\- **Volgende update**: onbekend
+\- **Databereik**: 2010 - 2017
+
+## Databron
+- **Producent**: Instituut voor Natuur- en Bosonderzoek
+- **Dataset**: data van de Federale Overheidsdienst Buitenlandse Zaken (2019). 
+De gegevens worden gebruikt voor rapportage aan de Organisatie voor Economische Samenwerking en Ontwikkeling (OESO) over financiering in het kader de Rio-Verdragen (biodiversiteit, klimaatverandering en verwoestijning). 
+
+  De gegevens over de totale Belgische ODA per jaar zijn afkomstig van [de databank van de Commissie voor Ontwikkelingssamenwerking](https://www.oecd.org/dac/financing-sustainable-development/development-finance-standards/official-development-assistance.htm) (DAC, *Development Assistance Committee*) van de OESO. 
+- **Gegevensinzameling**: De FOD Buitenlandse Zaken screent alle bilaterale projecten en bijdragen aan de officiële Belgische ontwikkelingshulp (ODA) op hun relevantie voor biodiversiteitsdoelen. 
+Een activiteit is “biodiversiteitsgerelateerd” als ze tenminste één van de drie doelen van de Conventie voor Biologische Diversiteit nastreeft: de biodiversiteit beschermen, haar componenten (ecosystemen, soorten of genen) duurzaam gebruiken of de voordelen van het gebruik van genetische hulpbronnen eerlijk en billijk verdelen. 
+De projecten krijgen een score 2 toegekend als ze een van deze biodiversiteitsdoelen als hoofddoel hebben, score 1 als biodiversiteit een significant nevendoel vormt. 
+Dezelfde oefening gebeurt voor ODA gericht op klimaatdoelen, op het tegengaan van verwoestijning en op algemene milieudoelen. 
+
+  Daarnaast worden ook de jaarlijkse bijdragen aan de centrale werking van multilaterale organisaties (*core*-bijdragen) bijgehouden. 
+
+## Berekeningswijze
+De **bilaterale bijdragen** met biodiversiteit als hoofddoel (score 2) worden per jaar gesommeerd. 
+De bilaterale bijdragen met biodiversiteit als nevendoel (score 1) worden eerst vermenigvuldigd met een factor tussen 0 en 0,6, afhankelijk van de sector. 
+Die factor hangt samen met de mate waarin de sector door de band genomen biodiversiteitsdoelen dient. 
+Het bestand biodiversiteitsfactoren.tsv (zie download) geeft de omrekeningsfactoren per sector weer, zoals ze momenteel gebruikt worden in de rapportage van de FOD Buitenlandse Zaken. 
+
+De jaarlijkse ***core*-bijdragen** aan *Bioversity International* en het VN Verdrag voor Biologische Diversiteit, beide **multilaterale instellingen** die louter op **biodiversiteit** gericht zijn,  worden bij de bilaterale jaartotalen opgeteld.
+
+De gemiddelde jaarlijkse bijdrage aan de **centrale werking van multilaterale milieu- en landbouworganisaties** wordt berekend als het gemiddelde over de laatste vijf jaar (2013-2017) van de bijdragen aan volgende organisaties:
+
+* CGIAR - *Consultative Group on International Agricultural Research* 
+* CIAT - *International Center for Tropical Agriculture*
+* CIP - *International Potato Centre*
+* GEF - LDCF - *Global Environment Facility - Least Developed Countries Fund*
+* GEF - SCCF - *Global Environment Facility - Special Climate Change Fund*
+* GEF - *Global Environment Facility*
+* GCF - *Green Climate Fund*
+* ICARDA - *International Centre for Agricultural Research in Dry Areas*
+* ICRAF - *International Council for Research in Agro-Forestry* 
+* ICRISAT - *International Crop Research for Semi-Arid Tropics*
+* IITA - *International Institute of Tropical Agriculture*
+* ILRI - *International Livestock Research Institute* 
+* ITTO - *International Tropical Timber Organisation* 
+* UN CCD - *United Nations Convention to Combat Desertification* 
+* UN FAO - *United Nations Food and Agricultural Organisation* 
+* UN IFAD - *International Fund for Agricultural Development* 
+* UN FCCC - *United Nations Framework Convention on Climate Change UNFCCC* 
+* UNEP -  *United Nations Environmental Programme*
+* UN WFP - *United Nations World Food Programme*
+* WARDA - *West Africa Rice Development Association*
+
+## Opmerkingen bij de gegevenskwaliteit en betrouwbaarheid
+De cijfers in deze indicator bevatten **slechts een deel van de uitgaven voor biodiversiteit in ontwikkelingslanden**. 
+De ODA omvat het budget dat onze **overheden** (federaal, regionaal, provinciaal en lokaal) besteden aan de ondersteuning van economische ontwikkeling en welvaart in die landen. 
+Dat kan bilateraal (tussen donor en ontvanger) of via multilaterale organisaties zoals de VN of de Wereldbank worden toegekend en zowel via giften, leningen als technische assistentie. 
+De bilaterale hulp kan rechtstreeks naar overheden en projecten in de partnerlanden gaan, of indirect naar deze partnerlanden doorstromen via NGO’s en andere instellingen. 
+Enkel **bilaterale bijdragen en bijdragen aan de centrale werking van louter op biodiversiteit gerichte multilaterale organisaties** tellen mee in deze indicator. 
+Ook geoormerkte bijdragen aan multilaterale instellingen behoren tot de bilaterale hulp. 
+Bijdragen aan de centrale werking van andere multilaterale organisaties, financiering vanuit bedrijven of ngo’s, zonder overheidstussenkomst, en financiering van andere dan de door de DAC erkende ontwikkelingslanden zitten niet in de cijfers vervat.  
+
+De omrekeningsfactoren die gebruikt worden om het aandeel biodiversiteitsfinanciering te bepalen in de bijdragen met biodiversiteit als significant nevendoel (score 1) zijn gebaseerd op **expertinschattingen**. 
+Ze worden bepaald per sector. 
+Het werkelijke aandeel biodiversiteitsfinanciering verschilt van project tot project.
+
+## Download
+**Broncode indicator**: [d8_mondiale_biodiversiteit_ontwikkelingshulp.Rmd](../d8_mondiale_biodiversiteit_ontwikkelingshulp/d8_mondiale_biodiversiteit_ontwikkelingshulp.Rmd)
+- **Basisdata**: [biodiversiteitsgerelateerde_ontwikkelingshulp.tsv](../d8_mondiale_biodiversiteit_ontwikkelingshulp/biodiversiteitsgerelateerde_ontwikkelingshulp.tsv), [biodiversiteitsfactoren.tsv](../d8_mondiale_biodiversiteit_ontwikkelingshulp/biodiversiteitsfactoren.tsv)
+- **Metadata basisdata**:  [biodiversiteitsgerelateerde_ontwikkelingshulp.yml](../d8_mondiale_biodiversiteit_ontwikkelingshulp/biodiversiteitsgerelateerde_ontwikkelingshulp.yml), [biodiversiteitsfactoren.yml](../d8_mondiale_biodiversiteit_ontwikkelingshulp/biodiversiteitsfactoren.yml)
