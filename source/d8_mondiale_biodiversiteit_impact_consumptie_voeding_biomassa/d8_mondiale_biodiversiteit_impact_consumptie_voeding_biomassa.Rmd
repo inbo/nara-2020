@@ -145,7 +145,7 @@ fig <- plot_ly(
       ),
       xref = "paper",
       yref = "paper",
-      showarrow = F, font = list(size = 12)
+      showarrow = FALSE, font = list(size = 12)
     ))
   )
 fig
@@ -254,5 +254,3 @@ Ontbossing leidt tot een aanzienlijk biodiversiteitsverlies, maar is niet de eni
 De landvoetafdruk van de bestudeerde productstromen kan, voor de belangrijkste landen van herkomst, omgerekend worden naar een bredere maat voor **biodiversiteitsverlies op wereldschaal**. 
 Figuur 2 toont de twintig landen waarin de Belgische consumptie van de zeven goederen de grootste biodiversiteitsverliezen veroorzaakt. 
 **Palmolie uit Indonesië en Maleisië, cacao uit Ivoorkust, Ecuador en de Dominicaanse Republiek en soja uit Brazilië** hebben de grootste impact.
-
-## Referenties
