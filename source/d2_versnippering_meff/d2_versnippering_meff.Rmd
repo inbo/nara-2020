@@ -1,3 +1,4 @@
+---
 title: "Versnippering - Effective mesh size (Meff)"
 date: 2020-07-01T10:00:00
 bibliography: ../references.bib
