@@ -1,0 +1,15 @@
+..generic:
+  git2rdata: 0.3.1
+  optimize: no
+  NA string: NA
+  sorting:
+  - voetafdruktype
+  - voetafdruk_ha
+  hash: 8f8ad487a54ff4e67ca69f10b8be6ed33658e25a
+  data_hash: d9cbfc046f9c1871b3cb08fb7a1216571b34294a
+product:
+  class: character
+voetafdruk_ha:
+  class: numeric
+voetafdruktype:
+  class: character
