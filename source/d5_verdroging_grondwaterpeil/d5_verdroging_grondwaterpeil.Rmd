@@ -98,9 +98,11 @@ if (interactive() || opts_knit$get("rmarkdown.pandoc.to") == "html") {
 ```
 
 ## Definitie
+
 De indicator toont het gemiddelde aantal dagen per jaar dat het **grondwaterpeil in de buurt van grondwaterafhankelijke vegetaties onder een kritische minimumdrempel** daalt. Hoe hoger dit cijfer, hoe veelvuldiger of langduriger de periodes van droogte die de vegetaties doorheen het jaar ervaren. 
 
 ## Bespreking
+
 Een hoge **piek** in het gemiddelde aantal overschrijdingsdagen wijst op **droogte**. 
 Dat is een natuurlijk verschijnsel. 
 Als gevolg van een tekort aan neerslag is er tijdelijk minder water beschikbaar voor mens en natuur. 

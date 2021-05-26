@@ -18,17 +18,24 @@ verantwoordelijke:
 - Katrijn Alaerts <katrijn.alaerts@inbo.be>
 output: html_document
 ---
+
+## Technische informatie
+
 ```{r setup, include=FALSE}
 library(knitr)
 opts_chunk$set(message = FALSE, warning = FALSE, echo = FALSE)
 library(git2rdata)
 ```
-## Technische informatie
+
+```{r databereik}
+databereik <- "1985 - 2018"
+```
 **Periodiciteit**: tweejaarlijks
 \- **Volgende update**: 2022
-\- **Databereik**: 1985 - 2018
+\- **Databereik**: `r databereik`
 
 ## Databron
+
 - **Producent**: Instituut voor Natuur- en Bosonderzoek
 - **Dataset**: [WATINA](https://watina.inbo.be/Pages/Common/Default.aspx), een databank voor de  hydrologische monitoring van natuurgebieden in Vlaanderen
 - **Gegevensinzameling**: De (grond)waterstand in peilbuizen in Vlaamse natuurgebieden wordt frequent gemeten. Die gegevens worden aan de WATINA-databank toegevoegd. 
@@ -48,6 +55,7 @@ Die meetpunten vormen de basis voor deze indicator.
 Die data zijn afkomstig van meetstations beheerd door het Koninklijk Meteorologisch Instituut, de Vlaamse Milieumaatschappij, het Hydrologisch Informatiecentrum en het Koninklijk Nederlands Meteorologisch Instituut. 
 
 ## Berekeningswijze
+
 Voor elk van de 58 meetpunten wordt een **volledige tijdreeks** van dagelijkse grondwaterpeilen (1985 - 2018) opgebouwd. 
 Daarbij wordt zoveel mogelijk beroep gedaan op veldmetingen. 
 Ontbrekende data worden ingevuld met modelresultaten. 
@@ -76,6 +84,7 @@ UL~trend~ = Gemiddelde UL~simulatie~ + 1.96 * ((sd~simulatie~) / 20 + (20 + 1)/2
 met LL = de ondergrens en UL = de bovengrens en sd = de standaardafwijking.
 
 ## Opmerkingen bij de gegevenskwaliteit en betrouwbaarheid
+
 De conclusies uit de huidige indicator zijn niet zonder meer door te trekken naar “de grondwaterafhankelijke vegetaties in Vlaanderen”: er ontbreken nog 42 extra meetpunten om een volledig, ruimtelijk gebalanceerd en representatief droogtemeetnet te bekomen. 
 De indicator geeft enkel **aanwijzingen** voor het frequenter optreden van intense droogteperiodes en een toenemende verdroging bij grondwaterafhankelijke vegetaties in Vlaanderen. 
 
@@ -83,6 +92,7 @@ De huidige gegevens tonen aan dat het **toevoegen of schrappen van een meetpunt 
 Slechts een klein aandeel van de variatie kan toegeschreven worden aan de verschillen tussen de meetpunten, naar alle waarschijnlijkheid omdat die verschillen ook variëren in de tijd.
 
 ## Download
+
 **Broncode indicator**: [d5_verdroging_grondwaterpeil.Rmd](../d5_verdroging_grondwaterpeil/d5_verdroging_grondwaterpeil.Rmd)
 - **Basisdata**: [grondwaterpeil_vegetaties.tsv](../d5_verdroging_grondwaterpeil/grondwaterpeil_vegetaties.tsv)
 - **Metadata basisdata**: [grondwaterpeil_vegetaties.yml](../d5_verdroging_grondwaterpeil/grondwaterpeil_vegetaties.yml)
