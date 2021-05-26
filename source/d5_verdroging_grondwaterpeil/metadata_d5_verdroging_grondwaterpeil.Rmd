@@ -1,0 +1,100 @@
+---
+title: "Metadata Verdroging - Grondwaterpeil in grondwaterafhankelijke vegetaties"
+date: 2020-07-01T10:00:00
+bibliography: ../references.bib
+link-citations: TRUE
+hoofdstuk: 4
+thema:
+  - Water
+  - Klimaat
+  - Bodem & lucht
+keywords:
+  - grondwater
+  - droogte
+  - verdroging
+lang: nl
+tab: metadata
+verantwoordelijke:
+- Katrijn Alaerts <katrijn.alaerts@inbo.be>
+output: html_document
+---
+
+## Technische informatie
+
+```{r setup, include=FALSE}
+library(knitr)
+opts_chunk$set(message = FALSE, warning = FALSE, echo = FALSE)
+library(git2rdata)
+```
+
+```{r databereik}
+databereik <- "1985 - 2018"
+```
+**Periodiciteit**: tweejaarlijks
+\- **Volgende update**: 2022
+\- **Databereik**: `r databereik`
+
+## Databron
+
+- **Producent**: Instituut voor Natuur- en Bosonderzoek
+- **Dataset**: [WATINA](https://watina.inbo.be/Pages/Common/Default.aspx), een databank voor de  hydrologische monitoring van natuurgebieden in Vlaanderen
+- **Gegevensinzameling**: De (grond)waterstand in peilbuizen in Vlaamse natuurgebieden wordt frequent gemeten. Die gegevens worden aan de WATINA-databank toegevoegd. 
+Uit de databank worden 100 meetpunten geselecteerd die samen een *early warning* droogtemeetnet zullen vormen. Volgende criteria zijn van belang bij de selectie [@wouters_ontwerp_2020]:
+  + enkel peilbuizen in de buurt van **grondwaterafhankelijke vegetaties** komen in aanmerking 
+  + het geheel aan peilbuizen is min of meer **ruimtelijk gebalanceerd** (verspreid over de verschillende Vlaamse waterbekkens)
+  + de **verschillende types** van grondwaterafhankelijke vegetaties (zeer nat, nat, matig nat en vochtig milieu) zijn in de dataset vertegenwoordigd. 
+De vegetaties uit een zeer nat en nat milieu krijgen een lager gewicht (een kleiner aantal geselecteerde peilbuizen) omdat ze naar alle waarschijnlijkheid het traagst reageren op droogte. 
+  + de meetreeks in een peilbuis bevat **voldoende data** om aan de hand van modelsimulaties een betrouwbare tijdreeks op te bouwen. 
+  + de tijdreeks vertoont **geen systematische, lineaire daling of stijging** die niet door meteorologische of andere externe factoren (opstuwen, drainage, waterwinning, etc.) verklaard kan worden. 
+Minstens tweederde van de temporele variatie in de grondwaterstanden in een peilbuis is toe te schrijven aan meteorologische factoren. 
+ 
+  Van die 100 “ideale” meetpunten zijn er **momenteel slechts 58 voorhanden** die aan de laatste twee criteria beantwoorden. 
+Die meetpunten vormen de basis voor deze indicator.
+
+  Het model voor de tijdreeksanalyse gebruikt **meteorologische data** (neerslag en evapotranspiratie) als verklarende factoren. 
+Die data zijn afkomstig van meetstations beheerd door het Koninklijk Meteorologisch Instituut, de Vlaamse Milieumaatschappij, het Hydrologisch Informatiecentrum en het Koninklijk Nederlands Meteorologisch Instituut. 
+
+## Berekeningswijze
+
+Voor elk van de 58 meetpunten wordt een **volledige tijdreeks** van dagelijkse grondwaterpeilen (1985 - 2018) opgebouwd. 
+Daarbij wordt zoveel mogelijk beroep gedaan op veldmetingen. 
+Ontbrekende data worden ingevuld met modelresultaten. 
+Met het model Menyanthes [@kwr_waterware_menyanthes_2018] worden dagelijkse grondwaterstanden gesimuleerd. 
+Neerslag en evapotranspiratie vormen de verklarende variabelen van het model. 
+Het model berekent per peilbuis en per dag 20 grondwaterstand-simulaties.
+
+Voor elke peilbuis wordt een **kritische minimumdrempel** bepaald: per jaar wordt het 5%-percentiel van alle grondwatermetingen (en modelsimulaties) in de peilbuis berekend. 
+De drempel is het gemiddelde van al die 5%-percentielwaarden over 30 jaar (1985-2015) en komt overeen met een lage grondwaterstand die zich op de plaats van de peilbuis de voorbije 30 jaar gemiddeld een twintigtal dagen per jaar voordeed (0,05 x 365 dagen/jaar). 
+De werkwijze met jaarlijkse percentielwaarden wordt verkozen boven een absolute percentielwaarde van alle metingen in de peilbuis over 30 jaar, om het effect van extreem droge jaren op de indicator te temperen. Die keuze verhoogt de gevoeligheid van de indicator voor droogte. 
+
+Per meetpunt (peilbuis), per jaar en per simulatie wordt het **aantal dagen berekend dat de grondwaterstand zich beneden de kritische drempel bevindt**. 
+Gemeten waarden krijgen steeds voorrang op gesimuleerde waarden. 
+De indicatorwaarde is het gemiddelde van de twintig gesimuleerde jaargemiddelden.
+
+Om de trend in de indicatorwaarden te detecteren, wordt een **tijdreeksanalyse** uitgevoerd. 
+Voor elke simulatie verloopt die berekening als volgt: een Bayesiaans mixed model, met een *zero-inflated* negatieve binomiale verdeling en jaar als factor schat de kans in dat een gesimuleerde dagwaarde zich onder de drempel bevindt. 
+Het effect van de factor “jaar” wordt beschreven door een *random walk*-functie van de tweede orde.
+Per jaar (en simulatie) wordt de gemiddelde waarde met haar standaardafwijking berekend. 
+De trendwaarde (≠ indicatorwaarde) is het gemiddelde van de twintig geschatte gesimuleerde jaargemiddelden. Boven- en ondergrenzen van het betrouwbaarheidsinterval op de trend worden bepaald met de formule van Rubin:
+
+LL~trend~ = Gemiddelde LL~simulatie~ - 1.96 * ((sd~simulatie~) / 20 + (20 + 1)/20 * (Gemiddelde LL~simulatie~ - LL~simulatie~)²/(20 - 1))
+
+UL~trend~ = Gemiddelde UL~simulatie~ + 1.96 * ((sd~simulatie~) / 20 + (20 + 1)/20 * (Gemiddelde UL~simulatie~ - UL~simulatie~)²/(20 - 1))
+
+met LL = de ondergrens en UL = de bovengrens en sd = de standaardafwijking.
+
+## Opmerkingen bij de gegevenskwaliteit en betrouwbaarheid
+
+De conclusies uit de huidige indicator zijn niet zonder meer door te trekken naar “de grondwaterafhankelijke vegetaties in Vlaanderen”: er ontbreken nog 42 extra meetpunten om een volledig, ruimtelijk gebalanceerd en representatief droogtemeetnet te bekomen. 
+De indicator geeft enkel **aanwijzingen** voor het frequenter optreden van intense droogteperiodes en een toenemende verdroging bij grondwaterafhankelijke vegetaties in Vlaanderen. 
+
+De huidige gegevens tonen aan dat het **toevoegen of schrappen van een meetpunt een relatief lage impact heeft op de berekende trend**: de verschillen tussen de jaren bepalen de grootste variatie in de data (= metingen en simulaties). 
+Slechts een klein aandeel van de variatie kan toegeschreven worden aan de verschillen tussen de meetpunten, naar alle waarschijnlijkheid omdat die verschillen ook variëren in de tijd.
+
+## Download
+
+**Broncode indicator**: [d5_verdroging_grondwaterpeil.Rmd](../d5_verdroging_grondwaterpeil/d5_verdroging_grondwaterpeil.Rmd)
+- **Basisdata**: [grondwaterpeil_vegetaties.tsv](../d5_verdroging_grondwaterpeil/grondwaterpeil_vegetaties.tsv)
+- **Metadata basisdata**: [grondwaterpeil_vegetaties.yml](../d5_verdroging_grondwaterpeil/grondwaterpeil_vegetaties.yml)
+
+## Referenties
