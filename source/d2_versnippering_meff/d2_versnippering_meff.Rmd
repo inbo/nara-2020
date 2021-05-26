@@ -1,4 +1,3 @@
----
 title: "Versnippering - Effective mesh size (Meff)"
 date: 2020-07-01T10:00:00
 bibliography: ../references.bib
@@ -110,7 +109,7 @@ pal <- c(colhigh, colmid1[2:3], colmid2[2:3], collow[2:4])
 palinv <- rev(pal) # Volgorde omdraaien
 
 bar <- ggplot(
-  data.cut2 %>% filter(jaar == 2016),
+  data_cut2 %>% filter(jaar == 2016),
   aes(
     x = type, y = propn, fill = class,
     text = paste(
