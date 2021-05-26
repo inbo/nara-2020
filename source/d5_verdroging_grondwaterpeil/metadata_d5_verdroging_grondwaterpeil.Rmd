@@ -13,7 +13,7 @@ keywords:
   - droogte
   - verdroging
 lang: nl
-tab: indicator
+tab: metadata
 verantwoordelijke:
 - Katrijn Alaerts <katrijn.alaerts@inbo.be>
 output: html_document
