@@ -1,5 +1,5 @@
 ---
-title: "Metadata Biodiversiteit: het fundament van ons ecosysteem - Indicatorenset biodiversiteit"
+title: "Metadata biodiversiteit: het fundament van ons ecosysteem - Indicatorenset biodiversiteit"
 date: 2020-07-01T10:00:00
 bibliography: ../references.bib
 hoofdstuk: 1
