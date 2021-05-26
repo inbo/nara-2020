@@ -1,0 +1,115 @@
+..generic:
+  git2rdata: 0.2.1
+  optimize: no
+  NA string: ''
+  sorting:
+  - Categorie
+  - Gewicht
+  hash: 429f199844ed4186a09b99017800c98b4616ac40
+  data_hash: 51dd7d81839ff1d053d687fb3024b1c78fc9d254
+Categorie:
+  class: factor
+  labels:
+  - Biggen
+  - Fokvarkens
+  - Jonge varkens
+  - Koeien vanaf 2 jaar
+  - Mannelijke runderen vanaf 2 jaar
+  - Mestvarkens
+  - Runderen (< 1 jaar)
+  - Runderen (1-2 jaar)
+  - Vaarzen vanaf 2 jaar
+  index:
+  - 1
+  - 2
+  - 3
+  - 4
+  - 5
+  - 6
+  - 7
+  - 8
+  - 9
+  ordered: no
+Aantal:
+  class: factor
+  labels:
+  - 1.179.541
+  - 1.191.509
+  - 1.265.080
+  - 1.552.080
+  - '12.351'
+  - '245.056'
+  - '249.440'
+  - '394.815'
+  - '435.269'
+  - '495.484'
+  - '95.322'
+  index:
+  - 1
+  - 2
+  - 3
+  - 4
+  - 5
+  - 6
+  - 7
+  - 8
+  - 9
+  - 10
+  - 11
+  ordered: no
+Gewichtsklasse:
+  class: factor
+  labels:
+  - <20
+  - '>110'
+  - '>50'
+  - 20-50
+  - 360-550
+  - 40-360
+  - 50-80
+  - 550-1200
+  - 550-650
+  - 550-750
+  - 80-110
+  index:
+  - 1
+  - 2
+  - 3
+  - 4
+  - 5
+  - 6
+  - 7
+  - 8
+  - 9
+  - 10
+  - 11
+  ordered: no
+Gewicht:
+  class: integer
+Biomassa:
+  class: factor
+  labels:
+  - '10.807'
+  - '111.500'
+  - '112.056'
+  - '15.521'
+  - '28.436'
+  - '297.290'
+  - '31.585'
+  - '41.703'
+  - '61.959'
+  - '82.230'
+  - '87.054'
+  index:
+  - 1
+  - 2
+  - 3
+  - 4
+  - 5
+  - 6
+  - 7
+  - 8
+  - 9
+  - 10
+  - 11
+  ordered: no
