@@ -1,0 +1,100 @@
+---
+title: "Metadata versnippering - Effective mesh size (Meff)"
+date: 2020-07-01T10:00:00
+bibliography: ../references.bib
+link-citations: TRUE
+hoofdstuk: 4
+thema:
+  - Natuur & maatschappij
+  - Beschermde natuur
+keywords:
+  - versnippering
+  - landgebruiksveranderingen
+  - connectiviteit
+  - open ruimte
+  - natuur
+  - onbebouwde ruimte
+lang: nl
+tab: metadata
+verantwoordelijke:
+- Maarten Stevens <maarten.stevens@inbo.be>
+output: html_document
+---
+## Technische informatie
+
+```{r setup, include=FALSE}
+library(tidyverse)
+library(knitr)
+opts_chunk$set(echo = FALSE, message = FALSE, warning = FALSE)
+library(git2rdata)
+library(kableExtra)
+```
+
+```{r databereik}
+databereik <- "2016"
+```
+\- **Periodiciteit**: eenmalig
+\- **Volgende update**: onbekend
+\- **Databereik**: `r databereik`
+
+## Databron
+
+- **Producent**: Instituut voor Natuur- en Bosonderzoek
+- **Dataset**: [Landgebruiksbestand Vlaanderen 2016](https://www.geopunt.be/catalogus/datasetfolder/78e82101-8fbc-4a75-b649-b208df2b77be)
+- **Gegevensinzameling**: De opmaak van het landgebruiksbestand Vlaanderen wordt beschreven in @poelmans_landgebruik_2019.
+
+## Berekeningswijze
+
+De Meff (Mean EFFective mesh size of gemiddelde effectieve maasgrootte) is een maat voor de grootte van de mazen in het ecologische netwerk [@eea_landscape_2011; @schneiders_fragmentatie-indicator_2019].
+Het is een maat voor de habitatvlek waarbinnen beweging van één punt naar een ander punt in het landschap mogelijk is.
+Meff is met andere woorden de maasgrootte waarbinnen een organisme zich nog vrij kan bewegen en wordt berekend in km²:
+
+$$m_{eff} = \frac{1}{A_{totaal}}\sum_{i=1}^{n} A_{i}^2$$
+met $n$ het aantal vlekken in een rapporteringseenheid, $A_{i}$ de oppervlakte van vlek $i$ binnen de grenzen van de rapporteringseenheid en $A_{totaal}$ de oppervlakte van de rapporteringseenheid. 
+$m_{eff}$ varieert tussen 0 (de volledige rapporteringseenheid bestaat uit infrastructuur of niet-habitat) en de oppervlakte van de rapporteringsdeenheid (1 km² in ons geval).
+
+De Meff wordt berekend voor de onbebouwde ruimte en voor de natuurlijke ruimte.
+De **onbebouwde ruimte** groepeert alle landgebruikscellen die geen gebouwen, infrastructuur of afgedekte bodem zijn.
+**Natuur** omvat de ‘natuurlijke’ ecosystemen heide, moeras, bos, kustduin, halfnatuurlijk grasland en slik en schor. 
+De landgebruikskaart 2016 vormt de basis voor de afbakening van de onbebouwde en natuurlijke ruimte.
+De landgebruikskaart is gebaseerd op het landgebruiksbestand Vlaanderen 2016 [@poelmans_landgebruik_2019].
+Dit bestand bestaat uit vier thematische lagen: de bodembedekking (niveau 1), verstedelijkt landgebruik (niveau 2), multifunctioneel landgebruik (niveau 3) en haventerreinen en militaire domeinen (niveau 4).
+De bodembedekkingslaag vormt de basis van de landgebruikskaart, maar werd licht aangepast voor het Natuurrapport 2020 (Zie Landgebruiksveranderingen - Ecosysteemvoorraad Landgebruiksbestand Vlaanderen).
+
+Tabel 1 geeft een overzicht van de indeling van de klassen van de landgebruikskaart voor de afbakening van de onbebouwde ruimte en natuur.
+Permanente cultuurgraslanden en 'Overig laag groen' die onder natuurbeheer vallen, worden tot natuur gerekend.
+De percelen onder natuurbeheer zijn alle percelen die eind 2016-begin 2017 in beheer en/of eigendom waren van de erkende terreinbeherende verenigingen (Natuurpunt, Limburgs Landschap en vzw Durme) en de domeinbossen, militaire domeinen en natuurdomeinen die beheerd worden door het Agentschap voor Natuur en Bos (patrimoniumdatabank 2017).
+
+```{r tabel, echo=FALSE, message=FALSE, warning=FALSE}
+read_vc("tabel") %>%
+  rename("Onbebouwde ruimte" = "Onbebouwde.ruimte") %>%
+  kbl(caption = "Tabel 1. Indeling van de klassen van de landgebruikskaart 2016
+      voor de afbakening van de onbebouwde en natuurlijke ruimte.",
+      align = "lcc") %>%
+  kable_styling(c("striped", "hover")) %>%
+  scroll_box(width = "100%", height = "400px")
+```
+
+Barrières zoals (spoor)wegen en waterlopen delen de habitatvlekken van de onbebouwde en natuurlijke ruimte verder op in kleinere fragmenten.
+Voor de **wegen** die als barrière fungeren worden de autosnelwegen en wegen met gescheiden rijbanen geselecteerd uit het [wegenregister 2019](http://www.geopunt.be/catalogus/webservicefolder/91e33906-ef95-4a1e-810b-d135d0783f43).
+De vectorlaag met de **spoorwegen** is afkomstig uit de Mercator databank 2006.
+Voor de **waterlopen** worden de bevaarbare waterlopen en de onbevaarbare waterlopen van eerste categorie uit de [Vlaamse Hydrografische Atlas (VHA 2019)](https://www.geopunt.be/catalogus/datasetfolder/408b8ef8-b731-4358-a5b0-9e028e074180) geselecteerd.
+Alle vectorkaarten worden omgezet naar rasters met een resolutie van 10 m.
+
+## Opmerkingen bij de gegevenskwaliteit en betrouwbaarheid
+
+De Meff-score is berekend op basis van de landgebruikskaart.
+De validatie van de landgebruikskaart toont aan dat de betrouwbaarheid van de klasse 'overig' laag is (zie Landgebruiksveranderingen - Validatie).
+'Overig' blijkt vaak onterecht geklasseerd te zijn als laag groen en vise versa. 
+Vooral in droge periodes wordt heel wat laag groen niet herkend en onterecht geklasseerd als 'overig'.
+Aangezien 'overig' geen deel uitmaakt van de onbebouwde ruimte of natuur en laag groen wel, beïnvloeden de foute classificaties de uitkomst van de Meff-berekening.
+Vooral wanneer de Meff vergeleken wordt tussen verschillende jaren, moeten de resultaten met enige voorzichtigheid geïnterpreteerd worden.
+
+## Download
+
+**Broncode indicator**:
+[d2_versnippering_meff.Rmd](../d2_versnippering_meff/d2_versnippering_meff.Rmd)
+- **Basisdata**: [data.tsv](../d2_versnippering_meff/data.tsv)
+- **Metadata basisdata**: [data.yml](../d2_versnippering_meff/data.yml)
+
+## Referenties
