@@ -145,15 +145,12 @@ pred_mv <- ggpredict(mv, terms = c("fPeriode")) %>%
   mutate(ellenberg = "Vocht", sign = "")
 pred_msr <- ggpredict(msr, terms = c("Rand")) %>%
   mutate(x = recode(x, "1" = "VBI 1", "2" = "VBI 2")) %>%
-  mutate(ellenberg = "Stikstof \n rand", sign = "**")
+  mutate(ellenberg = "Stikstof rand", sign = "**")
 
 pred_m <- base::rbind(pred_ml, pred_ms, pred_msr, pred_mr, pred_mt, pred_mv)
 
 pred_ellenberg <- pred_m %>%
-  mutate(ellenberg = recode(ellenberg,
-    "Stikstof \n rand" = "Stikstof rand"
-  )) %>%
-  filter(ellenberg %in% c("Stikstof", "Stikstof rand"))
+   filter(ellenberg %in% c("Stikstof", "Stikstof rand"))
 ```
 
 Het aantal boomsoorten per bostype is toegenomen (Figuur 1), maar het aantal kruidachtigen niet (Figuur 2). 
