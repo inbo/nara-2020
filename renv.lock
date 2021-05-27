@@ -38,8 +38,8 @@
       "Package": "INBOmd",
       "Version": "0.4.9",
       "Source": "GitHub",
-      "RemoteType": "github",
       "Remotes": "inbo/INBOtheme, thierryo/qrcode",
+      "RemoteType": "github",
       "RemoteHost": "api.github.com",
       "RemoteRepo": "INBOmd",
       "RemoteUsername": "inbo",
@@ -51,14 +51,14 @@
       "Package": "INBOtheme",
       "Version": "0.5.8",
       "Source": "GitHub",
-      "RemoteType": "github",
       "Remotes": "clauswilke/colorblindr",
+      "RemoteType": "github",
       "RemoteHost": "api.github.com",
       "RemoteRepo": "INBOtheme",
       "RemoteUsername": "inbo",
       "RemoteRef": "HEAD",
       "RemoteSha": "cef02b03967f69fd074e30a83cc4dad8513b6e63",
-      "Hash": "77c33e65888d768b908cb16d7adb2b67"
+      "Hash": "224c3a80845480ee84a00afefb98a780"
     },
     "KernSmooth": {
       "Package": "KernSmooth",
@@ -130,6 +130,13 @@
       "Repository": "CRAN",
       "Hash": "dbb5e436998a7eba5a9d682060533338"
     },
+    "RcppEigen": {
+      "Package": "RcppEigen",
+      "Version": "0.3.3.9.1",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Hash": "ddfa72a87fdf4c80466a20818be91d00"
+    },
     "SQUAREM": {
       "Package": "SQUAREM",
       "Version": "2021.1",
@@ -186,6 +193,13 @@
       "Repository": "CRAN",
       "Hash": "8fb0b67dfdf9d751fc93cb0036def3cc"
     },
+    "boot": {
+      "Package": "boot",
+      "Version": "1.3-28",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Hash": "0baa960e3b49c6176a4f42addcbacc59"
+    },
     "brew": {
       "Package": "brew",
       "Version": "1.0-6",
@@ -239,8 +253,8 @@
       "Package": "checklist",
       "Version": "0.1.10",
       "Source": "GitHub",
-      "RemoteType": "github",
       "Remotes": "r-lib/devtools",
+      "RemoteType": "github",
       "RemoteHost": "api.github.com",
       "RemoteRepo": "checklist",
       "RemoteUsername": "inbo",
@@ -510,6 +524,13 @@
       "Repository": "CRAN",
       "Hash": "56f398846cd40937be6b435a66bd3f37"
     },
+    "ggeffects": {
+      "Package": "ggeffects",
+      "Version": "1.1.0",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Hash": "812769996ec93f6aaa355a5a3e0f1a7f"
+    },
     "ggplot2": {
       "Package": "ggplot2",
       "Version": "3.3.3",
@@ -657,6 +678,13 @@
       "Repository": "CRAN",
       "Hash": "6154ec2223172bce8162d4153cda21f7"
     },
+    "insight": {
+      "Package": "insight",
+      "Version": "0.14.0",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Hash": "c50bfd28b6ab8bfa5ba996d88c86dc2a"
+    },
     "ipred": {
       "Package": "ipred",
       "Version": "0.9-11",
@@ -762,6 +790,13 @@
       "Repository": "CRAN",
       "Hash": "023cecbdc0a32f86ad3cb1734c018d2e"
     },
+    "lme4": {
+      "Package": "lme4",
+      "Version": "1.1-27",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Hash": "e055d75b424a33fdc8904e5f81263789"
+    },
     "lubridate": {
       "Package": "lubridate",
       "Version": "1.7.10",
@@ -804,6 +839,13 @@
       "Repository": "CRAN",
       "Hash": "26fa77e707223e1ce042b2b5d09993dc"
     },
+    "minqa": {
+      "Package": "minqa",
+      "Version": "1.2.4",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Hash": "eaee7d2a6f3ed4491df868611cb064cc"
+    },
     "modelr": {
       "Package": "modelr",
       "Version": "0.1.8",
@@ -824,6 +866,13 @@
       "Source": "Repository",
       "Repository": "CRAN",
       "Hash": "35de1ce639f20b5e10f7f46260730c65"
+    },
+    "nloptr": {
+      "Package": "nloptr",
+      "Version": "1.2.2.2",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Hash": "2737faeee353704efec5afa1e943dd64"
     },
     "nnet": {
       "Package": "nnet",
@@ -1186,6 +1235,13 @@
       "Source": "Repository",
       "Repository": "CRAN",
       "Hash": "c12e756cf947e58b0f2c2a520521a5a8"
+    },
+    "sjlabelled": {
+      "Package": "sjlabelled",
+      "Version": "1.1.8",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Hash": "60437c5938a8d6abb1ac3b530bab024e"
     },
     "sp": {
       "Package": "sp",
