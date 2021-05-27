@@ -156,9 +156,14 @@ pred_ellenberg <- pred_m %>%
   filter(ellenberg %in% c("Stikstof", "Stikstof rand"))
 ```
 
-Het aantal boomsoorten per bostype is toegenomen (Figuur 1), maar het aantal kruidachtigen niet (Figuur 2). Van die kruidachtigen neemt het aantal oud-bosplanten wel toe, zowel in oude als in meer recente bossen (Figuur 3).
+Het aantal boomsoorten per bostype is toegenomen (Figuur 1), maar het aantal kruidachtigen niet (Figuur 2). 
+Van die kruidachtigen neemt het aantal oud-bosplanten wel toe, zowel in oude als in meer recente bossen (Figuur 3).
 De impact van stikstof op de soortensamenstelling van kruidachtigen is duidelijk te zien.
 Het aantal stikstofminnende soorten neemt toe en het effect is groter in de bosrand (Figuur 4). 
+
+## Definitie
+
+De indicatoren tonen hoe de soortenrijkdom en de soortensamenstelling van bomen en kruidachtigen evolueren tussen de eerste en tweede invenstarisatieperiode van de Vlaamse bosinventaris (VBI) en wat daarbij het effect is van het bostype, de bosleeftijd, de stikstofbelasting en de aanwezigheid van een bosrand.
 
 ## Bespreking
 
