@@ -1,0 +1,51 @@
+..generic:
+  git2rdata: 0.2.1
+  optimize: no
+  NA string: NA
+  sorting: PNV.type
+  hash: cc35f4c95c6068804efcfa43984cf1b9762bcdc7
+  data_hash: f370d7a703bf1e673a400072dfc7081bcc3b70bc
+PNV.type:
+  class: factor
+  labels:
+  - 12 - Getijden wilgenvloedbos of Elzenbroekbos
+  - 14 - Getijden wilgenvloedbos of Elzen-vogelkersbos
+  - 20 - Elzenbroekbos
+  - 23 - Elzenbroekbos kans op Bronbos
+  - 40 - Elzen-vogelkersbos
+  - 43 - Elzen-vogelkersbos kans op Bronbos
+  - 50 - Beukenbos, Eiken-Haagbeukenbos of rijke Eiken-beukenbos
+  - 68 - Typische Eiken-Beukenbos, droge variant
+  - 69 - Typische Eiken-Beukenbos, natte variant
+  - 78 - Arme Eiken-Beukenbos en Eikenbos, droge variant
+  - 79 - Arme Eiken-Beukenbos en Eikenbos, natte variant
+  index:
+  - 1
+  - 2
+  - 3
+  - 4
+  - 5
+  - 6
+  - 7
+  - 8
+  - 9
+  - 10
+  - 11
+  ordered: no
+PNV.hoofdtype:
+  class: factor
+  labels:
+  - Arm Eiken-beukenbos
+  - Eiken-beukenbos
+  - Eiken-haagbeukenbos
+  - Elzen-vogelkersbos
+  - Elzenbroekbos
+  - Wilgenvloedbos
+  index:
+  - 1
+  - 2
+  - 3
+  - 4
+  - 5
+  - 6
+  ordered: no
