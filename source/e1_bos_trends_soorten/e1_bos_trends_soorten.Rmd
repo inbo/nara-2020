@@ -128,22 +128,28 @@ mv <- lmer(data = data_ellenberg, v43_V ~ fPeriode + (1 | IDGroup))
 msr <- gls(v41_N ~ Rand, data = data_ellenberg_p2, na.action = na.omit)
 
 # Voorspelde waarden berekenen voor de grafiek
-pred_ml <- ggpredict(ml, terms = c("fPeriode")) %>%
+pred_ml <- ggpredict(ml, terms = c("fPeriode"))
+pred_ml <- pred_ml %>%
   mutate(x = recode(x, "1" = "VBI 1", "2" = "VBI 2")) %>%
   mutate(ellenberg = "Licht", sign = "**")
-pred_ms <- ggpredict(ms, terms = c("fPeriode")) %>%
+pred_ms <- ggpredict(ms, terms = c("fPeriode"))
+pred_ms <- pred_ms %>%
   mutate(x = recode(x, "1" = "VBI 1", "2" = "VBI 2")) %>%
   mutate(ellenberg = "Stikstof", sign = "**")
-pred_mr <- ggpredict(mr, terms = c("fPeriode")) %>%
+pred_mr <- ggpredict(mr, terms = c("fPeriode"))
+pred_mr <- pred_mr %>%
   mutate(x = recode(x, "1" = "VBI 1", "2" = "VBI 2")) %>%
   mutate(ellenberg = "Zuurtegraad", sign = "")
-pred_mt <- ggpredict(mt, terms = c("fPeriode")) %>%
+pred_mt <- ggpredict(mt, terms = c("fPeriode"))
+pred_mt <- pred_mt %>%
   mutate(x = recode(x, "1" = "VBI 1", "2" = "VBI 2")) %>%
   mutate(ellenberg = "Temperatuur", sign = "")
-pred_mv <- ggpredict(mv, terms = c("fPeriode")) %>%
+pred_mv <- ggpredict(mv, terms = c("fPeriode"))
+pred_mv <- pred_mv %>%
   mutate(x = recode(x, "1" = "VBI 1", "2" = "VBI 2")) %>%
   mutate(ellenberg = "Vocht", sign = "")
-pred_msr <- ggpredict(msr, terms = c("Rand")) %>%
+pred_msr <- ggpredict(msr, terms = c("Rand"))
+pred_msr <- pred_msr %>%
   mutate(x = recode(x, "1" = "VBI 1", "2" = "VBI 2")) %>%
   mutate(ellenberg = "Stikstof rand", sign = "**")
 
