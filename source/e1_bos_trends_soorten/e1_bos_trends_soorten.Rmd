@@ -76,70 +76,6 @@ m_boom <- glmer(
 pred_boom <- ggpredict(m_boom, terms = c("fPeriode", "fpnvGroup")) %>%
   mutate(x = recode(x, "1" = "VBI 1", "2" = "VBI 2"))
 
-# Kruidachtigen ----
-
-# Poisson mixed model
-m_kruid <- glmer(
-  data = datakruid, NbHerb ~ fPeriode * fpnvGroup + (1 | IDPlots),
-  family = "poisson",
-  glmerControl(
-    optimizer = "bobyqa",
-    optCtrl = list(maxfun = 2e5)
-  )
-)
-
-# Voorspelde waarden berekenen voor de grafiek
-pred_kruid <- ggpredict(m_kruid, terms = c("fPeriode", "fpnvGroup")) %>%
-  mutate(x = recode(x, "1" = "VBI 1", "2" = "VBI 2"))
-
-# Oud-bosplanten ----
-
-# Poisson mixed model
-m_oudbos <- glmer(
-  data = datakruidob,
-  NbOudbos ~ fPeriode * ForestAge + (1 | IDPlots),
-  family = "poisson"
-)
-
-# Voorspelde waarden berekenen voor de grafiek
-pred_oudbos <- ggpredict(m_oudbos, terms = c("fPeriode", "ForestAge")) %>%
-  mutate(x = recode(x, "1" = "VBI 1", "2" = "VBI 2")) %>%
-  mutate(group = recode(group,
-    "recent" = "Recent bos (voor 1850)",
-    "oud" = "Oud bos (na 1850)"
-  ))
-
-# Ellenbergwaarden ----
-
-# Periode 2 selecteren voor analyse effect bosrand
-# (randplots zijn alleen in VBI 2 aanwezig)
-data_ellenberg_p2 <- data_ellenberg %>%
-  filter(fPeriode == 2) %>%
-  mutate(Rand = recode(Rand, "Volledig in bos" = "Bos"))
-
-# Poisson mixed model
-ml <- lmer(data = data_ellenberg, v40_L ~ fPeriode + (1 | IDGroup))
-ms <- lmer(data = data_ellenberg, v41_N ~ fPeriode + (1 | IDGroup))
-mr <- lmer(data = data_ellenberg, v42_R ~ fPeriode + (1 | IDGroup))
-mt <- lmer(data = data_ellenberg, v44_T ~ fPeriode + (1 | IDGroup))
-mv <- lmer(data = data_ellenberg, v43_V ~ fPeriode + (1 | IDGroup))
-
-# Lineair model voor de analyse van het bosrandeffect
-msr <- gls(v41_N ~ Rand, data = data_ellenberg_p2, na.action = na.omit)
-
-# Voorspelde waarden berekenen voor de grafiek
-pred_ms <- ggpredict(ms, terms = c("fPeriode"))
-pred_ms <- pred_ms %>%
-  mutate(x = recode(x, "1" = "VBI 1", "2" = "VBI 2")) %>%
-  mutate(ellenberg = "Stikstof", sign = "**")
-pred_msr <- ggpredict(msr, terms = c("Rand"))
-pred_msr <- pred_msr %>%
-  mutate(x = recode(x, "1" = "VBI 1", "2" = "VBI 2")) %>%
-  mutate(ellenberg = "Stikstof rand", sign = "**")
-
-pred_m <- base::rbind(pred_ms, pred_msr)
-
-pred_ellenberg <- pred_m
 ```
 
 Het aantal boomsoorten per bostype is toegenomen (Figuur 1), maar het aantal kruidachtigen niet (Figuur 2). 
@@ -201,77 +137,12 @@ boom <- ggplot(pred_boom, aes(
 ggplotly(boom, tooltip = c("text"))
 ```
 
-
-```{r soortenrijkdom-kruid, fig.width = 8, fig.height = 4, fig.cap = "Figuur 2. Gemiddeld aantal kruidachtigen en 95% betrouwbaarheidsinterval per bostype (PNV) in de vegetatieopnames van de Vlaamse Bosinventaris (VBI). Deze figuur verwijst naar figuur 72 van het Natuurrapport 2020."}
-
-kruid <- ggplot(pred_kruid, aes(
-  x = group, y = predicted, fill = x,
-  text = paste(
-    "Periode:", x,
-    "\nAantal soorten:", round(predicted, 1),
-    "\nBI: ", round(conf.low, 1), " - ",
-    round(conf.high, 1)
-  )
-)) +
-  geom_bar(stat = "identity", position = "dodge", width = 0.8) +
-  geom_errorbar(aes(ymin = conf.low, ymax = conf.high),
-    width = 0.2,
-    colour = "black", position = position_dodge(width = 0.7)
-  ) +
-  labs(y = "AANTAL KRUIDACHTIGEN", fill = "") +
-  theme(
-    axis.title.y = element_blank(),
-    axis.title.x = element_text(
-      margin = margin(t = 5, r = 0, b = 0, l = 0),
-      hjust = 0
-    ),
-    panel.grid.major.x = element_line(
-      colour = inbo_lichtgrijs,
-      linetype = "dotted"
-    ),
-    panel.grid.major.y = element_blank()
-  ) +
-  coord_flip()
-
-ggplotly(kruid, tooltip = c("text"))
-```
-
 ### Oud-bosplanten
 
 Oud-bosplanten zijn indicatoren voor de kwaliteit en de continuïteit van een bos. 
 Het aantal oud-bosplantensoorten is laag in de meeste steekproefpunten. 
 De soortenrijkdom is beduidend hoger in oude bossen die sinds 1850 onafgebroken bos zijn, maar neemt significant toe in meer recente bossen (zie Figuur 3). 
 Dat wijst op een geleidelijk herstel van de bosflora.
-
-```{r oud-bosplanten, fig.width = 6, fig.height = 4, fig.cap = "Figuur 3. Gemiddelde soortenrijkdom en 95% betrouwbaarheidsinterval van oud-bosplanten in oude (voor 1850) en recente (na 1850) bossen in de vegetatieopnames van de Vlaamse bosinventaris (VBI). Deze figuur verwijst naar figuur 73 van het Natuurrapport 2020."}
-
-p_oudbos <- ggplot(pred_oudbos, aes(
-  x = x, y = predicted, fill = group,
-  text = paste(
-    "Bosleeftijd:", group,
-    "\nAantal soorten:", round(predicted, 1),
-    "\nBI: ", round(conf.low, 1), " - ",
-    round(conf.high, 1)
-  )
-)) +
-  geom_bar(stat = "identity", position = "dodge", width = 0.7) +
-  geom_errorbar(aes(ymin = conf.low, ymax = conf.high, ),
-    width = 0.2,
-    colour = "black", position = position_dodge(width = 0.7)
-  ) +
-  scale_y_continuous(expand = c(0, 0)) +
-  labs(y = "AANTAL SOORTEN", fill = "") +
-  theme(
-    axis.title.x = element_blank(),
-    axis.title.y = element_text(
-      margin = margin(t = 0, r = 10, b = 0, l = 0),
-      hjust = 0
-    )
-  )
-
-
-ggplotly(p_oudbos, tooltip = c("text"))
-```
 
 ### Ellenbergwaarden voor stikstof
 
@@ -280,40 +151,5 @@ Stikstofminnende soorten krijgen daardoor een competitief voordeel en breiden st
 Ellenbergwaarden weerspiegelen de voorkeur van een plantensoort voor abiotische factoren zoals het stikstofgehalte of licht.
 De gemiddelde Ellenbergwaarde voor stikstof in bosvegetaties is significant hoger in de tweede periode van de bosinventarisatie (zie Figuur 4). 
 Versnippering speelt een belangrijke rol: steekproefpunten in de bosrand hebben een hogere waarde dan punten die volledig in het bos liggen.
-
-```{r staafdiagram, fig.width = 4, fig.height = 4, fig.cap = "Figuur 4. Links (paars): gemiddelde Ellenbergwaarde voor stikstof en 95% betrouwbaarheidsinterval op basis van de vegetatieopnames in VBI 1 en VBI 2 (Vlaamse bosinventaris). Rechts (groen): gemiddelde Ellenbergwaarde voor stikstof in de proefvlakken van VBI 2 die in de bosrand en volledig in bos liggen. Deze figuur verwijst naar figuur 82 van het Natuurrapport 2020."}
-
-# Ellenbergwaarden ----
-
-p_ellenb <- ggplot(pred_ellenberg, aes(
-  x = x, y = predicted, fill = ellenberg,
-  text = paste(
-    x,
-    "\nIndicatorwaarde:", round(predicted, 1),
-    "\nBI: ", round(conf.low, 1), " - ",
-    round(conf.high, 1)
-  )
-)) +
-  geom_bar(stat = "identity", position = "dodge", width = 0.7) +
-  geom_errorbar(aes(ymin = conf.low, ymax = conf.high, ),
-    width = 0.2,
-    colour = "black", position = position_dodge(width = 0.7)
-  ) +
-  scale_y_continuous(expand = c(0, 0)) +
-  labs(y = "INDICATORWAARDE", fill = "") +
-  theme(
-    axis.title.x = element_blank(),
-    axis.title.y = element_text(
-      margin = margin(
-        t = 0, r = 10, b = 0,
-        l = 0
-      ),
-      hjust = 0
-    ),
-    legend.position = "none"
-  )
-
-ggplotly(p_ellenb, tooltip = c("text"))
-```
 
 ## Referenties
