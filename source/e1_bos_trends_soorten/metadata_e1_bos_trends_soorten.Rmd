@@ -132,13 +132,8 @@ De werkelijke soortenrijkdom is dan ook hoger dan de gerapporteerde.
 
 ## Download
 
-<<<<<<< HEAD
 **Broncode indicator**: [E1_bos_trends-soorten.Rmd](../e1_bos_trends_soorten/e1_bos_trends_soorten.Rmd)
-- **Basisdata**: [Analyseset boomsoorten](../e1_bos_trends_soorten/bomen_rijkdom.tsv); [Analyseset kruidachtigen](../e1_bos_trends_soorten/kruidachtigen_rijkdom.tsv); [Analyseset oud-bosplanten](../e1_bos_trends_soorten/oudbossoorten.tsv); [Analyseset Ellenbergwaarden](../e1_bos_trends_soorten/ellenberg.tsv) 
-=======
-**Broncode indicator**: [E1_bos_trends-soorten.Rmd](../e1_bos_trends_soorten/e1_bos_trends-soorten.Rmd)
-- **Basisdata**: [Analyseset boomsoorten](bomen_rijkdom.tsv); [Analyseset kruidachtigen](../e1_bos_trends_soorten/kruidachtigen_rijkdom.tsv); [Analyseset oud-bosplanten](../e1_bos_trends_soorten/oudbossoorten.tsv); [Analyseset Ellenbergwaarden](../e1_bos_trends_soorten/ellenberg.tsv) 
->>>>>>> fix link
+- **Basisdata**: [Analyseset boomsoorten](../e1_bos_trends_soorten/bomen_rijkdom.tsv); [Analyseset kruidachtigen](../e1_bos_trends_soorten/kruidachtigen_rijkdom.tsv); [Analyseset oud-bosplanten](../e1_bos_trends_soorten/oudbossoorten.tsv); [Analyseset Ellenbergwaarden](../e1_bos_trends_soorten/ellenberg.tsv)
 - **Metadata basisdata**: [Analyseset boomsoorten](../e1_bos_trends_soorten/bomen_rijkdom.yml); [Analyseset kruidachtigen](../e1_bos_trends_soorten/kruidachtigen_rijkdom.yml); [Analyseset oud-bosplanten](../e1_bos_trends_soorten/oudbossoorten.yml); [Analyseset Ellenbergwaarden](../e1_bos_trends_soorten/ellenberg.yml)
 
 ## Referenties

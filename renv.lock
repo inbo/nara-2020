@@ -251,16 +251,16 @@
     },
     "checklist": {
       "Package": "checklist",
-      "Version": "0.1.10",
+      "Version": "0.1.11",
       "Source": "GitHub",
-      "Remotes": "r-lib/devtools",
+      "Remotes": "ropensci/codemetar",
       "RemoteType": "github",
       "RemoteHost": "api.github.com",
       "RemoteRepo": "checklist",
       "RemoteUsername": "inbo",
       "RemoteRef": "HEAD",
-      "RemoteSha": "494da551dc46bef4bbd8d86c8efed803a407f73a",
-      "Hash": "9f4eb00ff72348c221f98afc845def39"
+      "RemoteSha": "867f045d2056daa5775dcb387f47ec6f2bbcadab",
+      "Hash": "206f98bfe7cdeb1dbcd07e154821df07"
     },
     "class": {
       "Package": "class",
