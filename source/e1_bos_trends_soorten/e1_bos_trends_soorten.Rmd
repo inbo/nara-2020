@@ -78,10 +78,10 @@ pred_boom <- ggpredict(m_boom, terms = c("fPeriode", "fpnvGroup")) %>%
 
 ```
 
-Het aantal boomsoorten per bostype is toegenomen (Figuur 1), maar het aantal kruidachtigen niet (Figuur 2). 
+Het aantal boomsoorten per bostype is toegenomen (Figuur 1), maar het aantal kruidachtigen niet (Figuur 2).
 Van die kruidachtigen neemt het aantal oud-bosplanten wel toe, zowel in oude als in meer recente bossen (Figuur 3).
 De impact van stikstof op de soortensamenstelling van kruidachtigen is duidelijk te zien.
-Het aantal stikstofminnende soorten neemt toe en het effect is groter in de bosrand (Figuur 4). 
+Het aantal stikstofminnende soorten neemt toe en het effect is groter in de bosrand (Figuur 4).
 
 ## Definitie
 
@@ -92,11 +92,11 @@ De indicatoren tonen hoe de soortenrijkdom en de soortensamenstelling van bomen 
 ### Soortenrijkdom
 
 Op basis van de eerste en tweede Vlaamse bosinventaris (VBI) wordt de soortenrijkdom van bomen en kruidachtigen per bostype bepaald.
-De potentieel natuurlijke vegetatie (PNV) geeft aan welk bostype zich op een locatie zou ontwikkelen bij natuurlijke bosontwikkeling [@de_keersmaeker_ecosysteemvisie_2001]. 
+De potentieel natuurlijke vegetatie (PNV) geeft aan welk bostype zich op een locatie zou ontwikkelen bij natuurlijke bosontwikkeling [@de_keersmaeker_ecosysteemvisie_2001].
 Het PNV-type is gebaseerd op de bodemkaart en groepeert gebieden met een gelijke potentie, maar zegt niets over het actuele bostype. De PNV-indeling wordt in de analyse gebruikt om het effect van groeiplaatsfactoren te corrigeren.
 
-Het gemiddelde aantal **boomsoorten** per proefvlak is toegenomen sinds de eerste inventarisatieperiode. 
-Vooral op zandbodems (arme eiken-beukenbossen) ligt het gemiddeld aantal soorten duidelijk hoger in de tweede periode (zie Figuur 1). 
+Het gemiddelde aantal **boomsoorten** per proefvlak is toegenomen sinds de eerste inventarisatieperiode.
+Vooral op zandbodems (arme eiken-beukenbossen) ligt het gemiddeld aantal soorten duidelijk hoger in de tweede periode (zie Figuur 1).
 Dat weerspiegelt de omvorming van homogene dennenbestanden naar gemengde (loofhout)bestanden op de zandgronden van de Kempen.
 De website van het [Agentschap Natuur en Bos](https://www.natuurenbos.be/vlaamse-bosinventaris/boomsoortensamenstelling) geeft een overzicht van de evolutie van de boomsoortensamenstelling.
 
@@ -139,17 +139,17 @@ ggplotly(boom, tooltip = c("text"))
 
 ### Oud-bosplanten
 
-Oud-bosplanten zijn indicatoren voor de kwaliteit en de continuïteit van een bos. 
-Het aantal oud-bosplantensoorten is laag in de meeste steekproefpunten. 
-De soortenrijkdom is beduidend hoger in oude bossen die sinds 1850 onafgebroken bos zijn, maar neemt significant toe in meer recente bossen (zie Figuur 3). 
+Oud-bosplanten zijn indicatoren voor de kwaliteit en de continuïteit van een bos.
+Het aantal oud-bosplantensoorten is laag in de meeste steekproefpunten.
+De soortenrijkdom is beduidend hoger in oude bossen die sinds 1850 onafgebroken bos zijn, maar neemt significant toe in meer recente bossen (zie Figuur 3).
 Dat wijst op een geleidelijk herstel van de bosflora.
 
 ### Ellenbergwaarden voor stikstof
 
 Te hoge stikstofdepositie zorgt voor vermesting en verzuring van een ecosysteem.
-Stikstofminnende soorten krijgen daardoor een competitief voordeel en breiden sterk uit ten koste van soorten uit stikstofarme milieus, die vaak een smalle ecologische niche hebben. 
+Stikstofminnende soorten krijgen daardoor een competitief voordeel en breiden sterk uit ten koste van soorten uit stikstofarme milieus, die vaak een smalle ecologische niche hebben.
 Ellenbergwaarden weerspiegelen de voorkeur van een plantensoort voor abiotische factoren zoals het stikstofgehalte of licht.
-De gemiddelde Ellenbergwaarde voor stikstof in bosvegetaties is significant hoger in de tweede periode van de bosinventarisatie (zie Figuur 4). 
+De gemiddelde Ellenbergwaarde voor stikstof in bosvegetaties is significant hoger in de tweede periode van de bosinventarisatie (zie Figuur 4).
 Versnippering speelt een belangrijke rol: steekproefpunten in de bosrand hebben een hogere waarde dan punten die volledig in het bos liggen.
 
 ## Referenties
