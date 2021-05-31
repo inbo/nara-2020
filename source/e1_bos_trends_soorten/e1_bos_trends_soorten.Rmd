@@ -129,6 +129,9 @@ msr <- gls(v41_N ~ Rand, data = data_ellenberg_p2, na.action = na.omit)
 
 # Voorspelde waarden berekenen voor de grafiek
 pred_ms <- ggpredict(ms, terms = c("fPeriode"))
+pred_ms <- pred_ms %>%
+  mutate(x = recode(x, "1" = "VBI 1", "2" = "VBI 2")) %>%
+  mutate(ellenberg = "Stikstof", sign = "**")
 ```
 
 Het aantal boomsoorten per bostype is toegenomen (Figuur 1), maar het aantal kruidachtigen niet (Figuur 2).
