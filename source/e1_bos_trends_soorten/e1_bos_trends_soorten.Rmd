@@ -132,7 +132,8 @@ pred_ms <- pred_ms %>%
   rename(conflow = conf.low, confhigh = conf.high)
 
 # Voorspelde waarden voor gls
-pred_msr <- data.frame(Rand = c("Rand", "Bos"))
+data_ellenberg_p2 %>%
+  distinct(Rand) -> pred_msr
 pred_msr$predicted <- predict(msr, newdata = pred_msr)
 modmat <-  model.matrix(formula(msr)[-2], pred_msr)
 int <- diag(modmat %*% vcov(msr) %*% t(modmat))
