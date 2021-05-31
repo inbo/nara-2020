@@ -123,6 +123,12 @@ ms <- lmer(data = data_ellenberg, v41_N ~ fPeriode + (1 | IDGroup))
 mr <- lmer(data = data_ellenberg, v42_R ~ fPeriode + (1 | IDGroup))
 mt <- lmer(data = data_ellenberg, v44_T ~ fPeriode + (1 | IDGroup))
 mv <- lmer(data = data_ellenberg, v43_V ~ fPeriode + (1 | IDGroup))
+
+# Lineair model voor de analyse van het bosrandeffect
+msr <- gls(v41_N ~ Rand, data = data_ellenberg_p2, na.action = na.omit)
+
+# Voorspelde waarden berekenen voor de grafiek
+pred_ms <- ggpredict(ms, terms = c("fPeriode"))
 ```
 
 Het aantal boomsoorten per bostype is toegenomen (Figuur 1), maar het aantal kruidachtigen niet (Figuur 2).
