@@ -248,4 +248,39 @@ Ellenbergwaarden weerspiegelen de voorkeur van een plantensoort voor abiotische 
 De gemiddelde Ellenbergwaarde voor stikstof in bosvegetaties is significant hoger in de tweede periode van de bosinventarisatie (zie Figuur 4).
 Versnippering speelt een belangrijke rol: steekproefpunten in de bosrand hebben een hogere waarde dan punten die volledig in het bos liggen.
 
+```{r staafdiagram, fig.width = 4, fig.height = 4, fig.cap = "Figuur 4. Links (paars): gemiddelde Ellenbergwaarde voor stikstof en 95% betrouwbaarheidsinterval op basis van de vegetatieopnames in VBI 1 en VBI 2 (Vlaamse bosinventaris). Rechts (groen): gemiddelde Ellenbergwaarde voor stikstof in de proefvlakken van VBI 2 die in de bosrand en volledig in bos liggen. Deze figuur verwijst naar figuur 82 van het Natuurrapport 2020."}
+
+# Ellenbergwaarden ----
+
+p_ellenb <- ggplot(pred_ellenberg, aes(
+  x = x, y = predicted, fill = ellenberg,
+  text = paste(
+    x,
+    "\nIndicatorwaarde:", round(predicted, 1),
+    "\nBI: ", round(conf.low, 1), " - ",
+    round(conf.high, 1)
+  )
+)) +
+  geom_bar(stat = "identity", position = "dodge", width = 0.7) +
+  geom_errorbar(aes(ymin = conf.low, ymax = conf.high, ),
+    width = 0.2,
+    colour = "black", position = position_dodge(width = 0.7)
+  ) +
+  scale_y_continuous(expand = c(0, 0)) +
+  labs(y = "INDICATORWAARDE", fill = "") +
+  theme(
+    axis.title.x = element_blank(),
+    axis.title.y = element_text(
+      margin = margin(
+        t = 0, r = 10, b = 0,
+        l = 0
+      ),
+      hjust = 0
+    ),
+    legend.position = "none"
+  )
+
+ggplotly(p_ellenb, tooltip = c("text"))
+```
+
 ## Referenties
