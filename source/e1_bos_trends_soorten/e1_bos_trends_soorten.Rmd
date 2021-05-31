@@ -128,15 +128,16 @@ pred_ms <- ggpredict(ms, terms = c("fPeriode"))
 pred_ms <- pred_ms %>%
   dplyr::select(-c(std.error, group)) %>%
   mutate(x = recode(x, "1" = "VBI 1", "2" = "VBI 2")) %>%
-  mutate(ellenberg = "Stikstof", sign = "**")
+  mutate(ellenberg = "Stikstof", sign = "**") %>%
+  rename(conflow = conf.low, confhigh = conf.high)
 
 # Voorspelde waarden voor gls
 pred_msr <- data.frame(Rand = c("Rand", "Bos"))
 pred_msr$predicted <- predict(msr, newdata = pred_msr)
 modmat <-  model.matrix(formula(msr)[-2], pred_msr)
 int <- diag(modmat %*% vcov(msr) %*% t(modmat))
-pred_msr$conf.low <- with(pred_msr, predicted - 1.96 * sqrt(int))
-pred_msr$conf.high <- with(pred_msr, predicted + 1.96 * sqrt(int))
+pred_msr$conflow <- with(pred_msr, predicted - 1.96 * sqrt(int))
+pred_msr$confhigh <- with(pred_msr, predicted + 1.96 * sqrt(int))
 pred_msr <- pred_msr %>%
   rename(x = Rand) %>%
   mutate(ellenberg = "Stikstof rand", sign = "**")
@@ -293,12 +294,12 @@ p_ellenb <- ggplot(pred_ellenberg, aes(
   text = paste(
     x,
     "\nIndicatorwaarde:", round(predicted, 1),
-    "\nBI: ", round(conf.low, 1), " - ",
-    round(conf.high, 1)
+    "\nBI: ", round(conflow, 1), " - ",
+    round(confhigh, 1)
   )
 )) +
   geom_bar(stat = "identity", position = "dodge", width = 0.7) +
-  geom_errorbar(aes(ymin = conf.low, ymax = conf.high, ),
+  geom_errorbar(aes(ymin = conflow, ymax = confhigh, ),
     width = 0.2,
     colour = "black", position = position_dodge(width = 0.7)
   ) +
