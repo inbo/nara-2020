@@ -1,0 +1,793 @@
+..generic:
+  git2rdata: 0.2.1
+  optimize: no
+  NA string: NA
+  sorting: IDPlots
+  hash: 0029403bf9815987e2d1632f1a06c45d77a3d7b6
+  data_hash: a29467e8668557f5995919568835d7e8f8493226
+rownames:
+  class: integer
+IDPlots:
+  class: integer
+Periode:
+  class: numeric
+IDTreeSp:
+  class: integer
+ID:
+  class: numeric
+Perimeter_cm:
+  class: numeric
+Diameter_cm:
+  class: numeric
+Height_m:
+  class: numeric
+HeightForVolCalc:
+  class: numeric
+BasalArea_m2:
+  class: numeric
+Volume:
+  class: numeric
+VolumeKroon:
+  class: numeric
+VolumeTotaal:
+  class: numeric
+StatusTreeCode:
+  class: numeric
+Coppice_IndividualCode:
+  class: numeric
+BOOMNR_VBI1_A2:
+  class: integer
+IDStoofVBI1:
+  class: numeric
+X_m:
+  class: numeric
+Y_m:
+  class: numeric
+OldID:
+  class: integer
+IDSegments:
+  class: numeric
+PlotWeight:
+  class: numeric
+SegmentWeight:
+  class: numeric
+AreaA4_m2:
+  class: numeric
+AreaA3_m2:
+  class: numeric
+AreaA2_m2:
+  class: numeric
+StatusTree:
+  class: factor
+  labels:
+  - dood
+  - levend
+  index:
+  - 1
+  - 2
+  ordered: no
+PotArea:
+  class: numeric
+IntactTreeCode:
+  class: numeric
+NewOrMissingTree:
+  class: integer
+NameNl:
+  class: factor
+  labels:
+  - _ANDERE SOORT
+  - Amerikaans krentenboompje
+  - Amerikaanse eik
+  - Amerikaanse vogelkers
+  - ander loofhout
+  - ander naaldhout
+  - Appel (G)
+  - Berk
+  - Beuk
+  - Bittere wilg
+  - Boskers
+  - Boswilg
+  - Cipres
+  - Corsicaanse den
+  - Den
+  - Douglas
+  - Eenstijlige meidoorn
+  - Es/Esdoorn
+  - Fijnspar
+  - Fladderiep
+  - Gelderse roos
+  - Gewone es
+  - Gewone esdoorn
+  - Gewone vlier
+  - Gladde iep
+  - Goudenregen
+  - Grauwe abeel
+  - Grauwe wilg
+  - Grove den
+  - Haagbeuk
+  - Hazelaar
+  - Hemlockspar
+  - Hopboom
+  - Hulst
+  - Inlandse eik
+  - Kornoelje
+  - Kraakwilg
+  - Laurierkers
+  - Liguster
+  - Linde
+  - Lork species
+  - Meelbes
+  - Meidoorn species
+  - Mispel
+  - Moerascipres
+  - Moeraseik
+  - Noorse esdoorn
+  - Olm
+  - Paardekastanje
+  - Peer (G)
+  - Plataan
+  - Pontische rhododendron
+  - Populier
+  - Ratelpopulier
+  - Reuzenzilverspar
+  - Robinia (gewone)
+  - Rode kornoelje
+  - Ruwe berk
+  - Schietwilg
+  - Sequoia
+  - Sleedoorn
+  - Spaanse aak
+  - Spar species
+  - Sporkehout
+  - Tamme kastanje
+  - Taxus
+  - Vederesdoorn
+  - Vogelkers (europese)
+  - Walnoot
+  - Weymouthden
+  - Wilde appel
+  - Wilde kardinaalsmuts
+  - Wilde lijsterbes
+  - Wilg breedbladige species
+  - Wilg smalbladige species
+  - Wilg species
+  - Wintereik
+  - Witte els (grauwe)
+  - Witte en Grauwe abeel
+  - Zachte berk
+  - Zeeden
+  - Zilverspar
+  - Zomereik
+  - Zomerlinde
+  - Zure kers
+  - Zwarte els
+  - Zwarte populier
+  - Zwarte walnoot
+  index:
+  - 1
+  - 2
+  - 3
+  - 4
+  - 5
+  - 6
+  - 7
+  - 8
+  - 9
+  - 10
+  - 11
+  - 12
+  - 13
+  - 14
+  - 15
+  - 16
+  - 17
+  - 18
+  - 19
+  - 20
+  - 21
+  - 22
+  - 23
+  - 24
+  - 25
+  - 26
+  - 27
+  - 28
+  - 29
+  - 30
+  - 31
+  - 32
+  - 33
+  - 34
+  - 35
+  - 36
+  - 37
+  - 38
+  - 39
+  - 40
+  - 41
+  - 42
+  - 43
+  - 44
+  - 45
+  - 46
+  - 47
+  - 48
+  - 49
+  - 50
+  - 51
+  - 52
+  - 53
+  - 54
+  - 55
+  - 56
+  - 57
+  - 58
+  - 59
+  - 60
+  - 61
+  - 62
+  - 63
+  - 64
+  - 65
+  - 66
+  - 67
+  - 68
+  - 69
+  - 70
+  - 71
+  - 72
+  - 73
+  - 74
+  - 75
+  - 76
+  - 77
+  - 78
+  - 79
+  - 80
+  - 81
+  - 82
+  - 83
+  - 84
+  - 85
+  - 86
+  - 87
+  - 88
+  ordered: no
+NameSc_long:
+  class: factor
+  labels:
+  - Abies alba Mill.
+  - Abies grandis
+  - Acer campestre L.
+  - Acer negundo L.
+  - Acer platanoides L.
+  - Acer pseudoplatanus L.
+  - Aesculus hippocastanum
+  - Alnus glutinosa (L.) Gaertn.
+  - Alnus incana (L.) Moench
+  - Amelanchier lamarckii F.G. Schroed
+  - Betula pendula Roth
+  - Betula pubescens Ehrh.
+  - Betula tremula/alba
+  - Carpinus betulus L.
+  - Castanea sativa Mill.
+  - Cornus sanguinea L.
+  - Cornus species
+  - Corylus avellana L.
+  - Crataegus monogyna Jacq.
+  - Crataegus species
+  - Cupressus species
+  - Euonymus europaeus L.
+  - F. excelsior/A. pseudoplatanus
+  - Fagus sylvatica L.
+  - Frangula alnus Mill.
+  - Fraxinus excelsior L.
+  - Ilex aquifolium L.
+  - Juglans nigra
+  - Juglans regia L.
+  - Laburnum anagyroides Fabr.
+  - Larix species
+  - Ligustrum species
+  - Loofhout species
+  - Malus
+  - Malus sylvestris (L.) Mill.
+  - Mespilus germanica L.
+  - Naaldhout species
+  - Picea abies
+  - Picea species
+  - Pinus nigra
+  - Pinus pinaster
+  - Pinus species
+  - Pinus strobus
+  - Pinus sylvestris L.
+  - Platanus hispanica L.
+  - Populus alba (+ P. x canescens)
+  - Populus canescens
+  - Populus nigra L. var. nigra
+  - Populus species
+  - Populus tremula L.
+  - Prunus avium (L.) L.
+  - Prunus cerasus L.
+  - Prunus laurocerasus L.
+  - Prunus padus L.
+  - Prunus serotina Ehrh.
+  - Prunus spinosa L.
+  - Pseudotsuga menziesii
+  - Ptelea trifoliata L.
+  - Pyrus species
+  - Quercus palustris L.
+  - Quercus petraea Lieblein
+  - Quercus robur L.
+  - Quercus robur/petraea
+  - Quercus rubra L.
+  - Rhododendron ponticum
+  - Robinia pseudoacacia L.
+  - Salix 'cinerea' groep
+  - Salix 'fragilis' groep
+  - Salix alba
+  - Salix caprea
+  - Salix purpurea L.
+  - Salix spec
+  - Salix spp. (broad leaves)
+  - Salix spp. (small leaves)
+  - Sambucus nigra L.
+  - Sequoia species
+  - Sorbus aria L.
+  - Sorbus aucuparia L.
+  - Taxodium distichum
+  - Taxus baccata L.
+  - Tilia 'platyphyllos' groep
+  - Tilia species
+  - Tsuga species
+  - Ulmus laevis Pallas
+  - Ulmus minor Mill.
+  - Ulmus species
+  - Viburnum opulus L.
+  index:
+  - 1
+  - 2
+  - 3
+  - 4
+  - 5
+  - 6
+  - 7
+  - 8
+  - 9
+  - 10
+  - 11
+  - 12
+  - 13
+  - 14
+  - 15
+  - 16
+  - 17
+  - 18
+  - 19
+  - 20
+  - 21
+  - 22
+  - 23
+  - 24
+  - 25
+  - 26
+  - 27
+  - 28
+  - 29
+  - 30
+  - 31
+  - 32
+  - 33
+  - 34
+  - 35
+  - 36
+  - 37
+  - 38
+  - 39
+  - 40
+  - 41
+  - 42
+  - 43
+  - 44
+  - 45
+  - 46
+  - 47
+  - 48
+  - 49
+  - 50
+  - 51
+  - 52
+  - 53
+  - 54
+  - 55
+  - 56
+  - 57
+  - 58
+  - 59
+  - 60
+  - 61
+  - 62
+  - 63
+  - 64
+  - 65
+  - 66
+  - 67
+  - 68
+  - 69
+  - 70
+  - 71
+  - 72
+  - 73
+  - 74
+  - 75
+  - 76
+  - 77
+  - 78
+  - 79
+  - 80
+  - 81
+  - 82
+  - 83
+  - 84
+  - 85
+  - 86
+  - 87
+  ordered: no
+Species:
+  class: factor
+  labels:
+  - Abies alba
+  - Abies grandis
+  - Acer campestre
+  - Acer negundo
+  - Acer platanoides
+  - Acer pseudoplatanus
+  - Aesculus hippocastanum
+  - Alnus glutinosa
+  - Alnus incana
+  - Amelanchier lamarckii
+  - Betula pendula
+  - Betula pubescens
+  - Betula species
+  - Carpinus betulus
+  - Castanea sativa
+  - Cornus sanguinea
+  - Cornus species
+  - Corylus avellana
+  - Crataegus monogyna
+  - Crataegus species
+  - Cupressus species
+  - Euonymus europaeus
+  - Fagus sylvatica
+  - Frangula alnus
+  - Fraxinus excelsior
+  - 'Fraxinus/Acer '
+  - Ilex aquifolium
+  - Juglans nigra
+  - Juglans regia
+  - Laburnum anagyroides
+  - Larix species
+  - Ligustrum species
+  - Loofhout species
+  - Malus species
+  - Malus sylvestris
+  - Mespilus germanica
+  - NA NA
+  - Naaldhout species
+  - Picea abies
+  - Picea species
+  - Pinus nigra
+  - Pinus pinaster
+  - Pinus species
+  - Pinus strobus
+  - Pinus sylvestris
+  - Platanus hispanica
+  - Populus alba/canescens
+  - Populus canescens
+  - Populus nigra
+  - Populus species
+  - Populus tremula
+  - Prunus avium
+  - Prunus cerasus
+  - Prunus laurocerasus
+  - Prunus padus
+  - Prunus serotina
+  - Prunus spinosa
+  - Pseudotsuga menziesii
+  - Ptelea trifoliata
+  - Pyrus species
+  - Quercus palustris
+  - Quercus petraea
+  - Quercus robur
+  - Quercus robur/petraea
+  - Quercus rubra
+  - Rhododendron ponticum
+  - Robinia pseudoacacia
+  - Salix alba
+  - Salix caprea
+  - Salix cinerea
+  - Salix fragilis
+  - Salix purpurea
+  - Salix spec
+  - Salix spp. (broad leaves)
+  - Salix spp. (small leaves)
+  - Sambucus nigra
+  - Sequoia species
+  - Sorbus aria
+  - Sorbus aucuparia
+  - Taxodium distichum
+  - Taxus baccata
+  - Tilia platyphyllos
+  - Tilia species
+  - Tsuga species
+  - Ulmus laevis
+  - Ulmus minor
+  - Ulmus species
+  - Viburnum opulus
+  index:
+  - 1
+  - 2
+  - 3
+  - 4
+  - 5
+  - 6
+  - 7
+  - 8
+  - 9
+  - 10
+  - 11
+  - 12
+  - 13
+  - 14
+  - 15
+  - 16
+  - 17
+  - 18
+  - 19
+  - 20
+  - 21
+  - 22
+  - 23
+  - 24
+  - 25
+  - 26
+  - 27
+  - 28
+  - 29
+  - 30
+  - 31
+  - 32
+  - 33
+  - 34
+  - 35
+  - 36
+  - 37
+  - 38
+  - 39
+  - 40
+  - 41
+  - 42
+  - 43
+  - 44
+  - 45
+  - 46
+  - 47
+  - 48
+  - 49
+  - 50
+  - 51
+  - 52
+  - 53
+  - 54
+  - 55
+  - 56
+  - 57
+  - 58
+  - 59
+  - 60
+  - 61
+  - 62
+  - 63
+  - 64
+  - 65
+  - 66
+  - 67
+  - 68
+  - 69
+  - 70
+  - 71
+  - 72
+  - 73
+  - 74
+  - 75
+  - 76
+  - 77
+  - 78
+  - 79
+  - 80
+  - 81
+  - 82
+  - 83
+  - 84
+  - 85
+  - 86
+  - 87
+  - 88
+  ordered: no
+Tree:
+  class: integer
+IDSpeciesGroup:
+  class: integer
+SpeciesGroup:
+  class: factor
+  labels:
+  - _ANDERE SOORT
+  - Amerikaans krentenboompje
+  - Amerikaanse eik
+  - Amerikaanse vogelkers
+  - ander loofhout
+  - ander naaldhout
+  - Appel (G)
+  - Berk
+  - Beuk
+  - Boskers
+  - Cipres
+  - Corsicaanse den
+  - Den
+  - Douglas
+  - Es/Esdoorn
+  - Fijnspar
+  - Fladderiep
+  - Gelderse roos
+  - Gewone es
+  - Gewone esdoorn
+  - Gewone vlier
+  - Gladde iep
+  - Goudenregen
+  - Grove den
+  - Haagbeuk
+  - Hazelaar
+  - Hemlockspar
+  - Hopboom
+  - Hulst
+  - Inlandse eik
+  - Kornoelje
+  - Laurierkers
+  - Liguster
+  - Linde
+  - Lork species
+  - Meelbes
+  - Meidoorn
+  - Mispel
+  - Moerascipres
+  - Moeraseik
+  - Noorse esdoorn
+  - Olm
+  - Paardekastanje
+  - Peer (G)
+  - Plataan
+  - Pontische rhododendron
+  - Populier
+  - Ratelpopulier
+  - Reuzenzilverspar
+  - Robinia (gewone)
+  - Rode kornoelje
+  - Sequoia
+  - Sleedoorn
+  - Spaanse aak
+  - Spar species
+  - Sporkehout
+  - Tamme kastanje
+  - Taxus
+  - Vederesdoorn
+  - Vogelkers (europese)
+  - Walnoot
+  - Weymouthden
+  - Wilde appel
+  - Wilde kardinaalsmuts
+  - Wilde lijsterbes
+  - Wilg
+  - Witte els (grauwe)
+  - Witte en Grauwe abeel
+  - Zeeden
+  - Zilverspar
+  - Zure kers
+  - Zwarte els
+  - Zwarte populier
+  - Zwarte walnoot
+  index:
+  - 1
+  - 2
+  - 3
+  - 4
+  - 5
+  - 6
+  - 7
+  - 8
+  - 9
+  - 10
+  - 11
+  - 12
+  - 13
+  - 14
+  - 15
+  - 16
+  - 17
+  - 18
+  - 19
+  - 20
+  - 21
+  - 22
+  - 23
+  - 24
+  - 25
+  - 26
+  - 27
+  - 28
+  - 29
+  - 30
+  - 31
+  - 32
+  - 33
+  - 34
+  - 35
+  - 36
+  - 37
+  - 38
+  - 39
+  - 40
+  - 41
+  - 42
+  - 43
+  - 44
+  - 45
+  - 46
+  - 47
+  - 48
+  - 49
+  - 50
+  - 51
+  - 52
+  - 53
+  - 54
+  - 55
+  - 56
+  - 57
+  - 58
+  - 59
+  - 60
+  - 61
+  - 62
+  - 63
+  - 64
+  - 65
+  - 66
+  - 67
+  - 68
+  - 69
+  - 70
+  - 71
+  - 72
+  - 73
+  - 74
+  ordered: no
+LH_NH:
+  class: factor
+  labels:
+  - LH
+  - NH
+  index:
+  - 1
+  - 2
+  ordered: no
+TreeNumber:
+  class: numeric
+AreaA4_m2_Plot:
+  class: numeric
+AreaA3_m2_Plot:
+  class: numeric
+AreaA2_m2_Plot:
+  class: numeric
+Fext_Ha:
+  class: numeric
+IDLink1_2:
+  class: integer

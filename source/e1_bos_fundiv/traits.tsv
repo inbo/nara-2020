@@ -1,0 +1,59 @@
+Species	SpeciesGroup	Max_height	SLA	Wood_density	Leaf_N	Leaf_P	LQ	Evergreen	Broadleaf	Drought_tolerance	PM_removal	Fire_tolerance	Leaf_size	Fall_foliage	Resprouting_capacity	Waterlogging_tolerance	Rooting_type	Flower_type	Seed_mass	Pollinator_index
+Acer campestre	Spaanse aak	17.5	14.53666667	0.52521	22.50994704	1.765275474	4	0	1	2.93	13	3	4741.5	yellow-orange	1	1.89	hartwortel	flowers with open nectar	43.16	16
+Acer platanoides	Noorse esdoorn	33	19.65537759	0.5166	21.08614798	1.7976498	3	0	1	2.73	13	2	6924.946667	yellow-red	0	1.46	hartwortel	flowers with open nectar	98.55	14
+Acer pseudoplatanus	Gewone esdoorn	37.6	16.67988251	0.509	23.8600767	1.958259175	3	0	1	2.75	14	3	8365.175	yellow-orange	1	1.1	hart/vlakwortel	flowers with open nectar	54.19675	21
+Aesculus hippocastanum	Paardekastanje	33.7	13.7	0.5	23.49235841	1.627984807	NA	0	1	2.82	13	2	6528.7	yellow-orange	1	1.39	penwortel	flowers with totally hidden nectar	7708.65	3
+Alnus glutinosa	Zwarte els	28.8	14.75623708	0.43911	30.77246008	2.110274069	4	0	1	2.22	13	2	3462.95	yellow-brown	1	3.9	hartwortel	wind flowers	1.114	6
+Alnus incana	Witte els (grauwe)	26.8	20.51549387	0.43911	31.68630713	1.984221925	3	0	1	1.89	12	4	2716.27	yellow-brown	0	2.84	vlakwortel	wind flowers	0.55	6
+Amelanchier lamarckii	Amerikaans krentenboompje	24	11.12	0.66	NA	NA	NA	0	1	2.52	11	NA	1025.5	orange-red	1	1.39	vlakwortel	flowers with open nectar	3.9	12
+Betula pendula	Berk	23.8	17.89740048	0.52521	25.10829006	2.408271914	2	0	1	1.85	12	3	1181.1	yellow	1	1.67	hartwortel	wind flowers	0.1425	4
+Betula pubescens	Berk	22	14.392	0.52521	25.59287549	1.80525652	2	0	1	1.27	12	3	1335.53	yellow	1	2.98	hartwortel	wind flowers	0.118	4
+Betula species	Berk	23.188	16.70556432	0.52521	25.27304911	2.20324668	2	0	1	1.6528	12	3	1233.6062	yellow	1	2.1154	harwortel	wind flowers	0.13417	4
+Carpinus betulus	Haagbeuk	33.3	22.59307583	0.693105	22.32770349	1.950641762	3	0	1	2.66	11	2	2361.53	yellow	1	1.65	hartwortel	wind flowers	33.3355	NA
+Castanea sativa	Tamme kastanje	44.1	14.7	0.463333333	21.7728913	1.809912754	1	0	1	3.46	11	0	7259.433333	yellow	1	1.32	penwortel	wind flowers	1433	5
+Corylus avellana	Hazelaar	16	20.17305625	0.5166	22.65190909	1.80251537	3	0	1	3.04	13	4	3775.366	yellow	1	1.68	vlakwortel	wind flowers	805.65	12
+Crataegus laevigata	Meidoorn	NA	19.51	NA	25.3	2	3	0	1	2.9	11	NA	781.495	yellow-orange	NA	1.1	pen/hartwortel	transition type flowers with partly hidden nectar - nasty flowers	84.76666667	4
+Crataegus monogyna	Meidoorn	14.85	11.25870378	0.605627012	18.07810218	1.329718747	3	0	1	3.46	11	3	537.932	yellow-orange	1	1.68	pen/hartwortel	transition type flowers with partly hidden nectar - nasty flowers	70.42433333	8
+Crataegus species	Meidoorn	14.85	11.25870378	0.605627012	18.07810218	1.329718747	3	0	1	3.46	11	3	537.932	yellow-orange	1	1.68	pen/hartwortel	transition type flowers with partly hidden nectar - nasty flowers	70.42433333	8
+Fagus sylvatica	Beuk	54.8	17.39153688	0.585	23.30809526	1.462933898	1	0	1	2.4	13	4	2027.675	yellow-brown	1	1.02	hartwortel	wind flowers	177.003	8
+Frangula alnus	Sporkehout	12	19.68483525	0.49938	27.89728906	1.967021427	5	0	1	1.37	9	3	964.55	yellow-brown	1	3.19	vlakwortel	transition type flowers with open nectar - fly flowers	16.7	30
+Fraxinus excelsior	Gewone es	46.1	13.48551573	0.56	22.7878636	2.094872242	5	0	1	2.5	15	3	1647.004	yellow	1	2.7	pen/hartwortel	wind flowers	53.96166667	4
+Ilex aquifolium	Hulst	10.3	6.6	0.65	15.00934292	1.100202759	2	1	1	3.04	11	2	1576.525	green	1	1.39	hartwortel	flowers with open nectar	32.344	10
+Juglans regia	Walnoot	23.1	14.6	0.55104	22.48660619	2.060773124	NA	0	1	2.98	13	2	3909.7	yellow-orange	1	1.42	penwortel	wind flowers	3006	NA
+Larix decidua	Lork species	NA	10.19247985	0.47355	20.25672953	1.907729027	1	0	0	2.31	13	0	20.125	yellow	0	1.1	hartwortel	wind flowers	6.24	NA
+Larix kaempferi	Lork species	NA	14.82	0.414	16.739198	2.677333333	1	0	0	3	13	0	20.125	yellow	0	1.58	hartwortel	wind flowers	4.303285133	NA
+Larix species	Lork species	40	13.57056956	0.4300785	17.68893151	2.469540171	1	0	0	2.8137	13	0	20.125	yellow	0	1.4504	hartwortel	wind flowers	4.826198147	NA
+Picea abies	Fijnspar	40.9	6.846285493	0.37023	12.78758923	1.454665453	1	1	0	1.75	15	2	22.2	green	1	1.22	vlakwortel	wind flowers	7.154	12
+Pinus nigra	Corsicaanse den	36.7	6.838954345	0.417	10.22044725	0.887533751	1	1	0	4.38	14	2	160	green	0	1.39	penwortel	wind flowers	23.9	NA
+Pinus pinaster	Zeeden	37.2	2.4	0.412	9.971899203	0.719076923	NA	1	0	4.97	15	2	253.8	green	0	0.95	penwortel	wind flowers	69	NA
+Pinus strobus	Weymouthden	35.5	4.430838008	0.34	15.40947561	1.264507893	NA	1	0	2.29	16	2	180	green	0	1.03	hart/penwortel	wind flowers	17.975	NA
+Pinus sylvestris	Grove den	44.5	5.347473754	0.42189	13.26924505	1.295493395	2.5	1	0	4.34	14	3	210	green	0	2.63	penwortel	wind flowers	7.572	2
+Populus alba	Witte en Grauwe abeel	37.5	11.15298086	0.35301	24	1.0775	3.5	0	1	2.67	12	3	2900	yellow	1	1.84	vlakwortel	wind flowers	0.12	NA
+Populus alba/canescens	Witte en Grauwe abeel	37.5	11.15298086	0.35301	24	2.442	3.5	0	1	2.67	12	3	2900	yellow	1	1.77	vlakwortel	wind flowers	0.12	NA
+Populus canescens	Witte en Grauwe abeel	37.7	19.2	0.4	25	NA	3.5	0	1	2.21	13	3	3440	yellow	1	1.77	vlak/hartwortel	wind flowers	0.455	3
+Populus x canadensis	Populier	51.3	12.75	0.386669	29.70323529	NA	3.5	0	1	1.77	13	3	6200	yellow	1	2.13	vlakwortel	wind flowers	NA	NA
+Populus species	Populier	51.3	13.70641575	0.388096385	28.38005222	NA	3.5	0	1	2.01636	13	3	5197.668313	yellow	1	2.0841	vlakwortel	wind flowers	NA	NA
+Populus tremula	Ratelpopulier	26.4	14.5342103	0.38745	25.09121158	1.696948598	3	0	1	2.85	14	3	2298.5625	yellow	1	2.07	vlakwortel	wind flowers	0.12	6
+Prunus avium	Boskers	31.5	13.45	0.47355	19.48792431	1.704	4	0	1	2.66	11	3	1340	yellow	1	1.19	schuine beworteling	flowers with partly hidden nectar	186.3	16
+Prunus padus	Vogelkers (europese)	18.2	21.68220513	0.46494	20.12992099	1.614560612	4	0	1	1.93	11	2	2966.182	yellow	0	3.19	vlakwortel	flowers with partly hidden nectar	61.83333333	8
+Prunus serotina	Amerikaanse vogelkers	27.9	18.015	0.47	24.16250846	2.206641885	3	0	1	3.02	14	2	3452.676667	yellow-orange	1	1.06	vlakwortel	flowers with partly hidden nectar	88.1	NA
+Pseudotsuga menziesii	Douglas	43.6	7.16615124	0.453333333	12.42020174	1.82196417	NA	1	0	2.62	18	2	31	green	0	1.79	hartwortel	wind flowers	12	NA
+Quercus palustris	Moeraseik	29.8	15.29	0.58	11.5	NA	NA	0	1	2.38	14	3	NA	yellow-red	1	3.49	pen/hartwortel	wind flowers	1100	NA
+Quercus petraea	Inlandse eik	36.5	12.576	0.55965	21.34122178	1.564232089	1.5	0	1	3.02	12	3	3500.325	yellow-brown	1	1.2	hartwortel	wind flowers	949.325	2
+Quercus robur	Inlandse eik	43.8	14.84316395	0.55965	22.35711866	1.758803848	1	0	1	2.95	13	3	2875.093333	yellow-brown	1	1.89	penwortel	wind flowers	2996	4
+Quercus robur/petraea	Inlandse eik	45.2	14.84316395	0.55965	22.35711866	1.758803848	1	0	1	2.95	13	3	2875.093333	yellow-brown	1	1.89	penwortel	wind flowers	2996	4
+Quercus rubra	Amerikaanse eik	46.5	13.8899105	0.55965	21.68807201	1.623885358	1	0	1	2.88	13	4	5084.9	orange-red	1	1.12	penwortel	wind flowers	3360.1	4
+Robinia pseudoacacia	Robinia (gewone)	35.4	17.9	0.66	36.63891679	2.091921254	4	0	1	4.11	13	4	554.2113051	yellow	1	1.07	hartwortel	hymenoptere flowers	19.805	18
+Salix alba	Wilg	26.2	11.89367003	0.28413	27.4152613	2.492531973	5	0	1	2	15	4	800.4	yellow-orange	1	4.1	vlakwortel	flowers with partly hidden nectar	0.135	16
+Salix caprea	Wilg	22.1	14.82975392	0.39606	25.39583628	2.217549571	5	0	1	2.24	12	4	2386.3025	yellow	1	2.84	vlakwortel	flowers with partly hidden nectar	0.0968	20
+Salix spec	Wilg	32.5	12.65025172	0.371781636	25.02708386	2.139880551	5	0	1	1.5905	13	4	1487.79015	yellow	1	3.5789	vlakwortel	flowers with partly hidden nectar	0.107886	18.22
+Salix cinerea	Wilg	NA	10.12858283	0.434652356	21.71148749	1.614165999	5	0	1	0.11	12	4	879.33	yellow	1	4.13	vlakwortel	flowers with partly hidden nectar	0.094	18
+Sambucus nigra	Gewone vlier	11.6	19.61074275	0.297123546	35.26052862	2.785675863	5	0	1	3.04	12	3	1068.225	yellow-green	1	1.68	vlakwortel	pollen flowers	2.857666667	4
+Sorbus aucuparia	Wilde lijsterbes	19.3	14.44836705	0.62853	21.35445527	1.762025049	3	0	1	2.11	13	0	637.05	orange-red	1	1.76	pen/vlakwortel	transition type flowers with partly hidden nectar - nasty flowers	3.3285	6
+Tilia cordata	Linde	NA	27.17215231	0.42189	24.02260171	2.354158674	4	0	1	2.75	13	4	2657.58	yellow	1	1.83	hartwortel	flowers with open nectar	35.3	18
+Tilia plathyphyllos	Linde	NA	26.9925	0.42189	37.92996231	1.75	4	0	1	2.52	13	4	6368.39	yellow	1	1.02	hartwortel	flowers with open nectar	111.98	16
+Tilia x europaea	Linde	NA	NA	0.483021	NA	NA	4	0	1	3.04	15	4	NA	yellow	1	1.77	hartwortel	flowers with open nectar	37.7	14
+Tilia species	Linde	31	NA	0.43044834	NA	NA	4	0	1	2.6848	13	4	NA	yellow	1	1.449	hartwortel	flowers with open nectar	70.9088	16.52
+Ulmus glabra	Ruwe iep	NA	21.95300325	0.55104	22.60978264	1.877290755	5	0	1	2.41	14	2	3672.925	yellow-brown	1	2.03	penwortel	wind flowers	9.938333333	6
+Ulmus minor	Gladde iep	14.3	19.96	0.55104	25.77367878	1.522472149	5	0	1	3.39	13	2	1847.435	yellow-brown	1	2.06	penwortel	wind flowers	9	4
+Ulmus species	Olm	32.3	20.6376211	0.55104	24.69795409	1.643110475	5	0	1	3.0568	13	2	2468.1016	yellow-brown	1	2.0498	penwortel	wind flowers	9.319033333	4.68

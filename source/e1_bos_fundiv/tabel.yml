@@ -1,0 +1,180 @@
+..generic:
+  git2rdata: 0.3.1
+  optimize: no
+  NA string: NA
+  hash: 0a87ae4ff174e728dacfc9ea07c2266068dc0dbb
+  data_hash: c219c274af28b4ab625c26b1656223a0eaa8a552
+Kenmerk:
+  class: factor
+  labels:
+  - Broadleaf
+  - Drought tolerance
+  - Evergreen
+  - Fire tolerance
+  - Flower type
+  - Foliage color
+  - Leaf N
+  - Leaf P
+  - Leaf size
+  - Litter quality
+  - Max height
+  - PM removal capacity
+  - Pollinator index
+  - Resprouting capacity after disturbance
+  - Rooting type
+  - Seed mass
+  - Specific leaf area (SLA)
+  - Waterlogging tolerance
+  - Wood density
+  index:
+  - 1
+  - 2
+  - 3
+  - 4
+  - 5
+  - 6
+  - 7
+  - 8
+  - 9
+  - 10
+  - 11
+  - 12
+  - 13
+  - 14
+  - 15
+  - 16
+  - 17
+  - 18
+  - 19
+  ordered: no
+Beschrijving:
+  class: factor
+  labels:
+  - Bladkleur in de herfst
+  - Bladoppervlakte per bladgewicht [mm²/mg]
+  - Bloemtype
+  - De bestuiversindex is een maat voor het voedsel dat beschikbaar is voor bestuivers.
+    Bestuivingsindex = (pollen + nectar) * bloeiperiode.
+  - De capaciteit om opnieuw uit te groeien na verstoring (bv. windworp) (binair)
+  - De oppervlakte van het blad bij enkelbladige bladeren en van de deelbladeren bij
+    samengestelde bladeren [mm²]
+  - De relatieve efficiëntie om PM2.5 te verwijderen, gebaseerd op zeven biofysische
+    variabelen van bomen [score]
+  - Fosforgehalte van bladeren per eenheid gewicht [mg N/g]
+  - 'Fysiologische tolerantie voor waterstress, morfologische en levenscyclus strategieën
+    voor waterschaarste en de geschatte waterbeschikbaarheid op plaatsen waar de soort
+    frequent voorkomt. Tolerantiescore gebaseerd op de locatiekenmerken van de verspreiding
+    en de fysiologische mogelijkheden van een soort [1: zeer intolerant; 2: intolerant;
+    3: gematigd tolerant; 4: tolerant; 5: zeer tolerant]'
+  - Gewicht van zaden of diasporen [mg]
+  - Groenblijvend (1/0)
+  - 'Het vermogen om na een brand opnieuw te ontkiemen, opnieuw te groeien of zich
+    te herstellen uit resterend zaad [Tolerantieklassen: niet - laag - gemiddeld -
+    hoog]'
+  - Loofboom (1/0)
+  - Maximale hoogte van een boomsoort zoals geobserveerd in de VBI [m]
+  - Ordinale score variërend tussen 1 (zeer lage afbraaksnelheid) en 5 (zeer hoge
+    afbraaksnelheid)
+  - Penwortel, hartwortel of vlakwortel
+  - Ratio drooggewicht:versgewicht hout [g/cm³]
+  - Stikstofgehalte van bladeren per eenheid gewicht [mg N/g]
+  - 'Tolerantie voor verminderde zuurstofbeschikbaarheid in de wortelzone. Kwalitatieve
+    tolerantieschaal voor wateroverlast [5: zeer tolerant (overleeft diepe, langdurige
+    wateroverlast gedurende meer dan een jaar); 4: tolerant (overleeft diepe wateroverlast
+    gedurende één groeiseizoen); 3: matig tolerant (overleeft wateroverlast of verzadigde
+    bodems gedurende 30 opeenvolgende dagen tijdens het groeiseizoen); 2: intolerant
+    (tolereert 1 tot 2 weken wateroverlast tijdens het groeiseizoen); 1: zeer intolerant
+    (verdraagt geen waterverzadigde bodems gedurende meer dan een paar dagen tijdens
+    het groeiseizoen)]'
+  index:
+  - 1
+  - 2
+  - 3
+  - 4
+  - 5
+  - 6
+  - 7
+  - 8
+  - 9
+  - 10
+  - 11
+  - 12
+  - 13
+  - 14
+  - 15
+  - 16
+  - 17
+  - 18
+  - 19
+  ordered: no
+Bron:
+  class: factor
+  labels:
+  - /
+  - Baeten et al. (2009), Hermy (1985)
+  - DRYAD, TRY
+  - Fichier ecologique, Plant goed!
+  - LEDA, EOL, Liebergesell et al. (2016)
+  - LEDA, TRY, Liebergesell et al. (2016)
+  - LEDA, TRY, Liebergesell et al. (2016), EOL
+  - Niinemets & Valladares (2006)
+  - Tree-quide.com
+  - TRY
+  - TRY, Encyclopedia of Life (EOL)
+  - TRY, EOL, Liebergesell et al. (2016), Leuschner & Meier (2018)
+  - TRY, Jacobs (2004)
+  - VBI
+  - Yang et al. (2015)
+  index:
+  - 1
+  - 2
+  - 3
+  - 4
+  - 5
+  - 6
+  - 7
+  - 8
+  - 9
+  - 10
+  - 11
+  - 12
+  - 13
+  - 14
+  - 15
+  ordered: no
+Literatuur:
+  class: factor
+  labels:
+  - ''
+  - (Aubin et al., 2016; Cornwell et al., 2008; Willis et al., 2017)
+  - (Augusto et al., 2002; Baeten et al., 2009; Maes et al., 2019)
+  - (Brockerhoff et al., 2017; Goodness et al., 2016)
+  - (Conti & Díaz, 2013; De Deyn et al., 2008; Greenwood et al., 2017; Paquette et
+    al., 2015; Ruiz-Benito et al., 2016; Willis et al., 2017)
+  - (Conti & Díaz, 2013; De Deyn et al., 2008; Paquette et al., 2015; Ruiz-Benito
+    et al., 2016)
+  - (Cornwell et al., 2008; De Deyn et al., 2008; Paquette et al., 2015; Ruiz-Benito
+    et al., 2014, 2016)
+  - (Crow, 2005; Willis et al., 2017)
+  - (Janhäll, 2015; Yang et al., 2015)
+  - (Leuschner & Meier, 2018)
+  - (Niinemets & Valladares, 2006)
+  - (Niinemets & Valladares, 2006; Willis et al., 2017)
+  - (Ruiz-Benito et al., 2016)
+  - (Van Den Berge et al., 2018)
+  index:
+  - 1
+  - 2
+  - 3
+  - 4
+  - 5
+  - 6
+  - 7
+  - 8
+  - 9
+  - 10
+  - 11
+  - 12
+  - 13
+  - 14
+  ordered: no
