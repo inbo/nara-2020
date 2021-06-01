@@ -1,0 +1,25 @@
+..generic:
+  git2rdata: 0.2.1
+  optimize: no
+  NA string: NA
+  hash: 0a97c2ff715e6331513002823a8a7f6c2ddd8d6a
+  data_hash: 3238b1d2dbf4af2ca413a0c3b3b4b21f5b7845fa
+pnv:
+  class: integer
+Bostype:
+  class: factor
+  labels:
+  - Arm eiken-beukenbos
+  - Eiken-beukenbos
+  - Eiken-haagbeukenbos
+  - Elzen-vogelkersbos
+  - Elzenbroekbos
+  - Wilgenvloedbos
+  index:
+  - 1
+  - 2
+  - 3
+  - 4
+  - 5
+  - 6
+  ordered: no

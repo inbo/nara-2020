@@ -1,0 +1,37 @@
+..generic:
+  git2rdata: 0.2.1
+  optimize: no
+  NA string: NA
+  hash: b79b3287333ebf5f57cae54da1a7568976a95e1a
+  data_hash: 2ed0b39b56b9ec74241ef79517f5e712cf9ec16a
+IDPlots:
+  class: integer
+pnv:
+  class: integer
+label:
+  class: factor
+  labels:
+  - arme Eiken-Beukenbos en eikenbos, droge variant
+  - arme Eiken-Beukenbos en eikenbos, natte variant
+  - Beukenbos, Eiken-haagbeukenbos of rijke Eiken-Beukenbos
+  - Eiken-Beukenbos, droge variant
+  - Eiken-Beukenbos, natte variant
+  - Elzen-Vogelkersbos
+  - Elzen-Vogelkersbos met kans op Bronbos
+  - Elzenbroekbos
+  - Elzenbroekbos met kans op Bronbos
+  - Wilgenvloedbos, zoniet Elzen-Vogelkers
+  - Wilgenvloedbos, zoniet Elzenbroekbos
+  index:
+  - 1
+  - 2
+  - 3
+  - 4
+  - 5
+  - 6
+  - 7
+  - 8
+  - 9
+  - 10
+  - 11
+  ordered: no

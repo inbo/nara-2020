@@ -1,0 +1,20 @@
+Kenmerk	Beschrijving	Bron	Literatuur
+Max height	Maximale hoogte van een boomsoort zoals geobserveerd in de VBI [m]	VBI	(Conti & Díaz, 2013; De Deyn et al., 2008; Paquette et al., 2015; Ruiz-Benito et al., 2016)
+Wood density	Ratio drooggewicht:versgewicht hout [g/cm³]	DRYAD, TRY	(Conti & Díaz, 2013; De Deyn et al., 2008; Greenwood et al., 2017; Paquette et al., 2015; Ruiz-Benito et al., 2016; Willis et al., 2017)
+Specific leaf area (SLA)	Bladoppervlakte per bladgewicht [mm²/mg]	LEDA, TRY, Liebergesell et al. (2016)	(Cornwell et al., 2008; De Deyn et al., 2008; Paquette et al., 2015; Ruiz-Benito et al., 2014, 2016)
+Leaf N	Stikstofgehalte van bladeren per eenheid gewicht [mg N/g]	TRY, Encyclopedia of Life (EOL)	(Aubin et al., 2016; Cornwell et al., 2008; Willis et al., 2017)
+Leaf P	Fosforgehalte van bladeren per eenheid gewicht [mg N/g]	TRY	
+Seed mass	Gewicht van zaden of diasporen [mg]	LEDA, TRY, Liebergesell et al. (2016), EOL	(Ruiz-Benito et al., 2016)
+Litter quality	Ordinale score variërend tussen 1 (zeer lage afbraaksnelheid) en 5 (zeer hoge afbraaksnelheid)	Baeten et al. (2009), Hermy (1985)	(Augusto et al., 2002; Baeten et al., 2009; Maes et al., 2019)
+Drought tolerance	Fysiologische tolerantie voor waterstress, morfologische en levenscyclus strategieën voor waterschaarste en de geschatte waterbeschikbaarheid op plaatsen waar de soort frequent voorkomt. Tolerantiescore gebaseerd op de locatiekenmerken van de verspreiding en de fysiologische mogelijkheden van een soort [1: zeer intolerant; 2: intolerant; 3: gematigd tolerant; 4: tolerant; 5: zeer tolerant]	Niinemets & Valladares (2006)	(Niinemets & Valladares, 2006; Willis et al., 2017)
+Waterlogging tolerance	Tolerantie voor verminderde zuurstofbeschikbaarheid in de wortelzone. Kwalitatieve tolerantieschaal voor wateroverlast [5: zeer tolerant (overleeft diepe, langdurige wateroverlast gedurende meer dan een jaar); 4: tolerant (overleeft diepe wateroverlast gedurende één groeiseizoen); 3: matig tolerant (overleeft wateroverlast of verzadigde bodems gedurende 30 opeenvolgende dagen tijdens het groeiseizoen); 2: intolerant (tolereert 1 tot 2 weken wateroverlast tijdens het groeiseizoen); 1: zeer intolerant (verdraagt geen waterverzadigde bodems gedurende meer dan een paar dagen tijdens het groeiseizoen)]	Niinemets & Valladares (2006)	(Niinemets & Valladares, 2006)
+Fire tolerance	Het vermogen om na een brand opnieuw te ontkiemen, opnieuw te groeien of zich te herstellen uit resterend zaad [Tolerantieklassen: niet - laag - gemiddeld - hoog]	TRY	
+PM removal capacity	De relatieve efficiëntie om PM2.5 te verwijderen, gebaseerd op zeven biofysische variabelen van bomen [score]	Yang et al. (2015)	(Janhäll, 2015; Yang et al., 2015)
+Resprouting capacity after disturbance	De capaciteit om opnieuw uit te groeien na verstoring (bv. windworp) (binair)	TRY, EOL, Liebergesell et al. (2016), Leuschner & Meier (2018)	(Leuschner & Meier, 2018)
+Rooting type	Penwortel, hartwortel of vlakwortel	Fichier ecologique, Plant goed!	(Crow, 2005; Willis et al., 2017)
+Flower type	Bloemtype	TRY	
+Leaf size	De oppervlakte van het blad bij enkelbladige bladeren en van de deelbladeren bij samengestelde bladeren [mm²]	LEDA, EOL, Liebergesell et al. (2016)	(Brockerhoff et al., 2017; Goodness et al., 2016)
+Foliage color	Bladkleur in de herfst	Tree-quide.com	(Brockerhoff et al., 2017; Goodness et al., 2016)
+Pollinator index	De bestuiversindex is een maat voor het voedsel dat beschikbaar is voor bestuivers. Bestuivingsindex = (pollen + nectar) * bloeiperiode.	TRY, Jacobs (2004)	(Van Den Berge et al., 2018)
+Evergreen	Groenblijvend (1/0)	/	
+Broadleaf	Loofboom (1/0)	/	

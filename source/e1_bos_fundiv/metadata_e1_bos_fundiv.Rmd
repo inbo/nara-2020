@@ -1,0 +1,105 @@
+---
+title: "Metadata bos - functionele diversiteit van bomen"
+date: 2020-07-01T10:00:00
+bibliography: ../references.bib
+link-citations: TRUE
+nocite: |
+  @liebergesell_functional_2016, @baeten_herb_2009, @hermy_ecologie_1985, @leuschner_ecology_2018, @niinemets_tolerance_2006, @norro_plant_2011, @petit_fichier_2017 and @yang_ranking_2015
+hoofdstuk: 5
+thema:
+  - Bos
+keywords:
+  - functionele diversiteit
+  - boomsoorten
+  - functionele dispersie
+  - functionele kenmerken
+lang: nl
+tab: metadata
+verantwoordelijke:
+- Maarten Stevens <maarten.stevens@inbo.be>
+output: html_document
+---
+## Technische informatie
+
+```{r setup, include=FALSE}
+library(tidyverse)
+library(knitr)
+opts_chunk$set(echo = FALSE, message = FALSE, warning = FALSE)
+library(git2rdata)
+library(kableExtra)
+```
+
+```{r databereik}
+databereik <- "VBI 1: 1997-1999 en VBI 2: 2009-2019"
+```
+\- **Periodiciteit**: eenmalig
+\- **Volgende update**: onbekend
+\- **Databereik**: `r databereik`
+
+## Databron
+
+- **Producent**: Instituut voor Natuur- en Bosonderzoek
+- **Dataset**: Databank Vlaamse Bosinventaris (v16-03-2020). De databank kan opgevraagd worden bij het [Agentschap Natuur en Bos](https://www.natuurenbos.be/beleid-wetgeving/natuurbeheer/bosinventaris/contact)
+- **Gegevensinzameling**: De Vlaamse bosinventaris (VBI) bestaat uit een steekproef van punten waarvoor op het terrein de toestand van het bos wordt opgemeten [@westra_opmaak_2015; @wouters_ontwerp_2008].
+De meetcyclus van de eerste bosinventaris (VBI 1) liep van 1997 tot 1999, de tweede meetcyclus (VBI 2) van 2009 tot 2019.
+De steekproef wordt gekozen uit een vast raster van 27.163 punten. 
+Voor elk punt in het raster wordt beoordeeld of het al dan niet in bos ligt.
+De punten die in bos liggen worden opgemeten volgens een gestandaardiseerd veldprotocol.
+De website van het [Agentschap Natuur en Bos](https://www.natuurenbos.be/beleid-wetgeving/natuurbeheer/bosinventaris/hoe-gebeuren-de-metingen) geeft een overzicht van de methodologie.
+
+## Berekeningswijze
+
+De analyseset voor boomsoorten wordt opgebouwd op basis van de tabel `tbl0Boom` uit de de VBI-databank.
+Deze tabel bevat de opmetingen van de individuele bomen in elk proefvlak van de VBI en geeft de meest gedetailleerde taxonomische informatie over de aanwezige boomsoorten.
+Per steekproefpunt (plot) wordt voor elke boomsoort het totale grondvlak bepaald (m²/ha).
+Alleen soorten die in meer dan 10 proefvlakken van de VBI voorkomen, worden in rekening gebracht.
+De databank met functionele kenmerken per boomsoort wordt samengesteld op basis van een aantal internationale databanken en publicaties (Tabel 1).
+De belangrijkste databanken zijn [DRYAD (Global Wood Density Database)](https://datadryad.org/stash/dataset/doi:10.5061/dryad.234), [TRY (Plant trait database)](https://www.try-db.org/TryWeb/Home.php), [LEDA (Database of life-history traits of Northwest European flora)](https://uol.de/en/landeco/research/leda/) en [EOL (Encyclopedia of Life)](https://eol.org/).
+
+De kenmerken *evergreen*, *broadleaf* en *Leaf P* worden uit de analyse gelaten omdat ze sterk gecorreleerd zijn met andere kenmerken (*SLA* en *Leaf N*).
+
+```{r tabel-pnv, echo=FALSE, message=FALSE, warning=FALSE}
+read_vc("tabel") %>%
+  dplyr::select(-"Literatuur") %>%
+  kbl(caption = "Tabel 1. Functionele kenmerken van de boomsoorten die in de
+      analyse gebruikt worden en de belangrijkste databronnen.") %>%
+  kable_styling(c("striped", "hover"), full_width = FALSE) %>%
+  column_spec(1, width = "5cm") %>%
+  column_spec(2, width = "15cm") %>%
+  scroll_box(width = "100%", height = "400px")
+```
+
+Na koppeling van de functionele kenmerken met de boomsoorten in de plots wordt de functionele dispersie (FDis) berekend via het R package `FD` [@laliberte_distance-based_2010].
+De functionele dispersie is een maat voor de functionele diversiteit en wordt berekend als de gewogen gemiddelde afstand van de boomsoorten in de multidimensionale kenmerkruimte tot het zwaartepunt van alle soorten in de plot.
+Het gemiddelde wordt gewogen op basis van het grondvlak van de soort in de plot.
+Hoe hoger FDis, hoe functioneel diverser de plot.
+De kenmerken *Seed mass* en *Pollinator-index* worden niet in de FDis berekening opgenomen, omdat er voor te veel soorten geen waarde is.
+Vervolgens wordt aan elk steekproefpunt het bostype (PNV-hoofdtype) toegekend (zie Bos - Trends in de samenstelling van boomsoorten en kruidachtigen).
+Het bostype 'wilgenvloedbos' wordt niet meegenomen omdat er te weinig steekproefpunten zijn.
+
+Voor de analyse van de trend van de functionele diversiteit tussen beide periodes van de VBI gebruiken we een bayesiaans regressiemodel (R package `brms`).
+Aangezien een groot aantal observaties in de twee opeenvolgende periodes van de VBI gecorreleerd zijn (gepaarde plots), heeft het model een mixed effect structuur.
+Het mixed model gebruikt de VBI-periode en het PNV-type als fixed effects en de gepaarde plots als random effects.
+De responsvariabele is de functionele diversiteit (FDis).
+
+## Opmerkingen bij de gegevenskwaliteit en betrouwbaarheid
+
+De PNV-indeling wordt gebruikt in de statistische analyse om te corrigeren voor het effect van groeiplaatsfactoren op de trend van de functionele diversiteit.
+Het PNV-type is gebaseerd op de bodemkaart en groepeert gebieden met een gelijke potentie.
+Het zegt iets over waar een bostype zich zonder invloed van de mens zou ontwikkelen onder de huidige klimaatomstandigheden, maar zegt niets over het actuele bostype.
+
+## Download
+
+**Broncode indicator**: [E1_bos_FunDiv.Rmd](../e1_bos_fundiv/e1_bos_fundiv.Rmd)
+- **Basisdata boomsoorten**: [tbl0Boom.tsv](../e1_bos_fundiv/tbl0boom.tsv)
+- **Metadata basisdata boomsoorten**: [tbl0Boom.yml](../e1_bos_fundiv/tbl0boom.yml)
+- **Functionele kenmerken**: [Traits.tsv](../e1_bos_fundiv/traits.tsv)
+- **Metadata functionele kenmerken**: [Traits.yml](../e1_bos_fundiv/traits.yml)
+- **Resultaten mixed model**: [Bostypes.Rdata](../e1_bos_fundiv/bostypesresult.rdata)
+- **Tabellen PNV-types**: [PNV-type per plot](../e1_bos_fundiv/pnv.tsv); [Groeperen PNV-types](../e1_bos_fundiv/bostypes.tsv)
+- **Metadata tabellen PNV-types**: [PNV-type per plot](../e1_bos_fundiv/pnv.yml); [Groeperen PNV-types](../e1_bos_fundiv/bostypes.yml)
+
+**Opmerking**: De geografische coördinaten van de steekproefpunten van de VBI die gebruikt worden voor de opmaak van figuur 2 worden niet meegeleverd.
+Wie dat wenst, kan daarvoor een aanvraag indienen bij het [Agentschap voor Natuur en Bos](https://www.natuurenbos.be/beleid-wetgeving/natuurbeheer/bosinventaris/contact).
+
+## Referenties
