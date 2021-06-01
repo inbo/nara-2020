@@ -1,0 +1,131 @@
+---
+title: "Metadata bos - Natuurlijkheidsgraad van bossen en volume dood hout"
+date: 2020-07-01T10:00:00
+bibliography: ../references.bib
+link-citations: TRUE
+hoofdstuk: 5
+thema:
+  - Bos
+keywords:
+  - bosindex
+  - natuurlijkheid
+  - authenticiteitsindex
+  - dood hout
+  - liggend dood hout
+  - staand dood hout
+  - bosstructuur
+  - kruidlaag
+  - boomlaag
+lang: nl
+tab: metadata
+verantwoordelijke:
+- Maarten Stevens <maarten.stevens@inbo.be>
+output: html_document
+---
+## Technische informatie
+
+```{r setup, include=FALSE}
+library(tidyverse)
+library(knitr)
+opts_chunk$set(echo = FALSE, message = FALSE, warning = FALSE)
+library(git2rdata)
+library(kableExtra)
+```
+
+```{r databereik}
+databereik <- "VBI 1: 1997-1999 en VBI 2: 2009-2019"
+```
+\- **Periodiciteit**: eenmalig
+\- **Volgende update**: onbekend
+\- **Databereik**: `r databereik`
+
+## Databron
+
+- **Producent**: Instituut voor Natuur- en Bosonderzoek
+- **Dataset**: Databank Vlaamse Bosinventaris (v16-03-2020). De databank kan opgevraagd worden bij het [Agentschap Natuur en Bos](https://www.natuurenbos.be/beleid-wetgeving/natuurbeheer/bosinventaris/contact)
+- **Gegevensinzameling**: De Vlaamse bosinventaris (VBI) bestaat uit een steekproef van punten waarvoor op het terrein de toestand van het bos wordt opgemeten [@westra_opmaak_2015; @wouters_ontwerp_2008].
+De meetcyclus van de eerste bosinventaris (VBI 1) liep van 1997 tot 1999, de tweede meetcyclus (VBI 2) van 2009 tot 2019.
+De steekproef wordt gekozen uit een vast raster van 27.163 punten. 
+Voor elk punt in het raster wordt beoordeeld of het al dan niet in bos ligt.
+De punten die in bos liggen worden opgemeten volgens een gestandaardiseerd veldprotocol.
+De website van het [Agentschap Natuur en Bos](https://www.natuurenbos.be/beleid-wetgeving/natuurbeheer/bosinventaris/hoe-gebeuren-de-metingen) geeft een overzicht van de methodologie.
+
+## Berekeningswijze
+
+Het rapport van @westra_opmaak_2015 geeft een uitgebreid overzicht van de opbouw van de analysedatabank, de analysevariabelen en van de statistische analyses. 
+
+De **authenticiteitsindex** (AI) bestaat uit 18 indicatoren die gegroepeerd worden in vier pijlers: de boomlaag, de bosstructuur, de kruidlaag en dood hout [@van_den_meersschaut_selectie_2001].
+Tabel 1 geeft een overzicht van de indicatoren en de pijlers van de AI.
+Een aantal indicatoren wordt anders opgemeten in beide inventarisatieperiodes van de VBI.
+In de pijler 'bosstructuur' wordt de **gelaagdheid** in VBI 1 bepaald op basis van de dominantie van bomen en in VBI 2 op basis van de aanwezigheid van een struiklaag.
+De **natuurlijke verjonging** in de pijler 'boomlaag' wordt in VBI 1 bepaald op basis van het aantal zaailingen kleiner dan 2 m in de A1-cirkel (16 m²) en in VBI 2 op basis van het aantal bomen in de kruidlaag (alle planten < 0,5 m) van de vegetatieopnames (256 m²).
+De pijler 'kruidlaag' houdt rekening met het aantal **mossoorten**, maar in VBI2 werd geen vegetatieopname van de moslaag gemaakt.
+De methode voor de opmeting van liggend **dood hout** verschilt in beide inventarisatieperiodes.
+In VBI 1 gebeurde dit samen met de vegetatieopnames in de helft van de plots, terwijl het liggend dood hout in VBI 2 via Line Intersect Sampling (LIS) werd bepaald.
+
+Door de verschillende meetprotocols, kunnen de scores voor beide periodes niet zomaar vergeleken worden.
+In de analyses voor het Natuurrapport werden de volgende indicatoren dan ook weggelaten: gelaagdheid (bosstructuur), natuurlijke verjonging (boomlaag), moslaag (kruidlaag) en liggend dood hout (dood hout).
+Zie @van_den_meersschaut_selectie_2001 en @westra_opmaak_2015 voor het scoresysteem en de berekeningsmethode van de AI.
+
+```{r tabel-pnv, echo=FALSE, message=FALSE, warning=FALSE}
+read_vc("tabel") %>%
+  rename("Max. score" = "Max..score") %>%
+  kbl(caption = "Tabel 1. Pijlers en indicatoren van de authenticiteitsindex.
+      De vetgedrukte indicatoren werden anders opgemeten in beide
+      inventarisatieperiodes en daarom niet meegenomen in de analyses van de
+      authenticiteitsindex in het Natuurrapport 2020.") %>%
+  kable_styling(c("striped", "hover"), full_width = FALSE) %>%
+  row_spec(c(3, 8, 12, 17:18), bold = TRUE)
+```
+
+Aangezien een groot aantal observaties in de twee opeenvolgende periodes van de VBI gecorreleerd zijn (gepaarde plots), gebruiken we mixed effect regressiemodellen voor de analyse van de AI.
+Voor de continue variabelen gebruiken we een lineair mixed model. 
+In een aantal gevallen wijkt de distributie van een continue variabele te ver af van de normale verdeling voor het gebruik een lineair model. 
+Omdat de VBI-dataset uit een groot aantal observaties bestaat, kunnen we er echter van uitgaan dat het mixed model redelijk robuust is en dat de vertekeningen op de parameterschattingen en p-waarde in de meeste gevallen minimaal zijn [@westra_opmaak_2015]. 
+Wanneer de assumpties voor een lineair model echter te sterk geschonden worden, gebruiken we in een enkel geval een zero-inflated gamma model. 
+Alle statistische analyses werden uitgevoerd in R (package `lme4` voor poisson en lineaire modellen en package `glmmTMB` voor het zero-inflated model). 
+
+De analyse van de authenticiteitsindex is gebaseerd op onderstaande tabellen van de VBI-databank:
+
+* `tbl7a_AI_Bosstructuur_VBI1` en `tbl7a_AI_Bosstructuur_VBI2`: AI-deelscores voor de bosstructuur
+* `tbl7c_AI_Woodlayer_VBI1` en `tbl7c_AI_Woodlayer_VBI2`: AI-deelscores voor de boomlaag
+* `tbl7e_AI_HerbLayer_VBI1` en `tbl7e_AI_HerbLayer_VBI2`: AI-deelscores voor de kruidlaag
+* `tbl7g_AI_DeadWood_VBI1` en `tbl7g_AI_DeadWood_VBI2`: AI-deelscores voor dood hout
+
+Deze tabellen geven per steekproefpunt (plot) de metingen en overeenkomstige scores per indicator. 
+
+Het Poisson mixed model gebruikt de VBI-periode en het PNV-type als fixed effects en de gepaarde plots als random effects.
+De responsvariabele is het aantal boomsoorten in een steekproefpunt.
+
+Voor de deelscores bosstructuur, boomlaag, kruidlaag en de totaalscore werd een lineaire mixed model analyse uitgevoerd met de periode (VBI 1 en 2) en het bestandstype (loofhout, naaldhout, gemengd loofhout en gemengd naaldhout) als fixed effects en de gepaarde plots als random effects. 
+Voor de analyse van de deelscore (staand) dood hout werd een zero-inflated gamma model gebruikt omdat de analyseset veel nullen bevat, waardoor een lineair model niet geschikt is.
+De responsvariabele is de deelscore of de totaalscore per steekproefpunt.
+
+De analyse van het verschil in totale **dood-houtvoorraad** tussen private en publieke bossen is gebaseerd op op tabel 6 van de VBI-databank (`tbl6DoodHout`).
+Deze tabel geeft per steekproefpunt (plot), segment en periode het volume staand dood hout, het volume liggend dood hout en het totale volume dood hout.
+Alleen de steekproefpunten van de tweede periode worden in rekening gebracht omdat de meetmethode verschillend is in beide opnameperiodes.
+De parameterschattingen (gemiddelden) zijn gebaseerd op een eenvoudige design-based analyse, waarbij voor elk stratum een gewogen steekproefgemiddelde en het bijhorend 95% betrouwbaarheidsinterval berekend worden. 
+De weging is nodig voor steekproefpunten die gedeeltelijk uit bos bestaan. 
+Zie @westra_opmaak_2015 voor een gedetailleerde beschrijving van de berekeningswijze.
+
+## Opmerkingen bij de gegevenskwaliteit en betrouwbaarheid
+
+Indien het meetprotocol voor een indicator in beide periodes te verschillend was, werd de indicator uit de analyses gelaten (zie boven).
+Voor een aantal andere verschillen in het ontwerp van beide bosinventarissen konden we echter niet corrigeren.
+De resultaten van de analyses van de AI moeten dan ook met enige voorzichtigheid geïnterpreteerd worden.
+Zo werd in VBI 1 slechts in de helft van de steekproefpunten een vegetatieopname gemaakt en werden punten die op een bosrand lagen, verschoven zodat het hele punt in het bos kwam te liggen.
+In VBI 2 werden die randplots, die gedeeltelijk uit bos bestaan, behouden.
+Randeffecten beïnvloeden onder andere de soortensamenstelling van bomen en kruidachtigen en de aanwezigheid van dikke dode/levende bomen.
+Dit heeft op zijn beurt een impact op de score van een aantal indicatoren van de boomlaag, kruidlaag en dood hout.
+Daarnaast zijn een aantal indicatoren in de pijler 'bosstructuur', zoals de kroonsluitingsgraad, bestandsleeftijd en boomsoortenmenging, gebaseerd op kwalitatieve variabelen. 
+De inschatting van deze variabelen is subjectiever, waardoor een observatoreffect kan meespelen.
+Ook de score voor zeldzaamheid in de kruidlaag is gevoelig voor het observatoreffect omdat zeldzame soorten moeilijker te vinden zijn.
+
+## Download
+
+**Broncode indicator**:
+[e1_bos_ai.Rmd](../e1_bos_ai/e1_bos_ai.Rmd)
+- **Basisdata**: [dataai.tsv](../e1_bos_ai/dataai.tsv), [datadoodhout.tsv](../e1_bos_ai/datadoodhout.tsv)
+- **Metadata basisdata**: [dataai.yml](../e1_bos_ai/dataai.yml), [datadoodhout.yml](../e1_bos_ai/datadoodhout.yml)
+
+## Referenties
