@@ -457,7 +457,7 @@ check_hoofdstuk <- function(path) {
       x <- lapply(input, yaml_front_matter)
       x <- setNames(x, input)
       x <- sapply(x, `[[`, "hoofdstuk")
-      ok <- sapply(x, is.number)
+      ok <- sapply(x, is.integer)
       assert_that(
         all(ok),
         msg = paste0(
@@ -465,19 +465,17 @@ check_hoofdstuk <- function(path) {
           paste(names(x)[!ok], collapse = "\n")
         )
       )
-      ok <- x %in% correct$hoofdstuk
+      ok <- sapply(
+        x,
+        function(x) {
+          all(x %in% correct$hoofdstuk)
+        }
+      )
       assert_that(
         all(ok),
         msg = paste0(
           "verkeerd 'hoofdstuk' nummer in\n",
           paste(names(x)[!ok], collapse = "\n")
-        )
-      )
-      assert_that(
-        length(unique(x)) == 1,
-        msg = paste0(
-          "verschillende nummers in 'hoofdstuk' in\n",
-          paste(names(x), collapse = "\n")
         )
       )
     }
