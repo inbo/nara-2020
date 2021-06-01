@@ -1,0 +1,140 @@
+..generic:
+  git2rdata: 0.2.1
+  optimize: no
+  NA string: NA
+  sorting: IDPlots
+  hash: b27d84fbd00b7fc0820bb9f8f6f5d087f8de599f
+  data_hash: 97c471eb3909318ee65e774353607e6a37169025
+IDPlots:
+  class: numeric
+IDGroup:
+  class: character
+Periode:
+  class: numeric
+PlotWeight:
+  class: numeric
+Paired_1_2:
+  class: logical
+DivK:
+  class: numeric
+Div:
+  class: numeric
+NbHerb:
+  class: numeric
+NbOudbos:
+  class: numeric
+NbSpecRare:
+  class: integer
+NbBos:
+  class: numeric
+NbOpen:
+  class: numeric
+NbEdge:
+  class: numeric
+NbIndif:
+  class: numeric
+NbUitheems:
+  class: numeric
+OwnerType:
+  class: factor
+  labels:
+  - Private
+  - Public
+  index:
+  - 1
+  - 2
+  ordered: no
+ForestAge:
+  class: factor
+  labels:
+  - recent
+  - oud
+  index:
+  - 1
+  - 2
+  ordered: no
+Frag:
+  class: numeric
+fPeriode:
+  class: factor
+  labels:
+  - '1'
+  - '2'
+  index:
+  - 1
+  - 2
+  ordered: no
+fpnv:
+  class: factor
+  labels:
+  - '12'
+  - '14'
+  - '20'
+  - '23'
+  - '40'
+  - '43'
+  - '50'
+  - '68'
+  - '69'
+  - '78'
+  - '79'
+  index:
+  - 1
+  - 2
+  - 3
+  - 4
+  - 5
+  - 6
+  - 7
+  - 8
+  - 9
+  - 10
+  - 11
+  ordered: no
+fpnvGroup:
+  class: factor
+  labels:
+  - Arm Eiken-beukenbos
+  - Eiken-beukenbos
+  - Eiken-haagbeukenbos
+  - Elzen-vogelkersbos
+  - Elzenbroekbos
+  - Wilgenvloedbos
+  index:
+  - 1
+  - 2
+  - 3
+  - 4
+  - 5
+  - 6
+  ordered: no
+Rand:
+  class: factor
+  labels:
+  - Rand
+  - Volledig in bos
+  index:
+  - 1
+  - 2
+  ordered: no
+FragInv:
+  class: numeric
+Fragclass:
+  class: factor
+  labels:
+  - < 5%
+  - 5% tot < 25%
+  - 25% tot < 50%
+  - 50% tot < 75%
+  - 75% tot < 95%
+  - 100%
+  index:
+  - 1
+  - 2
+  - 3
+  - 4
+  - 5
+  - 6
+  ordered: no
+Bos01:
+  class: numeric

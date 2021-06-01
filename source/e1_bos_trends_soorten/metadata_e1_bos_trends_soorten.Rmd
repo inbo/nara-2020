@@ -1,0 +1,139 @@
+---
+title: "Metadata bos - Samenstelling van boomsoorten en kruidachtigen"
+date: 2020-07-01T10:00:00
+bibliography: ../references.bib
+link-citations: TRUE
+hoofdstuk: 5
+thema:
+  - Bos
+keywords:
+  - kruidachtigen
+  - boomsoorten
+  - bosinventaris
+  - oud-bosplanten
+  - ellenberg
+  - stikstof
+  - ferrarisbos
+lang: nl
+tab: metadata
+verantwoordelijke:
+- Maarten Stevens <maarten.stevens@inbo.be>
+output: html_document
+---
+## Technische informatie
+
+```{r setup, include=FALSE}
+library(tidyverse)
+library(knitr)
+library(git2rdata)
+library(kableExtra)
+opts_chunk$set(echo = FALSE, message = FALSE, warning = FALSE)
+```
+
+```{r databereik}
+databereik <- "VBI 1: 1997-1999 en VBI 2: 2009-2019"
+```
+\- **Periodiciteit**: eenmalig
+\- **Volgende update**: onbekend
+\- **Databereik**: `r databereik`
+
+## Databron
+
+- **Producent**: Instituut voor Natuur- en Bosonderzoek
+- **Dataset**: Databank Vlaamse Bosinventaris (v16-03-2020). De databank kan opgevraagd worden bij het [Agentschap Natuur en Bos](https://www.natuurenbos.be/beleid-wetgeving/natuurbeheer/bosinventaris/contact)
+- **Gegevensinzameling**: De Vlaamse bosinventaris (VBI) bestaat uit een steekproef van punten waarvoor op het terrein de toestand van het bos wordt opgemeten [@westra_opmaak_2015; @wouters_ontwerp_2008].
+De meetcyclus van de eerste bosinventaris (VBI 1) liep van 1997 tot 1999, de tweede meetcyclus (VBI 2) van 2009 tot 2019.
+De steekproef wordt gekozen uit een vast raster van 27.163 punten. 
+Voor elk punt in het raster wordt beoordeeld of het al dan niet in bos ligt.
+De punten die in bos liggen worden opgemeten volgens een gestandaardiseerd veldprotocol.
+De website van het [Agentschap Natuur en Bos](https://www.natuurenbos.be/beleid-wetgeving/natuurbeheer/bosinventaris/hoe-gebeuren-de-metingen) geeft een overzicht van de methodologie.
+De analyse van de **soortenrijkdom van bomen** is gebaseerd op de metingen binnen de bosbouwproefvlakken van de VBI.
+Een bosbouwproefvlak heeft een oppervlakte van 1018 m^2^.
+Alleen bomen groter dan 2 m worden meegeteld.
+De analyses van de **kruidachtigen** (soortenrijkdom, oud-bosplanten en Ellenbergwaarden) zijn gebaseerd op de vegetatieopnames van de VBI.
+De vegetatieopnames maken gebruik van de Braun-Blanquet-schaal binnen een proefvlak van 16 m x 16 m.
+Voor de analyses worden alleen de planten in de kruidlaag in rekening gebracht.
+De kruidlaag omvat de houtige planten met een hoogte tot maximaal 0,8 m en alle niet-houtige planten met een hoogte < 2 m.
+
+## Berekeningswijze
+
+Het rapport van @westra_opmaak_2015 geeft een uitgebreid overzicht van de opbouw van de  analysedatabank, de analysevariabelen en van de statistische analyses. 
+Aangezien een groot aantal observaties in de twee opeenvolgende periodes van de VBI gecorreleerd zijn (gepaarde plots), gebruiken we mixed effect regressiemodellen.
+Voor aantallen (bv. aantal soorten) gebruiken we een Poisson mixed model, voor continue variabelen gebruiken we een lineair mixed model. 
+In een aantal gevallen wijkt de distributie van een continue variabele te ver af van de normale verdeling voor het gebruik een lineair model. 
+Omdat de VBI-dataset uit een groot aantal observaties bestaat, kunnen we er echter van uitgaan dat het mixed model redelijk robuust is en dat de vertekeningen op de parameterschattingen en p-waarde in de meeste gevallen minimaal zijn [@westra_opmaak_2015]. 
+Wanneer de assumpties voor een lineair model echter te sterk geschonden worden, gebruiken we in een enkel geval een zero-inflated gamma model. 
+Alle statistische analyses werden uitgevoerd in R (package `lme4` voor poisson en lineaire modellen en package `glmmTMB` voor het zero-inflated model). 
+
+De stuurvariabelen PNV-type en bosleeftijd worden bepaald op basis van de xy-coördinaten van de steekproefpunten en  gebiedsdekkende kaarten van de potentieel natuurlijke vegetatie en de [bosleeftijd](https://www.geopunt.be/catalogus/datasetfolder/12147542-5C1F-46C3-9AFD-6561268C7F1B).
+De oorspronkelijke PNV-kaart bevat een aantal gebieden waarvoor geen PNV bepaald werd (polders, antropogene bodems, militaire domeinen).
+Voor een aantal steekproefpunten kan het ontbrekende PNV-type bepaald worden op basis van de aangepaste bodemkaart van 2015, waarin een aantal militaire domeinen zijn aangevuld. 
+Het PNV-type van de resterende steekproefpunten die in een zone liggen met een ongekende bodemserie (bv. antropogeen) wordt bepaald via ruimtelijke interpolatie.
+Voor de polders wordt de conversietabel uit @wouters_potnat_2013 gebruikt om de kusteenheden om te zetten naar de klassieke bodemseries en vervolgens in PNV-types.
+De PNV-kaart onderscheidt 11 klassen. 
+Voor de analyse van de VBI werden de klassen gegroepeerd in 6 hoofdtypes (Tabel 1).
+
+```{r tabel-pnv, echo=FALSE, message=FALSE, warning=FALSE}
+read_vc("tabel") %>%
+  rename("PNV-type" = "PNV.type", "PNV-hoofdtype" = "PNV.hoofdtype") %>%
+  kbl(caption = "Tabel 1. Groepering PNV-types in hoofdtypes.") %>%
+  kable_styling(c("striped", "hover"), full_width = FALSE)
+```
+
+### Soortenrijkdom bomen
+
+De analyse van de soortenrijkdom van bomen is gebaseerd op tabel 10 van de VBI-databank (`tbl10Boomsoorten`).
+Deze tabel geeft per steekproefpunt (plot), segment en periode de boomsoorten die voorkomen. 
+Voor de berekening van het aantal boomsoorten per steekproefpunt steunen we op de variabele ‘SpeciesGroup’ waarin een aantal moeilijk te onderscheiden boomsoorten samen genomen worden (bv. winter- en zomereik samen als ‘inlandse eik’ en alle berken als ‘berk’).
+
+Het Poisson mixed model gebruikt de VBI-periode en het PNV-type als fixed effects en de gepaarde plots als random effects.
+De responsvariabele is het aantal boomsoorten in een steekproefpunt.
+
+### Soortenrijkdom kruidachtigen
+
+De analyse van de soortenrijkdom van kruidachtigen is gebaseerd op tabel 4 van de VBI-databank (`tbl4Vegetatie`).
+Deze tabel geeft per steekproefpunt (plot) en periode het aantal kruidachtigen in de vegetatieopnames.
+
+Het Poisson mixed model gebruikt de VBI-periode en het PNV-type als fixed effects en de gepaarde plots als random effects.
+De responsvariabele is het aantal kruidachtigen in een steekproefpunt.
+
+### Soortenrijkdom oud-bosplanten
+
+De analyse van de soortenrijkdom van oud-bosplanten is gebaseerd op tabel 11 van de VBI-databank (`tbl11VegetatieSamenstelling`).
+Deze tabel geeft per steekproefpunt (plot) en periode de bedekking van de bosplanten die voorkomen in de vegetatieopnames.
+De classificatie van oud-bosplanten is gebaseerd op de indeling van @de_keersmaeker_oudbosplanten_2010.
+In de analyses definiëren we oud bos als bos dat sinds 1850 onafgebroken bos is [@vandekerkhove_bwk_2016].
+De VBI-databank geeft voor elk steekproefpunt de benaderde bosleeftijd op basis van de bosleeftijdskaart [@de_keersmaeker_ecosysteemvisie_2001]. 
+Voor de analyse groeperen we "Bos ontstaan voor 1775" en "Bos ontstaan tussen 1775 en 1850" als "oud" en "Bos ontstaan tussen 1850 en +/- 1930" en "Bos ontstaan na +/- 1930" als "recent".
+
+Het Poisson mixed model gebruikt de VBI-periode en de bosleeftijd als fixed effects en de gepaarde plots als random effects. 
+De responsvariabele is het aantal oud-bosplanten in een steekproefpunt.
+
+### Ellenbergwaarden stikstof
+
+De analyse van de Ellenbergwaarden voor stikstof is gebaseerd op tabel 4 van de VBI-databank (`tbl4Vegetatie`).
+De variabele `v41_N` uit tabel 4 geeft per steekproefpunt (plot) en periode de Ellenbergwaarde voor stikstof. 
+De Ellenbergwaarde van een steekproefpunt wordt berekend als het gewogen gemiddelde van de Ellenbergwaarden van de soorten in de kruidlaag van de vegetatieopnames.
+De weging gebeurt op basis van de bedekkingsgraad van de soorten. 
+Om de steekproefpunten die in de bosrand liggen te identificeren, werden de punten geselecteerd waarvan het gewicht van het punt (plotweight) kleiner is dan 1.
+Het plotgewicht is gelijk aan de fractie bos binnen het proefvlak. 
+Tijdens de eerste inventarisatieperiode (VBI 1) werden proefvlakken die niet volledig in bos lagen systematisch verschoven tot ze volledig in bos lagen.
+Tijdens de tweede periode (VBI 2) werden die proefvlakken niet meer verschoven.
+Om het effect van de bosrand in rekening te brengen, kunnen dus alleen de steekproefpunten van de tweede inventarisatieperiode gebruikt worden.
+
+Om het verschil in Ellenbergwaarde tussen beide inventarisatieperiodes te analyseren wordt een Poisson mixed model gebruikt met de VBI-Periode als fixed effect en de gepaarde plots als random effects.
+De responsvariabele is de gewogen gemiddelde Ellenbergwaarde van een steekproefpunt.
+Aangezien de analyse van het effect van de bosrand alleen rekening houdt met de data van de tweede inventarisatieperiode, zijn de data niet gepaard en beperkt de analyse zich tot een eenvoudig lineair model. 
+
+## Opmerkingen bij de gegevenskwaliteit en betrouwbaarheid
+
+Bij de opnames in de bosbouwproefvlakken worden een aantal moeilijk te onderscheiden boomsoorten gegroepeerd in soortgroepen (bv. inlandse eik, berk, wilg).
+De werkelijke soortenrijkdom is dan ook hoger dan de gerapporteerde.
+
+## Download
+
+**Broncode indicator**: [E1_bos_trends-soorten.Rmd](../e1_bos_trends_soorten/e1_bos_trends_soorten.Rmd)
+- **Basisdata**: [Analyseset boomsoorten](../e1_bos_trends_soorten/bomen_rijkdom.tsv); [Analyseset kruidachtigen](../e1_bos_trends_soorten/kruidachtigen_rijkdom.tsv); [Analyseset oud-bosplanten](../e1_bos_trends_soorten/oudbossoorten.tsv); [Analyseset Ellenbergwaarden](../e1_bos_trends_soorten/ellenberg.tsv)
+- **Metadata basisdata**: [Analyseset boomsoorten](../e1_bos_trends_soorten/bomen_rijkdom.yml); [Analyseset kruidachtigen](../e1_bos_trends_soorten/kruidachtigen_rijkdom.yml); [Analyseset oud-bosplanten](../e1_bos_trends_soorten/oudbossoorten.yml); [Analyseset Ellenbergwaarden](../e1_bos_trends_soorten/ellenberg.yml)
+
+## Referenties
