@@ -2,7 +2,6 @@
 title: "Bos - Houtvoorraad in private en publieke bossen"
 date: 2020-07-01T10:00:00
 bibliography: ../references.bib
-csl: research-institute-for-nature-and-forest.csl
 link-citations: TRUE
 hoofdstuk: 5
 thema:
