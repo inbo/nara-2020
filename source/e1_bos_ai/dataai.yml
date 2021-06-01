@@ -1,0 +1,195 @@
+..generic:
+  git2rdata: 0.2.1
+  optimize: no
+  NA string: NA
+  sorting: IDPlots
+  hash: 75fd79d1272edb916c9abc4213fe7e41b938a1b4
+  data_hash: 315624cb88eae8dce9974f9f5a1cdeb88ab9a958
+IDPlots:
+  class: numeric
+Periode:
+  class: numeric
+IDGroup:
+  class: character
+PlotWeight:
+  class: numeric
+StartPeriode:
+  class: numeric
+DateDendro:
+  class: numeric
+Reeks:
+  class: numeric
+Total:
+  class: numeric
+Totalrel:
+  class: numeric
+Totalcor:
+  class: numeric
+Totalrelcor:
+  class: numeric
+Max:
+  class: numeric
+FS:
+  class: numeric
+WL:
+  class: numeric
+HL:
+  class: numeric
+DW:
+  class: numeric
+Maxcor:
+  class: numeric
+FScor:
+  class: numeric
+WLcor:
+  class: numeric
+DWcor:
+  class: numeric
+FSrel:
+  class: numeric
+WLrel:
+  class: numeric
+HLrel:
+  class: numeric
+DWrel:
+  class: numeric
+FSrelcor:
+  class: numeric
+WLrelcor:
+  class: numeric
+DWrelcor:
+  class: numeric
+StandType:
+  class: factor
+  labels:
+  - gemengd loofhout
+  - gemengd naaldhout
+  - kapvlakte
+  - loofhout
+  - naaldhout
+  - open ruimte binnen bos
+  index:
+  - 1
+  - 2
+  - 3
+  - 4
+  - 5
+  - 6
+  ordered: no
+OwnerType:
+  class: factor
+  labels:
+  - Private
+  - Public
+  index:
+  - 1
+  - 2
+  ordered: no
+ForestType:
+  class: factor
+  labels:
+  - A
+  - B
+  - C
+  - D
+  - E
+  - F
+  - G
+  - H
+  - I
+  - J
+  index:
+  - 1
+  - 2
+  - 3
+  - 4
+  - 5
+  - 6
+  - 7
+  - 8
+  - 9
+  - 10
+  ordered: no
+ForestAge:
+  class: factor
+  labels:
+  - recent
+  - oud
+  index:
+  - 1
+  - 2
+  ordered: no
+Frag:
+  class: numeric
+pnv:
+  class: integer
+Paired_1_2:
+  class: logical
+fpnv:
+  class: factor
+  labels:
+  - '12'
+  - '14'
+  - '20'
+  - '23'
+  - '40'
+  - '43'
+  - '50'
+  - '68'
+  - '69'
+  - '78'
+  - '79'
+  index:
+  - 1
+  - 2
+  - 3
+  - 4
+  - 5
+  - 6
+  - 7
+  - 8
+  - 9
+  - 10
+  - 11
+  ordered: no
+fPeriode:
+  class: factor
+  labels:
+  - '1'
+  - '2'
+  index:
+  - 1
+  - 2
+  ordered: no
+fpnvGroup:
+  class: factor
+  labels:
+  - Arm Eiken-beukenbos
+  - Eiken-beukenbos
+  - Eiken-haagbeukenbos
+  - Elzen-vogelkersbos
+  - Elzenbroekbos
+  - Wilgenvloedbos
+  index:
+  - 1
+  - 2
+  - 3
+  - 4
+  - 5
+  - 6
+  ordered: no
+Weight:
+  class: numeric
+Year:
+  class: numeric
+Rand:
+  class: factor
+  labels:
+  - Rand
+  - Volledig in bos
+  index:
+  - 1
+  - 2
+  ordered: no
+FragInv:
+  class: numeric

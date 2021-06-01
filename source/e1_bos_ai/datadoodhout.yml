@@ -1,0 +1,170 @@
+..generic:
+  git2rdata: 0.2.1
+  optimize: no
+  NA string: NA
+  sorting: IDPlots
+  hash: 1420392afa0bda2ba67a1f722cf185d59ebcb093
+  data_hash: e0357e9f0d759f0c9db24d3bd1199b55e87a5e63
+IDPlots:
+  class: numeric
+Periode:
+  class: numeric
+IDGroup:
+  class: character
+PlotWeight:
+  class: numeric
+StartPeriode:
+  class: numeric
+DateDendro:
+  class: numeric
+Reeks:
+  class: numeric
+staand:
+  class: numeric
+liggend:
+  class: numeric
+totaal:
+  class: numeric
+StandType:
+  class: factor
+  labels:
+  - gemengd loofhout
+  - gemengd naaldhout
+  - kapvlakte
+  - loofhout
+  - naaldhout
+  - open ruimte binnen bos
+  index:
+  - 1
+  - 2
+  - 3
+  - 4
+  - 5
+  - 6
+  ordered: no
+OwnerType:
+  class: factor
+  labels:
+  - Private
+  - Public
+  index:
+  - 1
+  - 2
+  ordered: no
+ForestType:
+  class: factor
+  labels:
+  - A
+  - B
+  - C
+  - D
+  - E
+  - F
+  - G
+  - H
+  - I
+  - J
+  index:
+  - 1
+  - 2
+  - 3
+  - 4
+  - 5
+  - 6
+  - 7
+  - 8
+  - 9
+  - 10
+  ordered: no
+UBBP_MeerDan10Jr:
+  class: factor
+  labels:
+  - 'FALSE'
+  - 'TRUE'
+  index:
+  - 1
+  - 2
+  ordered: no
+UBBP:
+  class: factor
+  labels:
+  - 'FALSE'
+  - 'TRUE'
+  index:
+  - 1
+  - 2
+  ordered: no
+ForestAge:
+  class: factor
+  labels:
+  - recent
+  - oud
+  index:
+  - 1
+  - 2
+  ordered: no
+Frag:
+  class: numeric
+pnv:
+  class: integer
+Paired_1_2:
+  class: logical
+fpnv:
+  class: factor
+  labels:
+  - '12'
+  - '14'
+  - '20'
+  - '23'
+  - '40'
+  - '43'
+  - '50'
+  - '68'
+  - '69'
+  - '78'
+  - '79'
+  index:
+  - 1
+  - 2
+  - 3
+  - 4
+  - 5
+  - 6
+  - 7
+  - 8
+  - 9
+  - 10
+  - 11
+  ordered: no
+fPeriode:
+  class: factor
+  labels:
+  - '1'
+  - '2'
+  index:
+  - 1
+  - 2
+  ordered: no
+fpnvGroup:
+  class: factor
+  labels:
+  - Arm Eiken-beukenbos
+  - Eiken-beukenbos
+  - Eiken-haagbeukenbos
+  - Elzen-vogelkersbos
+  - Elzenbroekbos
+  - Wilgenvloedbos
+  index:
+  - 1
+  - 2
+  - 3
+  - 4
+  - 5
+  - 6
+  ordered: no
+Weight:
+  class: numeric
+Year:
+  class: numeric
+Rand:
+  class: character

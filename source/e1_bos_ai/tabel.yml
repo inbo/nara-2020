@@ -1,0 +1,64 @@
+..generic:
+  git2rdata: 0.2.1
+  optimize: no
+  NA string: NA
+  hash: c4b2547ac134ce227865a3caad915014d375c106
+  data_hash: 0e798be99b7826533434989ad9777fe42baba7d3
+Pijler:
+  class: factor
+  labels:
+  - ''
+  - Boomlaag
+  - Bosstructuur
+  - Dood hout
+  - Kruidlaag
+  index:
+  - 1
+  - 2
+  - 3
+  - 4
+  - 5
+  ordered: no
+Indicator:
+  class: factor
+  labels:
+  - Aantal boomsoorten
+  - Aantal diameterklassen liggend DH
+  - Aantal dikke bomen
+  - Aantal dikke bomen staand DH
+  - Aantal inheemse boomsoorten in de natuurlijke verjonging
+  - Aantal mossoorten
+  - Aantal soorten vaatplanten
+  - Aantal zeer dikke bomen
+  - Bedekking
+  - Bestandsleeftijd
+  - Boomsoortenmenging
+  - Gelaagdheid
+  - Grondvlak staand DH
+  - Sluitingsgraad
+  - Standaard afwijking diameter staand DH
+  - Standaard afwijking van de diameter
+  - Totale stamlengte dikke bomen liggend DH
+  - Zeldzaamheid
+  index:
+  - 1
+  - 2
+  - 3
+  - 4
+  - 5
+  - 6
+  - 7
+  - 8
+  - 9
+  - 10
+  - 11
+  - 12
+  - 13
+  - 14
+  - 15
+  - 16
+  - 17
+  - 18
+  ordered: no
+Max..score:
+  class: integer
