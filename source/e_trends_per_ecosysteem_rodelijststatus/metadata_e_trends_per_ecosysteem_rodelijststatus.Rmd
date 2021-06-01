@@ -1,0 +1,91 @@
+---
+title: "Metadata rode Lijst-status - Heide, Moeras, Kustduinen"
+date: 2020-07-01T10:00:00
+bibliography: ../references.bib
+link-citations: TRUE
+hoofdstuk: 5
+thema:
+  - Beschermde natuur
+keywords:
+  - biodiversiteit
+  - ecosysteem
+  - natuurlijk kapitaal
+  - natural capital accounting
+  - ecosystem condition
+lang: nl
+tab: metadata
+verantwoordelijke:
+- Wouter Van Reeth <wouter.vanreeth@inbo.be>
+output: html_document
+---
+## Technische informatie
+
+```{r setup, include=FALSE}
+library(knitr)
+opts_chunk$set(echo = FALSE, message = FALSE, warning = FALSE)
+library(git2rdata)
+library(kableExtra)
+```
+
+\- **Periodiciteit**: niet gekend
+\- **Volgende update**: niet gekend
+\- **Databereik**: 1996 - 2017
+
+
+## Databron
+
+- **Producent**: Instituut voor Natuur- en Bosonderzoek
+- **Dataset**: [Gevalideerde Rode Lijsten van Vlaanderen](https://www.gbif.org/dataset/fc18b0b1-8777-4c8a-8cb8-f9f15870d6a9)
+- **Gegevensinzameling**: Zie [@maes_database_2019]   
+
+## Berekeningswijze
+
+De Rode Lijsten worden opgesteld per taxonomische groep en kennen soorten toe aan bepaalde categorieën volgens de mate waarin die soort bedreigd is.
+Indien mogelijk wordt een soort toegekend aan een van de volgende categorieën: 'regionaal uitgestorven', 'ernstig bedreigd', 'kwetsbaar', 'bijna in gevaar' of 'momenteel niet in gevaar'.
+Lukt dat niet dan wordt de soort toegekend aan de categorieën 'onvoldoende data' of 'niet geëvalueerd'.
+De categorie onvoldoende data betreft soorten met onvoldoende informatie om de kans op uitsterven goed te bepalen.
+Er is bijvoorbeeld te weinig geweten over de verspreiding of de populatiegrootte. 
+Niet geëvalueerde soorten zijn soorten die (nog) niet getoetst zijn aan de bedreigingscriteria.
+
+De gevalideerde Rode Lijsten bevatten zijn 2745 soorten, waaronder achttien niet-inheemse broedvogels die verder buiten beschouwing worden gelaten.
+Van de overige 2727 soorten zijn er 253 die vooral voorkomen in de biotopen 'Heathlands', 'Marshes' of 'Dunes'.
+Negentien hiervan zijn verbonden met twee van de voornoemde biotopen.
+
+Informatie over individuele soorten is ook terug te vinden op de INBO-webpagina [Rode lijsten](https://www.vlaanderen.be/inbo/rode-lijsten/).
+
+De categorieën met gekende bedreigingstatus hebben een logische volgorde.
+Ze volgen een [ordinale schaal](https://nl.wikipedia.org/wiki/Meetschaal#Ordinale_schaal).
+We kunnen elk van de categorieën een volgnummer $k$ geven gaande van $k = 1$ voor de meest bedreigde categorie  tot $k = 6$ voor de minst bedreigde.
+[Ordinale data](https://en.wikipedia.org/wiki/Ordinal_data) kunnen we met behulp van een [proprotional odds model (POM)](https://en.wikipedia.org/wiki/Ordinal_data#Proportional_odds_model) analyseren.
+
+Een POM beschrijft dat kans dat een soort $y$ tot hoogste categorie $k$ behoort als
+
+$$\mbox{Prob}(y \le k) = \frac{e^{\gamma_k}}{1 + e^{\gamma_k}}$$
+
+Hierbij hangt $\gamma_k$ af van een drempel $\alpha_k$ tussen categorie $k$ en $k + 1$ en een lineaire predictor $\eta$.
+
+$$\gamma_k = \alpha_k - \eta$$
+
+Als lineaire predictor $\eta$ gebruiken we twee componenten: een globaal effect $\beta_0$ en effect per soortengroep $b_i$.
+Het globale effect kunnen we interpreteren als het effect voor een gemiddelde soortengroep.
+Het effect per soortgroep kunnen we gebruiken om de verschillende soortengroepen met elkaar te vergelijken.
+
+$$\eta = \beta_0 + b_i \quad \quad b_i \sim \mathcal{N}(0, \sigma_s^2)$$
+
+De statistische analyse maakt gebruikt van R versie 4.0.1 en het INLA package.
+
+## Opmerkingen bij de gegevenskwaliteit en betrouwbaarheid
+
+Momenteel zijn er gevalideerde Rode Lijsten beschikbaar voor amfibieën, broedvogels, dagvlinders, hogere planten, libellen, lieveheersbeestjes, loopkevers, blad-, hauw- en levermossen, reptielen, sprinkhanen en krekels, houtbewonende bladsprietkevers (o.a. vliegend hert), waterwantsen, zoetwatervissen en zoogdieren. 
+Voor de berekening van deze indicator worden enkel de recent gevalideerde Rode Lijsten gebruikt. 
+Ook voor de spinnen, mieren, slankpootvliegen en dansvliegen zijn er Rode Lijsten. 
+Maar omdat er onvoldoende betrouwbare data beschikbaar zijn, kunnen die niet gevalideerd worden.
+
+
+## Download
+
+**Broncode indicator**: [e_trends_per_ecosysteem_rodelijststatus.Rmd](../e_trends_per_ecosysteem_rodelijststatus/e_trends_per_ecosysteem_rodelijststatus.Rmd)
+- **Basisdata**: [rodelijst_interactief.tsv](../e_trends_per_ecosysteem_rodelijststatus/rodelijst_interactief.tsv)
+- **Metadata basisdata**: [rodelijst_interactief.yml](../e_trends_per_ecosysteem_rodelijststatus/rodelijst_interactief.yml)
+
+## Referenties

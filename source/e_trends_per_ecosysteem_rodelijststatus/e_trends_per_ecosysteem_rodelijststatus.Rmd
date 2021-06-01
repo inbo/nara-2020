@@ -1,0 +1,246 @@
+---
+title: "Rode Lijst-status - Heide, Moeras, Kustduinen"
+date: 2020-07-01T10:00:00
+bibliography: ../references.bib
+link-citations: TRUE
+hoofdstuk: 5
+thema:
+  - Beschermde natuur
+keywords:
+  - biodiversiteit
+  - ecosysteem
+  - natuurlijk kapitaal
+  - natural capital accounting
+  - ecosystem condition
+lang: nl
+tab: indicator
+verantwoordelijke:
+- Wouter Van Reeth <wouter.vanreeth@inbo.be>
+output: html_document
+---
+
+```{r setup, include=FALSE}
+library(knitr)
+opts_chunk$set(
+  message = FALSE,
+  warning = FALSE,
+  echo = FALSE
+)
+library(git2rdata)
+library(plotly)
+library(tidyverse)
+library(INBOtheme)
+library(htmlwidgets)
+
+theme_set(theme_nara()) # het nara-kleurenpallet selecteren
+switch_colour(inbo_hoofd) # het INBO-kleurenpallet activeren
+
+set.seed(20200520)
+setWidgetIdSeed(20200520)
+options(htmlwidgets.TOJSON_ARGS = list(pretty = TRUE))
+```
+
+```{r data_inlezen_ordenen_bewerken}
+rodelijst_interactief <- read_vc("rodelijst_interactief")
+rodelijst_interactief <- rodelijst_interactief %>%
+  mutate(y1 = y) %>%
+  mutate(y = factor(y,
+    ordered = TRUE,
+    levels = c("Kustduinen en strand", "Moeras", "Heide en landduinen"),
+    labels = c(
+      "Kustduinen en strand (n = 138)", "Moeras (n = 358)",
+      "Heide en landduinen (n = 238)"
+    )
+  )) %>%
+  mutate(x1 = round(a1 / (a1 + a2 + a3 + a4 + a5), 4)) %>%
+  mutate(x2 = round(a2 / (a1 + a2 + a3 + a4 + a5), 4)) %>%
+  mutate(x3 = round(a3 / (a1 + a2 + a3 + a4 + a5), 4)) %>%
+  mutate(x4 = round(a4 / (a1 + a2 + a3 + a4 + a5), 4)) %>%
+  mutate(x5 = round(a5 / (a1 + a2 + a3 + a4 + a5), 4)) %>%
+  mutate(p1 = x1 / 2) %>%
+  mutate(p2 = x1 + x2 / 2) %>%
+  mutate(p3 = x1 + x2 + x3 / 2) %>%
+  mutate(p4 = x1 + x2 + x3 + x4 / 2) %>%
+  mutate(p5 = x1 + x2 + x3 + x4 + x5 / 2)
+```
+
+Meer dan 60% van de planten- en diersoorten typisch voor heide en landduinen is in Vlaanderen uitgestorven, ernstig bedreigd, bedreigd of kwetsbaar.
+Voor moeras en voor kustduinen en strand gaat het om bijna 40% van de typische soorten.
+
+```{r interactief staafdiagram rodelijstgegevens-per-ecosysteem, echo =  FALSE, fig.width = 8, fig.height = 3.5, fig.cap = "Figuur 1. Rode Lijststatus van planten- en diersoorten van heide en landduinen, moeras, en kustduinen en strand (Bron: INBO). Deze figuur verwijst naar Figuur 85, Figuur 88 en Figuur 90 in het Natuurrapport 2020.", fig.pos = "H"}
+f <- list(
+  color = "rgb(0,0,0)",
+  size = 14
+)
+b <- list(
+  title = "",
+  gridcolor = "rgb(127,127,127)",
+  showgrid = FALSE,
+  showline = FALSE,
+  showticklabels = TRUE,
+  tickcolor = "rgb(127,127,127)",
+  tickfont = f,
+  ticks = "outside",
+  zeroline = FALSE
+)
+a <- list(
+  title = "",
+  gridcolor = "rgb(0,0,0)",
+  showgrid = FALSE,
+  showline = FALSE,
+  showticklabels = TRUE,
+  tickcolor = "rgb(127,127,127)",
+  tickformat = "%",
+  tickfont = f,
+  ticks = "outside",
+  zeroline = FALSE
+)
+
+fig <- plot_ly(rodelijst_interactief,
+  x = ~x1, y = ~y, type = "bar", orientation = "h",
+  name = "Regionaal uitgestorven",
+  hoverinfo = "text",
+  text = ~ paste(
+    "</br> Aandeel: ", round(x1 * 100, 0), "%",
+    "</br> Aantal: ", a1,
+    "</br> Ecosysteem: ", y1,
+    "</br> Categorie: ", "Regionaal uitgestorven"
+  ),
+  marker = list(
+    color = "black",
+    line = list(color = "black", width = 1)
+  )
+)
+fig <- fig %>% add_trace(
+  x = ~x2, name = "Rodelijstsoort (ernstig bedreigd, bedreigd of kwetsbaar)",
+  text = ~ paste(
+    "</br> Aandeel: ", round(x2 * 100, 0), "%",
+    "</br> Aantal: ", a2,
+    "</br> Ecosysteem: ", y1,
+    "</br> Categorie: ", "Rodelijstsoort"
+  ), marker = list(
+    color = inbo_rood,
+    line = list(color = inbo_rood, width = 1)
+  )
+)
+fig <- fig %>% add_trace(
+  x = ~x3, name = "Onvoldoende data of niet geevalueerd",
+  text = ~ paste(
+    "</br> Aandeel: ", round(x3 * 100, 0), "%",
+    "</br> Aantal: ", a3,
+    "</br> Ecosysteem: ", y1,
+    "</br> Categorie: ", "Onvoldoende data of niet geevalueerd"
+  ), marker = list(
+    color = inbo_lichtgrijs,
+    line = list(color = inbo_lichtgrijs, width = 1)
+  )
+)
+fig <- fig %>% add_trace(
+  x = ~x4, name = "Bijna in gevaar",
+  text = ~ paste(
+    "</br> Aandeel: ", round(x4 * 100, 0), "%",
+    "</br> Aantal: ", a4,
+    "</br> Ecosysteem: ", y1,
+    "</br> Categorie: ", "Bijna in gevaar"
+  ), marker = list(
+    color = inbo_lichtgroen,
+    line = list(color = inbo_lichtgroen, width = 1)
+  )
+)
+fig <- fig %>% add_trace(
+  x = ~x5, name = "Momenteel niet bedreigd",
+  text = ~ paste(
+    "</br> Aandeel: ", round(x5 * 100, 0), "%",
+    "</br> Aantal: ", a5,
+    "</br> Ecosysteem: ", y1,
+    "</br> Categorie: ", "Momenteel niet bedreigd"
+  ), marker = list(
+    color = inbo_donkergroen,
+    line = list(color = inbo_donkergroen, width = 1)
+  )
+)
+
+fig <- fig %>% layout(
+  barmode = "stack",
+  legend = list(traceorder = "normal", orientation = "h", y = -0.35, font = f),
+  xaxis = a, yaxis = b
+)
+
+fig <- fig %>% add_annotations(
+  x = rodelijst_interactief$p1,
+  y = rodelijst_interactief$y,
+  text = rodelijst_interactief$a1,
+  xref = "x",
+  yref = "y",
+  showarrow = FALSE, font = list(
+    color = "rgb(255,255,255)",
+    size = 12
+  )
+)
+fig <- fig %>% add_annotations(
+  x = rodelijst_interactief$p2,
+  y = rodelijst_interactief$y,
+  text = rodelijst_interactief$a2,
+  xref = "x",
+  yref = "y",
+  showarrow = FALSE, font = list(
+    color = "rgb(255,255,255)",
+    size = 12
+  )
+)
+fig <- fig %>% add_annotations(
+  x = rodelijst_interactief$p3,
+  y = rodelijst_interactief$y,
+  text = rodelijst_interactief$a3,
+  xref = "x",
+  yref = "y",
+  showarrow = FALSE, font = list(
+    color = "rgb(0,0,0)",
+    size = 12
+  )
+)
+fig <- fig %>% add_annotations(
+  x = rodelijst_interactief$p4,
+  y = rodelijst_interactief$y,
+  text = rodelijst_interactief$a4,
+  xref = "x",
+  yref = "y",
+  showarrow = FALSE, font = list(
+    color = "rgb(0,0,0)",
+    size = 12
+  )
+)
+fig <- fig %>% add_annotations(
+  x = rodelijst_interactief$p5,
+  y = rodelijst_interactief$y,
+  text = rodelijst_interactief$a5,
+  xref = "x",
+  yref = "y",
+  showarrow = FALSE, font = list(
+    color = "rgb(255,255,255)",
+    size = 12
+  )
+)
+
+fig
+```
+
+
+## Definitie
+
+Rode Lijsten geven aan hoe groot de kans is dat een soort zal uitsterven in Vlaanderen. 
+Dit gebeurt op basis van objectieve en internationaal aanvaarde criteria van de International Union for Conservation of Nature (IUCN). 
+Deze indicator toont voor drie terrestrische ecosystemen de verdeling van planten- en diersoorten over de Rode Lijst-categorieën.
+
+Rode Lijst-soorten zijn 'ernstig bedreigd', 'bedreigd' of 'kwetsbaar'.
+Hun populaties zijn de afgelopen decennia sterk achteruitgegaan of hebben een kritisch minimum bereikt, waardoor de soort op het punt staat uit Vlaanderen te verdwijnen.
+
+## Bespreking
+
+Van 2727 planten- en diersoorten is de Rode Lijst-status gekend [@maes_database_2019].
+Hiervan zijn er 238 typisch voor heide en landduinen, 358 typisch voor moeras en 138 typisch voor kustduinen en strand.
+Hoewel deze drie ecosystemen samen slechts 1,2% van Vlaanderen bedekken, herbergen zij 33% van alle Rode Lijstsoorten (kwetsbaar, bedreigd of ernstig bedreigd).
+Daarom zijn deze ecosystemen van groot belang voor het natuurbehoud en het realiseren van de Vlaamse en Europese biodiversiteitsdoelen.
+Het verdwijnen of achteruitgaan van soorten is een gevolg van diverse factoren zoals de afname van de oppervlakte geschikt habitat, de versnippering van het leefgebied en een dalende habitatkwaliteit, bijvoorbeeld door vermesting of verdroging.
+
+## Referenties
