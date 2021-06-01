@@ -95,7 +95,7 @@ Het zegt iets over waar een bostype zich zonder invloed van de mens zou ontwikke
 - **Metadata basisdata boomsoorten**: [tbl0Boom.yml](../e1_bos_fundiv/tbl0boom.yml)
 - **Functionele kenmerken**: [Traits.tsv](../e1_bos_fundiv/traits.tsv)
 - **Metadata functionele kenmerken**: [Traits.yml](../e1_bos_fundiv/traits.yml)
-- **Resultaten mixed model**: [Bostypes.Rdata](../e1_bos_fundiv/bostypes.Rdata)
+- **Resultaten mixed model**: [Bostypes.Rdata](../e1_bos_fundiv/bostypesresult.rdata)
 - **Tabellen PNV-types**: [PNV-type per plot](../e1_bos_fundiv/pnv.tsv); [Groeperen PNV-types](../e1_bos_fundiv/bostypes.tsv)
 - **Metadata tabellen PNV-types**: [PNV-type per plot](../e1_bos_fundiv/pnv.yml); [Groeperen PNV-types](../e1_bos_fundiv/bostypes.yml)
 

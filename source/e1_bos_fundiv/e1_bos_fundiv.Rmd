@@ -309,9 +309,9 @@ fdis_stuurvariabelen <- fdis %>%
 #            control = list(max_treedepth = 18), iter = 2000, chains = 4, # nolint
 #            prior = set_prior("normal(0,100)", class = "b"))  # nolint
 
-# save(brm_Bostypes, file = "Bostypes.Rdata")  # nolint
+# save(brm_Bostypes, file = "bostypesresult.rdata")  # nolint
 
-load(file = "bostypes.rdata") # nolint
+load(file = "bostypesresult.rdata") # nolint
 
 ### Analyse CWM per trait
 cwm_stuurvariabelen <- data_cwm %>%
