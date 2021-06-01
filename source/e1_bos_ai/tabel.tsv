@@ -1,0 +1,19 @@
+Pijler	Indicator	Max..score
+Bosstructuur	Sluitingsgraad	4
+	Bestandsleeftijd	7
+	Gelaagdheid	4
+	Boomsoortenmenging	5
+Boomlaag	Aantal boomsoorten	5
+	Aantal dikke bomen	5
+	Aantal zeer dikke bomen	5
+	Aantal inheemse boomsoorten in de natuurlijke verjonging	4
+	Standaard afwijking van de diameter	6
+Kruidlaag	Aantal soorten vaatplanten	10
+	Zeldzaamheid	7
+	Aantal mossoorten	5
+	Bedekking	3
+Dood hout	Grondvlak staand DH	4
+	Standaard afwijking diameter staand DH	6
+	Aantal dikke bomen staand DH	5
+	Totale stamlengte dikke bomen liggend DH	7
+	Aantal diameterklassen liggend DH	8

@@ -144,6 +144,13 @@
       "Repository": "CRAN",
       "Hash": "0cf10dab0d023d5b46a5a14387556891"
     },
+    "TMB": {
+      "Package": "TMB",
+      "Version": "1.7.20",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Hash": "db241456677ae165b3095b6df5d79009"
+    },
     "askpass": {
       "Package": "askpass",
       "Version": "1.1",
@@ -565,6 +572,13 @@
       "Source": "Repository",
       "Repository": "CRAN",
       "Hash": "f3aefccc1cc50de6338146b62f115de8"
+    },
+    "glmmTMB": {
+      "Package": "glmmTMB",
+      "Version": "1.0.2.1",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Hash": "a21e7d803995b2a6db11eb8ea3cb0b8c"
     },
     "glue": {
       "Package": "glue",
