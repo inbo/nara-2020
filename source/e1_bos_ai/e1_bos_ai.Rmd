@@ -56,7 +56,8 @@ gegevens <- read_vc("dataai") %>% # Dataset voor analyse authenticiteitsindex
 doodhout <- read_vc("datadoodhout") %>% # Dataset voor analyse dood hout
   drop_na(totaal) %>%
   mutate(OwnerType = recode(OwnerType, "Public" = "Publiek",
-                            "Private" = "Privaat"))
+                            "Private" = "Privaat")) %>%
+  rename(periode = Periode)
 ```
 
 ```{r data_bewerken, results='hide', cache = TRUE}
@@ -174,28 +175,147 @@ Die volumes liggen ruim onder de streefcijfers die nodig zijn voor een volledige
 De hoogste volumes zijn in de praktijk haalbaar in reservaten. 
 In het oudste bosreservaat van Vlaanderen (Zoniën) nam het dood-houtvolume toe van 29 kubieke meter per hectare in 1986 tot 110 kubieke meter per hectare in 2010 [@vandekerkhove_merkwaardige_2012].
 
+```{r functie}
+# Functie voor design-based analyse (zie Westra et al., 2015)
+# Berekening gewogen gemiddelde en 95% betrouwbaarheidsintervallen op basis van
+# gewogen variantie
+
+mywgtparestimation <- function(data, variablename, periode = NA, minreeks = 1,
+                                maxreeks = 12, minyear = 1, maxyear = 9999,
+                                usestrata = rep(FALSE, 1000), strata) {
+  if (is.na(periode)) {
+    datasel <- data[data$Reeks <= maxreeks &
+      data$Reeks >= minreeks &
+      data$Year >= minyear &
+      data$Year <= maxyear, , drop = FALSE]
+  } else {
+    datasel <- data[data$periode == periode &
+      data$Reeks <= maxreeks &
+      data$Reeks >= minreeks &
+      data$Year >= minyear &
+      data$Year <= maxyear, , drop = FALSE]
+  }
+
+  i <- 1
+  # Doorloop de functie voor iedere gedefinieerde respons
+  for (Var in variablename) {
+
+    # Indien we per strata werken
+    if (usestrata[i]) {
+      s <- 1
+
+      # Loop over alle strata
+      for (Stratum in levels(datasel[, strata[i]])) {
+        datastrat <- datasel[!is.na(datasel[, strata[i]]) &
+                               (datasel[, strata[i]] == Stratum), ,
+                             drop = FALSE]
+
+        variable <- datastrat[, Var]
+
+        if (nrow(datastrat) > 0) {
+          wgtmean <- sum(datastrat$Weight * variable, na.rm = TRUE) /
+            (sum(datastrat$Weight * (!is.na(variable)), na.rm = TRUE))
+        } else {
+          wgtmean <- NA
+        }
+
+        if (nrow(datastrat) > 1) {
+          v1 <- sum(datastrat$Weight * (!is.na(variable)), na.rm = TRUE)
+
+          v2 <- sum(((datastrat$Weight) * (!is.na(variable)))^2, na.rm = TRUE)
+
+          wgtvar <- sum(datastrat$Weight * (variable - wgtmean)^2) /
+            (v1 - (v2 / v1))
+
+          lci <- wgtmean - 1.96 * sqrt(wgtvar) / sqrt(v1)
+
+          uci <- wgtmean + 1.96 * sqrt(wgtvar) / sqrt(v1)
+        } else {
+          wgtvar <- NA
+
+          lci <- NA
+
+          uci <- NA
+        }
+
+        outputs <- data.frame(
+          variabele = Var,
+          strata = strata[i],
+          stratumNaam = Stratum,
+          periode = periode,
+          minyear = ifelse(nrow(datastrat) > 0, min(datastrat$Year,
+                                                    na.rm = TRUE), NA),
+          maxyear = ifelse(nrow(datastrat) > 0, max(datastrat$Year,
+                                                    na.rm = TRUE), NA),
+          minreeks = ifelse(nrow(datastrat) > 0, min(datastrat$Reeks,
+                                                     na.rm = TRUE), NA),
+          maxreeks = ifelse(nrow(datastrat) > 0, max(datastrat$Reeks,
+                                                     na.rm = TRUE), NA),
+          nbObservaties = length(datastrat$IDPlots),
+          wgtmean = wgtmean,
+          wgtvar = wgtvar,
+          llci = lci,
+          ulci = uci
+        )
+        if (s <= 1) {
+          outputt <- outputs
+        } else {
+          outputt <- base::rbind(outputt, outputs)
+        }
+        s <- s + 1
+      }
+    } else {# Indien we niet met strata werken
+      variable <- datasel[, Var]
+      wgtmean <- sum(datasel$Weight * variable, na.rm = TRUE) /
+        sum(datasel$Weight * (!is.na(variable)), na.rm = TRUE)
+      v1 <- sum(datasel$Weight * (!is.na(variable)), na.rm = TRUE)
+      v2 <- sum(((datasel$Weight) * (!is.na(variable)))^2, na.rm = TRUE)
+      wgtvar <- sum(datasel$Weight * (variable - wgtmean)^2, na.rm = TRUE) /
+        (v1 - (v2 / v1))
+      lci <- wgtmean - 1.96 * sqrt(wgtvar) / sqrt(v1)
+      uci <- wgtmean + 1.96 * sqrt(wgtvar) / sqrt(v1)
+      outputt <- data.frame(
+        variabele = Var,
+        strata = "",
+        stratumNaam = "",
+        periode = periode,
+        minyear = min(datasel$Year),
+        maxyear = max(datasel$Year),
+        minreeks = min(datasel$Reeks),
+        maxreeks = max(datasel$Reeks),
+        nbObservaties = nrow(datasel),
+        wgtmean = wgtmean,
+        wgtvar = wgtvar,
+        llci = lci,
+        ulci = uci
+      )
+    }
+    if (i <= 1) {
+      output <- outputt
+    } else {
+      output <- base::rbind(output, outputt)
+    }
+    i <- i + 1
+  }
+  data.frame(output)
+}
+```
+
+
 ```{r doodhout, fig.width = 5, fig.height = 4, fig.cap = "Figuur 2. Gemiddelde en 95% betrouwbaarheidsinterval van het volume dood hout (staand, liggend en totaal) in private en publieke bossen in beide periodes van de Vlaamse bosinventaris (VBI). Deze figuur verwijst naar de paragraaf over de natuurlijkheidsgraad van bos in het Natuurrapport 2020."}
-
-# Laadt de functie voor de berekening van het gewogen gemiddelde en het
-#95% betrouwbaarheidsinterval op basis van gewogen variantie
-#(Westra et al. 2015)
-source(here::here("source/e1_bos_ai", "functie_designbasedanal.R"))
-
-# Toepassing functie
 
 respons <- c("staand", "liggend", "totaal")
 labels <- c("staand" = "Volume staand\ndood hout",
             "liggend" = "Volume liggend\ndood hout",
             "totaal" = "Totaal volume\ndood hout")
 
-p1 <- My.WgtParEstimation(doodhout, respons, Periode = 1,
-                          UseStrata = c(TRUE, TRUE, TRUE),
-                          Strata = c("OwnerType", "OwnerType", "OwnerType"))
-p2 <- My.WgtParEstimation(doodhout, respons, Periode = 2,
-                          UseStrata = c(TRUE, TRUE, TRUE),
-                          Strata = c("OwnerType", "OwnerType", "OwnerType"))
+p1 <- mywgtparestimation(doodhout, respons, periode = 1,
+                          usestrata = c(TRUE, TRUE, TRUE),
+                          strata = c("OwnerType", "OwnerType", "OwnerType"))
+p2 <- mywgtparestimation(doodhout, respons, periode = 2,
+                          usestrata = c(TRUE, TRUE, TRUE),
+                          strata = c("OwnerType", "OwnerType", "OwnerType"))
 resultaat <- rbind(p1, p2) %>%
-  rename(wgtmean = wgt.mean) %>%
   mutate(periode = as.factor(periode))
 levels(resultaat$periode) <- c("VBI 1", "VBI 2")
 
