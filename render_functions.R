@@ -277,6 +277,10 @@ changed_path <- function(path = ".") {
       c(x$old_file, x$new_file)
     }
   )
+  assert_that(
+    length(changes) > 0,
+    msg = "Geen gecommitte wijzigingen t.o.v. de main branch gevonden"
+  )
   changes <- unlist(changes)
   changes <- unique(dirname(changes))
   changes[grepl("source.+", changes)]
