@@ -1,0 +1,145 @@
+---
+title: "Metadata multisoortenindex voor plantensoorten in Vlaanderen"
+date: 2020-07-01T10:00:00
+bibliography: ../references.bib
+link-citations: TRUE
+hoofdstuk: 
+  - 3
+  - 4
+  - 5
+thema:
+  - Natuur & maatschappij
+  - Klimaat
+  - Landbouw
+  - Beschermde natuur
+  - Water
+keywords:
+  - MSI
+  - multisoortenindex
+  - planten
+  - flora
+  - biodiversiteit
+lang: nl
+tab: metadata
+verantwoordelijke:
+- Anik Schneiders <anik.schneiders@inbo.be>
+output: html_document
+---
+## Technische informatie
+
+```{r setup, include=FALSE}
+library(knitr)
+opts_chunk$set(echo = FALSE, message = FALSE, warning = FALSE)
+library(git2rdata)
+```
+
+```{r databereik}
+databereik <- "1950-2018"
+```
+\- **Periodiciteit**: eenmalig
+\- **Volgende update**: onbekend
+\- **Databereik**: `r databereik`
+
+## Databron
+
+- **Producent**: Instituut voor Natuur- en Bosonderzoek
+- **Dataset**: De Florabank is de databank met verspreidingsgegevens en soortspecifieke kenmerken over de flora van Vlaanderen. Ze omvat gegevens van vaatplanten, mossen, lichenen en kranswieren.
+Naast verspreidingsgegevens bevat de databank een 100-tal kenmerken per soort zoals synoniemen, indicatorwaarden, biotoopvoorkeur, reproductiekenmerken, morfologie, zeldzaamheid, areaal, Rode Lijst-status en wettelijke bescherming.
+
+- **Gegevensinzameling**: De meerderheid van de data werden ingezameld door botanisten met behulp van streeplijsten in vooraf gedefinieerde 1 km x 1 km hokken.
+In deze monitoring vinken botanici alle vaatplantensoorten, die ze tegenkomen tijdens een wandeling door een roostercel van 1 km², aan op een gestandaardiseerde checklist. 
+Deze checklists kunnen worden beschouwd als aan- /afwezigheidscontrolelijsten, zonder enige indicatie van de abundantie van de soort.
+De monitoring wordt nu gecoördineerd door INBO en de gegevens worden verzameld door zowel vrijwilligers als professionele botanici.
+
+meer info: [Floradatabank](https://flora.inbo.be)
+
+## Berekeningswijze
+
+### Datavoorbereiding
+
+De index vertrekt van de jaarlijkse aan- of afwezigheden van soorten in kilometerhokken zoals ze geregistreerd staan in de floradatabank. 
+Om de betrouwbaarheid van de analyse voldoende hoog te houden, werd de analyse beperkt tot goed onderzochte hokken en soorten:
+
+- selectie hokken met meer dan 100 soorten;
+
+- het aantal jaren waarin een soort genoteerd wordt moet > 20. 
+Het laatste jaar van voorkomen mag niet meer dan 8 jaar geleden zijn. 
+Het eerste jaar mag ook niet meer dan 8 jaar verschillen van de startdatum.
+Soorten moeten jaarlijks gemiddeld in meer dan 10 hokken aangetroffen worden. 
+Deze criteria zorgen ervoor dat zeldzame of verdwenen soorten of recente nieuwkomers niet meegenomen worden in deze oefening.
+
+- hybride soorten en geaggregeerde soorten (soortengroepen) worden niet geselecteerd.
+
+Het aantal goed onderzochte hokken per jaar is zeer variabel. 
+In de jaren '50 was dit gemiddeld 92 hokken per jaar, maar het verminderde in de jaren '60 tot ongeveer 30. 
+Vanaf de jaren '70 nam dit terug toe tot 107. 
+In de volgende decades bleef het verder stijgen tot gemiddeld 182, 270, 276 en 323.
+
+### Soortmodellen
+
+Voor elke soort wordt, op basis van waarnemingen sinds 1950, een jaarlijkse schatting gemaakt van de kans op voorkomen. De kansen worden omgezet naar een relatieve stijging (> 100%) of daling (< 100%) ten opzichte van de kans op voorkomen in het referentiejaar 2000 (= 100%). 
+Als een soort in het jaar 2000 in 10 procent van de goed onderzochte hokken voorspeld wordt en in 2010 in 15 procent, stijgt de index voor die specifieke soort van 100 naar 150 procent. 
+Hetzelfde geldt voor een soort die eerst in 50 en later in 75 procent van de hokken voorspeld wordt.
+
+De aan- of afwezigheid van een soort ($Y_{i,t}$) in km-hok $i$ in jaar $t$ is gemodelleerd met logit-link, vertrekkende van een Bernoulli distributie. De formule is opgebouwd uit 3 smoothing functies:
+
+1. een smoothing functie voor jaar, 
+2. een smoothing functie voor de locatie (x and y coordinaten) en 
+3. een smoothing functie voor de lijstlengte (het totaal aantal soorten aangeduid in een gegeven jaar voor een km-hok). 
+
+$$g(\mu_{i,t}) = \beta_0 + f_1(\text{year}_{t}) + f_2(x_{i}, y_{i}) + f_3(\text{listlength}_{i,t})$$
+waarbij:
+
+$$
+\begin{aligned}
+\mu_{i,t} \equiv \mathbf{E}(Y_{i,t}) = P(Y_{i,t}=1)&& \text{expected value; probability of species presence}\\
+g(\mu_{i,t}) = \log\frac{\mu_{i,t}}{1-\mu_{i,t}} && \text{logit-link} \\
+Y_{i,t} \sim \text{Bernoulli}(\mu_{i,t}) && \text{Bernoulli distribution}\\
+f_{*}(x) = \sum_{j=1}^{k}b_j(x)\beta_j && \text{smoothing function with basis } b_j
+\end{aligned}
+$$
+
+De berekeningswijze staat in detail beschreven in @van_calster_florabank_2020. 
+
+### Indexen
+
+De MSI of multisoortenindex combineert de jaarlijkse relatieve abundanties voor alle plantensoorten in Vlaanderen in één cijfer op basis van een geometrisch gemiddelde van de "relatieve abundanties". 
+Een relatieve daling van een soort met de helft (soortindex 50%) zal dus in de MSI volledig gecompenseerd worden door een andere soort die verdubbelt (soortindex 200%). 
+
+De formule voor de berekening van het geometrische gemiddelde is: 
+
+$$\begin{align*}
+\hat\pi_{j,t} = \frac{\exp(\hat{l_{j,t}})}{1 + \exp(\hat{l_{j,t}})}\\
+\text{SI}_{j,t} = \frac{\hat\pi_{j,t}}{\hat\pi_{j,baseline}}\\
+\text{MSI}_{t} = 100\times \exp\bigg( \frac{1}{s}\sum_{j = 1}^{s}\log\text{SI}_{j,t}\bigg)\\
+\text{SE}_{\text{MSI}} = \sqrt{\frac{1}{s}\sum_{j = 1}^{s}\text{SE}_{\text{SI}}^2}\\
+\end{align*}$$
+
+In deze formule: $j$ = soort, $t$ = jaar, 
+$l$ = de lineaire predictor in de logit-schaal 
+en $s$ is het totaal aantal soorten. 
+$\text{MSI}$ and $\text{SI}$ zijn afkortingen voor multisoortenindex en soortenindex. $\text{SE}$ is de standaard error. 
+
+De generieke analyse op schaal Vlaanderen is aangevuld met bijkomende analyses per ecologisch profiel (klimaat-, voedselrijkdom-, en zuurtegraadvoorkeur) van de soorten. Daarnaast werden de analyses ook uitgevoerd per type ecosysteem.
+
+De berekeningswijze is in detail beschreven in @van_calster_florabank_2020. 
+
+## Opmerkingen bij de gegevenskwaliteit en betrouwbaarheid
+
+Verschillen tussen jaren onderling, kunnen enkel beoordeeld worden t.o.v. het referentiejaar 2000. 
+Voor een vergelijking met een ander jaar dient de berekening opnieuw te lopen met een nieuw basisjaar.
+
+Een multisoortenindex is een ruwe benadering om inzicht te krijgen in de evolutie van de biodiversiteit.
+De methode is gevoelig aan zowel over- als onderschattingen. 
+Daarnaast zijn aan-/afwezigheidsgegevens minder gevoelig om veranderingen op populatieniveau te meten.
+Bij dergelijke indexen zijn er ook steeds winnaars en verliezers. 
+Het is ook onvermijdbaar dat de index het verlies van ecologisch gespecialiseerde soorten cijfermatig laat compenseren door het algemener worden van meer generalistische soorten.
+Dit betekent dat de resultaten met de nodige voorzichtigheid moeten geïnterpreteerd worden. 
+
+## Download
+
+**Broncode indicator**: [msi.Rmd](../c2_msi/msi.Rmd)
+- **Basisdata**: [tbleffect.tsv](../c2_msi/tbleffect.tsv) en  [tbltrend.tsv](../c2_msi/tbltrend.tsv)
+- **Metadata basisdata**: [tbleffect.yml](../c2_msi/tbleffect.yml) en [tbltrend.yml](../c2_msi/tbltrend.yml)
+
+## Referenties

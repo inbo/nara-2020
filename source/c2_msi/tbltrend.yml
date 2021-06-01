@@ -1,0 +1,295 @@
+..generic:
+  git2rdata: 0.2.1
+  optimize: no
+  NA string: ''
+  sorting: Nummer
+  hash: fc56c9277b964e922b10711a615ff7b1f33280bf
+  data_hash: c94ffa4ce8f48299ab7925536a3b1c22cd6a2aa4
+Nummer:
+  class: integer
+Kenmerk:
+  class: factor
+  labels:
+  - CSR ordinate values
+  - Ecologische amplitude
+  - Ecotoopgroep
+  - Ellenberg Reactiegetal hergroepering
+  - Ellenberg Stikstof hergroepering
+  - Ellenberg Temperatuur hergroepering
+  - Ellenberg Vocht hergroepering
+  - Graad van polyploidie
+  - habitatgroep (ecotopen)
+  - Indigeniteit
+  - Socio-ecologische groepen Stieperaere en Fransen
+  - substraat (ecotopen)
+  - voedselrijkdom (ecotopen)
+  index:
+  - 1
+  - 2
+  - 3
+  - 4
+  - 5
+  - 6
+  - 7
+  - 8
+  - 9
+  - 10
+  - 11
+  - 12
+  - 13
+  ordered: no
+Omschrijving:
+  class: factor
+  labels:
+  - A12
+  - A15
+  - A16
+  - A16zt
+  - A18
+  - aanspoelingsgordels, natte ruigten en rivierbegeleidende wilgestruwelen van voedselrijk
+    milieu
+  - acidic
+  - akker
+  - akkers op kalkrijke grond
+  - akkers op relatief voedselarme, kalkarme grond
+  - akkers op voedselrijke kalkhoudende maar niet kalkrijke grond
+  - alluviale bossen, op min of meer hydromorfe bodem
+  - aquatisch
+  - archeofyt
+  - bA10
+  - bK20
+  - bK40
+  - bos
+  - bossen op gerijpte, matig voedselrijke tot voedselrijke, matig vochtige tot droge
+    grond
+  - bossen op gerijpte, zwak zure tot kalkrijke, relatief droge grond
+  - bossen op jonge, weinig stabiele, matig vochtige puinbodems (ravijnbossen)
+  - bossen op matig voedselarme, droge zure grond
+  - bossen op relatief voedselrijke, vochtige tot natte grond en van brongebieden
+  - bossen op voedselarme tot matig voedselrijke, neutrale tot kalkhoudende grond
+  - brakke tot zilte milieus
+  - Brede amplitude
+  - C
+  - cool
+  - Diploid
+  - droge heiden op zeer voedselarme grond
+  - dry
+  - duinen
+  - grasland
+  - graslanden op droge, voedselarme tot matig voedselrijke, niet tot matig kalkhoudende,
+    neutrale tot zwak basische grond
+  - graslanden op droge, voedselarme, kalkarme, zure grond
+  - graslanden op droge, voedselarme, kalkrijke of zinkhoudende, neutrale tot basische
+    grond
+  - H22
+  - H27
+  - H28
+  - H42
+  - H43
+  - H46
+  - H47
+  - H61
+  - H62
+  - H63
+  - H69
+  - heide
+  - hoge schorren en contactsituaties tussen zout en zoet milieu
+  - hoogvenen, natte heiden en onbemeste graslanden op natte, zeer voedselarme, zure,
+    humeuze grond
+  - inheems
+  - jonge aanplanten en zomen op voedsel- (vooral stikstof-) rijke, neutrale, humeuze
+    matig vochtige tot droge grond
+  - K21
+  - K22
+  - K23
+  - K27
+  - K28
+  - K41
+  - K42
+  - K43
+  - K46
+  - K47
+  - K48
+  - K61
+  - K62
+  - K63
+  - K67
+  - K68
+  - kaalslagen op matig vochtige tot droge, matig voedselrijke tot voedselrijke grond
+  - matig bemeste graslanden op (matig) vochtige grond
+  - matig bemeste graslanden op natte grond
+  - matig voedselarme, kalkarme, zure laagveenmoerassen
+  - matig voedselrijk
+  - moderate
+  - moeras
+  - moist
+  - muren en rotsen
+  - Muur
+  - neofyt
+  - nitrogen deprived
+  - nitrogen intermediat
+  - nitrogen rich
+  - Not diploid
+  - onbemeste graslanden op vochtige tot natte voedselarme, zwak zure grond
+  - onbemeste, heischrale graslanden op matig vochtige tot droge, voedselarme, zure,
+    humeuze grond
+  - open, matig voedselrijke tot voedselarme, vochtige grond
+  - open, voedsel- (spediaal stikstof-) rijke, natte grond
+  - R
+  - regelmatig betreden plaatsen op voedselrijke grond (tredplanten)
+  - relatief voedselrijke plaatsen met wisselende waterstand
+  - ruigten op betreden, voedselrijke, niet humeuze, kalkhoudende maar niet kalkrijke,
+    droge grond
+  - ruigten op weinig betreden, kalkrijke, niet humeuze, droge grond
+  - ruigten op weinig betreden, voedselrijke, humeuze, matig droge grond
+  - S
+  - Smalle amplitude
+  - stranden, zeeduinen en zandige vloedmerken
+  - struwelen op matig vochtige tot droge, relatief voedselrijke grond
+  - submerged
+  - temporarilly submerged
+  - terrestrisch
+  - urbaan
+  - verlandingsvegetaties in zoete, voedselrijke, stagnerende of lichtstromende ondiepe
+    tot diepe wateren; dikwijls veenvormend
+  - verlandingsvegetaties in zoete, voedselrijke, stromende of periodiek droogvallende
+    wateren; niet veenvormend
+  - voedselarm
+  - voedselrijk
+  - warm
+  - weakly acidic
+  - weakly basic or basic
+  - wet
+  - zK20
+  - zoet water
+  - zoete tot matig brakke, (matig) voedselrijke wateren (overwegend obligate waterplanten)
+  - zoete, voedselarme wateren en de periodiek droogvallende oevers ervan
+  - zomen op kalkhoudende, lemige, matig vochtige tot droge grond
+  - zoute tot sterk brakke wateren, slikken en lage schorren
+  index:
+  - 1
+  - 2
+  - 3
+  - 4
+  - 5
+  - 6
+  - 7
+  - 8
+  - 9
+  - 10
+  - 11
+  - 12
+  - 13
+  - 14
+  - 15
+  - 16
+  - 17
+  - 18
+  - 19
+  - 20
+  - 21
+  - 22
+  - 23
+  - 24
+  - 25
+  - 26
+  - 27
+  - 28
+  - 29
+  - 30
+  - 31
+  - 32
+  - 33
+  - 34
+  - 35
+  - 36
+  - 37
+  - 38
+  - 39
+  - 40
+  - 41
+  - 42
+  - 43
+  - 44
+  - 45
+  - 46
+  - 47
+  - 48
+  - 49
+  - 50
+  - 51
+  - 52
+  - 53
+  - 54
+  - 55
+  - 56
+  - 57
+  - 58
+  - 59
+  - 60
+  - 61
+  - 62
+  - 63
+  - 64
+  - 65
+  - 66
+  - 67
+  - 68
+  - 69
+  - 70
+  - 71
+  - 72
+  - 73
+  - 74
+  - 75
+  - 76
+  - 77
+  - 78
+  - 79
+  - 80
+  - 81
+  - 82
+  - 83
+  - 84
+  - 85
+  - 86
+  - 87
+  - 88
+  - 89
+  - 90
+  - 91
+  - 92
+  - 93
+  - 94
+  - 95
+  - 96
+  - 97
+  - 98
+  - 99
+  - 100
+  - 101
+  - 102
+  - 103
+  - 104
+  - 105
+  - 106
+  - 107
+  - 108
+  - 109
+  - 110
+  - 111
+  - 112
+  - 113
+  - 114
+  - 115
+  ordered: no
+period_start:
+  class: integer
+Jaar:
+  class: integer
+expmean_est:
+  class: numeric
+expmean_lwr:
+  class: numeric
+expmean_upr:
+  class: numeric
