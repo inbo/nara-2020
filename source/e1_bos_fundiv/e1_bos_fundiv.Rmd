@@ -305,13 +305,13 @@ fdis_stuurvariabelen <- fdis %>%
 # Bayesiaanse regressie met het brms package. Omdat de analyse lang duurt,
 # hebben we de resultaten weggeschreven (Bostypes.Rdata)
 # form <- bf(FDis ~ Bostype * Periode + (1|IDPlots))  # nolint
-# brm_Bostypes <- brm(data = FDis_stuurvariabelen, form,  # nolint
+# brm_Bostypes <- brm(data = fdis_stuurvariabelen, form,  # nolint
 #            control = list(max_treedepth = 18), iter = 2000, chains = 4, # nolint
 #            prior = set_prior("normal(0,100)", class = "b"))  # nolint
 
 # save(brm_Bostypes, file = "Bostypes.Rdata")  # nolint
 
-load(file = "bostypes.Rdata") # nolint
+load(file = "bostypes.rdata") # nolint
 
 ### Analyse CWM per trait
 cwm_stuurvariabelen <- data_cwm %>%
