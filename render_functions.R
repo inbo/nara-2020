@@ -286,7 +286,7 @@ changed_path <- function(path = ".") {
   changes[grepl("source.+", changes)]
 }
 
-render_one <- function(path, pure_id, root_dir) {
+render_one <- function(path, pure_id, root_dir, hoofdstuk_titel) {
   setwd(dirname(path))
   message(path)
 
@@ -311,6 +311,9 @@ render_one <- function(path, pure_id, root_dir) {
       ),
       pandoc_variable_arg(
         "pure_id", paste(pure_id[[path]], collapse = ", ")
+      ),
+      pandoc_variable_arg(
+        "hoofdstuk_titel", paste(hoofdstuk_titel[[path]], collapse = ", ")
       ),
       "--email-obfuscation=javascript",
       unlist(meerweten)
@@ -448,39 +451,19 @@ check_publicatiedatum <- function(path) {
 
 check_hoofdstuk <- function(path) {
   correct <- read_vc("template/hoofdstuk")
-  dirs <- unique(dirname(path))
-  dirs <- dirs[basename(dirs) != "generiek"]
-  sapply(
-    dirs,
-    function(i) {
-      input <- list.files(i, pattern = "\\.[Rr]md$", full.names = TRUE)
-      x <- lapply(input, yaml_front_matter)
-      x <- setNames(x, input)
-      x <- sapply(x, `[[`, "hoofdstuk")
-      ok <- sapply(x, is.integer)
-      assert_that(
-        all(ok),
-        msg = paste0(
-          "'hoofdstuk' moet een geheel getal zijn in\n",
-          paste(names(x)[!ok], collapse = "\n")
-        )
-      )
-      ok <- sapply(
-        x,
-        function(x) {
-          all(x %in% correct$hoofdstuk)
-        }
-      )
-      assert_that(
-        all(ok),
-        msg = paste0(
-          "verkeerd 'hoofdstuk' nummer in\n",
-          paste(names(x)[!ok], collapse = "\n")
-        )
-      )
-    }
+  x <- yaml_front_matter(path)[["hoofdstuk"]]
+  assert_that(
+    is.integer(x),
+    msg = paste0("'hoofdstuk' moet een geheel getal zijn in\n", path)
   )
-  return(invisible(NULL))
+  ok <- x %in% correct$hoofdstuk
+  assert_that(
+    all(ok),
+    msg = paste0(
+      "verkeerd 'hoofdstuk' nummer in\n", paste(names(x)[!ok], collapse = "\n")
+    )
+  )
+  correct$volledig[correct$hoofdstuk %in% x]
 }
 
 on_main <- function(path = ".") {
@@ -508,9 +491,13 @@ render_all <- function(everything = FALSE) {
   names(pure_id) <- to_do
   sapply(to_do, check_structuur)
   check_publicatiedatum(to_do)
-  check_hoofdstuk(to_do)
+  hoofdstuk_titel <- lapply(to_do, check_hoofdstuk)
+  names(hoofdstuk_titel) <- to_do
   root_dir <- getwd()
   on.exit(setwd(root_dir), add = TRUE)
-  rendered <- sapply(to_do, render_one, pure_id = pure_id, root_dir = root_dir)
+  rendered <- sapply(
+    to_do, render_one, pure_id = pure_id, root_dir = root_dir,
+    hoofdstuk_titel = hoofdstuk_titel
+  )
   return(invisible(rendered))
 }
