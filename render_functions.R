@@ -324,7 +324,12 @@ render_one <- function(path, pure_id, root_dir, hoofdstuk_titel) {
   output_format$knitr$opts_chunk$fig.path <- file.path(
     "..", basename(dirname(path)), gsub("\\.Rmd$", "_files/", basename(path))
   )
-  z <- render(path, output_format = output_format)
+  z <- callr::r(
+    function(input, output_format) {
+      rmarkdown::render(input, output_format = output_format, envir = new.env())
+    },
+    args = list(input = path, output_format = output_format)
+  )
 
   # move libs path
   html <- readLines(z)
