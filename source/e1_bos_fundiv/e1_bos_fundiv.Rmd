@@ -19,13 +19,13 @@ output: html_document
 ---
 
 ```{r setup, include=FALSE}
-
 library(knitr)
 opts_chunk$set(
   message = FALSE,
   warning = FALSE,
   echo = FALSE
 )
+library(brms)
 library(git2rdata)
 library(FD)
 library(ggcorrplot)
@@ -34,12 +34,6 @@ library(htmlwidgets)
 library(ggeffects) # effecten van modellen plotten
 library(tidyverse)
 library(INBOtheme)
-library(gridExtra) # Om meerdere grafieken naast mekaar te zetten
-library(here)
-library(rstan)
-library(brms)
-library(sf)
-library(rgdal)
 library(raster)
 library(spData)
 library(viridis)
@@ -53,7 +47,7 @@ setWidgetIdSeed(20200520)
 options(htmlwidgets.TOJSON_ARGS = list(pretty = TRUE))
 ```
 
-```{r data_inlezen, cache = TRUE}
+```{r data_inlezen}
 tbl0boom <- read_vc("tbl0boom") # Dataset boomsoorten
 pnv <- read_vc("pnv") %>% # Dataset pnv-type per plot
   mutate(IDPlots = factor(IDPlots))
@@ -61,7 +55,7 @@ traits <- read_vc("traits") # Dataset functionele kenmerken
 bostypes <- read_vc("bostypes") # Om de pnv-types te groeperen in bostypes
 ```
 
-```{r data_bewerken, results='hide', cache = TRUE}
+```{r data_bewerken, results='hide'}
 # De master dataset opmaken op basis van tbl0Boom en de functionele kenmerken
 # toevoegen aan elke boomsoort
 boomsoorten_basalarea_ha <- tbl0boom %>%
@@ -240,9 +234,16 @@ x <- traits %>%
   arrange(Species) %>%
   remove_rownames() %>%
   column_to_rownames(var = "Species")
+```
 
+```{r fd, results='hide', eval = !file.exists("fd.rds")}
 fd <- dbFD(x = x, a = a, w.abun = TRUE, corr = "lingoes", messages = FALSE)
+saveRDS(fd, file = "fd.rds")
+```
 
+
+```{r data_bewerken2, results='hide'}
+fd <- readRDS("fd.rds")
 fdis <- fd$FDis %>%
   as.data.frame() %>%
   rownames_to_column("ID") %>%
