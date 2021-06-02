@@ -115,6 +115,11 @@ RUN  apt-get update \
   && apt-get install -y --no-install-recommends \
     libudunits2-dev
 
+## Install V8 dependencies
+RUN  apt-get update \
+  && apt-get install -y --no-install-recommends \
+     libv8-dev
+
 ## Install xml2 dependencies
 RUN apt-get update \
   && apt-get install -y --no-install-recommends \
