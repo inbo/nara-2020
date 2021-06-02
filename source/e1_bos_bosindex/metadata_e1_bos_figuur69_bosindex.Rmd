@@ -68,8 +68,8 @@ Omdat de meeste nationale bosinventarissen meerdere jaren in beslag nemen, wijke
 ## Download
 
 **Broncode indicator**:
-[E1_bos_figuur-69_bosindex.Rmd](../e1_bos_figuur69_bosindex/e1_bos_figuur69_bosindex.Rmd)
-- **Basisdata**: [bosindex.tsv](../e1_bos_figuur69_bosindex/bosindex.tsv)
-- **Metadata basisdata**: [bosindex.yml](../e1_bos_figuur69_bosindex/bosindex.yml)
+[E1_bos_figuur-69_bosindex.Rmd](../e1_bos_bosindex/e1_bos_figuur69_bosindex.Rmd)
+- **Basisdata**: [bosindex.tsv](../e1_bos_bosindex/bosindex.tsv)
+- **Metadata basisdata**: [bosindex.yml](../e1_bos_bosindex/bosindex.yml)
 
 ## Referenties
