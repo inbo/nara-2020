@@ -19,7 +19,6 @@ output: html_document
 ---
 
 ```{r setup, include=FALSE}
-
 library(knitr)
 opts_chunk$set(
   message = FALSE,
@@ -34,12 +33,6 @@ library(htmlwidgets)
 library(ggeffects) # effecten van modellen plotten
 library(tidyverse)
 library(INBOtheme)
-library(gridExtra) # Om meerdere grafieken naast mekaar te zetten
-library(here)
-library(rstan)
-library(brms)
-library(sf)
-library(rgdal)
 library(raster)
 library(spData)
 library(viridis)
