@@ -1,0 +1,28 @@
+..generic:
+  git2rdata: 0.2.1
+  optimize: no
+  NA string: NA
+  sorting:
+  - Species
+  - Year
+  hash: b6fefc2bdf9939debc08dafb7c44fd1cc3cfcaf7
+  data_hash: 932d460061ce75569d7835c3fa4eea60f346c2c9
+Species:
+  class: factor
+  labels:
+  - Grote weerschijnvlinder
+  - Keizersmantel
+  - Kleine ijsvogelvlinder
+  index:
+  - 1
+  - 2
+  - 3
+  ordered: no
+Year:
+  class: integer
+Lower_bound:
+  class: numeric
+Median:
+  class: numeric
+Upper_bound:
+  class: numeric

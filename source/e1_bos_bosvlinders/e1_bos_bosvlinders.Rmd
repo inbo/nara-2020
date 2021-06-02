@@ -1,0 +1,97 @@
+---
+title: "Bos - Trends in het voorkomen van bosvlinders"
+date: 2020-07-01T10:00:00
+bibliography: ../references.bib
+link-citations: TRUE
+hoofdstuk: 5
+thema:
+  - Bos
+  - Klimaat
+keywords:
+  - Vlinders
+  - Keizersmantel
+  - Grote weerschijnvlinder
+  - Kleine ijsvogelvlinder
+  - Apatura iris
+  - Argynnis paphia 
+  - Limenitis camilla
+lang: nl
+tab: indicator
+verantwoordelijke:
+- Maarten Stevens <maarten.stevens@inbo.be>
+output: html_document
+---
+
+```{r setup, include=FALSE}
+library(knitr)
+opts_chunk$set(
+  message = FALSE,
+  warning = FALSE,
+  echo = FALSE
+)
+library(tidyverse)
+library(git2rdata)
+library(plotly)
+library(INBOtheme)
+library(htmlwidgets)
+
+theme_set(theme_nara(12))
+switch_colour(inbo_hoofd)
+
+set.seed(20200520)
+setWidgetIdSeed(20200520)
+options(htmlwidgets.TOJSON_ARGS = list(pretty = TRUE))
+```
+
+```{r data_inlezen}
+gegevens <- read_vc("bosvlinders") %>%
+  mutate(Species = recode(Species, "Grote weerschijnvlinder" =
+                            "Grote weerschijnvlinder", "Kleine ijsvogelvlinder"
+                          = "Kleine ijsvogelvlinder")) %>%
+  rename("Jaar" = "Year", "Soort" = "Species") %>%
+  mutate(Schatting = scales::percent(Median, accuracy = 0.1))
+```
+
+De verspreiding van bosvlinders in Vlaanderen neemt toe.
+
+```{r grafiek, fig.width = 8, fig.height = 4, fig.cap = "Figuur 1. Aantal bezette kilometerhokken van 3 typische bosvlinders in Vlaanderen tussen 2009 en 2019: gemodelleerde trends en 95% betrouwbaarheidsintervallen. Analyse gebaseerd op gegevens van [waarnemingen.be](https://www.waarnemingen.be). Deze figuur verwijst naar figuur 75 in het Natuurrapport 2020."}
+p <- ggplot(gegevens, aes(x = Jaar, y = Median, label = Schatting)) +
+  geom_ribbon(aes(ymin = Lower_bound, ymax = Upper_bound,
+                  fill = Soort), alpha = 0.2) +
+  geom_line(aes(colour = Soort)) +
+  scale_x_continuous(breaks = c(2009, 2011, 2013, 2015, 2017, 2019)) +
+  scale_y_continuous(labels = scales::percent_format(accuracy = 1),
+                     expand = c(0, 0)) +
+  labs(y = "% BEZETTE KMHOKKEN") +
+  theme(axis.title.x = element_blank(),
+        axis.title.y = element_text(margin = margin(t = 0, r = 10, b = 0,
+                                                    l = 0), hjust = 0),
+        legend.title = element_blank())
+
+gg <- ggplotly(p, tooltip = c("fill", "colour", "x", "label"))
+gg <- plotly_build(gg)
+gg$x$data[[4]]$showlegend <- FALSE
+gg$x$data[[5]]$showlegend <- FALSE
+gg$x$data[[6]]$showlegend <- FALSE
+gg$x$data[[1]]$name <- "Grote weerschijnvlinder"
+gg$x$data[[2]]$name <- "Keizersmantel"
+gg$x$data[[3]]$name <- "Kleine ijsvogelvlinder"
+gg
+```
+
+## Definitie
+
+De indicator toont de evolutie van het percentage van de onderzochte kilometerhokken waar drie typische bosvlinders werden aangetroffen.
+
+## Bespreking
+
+Op basis van [waarnemingen door vrijwilligers](https://www.waarnemingen.be) werd een trend berekend voor het voorkomen van drie typische bosvlinders (grote weerschijnvlinder, keizersmantel en kleine ijsvogelvlinder). 
+Elk van die soorten gaat erop vooruit ten opzichte van het startjaar 2009.
+Ook de analyse van de gestandaardiseerde dagvlindermonitoring toont een toename van de index voor bosvlinders tussen 1991 en 2019, vooral in het laatste decennium [@maes_dagvlindermonitoring_2020].
+Vermoedelijk spelen zowel de verbetering van de bosstructuur als klimatologische factoren een rol. 
+De variatie in neerslag en temperatuur zorgt voor schommelingen in de populaties. 
+Sommige soorten, zoals keizersmantel, profiteren waarschijnlijk van de effecten van de klimaatverandering en gaan er de laatste jaren op vooruit. 
+Voor andere soorten kunnen extreem droge zomers of natte winters de overlevingskansen van vlinders en rupsen verminderen.
+Op die manier kan de klimaatverandering de positieve effecten van de verbeterde bosstructuur neutraliseren.
+
+## Referenties

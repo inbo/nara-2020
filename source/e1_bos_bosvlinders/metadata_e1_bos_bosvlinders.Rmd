@@ -1,0 +1,57 @@
+---
+title: "Metadata bos - Trends in het voorkomen van bosvlinders"
+date: 2020-07-01T10:00:00
+bibliography: ../references.bib
+link-citations: TRUE
+hoofdstuk: 5
+thema:
+  - Bos
+  - Klimaat
+keywords:
+  - Vlinders
+  - Keizersmantel
+  - Grote weerschijnvlinder
+  - Kleine ijsvogelvlinder
+  - Apatura iris
+  - Argynnis paphia 
+  - Limenitis camilla
+lang: nl
+tab: metadata
+verantwoordelijke:
+- Maarten Stevens <maarten.stevens@inbo.be>
+output: html_document
+---
+## Technische informatie
+
+```{r setup, include=FALSE}
+library(knitr)
+opts_chunk$set(echo = FALSE, message = FALSE, warning = FALSE)
+library(git2rdata)
+```
+
+```{r databereik}
+databereik <- paste(range(read_vc("bosvlinders")$Year), collapse = "-")
+```
+\- **Periodiciteit**: eenmalig
+\- **Volgende update**: onbekend
+\- **Databereik**: `r databereik`
+
+## Databron
+
+- **Producent**: Natuurpunt Studie vzw en Maxime Fajgenblat (KU Leuven)
+- **Dataset**: Databank Waarnemingen.be
+- **Gegevensinzameling**: De gegevens werden verzameld via https://www.waarnemingen.be. De dataset omvat het aantal UTM-hokken (1 x 1 km) waarin een soort in een jaar werd waargenomen.
+
+## Berekeningswijze
+
+Voor de analyse werd gebruik gemaakt van bayesiaanse hiërarchische site-occupancy modellen [Maxime Fajgenblat (KU Leuven); @strien_opportunistic_2013].
+Voor de trends en de 95% geloofwaardigheidsintervallen wordt per Monte Carlo sample het geometrisch gemiddelde berekend van het aantal geschatte hokken waar elke soort voorkomt.  
+
+## Download
+
+**Broncode indicator**:
+[E1_bos_bosvlinders.Rmd](../e1_bos_bosvlinders/e1_bos_bosvlinders.Rmd)
+- **Basisdata**: [bosvlinders.tsv](../e1_bos_bosvlinders/bosvlinders.tsv)
+- **Metadata basisdata**: [bosvlinders.yml](../e1_bos_bosvlinders/bosvlinders.yml)
+
+## Referenties
