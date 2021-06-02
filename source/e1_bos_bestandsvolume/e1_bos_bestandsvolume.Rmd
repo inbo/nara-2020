@@ -1,0 +1,110 @@
+---
+title: "Bos - Houtvoorraad in private en publieke bossen"
+date: 2020-07-01T10:00:00
+bibliography: ../references.bib
+link-citations: TRUE
+hoofdstuk: 5
+thema:
+  - Bos
+keywords:
+  - houtvolume
+  - bosinventaris
+  - aanwas
+  - houtoogst
+lang: nl
+tab: indicator
+verantwoordelijke:
+- Maarten Stevens <maarten.stevens@inbo.be>
+output: html_document
+---
+
+```{r setup, include=FALSE}
+library(knitr)
+opts_chunk$set(
+  message = FALSE,
+  warning = FALSE,
+  echo = FALSE
+)
+
+library(lme4)
+library(ggeffects) # effecten van modellen plotten
+library(tidyverse)
+library(git2rdata)
+library(ggplot2)
+library(plotly)
+library(INBOtheme)
+library(htmlwidgets)
+
+theme_set(theme_nara()) # het nara-kleurenpallet selecteren
+switch_colour(inbo_hoofd) # het INBO-kleurenpallet activeren
+
+set.seed(20200520)
+setWidgetIdSeed(20200520)
+options(htmlwidgets.TOJSON_ARGS = list(pretty = TRUE))
+```
+
+```{r data_inlezen}
+gegevens <- read_vc("datahoutvolume") # Analyseset
+```
+```{r data_bewerken, results='hide'}
+gegevens <- gegevens %>%
+  mutate(OwnerType = recode(OwnerType,
+    "Private" = "Privaat",
+    "Public" = "Publiek"
+  ))
+
+m1 <- lmer(v11_Volume_ha ~ fPeriode * OwnerType +
+  (1 | IDGroup), gegevens, weight = Weight)
+```
+
+Het houtvolume in bossen in Vlaanderen neemt toe.
+
+```{r, staafdiagram, fig.width = 5, fig.height = 4, fig.cap = "Figuur 1. Gemiddeld houtvolume (m³) en 95% betrouwbaarheidsinterval in private en publieke bossen in de bosbouwproefvlakken van de Vlaamse bosinventaris (VBI). Deze figuur verwijst naar figuur 83 uit het Natuurrapport 2020."}
+
+pred_m <- ggpredict(m1, terms = c("fPeriode", "OwnerType")) %>%
+  mutate(x = recode(x, "1" = "VBI1", "2" = "VBI2"))
+
+p <- ggplot(pred_m, aes(
+  x = x, y = predicted, fill = group,
+  text = paste(
+    "Eigenaarstype: ", group,
+    "\nVolume: ", round(predicted, 1), " m³/ha",
+    "\nBI: ", round(conf.low, 1), " - ", round(conf.high, 1), " m³/ha"
+  )
+)) +
+  geom_bar(stat = "identity", position = "dodge", width = 0.7) +
+  geom_errorbar(aes(ymin = conf.low, ymax = conf.high, ), width = 0.2,
+                colour = "black", position = position_dodge(width = 0.7)) +
+  scale_y_continuous(expand = (c(0, 0))) +
+  labs(y = "VOLUME (m³/ha)", fill = "") +
+  theme(
+    axis.title.x = element_blank(),
+    axis.title.y = element_text(margin = margin(t = 0, r = 10, b = 0, l = 0),
+                                hjust = 0),
+    legend.key.width = unit(0.3, "cm"),
+    legend.key.height = unit(0.3, "cm")
+  )
+
+ggplotly(p, tooltip = c("text"))
+```
+
+## Definitie
+
+De houtvoorraad is het volume levend hout per hectare (ha/m³).   
+
+## Bespreking
+
+Voor een duurzaam bosbeheer gaat men ervan uit dat de houtoogst maximaal 70% van de jaarlijkse aanwas mag bedragen [@eea_forest_2017].
+Het gemiddelde volume hout in de bossen in Vlaanderen neemt toe, wat erop wijst dat de houtoogst onder de aanwas blijft. 
+Volgens een ruwe schatting van @govaere_nieuwe_2020 bedraagt de ratio houtoogst/aanwas in Vlaanderen ongeveer 67%.
+
+Het principe van duurzaam bosbeheer is in de Vlaamse wetgeving verankerd via het Bosdecreet.
+Ook na de eerste fase van de integratie van het Bosdecreet en het Natuurdecreet streeft de overheid, onder andere via beheerplannen, naar duurzaam beheerde en multifunctionele bossen.
+De voorlopige resultaten van de analyses van de bosinventaris wijzen op een positieve evolutie van de toestand.
+Vermoedelijk verklaren zowel de effecten van beheerplannen als het achterwege blijven van beheer in vooral private bossen de geobserveerde trends.
+De resultaten laten echter nog niet toe om sluitende uitspraken te doen over de effecten van een beheerplan. 
+Een bosecosysteem verandert traag; een beheerplan moet dus al een tijd in voege zijn om effecten op het terrein waar te nemen. 
+Het aantal steekproefpunten met een beheerplan ouder dan tien jaar is nog te beperkt.
+Daardoor is de steekproef te klein om betekenisvolle effecten waar te nemen.
+
+## Referenties
