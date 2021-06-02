@@ -1,0 +1,87 @@
+---
+title: "Metadata bos - Bosoppervlakte per provincie"
+date: 2020-07-01T10:00:00
+bibliography: ../references.bib
+link-citations: TRUE
+hoofdstuk: 5
+thema:
+  - Bos
+keywords:
+  - bosindex
+  - bosoppervlakte
+  - extent
+  - bebossingsgraad
+  - provincies
+  - West-Vlaanderen
+  - Oost-Vlaanderen
+  - Vlaams-Brabant
+  - Antwerpen
+  - Limburg
+lang: nl
+tab: metadata
+verantwoordelijke:
+- Maarten Stevens <maarten.stevens@inbo.be>
+output: html_document
+---
+## Technische informatie
+
+```{r setup, include=FALSE}
+library(knitr)
+opts_chunk$set(echo = FALSE, message = FALSE, warning = FALSE)
+library(git2rdata)
+```
+
+```{r databereik}
+databereik <- "VBI 1: 1997-1999 en VBI 2: 2009-2019"
+```
+\- **Periodiciteit**: eenmalig
+\- **Volgende update**: onbekend
+\- **Databereik**: `r databereik`
+
+## Databron
+
+- **Producent**: Instituut voor Natuur- en Bosonderzoek
+- **Dataset**: Transitiematrix Vlaamse Bosinventaris (11/05/2020)
+- **Gegevensinzameling**: De Vlaamse bosinventaris (VBI) bestaat uit een steekproef van punten waarvoor op het terrein de toestand van het bos wordt opgemeten [@westra_opmaak_2015; @wouters_ontwerp_2008].
+De meetcyclus van de eerste bosinventaris (VBI 1) liep van 1997 tot 1999, de tweede meetcyclus (VBI 2) van 2009 tot 2019.
+De steekproef wordt gekozen uit een vast raster van 27.163 punten. 
+Voor elk punt in het raster wordt beoordeeld of het al dan niet in bos ligt.
+De resultaten van de beoordeling van de steekproefpunten worden weergegeven in een **transitiematrix**.
+Dat is een kruistabel van de toestand in VBI 1 met de toestand in VBI 2 [@quataert_advies_2019].
+De punten die in bos liggen worden opgemeten volgens een gestandaardiseerd veldprotocol [@anb_bosinventaris_2021].
+
+## Berekeningswijze
+
+De bosindex wordt berekend als het percentage van de gecontroleerde punten dat bebost is.
+Tabel 1 geeft een overzicht van de basisdata voor de berekening van de bosindex per provincie in beide meetcycli van de bosinventaris.
+Het betrouwbaarheidsinterval van de bosindex wordt berekend met een z-test [`Prop.test` - @r_core_team_r_2020].
+De bosoppervlakte wordt berekend door de bosindex te vermenigvuldigen met de oppervlakte van elke provincie. 
+
+Tabel 1. Bosindex per provincie op basis van de eerste (VBI 1: 1997-1999) en tweede (VBI 2: 2009-2019) bosinventaris.
+
+| Provincie       | VBI | Oppervlakte (km²) | Totaal aantal punten | Punten die bos zijn | Bosindex (%) |
+|-----------------|:---:|:-----------------:|:--------------------:|:-------------------:|:------------:|
+| Antwerpen       |  1  |      2876.12      |         5749         |         924         |     16.07    |
+|                 |  2  |                   |                      |         893         |     15.53    |
+| Limburg         |  1  |      2427.43      |         4851         |         936         |     19.29    |
+|                 |  2  |                   |                      |         921         |     18.99    |
+| Oost-Vlaanderen |  1  |      3007.08      |         6019         |         322         |      5.35    |
+|                 |  2  |                   |                      |         328         |      5.45    |
+| Vlaams-Brabant  |  1  |      2118.35      |         4234         |         486         |     11.48    |
+|                 |  2  |                   |                      |         506         |     11.95    |
+| West-Vlaanderen |  1  |      3196.58      |         6305         |         130         |      2.06    |
+|                 |  2  |                   |                      |         148         |      2.35    |
+
+## Opmerkingen bij de gegevenskwaliteit en betrouwbaarheid
+
+Omdat er niet gebiedsdekkend wordt gemeten maar met steekproefmetingen, moet er rekening gehouden worden met een foutenmarge die varieert per provincie.
+Als de betrouwbaarheidsintervallen van twee metingen overlappen, is dat een indicatie dat beide metingen niet significant van elkaar verschillen.
+Zie @quataert_advies_2019 voor een uitgebreide bespreking van de onzekerheid op de schatters van de bosoppervlakte. 
+
+## Download
+
+**Broncode indicator**: [E1_bos_figuur-70_bosoppervlakte-provincie.Rmd](../e1_bos_bosoppervlakte_provincie/e1_bos_figuur70_bosoppervlakteprovincie.Rmd)
+- **Basisdata**: [Transitiematrix.tsv](../e1_bos_bosoppervlakte_provincie/transitiematrix.tsv)
+- **Metadata basisdata**: [Transitiematrix.yml](../e1_bos_bosoppervlakte_provincie/transitiematrix.yml)
+
+## Referenties
