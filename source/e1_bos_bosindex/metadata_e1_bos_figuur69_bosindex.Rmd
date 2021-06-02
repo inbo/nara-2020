@@ -1,0 +1,75 @@
+---
+title: "Metadata bos - Bosindex Europese lidstaten en regio's"
+date: 2020-07-01T10:00:00
+bibliography: ../references.bib
+link-citations: TRUE
+hoofdstuk: 5
+thema:
+  - Bos
+keywords:
+  - bosindex
+  - bosoppervlakte
+  - extent
+  - bebossingsgraad
+  - europa
+  - lidstaten
+lang: nl
+tab: metadata
+verantwoordelijke:
+- Maarten Stevens <maarten.stevens@inbo.be>
+output: html_document
+---
+## Technische informatie
+
+```{r setup, include=FALSE}
+library(knitr)
+opts_chunk$set(echo = FALSE, message = FALSE, warning = FALSE)
+library(git2rdata)
+```
+
+```{r databereik}
+databereik <- "Variërend per lidstaat en regio. Vlaanderen: 1997-1999 (VBI 1)"
+```
+\- **Periodiciteit**: eenmalig
+\- **Volgende update**: onbekend
+\- **Databereik**: `r databereik`
+
+## Databron
+
+- **Producent**: Instituut voor Natuur- en Bosonderzoek
+- **Dataset**: Forest area uit de UNECE database (2015) en de EFI Forest map of Europe (2011)
+- **Gegevensinzameling**: De bosindex van de Europese **lidstaten** werd overgenomen uit het statistisch jaarboek van landbouw, visserij en bosbouw van Eurostat [@eurostat_agriculture_2019]. 
+Deze cijfers zijn gebaseerd op de data van de bosoppervlakte en de totale landoppervlakte per lidstaat uit de [UNECE database](https://w3.unece.org/PXWeb2015/pxweb/en/STAT/STAT__26-TMSTAT1__010-TM15FR1/010_en_TM15_1_1_a_r.px/).
+De bosindex van de **sociaaleconomische regio's** werd berekend op basis van de Europese boskaart van the European Forest Institute [(EFI)](https://efi.int/knowledge/maps/forest).
+
+## Berekeningswijze
+
+De bosoppervlakte per **lidstaat** is overgenomen uit de Forest Europe/UNECE/FAO bevraging over Pan-Europese indicatoren voor duurzaam bosbeheer. 
+Voor de meeste lidstaten zijn de cijfers in de bevraging afkomstig van de nationale bosinventarissen, die elk een verschillende tijdspanne bestrijken. 
+Voor België zijn de cijfers gebaseerd op de Waalse (1994-2010) en Vlaamse (1997-1999) bosinventarissen.
+Voor Vlaanderen zijn recentere cijfers over de bosoppervlakte beschikbaar die gebaseerd zijn op de metingen van de tweede bosinventaris (2009-2019).
+Omdat het verschil tussen de oppervlakteschattingen van beide inventarisatieperiodes ruim binnen de foutenmarges valt, kan niet worden geconcludeerd dat de bosoppervlakte de voorbije twintig jaar veranderd is [@quataert_advies_2019].
+De gerapporteerde bosindex van @eurostat_agriculture_2019 (Figuur 1) wijkt dus niet significant af van de meest recente schatting.
+
+De bosoppervlakte per **sociaaleconomische regio** werd berekend op basis van de Europese boskaart van EFI. De boskaart toont de bosbedekking in de Europese lidstaten, met een resolutie van 1 x 1 kilometer.
+De kaart dateert van 2011 en is gebaseerd op satellietbeelden van de aan- of afwezigheid van bos in 2006.
+Deze werd vervolgens gekalibreerd met de bosoppervlakte per administratieve regio, zoals gerapporteerd in de nationale bosinventarissen.
+Voor Vlaanderen zijn dat de gegevens van de eerste bosinventaris (1997-1999).
+De inventarisatieperiodes waarop de bosindex voor de andere regio's gebaseerd zijn, zijn gedocumenteerd op de [website van EFI](https://efi.int/knowledge/maps/forest).
+Om de bosindex per sociaaleconomische regio te berekenen, werd de EFI-boskaart gecombineerd met de kaart van de NUTS-1^[NUTS of Nomenclature d’Unités Territoriales Statistiques is een gestandaardiseerde classificatie van landen en regio’s die wordt gebruikt binnen de Europese Unie voor statistische ruimtelijke analyses. NUTS-1 omvat 92 regio’s, net onder het nationale niveau, zoals het Vlaams, het Brussels Hoofdstedelijk en het Waals Gewest.] regio's.
+Daaruit werden de negen regio's geselecteerd die de meeste gelijkenissen vertonen met het Vlaams Gewest, voor wat betreft het welvaartspeil, de oppervlakte en de bevolkingsdichtheid (Zie Algemene toestand en trends in Vlaanderen - Ruimtegebruik).
+
+## Opmerkingen bij de gegevenskwaliteit en betrouwbaarheid
+
+Er is geen betrouwbaarheidsanalyse van de bosindex per lidstaat of regio beschikbaar. 
+De analyse combineert datasets die methodologisch verschillend zijn opgebouwd en verschillende tijdsperiodes omspannen. 
+Omdat de meeste nationale bosinventarissen meerdere jaren in beslag nemen, wijken de gerapporteerde bosoppervlaktes af van de werkelijke oppervlakte op het moment van rapportering.
+
+## Download
+
+**Broncode indicator**:
+[E1_bos_figuur-69_bosindex.Rmd](../e1_bos_figuur69_bosindex/e1_bos_figuur69_bosindex.Rmd)
+- **Basisdata**: [bosindex.tsv](../e1_bos_figuur69_bosindex/bosindex.tsv)
+- **Metadata basisdata**: [bosindex.yml](../e1_bos_figuur69_bosindex/bosindex.yml)
+
+## Referenties
