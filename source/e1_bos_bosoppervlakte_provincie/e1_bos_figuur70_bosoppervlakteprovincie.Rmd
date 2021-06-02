@@ -1,0 +1,516 @@
+---
+title: "Bos - Bosoppervlakte per provincie"
+date: 2020-07-01T10:00:00
+bibliography: ../references.bib
+link-citations: TRUE
+hoofdstuk: 5
+thema:
+  - Bos
+keywords:
+  - bosindex
+  - bosoppervlakte
+  - extent
+  - bebossingsgraad
+  - provincies
+  - West-Vlaanderen
+  - Oost-Vlaanderen
+  - Vlaams-Brabant
+  - Antwerpen
+  - Limburg
+lang: nl
+tab: indicator
+verantwoordelijke:
+- Maarten Stevens <maarten.stevens@inbo.be>
+output: html_document
+---
+
+```{r setup, include=FALSE}
+library(knitr)
+opts_chunk$set(
+  message = FALSE,
+  warning = FALSE,
+  echo = FALSE
+)
+library(tidyverse)
+library(git2rdata)
+library(plotly)
+library(INBOtheme)
+library(htmlwidgets)
+
+theme_set(theme_nara()) # het nara-kleurenpallet selecteren
+switch_colour(inbo_hoofd) # het INBO-kleurenpallet activeren
+
+set.seed(20200520)
+setWidgetIdSeed(20200520)
+options(htmlwidgets.TOJSON_ARGS = list(pretty = TRUE))
+```
+
+```{r data_inlezen}
+tm <- read_vc("transitiematrix")
+```
+```{r data_bewerken, results='hide'}
+# Data bewerken ---------------
+
+df4 <- tm %>%
+  filter(!is.na(StratumNaam) & REVIEWED == TRUE) %>%
+  arrange(t, StratumNaam)
+
+opp_ant <- 2876.12 ## oppervlakte  in km² in 2019
+opp_lim <- 2427.43 ## oppervlakte  in km²
+opp_ovl <- 3007.08 ## oppervlakte  in km²
+opp_wvl <- 3196.58 ## oppervlakte  in km²
+opp_vbr <- 2118.35 ## oppervlakte  in km²
+
+# per provincie proportie berekenen omdat niet zeker is dat alle combinaties
+#bestaan voor alle provincies -> enkel sorteren kan foute combinaties maken
+# ntot per provincie : uit GIS-overlay halen
+ntot_ant <- 5750 + 3 # 3 punten vallen uit de GIS-overlay met de provincies,
+#maar behoren op zicht tot prov antwerpen
+ntot_lim <- 4848 + 3
+ntot_ovl <- 6019
+ntot_wvl <- 6303 + 2
+ntot_vbr <- 4234 + 1
+
+# correctie van ntot voor de 5 (NA, NA) punten : 4 ervan liggen in Antwerpen,
+#1 in Vlaams Brabant
+ntot_ant <- ntot_ant - 4
+ntot_vbr <- ntot_vbr - 1
+
+# ntot moet zijn ; totaal 27163-5= 27158
+# ntot <- 27163 - 5 # nolint
+t <- ntot_ant + ntot_vbr + ntot_lim + ntot_ovl + ntot_wvl
+t
+
+# ANT
+ntot <- ntot_ant
+
+n01 <- df4 %>%
+  filter(StratumNaam == "ANT" & t == "( 0,1 )") %>%
+  dplyr::select(t, aantal) %>%
+  dplyr::pull(aantal)
+
+n10 <- df4 %>%
+  filter(StratumNaam == "ANT" & t == "( 1,0 )") %>%
+  dplyr::select(t, aantal) %>%
+  dplyr::pull(aantal)
+
+n11 <- df4 %>%
+  filter(StratumNaam == "ANT" &
+           (t == "( 1,1 )" | t == "( NA,1 )" | t == "( 1,NA )")) %>%
+  dplyr::select(t, aantal) %>%
+  summarise(aantal = sum(aantal)) %>%
+  dplyr::pull(aantal)
+
+n00 <- ntot - n01 - n10 - n11
+
+(ptest_vbi1_ant <- prop.test(n11 + n10, ntot)) ## VBI-1: n11 + n10 # nolint
+(ptest_vbi2_ant <- prop.test(n11 + n01, ntot)) ## VBI-2: n11 + n01 # nolint
+
+# lim
+ntot <- ntot_lim
+
+n01 <- df4 %>%
+  filter(StratumNaam == "LMB" & t == "( 0,1 )") %>%
+  dplyr::select(t, aantal) %>%
+  dplyr::pull(aantal)
+
+n10 <- df4 %>%
+  filter(StratumNaam == "LMB" & t == "( 1,0 )") %>%
+  dplyr::select(t, aantal) %>%
+  dplyr::pull(aantal)
+
+n11 <- df4 %>%
+  filter(StratumNaam == "LMB" &
+           (t == "( 1,1 )" | t == "( NA,1 )" | t == "( 1,NA )")) %>%
+  dplyr::select(t, aantal) %>%
+  summarise(aantal = sum(aantal)) %>%
+  dplyr::pull(aantal)
+
+n00 <- ntot - n01 - n10 - n11
+
+(ptest_vbi1_lim <- prop.test(n11 + n10, ntot)) ## VBI-1: n11 + n10 # nolint
+(ptest_vbi2_lim <- prop.test(n11 + n01, ntot)) ## VBI-2: n11 + n01 # nolint
+
+# ovl
+ntot <- ntot_ovl
+
+n01 <- df4 %>%
+  filter(StratumNaam == "OVL" & t == "( 0,1 )") %>%
+  dplyr::select(t, aantal) %>%
+  dplyr::pull(aantal)
+
+n10 <- df4 %>%
+  filter(StratumNaam == "OVL" & t == "( 1,0 )") %>%
+  dplyr::select(t, aantal) %>%
+  dplyr::pull(aantal)
+
+n11 <- df4 %>%
+  filter(StratumNaam == "OVL" &
+    (t == "( 1,1 )" | t == "( NA,1 )" | t == "( 1,NA )")) %>%
+  dplyr::select(t, aantal) %>%
+  summarise(aantal = sum(aantal)) %>%
+  dplyr::pull(aantal)
+
+n00 <- ntot - n01 - n10 - n11
+
+(ptest_vbi1_ovl <- prop.test(n11 + n10, ntot)) ## VBI-1: n11 + n10 # nolint
+(ptest_vbi2_ovl <- prop.test(n11 + n01, ntot)) ## VBI-2: n11 + n01 # nolint
+
+# vbr
+ntot <- ntot_vbr
+
+n01 <- df4 %>%
+  filter(StratumNaam == "VBR" & t == "( 0,1 )") %>%
+  dplyr::select(t, aantal) %>%
+  dplyr::pull(aantal)
+
+n10 <- df4 %>%
+  filter(StratumNaam == "VBR" & t == "( 1,0 )") %>%
+  dplyr::select(t, aantal) %>%
+  dplyr::pull(aantal)
+
+n11 <- df4 %>%
+  filter(StratumNaam == "VBR" &
+    (t == "( 1,1 )" | t == "( NA,1 )" | t == "( 1,NA )")) %>%
+  dplyr::select(t, aantal) %>%
+  summarise(aantal = sum(aantal)) %>%
+  dplyr::pull(aantal)
+
+n00 <- ntot - n01 - n10 - n11
+
+(ptest_vbi1_vbr <- prop.test(n11 + n10, ntot)) ## VBI-1: n11 + n10 # nolint
+(ptest_vbi2_vbr <- prop.test(n11 + n01, ntot)) ## VBI-2: n11 + n01 # nolint
+
+# wvl
+ntot <- ntot_wvl
+
+n01 <- df4 %>%
+  filter(StratumNaam == "WVL" & t == "( 0,1 )") %>%
+  dplyr::select(t, aantal) %>%
+  dplyr::pull(aantal)
+
+n10 <- df4 %>%
+  filter(StratumNaam == "WVL" & t == "( 1,0 )") %>%
+  dplyr::select(t, aantal) %>%
+  dplyr::pull(aantal)
+
+n11 <- df4 %>%
+  filter(StratumNaam == "WVL" &
+           (t == "( 1,1 )" | t == "( NA,1 )" | t == "( 1,NA )")) %>%
+  dplyr::select(t, aantal) %>%
+  summarise(aantal = sum(aantal)) %>%
+  dplyr::pull(aantal)
+
+n00 <- ntot - n01 - n10 - n11
+
+(ptest_vbi1_wvl <- prop.test(n11 + n10, ntot)) ## VBI-1: n11 + n10 # nolint
+(ptest_vbi2_wvl <- prop.test(n11 + n01, ntot)) ## VBI-2: n11 + n01 # nolint
+
+## dplyr::selecteer "estimate" en "conf.int" met "with()" uit de toets-objecten
+## "diff(conf.int)/2" = helft betrouwbaarheidsinterval = foutenmarge
+## omzetting naar percentages x 100
+
+bi_vbi1_ant <- with(ptest_vbi1_ant, 100 * c(estimate, diff(conf.int) / 2,
+                                            conf.int))
+bi_vbi2_ant <- with(ptest_vbi2_ant, 100 * c(estimate, diff(conf.int) / 2,
+                                            conf.int))
+bi_vbi1_lim <- with(ptest_vbi1_lim, 100 * c(estimate, diff(conf.int) / 2,
+                                            conf.int))
+bi_vbi2_lim <- with(ptest_vbi2_lim, 100 * c(estimate, diff(conf.int) / 2,
+                                            conf.int))
+bi_vbi1_ovl <- with(ptest_vbi1_ovl, 100 * c(estimate, diff(conf.int) / 2,
+                                            conf.int))
+bi_vbi2_ovl <- with(ptest_vbi2_ovl, 100 * c(estimate, diff(conf.int) / 2,
+                                            conf.int))
+bi_vbi1_vbr <- with(ptest_vbi1_vbr, 100 * c(estimate, diff(conf.int) / 2,
+                                            conf.int))
+bi_vbi2_vbr <- with(ptest_vbi2_vbr, 100 * c(estimate, diff(conf.int) / 2,
+                                            conf.int))
+bi_vbi1_wvl <- with(ptest_vbi1_wvl, 100 * c(estimate, diff(conf.int) / 2,
+                                            conf.int))
+bi_vbi2_wvl <- with(ptest_vbi2_wvl, 100 * c(estimate, diff(conf.int) / 2,
+                                            conf.int))
+
+## omzetting naar bosareaal
+
+ba_vbi1_ant <- bi_vbi1_ant * opp_ant
+ba_vbi2_ant <- bi_vbi2_ant * opp_ant
+ba_vbi1_lim <- bi_vbi1_lim * opp_lim
+ba_vbi2_lim <- bi_vbi2_lim * opp_lim
+ba_vbi1_ovl <- bi_vbi1_ovl * opp_ovl
+ba_vbi2_ovl <- bi_vbi2_ovl * opp_ovl
+ba_vbi1_vbr <- bi_vbi1_vbr * opp_vbr
+ba_vbi2_vbr <- bi_vbi2_vbr * opp_vbr
+ba_vbi1_wvl <- bi_vbi1_wvl * opp_wvl
+ba_vbi2_wvl <- bi_vbi2_wvl * opp_wvl
+
+# test totale bosoppervlakte Vlaanderen
+t <- ba_vbi2_ant + ba_vbi2_lim + ba_vbi2_ovl + ba_vbi2_vbr + ba_vbi2_wvl
+t
+
+# ant
+## bundelen van alle resultaten in 1 tabel om uit te printen
+## sprintf formateert de resultaten;
+## > 2 cijfers na de komma voor BI
+## > 2 cijfers na de komma voor BA
+
+bi_vbi_ant <- rbind(sprintf("%0.2f", bi_vbi1_ant), sprintf("%0.2f",
+                                                           bi_vbi2_ant))
+dimnames(bi_vbi_ant)[[2]] <- c("BI", "FMBI", "BI-lwr", "BI-upr")
+
+ba_vbi_ant <- rbind(sprintf("%0.2f", ba_vbi1_ant), sprintf("%0.2f",
+                                                           ba_vbi2_ant))
+dimnames(ba_vbi_ant)[[2]] <- c("BA", "FMBA", "BA-lwr", "BA-upr")
+
+## Alles bundelen in een tabel (data.frame) en uitprinten
+
+ptest_table_ant_bi <- as.data.frame(bi_vbi_ant) %>%
+  mutate(
+    PROV = "ANT",
+    periode = as.factor(c(1, 2)),
+    minYear = as.factor(c(1997, 2009)),
+    maxYear = as.factor(c(1999, 2019)),
+    minReeks = as.factor(1),
+    maxReeks = as.factor(10)
+  )
+
+ptest_table_ant_ba <- as.data.frame(ba_vbi_ant) %>%
+  mutate(
+    PROV = "ANT",
+    periode = as.factor(c(1, 2)),
+    minYear = as.factor(c(1997, 2009)),
+    maxYear = as.factor(c(1999, 2019)),
+    minReeks = as.factor(1),
+    maxReeks = as.factor(10)
+  )
+
+# lim
+bi_vbi_lim <- rbind(sprintf("%0.2f", bi_vbi1_lim), sprintf("%0.2f",
+                                                           bi_vbi2_lim))
+dimnames(bi_vbi_lim)[[2]] <- c("BI", "FMBI", "BI-lwr", "BI-upr")
+
+ba_vbi_lim <- rbind(sprintf("%0.2f", ba_vbi1_lim), sprintf("%0.2f",
+                                                           ba_vbi2_lim))
+dimnames(ba_vbi_lim)[[2]] <- c("BA", "FMBA", "BA-lwr", "BA-upr")
+
+## Alles bundelen in een tabel (data.frame) en uitprinten
+
+ptest_table_lim_bi <- as.data.frame(bi_vbi_lim) %>%
+  mutate(
+    PROV = "LMB",
+    periode = as.factor(c(1, 2)),
+    minYear = as.factor(c(1997, 2009)),
+    maxYear = as.factor(c(1999, 2019)),
+    minReeks = as.factor(1),
+    maxReeks = as.factor(10)
+  )
+
+ptest_table_lim_ba <- as.data.frame(ba_vbi_lim) %>%
+  mutate(
+    PROV = "LMB",
+    periode = as.factor(c(1, 2)),
+    minYear = as.factor(c(1997, 2009)),
+    maxYear = as.factor(c(1999, 2019)),
+    minReeks = as.factor(1),
+    maxReeks = as.factor(10)
+  )
+
+# ovl
+bi_vbi_ovl <- rbind(sprintf("%0.2f", bi_vbi1_ovl), sprintf("%0.2f",
+                                                           bi_vbi2_ovl))
+dimnames(bi_vbi_ovl)[[2]] <- c("BI", "FMBI", "BI-lwr", "BI-upr")
+
+ba_vbi_ovl <- rbind(sprintf("%0.2f", ba_vbi1_ovl), sprintf("%0.2f",
+                                                           ba_vbi2_ovl))
+dimnames(ba_vbi_ovl)[[2]] <- c("BA", "FMBA", "BA-lwr", "BA-upr")
+
+## Alles bundelen in een tabel (data.frame) en uitprinten
+
+ptest_table_ovl_bi <- as.data.frame(bi_vbi_ovl) %>%
+  mutate(
+    PROV = "OVL",
+    periode = as.factor(c(1, 2)),
+    minYear = as.factor(c(1997, 2009)),
+    maxYear = as.factor(c(1999, 2019)),
+    minReeks = as.factor(1),
+    maxReeks = as.factor(10)
+  )
+
+ptest_table_ovl_ba <- as.data.frame(ba_vbi_ovl) %>%
+  mutate(
+    PROV = "OVL",
+    periode = as.factor(c(1, 2)),
+    minYear = as.factor(c(1997, 2009)),
+    maxYear = as.factor(c(1999, 2019)),
+    minReeks = as.factor(1),
+    maxReeks = as.factor(10)
+  )
+
+# vbr
+
+bi_vbi_vbr <- rbind(sprintf("%0.2f", bi_vbi1_vbr), sprintf("%0.2f",
+                                                           bi_vbi2_vbr))
+dimnames(bi_vbi_vbr)[[2]] <- c("BI", "FMBI", "BI-lwr", "BI-upr")
+
+ba_vbi_vbr <- rbind(sprintf("%0.2f", ba_vbi1_vbr), sprintf("%0.2f",
+                                                           ba_vbi2_vbr))
+dimnames(ba_vbi_vbr)[[2]] <- c("BA", "FMBA", "BA-lwr", "BA-upr")
+
+## Alles bundelen in een tabel (data.frame) en uitprinten
+
+ptest_table_vbr_bi <- as.data.frame(bi_vbi_vbr) %>%
+  mutate(
+    PROV = "VBR",
+    periode = as.factor(c(1, 2)),
+    minYear = as.factor(c(1997, 2009)),
+    maxYear = as.factor(c(1999, 2019)),
+    minReeks = as.factor(1),
+    maxReeks = as.factor(10)
+  )
+
+ptest_table_vbr_ba <- as.data.frame(ba_vbi_vbr) %>%
+  mutate(
+    PROV = "VBR",
+    periode = as.factor(c(1, 2)),
+    minYear = as.factor(c(1997, 2009)),
+    maxYear = as.factor(c(1999, 2019)),
+    minReeks = as.factor(1),
+    maxReeks = as.factor(10)
+  )
+
+# wvl
+bi_vbi_wvl <- rbind(sprintf("%0.2f", bi_vbi1_wvl), sprintf("%0.2f",
+                                                           bi_vbi2_wvl))
+dimnames(bi_vbi_wvl)[[2]] <- c("BI", "FMBI", "BI-lwr", "BI-upr")
+
+ba_vbi_wvl <- rbind(sprintf("%0.2f", ba_vbi1_wvl), sprintf("%0.2f",
+                                                           ba_vbi2_wvl))
+dimnames(ba_vbi_wvl)[[2]] <- c("BA", "FMBA", "BA-lwr", "BA-upr")
+
+## Alles bundelen in een tabel (data.frame) en uitprinten
+
+ptest_table_wvl_bi <- as.data.frame(bi_vbi_wvl) %>%
+  mutate(
+    PROV = "WVL",
+    periode = as.factor(c(1, 2)),
+    minYear = as.factor(c(1997, 2009)),
+    maxYear = as.factor(c(1999, 2019)),
+    minReeks = as.factor(1),
+    maxReeks = as.factor(10)
+  )
+
+ptest_table_wvl_ba <- as.data.frame(ba_vbi_wvl) %>%
+  mutate(
+    PROV = "WVL",
+    periode = as.factor(c(1, 2)),
+    minYear = as.factor(c(1997, 2009)),
+    maxYear = as.factor(c(1999, 2019)),
+    minReeks = as.factor(1),
+    maxReeks = as.factor(10)
+  )
+
+# rbind prov
+analysetabel_prov_bi <- rbind(ptest_table_ant_bi, ptest_table_lim_bi,
+                              ptest_table_ovl_bi, ptest_table_vbr_bi,
+                              ptest_table_wvl_bi) %>%
+  mutate(strata = "Province") %>%
+  dplyr::select(everything(), stratumNaam = PROV)
+
+analysetabel_prov_ba <- rbind(ptest_table_ant_ba, ptest_table_lim_ba,
+                              ptest_table_ovl_ba, ptest_table_vbr_ba,
+                              ptest_table_wvl_ba) %>%
+  mutate(strata = "Province") %>%
+  dplyr::select(everything(), stratumNaam = PROV)
+
+# Wegschrijven bosIndex prov
+
+ptest_table_prov_bi <- analyseTabel_prov_bi %>%
+  mutate(
+    wgt.mean = as.numeric(as.character(BI)),
+    wgt.var = NA,
+    nbObservaties = 27163,
+    variabele = "bosIndex",
+    llci = as.numeric(as.character(`BI-lwr`)),
+    ulci = as.numeric(as.character(`BI-upr`))
+  )
+
+resultsbi_prov <- ptest_table_prov_bi
+
+# Wegschrijven bosopp prov
+
+ptest_table_prov_ba <- analyseTabel_prov_ba %>%
+  mutate(
+    wgt.mean = as.numeric(as.character(BA)),
+    wgt.var = NA,
+    nbObservaties = 27163,
+    variabele = "bosOppervlakte",
+    llci = as.numeric(as.character(`BA-lwr`)),
+    ulci = as.numeric(as.character(`BA-upr`))
+  )
+
+
+resultsba_prov <- ptest_table_prov_ba
+
+resultsba_prov <- resultsba_prov %>%
+  mutate(periode = recode(periode, "1" = "VBI 1", "2" = "VBI 2")) %>%
+  mutate(stratumNaamfull = recode(stratumNaam, "ANT" = "Antwerpen",
+                                  "LMB" = "limburg", "OVL" = "Oost-Vlaanderen",
+                                  "VBR" = "Vlaams-Brabant",
+                                  "WVL" = "West-Vlaanderen"))
+```
+
+Antwerpen en limburg zijn de bosrijkste provincies, West-Vlaanderen heeft de laagste bebossingsgraad.
+
+```{r staafdiagram, fig.width = 6, fig.height = 6, fig.cap = "Figuur 1. Bosoppervlakte en 95% betrouwbaarheidsinterval per provincie in beide periodes van de bosinventaris. Deze figuur verwijst naar figuur 70 in het Natuurrapport 2020."}
+
+# Plot maken ------------------
+
+p <- ggplot(resultsba_prov, aes(
+  x = periode, y = wgt.mean, fill = stratumNaamfull,
+  text = paste(
+    "Provincie: ", stratumNaamfull,
+    "\nSchatting: ", wgt.mean, " ha",
+    "\nBI: ", llci, " ha - ", ulci, " ha"
+  )
+)) +
+  geom_bar(stat = "identity", position = "dodge", width = 0.7) +
+  geom_errorbar(aes(ymin = llci, ymax = ulci, ), width = 0.2,
+                colour = "black", position = position_dodge(width = 0.7)) +
+  scale_y_continuous(expand = c(0, 0)) +
+  labs(y = "BOSOPPERVLAKTE (HA)") +
+  theme(
+    axis.title.x = element_blank(),
+    axis.line.x = element_line(color = "black"),
+    axis.title.y = element_text(margin = margin(t = 0, r = 5, b = 0, l = 0),
+                                hjust = 0),
+    legend.key.width = unit(0.3, "cm"),
+    legend.key.height = unit(0.3, "cm"),
+    legend.title = element_blank()
+  ) +
+  guides(fill = guide_legend(nrow = 2))
+
+if (interactive() || opts_knit$get("rmarkdown.pandoc.to") == "html") {
+  ggplotly(p, tooltip = c("text")) %>%
+    plotly::config(
+      modeBarButtonsToRemove = list(
+        "lasso2d", "select2d", "hoverClosestCartesian",
+        "hoverCompareCartesian", "toggleSpikelines"
+      ),
+      displaylogo = FALSE
+    )
+} else {
+  p
+}
+```
+
+## Definitie
+
+De indicator toont het aantal hectare bos per provincie, berekend op basis van steekproefmetingen in kader van de eerste Vlaamse bosinventaris (meetcampagne 1997-1999) en de tweede Vlaamse bosinventaris (meetcampagne 2009-2019).
+
+## Bespreking
+
+Antwerpen en limburg zijn de bosrijkste provincies. 
+West-Vlaanderen heeft met een bosindex van amper 2,3 procent veruit de laagste bebossingsgraad. 
+Voor elke provincie valt de verandering van de bosoppervlakte tussen beide periodes binnen de foutenmarge en kunnen we niet spreken van een significante toe- of afname [Zie ook @quataert_advies_2019].
+
+## Referenties
