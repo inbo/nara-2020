@@ -25,6 +25,7 @@ opts_chunk$set(
   warning = FALSE,
   echo = FALSE
 )
+library(brms)
 library(git2rdata)
 library(FD)
 library(ggcorrplot)
