@@ -424,7 +424,7 @@ analysetabel_prov_ba <- rbind(ptest_table_ant_ba, ptest_table_lim_ba,
 
 # Wegschrijven bosIndex prov
 
-ptest_table_prov_bi <- analyseTabel_prov_bi %>%
+ptest_table_prov_bi <- analysetabel_prov_bi %>%
   mutate(
     wgt.mean = as.numeric(as.character(BI)),
     wgt.var = NA,
@@ -438,7 +438,7 @@ resultsbi_prov <- ptest_table_prov_bi
 
 # Wegschrijven bosopp prov
 
-ptest_table_prov_ba <- analyseTabel_prov_ba %>%
+ptest_table_prov_ba <- analysetabel_prov_ba %>%
   mutate(
     wgt.mean = as.numeric(as.character(BA)),
     wgt.var = NA,
