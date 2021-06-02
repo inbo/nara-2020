@@ -1,0 +1,43 @@
+..generic:
+  git2rdata: 0.2.1
+  optimize: no
+  NA string: NA
+  hash: 867dd967c1a063e55a65a9660f119b371fe8649e
+  data_hash: a03e6d9356e0018ab398c97d1cf3492c918cf9af
+IDPlots:
+  class: numeric
+Periode:
+  class: numeric
+IDGroup:
+  class: character
+PlotWeight:
+  class: numeric
+Replaced:
+  class: character
+Paired_1_2:
+  class: logical
+fPeriode:
+  class: factor
+  labels:
+  - '1'
+  - '2'
+  index:
+  - 1
+  - 2
+  ordered: no
+Reeks:
+  class: numeric
+DateDendro:
+  class: numeric
+OwnerType:
+  class: character
+ForestTypeGroupCode:
+  class: character
+v11_Volume_ha:
+  class: numeric
+v1_HomogeenDen:
+  class: numeric
+Weight:
+  class: numeric
+Year:
+  class: numeric
