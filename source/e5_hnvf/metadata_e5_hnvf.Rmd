@@ -45,7 +45,8 @@ databereik <- "2013-2016"
 ```{r data_inlezen}
 intensiteitgegevens <- read_vc("intensiteit")
 ```
-## Achtergrond
+
+<font size="6"> Achtergrond</font>
 
 ### Doel
 
