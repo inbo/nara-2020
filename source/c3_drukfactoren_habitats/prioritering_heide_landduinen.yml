@@ -1,0 +1,26 @@
+..generic:
+  git2rdata: 0.3.1
+  optimize: no
+  NA string: NA
+  hash: 09133e1de4501b391d028f04a494ce318f5afe5e
+  data_hash: eff3e858da73865251505a3eedab0e8d1bd3f434
+Druk:
+  class: character
+habitat_2310:
+  class: character
+habitat_2330:
+  class: character
+habitat_4010:
+  class: character
+habitat_4030:
+  class: character
+habitat_5130:
+  class: character
+Aantal_H:
+  class: character
+Aantal_M:
+  class: character
+Score:
+  class: character
+Prioriteit:
+  class: character

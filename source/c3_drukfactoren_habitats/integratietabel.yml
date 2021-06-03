@@ -1,0 +1,26 @@
+..generic:
+  git2rdata: 0.3.1
+  optimize: no
+  NA string: NA
+  hash: 75b007641892c5d7aaec53a534baccc79de0a4c6
+  data_hash: c65e40530616890f0f93e118569417b0d3bf2310
+Druk:
+  class: character
+bos:
+  class: character
+grasland:
+  class: character
+heide_en_landduinen:
+  class: character
+moeras:
+  class: character
+rivieren_en_stilstaande_wateren:
+  class: character
+kustduinen_en_strand:
+  class: character
+estuaria_slikken_en_schorren:
+  class: character
+score:
+  class: integer
+aantal_habitats_H:
+  class: integer
