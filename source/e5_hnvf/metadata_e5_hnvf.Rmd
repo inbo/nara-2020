@@ -265,9 +265,9 @@ keuze_indicatoren %>%
 
 ### Berekeningswijze
 
-#### A. HNV1
+<font size="4"> A. HNV1</font>
 
-##### A1. Vegetatie en beheer
+<font size="3"> A1. Vegetatie en beheer</font>
 
 We beperken het landgebruik tot de agro-ecosystemen in landbouwbeheer.
 Dit sluit halfnatuurlijke vegetaties uit die niet aangegeven zijn in de verzamelaanvraag.
@@ -311,8 +311,7 @@ hout_braak %>%
   kable_styling(latex_options = c("striped", "HOLD_position"))
 ```
 
-
-##### A2. Soorten
+<font size="3"> A2. Soorten</font>
 
 Bij de Nederlandse methodiek is het voorkomen van vegetatie onvoldoende om als HNVf gekenmerkt te worden, ook 15% van de kenmerkende soorten dient er voor te komen.
 
@@ -323,9 +322,9 @@ Ondanks het feit dat de BWK niet meer recent is binnen de meeste landbouwgebiede
 Omdat de intentie bestaat om de BWK ook buiten habitatrichtlijngebieden te updaten kiezen we voor de BWK. Maar we zijn er ons van bewust dat deze kaart de laatste 10 jaar niet geactualiseerd is in landbouwgebieden.
 De halfnatuurlijke vegetatie dient minimaal de waarde waardevol te hebben.
 
-#### B. HNV2
+<font size="4"> B. HNV2</font>
 
-##### B1. Vegetatie en beheer
+<font size="3"> B1. Vegetatie en beheer</font>
 
 Voor de kleinschalige mozaïeklandschappen kozen we ervoor om te werken met intensiteitsscore van het perceel en zijn omgeving. 
 De intensiteitsscore houdt rekening met diverse vegetatie- en beheerindicatoren:
@@ -390,25 +389,25 @@ intensiteit_omgeving %>%
   kable_styling(latex_options = c("striped", "HOLD_position"))
 ```
 
-B2. Soorten
+<font size="3"> B2. Soorten</font>
 
 Voor soorten doen we terug een beroep op de BWK. 
 Akker, tuinbouw of grasland dient minimaal de score waardevol te hebben.
 We sluiten rastercellen die reeds HNVf1 zijn hierbij uit.
 
-#### C. HNV3
+<font size="4"> C. HNV3</font>
 
-##### C1. Vegetatie en agrarisch beheer
+<font size="3"> C1. Vegetatie en agrarisch beheer</font>
 
 Het perceel dient in landbouwbeheer te zijn en er werd een beheerovereenkomst voor soortbescherming afgesloten. 
 Vermits terreinbeherende organisaties geen beheerovereenkomst kunnen afsluiten, zitten ze niet vervat in HNV3-subtype.
 
-##### C2. Soorten
+<font size="3"> C2. Soorten</font>
 
 We maken hierbij gebruik van de beheergebieden (weidevogels, akkervogels, hamster, botanisch beheer) als proxy omdat de beheergebieden aangeduid werden o.b.v. hun potentiële geschiktheid en het voorkomen van soorten.
 We sluiten rastercellen die HNVf1 of HNVf2 zijn hierbij uit.
 
-#### D. Intensiteit landgebruik
+<font size="4"> D. Intensiteit landgebruik</font>
 
 Het doel is om tot een score te komen die de mogelijke nadelige effecten voor biodiversiteit van het landgebruik omvat.
 
@@ -422,7 +421,7 @@ Voor de overige landgebruiken schatten we het effect in aan de hand van hun anal
 Gebouwen (inclusief serres en loodsen voor champignons), wegen, spoorwegen en de categorie overig krijgen de maximale intensiteitsscore van 5. 
 Het landgebruik water krijgt score 2.
 
-##### D1. Teeltgroep
+<font size="3"> D1. Teeltgroep</font>
 
 We groeperen de gewassen uit de verzamelaanvraag in functie van hun score voor nitraatresidu, gewasbescherming, bodemkoolstof, bodemerosie en bodemverdichting gegroepeerd in teeltgroepen (Tabel 9).
 
@@ -445,7 +444,7 @@ teeltgroepen %>%
   scroll_box(width = "800px", height = "400px")
 ```
 
-##### D2. Nitraatresidu
+<font size="3"> D2. Nitraatresidu</font>
 
 Voor het nitraatresidu werden de mestrapporten (2015-2019) bekeken. 
 We keken hierbij naar het gemiddeld mediaan nitraatresidu voor deze periode (Tabel 10).
@@ -501,7 +500,7 @@ mestbeperking %>%
   kable_styling(latex_options = c("striped", "HOLD_position"))
 ```
 
-##### D3. Gewasbescherming
+<font size="3"> D3. Gewasbescherming</font>
 
 Voor gewasbescherming houden we rekening met de verdeling van [de Seq-index over de verschillende teeltgroepen]( https://lv.vlaanderen.be/nl/voorlichting-info/publicaties-cijfers/landbouwcijfers)voor de periode 2012-2016 (Tabel 12). 
 De Seq-index is een maat voor de druk die de gewasbeschermingsmiddelen uitoefenen op het waterleven.  De index weerspiegelt de gebruikte hoeveelheid actieve stof op ecotoxiciteit en verblijftijd in het milieu.
@@ -550,7 +549,7 @@ gewasbeschermingbeperking %>%
   kable_styling(latex_options = c("striped", "HOLD_position"))
 ```
 
-##### D4. Bodemkoolstof
+<font size="3"> D4. Bodemkoolstof</font>
 
 Om het effect van een gewas in te schatten op het bodemkoolstofgehalte kijken we naar de hoeveelheid effectieve organische koolstof. 
 Dit is het product van de totale hoeveelheid aangevoerde organische koolstof en een humificatiecoëfficiënt. 
@@ -616,7 +615,7 @@ os_landgebruik %>%
   kable_styling(latex_options = c("striped", "HOLD_position"))
 ```
 
-##### D5. Bodemverdichting
+<font size="3"> D5. Bodemverdichting</font>
 
 Bodemverdichting is het samendrukken van bodempartikels door externe krachten, waardoor het totale poriënvolume in de bodem afneemt. 
 Die poriën zijn belangrijk voor transport van lucht en water doorheen de bodem en laten toe dat plantenwortels er zich een weg door kunnen banen. 
@@ -642,7 +641,7 @@ Gewasgroepen met een hogere risico op bodemcompactie, zijnde bieten, aardappelen
 Granen, fruit, sierteelt, overige landbouwteelten, laag groen, hoog groen, korte-omloophout en populieren hebben een tamelijk hoog risico op bodemverdichting en krijgen score 4. 
 Naaldbos, loofbos, houtige gewassen en braak krijgen score 3 en half-natuurlijke graslanden (m.u.v. droog-voedselarm), ruigte, struweel, strand, mosduin, helmduin, ander open duinenlandschap, heide en hoogstam score 2.
 
-##### D6. Bodemerosie
+<font size="3"> D6. Bodemerosie</font>
 
 [Bodemerosie](https://omgeving.vlaanderen.be/erosie) door water is een proces waarbij bodemdeeltjes door de impact van regendruppels en afstromend water worden losgemaakt en getransporteerd, hetzij laagsgewijs over een grote oppervlakte (intergeulerosie), hetzij geconcentreerd in geulen (geulerosie) of ravijnen (ravijnerosie). 
 Bodemerosie door water komt ook in natuurlijke omstandigheden voor, maar door agrarische activiteiten en niet agrarische grondwerken, kan het met een factor 100 tot 1000 toenemen [@poesen_contribution_1996]. 
@@ -667,13 +666,13 @@ erosie %>%
   kable_styling(latex_options = c("striped", "HOLD_position"))
 ```
 
-##### D7. Bodemverharding
+<font size="3"> D7. Bodemverharding</font>
 
 Als de bodem afgedicht is, is dit ook nefast voor het bodemleven. 
 Afgedichte bodem krijgt sowieso de hoogste intensiteitsscore. 
 Het is een binaire variabele omdat we geen zicht hebben op semipermeabele afdichting.
 
-##### D8. Geaggregeerde landgebruiksscore
+<font size="3"> D8. Geaggregeerde landgebruiksscore</font>
 
 In onderstaande tabel geven we de deel- en geaggregeerde scores weer. 
 
@@ -739,7 +738,7 @@ intensiteitgegevens %>%
   )
 ```
 
-##### D9. Correctie beheerovereenkomsten en kleine landschapselementen
+<font size="3"> D9. Correctie beheerovereenkomsten en kleine landschapselementen</font>
 
 De landschapselementenkaart en de beheerovereenkomsten worden beide verrasterd op schaal 1 meter. 
 Het was niet mogelijk om beide kaarten op schaal 1-m te integreren. 
