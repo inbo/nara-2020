@@ -45,6 +45,6 @@ De data voor de indicator worden overgenomen van ICOS (Integrated Carbon Observa
 
 ## Download
 
-- **Broncode indicator**: [e7_noordzee__oceaanverzuring.Rmd](../e7_noordzee__oceaanverzuring/e7_noordzee__oceaanverzuring.Rmd)
-- **Basisdata**: [icos_data_for_nara_report2020.tsv](../e7_noordzee__oceaanverzuring/icos_data_for_nara_report2020.tsv)
-- **Metadata basisdata**: [icos_data_for_nara_report2020.yml](../e7_noordzee__oceaanverzuring/icos_data_for_nara_report2020.yml)
+- **Broncode indicator**: [e7_noordzee__oceaanverzuring.Rmd](../e7_noordzee_oceaanverzuring/e7_noordzee__oceaanverzuring.Rmd)
+- **Basisdata**: [icos_data_for_nara_report2020.tsv](../e7_noordzee_oceaanverzuring/icos_data_for_nara_report2020.tsv)
+- **Metadata basisdata**: [icos_data_for_nara_report2020.yml](../e7_noordzee_oceaanverzuring/icos_data_for_nara_report2020.yml)
