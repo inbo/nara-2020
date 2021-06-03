@@ -1,0 +1,22 @@
+..generic:
+  git2rdata: 0.3.1
+  optimize: no
+  NA string: NA
+  hash: 81cd01fa5b694ebb55634e3df7d40f68d018a131
+  data_hash: a20b8f6238fe19b564725b8714ccd02c09015faa
+Soort:
+  class: character
+Populatietrend_korte_termijn:
+  class: character
+Populatietrend_lange_termijn:
+  class: character
+Beoordeling_populatie:
+  class: character
+Beooordeling_areaal:
+  class: character
+Beoordeling_leefgebied:
+  class: character
+Beoordeling_toekomstperspectieven:
+  class: character
+Globale_beoordeling:
+  class: character

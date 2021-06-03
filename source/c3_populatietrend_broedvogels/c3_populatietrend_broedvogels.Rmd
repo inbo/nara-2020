@@ -1,0 +1,128 @@
+---
+title: "Biodiversiteit van Europees belang - Populatietrend van broedvogels van Europees belang"
+date: 2020-07-01T10:00:00
+bibliography: ../references.bib
+link-citations: TRUE
+hoofdstuk:
+- 3
+thema:
+  - Beschermde natuur
+keywords:
+  - Vogelrichtlijn
+  - Europese rapportage
+  - Broedvogels
+  - Staat van instandhouding
+  - Populatietrend
+lang: nl
+tab: indicator
+verantwoordelijke:
+- Glenn Vermeersch <glenn.vermeersch@inbo.be>
+output: html_document
+---
+
+```{r setup, include=FALSE}
+library(knitr)
+opts_chunk$set(
+  message = FALSE,
+  warning = FALSE,
+  echo = FALSE
+)
+library(tidyverse)
+library(git2rdata)
+library(plotly)
+library(INBOtheme)
+library(htmlwidgets)
+set.seed(20200520)
+setWidgetIdSeed(20200520)
+options(htmlwidgets.TOJSON_ARGS = list(pretty = TRUE))
+theme_set(theme_nara())
+switch_colour(inbo_hoofd)
+theme_update(text = element_text(family = "Helvetica"))
+```
+
+```{r data_inlezen}
+gegevens <- read_vc("populatietrends_broedvogels") %>%
+  mutate(Trend = factor(Trend, ordered = TRUE,
+                        levels = c("afnemend", "fluctuerend", "stabiel",
+                                   "toenemend"))) %>%
+  mutate(Periode = factor(Periode, ordered = TRUE,
+                          levels = c("korte termijn", "lange termijn"),
+                          labels = c("Korte termijn", "Lange termijn")))
+
+overzicht <- read_vc("overzicht_broedvogelsoort") %>%
+  mutate(Kortetermijn = factor(Populatietrend_korte_termijn,
+                               ordered = TRUE,
+                               levels = c("afnemend", "fluctuerend", "stabiel",
+                                          "toenemend"))) %>%
+  mutate(Langetermijn = factor(Populatietrend_lange_termijn, ordered = TRUE,
+                               levels = c("afnemend", "fluctuerend", "stabiel",
+                                          "toenemend"),
+                               labels = c("afnemend", "fluctuerend", "stabiel",
+                                          "toenemend")))
+```
+
+De populaties van ongeveer de helft van de broedvogels van Europees belang nemen in Vlaanderen zowel op korte als lange termijn toe, maar evengoed gaan een aantal soorten nog steeds achteruit.
+
+```{r staafdiagram, fig.width = 4, fig.height = 4, fig.cap = "Populatietrend op korte (2007-2018) en lange (1973-2018) termijn voor zesentwintig broedvogelsoorten van Europees belang in Vlaanderen. Deze figuur verwijst naar figuur 21 in het Natuurrapport 2020."}
+gegevens <- gegevens %>%
+  group_by(Periode) %>%
+  mutate(prop = Aantal / sum(Aantal) * 100) %>%
+  mutate(lab.ypos = cumsum(prop) - 0.5 * prop) %>%
+  ungroup()
+gegevens <- gegevens %>%
+  filter(Aantal > 0)
+
+p <- ggplot(gegevens, aes(x = Periode, y = prop, fill = Trend)) +
+  geom_bar(stat = "identity", width = 0.5) +
+  scale_y_continuous(
+    expand = c(0, 0), labels = scales::percent_format(accuracy = 1, scale = 1),
+    limits = c(0, 100), breaks = c(0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100)
+  ) +
+  labs(x = "", y = "POPULATIETREND  VAN BROEDVOGELS (%)") +
+  theme(
+    axis.title = element_text(size = 10, margin = margin(t = 0, r = 0, b = 0,
+                                                         l = 0), hjust = 0),
+    axis.text = element_text(size = 10),
+    legend.text = element_text(size = 10),
+    legend.title = element_blank(),
+    legend.key.size = unit(0.3, "cm")
+  ) +
+  scale_fill_manual(
+    breaks = c("toenemend", "stabiel", "fluctuerend", "afnemend"),
+    values = c(
+      "afnemend" = inbo_rood, "fluctuerend" = inbo_oranje,
+      "stabiel" = inbo_steun_blauw, "toenemend" = inbo_groen
+    ),
+    labels = c("Toenemend", "Stabiel", "Fluctuerend", "Afnemend")
+  )
+
+p <- p + geom_text(aes(y = lab.ypos, label = Aantal), color = "white", size = 6)
+p
+```
+
+## Definitie
+
+De indicator toont de populatietrend op korte (2007-2018) en lange termijn (1980-2018) van 26 broedvogels van Europees belang in Vlaanderen.
+
+## Bespreking
+De Vogelrichtlijn verplicht de lidstaten om zesjaarlijks te rapporteren over de populatiegrootte en -trend (op lange en korte termijn) van alle regelmatig broedende en een aantal niet-broedende, doortrekkende en overwinterende vogelsoorten op hun grondgebied [@vermeersch_resultaten_2019].
+De rapportering beperkt zich dus niet tot de Bijlage I soorten van de Vogelrichtlijn en soorten die in belangrijke aantallen op hun grondgebied voorkomen (1% norm).
+Deze indicator bespreekt de populatietrends van de 26 broedvogels van Europees belang waarvoor kwantitatieve populatiedoelen zijn geformuleerd in de gewestelijke instandhoudingsdoelen (G-IHD) [@paelinckx_gewestelijke_2009-1; @vermeersch_resultaten_2019].
+
+Zowel op korte als op lange termijn gaat ongeveer de helft van de broedvogelsoorten van Europees belang erop vooruit.
+Er blijven wel soorten achteruitgaan. Op korte termijn gaat het om de strandplevier, zwarte specht, kleine zilverreiger, kleine mantelmeeuw, grote stern, dwergstern en visdief.
+Vooral soorten die gebonden zijn aan rietmoerassen en aan het dynamisch kustmilieu met slikken en schorren staan onder druk.
+Op lange termijn gaan enkel de strandplevier, kwartelkoning en kwak erop achteruit.
+
+```{r tabel}
+kable(overzicht[, (1:3)], col.names = c("Soort", "Korte termijn",
+                                        "Lange termijn"),
+      caption = "Overzicht van de populatietrend op korte en lange
+      termijn per soort")
+```
+
+Er gaan zowel op lange als korte termijn nog altijd soorten op achteruit.
+De verdere achteruitgang van de soorten van Europees belang is niet gestopt.
+Vlaanderen heeft de bindende beleidsdoelen voor 2020 zoals geformuleerd in het Vlaams Natura 2000-programma dan ook niet gehaald.
+
+## Referenties
