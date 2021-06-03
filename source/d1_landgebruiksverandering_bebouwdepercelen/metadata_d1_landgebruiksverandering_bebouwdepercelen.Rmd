@@ -3,7 +3,6 @@ title: "Metadata landgebruiksverandering - Bebouwde percelen"
 date: 2020-07-01T10:00:00
 bibliography: ../references.bib
 link-citations: TRUE
-nocite: 
 hoofdstuk: 4 
 thema:
   - Natuur & maatschappij
