@@ -1,0 +1,26 @@
+..generic:
+  git2rdata: 0.2.1
+  optimize: no
+  NA string: ''
+  sorting:
+  - gewasfactor
+  - score
+  hash: 934555f320d50061b884b98f0e588c040252230a
+  data_hash: dbd3ed90e5ae875e073e30dffb1c32eb7fb29244
+gewasfactor:
+  class: factor
+  labels:
+  - < 0,01
+  - '> 0,45'
+  - 0,01 - 0,05
+  - 0,05 - 0,25
+  - 0,25 - 0,45
+  index:
+  - 1
+  - 2
+  - 3
+  - 4
+  - 5
+  ordered: no
+score:
+  class: integer

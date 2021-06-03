@@ -1,0 +1,80 @@
+..generic:
+  git2rdata: 0.2.1
+  optimize: no
+  NA string: NA
+  sorting: teeltgroep
+  hash: dc4e3f3be8c6692f704f5dcfe4b6807bae3a5721
+  data_hash: fb580942702624b10d7463e9aa3ee63239a0c4d9
+teeltgroep:
+  class: factor
+  labels:
+  - aardappelen
+  - aardbeien (niet doorlevende fruitteelt, in open lucht)
+  - andere blijvende teelten (wijnaanplantingen)
+  - andere nijverheidgewassen
+  - boomgaarden
+  - Boomkwekerijen in openlucht
+  - braakland
+  - graan
+  - groenten in open lucht
+  - kleinfruit open lucht
+  - korrelmais
+  - oliehoudende gewassen
+  - oppervlakte steeds bedekt met blijvend grasland
+  - overige voedergewassen
+  - peulvruchten droog geoogst
+  - sierteelt open lucht
+  - suikerbieten
+  - teelten in serres
+  - tijdelijke weiden
+  - tuinbouwzaden en -planten open lucht
+  - voederbieten
+  - voedermais
+  index:
+  - 1
+  - 2
+  - 3
+  - 4
+  - 5
+  - 6
+  - 7
+  - 8
+  - 9
+  - 10
+  - 11
+  - 12
+  - 13
+  - 14
+  - 15
+  - 16
+  - 17
+  - 18
+  - 19
+  - 20
+  - 21
+  - 22
+  ordered: no
+gewassen:
+  class: factor
+  labels:
+  - ''
+  - andere éénjarige voedergewassen dan maïs, andere wortel- en knolgewassen, groenvoeders,
+    voedererwten en vlinderbloemigen
+  - appel, peer, kers, pruim, hazelnoot, walnoot en andere
+  - cichorei, vlas, landbouwzaden, tabak, hop, hennep, miscanthus en geneeskrachtige
+    en aromatische planten en kruiden
+  - kool- en raapzaad en andere oliehoudende gewassen
+  - tuinbouwplanten en zaden in serres, verse groenten in serres, sierteelt in serres,
+    boomkwekerijen in serres, fruitteelt in serres en andere niet genoemde teelten
+    in serres
+  - winter- en zomertarwe, winter- en zomergerst, haver en mengsels van zomergranen,
+    spelt, triticale, rogge en masteluin
+  index:
+  - 1
+  - 2
+  - 3
+  - 4
+  - 5
+  - 6
+  - 7
+  ordered: no

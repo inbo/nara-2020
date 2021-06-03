@@ -1,0 +1,47 @@
+..generic:
+  git2rdata: 0.2.1
+  optimize: no
+  NA string: ''
+  sorting:
+  - teeltgroep
+  - score
+  hash: 34cadea6406fe7681d556f9bfafeda411f362145
+  data_hash: 8be3d8e63dccde3d84bcaa66c56b3fcc284a815c
+teeltgroep:
+  class: factor
+  labels:
+  - aardappelen
+  - bieten
+  - fruit
+  - graan
+  - gras
+  - groenten
+  - maïs
+  - overig
+  - sierteelt
+  index:
+  - 1
+  - 2
+  - 3
+  - 4
+  - 5
+  - 6
+  - 7
+  - 8
+  - 9
+  ordered: no
+gemiddelde_seq:
+  class: numeric
+klasse:
+  class: factor
+  labels:
+  - '> 0 - 2'
+  - '> 10'
+  - 2 - 5
+  index:
+  - 1
+  - 2
+  - 3
+  ordered: no
+score:
+  class: integer

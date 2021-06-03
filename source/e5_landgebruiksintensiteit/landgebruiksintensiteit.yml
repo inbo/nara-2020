@@ -1,0 +1,15 @@
+..generic:
+  git2rdata: 0.2.1
+  optimize: no
+  NA string: NA
+  sorting:
+  - Jaartal
+  - Relintensiteit
+  hash: 5fd706c85d25f13c2165893fe1978db2aa2ed86b
+  data_hash: f0bcdb82a0c3af4e2cde4c06db317b97b142eee7
+Jaartal:
+  class: integer
+Relintensiteit:
+  class: numeric
+Plot:
+  class: character
