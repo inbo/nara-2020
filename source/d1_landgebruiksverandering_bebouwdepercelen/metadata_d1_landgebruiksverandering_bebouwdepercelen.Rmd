@@ -65,5 +65,3 @@ Er is geen betrouwbaarheidsanalyse van de gegevens beschikbaar.
 **Broncode indicator**: [d1_landgebruiksverandering_bebouwdepercelen.Rmd](../d1_landgebruiksverandering_bebouwdepercelen/d1_landgebruiksverandering_bebouwdepercelen.Rmd)
 - **Basisdata**: [bebouwdepercelen.tsv](../d1_landgebruiksverandering_bebouwdepercelen/bebouwdeperc.tsv)
 - **Metadata basisdata**: [bebouwdepercelen.yml](../d1_landgebruiksverandering_bebouwdepercelen/bebouwdeperc.yml)
-
-## Referenties
