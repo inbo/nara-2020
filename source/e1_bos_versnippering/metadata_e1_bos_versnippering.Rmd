@@ -1,5 +1,5 @@
 ---
-title: "Metadata Bos - Versnippering van bos"
+title: "Metadata bos - Versnippering van bos"
 date: 2020-07-01T10:00:00
 bibliography: ../references.bib
 link-citations: TRUE
@@ -78,7 +78,7 @@ Het Poisson mixed model gebruikt de fragmentatiegraad (`FragInv`) als fixed effe
 De responsvariabele is het aantal kruidachtigen in een steekproefpunt.
 De analyse werd herhaald voor verschillende categorieën van kruidachtigen: typische bossoorten, soorten van open vegetaties en soorten die zowel in open vegetaties als in bossen voorkomen.
 De indeling in de verschillende categorieën is gebaseerd op de databank van @heinken_european_2019.
-De resultaten van de analyse en de bijhorende code staan in de [**broncode**](E1_bos_versnippering.Rmd) van de indicator.
+De resultaten van de analyse en de bijhorende code staan in de [**broncode**](../e1_bos_versnippering/e1_bos_versnippering.Rmd) van de indicator.
 
 Als indicator voor de stuurvariabele *fragmentatie* gebruiken we de Forest Area Density (FAD)[@vogt_approach_2019]. 
 Forest Area Density is het aandeel bospixels binnen een vast analysevenster rond een boscel.
