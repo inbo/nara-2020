@@ -1,0 +1,85 @@
+..generic:
+  git2rdata: 0.2.1
+  optimize: no
+  NA string: ''
+  sorting:
+  - Landgebruik
+  - totaal
+  hash: 22f592383d5fe6de99e5a98e05ec2c323b8475e5
+  data_hash: c25ce03a9244ad2282a25378d7d3ca32cd1ba23d
+Landgebruik:
+  class: factor
+  labels:
+  - aardappelen
+  - 'aardbeien - open lucht '
+  - andere blijvende teelten
+  - andere nijverheidsgewassen
+  - boomgaarden
+  - 'boomkwekerijen - open lucht '
+  - braakland
+  - cultuurgrasland blijvend
+  - graan
+  - groenten - open lucht
+  - kleinfruit - open lucht
+  - korrelmais
+  - oliehoudende gewassen
+  - overige voedergewassen
+  - peulvruchten droog geoogst
+  - sierteelt - open lucht
+  - snijmais
+  - suikerbieten
+  - teelten in serres
+  - tijdelijk weiden
+  - tuinbouwzaden en -planten open lucht
+  - voederbieten
+  index:
+  - 1
+  - 2
+  - 3
+  - 4
+  - 5
+  - 6
+  - 7
+  - 8
+  - 9
+  - 10
+  - 11
+  - 12
+  - 13
+  - 14
+  - 15
+  - 16
+  - 17
+  - 18
+  - 19
+  - 20
+  - 21
+  - 22
+  ordered: no
+bodemkoolstof:
+  class: numeric
+bodemerosie:
+  class: integer
+bodemverdichting:
+  class: integer
+gewasbescherming:
+  class: integer
+nitraatresidu:
+  class: integer
+bodemafdichting:
+  class: integer
+totaal:
+  class: numeric
+klasse:
+  class: factor
+  labels:
+  - extensief
+  - intensief
+  - matig intensief
+  - zeer intensief
+  index:
+  - 1
+  - 2
+  - 3
+  - 4
+  ordered: no

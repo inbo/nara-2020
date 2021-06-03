@@ -1,0 +1,20 @@
+..generic:
+  git2rdata: 0.2.1
+  optimize: no
+  NA string: NA
+  sorting:
+  - landgebruik
+  - score
+  hash: b9294d082d59647274220db066f2844a9b973f00
+  data_hash: abc2707ac2f3bce02a572516707bb42b6327088b
+landgebruik:
+  class: factor
+  labels:
+  - blijvend gras (ifv aantal jaren gras)
+  - boomgaard
+  index:
+  - 1
+  - 2
+  ordered: no
+score:
+  class: numeric

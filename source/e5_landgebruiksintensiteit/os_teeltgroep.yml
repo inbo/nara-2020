@@ -1,0 +1,107 @@
+..generic:
+  git2rdata: 0.2.1
+  optimize: no
+  NA string: NA
+  sorting:
+  - teeltgroep
+  - score
+  hash: 4fa3dedcdcae9474b45663e40d9788b4ba816d30
+  data_hash: dd4575f4ba4513f697f3b674c40d846ce41d8608
+teeltgroep:
+  class: factor
+  labels:
+  - aardappelen
+  - bieten
+  - granen
+  - groenten open lucht
+  - korrelmaïs
+  - oliehoudende gewassen
+  - overig
+  - Overig voeder
+  - overige nijverheidsgewassen
+  - sierteelt
+  - snijmaïs
+  - tijdelijk gras
+  index:
+  - 1
+  - 2
+  - 3
+  - 4
+  - 5
+  - 6
+  - 7
+  - 8
+  - 9
+  - 10
+  - 11
+  - 12
+  ordered: no
+teelten:
+  class: factor
+  labels:
+  - ''
+  - Bloemkolen, witte kolen, broccoli, savooikolen, spruitkolen, rode kolen, stamsla,
+    veld en bruine bonen, witloofwortels, wortels, rapen, prei, knolselder en asperge
+    1 jaar
+  - Spelt, rogge, haver, zomertarwe, triticale, wintertarwe en -gerst (met/zonder
+    afvoer stro)
+  - voeder- en suikerbieten
+  - witte en rode klaver, erwten droog geoogst
+  - zaad- en vezelvlas en cichorei
+  - zomer- en winterkoolzaad
+  index:
+  - 1
+  - 2
+  - 3
+  - 4
+  - 5
+  - 6
+  - 7
+  ordered: no
+effectief_organische_koolstof:
+  class: factor
+  labels:
+  - ''
+  - 0,15, 0,18, 0,27
+  - '0,47'
+  - '0,47, 0,53, 0,54, 0,66, 0,72, 0,73, 0,46, 0,46, 0,47, 0,27, 0,37, 0,37, 0,38,
+    0,55 en 0,57 (gem: 0,5)'
+  - '0,64'
+  - 0,64 - 0,70
+  - 0,69, 0,77 en 0,93
+  - 0,73 - 0,81
+  - 0,89
+  - 1,01 tem 1,66
+  - '1,33'
+  index:
+  - 1
+  - 2
+  - 3
+  - 4
+  - 5
+  - 6
+  - 7
+  - 8
+  - 9
+  - 10
+  - 11
+  ordered: no
+klasse:
+  class: factor
+  labels:
+  - ''
+  - < 0,4
+  - '> 1'
+  - 0,4 - 0,6
+  - 0,6 - 0,8
+  - 0,8 - 1
+  index:
+  - 1
+  - 2
+  - 3
+  - 4
+  - 5
+  - 6
+  ordered: no
+score:
+  class: integer
