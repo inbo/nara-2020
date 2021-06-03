@@ -1,0 +1,134 @@
+---
+title: "Metadata bescherming en beheer in Vlaanderen - Oppervlakte juridisch beschermd"
+date: 2020-07-01T10:00:00
+bibliography: ../references.bib
+link-citations: TRUE
+hoofdstuk:
+- 3
+- 5
+nocite: |
+thema:
+  - Beschermde natuur
+keywords:
+  - juridische bescherming
+  - ecosystemen
+lang: nl
+tab: metadata
+verantwoordelijke:
+- Inne Vught <inne.vught@inbo.be>
+output: html_document
+---
+## Technische informatie
+
+```{r setup, include=FALSE}
+library(knitr)
+opts_chunk$set(echo = FALSE, message = FALSE, warning = FALSE)
+library(git2rdata)
+```
+
+```{r databereik}
+databereik <- 2020
+```
+\- **Periodiciteit**: eenmalig
+\- **Volgende update**: onbekend
+\- **Databereik**: `r databereik`
+
+## Databron
+
+- **Producent**: Instituut voor Natuur- en Bosonderzoek (INBO), Agentschap Natuur en Bos (ANB)
+- **Dataset**: GIS-lagen [Vlaamse natuurreservaten](http://www.geopunt.be/catalogus/datasetfolder/43960a57-ba08-4887-a3f5-39656648de37) (ANB), [erkende natuurreservaten](http://www.geopunt.be/catalogus/datasetfolder/7b9424f7-bbb6-4248-9728-ae207f541780) (ANB), [bosreservaten](http://www.geopunt.be/catalogus/datasetfolder/4912f787-64bd-4b7f-9c33-5e8e91c0cd9d) (ANB), ASBET_beheerplannen (op te vragen bij ANB), [Beschermde gebieden Duinendecreet](http://www.geopunt.be/catalogus/datasetfolder/e2d2b914-0d56-4562-917a-b057085a2001) (ANB), [gebieden van het VEN/IVON](http://www.geopunt.be/catalogus/datasetfolder/6c55f7f5-df2e-4ccc-a6b2-85abd572a355) (ANB), [Vogelrichtlijngebieden](http://www.geopunt.be/catalogus/datasetfolder/4ab216f3-6316-4fc3-bd3a-343b439fe272) (ANB), [Habitatrichtlijngebieden](http://www.geopunt.be/catalogus/datasetfolder/a84a87f5-5607-4019-a8db-9d52a827786b) (ANB), [Ramsar-gebieden](http://www.geopunt.be/catalogus/datasetfolder/ef7919da-fb70-41ec-9009-0c849bea5168) (ANB), [de Biologische Waarderingskaart](http://www.geopunt.be/catalogus/datasetfolder/bf31d5c7-e97d-4f71-a453-5584371e7559) (INBO), gronden onder vegetatiebesluit (op te vragen bij ANB), [Historisch permanente graslanden (HPG) en andere permanente graslanden in Vlaanderen beschermd door de natuurwetgeving](http://www.geopunt.be/catalogus/datasetfolder/59206b6b-a39e-4996-92de-c4476225e0ed) (ANB), Ruimteboekhouding 2019 (op te vragen bij het Vlaams Planbureau voor Omgeving (VPO)), [Landgebruiksbestand Vlaanderen 2016](https://www.geopunt.be/catalogus/datasetfolder/78e82101-8fbc-4a75-b649-b208df2b77be) (VPO), [watervlakkenkaart](http://www.geopunt.be/catalogus/datasetfolder/61c4245b-a177-4fe8-a5cc-455475d7b40f) (INBO)
+- **Gegevensinzameling**: De data voor ASBET_beheerplannen komen van goedgekeurde beheerplannen en aanwijzings- of erkenningsbesluiten.
+De BWK baseert zich op terreinwaarnemingen, aangevuld met vegetatiekaarten en de interpretatie van luchtfoto's.
+De datalaag rond beschermde graslanden werd afgebakend op basis van de Biologische WaarderingsKaart en afgetoetst aan de verzamelaanvraag landbouw.
+De ruimteboekhouding monitort het gepland landgebruik.
+De verschillende bestemmingen op de plannen van aanleg en ruimtelijke uitvoeringsplannen op gewestelijk, provinciaal en gemeentelijk niveau zijn in dit bestand verrekend volgens een aantal bestemmingscategorieën: wonen, industrie, industrie binnen de poorten, recreatie, natuur en reservaat, bos, overig groen, landbouw en overige bestemmingen.
+De gegevens van het landgebruiksbestand Vlaanderen zijn gebaseerd op een interpretatie van luchtfoto's, op administratieve aangiftes door landgebruikers en eigenaars of op terreinwaarnemingen.
+Voor de nieuwe uitgave van Watervlakken (1.1) werd gebruik gemaakt van de luchtfoto’s van 2018 en 2019 en het digitaal terreinmodel Vlaanderen.
+Hierbij werden 1261 UTM-hokken, goed voor 31,5% van het Vlaams Gewest, systematisch gereviseerd.
+Tevens werden ad hoc meldingen van gebruikers en terreinwaarnemingen aangewend om nieuwe watervlakken te digitaliseren, vormcorrecties aan te brengen en gedempte plassen te verwijderen uit de kaartlaag.
+Voor een aantal watervlakken werden gegevens over waterdiepte en connectiviteit in de attributentabel opgenomen.
+De overige kaartlagen betreft ruimtelijke begrenzingen of afbakeningen van bepaalde gebieden zoals reservaten, speciale beschermingszones...
+
+
+## Berekeningswijze
+
+### Stap 1: definiëren van de drie beschermingscategorieën
+De drie beschermingscategorieën werden in overleg met het Agentschap voor Natuur en Bos (ANB) gedefinieerd.
+Per beschermingscategorie werd een digitale kaartlaag gemaakt door (selecties uit) volgende  GIS-lagen samen te voegen (zonder overlappingen):
+
+1. **voor categorie 1 ‘Bos- en natuurreservaten’:**
+  + Vlaamse natuurreservaten zonder gebieden met natuurbeheerplan type 4 (versie 31/12/2019)
+  + erkende natuurreservaten (versie 2020-03-13)
+  + bosreservaten
+  + gebieden met natuurbeheerplan type 4: selectie ‘dossiertyp = TYP 4’ in ‘ASBET-beheerplannen’
+
+2. **voor categorie 2 ‘Beschermde gebieden met een ander (inter)nationaal beschermingsstatuut dan de reservaten’:**
+  + Beschermd duingebied: Beschermde gebieden Duinendecreet waaruit de voor landbouw belangrijk duingebieden werwijderd zijn
+  + VEN: gebieden van het VEN/IVON waaruit de natuurverwevingsgebieden verwijderd zijn
+  + Vogelrichtlijngebieden (SBZ-V)
+  + Habitatrichtlijngebieden (SBZ-H)
+  + Ramsar-gebieden (zonder de Vlaamse banken in de Noordzee)
+
+3. **voor categorie 3 ‘Bescherming door andere maatregelen buiten beschermde gebieden uit categorie 1 of 2’:**
+  + **Bescherming van bossen door het Bosdecreet**: selectie van bossen zoals gedefinieerd in het Bosdecreet (BWK‐eenheden f., q., s., l., n., ru., p. en pp. en alle varianten) op basis van de eerste en tweede karteringseenheid in de Biologische Waarderingskaart (BWK).
+  De string "EENH1" Like 'n%' OR "EENH1" Like 'l%' OR "EENH1" Like 'p%' OR "EENH1" Like 'v%' OR "EENH1" Like 's%' OR "EENH1" Like 'q%' OR "EENH1" Like 'f%' OR "EENH1" Like 'ru%' OR ("EENH1" Like 'kd%' AND ("EENH2" Like 'n%' OR "EENH2" Like 'l%' OR "EENH2" Like 'p%' OR "EENH2" Like 'v%' OR "EENH2" Like 's%' OR "EENH2" Like 'q%' OR "EENH2" Like 'f%' OR "EENH2" Like 'ru%'))  OR ("EENH1" Like 'ks%' AND ("EENH2" Like 'n%' OR "EENH2" Like 'l%' OR "EENH2" Like 'p%' OR "EENH2" Like 'v%' OR "EENH2" Like 's%' OR "EENH2" Like 'q%' OR "EENH2" Like 'f%' OR "EENH2" Like 'ru%')) OR  ("EENH1" Like 'kt%' AND ("EENH2" Like 'n%' OR "EENH2" Like 'l%' OR "EENH2" Like 'p%' OR "EENH2" Like 'v%' OR "EENH2" Like 's%' OR "EENH2" Like 'q%' OR "EENH2" Like 'f%' OR "EENH2" Like 'ru%')) OR  ("EENH1" Like 'kw%' AND ("EENH2" Like 'n%' OR "EENH2" Like 'l%' OR "EENH2" Like 'p%' OR "EENH2" Like 'v%' OR "EENH2" Like 's%' OR "EENH2" Like 'q%' OR "EENH2" Like 'f%' OR "EENH2" Like 'ru%')) selecteert de biotoopgroep ‘Bossen en struwelen’ uit de BWK.
+  Door de  string "EENH2" Like 'n%' OR "EENH2" Like 'l%' OR "EENH2" Like 'p%' OR "EENH2" Like 'v%' OR "EENH2" Like 's%' OR "EENH2" Like 'q%' OR "EENH2" Like 'f%' OR "EENH2" Like 'ru%' hieraan toe te voegen, worden ook bossen in urbaan gebied in de analyse meegenomen. Karteringseenheid ‘Spoor’ en ‘ng’ zijn uit de selectie verwijderd.
+  
+  + **Bescherming door het vegetatiebesluit**: de bestanden ‘gronden onder vegetatiebesluit’ (op te vragen bij ANB) en ‘historisch permanente graslanden (HPG) en andere permanente graslanden in Vlaanderen beschermd door de natuurwetgeving’ bevatten de vegetaties waarvan wijziging verboden of omgevingsvergunningsplichtig is.  Het gaat om:
+  
+    + *vegetaties waarvan wijziging verboden is*:
+      + duinvegetaties (BWK-karteringseenheden: dd, dm, sd)
+      + vennen en heide (BWK-karteringseenheden: ao, ce, cg, ce, ces, cm, cd, cp, cv, ct, ctm, t, tm, ha, hn)
+      + moerassen en waterrijke gebieden (BWK-karteringseenheden: mr, mz, mm, mc, md, ms, mk, mp, hf, sm, so, vm, vo, vt, vc, ah, ae, aev, aer, am, da, ds)
+      + historisch permanente graslanden (BWK-karteringseenheden: hc, hj, hf, hm, hmo, hmm, hme, hk, hd, hv, hu, hpr, hp*, hp+mr, hp+hc(kn), hp met fauna) gelegen in
+        + groene bestemmingen (groen-, park-, buffer- of bosgebied) op de bestemmingsplannen en de bestemmingsgebieden die daarmee vergelijkbaar zijn
+        + in beschermd cultuurhistorisch landschap
+        + in SBZ Poldercomplex (BE2500932) en SBZ Het Zwin (BE2501033) als er voor deze gebieden geen afwijkende instandhoudingsdoelen zijn vastgesteld die wijziging noodzakelijk maken
+        + op de kaart opgemaakt door de Vlaamse regering. Het verbod geldt voor zover de HPG’s definitief zijn vastgesteld én gelegen zijn binnen één van de gebieden beschreven in 1,2 of 3.
+      + Permanente graslanden (i.e. cultuurgronden die minimum vier jaren ononderbroken grasland zijn) in VEN
+      + Ecologisch kwetsbaar blijvend grasland (EKBG)
+      + Vegetatie met inbegrip van meerjarige cultuurgewassen in VEN behalve indien in toepassing van een goedgekeurd beheerplan
+      
+    + *Vegetaties waarvan wijziging vergunningsplichtig is*:
+      + Natuurlijke of halfnatuurlijke vegetatie (i.e. natuurlijke en halfnatuurlijke begroeiing met alle spontaan gevestigde kruid-, struweel en bosbegroeiingen) (wel niet recent omgeploegde en ingezaaide graslanden, geen cultuurgewassen)  in
+        + groen-, park-, buffer-, bosgebieden, natuurontwikkelingsgebieden, valleigebieden, brongebieden, agrarische gebieden met ecologisch belang of waarde, agrarische gebieden met bijzondere waarde en vergelijkbare bestemmingsgebieden volgens de gewestplannen of RUP’s
+        + beschermde duingebieden
+        + SBZ’s
+        + Ramsargebieden (excl. Vlaamse banken in de Noordzee)
+      + Historisch permanente graslanden  (BWK-karteringseenheden: hc, hj, hf, hm, hmo, hmm, hme, hk, hd, hv, hu, hpr, hp*, hp+mr, hp+hc(kn), hp met fauna) in
+        + valleigebieden, brongebieden, natuurontwikkelingsgebieden, agrarische gebieden met ecologisch belang of agrarische gebieden met bijzondere waarde op de bestemmingsplannen en de bestemmingsgebieden die vergelijkbaar zijn met deze gebieden
+        + SBZ IJzervallei (BE2500831)
+        + in SBZ’s in uitvoering van de Habitatrichtlijn, in zoverre het desbetreffende type historisch permanent grasland binnen deze perimeters als habitat is aangemeld
+        + op de kaart opgemaakt door de Vlaamse regering. De natuurvergunningsplicht geldt voor zover de HPG’s definitief zijn vastgesteld én gelegen zijn binnen één van de gebieden beschreven in 1,2 of 3.
+
+  Het bestand ‘historisch permanente graslanden (HPG) en andere permanente graslanden in Vlaanderen beschermd door de natuurwetgeving’ is gebruikt om de graslanden waar een vergunning voor moet aangevraagd te worden te selecteren (statuut vergunning).
+  Voor de verboden te wijzigen vegetaties (statuut: verbod en EKBG) en vergunningsplichtige vegetaties (exclusief de bossen die door het Bosdecreet Beschermd worden) is het bestand ‘gronden onder vegetatiebesluit’ gebruikt (statuut: vergunning). Uit die selectie is het intersect met de bossen (zie bescherming door Bosdecreet) en categorie "bossen en struwelen", "bebouwing en industrie", "onbepaald", "ng", "nvt" verwijderd. 
+
+Het ANB-bestand ‘gronden onder vegetatiebesluit’ geeft de actuele oppervlaktes van de (half)natuurlijke vegetaties (o.b.v. de BWK) maar wijziging van (half)natuurlijke vegetaties is eigenlijk in de volledige groen-, park-, buffer-, bosgebieden, natuurontwikkelingsgebieden, valleigebieden, brongebieden, agrarische gebieden met ecologisch belang of waarde, agrarische gebieden met bijzondere waarde en vergelijkbare bestemmingsgebieden volgens de gewestplannen of RUP’s ruimtelijke bestemmingen omgevingsvergunningsplichtig.
+Daarom nemen we deze ruimtelijke bestemmingen ook mee in de analyse.
+Ze werden geselecteerd in de kaart ‘ruimteboekhouding 2019’ (op te vragen bij het Vlaams Planbureau voor Omgeving (VPO)) door in het veld ‘rbh0’ de codes 03 (natuur en reservaat), 04 (overig groen) en 05 (bos) en in het veld ‘bestem0’ de codes 0910 (agrarische gebieden met ecologisch belang), 0911 (valleigebieden of 'agrarische gebieden met landschappelijke waarde') en 0912 (agrarisch gebied met landschappelijke (of 'bijzondere') waarde (vallei- of brongebieden)) te kiezen.
+De overige zones waarbinnen wijziging verboden of vergunningsplichtig is zoals VEN, SBZ en Ramsar worden al in beschermingscategorie 2 meegenomen.
+Beschermd cultuurlandschap is niet meegenomen in de analyse.
+
+
+### Stap 2: bepalen van het cumulatieve oppervlakteaandeel van de drie beschermingscategorieën in Vlaanderen
+Op basis van de kaarten van de drie beschermingscategorieën werd het cumulatieve oppervlakteaandeel ervan in Vlaanderen bepaald.
+Daarbij werd de volgorde zoals hierboven weergegeven, aangehouden.
+Bij overlap tussen verschillende beschermingscategorieën kreeg categorie 1 voorrang op categorie 2 en 3 en categorie 2 op categorie 3.
+
+### Stap 3: bepalen van het cumulatieve oppervlakteaandeel van de drie beschermingscategorieën per ecosysteem
+Om de cumulatieve bedekkingsgraad van bos, heide en landduinen, moeras, estuaria, akker en tuinbouw, grasland, kustduinen en strand, en urbaan door de drie beschermingscategorieën te berekenen, werd gebruik gemaakt van de ecosysteemkaart 2016 (resolutie 10 x 10 m).
+De ecosysteemkaart 2016 is afgeleid uit het Landgebruiksbestand Vlaanderen 2016 volgens de methode in ‘Landgebruiksverandering - Ecosysteemvoorraad Landgebruiksbestand Vlaanderen’ beschreven.
+Voor de stilstaande oppervlaktewateren wordt de watervlakkenkaart gebruikt.
+Om de lengtes van de waterlopen (exclusief de estuaria) binnen elke  beschermingscategorie te berekenen, werd de Vlaamse Hydrografische Atlas (VHA) werd gebruikt. 
+
+
+## Opmerkingen bij de gegevenskwaliteit en betrouwbaarheid
+
+De berekening doet beroep op een groot aantal kaarten met een verschillende betrouwbaarheid.
+
+## Download
+
+**Broncode indicator**: [c4_oppervlakte_beschermd.Rmd](../c4_oppervlakte_beschermd/c4_oppervlakte_beschermd.Rmd)
+- **Basisdata**: [bescherming.tsv](../c4_oppervlakte_beschermd/bescherming.tsv)
+- **Metadata basisdata**: [bescherming.yml](../c4_oppervlakte_beschermd/bescherming.yml)
