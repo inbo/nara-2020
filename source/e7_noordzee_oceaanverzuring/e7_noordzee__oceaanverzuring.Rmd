@@ -105,4 +105,4 @@ Meer zure condities hebben een effect op de biogeochemische eigenschappen van he
 De bovenste figuur toont de Revelle-factor en de onderste figuur toont de pH van het zeewater. 
 Normale waarden van de Revelle-factor voor zeewater bevinden zich tussen 8 en 13. Op jaarbasis is de buffercapaciteit stabiel en schommelt ze rond 12. 
 
-## Referentie
+## Referenties

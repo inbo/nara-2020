@@ -43,4 +43,4 @@ databereik <- "1987 - 2019"
 - **Basisdata**: [densiteit_niet_aasetende_zeevogels.tsv](../e7_noordzee_gemiddeldedichtheid_zee_eend_visdief/densiteit_niet_aasetende_zeevogels.tsv), 
 - **Metadata basisdata**: [densiteit_niet_aasetende_zeevogels.yml](../e7_noordzee_gemiddeldedichtheid_zee_eend_visdief/densiteit_niet_aasetende_zeevogels.yml)
 
-## Referentie
+## Referenties

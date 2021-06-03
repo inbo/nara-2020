@@ -45,9 +45,3 @@ Het FWO ondersteunt de Vlaamse deelname aan ICOS.
 - **Basisdata**: [icos_data_for_nara_report2020.tsv](../e7_noordzee__oceaanverzuring/icos_data_for_nara_report2020.tsv)
 - **Metadata basisdata**: [icos_data_for_nara_report2020.yml](../e7_noordzee__oceaanverzuring/icos_data_for_nara_report2020.yml)
 
-
-
-
-
-
-
