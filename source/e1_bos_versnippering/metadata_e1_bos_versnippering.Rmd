@@ -1,0 +1,113 @@
+---
+title: "Metadata Bos - Versnippering van bos"
+date: 2020-07-01T10:00:00
+bibliography: ../references.bib
+link-citations: TRUE
+hoofdstuk: 5
+thema:
+  - Bos
+keywords:
+  - fragmentatie
+  - randhabitat
+  - oppervlakte
+  - boswijzer
+lang: nl
+tab: metadata
+verantwoordelijke:
+- Maarten Stevens <maarten.stevens@inbo.be>
+output: html_document
+---
+## Technische informatie
+
+```{r setup, include=FALSE}
+library(knitr)
+opts_chunk$set(echo = FALSE, message = FALSE, warning = FALSE)
+library(git2rdata)
+```
+
+```{r databereik}
+databereik <- "VBI 1: 1997-1999 en VBI 2: 2009-2019"
+```
+\- **Periodiciteit**: eenmalig
+\- **Volgende update**: onbekend
+\- **Databereik**: `r databereik`
+
+## Databron
+
+- **Producent**: Instituut voor Natuur- en Bosonderzoek
+- **Dataset**: [Digitale boswijzer Vlaanderen 2009, 2012, 2015](http://www.geopunt.be/catalogus/datasetfolder/42457086-8b2c-44b6-8232-daa65cfd486b)
+Databank Vlaamse Bosinventaris (v16-03-2020). 
+De databank kan opgevraagd worden bij het [Agentschap Natuur en Bos](https://www.natuurenbos.be/beleid-wetgeving/natuurbeheer/bosinventaris/contact).
+
+- **Gegevensinzameling**: 
+De **Groenkaart Vlaanderen** is een rasterkaart (resolutie 1 m) van het groen in Vlaanderen en onderscheidt de klassen “Niet groen”, “Landbouw”, “Laag Groen” (minder dan 3 m hoog) en “Hoog Groen” (meer dan 3 m hoog).
+De Groenkaart is, net als de Boswijzer, een afgeleide van de Vegetatiekaart Vlaanderen [@van_der_linden_vegetatiekaart_2017].
+De kaart is gebaseerd op een semi-automatische verwerking van zomervlucht orthofoto’s en wordt driejaarlijks opgemaakt door het Agentschap Informatie Vlaanderen (AIV) in opdracht van het Agentschap Natuur en Bos (ANB).
+De **Boswijzer** is een rasterkaart (resolutie 10 m) die aangeeft waar in Vlaanderen bos voorkomt.
+Voor een gedetailleerde beschrijving van de karteringsmethode verwijzen we naar @van_der_linden_vegetatiekaart_2017.
+De **Vlaamse bosinventaris** (VBI) bestaat uit een steekproef van punten waarvoor op het terrein de toestand van het bos wordt opgemeten [@westra_opmaak_2015; @wouters_ontwerp_2008].
+De meetcyclus van de eerste bosinventaris (VBI 1) liep van 1997 tot 1999, de tweede meetcyclus (VBI 2) van 2009 tot 2019.
+De steekproef wordt gekozen uit een vast raster van 27.163 punten. 
+Voor elk punt in het raster wordt beoordeeld of het al dan niet in bos ligt.
+De punten die in bos liggen worden opgemeten volgens een gestandaardiseerd veldprotocol.
+De website van het [Agentschap Natuur en Bos](https://www.natuurenbos.be/beleid-wetgeving/natuurbeheer/bosinventaris/hoe-gebeuren-de-metingen) geeft een overzicht van de methodologie.
+De analyses van de kruidachtigen zijn gebaseerd op de vegetatieopnames van de VBI.
+De vegetatieopnames maken gebruik van de Braun-Blanquet-schaal binnen een proefvlak van 16 m x 16 m.
+Voor de analyses worden alleen de planten in de kruidlaag in rekening gebracht.
+De kruidlaag omvat de houtige planten met een hoogte tot maximaal 0,8 m en alle niet-houtige planten met een hoogte < 2 m.
+
+## Berekeningswijze
+
+### Randhabitat en clustergrootte bos
+
+Het aandeel randhabitat en de grootte van de bosclusters wordt berekend op basis van de Boswijzers van 2009, 2012 en 2015.
+De Boswijzer is een binaire rasterkaart die aangeeft welke cellen bos (1) en niet-bos (0) zijn.
+Om het aandeel randhabitat in de totale bosoppervlakte te bepalen, wordt een buffer van 50 m (conservatieve schatting) en 100 m rond de niet-boscellen gelegd via een `Euclidean Distance`-operatie in ArcGIS.
+Alle boscellen die binnen 50 m of 100 m van een niet-boscel vallen, worden op deze manier aangeduid als randhabitat.
+In een volgende stap worden de afzonderlijke bosclusters geïdentificeerd (`Region Group`). 
+Vervolgens wordt per boscluster het aandeel bosrand als percentage van de oppervlakte van die cluster berekend (`Zonal Statistics as Table`). 
+
+### Relatie soortenrijkdom - fragmentatie
+
+De analyse van de soortenrijkdom van kruidachtigen is gebaseerd op tabel 4 van de VBI-databank (`tbl4Vegetatie`).
+Deze tabel geeft per steekproefpunt (plot) en periode het aantal kruidachtigen in de vegetatieopnames.
+Het rapport van @westra_opmaak_2015 geeft een uitgebreid overzicht van de opbouw van de  analysedatabank, de analysevariabelen en van de statistische analyses van de VBI. 
+Aangezien een groot aantal observaties in de twee opeenvolgende periodes van de VBI gecorreleerd zijn (gepaarde plots), gebruiken we mixed effect regressiemodellen.
+Voor aantallen (bv. aantal soorten) gebruiken we een Poisson mixed model.
+Het Poisson mixed model gebruikt de fragmentatiegraad (`FragInv`) als fixed effect en de gepaarde plots als random effects.
+De responsvariabele is het aantal kruidachtigen in een steekproefpunt.
+De analyse werd herhaald voor verschillende categorieën van kruidachtigen: typische bossoorten, soorten van open vegetaties en soorten die zowel in open vegetaties als in bossen voorkomen.
+De indeling in de verschillende categorieën is gebaseerd op de databank van @heinken_european_2019.
+De resultaten van de analyse en de bijhorende code staan in de [**broncode**](E1_bos_versnippering.Rmd) van de indicator.
+
+Als indicator voor de stuurvariabele *fragmentatie* gebruiken we de Forest Area Density (FAD)[@vogt_approach_2019]. 
+Forest Area Density is het aandeel bospixels binnen een vast analysevenster rond een boscel.
+Als basiskaart voor de berekening van de FAD gebruiken we de Groenkaart 2015.
+De originele Groenkaart werd herschaald naar een 10 x 10 m resolutie via ‘nearest neighbour resampling’. 
+Daarbij krijgt elke 10 x 10 m rastercel de waarde van de 1 x 1 m rasterlaag die het dichtst bij zijn centroide gelegen is. De FAD wordt berekend voor vijf omgevingsvensters van verschillende omvang (lengte: 70 m, 13 m, 27 m, 81 m en 2430 m) via een `Focal Statistics`-operatie in ArcGIS. 
+De vijf fragmentatiekaarten worden vervolgens gecombineerd in een synthesekaart die de gemiddelde FAD-waarde per boscel weergeeft. 
+De FAD is gelijk aan 1 voor een cel die volledig omgeven is door bos en nul voor een cel zonder bos in de omgeving. 
+Voor een gedetailleerde beschrijving van de methodologie verwijzen we naar @vogt_approach_2019. 
+Via de xy-coördinaten van de steekproefpunten en de gebiedsdekkende FAD-kaart bepalen we de FAD-waarde voor elk steekproefpunt. 
+De fragmentatiegraad (`FragInv`) berekenen we als één min de FAD-waarde, zodat de index stijgt met toenemende fragmentatiegraad.
+
+## Opmerkingen bij de gegevenskwaliteit en betrouwbaarheid
+
+Bij de opmaak van de Boswijzer wordt 'bos' geïdentificeerd als een cluster van rastercellen die groter is dan 0,5 ha, met minstens 50% kroonbedekking en een minimale breedte van 70 m [@van_der_linden_vegetatiekaart_2017].
+Door deze selectieprocedure maken sommige, vooral kleiner clusters van bomen geen deel uit van de Boswijzer.
+De totale versnippering van het opgaand groen (bomen) ligt dan ook heel wat hoger dan de schatting gebaseerd op de analyse van de Boswijzer.
+
+Omdat de Groenkaart pas beschikbaar is vanaf 2009, kan de fragmentatiegraad niet berekend worden voor de eerste inventarisatieperiode van de VBI (1997-1999).
+We hebben ervoor gekozen om de FAD voor beide inventarisatieperiodes te berekenen op basis van de meest recente Groenkaart (2015).
+De werkelijke fragmentatiegraad voor de punten van VBI 1 (1997-1999) wijkt hoogstwaarschijnlijk dan ook af van de berekende scores op basis van de Groenkaart 2015.
+Wanneer alleen de metingen van VBI 2 in rekening worden gebracht, blijft het effect van de fragmentatiegraad op de soortenrijkdom behouden (zie *Broncode indicator*).
+
+## Download
+
+**Broncode indicator**: [E1_bos_versnippering.Rmd](../e1_bos_versnippering/e1_bos_versnippering.Rmd)
+- **Data analyse soortenrijkdom**: [kruidachtigen_rijkdom.tsv](../e1_bos_versnippering/kruidachtigen_rijkdom.tsv)
+- **Metadata analyseset soortenrijkdom**: [kruidachtigen_rijkdom.yml](../e1_bos_versnippering/kruidachtigen_rijkdom.yml)
+- **Data fragmentatie**: [Data randhabitat](../e1_bos_versnippering/randenoppervlakte_bw.tsv); [Data oppervlakte clusters](../e1_bos_versnippering/randenoppervlakte_bw100m.tsv)
+- **Metadata dataset fragmentatie**: [Data randhabitat](../e1_bos_versnippering/randenoppervlakte_bw.yml); [Data oppervlakte clusters](../e1_bos_versnippering/randenoppervlakte_bw100m.ylm)
+
+## Referenties
