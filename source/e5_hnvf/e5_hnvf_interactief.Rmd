@@ -359,7 +359,7 @@ Subtypes overlappen niet en indien een perceel tot meerdere subtypes kan behoren
 
 De oppervlakte HNVf wordt afzonderlijk bekeken voor akker- en sierteelt, blijvende cultuurgraslanden en historische agrecosystemen. Historische agro-ecosystemen omvatten:
 
--  halfnatuurlijke graslanden: graslanden met extensief maaibeheer of lichte begrazing ([www.inbo.be/begrippen](www.inbo.be/begrippen))
+-  halfnatuurlijke graslanden: graslanden met extensief maaibeheer of lichte begrazing ([Ecopedia](https://www.ecopedia.be/encyclopedie/halfnatuurlijk-grasland))
 - soortenrijke permanente graslanden^[soortenrijke permanente graslanden omvatten vochtig grasland gedomineerd door russen, soortenrijk permanent cultuurgrasland en soortenrijk permanent cultuurgrasland met zilte elementen][@vriens_biologische_2011-1], en
 - hoogstamboomgaarden en landbouwgronden met veel kleine landschapselementen [@andersen_developing_2003]. 
 
