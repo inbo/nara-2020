@@ -1,0 +1,70 @@
+---
+title: "Metadata landgebruiksverandering - Bebouwde percelen"
+date: 2020-07-01T10:00:00
+bibliography: ../references.bib
+link-citations: TRUE
+nocite: 
+hoofdstuk: 4 
+thema:
+  - Natuur & maatschappij
+keywords:
+  - landgebruiksverandering
+  - ruimtebeslag
+  - natuurlijk kapitaal
+  - natural capital accounting
+  - ecosystem extent
+lang: nl
+tab: metadata
+verantwoordelijke:
+- Wouter Van Reeth <wouter.vanreeth@inbo.be>
+output: html_document
+---
+## Technische informatie
+
+```{r setup, include=FALSE}
+library(knitr)
+opts_chunk$set(echo = FALSE, message = FALSE, warning = FALSE)
+library(git2rdata)
+library(kableExtra)
+```
+
+```{r databereik}
+databereik <- paste(
+  range(read_vc("bebouwdeperc")$jaar),
+  collapse = "-"
+)
+```
+\- **Periodiciteit**: jaarlijks
+\- **Volgende update**: december 2021
+\- **Databereik**: `r databereik`
+
+## Databron
+
+- **Producent**: Statbel, de Algemene Diriectie Statistiek van de Belgische federale overheid.
+- **Dataset**: Bodembezetting volgens het kadasterregister (1982-2019) (https://statbel.fgov.be/nl/themas/bouwen-wonen/bodembezetting-volgens-het-kadasterregister).
+- **Gegevensinzameling**: De gegevens van de statistiek van de bodembezetting zijn gebaseerd op de kadastrale aangiften aan de FOD Financiën, Algemene Administratie Patrimoniumdocumentatie.   
+
+## Berekeningswijze
+
+De statistiek van de bodembezetting presenteert sinds 1982 een overzicht van het aantal percelen, de oppervlakten en de niet-geïndexeerde kadastrale inkomens (K.I.) van alle percelen en de administratieve eenheden in België.
+
+Naast de bebouwde en onbebouwde gekadastreerde percelen is er per administratieve eenheid ook nog een niet-gekadastreerde oppervlakte die niet in percelen is ingedeeld en waaraan geen kadastrale aard (bebouwd of onbebouwd) is toegewezen. 
+In 2019 was 7,82% van het Vlaamse Gewest niet gekadastreerd.
+
+De indicator toont de toename in de totale oppervlakte van de bebouwde percelen vanaf 1983.
+
+Hierop kunnen zich de volgende types gebouwen bevinden: appartementen, building, huis, hoeve, bijgebouwen met inbegrip van serres, ambacht- en industriegebouwen, opslagruimten, banken, kantoren, gebouwen met handelsbestemming, openbare gebouwen, nutsvoorzieningen, sociale en ziekenzorg, onderwijs, onderzoek, cultuur, gebouwen voor erediensten, recreatie en sport of andere gebouwen.
+
+## Opmerkingen bij de gegevenskwaliteit en betrouwbaarheid
+
+De gegevens tot 2017 zijn afkomstig van de bestanden uit de kadastrale legger van de FOD Financiën. De definities van de bodembezettingsklassen dateren uit de napoleontische tijd.
+De gegevens vanaf 2018 zijn afkomstig van de databank CADGIS die is opgesteld in lijn met internationale conventies en de richtlijnen van Eurostat.
+Er is geen betrouwbaarheidsanalyse van de gegevens beschikbaar.
+
+## Download
+
+**Broncode indicator**: [d1_landgebruiksverandering_bebouwdepercelen.Rmd](../d1_landgebruiksverandering_bebouwdepercelen/d1_landgebruiksverandering_bebouwdepercelen.Rmd)
+- **Basisdata**: [bebouwdepercelen.tsv](../d1_landgebruiksverandering_bebouwdepercelen/bebouwdeperc.tsv)
+- **Metadata basisdata**: [bebouwdepercelen.yml](../d1_landgebruiksverandering_bebouwdepercelen/bebouwdeperc.yml)
+
+## Referenties
