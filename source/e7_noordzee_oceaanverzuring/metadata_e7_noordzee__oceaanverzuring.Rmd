@@ -39,9 +39,12 @@ databereik <- "2017 - 2019"
 ICOS is een Europese monitoringsinfrastructuur (ERIC) die de broeikasgasbalans van het Europese continent en de aanpalende regio's monitort en observeert.
 Het FWO ondersteunt de Vlaamse deelname aan ICOS.
 
+## Berekeningswijze
+
+De data voor de indicator worden overgenomen van ICOS (Integrated Carbon Observation System).
+
 ## Download
 
 - **Broncode indicator**: [e7_noordzee__oceaanverzuring.Rmd](../e7_noordzee__oceaanverzuring/e7_noordzee__oceaanverzuring.Rmd)
 - **Basisdata**: [icos_data_for_nara_report2020.tsv](../e7_noordzee__oceaanverzuring/icos_data_for_nara_report2020.tsv)
 - **Metadata basisdata**: [icos_data_for_nara_report2020.yml](../e7_noordzee__oceaanverzuring/icos_data_for_nara_report2020.yml)
-

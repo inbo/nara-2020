@@ -38,6 +38,7 @@ databereik <- "2012 - 2018"
 - **Gegevensinzameling**: De data over de beoordeling van Ecologische Toestand/potentieel van Vlaamse + L1 waterlichamen zijn afkomstig van VMM. 
 
 ## Berekeningswijze
+
 Riviertype 'zoet mesotidaal laagland estuarium' (Mlz) wordt in deze analyse als deel van de estuaria beschouwd. 
 Per categorie (rivier, meer, estuaria) en per beoordelingsklassen wordt het percentage Vlaamse en lokale waterlichamen berekend.
 Dit wordt vergeleken tussen de periode 2007-2012 en 2013-2018. 

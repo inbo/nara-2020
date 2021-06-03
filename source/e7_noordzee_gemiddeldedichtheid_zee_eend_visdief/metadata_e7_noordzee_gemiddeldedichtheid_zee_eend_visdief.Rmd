@@ -35,7 +35,11 @@ databereik <- "1987 - 2019"
 
 - **Producent**: Instituut voor Natuur- en Bosonderzoek
 - **Dataset**: Database kustbroedvogels Vlaanderen
-- **Gegevensinzameling**: De data worden verzameld in het kader de Kaderrichtlijn Mariene Strategie waarover 6 jaarlijks wordt gerapporteerd, zie [@stienen_dichtheid_2018]. 
+- **Gegevensinzameling**: De data worden verzameld in het kader de Kaderrichtlijn Mariene Strategie waarover 6 jaarlijks wordt gerapporteerd, zie [@stienen_dichtheid_2018].
+
+## Berekeningswijze
+
+De data voor de indicator worden overgenomen uit de zesjaarlijkse rapportage voor de Kaderrichtlijn Mariene Strategie [@stienen_dichtheid_2018].
 
 ## Download
 
