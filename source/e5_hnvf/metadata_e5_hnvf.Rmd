@@ -263,7 +263,7 @@ keuze_indicatoren %>%
   kable_styling(latex_options = c("striped", "HOLD_position"))
 ```
 
-### Berekeningswijze
+## Berekeningswijze
 
 <font size="4"> A. HNV1</font>
 
