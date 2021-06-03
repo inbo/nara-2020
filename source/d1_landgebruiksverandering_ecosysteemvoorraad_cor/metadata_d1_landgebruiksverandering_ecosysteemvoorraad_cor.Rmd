@@ -1,0 +1,100 @@
+---
+title: "Metadata van Landgebruiksverandering - Ecosysteemvoorraad Corine"
+date: 2020-07-01T10:00:00
+bibliography: ../references.bib
+link-citations: TRUE
+hoofdstuk: 4
+thema:
+  - Natuur & maatschappij
+  - Landbouw
+keywords:
+  - landgebruiksverandering
+  - ruimtebeslag
+  - natuurlijk kapitaal
+  - natural capital accounting
+  - ecosystem extent
+lang: nl
+tab: metadata
+verantwoordelijke:
+- Wouter Van Reeth <wouter.vanreeth@inbo.be>
+output: html_document
+---
+## Technische informatie
+
+```{r setup, include=FALSE}
+library(knitr)
+opts_chunk$set(echo = FALSE, message = FALSE, warning = FALSE)
+library(git2rdata)
+library(kableExtra)
+```
+
+```{r databereik}
+databereik <- paste(
+  range(read_vc("datastg")$Jaar),
+  collapse = "-"
+)
+```
+\- **Periodiciteit**: zesjaarlijks
+\- **Volgende update**: 2025
+\- **Databereik**: `r databereik`
+
+```{r data_inlezen_cor-klassen}
+gegevens_cls <- read_vc("datacls")
+```
+
+
+## Databron
+
+- **Producent**: Copernicus Land Monitoring Service
+- **Dataset**: *Status layers* 1990 en 2018 van de Corine *land cover inventory*.
+- **Gegevensinzameling**: De bodembedekkings- en landgebruikskaarten van Corine worden opgemaakt op basis van een semi-automatische interpretatie van Europese satellietbeelden. 
+Dit gebeurt per land door lokale experten met behulp van foto's en kaartmateriaal die voor dat land beschikbaar zijn.
+Voor België interpreteert het NGI de satellietbeelden.
+
+## Berekeningswijze
+
+Corine bevat voor heel Europa gebiedsdekkende gegevens over 44 types van bodembedekking en landgebruik.
+Hiervan komen er 31 in Vlaanderen voor (zie Tabel 3, Corine niveau 3).
+Voor deze analyse werden ze gegroepeerd in 5 ecosysteemklassen (zie Tabel 3, NARA niveau 1).
+Die indeling is gebaseerd op een ecosysteemtypologie voorgesteld door de Europese Commissie [@maes_mapping_2013; @maes_mapping_2018] en de [richtlijnen](https://land.copernicus.eu/user-corner/technical-library/corine-land-cover-nomenclature-guidelines/html) van de [Copernicus Land Monitoring Service](https://land.copernicus.eu/pan-european/corine-land-cover).
+Met ArcGIS werden de Corinegegevens voor het Vlaams Gewest geselecteerd en werd het Belgisch deel van de Noordzee toegevoegd.
+Voor de rekening/indicator Ecosysteemvoorraad (*stock account*) is het aantal pixels (hectare) per ecosysteemklasse berekend voor de jaren 1990 en 2018.
+Voor de rekening/indicator Ecosysteemverandering (*flow account*) is op basis van dezelfde data een kruistabel berekend en omgezet in een Sankey-stroomschema dat aangeeft welke ecosysteemklassen in welke zijn veranderd. 
+De structuur van de rekening is gebaseerd op een voorstel van het Europees Milieuagentschap [@eea_land_2006; @eea_natural_2018].
+
+```{r tabel ecosystem classes}
+tabel_cls <- data.frame(gegevens_cls)
+tabel_cls %>%
+  kable(
+    caption = "Tabel 3: Ecosysteemclassificaties in Corine, EU Mapping &
+    Assessment of Ecosystems and their Services (MAES) en het Natuurrapport
+    2020 (NARA).",
+    col.names = c("Code", "Corine niveau 3", "Corine niveau 2",
+                  "Corine niveau 1", "MAES", "NARA niveau 2", "NARA niveau 1"),
+    align = "cllllll") %>%
+  column_spec(1, width = "4em") %>%
+  column_spec(2:4, width = "11em") %>%
+  column_spec(5, width = "8em") %>%
+  column_spec(6:7, width = "9em") %>%
+  row_spec(c(0), bold = TRUE,  color = "black") %>%
+  row_spec(c(1:31), font_size = "x-small") %>%
+  kable_styling("striped", full_width = FALSE)
+```
+
+## Opmerkingen bij de gegevenskwaliteit en betrouwbaarheid
+
+De landgebruikskaarten van de Corine *status layers* hebben een resolutie van 100 x 100 m.
+De gemiddelde thematische nauwkeurigheid van de status layers is volgens de Copernicus Land Monitoring Service hoger dan 85%. 
+Een validatie van de Corine status layer van 2000 kwam uit op een gemiddelde nauwkeurigheid van 87% +/- 0.8% met hogere of lagere percentages voor de verschillende klassen.
+De meeste onnauwkeurigheden betreffen verschillen binnen de subklassen van Corine niveau 1, bijvoorbeeld tussen verschillende types *agricultural areas* of tussen verschillende types *forests and semi-natural areas* [@eea_thematic_2006].
+Doordat de minimum mapping unit 25 ha bedraagt voor vlakvormige elementen en 100 m breedte voor lijnvormige, zijn de data minder geschikt voor precieze oppervlakteberekeningen of voor de analyse van kleinschalig landgebruik zoals verspreide bebouwing, lintbebouwing of kleine natuursnippers.
+Om die reden worden de gegevens in het Natuurrapport 2020 enkel gebruikt voor de analyse van ecosysteemveranderingen volgens 5 klassen over een periode van meer dan 25 jaar.
+De nauwkeurigheid van de veranderingen tussen 1990 en 2018 voor de verschillende veranderingsklassen (bv. van agro-ecosysteem naar stedelijk en bebouwd gebied) is niet bekend. 
+
+## Download
+
+**Broncode indicator**: [d1_landgebruiksverandering_ecosysteemvoorraad_cor.Rmd](../d1_landgebruiksverandering_ecosysteemvoorraad_cor/d1_landgebruiksverandering_ecosysteemvoorraad_cor.Rmd)
+- **Basisdata**: [datastg.tsv](../d1_landgebruiksverandering_ecosysteemvoorraad_cor/datastg.tsv), [datasta.tsv](../d1_landgebruiksverandering_ecosysteemvoorraad_cor/datasta.tsv), [dataflg.tsv](../d1_landgebruiksverandering_ecosysteemvoorraad_cor/dataflg.tsv), [dataflgcode.tsv](../d1_landgebruiksverandering_ecosysteemvoorraad_cor/dataflgcode.tsv), [datafla.tsv](../d1_landgebruiksverandering_ecosysteemvoorraad_cor/datafla.tsv), [datacls.tsv](../d1_landgebruiksverandering_ecosysteemvoorraad_cor/datacls.tsv)
+- **Metadata basisdata**: [datastg.yml](../d1_landgebruiksverandering_ecosysteemvoorraad_cor/datastg.yml), [datasta.yml](../d1_landgebruiksverandering_ecosysteemvoorraad_cor/datasta.yml), [dataflg.yml](../d1_landgebruiksverandering_ecosysteemvoorraad_cor/dataflg.yml), [dataflgcode.yml](../d1_landgebruiksverandering_ecosysteemvoorraad_cor/dataflgcode.yml), [datafla.yml](../d1_landgebruiksverandering_ecosysteemvoorraad_cor/datafla.yml), [datacls.yml](../d1_landgebruiksverandering_ecosysteemvoorraad_cor/datacls.yml)
+
+## Referenties

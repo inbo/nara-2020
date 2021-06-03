@@ -505,6 +505,13 @@
       "Repository": "CRAN",
       "Hash": "53cbed70a2f7472d48fb6aef08442f25"
     },
+    "d3r": {
+      "Package": "d3r",
+      "Version": "0.9.1",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Hash": "608910e45605ee3a09a27bef43ca5b08"
+    },
     "data.table": {
       "Package": "data.table",
       "Version": "1.14.0",
@@ -1564,6 +1571,18 @@
       "Source": "Repository",
       "Repository": "CRAN",
       "Hash": "74b905b0076e1de6e27f540c95ba68d5"
+    },
+    "sankeyD3": {
+      "Package": "sankeyD3",
+      "Version": "0.3.2",
+      "Source": "GitHub",
+      "RemoteType": "github",
+      "RemoteHost": "api.github.com",
+      "RemoteUsername": "fbreitwieser",
+      "RemoteRepo": "sankeyD3",
+      "RemoteRef": "master",
+      "RemoteSha": "fd50a74e29056e0d67d75b4d04de47afb2f932bc",
+      "Hash": "70573387500e97866367ec6f7b034243"
     },
     "sass": {
       "Package": "sass",
