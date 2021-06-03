@@ -56,4 +56,4 @@ zoet = Zoet lange verblijftijd, Zoet korte verblijftijd.
 - **Basisdata**: [ecotooptabel_ijzer_schelde_zijrivier.tsv](../e6_oppervlaktewateren_estuariene_habitatoppervlakte/ecotooptabel_ijzer_schelde_zijrivier.tsv)
 - **Metadata basisdata**: [ecotooptabel_ijzer_schelde_zijrivier.yml](../e6_oppervlaktewateren_estuariene_habitatoppervlakte/ecotooptabel_ijzer_schelde_zijrivier.yml)
 
-## Referentie
+## Referenties
