@@ -27,7 +27,6 @@ opts_chunk$set(
   warning = FALSE,
   echo = FALSE
 )
-library(citr)
 library(tidyverse)
 library(git2rdata)
 library(plotly)
