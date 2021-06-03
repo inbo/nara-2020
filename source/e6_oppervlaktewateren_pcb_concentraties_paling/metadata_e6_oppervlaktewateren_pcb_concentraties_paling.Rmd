@@ -34,8 +34,12 @@ databereik <- "2015 - 2018"
 ## Databron
 
 - **Producent**: Universiteit Antwerpen en Instituut voor Natuur- en Bosonderzoek
-- **Dataset**: De data van de periode 2015-2018 staan beschreven in  [@teunen_veldstudies_2020]. De data uit de periode 1994-2005 zijn gepubliceerd in [@van_gerven_verspreiding_2003]. 
+- **Dataset**: De data van de periode 2015-2018 staan beschreven in [@teunen_veldstudies_2020]. De data uit de periode 1994-2005 zijn gepubliceerd in [@van_gerven_verspreiding_2003]. 
 - **Gegevensinzameling**: De data worden verzameld in kader van de Kaderrichtlijn Water [@teunen_veldstudies_2020].
+
+## Berekeningswijze
+
+De data voor de indicator werden overgenomen uit @teunen_veldstudies_2020 en @van_gerven_verspreiding_2003.
 
 ## Download
 
