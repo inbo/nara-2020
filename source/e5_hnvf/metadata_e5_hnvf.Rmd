@@ -792,7 +792,7 @@ Het is belangrijk bij de interpretatie van de resultaten om hiermee rekening te 
 ## Download
 
 **Broncode indicator**: [e5_hnvf_interactief.Rmd](../e5_hnvf/e5_hnvf_interactief.Rmd)
-- **Basisdata**: [oppervlakte2hnvf.tsv](../e5_hnvf/oppervlakte2hnf.tsv), [intensiteit.tsv](../e5_hnvf/intensiteit.tsv), [subindicatoren.tsv](../e5_hnvf/subindicatoren.tsv), [kaartlagen.tsv](../e5_hnvf/kaartlagen.tsv), [keuze_methode.tsv](../e5_hnvf/keuze_methode.tsv) en [keuze_indicatoren.tsv](../e5_hnvf/keuze_indicatoren.tsv)
+- **Basisdata**: [oppervlakte2hnvf.tsv](../e5_hnvf/oppervlakte2hnvf.tsv), [intensiteit.tsv](../e5_hnvf/intensiteit.tsv), [subindicatoren.tsv](../e5_hnvf/subindicatoren.tsv), [kaartlagen.tsv](../e5_hnvf/kaartlagen.tsv), [keuze_methode.tsv](../e5_hnvf/keuze_methode.tsv) en [keuze_indicatoren.tsv](../e5_hnvf/keuze_indicatoren.tsv)
 - **Metadata basisdata**: [oppervlakte2hnvf.yml](../e5_hnvf/oppervlakte2hnvf.yml), [intensiteit.yml](../e5_hnvf/intensiteit.yml), , [subindicatoren.yml](../e5_hnvf/subindicatoren.yml), [kaartlagen.yml](../e5_hnvf/kaartlagen.yml), [keuze_methode.yml](../e5_hnvf/keuze_methode.yml) en [keuze_indicatoren.yml](../e5_hnvf/keuze_indicatoren.yml) 
 
 ## Referenties
