@@ -108,6 +108,6 @@ Wanneer alleen de metingen van VBI 2 in rekening worden gebracht, blijft het eff
 - **Data analyse soortenrijkdom**: [kruidachtigen_rijkdom.tsv](../e1_bos_versnippering/kruidachtigen_rijkdom.tsv)
 - **Metadata analyseset soortenrijkdom**: [kruidachtigen_rijkdom.yml](../e1_bos_versnippering/kruidachtigen_rijkdom.yml)
 - **Data fragmentatie**: [Data randhabitat](../e1_bos_versnippering/randenoppervlakte_bw.tsv); [Data oppervlakte clusters](../e1_bos_versnippering/randenoppervlakte_bw100m.tsv)
-- **Metadata dataset fragmentatie**: [Data randhabitat](../e1_bos_versnippering/randenoppervlakte_bw.yml); [Data oppervlakte clusters](../e1_bos_versnippering/randenoppervlakte_bw100m.ylm)
+- **Metadata dataset fragmentatie**: [Data randhabitat](../e1_bos_versnippering/randenoppervlakte_bw.yml); [Data oppervlakte clusters](../e1_bos_versnippering/randenoppervlakte_bw100m.yml)
 
 ## Referenties
