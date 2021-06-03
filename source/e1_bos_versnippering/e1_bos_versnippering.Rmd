@@ -1,0 +1,315 @@
+---
+title: "Bos - Versnippering van bos"
+date: 2020-07-01T10:00:00
+bibliography: ../references.bib
+link-citations: TRUE
+hoofdstuk: 5
+thema:
+  - Bos
+keywords:
+  - fragmentatie
+  - randhabitat
+  - oppervlakte
+  - boswijzer
+lang: nl
+tab: indicator
+verantwoordelijke:
+- Maarten Stevens <maarten.stevens@inbo.be>
+output: html_document
+---
+
+```{r setup, include=FALSE}
+library(knitr)
+opts_chunk$set(
+  message = FALSE,
+  warning = FALSE,
+  echo = FALSE
+)
+
+library(lme4)
+library(ggeffects) # effecten van modellen plotten
+library(tidyverse)
+library(git2rdata)
+library(plotly)
+library(INBOtheme)
+library(htmlwidgets)
+
+theme_set(theme_nara()) # het nara-kleurenpallet selecteren
+switch_colour(inbo_hoofd) # het INBO-kleurenpallet activeren
+
+set.seed(20200520)
+setWidgetIdSeed(20200520)
+options(htmlwidgets.TOJSON_ARGS = list(pretty = TRUE))
+```
+
+```{r data_inlezen}
+gegevens <- read_vc("randenoppervlakte_bw") # Data oppervlakte en aandeel
+#randhabitat per boscluster per jaar (rijen = bosclusters * jaar)
+gegevens100m <- read_vc("randenoppervlakte_bw100m") # Data oppervlakte per
+#boscluster in 2015
+
+datakruid <- read_vc("kruidachtigen_rijkdom") # Analyseset soortenrijkdom
+#kruidachtigen voor analyse effect fragmentatie op soortenrijkdom kruidachtigen
+```
+```{r data_bewerken, results='hide'}
+# Data oppervlakteverdeling bosclusters
+table <- gegevens %>%
+  mutate(class = cut(opp,
+    breaks = c(0, 1, 5, 10, 50, 100, 500, 1000, 10000),
+    labels = c(
+      "< 1", "1 tot < 5", "5 tot < 10",
+      "10 tot < 50", "50 tot < 100", "100 tot < 500", "500 tot < 1000", "> 1000"
+    )
+  )) %>%
+  mutate(jaar = as.factor(jaar)) %>%
+  group_by(class, jaar) %>%
+  summarise(n = n(), oppclass = sum(opp)) %>%
+  ungroup() %>%
+  group_by(jaar) %>%
+  mutate(ntot = sum(n), opptot = sum(oppclass)) %>%
+  ungroup() %>%
+  mutate(propn = n / ntot, propo = oppclass / opptot) %>%
+  mutate(class = fct_reorder(class, desc(class)))
+
+# Data aandeel randhabitat (50 m)
+table_rand <- gegevens %>%
+  mutate(class = cut(rand,
+    breaks = c(0, 0.1, 0.25, 0.5, 0.75, 0.9999, 1),
+    labels = c("< 10%", "10% tot < 25%", "25% tot < 50%", "50% tot < 75%",
+               "75% tot < 100%", "100%")
+  )) %>%
+  mutate(jaar = as.factor(jaar)) %>%
+  group_by(class, jaar) %>%
+  summarise(n = n(), oppclass = sum(opp)) %>%
+  ungroup() %>%
+  group_by(jaar) %>%
+  mutate(ntot = sum(n), opptot = sum(oppclass)) %>%
+  ungroup() %>%
+  mutate(propn = n / ntot, propo = oppclass / opptot) %>%
+  mutate(class = fct_reorder(class, desc(class)))
+
+# Data aandeel randhabitat (100 m)
+table_rand100m <- gegevens100m %>%
+  mutate(class = cut(rand,
+    breaks = c(0, 0.1, 0.25, 0.5, 0.75, 0.9999, 1),
+    labels = c("< 10%", "10% tot < 25%", "25% tot < 50%", "50% tot < 75%",
+               "75% tot < 100%", "100%")
+  )) %>%
+  group_by(class) %>%
+  summarise(n = n(), oppclass = sum(opp)) %>%
+  ungroup() %>%
+  mutate(ntot = sum(n), opptot = sum(oppclass)) %>%
+  mutate(propn = n / ntot, propo = oppclass / opptot) %>%
+  mutate(class = fct_reorder(class, desc(class)))
+# -> De klassen met meer dan 75% randhabitat vertegenwoordigen 93.5% van de
+#bosoppervlakte.
+```
+
+De bossen in Vlaanderen zijn sterk versnipperd.
+
+```{r, staafdiagram1, fig.width = 6, fig.height = 4}
+
+# Kleuren randhabitat (5 klassen)
+pal_rand <- c(inbo_steun_donkerroos, inbo_hoofd, inbo_steun_blauw,
+              inbo_steun_geelgroen, inbo_groen)
+palinv_rand <- rev(pal_rand) # Volgorde omdraaien
+
+prand <- ggplot(table_rand, aes(
+  x = jaar, y = propo, fill = class,
+  text = paste(
+    "Jaar:", jaar,
+    "\n% Rand:", class,
+    "\n% Bosoppervlakte:", scales::percent(propo, accuracy = 0.1)
+  )
+)) +
+  geom_bar(stat = "identity", position = "stack", width = 0.7) +
+  scale_y_continuous(labels = scales::percent, expand = c(0, 0)) +
+  scale_fill_manual(values = palinv_rand) +
+  labs(fill = "% Rand", y = "% VAN DE BOSOPPERVLAKTE", x = "",
+       title = "AANDEEL RANDHABITAT") +
+  theme(
+    plot.title = element_text(margin = margin(t = 5), vjust = 5, size = 12),
+    axis.title.x = element_blank(),
+    axis.title.y = element_text(margin = margin(t = 0, r = 5, b = 0, l = 0),
+                                hjust = 0),
+    legend.key.size = unit(0.3, "cm"),
+    legend.position = "bottom"
+  ) +
+  guides(fill = guide_legend(ncol = 1, title.position = "top"))
+
+ggplotly(prand, tooltip = c("text"))
+```
+```{r, staafdiagram2, fig.width = 4, fig.height = 4, fig.cap = "Figuur 1. Versnippering van bos op basis van de Boswijzer 2.0. Boven: aandeel randhabitat als % van de totale bosoppervlakte. Onder: oppervlakteverdeling van de bossen in 2015. Deze figuur verwijst naar figuur 79 in het Natuurrapport 2020."}
+
+# Kleuren oppervlakteverdeling (9 klassen)
+colhigh <- scales::seq_gradient_pal(inbo_steun_donkerroos,
+                                    inbo_hoofd, "Lab")(seq(0, 1,
+                                                           length.out = 2))
+colmid1 <- scales::seq_gradient_pal(inbo_hoofd,
+                                    inbo_steun_blauw, "Lab")(seq(0, 1, length.out = 3)) # nolint
+colmid2 <- scales::seq_gradient_pal(inbo_steun_blauw, inbo_steun_geelgroen, "Lab")(seq(0, 1, length.out = 3)) # nolint
+collow <- scales::seq_gradient_pal(inbo_steun_geelgroen, inbo_groen, "Lab")(seq(0, 1, length.out = 4)) # nolint
+pal <- c(colhigh, colmid1[2:3], colmid2[2:3], collow[2:4])
+palinv <- rev(pal) # Volgorde omdraaien
+
+psize <- ggplot(table %>% filter(jaar == 2015), aes(
+  x = jaar, y = propn, fill = class,
+  text = paste(
+    "Opp. bos:", class, "ha",
+    "\n% van de bossen:", scales::percent(propn, accuracy = 0.1)
+  )
+)) +
+  geom_bar(stat = "identity", position = "stack", width = 0.7) +
+  scale_y_continuous(labels = scales::percent, expand = c(0, 0)) +
+  scale_fill_manual(values = palinv) +
+  labs(fill = "Opp. (ha)", x = "", y = "% AANTAL BOSSEN",
+       title = "OPPERVLAKTE BOSSEN") +
+  theme(
+    plot.title = element_text(margin = margin(t = 5), vjust = 5, size = 12),
+    axis.title.x = element_blank(),
+    axis.title.y = element_text(margin = margin(t = 0, r = 5, b = 0, l = 0),
+                                hjust = 0),
+    legend.key.size = unit(0.3, "cm"),
+    legend.position = "bottom"
+  ) +
+  guides(fill = guide_legend(ncol = 1, title.position = "top"))
+
+ggplotly(psize, tooltip = c("text"))
+```
+
+## Definitie
+
+Deze indicator toont in welke mate de Vlaamse bossen versnipperd zijn. 
+Versnippering of fragmentatie is het opdelen van het leefgebied van soorten in verschillende kleinere gebieden door een barrière die de uitwisseling van soorten tussen de deelgebieden verhindert of vermindert.
+Als maat voor versnippering hanteren we het aandeel randhabitat ten opzichte van de oppervlakte van iedere boscluster en de gemiddelde grootte van de bosclusters.
+
+## Bespreking
+
+Ongeveer 10 procent van de bossen is kleiner dan 1 hectare en meer dan 70 procent is kleiner dan 5 hectare (Figuur 1). 
+De sterke versnippering resulteert in een groot aandeel bosrand. 
+Bijna 50 procent van de totale bosoppervlakte bestaat uit bossen met minstens 75 procent randhabitat (Figuur 1). 
+De zone tot 50 meter van de bosrand wordt als randhabitat beschouwd. 
+Dat is een conservatieve inschatting, aangezien sommige effecten tot meer dan 100 meter diep in een bos inwerken [@harper_edge_2005; @hofmeister_microclimate_2019]. 
+Bij een bosrand van 100 meter bestaat 94 procent van de bosoppervlakte uit bossen met minstens 75 procent randhabitat. 
+De versnipperingsgraad lijkt verder toe te nemen, maar de foutenmarge op de veranderingscellen van de Boswijzer laat niet toe om statistisch significante conclusies te formuleren [@quataert_advies_2019].
+
+Versnippering heeft een belangrijke impact op de biodiversiteit. 
+Het leidt tot een hogere graad van isolatie, wat de uitwisseling tussen populaties en de herkolonisatie van een leefgebied bemoeilijkt, waardoor de kans op lokaal uitsterven vergroot. 
+In randhabitats werken externe verstoringen zoals de klimaatverandering en vermesting vaak sterker door dan in kernhabitats. 
+Dat effect is des te sterker in bossen waar het bladerdek voor een koeler en donkerder microklimaat zorgt. 
+In de bosrand valt de beschermende functie van het bladerdek grotendeels weg en kunnen warmteminnende of snelgroeiende soorten die niet gelimiteerd zijn door licht sterk toenemen. Veel van de soorten in de bosrand zijn dan ook generalisten die het in verschillende ecosystemen goed doen [@govaert_edge_2020]. 
+Uit de bosinventaris blijkt dat de soortenrijkdom van kruidachtigen toeneemt met de versnipperingsgraad (Figuur 2). 
+Het effect is zowel significant positief voor **planten van open vegetaties** als voor **planten die in bos én in open vegetaties kunnen voorkomen**, maar niet significant voor **typische bosplanten**. 
+De hogere soortenrijkdom in de meer gefragmenteerde plots is dus waarschijnlijk het gevolg van soorten uit het omliggende landschap die zich in het bos vestigen.
+
+```{r, analyse, results='hide', cache = TRUE}
+### Analyse effect fragmentatie op soortenrijkdom kruidachtigen
+# Alle kruidachtigen samen (NbHerbs)
+m1 <- glmer(
+  data = datakruid, NbHerb ~ FragInv + (1 | IDPlots),
+  family = "poisson"
+)
+summary(m1)
+# Fixed effects:
+#             Estimate Std. Error z value Pr(>|z|)
+# (Intercept)  1.50964    0.03504   43.08   <2e-16 ***
+# FragInv      1.48179    0.08631   17.17   <2e-16 ***
+
+# Alleen periode VBI2 omdat de fragmentatiegraad voor alle steekproefpunten
+# gebaseerd is op de Groenkaart van 2015. De werkelijke fragmentatiegraad voor
+# de punten van VBI1 (1997-1999) wijkt dus hoogstwaarschijnlijk af van de
+# berekende op basis van de Groenkaart 2015.
+# datakruidp2 <- datakruid %>% filter(Periode == 2) # alleen data periode 2 -> # nolint
+#geen mixed model (random effects) nodig
+# m1b <- glm(data = datakruidp2, NbHerb ~ FragInv, family = "poisson") # nolint
+# summary(m1b) # nolint
+
+# Resultaat:
+# Call:
+# glm(formula = NbHerb ~ FragInv, family = "poisson", data = datakruidp2) # nolint
+#
+# Deviance Residuals:
+#     Min       1Q   Median       3Q      Max
+# -5.3495  -2.1115  -0.8548   1.0322   9.9188
+#
+# Coefficients:
+#             Estimate Std. Error z value Pr(>|z|)
+# (Intercept)  1.77465    0.01463  121.29   <2e-16 ***
+# FragInv      1.44048    0.03293   43.75   <2e-16 ***
+# ---
+# Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1 # nolint
+#
+# (Dispersion parameter for poisson family taken to be 1)
+#
+#     Null deviance: 18598  on 2709  degrees of freedom
+# Residual deviance: 16726  on 2708  degrees of freedom
+#   (43 observations deleted due to missingness)
+# AIC: 27032
+
+# Kruidachtigen van open vegetaties (NbOpen)
+m2 <- glmer(
+  data = datakruid, NbOpen ~ FragInv + (1 | IDPlots),
+  family = "poisson"
+)
+summary(m2)
+# Fixed effects:
+#             Estimate Std. Error z value Pr(>|z|)
+# (Intercept)  -3.2635     0.1276  -25.57   <2e-16 ***
+# FragInv       4.2268     0.2504   16.88   <2e-16 ***
+
+# Kruidachtigen die in bos én open vegetaties kunnen voorkomen (NbIndif)
+m3 <- glmer(
+  data = datakruid, NbIndif ~ FragInv + (1 | IDPlots),
+  family = "poisson"
+)
+summary(m3)
+# Fixed effects:
+#             Estimate Std. Error z value Pr(>|z|)
+# (Intercept)   0.3159     0.0476   6.638 3.19e-11 ***
+# FragInv       2.2381     0.1141  19.616  < 2e-16 ***
+
+# Typische bosplanten (NbBos)
+m4 <- glmer(
+  data = datakruid, NbBos ~ FragInv + (1 | IDPlots),
+  family = "poisson"
+)
+summary(m4)
+# Fixed effects:
+#             Estimate Std. Error z value Pr(>|z|)
+# (Intercept) -0.37617    0.06062  -6.205 5.46e-10 ***
+# FragInv      0.15437    0.14729   1.048    0.295
+```
+
+
+```{r, scatterplot, fig.width = 7, fig.height = 4, fig.cap = "Figuur 2. Relatie tussen de versnipperingsgraad (1 = maximale versnippering van het bos t.h.v. het steekproefpunt) en de gemiddelde soortenrijkdom van kruidachtigen in de kruidlaag van de Vlaamse bosinventaris (VBI) (trend en 95% betrouwbaarheidsinterval). Als maat voor versnippering gebruiken we het gemiddeld aandeel niet-bos in de omgeving van een steekproefpunt. Deze figuur verwijst naar figuur 80 in het Natuurrapport 2020."}
+
+pred_m1 <- ggpredict(m1, terms = c("FragInv"))
+
+p <- ggplot(pred_m1, aes(x = x, y = predicted)) +
+  geom_point(data = datakruid, aes(
+    x = FragInv, y = NbHerb,
+    text = paste(
+      "Aantal soorten:", NbHerb,
+      "\nFragmentatiescore:", round(FragInv, 2)
+    )
+  ), alpha = 0.07) +
+  geom_ribbon(aes(ymin = conf.low, ymax = conf.high),
+              fill = inbo_steun_donkerroos, alpha = 0.3) +
+  geom_line(size = 1, colour = inbo_steun_donkerroos) +
+  scale_x_continuous(labels = scales::label_number(
+    accuracy = 0.1,
+    big.mark = ",", decimal.mark = ","
+  )) +
+  labs(x = "FRAGMENTATIESCORE", y = "AANTAL SOORTEN") +
+  theme(
+    axis.title.x = element_text(margin = margin(t = 10, r = 0, b = 0, l = 0),
+                                hjust = 0),
+    axis.title.y = element_text(margin = margin(t = 0, r = 10, b = 0, l = 0),
+                                hjust = 0),
+    legend.key.size = unit(0.3, "cm")
+  )
+
+ggplotly(p, tooltip = c("text"))
+```
+
+## Referenties
