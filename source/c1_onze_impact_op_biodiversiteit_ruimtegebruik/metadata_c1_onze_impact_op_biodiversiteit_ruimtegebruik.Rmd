@@ -1,0 +1,102 @@
+---
+title: "Metadata algemene toestand en trends in Vlaanderen - Ruimtegebruik"
+date: 2020-07-01T10:00:00
+bibliography: ../references.bib
+link-citations: TRUE
+nocite:
+hoofdstuk: 3 
+thema:
+  - Natuur & maatschappij
+keywords:
+  - landgebruiksverandering
+  - ruimtebeslag
+  - natuurlijk kapitaal
+  - natural capital accounting
+  - ecosystem extent
+lang: nl
+tab: metadata
+verantwoordelijke:
+- Wouter Van Reeth <wouter.vanreeth@inbo.be>
+output: html_document
+---
+## Technische informatie
+
+```{r setup, include=FALSE}
+library(knitr)
+opts_chunk$set(echo = FALSE, message = FALSE, warning = FALSE)
+library(git2rdata)
+library(kableExtra)
+```
+
+\- **Periodiciteit**: zesjaarlijks
+\- **Volgende update**: 2025
+\- **Databereik**: 2018
+
+```{r data_inlezen_cor-klassen}
+gegevens_cls <- read_vc("datacls")
+```
+
+
+## Databron
+
+- **Producent**: Copernicus Land Monitoring Service (landgebruiksgegevens), Eurostat (bevolkings- en welvaartsgegevens).
+- **Dataset**: Landgebruik: [*status layer 2018*](https://land.copernicus.eu/pan-european/corine-land-cover/clc2018) van de Corine *land cover inventory*. Bevolkingsdichtheid: [Population density by NUTS 3 region, update 06-09-2019](http://appsso.eurostat.ec.europa.eu/nui/show.do?dataset=demo_r_d3dens&lang=en). Welvaart: [Gross domestic product (GDP) at current market prices by NUTS 2 regions, update 06-09-2019](https://appsso.eurostat.ec.europa.eu/nui/show.do?dataset=nama_10r_2gdp&lang=en).
+- **Gegevensinzameling**: De bodembedekkings- en landgebruikskaarten van Corine worden opgemaakt op basis van een semi-automatische interpretatie van Europese satellietbeelden. 
+Dit gebeurt per land door lokale experten met behulp van foto's en kaartmateriaal die voor dat land beschikbaar zijn.
+Voor België interpreteert het NGI de satellietbeelden. 
+
+  De bevolkingsgegevens worden jaarlijks door Eurostat verzameld uit 37 landen in het kader van het UNIDEMO-project. De metadata zijn beschikbaar via de [data explorer](https://ec.europa.eu/eurostat/cache/metadata/en/demo_r_gind3_esms.htm) van Eurostat.
+  De economische statistieken worden elk kwartaal door Eurostat berekend op basis van gegevens uit de nationale en regionale economische rekeningen van de Europese lidstaten. De metadata zijn beschikbaar via de [data explorer](https://ec.europa.eu/eurostat/cache/metadata/en/reg_eco10_esms.htm) van Eurostat. 
+
+## Berekeningswijze
+
+Corine bevat voor heel Europa gebiedsdekkende gegevens over 44 types bodembedekking en landgebruik.
+Hiervan komen er 31 in Vlaanderen voor (zie Tabel 1, Corine niveau 3).
+Voor deze analyse werden ze gegroepeerd in 5 ecosysteemklassen (zie Tabel 1, NARA niveau 1).
+Die indeling is gebaseerd op een ecosysteemtypologie voorgesteld door de Europese Commissie [@maes_mapping_2013; @maes_mapping_2018] en de [richtlijnen](https://land.copernicus.eu/user-corner/technical-library/corine-land-cover-nomenclature-guidelines/html) van de [Copernicus Land Monitoring Service](https://land.copernicus.eu/pan-european/corine-land-cover).
+Met ArcGIS werden de Corinegegevens van het Vlaams Gewest en negen andere NUTS1-regio's geselecteerd uit de *status layer* van 2018.
+
+```{r tabel ecosystem classes}
+tabel_cls <- data.frame(gegevens_cls)
+tabel_cls %>%
+  kable(
+    caption = "Tabel 1: Ecosysteemclassificaties in Corine, EU Mapping &
+    Assessment of Ecosystems and their Services (MAES) en het Natuurrapport
+    2020 (NARA).",
+    col.names = c("Code", "Corine niveau 3", "Corine niveau 2",
+                  "Corine niveau 1", "MAES", "NARA niveau 2", "NARA niveau 1"),
+    align = "cllllll"
+  ) %>%
+  column_spec(1, width = "4em") %>%
+  column_spec(2:4, width = "11em") %>%
+  column_spec(5, width = "8em") %>%
+  column_spec(6:7, width = "9em") %>%
+  row_spec(c(0), bold = TRUE, color = "black") %>%
+  row_spec(c(1:31), font_size = "x-small") %>%
+  kable_styling("striped", full_width = FALSE)
+```
+
+De selectie van de sociaal-economische topregio's gebeurde volgens de volgende procedure. Daarbij werden de bevolkings- en welvaartsgegevens van het jaar 2017 gebruikt.
+
+1. Selectie van NUTS1-regio's met een bruto binnenlands product per capita groter dan het gemiddelde van de EU-28. Hierdoor werden 35 van de 104 NUTS1-regio's weerhouden.
+2. Verwijdering van stadsregio's met een oppervlakte kleiner dan 2000 km². Hierna bleven 30 regio's over. 
+3. Verwijdering van regio's met een oppervlakte van meer dan 10 keer die van het Vlaams Gewest. Hierna bleven nog 28 regio's over.
+4. Scoren van de 10 regio's die qua bevolkingsdichtheid, welvaartspeil en oppervlakte het dichtst bij het Vlaams Gewest staan. Hierna bleven nog 18 regio's met score 3, 2 of 1 over.
+5. Selectie van de regio's met score 3 of 2. Hierna bleven buiten Vlaanderen nog 9 regio's over. 
+
+## Opmerkingen bij de gegevenskwaliteit en betrouwbaarheid
+
+De landgebruikskaarten van de Corine *status layers* hebben een resolutie van 100 x 100 m.
+De gemiddelde thematische nauwkeurigheid van de status layers is volgens de Copernicus Land Monitoring Service hoger dan 85%. 
+Een validatie van de Corine *status layer* van 2000 kwam uit op een gemiddelde nauwkeurigheid van 87% +/- 0.8% met hogere of lagere percentages voor de verschillende klassen.
+De meeste onnauwkeurigheden betreffen verschillen binnen de subklassen van Corine niveau 1, bijvoorbeeld tussen verschillende types *agricultural areas* of tussen verschillende types *forests and semi-natural areas* [@eea_thematic_2006].
+Doordat de minimum mapping unit 25 ha bedraagt voor vlakvormige elementen en 100 m breedte voor lijnvormige, zijn de data minder geschikt voor precieze oppervlakteberekeningen of voor de analyse van kleinschalig landgebruik zoals verspreide bebouwing, lintbebouwing of kleine natuursnippers.
+Om die reden worden de gegevens in het Natuurrapport 2020 enkel gebruikt voor de analyse van ecosysteemvoorraden op een geaggregeerd niveau (5 klassen).
+
+## Download
+
+**Broncode indicator**: [c1_onze_impact_op_biodiversiteit_ruimtegebruik.Rmd](../c1_onze_impact_op_biodiversiteit_ruimtegebruik/c1_onze_impact_op_biodiversiteit_ruimtegebruik.Rmd)
+- **Basisdata**: [datavoorraad.tsv](../c1_onze_impact_op_biodiversiteit_ruimtegebruik/datavoorraad.tsv), [dataurbanisatie.tsv](../c1_onze_impact_op_biodiversiteit_ruimtegebruik/dataurbanisatie.tsv), [datawelvaart.tsv](../c1_onze_impact_op_biodiversiteit_ruimtegebruik/datawelvaart.tsv), [datacls.tsv](../c1_onze_impact_op_biodiversiteit_ruimtegebruik/datacls.tsv)
+- **Metadata basisdata**: [datavoorraad.yml](../c1_onze_impact_op_biodiversiteit_ruimtegebruik/datavoorraad.yml), [dataurbanisatie.yml](../c1_onze_impact_op_biodiversiteit_ruimtegebruik/dataurbanisatie.yml), [datawelvaart.yml](../c1_onze_impact_op_biodiversiteit_ruimtegebruik/datawelvaart.yml), [datacls.yml](../c1_onze_impact_op_biodiversiteit_ruimtegebruik/datacls.yml)
+
+## Referenties
