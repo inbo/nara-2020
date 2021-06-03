@@ -113,18 +113,18 @@ sank <- sank_pre %>%
   summarise(value = sum(count),
             labelS = unique(labelS),
             labelT = unique(labelT)) %>%
-  ungroup() %>% 
+  ungroup() %>%
   mutate("jaarS" = 1990) %>%
   mutate("jaarT" = 2018)
 
 # Dataframe met nodes (= codes van landgebruiksklassen en bijhorende labels)
 
 cp1 <- sank %>%
-  unite("cp1", c("jaarS","from")) %>%
+  unite("cp1", c("jaarS", "from")) %>%
   distinct(cp1) %>%
   rename("codetxt" = cp1)
 cp2 <- sank %>%
-  unite("cp2", c("jaarT","to")) %>%
+  unite("cp2", c("jaarT", "to")) %>%
   distinct(cp2) %>%
   rename("codetxt" = cp2)
 
@@ -138,8 +138,8 @@ nodes <- cp1 %>%
 # Dataframe met links (= source (van), target (naar) en value (oppervlakte))
 
 links_pre <- sank %>%
-  unite("cp1", c("jaarS","from")) %>%
-  unite("cp2", c("jaarT","to")) %>%
+  unite("cp1", c("jaarS", "from")) %>%
+  unite("cp2", c("jaarT", "to")) %>%
   left_join(nodes, by = c("cp1" = "codetxt")) %>%
   rename(source = code) %>%
   left_join(nodes, by = c("cp2" = "codetxt")) %>%
@@ -149,8 +149,8 @@ links_pre <- sank %>%
 # Groepen aanmaken voor kleuren in grafiek en labels
 
 groups <- sank %>%
-  unite("cp1", c("jaarS","from"), remove = FALSE) %>%
-  unite("cp2", c("jaarT","to"), remove = FALSE) %>%
+  unite("cp1", c("jaarS", "from"), remove = FALSE) %>%
+  unite("cp2", c("jaarT", "to"), remove = FALSE) %>%
   left_join(nodes, by = c("cp1" = "codetxt")) %>%
   rename(source = code) %>%
   left_join(nodes, by = c("cp2" = "codetxt")) %>%
@@ -185,7 +185,7 @@ gegevens_fla <- read_vc("datafla") %>%
     CNoFlo = COpeningStock - CLCFSum,
     PLCFSum = PLaCoFlo1 + PLaCoFlo2 + PLaCoFlo3 + PLaCoFlo4 + PLaCoFlo5 +
       PLaCoFlo6 + PLaCoFlo7 + PLaCoFlo8,
-    PNoFlo = PClosingStock - PLCFSum) %>% 
+    PNoFlo = PClosingStock - PLCFSum) %>%
   mutate(
     COpeningStock = sprintf("%.0f", COpeningStock),
     CLCFSum = sprintf("%.0f", CLCFSum),
@@ -227,15 +227,15 @@ p <- ggplot(gegevens, aes(x = Ecosysteem, y = Extent, fill = Jaar)) +
   ylab("ECOSYSTEEMVOORRAAD (km²)") +
   theme(axis.title = element_text(size = 9,
                                   margin = margin(t = 0, r = 0, b = 0, l = 0),
-                                  hjust = 0), 
+                                  hjust = 0),
         axis.text = element_text(size = 8),
-        legend.text = element_text(size = 8),    
+        legend.text = element_text(size = 8),
         legend.title = element_blank(),
         legend.position = "bottom",
         legend.key.size = unit(0.3, "cm")) +
   coord_flip() + theme(panel.grid.major.y = element_blank(),
                        panel.grid.major.x = element_line(size = .1,
-                                                         color = "black" )) +
+                                                         color = "black")) +
     geom_text(data = verschil, aes(y = labypos, label = Verschil),
               size = 3, color = "black")
 
@@ -313,20 +313,19 @@ Urbanisatie of de uitbreiding van stedelijk en bebouwd gebied is de belangrijkst
 ```{r cor-flow5-graph-voorbereiding, include = FALSE}
 # Sankeydiagram maken
 
-sankeyNetwork(Links = data$links, Nodes = data$nodes, Source = 'source',
-              Target = 'target', Value = 'value', NodeID = 'codetxt',
-              units = 'ha', colourScale = , fontSize = 12, nodeWidth = 25,
+sankeyNetwork(Links = data$links, Nodes = data$nodes, Source = "source",
+              Target = "target", Value = "value", NodeID = "codetxt",
+              units = "ha", fontSize = 12, nodeWidth = 25,
               nodePadding = 20)
 ```
 
 ```{r cor-flow5-graph, echo =  FALSE, fig.cap = "Figuur 2. Ecosysteemverandering (hectare) tussen 1990 en 2018 (Bron: Corine). De gekleurde balken aan de linkerzijde tonen hoeveel hectare van een ecosysteemvoorraad geconsumeerd werden. Die aan de rechterzijde tonen met hoeveel hectare de ecosysteemvoorraad uitbreidde. De cijfers van de grafiek zijn terug te vinden in de rekening ecosysteemverandering (Tabel 2).", fig.pos = "H"}
 colors <- 'd3.scaleOrdinal() .domain(["landbouw", "urbaan", "natuur",
-"water", "zee"]) 
-.range(["#feb24c", "#a50f15", "#004529", "#6baed6", "#023858"])'
+"water", "zee"]).range(["#feb24c", "#a50f15", "#004529", "#6baed6", "#023858"])'
 
-sankeyNetwork(Links = data$links, Nodes = data$nodes, Source = 'source',
-              Target = 'target', Value = 'value', NodeID = 'group',
-              units = 'ha', fontSize = 12, nodeWidth = 25, nodePadding = 20,
+sankeyNetwork(Links = data$links, Nodes = data$nodes, Source = "source",
+              Target = "target", Value = "value", NodeID = "group",
+              units = "ha", fontSize = 12, nodeWidth = 25, nodePadding = 20,
               NodeGroup = "group", LinkGroup = "group",
               fontFamily = "calibri",
               colourScale = colors, linkOpacity = 0.4,
@@ -374,14 +373,14 @@ tabel_fla %>%
     tussen 1990 en 2018 (Bron: Corine).",
     col.names = c("Stedelijk en bebouwd gebied", "Agro-ecosysteem",
                   "Bos en terrestrische open natuur", "Zoetwater en estuarium",
-                  "Zee","Totaal"),
+                  "Zee", "Totaal"),
     align = "cccccc") %>%
   column_spec(1, width = "16em") %>%
   column_spec(2:5, width = "9em") %>%
   column_spec(6:7, width = "7em") %>%
-  row_spec(c(1, 22), bold = TRUE,  color = "black", background = "#acb2b4") %>%
+  row_spec(c(1, 22), bold = TRUE, color = "black", background = "#acb2b4") %>%
   row_spec(c(2, 12), bold = TRUE, color = "black", background = "#e5e7e9") %>%
-  row_spec(c(11,21), bold = TRUE, color = "black") %>%
+  row_spec(c(11, 21), bold = TRUE, color = "black") %>%
   row_spec(1:10, hline = TRUE) %>%
   kable_styling(full_width = FALSE)
 ```
