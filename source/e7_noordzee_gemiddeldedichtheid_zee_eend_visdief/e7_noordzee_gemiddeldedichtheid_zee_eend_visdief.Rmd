@@ -1,0 +1,196 @@
+---
+title: "Noordzee - Gemiddelde densiteit van zee-eend en visdief in het Belgisch deel van de Noordzee "
+date: 2020-07-01T10:00:00
+bibliography: ../references.bib
+link-citations: TRUE
+hoofdstuk: 5
+thema:
+ - Water
+keywords:
+ - niet-aasetende zeevogels
+ - belgisch deel van de Noordzee
+ - krms
+lang: nl
+tab: indicator
+verantwoordelijke:
+- Helen Michels <Helen.michels@inbo.be>
+output: html_document
+---
+
+```{r setup, include = FALSE}
+library(knitr)
+opts_chunk$set(
+  message = FALSE,
+  warning = FALSE,
+  echo = FALSE
+)
+library(tidyverse)
+library(git2rdata)
+library(plotly)
+library(INBOtheme)
+library(htmlwidgets)
+
+set.seed(20200520)
+setWidgetIdSeed(20200520)
+options(htmlwidgets.TOJSON_ARGS = list(pretty = TRUE))
+
+theme_set(theme_nara()) # het nara-kleurenpallet selecteren
+switch_colour(inbo_hoofd) # het INBO-kleurenpallet activeren
+```
+Het totale aantal zee-eenden in het Belgisch deel van de Noordzee (BNZ) ligt sinds 2003 lager dan de referentiewaarde. Het aantal visdieven in het BNZ gaat ook sterk achteruit.
+```{r data_inlezen voor figuur 109, results = "hide" }
+# data formating voor figuur 109
+vogelgegevens <- read_vc("densiteit_niet_aasetende_zeevogels")
+eendgegevens <- vogelgegevens %>%
+  filter(Soort == "zee-eend")
+eendgegevens1 <- eendgegevens %>%
+  filter(data == "gemiddelde_dichtheid")
+eendgegevens2 <- eendgegevens %>%
+  filter(data == "Vijfjarig_gemiddelde")
+
+visdiefgegevens <- vogelgegevens %>%
+  filter(Soort == "visdief")
+visdiefgegevens1 <- visdiefgegevens %>%
+  filter(data == "gemiddelde_dichtheid")
+visdiefgegevens2 <- visdiefgegevens %>%
+  filter(data == "Vijfjarig_gemiddelde")
+```
+```{r staafdiagram, fig.width = 10, fig.height = 8, fig.cap = "Figuur 1: Gemiddelde dichtheid (groene bollen) en het vijfjarig gemiddelde (lijn) van zee-eend voor de periode 1987-2019 (boven) en visdief voor de periode 1996-2019 (onder) in het Belgische deel van de Noordze. Deze figuur verwijst naar figuur 109 in het Natuurrapport 2020. "}
+f1 <- list(
+  color = "rgb(0,0,0)",
+  size = 12
+)
+f2 <- list(
+  color = "rgb(0,0,0)",
+  size = 14
+)
+hline <- function(y = 0, color = inbo_steun_blauw) {
+  list(
+    type = "line",
+    x0 = 0,
+    x1 = 1,
+    xref = "paper",
+    y0 = y,
+    y1 = y,
+    line = list(color = color)
+  )
+}
+a <- list(
+  title = "",
+  showgrid = TRUE,
+  showline = TRUE,
+  showticklabels = TRUE,
+  tickcolor = "rgb(127,127,127)",
+  tickfont = f1,
+  titlefont = f2,
+  ticks = "outside",
+  zeroline = FALSE
+)
+b <- list(
+  title = "TOTAAL AANTAL BDNZ",
+  showgrid = TRUE,
+  showline = TRUE,
+  showticklabels = TRUE,
+  tickcolor = "rgb(127,127,127)",
+  tickfont = f1,
+  titlefont = f2,
+  ticks = "outside", zeroline = FALSE
+)
+c <- list(
+  title = "DICHTHEID (N/km²)",
+  showgrid = TRUE,
+  showline = TRUE,
+  showticklabels = TRUE,
+  tickcolor = "rgb(127,127,127)",
+  tickfont = f1,
+  titlefont = f2,
+  ticks = "outside", zeroline = FALSE
+)
+
+fig1 <- plot_ly(eendgegevens2,
+  type = "scatter",
+  x = ~jaar,
+  y = ~aantal,
+  marker = list(color = inbo_rood),
+  name = "vijfjarig gemiddelde", legendgroup = ~"vijfjarig gemiddelde"
+) %>%
+  layout(xaxis = a, yaxis = b, shapes = list(hline(4786.958)))
+fig1 <- fig1 %>% add_trace(
+  data = eendgegevens1,
+  y = ~aantal, marker = list(color = inbo_groen),
+  name = "gemiddelde", legendgroup = ~"gemiddelde",
+  hoverinfo = "text",
+  text = ~ paste(
+    "</br> Gemiddeld aantal BDNZ: ", aantal,
+    "</br> Jaar: ", jaar
+  )
+)
+fig1 <- fig1 %>% add_trace(
+  data = eendgegevens2, y = ~aantal, mode = "lines",
+  showlegend = FALSE, line = list(color = inbo_rood),
+  legendgroup = ~"vijfjarig gemiddelde",
+  hoverinfo = "text",
+  text = ~ paste(
+    "</br> Vijfjarig gemiddeld aantal BDNZ: ",
+    round(aantal, 0), "</br> Instandhoudingsdoel:",
+    round(4786.958, 0),
+    "</br> Jaar: ", jaar
+  )
+)
+fig1 <- fig1 %>% layout(
+  xaxis = a,
+  yaxis = b, legend = list(font = f1), hoverlabel = list(font = f1)
+)
+
+fig2 <- plot_ly(visdiefgegevens2,
+  type = "scatter",
+  x = ~jaar,
+  y = ~aantal,
+  legendgroup = ~"vijfjarig gemiddelde",
+  showlegend = FALSE,
+  marker = list(color = inbo_rood)
+) %>%
+  layout(xaxis = a, yaxis = c, shapes = list(hline(1.416055e-01)))
+fig2 <- fig2 %>% add_trace(
+  data = visdiefgegevens1, y = ~aantal,
+  marker = list(color = inbo_groen),
+  legendgroup = ~"gemiddelde", hoverinfo = "text",
+  text = ~ paste(
+    "</br> Gemiddelde dichtheid (N/km²): ",
+    round(aantal, 2),
+    "</br> Jaar: ", jaar
+  )
+)
+fig2 <- fig2 %>% add_trace(
+  data = visdiefgegevens2, y = ~aantal,
+  legendgroup = ~"vijfjarig gemiddelde",
+  mode = "lines", showlegend = FALSE,
+  line = list(color = inbo_rood), hoverinfo = "text",
+  text = ~ paste(
+    "</br> Vijfjarig gemiddelde dichtheid (n/km²): ",
+    round(aantal, 2), "</br> Instandhoudingsdoel (N/km²):",
+    round(1.416055e-01, 2),
+    "</br> Jaar: ", jaar
+  )
+)
+fig2 <- fig2 %>% layout(
+  xaxis = a,
+  yaxis = c, hoverlabel = list(font = f1)
+)
+
+
+fig <- subplot(fig1, fig2, nrows = 2, shareX = TRUE, titleY = TRUE)
+fig
+```
+
+## Definitie
+Visdief en zee-eend zijn beide niet-aasetende zeevogels.
+Lange termijnsveranderingen in niet-aasetende zeevogels zijn vaak een indicatie dat er iets gewijzigd is in het lokale voedselaanbod [@stienen_dichtheid_2018]. 
+
+## Bespreking
+Het totale aantal zee-eenden in het BNZ ligt sinds 2003 lager dan de referentiewaarde.
+Een afname van het aantal prooien (schelpdieren zoals halfgeknotte strandschelp en Amerikaanse zwaardschede) en menselijke verstoringen zoals de scheepvaart en (kite)surfers zijn vermoedelijke de oorzaak van die daling [@houziaux_ensis_2011].
+Het aantal visdieven wordt sterk beïnvloed door de grootte van de broedkolonie in Zeebrugge en Oostende. 
+Sinds 2011 gaat die kolonie sterk achteruit omdat predatoren toegang hebben tot de broedhabitat.
+
+## Referenties

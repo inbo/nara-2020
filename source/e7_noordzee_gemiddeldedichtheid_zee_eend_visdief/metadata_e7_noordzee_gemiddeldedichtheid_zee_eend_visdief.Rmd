@@ -1,0 +1,50 @@
+---
+title: "Metadata gemiddelde dichtheid van zee-eend en visdief in het BNZ"
+date: 2020-07-01T10:00:00
+bibliography: ../references.bib
+link-citations: TRUE
+hoofdstuk: 5
+thema:
+ - Water
+keywords:
+ - niet-aasetende zeevogels
+ - belgisch deel van de Noordzee
+ - krms
+lang: nl
+tab: metadata
+verantwoordelijke:
+- Helen Michels <Helen.michels@inbo.be>
+output: html_document
+---
+## Technische informatie
+
+```{r setup, include=FALSE}
+library(knitr)
+opts_chunk$set(echo = FALSE, message = FALSE, warning = FALSE)
+library(git2rdata)
+```
+
+```{r databereik}
+databereik <- "1987 - 2019"
+```
+\- **Periodiciteit**: jaarlijks
+\- **Volgende update**: onbekend
+\- **Databereik**: `r databereik`
+
+## Databron
+
+- **Producent**: Instituut voor Natuur- en Bosonderzoek
+- **Dataset**: Database kustbroedvogels Vlaanderen
+- **Gegevensinzameling**: De data worden verzameld in het kader de Kaderrichtlijn Mariene Strategie waarover 6 jaarlijks wordt gerapporteerd, zie [@stienen_dichtheid_2018].
+
+## Berekeningswijze
+
+De data voor de indicator worden overgenomen uit de zesjaarlijkse rapportage voor de Kaderrichtlijn Mariene Strategie [@stienen_dichtheid_2018].
+
+## Download
+
+**Broncode indicator**: [e7_noordzee_gemiddeldedichtheid_zee_eend_visdief.Rmd](../e7_noordzee_gemiddeldedichtheid_zee_eend_visdief/e7_noordzee_gemiddeldedichtheid_zee_eend_visdief.Rmd)
+- **Basisdata**: [densiteit_niet_aasetende_zeevogels.tsv](../e7_noordzee_gemiddeldedichtheid_zee_eend_visdief/densiteit_niet_aasetende_zeevogels.tsv), 
+- **Metadata basisdata**: [densiteit_niet_aasetende_zeevogels.yml](../e7_noordzee_gemiddeldedichtheid_zee_eend_visdief/densiteit_niet_aasetende_zeevogels.yml)
+
+## Referenties

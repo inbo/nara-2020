@@ -1,0 +1,24 @@
+..generic:
+  git2rdata: 0.3.1
+  optimize: no
+  NA string: NA
+  hash: b979d7631e41fc9fb10e973697c2af9a13f36592
+  data_hash: 010910154f4c3f4b6d15cfac3c79d7341a535df7
+Telseizoen1:
+  class: integer
+Wmax:
+  class: integer
+type:
+  class: character
+x:
+  class: integer
+v:
+  class: integer
+m:
+  class: numeric
+sd:
+  class: numeric
+ci_min:
+  class: numeric
+ci_max:
+  class: numeric

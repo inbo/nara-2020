@@ -1,0 +1,59 @@
+---
+title: "Metadata estuariene habitatoppervlakte"
+date: 2020-07-01T10:00:00
+bibliography: ../references.bib
+link-citations: TRUE
+hoofdstuk: 5
+thema:
+  - Water
+keywords:
+  - estuaria
+  - habitatoppervlakte
+  - krw
+lang: nl
+tab: metadata
+verantwoordelijke:
+- Helen Michels <Helen.michels@inbo.be>
+output: html_document
+---
+## Technische informatie
+
+```{r setup, include=FALSE}
+library(knitr)
+opts_chunk$set(echo = FALSE, message = FALSE, warning = FALSE)
+library(git2rdata)
+```
+
+```{r databereik}
+databereik <- "2008 - 2018"
+```
+\- **Periodiciteit**: tweejaarlijks
+\- **Volgende update**: onbekend
+\- **Databereik**: `r databereik`
+
+## Databron
+
+- **Producent**: Instituut voor Natuur- en Bosonderzoek
+- **Dataset**: De oppervlakte estuarien habitat wordt berekend met de datasets ApplEcotopen_INBO, Ecotoop_IJzermondingINBO en Basis_ecotopenkaart_Zijrivieren 
+- **Gegevensinzameling**: De data worden verzameld in het kader van het stroomgebiedbeheerplan van de Schelde en MONEOS. De methode staat beschreven in [@van_ryckegem_moneos_2018].
+
+
+## Berekeningswijze
+
+De estuariene habitatoppervlakten zijn berekend op basis van de ecotopenkaart.
+De volgende ecotopen worden niet meegenomen in de berekening: antropogeen, matig en diep subtidaal.
+De ecotopen worden herverdeeld in verschillende habitattypes:
+slik = breuksteen, intertidaal, potentiele pionierzone natuurlijk hard substraat, supralitoraal hard natuurlijk, slik zacht substraat, slik hard antropogeen, slik hard natuurlijk, laag slik zacht substraat, laag slik hard antropogeen, laag slik hard natuurlijk, middelhoog slik zacht substraat, middelhoog slik hard natuurlijk, hoog slik zacht substraat, hoog slik hard antropogeen, hoog slik hard natuurlijk. 
+Schor = pionierschor, getijdplas.
+De saliniteitszones worden herbenoemd:
+Brak variabel = Mesohalien,
+Zwak Brak = Oligohalien,
+zoet = Zoet lange verblijftijd, Zoet korte verblijftijd.
+
+## Download
+
+**Broncode indicator**: [e6_oppervlaktewateren_estuariene_habitatoppervlakte.Rmd](../e6_oppervlaktewateren_estuariene_habitatoppervlakte/e6_oppervlaktewateren_estuariene_habitatoppervlakte.Rmd)
+- **Basisdata**: [ecotooptabel_ijzer_schelde_zijrivier.tsv](../e6_oppervlaktewateren_estuariene_habitatoppervlakte/ecotooptabel_ijzer_schelde_zijrivier.tsv)
+- **Metadata basisdata**: [ecotooptabel_ijzer_schelde_zijrivier.yml](../e6_oppervlaktewateren_estuariene_habitatoppervlakte/ecotooptabel_ijzer_schelde_zijrivier.yml)
+
+## Referenties

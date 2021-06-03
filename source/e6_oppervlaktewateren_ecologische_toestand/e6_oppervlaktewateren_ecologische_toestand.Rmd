@@ -1,0 +1,441 @@
+---
+title: "Oppervlaktewateren - Ecologische toestand oppervlaktewateren"
+date: 2020-07-01T10:00:00
+bibliography: ../references.bib
+link-citations: TRUE
+hoofdstuk: 5
+thema:
+  - Water
+keywords:
+  - goede ecologische toestand
+  - goed ecologisch potentieel
+  - krw
+lang: nl
+tab: indicator
+verantwoordelijke:
+- Helen Michels <Helen.michels@inbo.be>
+output: html_document
+---
+
+```{r setup, include=FALSE}
+library(knitr)
+opts_chunk$set(
+  message = FALSE,
+  warning = FALSE,
+  echo = FALSE
+)
+library(tidyverse)
+library(git2rdata)
+library(plotly)
+library(INBOtheme)
+library(htmlwidgets)
+
+set.seed(20200520)
+setWidgetIdSeed(20200520)
+options(htmlwidgets.TOJSON_ARGS = list(pretty = TRUE))
+
+theme_set(theme_nara()) # het nara-kleurenpallet selecteren
+switch_colour(inbo_hoofd) # het INBO-kleurenpallet activeren
+```
+
+De ecologische toestand of het ecologisch potentieel van estuaria, meren en rivieren is beter in de periode 2013-2018 dan in de periode 2007-2012.
+
+```{r data_inlezen voor figuur 101, results = "hide" }
+# data formating voor figuur 101
+data_2012 <- read_vc("vmm_data_2012")
+summary_eco_2012 <- data_2012 %>%
+  mutate(categorie_2 = recode(categorie_2, "overgangswater" = "estuaria")) %>%
+  filter(
+    waterlichaam_code != "VL05_186",
+    waterlichaam_code != "VL08_184",
+    waterlichaam_code != "VL08_185"
+  ) %>%
+  # 3 overgangswateren worden verwijderd
+  group_by(categorie_2, beoordeling = beoordeling_eco) %>%
+  summarise(n = n_distinct(waterlichaam_code)) %>%
+  add_column(biologisch_kwaliteitselement = "1") %>%
+  add_column(categorie_n = 1) %>%
+  filter(beoordeling != "n.r.") %>%
+  mutate(ntot = sum(n)) %>%
+  mutate(proportie = n / ntot) %>%
+  mutate(beoordeling = recode(
+    beoordeling,
+    "2" = "Goed",
+    "3" = "Matig",
+    "4" = "Ontoereikend",
+    "5" = "Slecht",
+    "n.b." = "Niet beoordeeld"
+  )) %>%
+  mutate(categorie_n = paste(categorie_2))
+data_2018 <- read_vc("vmm_data_2018")
+summary_eco_2018 <- data_2018 %>%
+  mutate(categorie_2 = recode(categorie_2, "overgangswater" = "estuaria")) %>%
+  group_by(categorie_2, beoordeling = beoordeling_eco) %>%
+  summarise(n = n_distinct(waterlichaam_code)) %>%
+  add_column(biologisch_kwaliteitselement = "2") %>%
+  add_column(categorie_n = 1) %>%
+  filter(beoordeling != "n.r.", beoordeling != "n.b.") %>%
+  mutate(ntot = sum(n)) %>%
+  mutate(proportie = n / ntot) %>%
+  mutate(beoordeling = recode(
+    beoordeling,
+    "2" = "Goed",
+    "3" = "Matig",
+    "4" = "Ontoereikend",
+    "5" = "Slecht",
+    "n.b." = "Niet beoordeeld"
+  )) %>%
+  mutate(categorie_n = paste(categorie_2))
+head(summary_eco_2012)
+col <- c(
+  "Zeer goed" = "blue",
+  "Goed" = "green",
+  "Matig" = "yellow",
+  "Ontoereikend" = "orange",
+  "Slecht" = "red",
+  "Niet beoordeeld" = inbo_achtergrond
+) # Kleuren klassen
+
+# vergelijking tussen de verschillende periodes
+table.vgl_sbp <- bind_rows(summary_eco_2012, summary_eco_2018, .id = NULL) %>%
+  mutate(beoordeling = fct_relevel(
+    beoordeling,
+    "Niet beoordeeld",
+    "Slecht",
+    "Ontoereikend",
+    "Matig",
+    "Goed",
+    "Zeer goed"
+  ))
+table.vgl_sbp <- table.vgl_sbp %>%
+  mutate(categorie_n = factor(categorie_n,
+    levels = c("estuaria", "meer", "rivier"),
+    labels = c("Estuaria", "Meer", "Rivier")
+  ))
+```
+```{r staafdiagram, fig.width = 6, fig.height = 5, fig.cap = "Figuur 1: Percentage Vlaamse en lokale rivieren, meren en estuaria per beoordelingsklasse voor de ecologishe toestand of het ecologisch potentieel. Periode 1 komt overeen met de periode tussen 2007 en 2012 en periode 2 komt overeen met de periode tussen 2013 en 2018. Deze figuur verwijst naar figuur 101 in het Natuurrapport 2020. "}
+p <- ggplot(table.vgl_sbp, aes(
+  x = biologisch_kwaliteitselement,
+  y = proportie,
+  fill = beoordeling
+)) + # class = de klasse en propo = het aandeel per klasse
+  geom_bar(stat = "identity", position = "stack", width = 0.5) +
+  scale_y_continuous(labels = scales::percent) +
+  scale_fill_manual(values = col) +
+  labs(
+    fill = "beoordeling",
+    y = "ECOLOGICHE TOESTAND/POTENTIEEL (% waterlichamen)"
+  ) + # titel legende = fill
+  theme(
+    text = element_text(size = 10),
+    plot.title = element_text(size = 10, margin = margin(t = 5), vjust = 5),
+    axis.title.x = element_blank(),
+    axis.line.x = element_line(color = "black"),
+    axis.title.y = element_text(
+      margin = margin(
+        t = 0, r = 5, b = 0, l = 5
+      ),
+      hjust = 0
+    ),
+    axis.line.y = element_line(color = "black"),
+    panel.background = element_rect(
+      fill = "white", colour = "white",
+      size = 0.5, linetype = "solid"
+    ),
+    panel.grid.major.y = element_line(colour = "grey", linetype = "dotted"),
+    strip.background = element_rect(fill = "grey90"),
+    legend.key.size = unit(0.3, "cm")
+  ) +
+  facet_wrap(~categorie_n) +
+  theme(strip.text.x = element_text(size = 10, color = "black", hjust = 0.5))
+t <- ggplotly(p)
+t[["x"]][["layout"]][["annotations"]][[1]][["x"]] <- -0.08
+t
+```
+```{r data_inlezen voor figuur 102, results = "hide" }
+summary_vis_2018 <- data_2018 %>%
+  group_by(waterlichaam_code, categorie_2, beoordeling = vis_beoordeling) %>%
+  summarise(n = n_distinct(waterlichaam_code)) %>%
+  add_column(biologisch_kwaliteitselement = "Vis") %>%
+  add_column(periode = "2") %>%
+  filter(beoordeling != "n.r.", beoordeling != "n.b.") %>%
+  filter(categorie_2 == "rivier") %>%
+  mutate(ntot = sum(n)) %>%
+  mutate(proportie = n / ntot) %>%
+  mutate(beoordeling = recode(beoordeling, "n.b." = "Niet beoordeeld"))
+
+summary_vis_2012 <- data_2012 %>%
+  group_by(waterlichaam_code, categorie_2, beoordeling = vis_beoordeling) %>%
+  summarise(n = n_distinct(waterlichaam_code)) %>%
+  add_column(biologisch_kwaliteitselement = "Vis") %>%
+  add_column(periode = "1") %>%
+  filter(beoordeling != "n.r.", beoordeling != "n.b.") %>%
+  filter(categorie_2 == "rivier") %>%
+  mutate(ntot = sum(n)) %>%
+  mutate(proportie = n / ntot) %>%
+  mutate(beoordeling = recode(beoordeling, "n.b." = "Niet beoordeeld"))
+vis_2012_2018 <- bind_rows(summary_vis_2018,
+  summary_vis_2012,
+  .id = NULL
+)
+
+
+vis_paired <- vis_2012_2018 %>%
+  group_by(waterlichaam_code) %>%
+  mutate(n = n()) %>%
+  ungroup() %>%
+  filter(n == 2)
+
+summary_vis_paired <- vis_paired %>%
+  group_by(periode, beoordeling) %>%
+  summarise(n = n_distinct(waterlichaam_code)) %>%
+  add_column(biologisch_kwaliteitselement = "Vis") %>%
+  mutate(ntot = sum(n)) %>%
+  mutate(proportie = n / ntot) %>%
+  mutate(beoordeling = fct_relevel(
+    beoordeling,
+    "Niet beoordeeld",
+    "Slecht",
+    "Ontoereikend",
+    "Matig",
+    "Goed",
+    "Zeer goed"
+  ))
+#-Fytobenthos--------------------------------------
+summary_fb_2018 <- data_2018 %>%
+  group_by(waterlichaam_code, categorie_2, beoordeling = fb_beoordeling) %>%
+  summarise(n = n_distinct(waterlichaam_code)) %>%
+  add_column(biologisch_kwaliteitselement = "Fytobenthos") %>%
+  add_column(periode = "2") %>%
+  filter(beoordeling != "n.r.", beoordeling != "n.b.") %>%
+  filter(beoordeling != "n.v.t.") %>%
+  filter(categorie_2 == "rivier") %>%
+  mutate(ntot = sum(n)) %>%
+  mutate(proportie = n / ntot) %>%
+  mutate(beoordeling = recode(beoordeling, "n.b." = "Niet beoordeeld"))
+
+summary_fb_2012 <- data_2012 %>%
+  group_by(waterlichaam_code, categorie_2, beoordeling = fb_beoordeling) %>%
+  summarise(n = n_distinct(waterlichaam_code)) %>%
+  add_column(biologisch_kwaliteitselement = "Fytobenthos") %>%
+  add_column(periode = "1") %>%
+  filter(beoordeling != "n.r.", beoordeling != "n.b.") %>%
+  filter(beoordeling != "n.v.t.") %>%
+  filter(categorie_2 == "rivier") %>%
+  mutate(ntot = sum(n)) %>%
+  mutate(proportie = n / ntot) %>%
+  mutate(beoordeling = recode(beoordeling, "n.b." = "Niet beoordeeld"))
+fb_2012_2018 <- bind_rows(summary_fb_2018,
+  summary_fb_2012,
+  .id = NULL
+)
+
+fb_paired <- fb_2012_2018 %>%
+  group_by(waterlichaam_code) %>%
+  mutate(n = n()) %>%
+  ungroup() %>%
+  filter(n == 2)
+
+summary_fb_paired <- fb_paired %>%
+  group_by(periode, beoordeling) %>%
+  summarise(n = n_distinct(waterlichaam_code)) %>%
+  add_column(biologisch_kwaliteitselement = "Fytobenthos") %>%
+  mutate(ntot = sum(n)) %>%
+  mutate(proportie = n / ntot)
+
+#---Fytoplankton
+summary_fp_2018 <- data_2018 %>%
+  group_by(waterlichaam_code, categorie_2, beoordeling = fp_beoordeling) %>%
+  summarise(n = n_distinct(waterlichaam_code)) %>%
+  add_column(biologisch_kwaliteitselement = "Fytoplankton") %>%
+  add_column(periode = "2") %>%
+  filter(beoordeling != "n.r.", beoordeling != "n.b.") %>%
+  filter(categorie_2 == "rivier") %>%
+  mutate(ntot = sum(n)) %>%
+  mutate(proportie = n / ntot) %>%
+  mutate(beoordeling = recode(beoordeling, "n.b." = "Niet beoordeeld"))
+
+summary_fp_2012 <- data_2012 %>%
+  group_by(waterlichaam_code, categorie_2, beoordeling = fp_beoordeling) %>%
+  summarise(n = n_distinct(waterlichaam_code)) %>%
+  add_column(periode = "1") %>%
+  filter(beoordeling != "n.r.", beoordeling != "n.b.") %>%
+  filter(categorie_2 == "rivier") %>%
+  mutate(ntot = sum(n)) %>%
+  mutate(ntot = sum(n)) %>%
+  mutate(proportie = n / ntot) %>%
+  mutate(beoordeling = recode(beoordeling, "n.b." = "Niet beoordeeld"))
+fp_2012_2018 <- bind_rows(summary_fp_2018,
+  summary_fp_2012,
+  .id = NULL
+)
+
+fp_paired <- fp_2012_2018 %>%
+  group_by(waterlichaam_code) %>%
+  mutate(n = n()) %>%
+  ungroup() %>%
+  filter(n == 2)
+
+summary_fp_paired <- fp_paired %>%
+  group_by(periode, beoordeling) %>%
+  summarise(n = n_distinct(waterlichaam_code)) %>%
+  add_column(biologisch_kwaliteitselement = "Fytoplankton") %>%
+  mutate(ntot = sum(n)) %>%
+  mutate(proportie = n / ntot)
+
+#----Macro-invertebraten
+summary_mmif_2018 <- data_2018 %>%
+  group_by(waterlichaam_code, categorie_2, beoordeling = mmif_beoordeling) %>%
+  summarise(n = n_distinct(waterlichaam_code)) %>%
+  add_column(periode = "2") %>%
+  filter(beoordeling != "n.r.", beoordeling != "n.b.") %>%
+  filter(categorie_2 == "rivier") %>%
+  mutate(ntot = sum(n)) %>%
+  mutate(proportie = n / ntot) %>%
+  mutate(beoordeling = recode(beoordeling, "n.b." = "Niet beoordeeld"))
+
+summary_mmif_2012 <- data_2012 %>%
+  group_by(waterlichaam_code, categorie_2, beoordeling = mmif_beoordeling) %>%
+  summarise(n = n_distinct(waterlichaam_code)) %>%
+  add_column(periode = "1") %>%
+  filter(beoordeling != "n.r.", beoordeling != "n.b.") %>%
+  filter(categorie_2 == "rivier") %>%
+  mutate(ntot = sum(n)) %>%
+  mutate(proportie = n / ntot) %>%
+  mutate(beoordeling = recode(beoordeling, "n.b." = "Niet beoordeeld"))
+mmif_2012_2018 <- bind_rows(summary_mmif_2018,
+  summary_mmif_2012,
+  .id = NULL
+)
+
+mmif_paired <- mmif_2012_2018 %>%
+  group_by(waterlichaam_code) %>%
+  mutate(n = n()) %>%
+  ungroup() %>%
+  filter(n == 2)
+
+summary_mmif_paired <- mmif_paired %>%
+  group_by(periode, beoordeling) %>%
+  summarise(n = n_distinct(waterlichaam_code)) %>%
+  add_column(biologisch_kwaliteitselement = "Macro-invertebraten") %>%
+  mutate(ntot = sum(n)) %>%
+  mutate(proportie = n / ntot)
+
+#--------Macrofyten
+summary_mf_2018 <- data_2018 %>%
+  group_by(waterlichaam_code, categorie_2, beoordeling = mf_beoordeling) %>%
+  summarise(n = n_distinct(waterlichaam_code)) %>%
+  add_column(periode = "2") %>%
+  filter(beoordeling != "n.r.", beoordeling != "n.b.") %>%
+  filter(categorie_2 == "rivier") %>%
+  mutate(ntot = sum(n)) %>%
+  mutate(proportie = n / ntot) %>%
+  mutate(beoordeling = recode(beoordeling, "n.b." = "Niet beoordeeld"))
+
+summary_mf_2012 <- data_2012 %>%
+  group_by(waterlichaam_code, categorie_2, beoordeling = mf_beoordeling) %>%
+  summarise(n = n_distinct(waterlichaam_code)) %>%
+  add_column(periode = "1") %>%
+  filter(beoordeling != "n.r.", beoordeling != "n.b.") %>%
+  filter(categorie_2 == "rivier") %>%
+  mutate(ntot = sum(n)) %>%
+  mutate(proportie = n / ntot) %>%
+  mutate(beoordeling = recode(beoordeling, "n.b." = "Niet beoordeeld"))
+
+mf_2012_2018 <- bind_rows(summary_mf_2018,
+  summary_mf_2012,
+  .id = NULL
+)
+
+mf_paired <- mf_2012_2018 %>%
+  group_by(waterlichaam_code) %>%
+  mutate(n = n()) %>%
+  ungroup() %>%
+  filter(n == 2)
+
+summary_mf_paired <- mf_paired %>%
+  group_by(periode, beoordeling) %>%
+  summarise(n = n_distinct(waterlichaam_code)) %>%
+  add_column(biologisch_kwaliteitselement = "Macrofyten") %>%
+  mutate(ntot = sum(n)) %>%
+  mutate(proportie = n / ntot)
+
+summary_lijst <- bind_rows(summary_vis_paired,
+  summary_mmif_paired,
+  summary_fb_paired,
+  summary_fp_paired,
+  summary_mf_paired,
+  .id = NULL
+) %>%
+  mutate(beoordeling = fct_relevel(
+    beoordeling,
+    "Niet beoordeeld",
+    "Slecht",
+    "Ontoereikend",
+    "Matig",
+    "Goed",
+    "Zeer goed"
+  ))
+```
+
+
+## Definitie
+De ecologische toestand of potentieel is een ecologisch beoordelingskader voor het hele watersysteem binnen de Europese Kaderrichtlijn Water.
+De Kaderrichtlijn Water heeft als doelstelling voor de natuurlijke oppervlaktewateren om een goede ecologische toestand te bereiken tegen 2015. Voor sterk veranderde en kunstmatige waterlichamen moet een goed ecologische potentieel behaald worden [@vmm_biologische_2019].
+De biologische kwaliteit wordt boordeeld aan de hand van biologische kwaliteitselementen, fytoplankton, fytobenthos, macro-invertebraten, macrofyten en vissen.
+
+## Bespreking
+Twee van de achtien meren bereiken in de tweede periode een goed ecologisch potentieel (Figuur 1).
+Het aantal rivieren dat zich in een slechte toestand bevindt is in de tweede periode afgenomen.
+Het ecologisch potentieel van estuaria blijft slecht tot ontoereikend in de tweede periode, maar ook hier is een kleine verbetering merkbaar.
+
+Voor vier van de vijf biologische kwaliteitselementen stijgt het aantal rivieren dat 'goed' of 'matig scoort (Figuur 2).
+Ondanks een groter aantal rivieren dat goed scoort op de individuele biologische kwaliteitselementen, vertaalt dit zich niet in een groter aantal waterlichamen dat zich in een goede ecologische toestand bevindt.
+Voor fytoplankton daalt het aantal waterlichamen dat 'goed' scoort van 46 naar 36 procent.
+De achteruitgang is mogelijks toe te schrijven aan de warme en droge zomermaanden van 2017 en 2018.
+Een hogere temperatuur en dalende waterstand kunnen algenbloei veroorzaken [@vmm_biologische_2019].
+
+
+```{r staafdiagram_samengesteld, fig.width = 9, fig.height = 5, fig.cap = "Figuur 2: Aandeel beoordeelde Vlaamse en lokale rivierwaterlichamen in Vlaanderen per kwaliteitsklasse voor de individuele biologische kwaliteitselementen die de ecologische toestand of het ecologisch potentieel bepalen. Periode 1 komt overeen met de periode tussen 2007 en 2012 en periode 2 komt overeen met de periode tussen 2013 en 2018. Deze figuur verwijst naar figuur 102 in het Natuurrapport 2020."}
+
+
+q <- ggplot(
+  summary_lijst,
+  aes(x = periode, y = proportie, fill = beoordeling)
+) + # class = de klasse en propo = het aandeel per klasse
+  geom_bar(stat = "identity", position = "stack", width = 0.7) +
+  scale_y_continuous(
+    labels = scales::percent,
+    expand = expansion(mult = c(0, 0.05))
+  ) +
+  scale_fill_manual(values = col) +
+  labs(
+    fill = "beoordeling",
+    y = "ECOLOGISCHE TOESTAND (% waterlichamen)"
+  ) + # titel legende = fill
+  theme(
+    text = element_text(),
+    plot.title = element_text(margin = margin(t = 5), vjust = 5),
+    axis.title.x = element_blank(),
+    axis.title.y = element_text(
+      margin = margin(
+        t = 0, r = 5, b = 0, l = 0
+      ),
+      hjust = 0
+    ),
+    legend.key.size = unit(0.3, "cm"),
+    legend.title = element_text(hjust = 1),
+    strip.background = element_rect(fill = "grey90"),
+    strip.text = element_text(
+      color = "black",
+      margin = margin(0.15, 0, 0.15, 0, "cm"),
+      hjust = 0.5
+    )
+  ) +
+  facet_wrap(~biologisch_kwaliteitselement, nrow = 1)
+
+t <- ggplotly(q)
+t[["x"]][["layout"]][["annotations"]][[1]][["x"]] <- -0.08
+t
+```
+## Referenties

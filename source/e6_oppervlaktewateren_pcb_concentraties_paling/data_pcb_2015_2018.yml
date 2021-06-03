@@ -1,0 +1,10 @@
+..generic:
+  git2rdata: 0.3.1
+  optimize: no
+  NA string: NA
+  hash: ad162162602d311724e2453d9602f5713cdec3c4
+  data_hash: 412b5de14259d76a7220cf0e2aa24ae0632d0239
+klasse:
+  class: character
+aantal_meetplaatsen:
+  class: integer
