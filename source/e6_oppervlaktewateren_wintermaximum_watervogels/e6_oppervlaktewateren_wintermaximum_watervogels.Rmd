@@ -171,13 +171,15 @@ fig
 ```
 
 ## Definitie
+
 Deze indicator toont het glijdend gemiddelde (5 jaar) van de maximale aantallen in een winterseizoen (okt-maart) van een aantal watervogels in het Schelde-estuarium, incl. zijrivieren en in de sigmagebieden. De wintermaxima worden getoetst aan de instandhoudingsdoelstelling.
 
 ## Bespreking
+
 De Zeeschelde is een internationaal belangrijk trek- en overwinteringsgebied voor watervogels die de slikken en schorren als rust- en foerageerhabitat gebruiken. De Vogelrichtlijn verplicht België om de overwinterende en doortrekkende populaties watervogels in stand te houden. Dit instandhoudingsdoel is in de figuur aangeduid met een  blauwe lijn. De draagkracht van het gebied voor watervogels is echter afhankelijk van het voedselaanbod (bodemdieren) en van de habitatoppervlakte. Sinds de periode 2002 neemt het aantal overwinterende watervogels in de Zeeschelde gestaag af. Vanaf 2006 duiken de aantallen onder het instandhoudingsdoel.
 De dalende trend duidt waarschijnlijk op een verminderd voedselaanbod van bodemdieren [@speybroeck_monitoring_2014].
 Het aantal bodemdieren daalt door een verminderde aanvoer van antropogeen organisch materiaal met hoge voedingswaarde, een verbeterde waterzuivering (bv. door het waterzuiveringsstation Brussel-Noord op de Zenne) en een toegenomen concurrentie op voedsel door groeiende garnaal- en vispopulaties ([@van_de_meutter_onderzoek_2019], [@van_ryckegem_moneos_2018]).
 De afname in het aantal watervogels in de Zeeschelde wordt zoals verwacht gedeeltelijk gecompenseerd door de toenemende aantallen in de sigmagebieden.
 In de nieuwe getijdengebieden van het sigmaplan is het voedselaanbod van bodemdieren (tijdelijk) zeer hoog.
 
-## Referentie
+## Referenties

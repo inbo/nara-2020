@@ -40,7 +40,6 @@ De Zeeschelde-analyseset wordt gebruikt voor datapunten in de Zeeschelde, de ana
  
 - **Gegevensinzameling**: De data worden via gestandaardiseerde tellingen verzameld in het kader van MONEOS en en het INBO project 'Monitoring overwinterende watervogels'.
 
-
 ## Berekeningswijze
 
 Voor het wintermaximum van het aantal watervogels in de Zeeschelde en de zijrivieren wordt het aantal watervogels in de Zeeschelde en in de zijrivieren per maand bij elkaar opgeteld.
@@ -58,10 +57,3 @@ Vóór 1999 zijn er geen tellingen van kievit, wulp en waterhoen in de zijrivier
 **Broncode indicator**: [e6_oppervlaktewateren_wintermaximum_watervogels.Rmd](../e6_oppervlaktewateren_wintermaximum_watervogels/e6_oppervlaktewateren_wintermaximum_watervogels.Rmd)
 - **Basisdata**: [mav_zsczr.tsv](../e6_oppervlaktewateren_wintermaximum_watervogels/mav_zsczr.tsv), [mav_zsczrsigma.tsv](../e6_oppervlaktewateren_wintermaximum_watervogels/mav_zsczrsigma.tsv)
 - **Metadata basisdata**: [mav_zsczr.yml](../e6_oppervlaktewateren_wintermaximum_watervogels/mav_zsczr.yml), [mav_zsczrsigma.yml](../e6_oppervlaktewateren_wintermaximum_watervogels/mav_zsczrsigma.yml)
-
-
-
-
-
-
-
