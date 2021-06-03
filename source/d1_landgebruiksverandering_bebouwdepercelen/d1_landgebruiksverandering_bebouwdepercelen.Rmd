@@ -1,0 +1,103 @@
+---
+title: "Landgebruiksverandering - Bebouwde percelen"
+date: 2020-07-01T10:00:00
+bibliography: ../references.bib
+link-citations: TRUE
+hoofdstuk: 4 
+thema:
+  - Natuur & maatschappij
+keywords:
+  - landgebruiksverandering
+  - ruimtebeslag
+  - natuurlijk kapitaal
+  - natural capital accounting
+  - ecosystem extent
+lang: nl
+tab: indicator
+verantwoordelijke:
+- Wouter Van Reeth <wouter.vanreeth@inbo.be>
+output: html_document
+---
+
+```{r setup, include=FALSE}
+library(knitr)
+opts_chunk$set(
+  message = FALSE,
+  warning = FALSE,
+  echo = FALSE
+)
+library(tinytex)
+library(git2rdata)
+library(plotly)
+library(tidyverse)
+library(INBOtheme)
+library(htmlwidgets)
+library(kableExtra)
+
+set.seed(20200520)
+setWidgetIdSeed(20200520)
+
+options(htmlwidgets.TOJSON_ARGS = list(pretty = TRUE))
+theme_set(theme_nara()) # het nara-kleurenpallet selecteren
+switch_colour(inbo_hoofd) # het INBO-kleurenpallet activeren
+```
+
+```{r data_inlezen_bebouwde-percelen-graph}
+gegevens <- read_vc("bebouwdeperc") %>%
+  filter(jaar > 1982) # filter omdat gegevens 1982 anomalie lijken
+```
+
+Het tempo waaraan de oppervlakte bebouwde percelen in Vlaanderen uitbreidt, daalde gevoelig in de tweede helft van de jaren 1990.  Sinds 2010 ligt dit tempo gemiddeld tussen de 5,5 à 6 hectare per dag.
+
+```{r staafdiagram lgv-stock10-graph, echo =  FALSE, fig.width = 8, fig.height = 4, fig.cap = "Figuur 1. Toename van de oppervlakte bebouwde percelen in Vlaanderen in hectare per dag (Bron: Statbel). Deze figuur verwijst naar Figuur 35 in het Natuurrapport 2020.", fig.pos = "H"}
+p <- ggplot(gegevens, aes(x = jaar, y = toename)) +
+  geom_point(aes(text = paste("<br>", "Jaar:", jaar, "<br>", "Toename:",
+                              sprintf("%0.1f", toename)))) +
+  geom_line() +
+  labs(y = "TOENAME (HA/DAG)") +
+  scale_x_continuous(breaks = c(1985, 1990, 1995, 2000, 2005, 2010,
+                                2015, 2020)) +
+  scale_y_continuous(expand = c(0, 0), breaks = c(0, 2, 4, 6, 8,
+                                                  10, 12, 14, 16),
+                     limits = c(0, 17)) +
+  theme(
+    axis.title.x = element_blank(),
+    axis.title.y = element_text(margin = margin(t = 0, r = 10, b = 0, l = 0),
+                                hjust = 0),
+    legend.key.size = unit(0.3, "cm")
+  )
+
+if (interactive() || opts_knit$get("rmarkdown.pandoc.to") == "html") {
+  ggplotly(p, tooltip = c("text")) %>%
+    plotly::config(
+      modeBarButtonsToRemove = list(
+        "lasso2d", "select2d", "hoverClosestCartesian",
+        "hoverCompareCartesian", "toggleSpikelines"
+      ),
+      displaylogo = FALSE
+    )
+} else {
+  p
+}
+```
+
+## Definitie
+
+Deze indicator toont het tempo waaraan de oppervlakte bebouwde percelen in Vlaanderen uitbreidt.
+De indicator dekt niet volledig het begrip 'ruimtebeslag' dat in het Vlaams omgevingsbeleid wordt gehanteerd en dat bijvoorbeeld ook niet-bebouwde tuinen en wegen omvat [@brv_strategische_2018]. 
+Bebouwde percelen zijn wel de voornaamste component van het bijkomend ruimtebeslag [@poelmans_landgebruik_2019].
+Daarom geeft deze indicator een beleidsrelevant signaal over het tempo waaraan Vlaanderen verder open ruimte aansnijdt, en of de druk van landgebruiksverandering op biodiversiteit aanhoudt of afneemt.
+
+## Bespreking
+
+Tijdens de jaren 1980-1990 breidde de oppervlakte bebouwde percelen uit met meer dan 10 ha/dag. In de tweede helft van de jaren 1990 nam het tempo van de bijkomende bebouwing gevoelig af. 
+In de periode 2010-2014 bedroeg de uitbreiding gemiddeld nog 5,5 ha/dag, van 2015 tot 2019 was dit 5,7 ha/dag.
+
+De ogenschijnlijk sterke toename in 2018 is grotendeels toe te schrijven aan een verandering in de methode van gegevensverzameling, namelijk het meetellen van de oppervlakte zeedijk in de tien Vlaamse kustgemeenten.
+In de andere provincies nam het tempo bijkomende bebouwing dat jaar slechts licht toe.
+In 2019 daalde de bijkomende oppervlakte bebouwde percelen tot ongeveer 4,5 ha.
+Het is nog te vroeg om te concluderen of dit om een trendbreuk gaat ten opzichte van de voorgaande jaren.
+
+De Vlaamse Regering wil het bijkomend ruimtebeslag tegen 2040 tot 0 ha/dag terugbrengen [@demir_beleidsnota_2019; @vlaamse_regering_regeerakkoord_2019]. De Strategische visie Beleidsplan Ruimte Vlaanderen stelt een daling tot 3 ha/dag voorop tegen 2025.  
+
+## Referenties
