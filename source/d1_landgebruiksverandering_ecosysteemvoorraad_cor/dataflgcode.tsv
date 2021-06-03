@@ -1,0 +1,32 @@
+clc_code	clc_label	nara5_code	nara5_label	nara5_labels	nara10_code	nara10_label
+111	Continuous urban fabric	1	Stedelijk en bebouwd gebied	urbaan	1	Stedelijk en bebouwd gebied
+112	Discontinuous urban fabric	1	Stedelijk en bebouwd gebied	urbaan	1	Stedelijk en bebouwd gebied
+121	Industrial or commercial units	1	Stedelijk en bebouwd gebied	urbaan	1	Stedelijk en bebouwd gebied
+122	Road and rail networks and associated land	1	Stedelijk en bebouwd gebied	urbaan	1	Stedelijk en bebouwd gebied
+123	Port Areas	1	Stedelijk en bebouwd gebied	urbaan	1	Stedelijk en bebouwd gebied
+124	Airports	1	Stedelijk en bebouwd gebied	urbaan	1	Stedelijk en bebouwd gebied
+131	Mineral extraction sites	1	Stedelijk en bebouwd gebied	urbaan	1	Stedelijk en bebouwd gebied
+132	Dump sites	1	Stedelijk en bebouwd gebied	urbaan	1	Stedelijk en bebouwd gebied
+133	Construction sites	1	Stedelijk en bebouwd gebied	urbaan	1	Stedelijk en bebouwd gebied
+141	Green urban areas	1	Stedelijk en bebouwd gebied	urbaan	1	Stedelijk en bebouwd gebied
+142	Sport and leasure facilities	1	Stedelijk en bebouwd gebied	urbaan	1	Stedelijk en bebouwd gebied
+211	Non-irrigated arable land	2	Akker en grasland	landbouw	2	Akker
+222	Fruit trees and berry plantations	2	Akker en grasland	landbouw	2	Akker
+231	Pastures	2	Akker en grasland	landbouw	3	Grasland
+242	Complex cultivation patterns	2	Akker en grasland	landbouw	2	Akker
+243	Land principally occupied by agriculture, with significant areas of natural vegetation	2	Akker en grasland	landbouw	2	Akker
+311	Broad-leaved forest	3	Bos en terrestrische natuur	natuur	4	Bos en houtige vegetatie
+312	Coniferous forest	3	Bos en terrestrische natuur	natuur	4	Bos en houtige vegetatie
+313	Mixed forest	3	Bos en terrestrische natuur	natuur	4	Bos en houtige vegetatie
+321	Natural grasslands	3	Bos en terrestrische natuur	natuur	3	Grasland
+322	Moors and heathland	3	Bos en terrestrische natuur	natuur	5	Heide en struiken
+324	Transitional woodland-shrub	3	Bos en terrestrische natuur	natuur	4	Bos en houtige vegetatie
+331	Beaches, dunes, sands	3	Bos en terrestrische natuur	natuur	6	Strand en duinen
+411	Inland marshes	3	Bos en terrestrische natuur	natuur	7	Moeras
+412	Peat bogs	3	Bos en terrestrische natuur	natuur	7	Moeras
+421	Salt marshes	4	Zoetwater en estuarium	water	9	Marien - Estuarium
+423	Intertidal flats	4	Zoetwater en estuarium	water	9	Marien - Estuarium
+511	Water courses	4	Zoetwater en estuarium	water	8	Zoetwater
+512	Water bodies	4	Zoetwater en estuarium	water	8	Zoetwater
+522	Estuaries	4	Zoetwater en estuarium	water	9	Marien - Estuarium
+523	Sea and ocean	5	Zee	zee	10	Marien - Zee

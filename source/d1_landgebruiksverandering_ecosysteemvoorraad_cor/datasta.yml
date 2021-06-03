@@ -1,0 +1,28 @@
+..generic:
+  git2rdata: 0.2.1
+  optimize: no
+  NA string: NA
+  sorting: LandCover
+  hash: a8c2090649c8cf254b98da6bc1138004e360353b
+  data_hash: 12dc6b46472d37158716627ff454b293817e1b4a
+LandCover:
+  class: factor
+  labels:
+  - Agr
+  - For
+  - Sea
+  - Urb
+  - Wat
+  index:
+  - 1
+  - 2
+  - 3
+  - 4
+  - 5
+  ordered: no
+OpeningStock:
+  class: numeric
+Loss:
+  class: numeric
+Gain:
+  class: numeric

@@ -1,0 +1,32 @@
+CorineLandCoverCode	Corine.level.3	Corine.level.2	Corine.level.1	Maes	Natuurrapport.niveau.2	Natuurrapport.niveau.1
+111	Continuous urban fabric	Urban fabric	Artificial surfaces	Urban	Stedelijk en bebouwd gebied	Stedelijk en bebouwd gebied
+112	Discontinuous urban fabric	Urban fabric	Artificial surfaces	Urban	Stedelijk en bebouwd gebied	Stedelijk en bebouwd gebied
+121	Industrial or commercial units	Industrial, commercial and transport units	Artificial surfaces	Urban	Stedelijk en bebouwd gebied	Stedelijk en bebouwd gebied
+122	Road and rail networks and associated land	Industrial, commercial and transport units	Artificial surfaces	Urban	Stedelijk en bebouwd gebied	Stedelijk en bebouwd gebied
+123	Port areas	Industrial, commercial and transport units	Artificial surfaces	Urban	Stedelijk en bebouwd gebied	Stedelijk en bebouwd gebied
+124	Airports	Industrial, commercial and transport units	Artificial surfaces	Urban	Stedelijk en bebouwd gebied	Stedelijk en bebouwd gebied
+131	Mineral extraction sites	Mine, dump and construction sites	Artificial surfaces	Urban	Stedelijk en bebouwd gebied	Stedelijk en bebouwd gebied
+132	Dump sites	Mine, dump and construction sites	Artificial surfaces	Urban	Stedelijk en bebouwd gebied	Stedelijk en bebouwd gebied
+133	Construction sites	Mine, dump and construction sites	Artificial surfaces	Urban	Stedelijk en bebouwd gebied	Stedelijk en bebouwd gebied
+141	Green urban areas	Artificial, non-agricultural vegetated areas	Artificial surfaces	Urban	Stedelijk en bebouwd gebied	Stedelijk en bebouwd gebied
+142	Sport and leisure facilities	Artificial, non-agricultural vegetated areas	Artificial surfaces	Urban	Stedelijk en bebouwd gebied	Stedelijk en bebouwd gebied
+211	Non-irrigated arable land	Arable land	Agricultural areas	Cropland	Akker	Agro-ecosysteem
+222	Fruit trees and berry plantations	Permanent crops	Agricultural areas	Cropland	Akker	Agro-ecosysteem
+231	Pastures	Pastures	Agricultural areas	Grassland	Grasland	Agro-ecosysteem
+242	Complex cultivation patterns	Hetergeneous agricultural areas	Agricultural areas	Cropland	Akker	Agro-ecosysteem
+243	Land principally occupied by agriculture, with significant areas of natural vegetation	Hetergeneous agricultural areas	Agricultural areas	Cropland	Akker	Agro-ecosysteem
+311	Broad-leaved forest	Forests	Forests and semi-natural areas	Woodland and forest	Bos	Bos en terrestrische open natuur
+312	Coniferous forest	Forests	Forests and semi-natural areas	Woodland and forest	Bos	Bos en terrestrische open natuur
+313	Mixed forest	Forests	Forests and semi-natural areas	Woodland and forest	Bos	Bos en terrestrische open natuur
+321	Natural grasslands	Scrub and/or herbaceous vegetation associations	Forests and semi-natural areas	Grassland	Grasland	Bos en terrestrische open natuur
+322	Moors and heathland	Scrub and/or herbaceous vegetation associations	Forests and semi-natural areas	Heathland and shrub	Heide en landduin	Bos en terrestrische open natuur
+324	Transitional woodland-shrub	Scrub and/or herbaceous vegetation associations	Forests and semi-natural areas	Woodland and forest	Bos	Bos en terrestrische open natuur
+331	Beaches, dunes, sands	Open spaces with little or no vegetation	Forests and semi-natural areas	Sparsely vegetated areas	Kustduin en strand	Bos en terrestrische open natuur
+411	Inland marshes	Inland wetlands	Wetlands	Wetlands	Moeras	Bos en terrestrische open natuur
+412	Peat bogs	Inland wetlands	Wetlands	Wetlands	Moeras	Bos en terrestrische open natuur
+421	Salt marshes	Maritime wetlands	Wetlands	Marine inlets and transitional waters	Estuarium	Zoetwater en estuarium
+423	Intertidal flats	Maritime wetlands	Wetlands	Marine inlets and transitional waters	Estuarium	Zoetwater en estuarium
+511	Water courses	Inland waters	Water bodies	Rivers and lakes	Zoetwater	Zoetwater en estuarium
+512	Water bodies	Inland waters	Water bodies	Rivers and lakes	Zoetwater	Zoetwater en estuarium
+522	Estuaries	Marine waters	Water bodies	Marine inlets and transitional waters	Estuarium	Zoetwater en estuarium
+523	Sea and ocean	Marine waters	Water bodies	Marine	Zee	Zee

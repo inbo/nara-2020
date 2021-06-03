@@ -1,0 +1,396 @@
+---
+title: "Landgebruiksverandering - Ecosysteemvoorraad Corine"
+date: 2020-07-01T10:00:00
+bibliography: ../references.bib
+link-citations: TRUE
+hoofdstuk: 4
+thema:
+  - Natuur & maatschappij
+  - Landbouw
+keywords:
+  - landgebruiksverandering
+  - ruimtebeslag
+  - natuurlijk kapitaal
+  - natural capital accounting
+  - ecosystem extent
+lang: nl
+tab: indicator
+verantwoordelijke:
+- Wouter Van Reeth <wouter.vanreeth@inbo.be>
+output: html_document
+---
+
+```{r setup, include=FALSE}
+library(knitr)
+opts_chunk$set(
+  message = FALSE,
+  warning = FALSE,
+  echo = FALSE
+)
+library(git2rdata)
+library(plotly)
+library(tidyverse)
+library(INBOtheme)
+library(htmlwidgets)
+library(kableExtra)
+library(sankeyD3) # Met dit package heb je controle over de font, de opacity
+
+set.seed(20200520)
+setWidgetIdSeed(20200520)
+options(htmlwidgets.TOJSON_ARGS = list(pretty = TRUE))
+
+theme_set(theme_nara()) # het nara-kleurenpallet selecteren
+switch_colour(inbo_hoofd) # het INBO-kleurenpallet activeren
+```
+
+```{r data_inlezen_cor-stock-graph}
+ecos <- c("Stedelijk en bebouwd gebied", "Agro-ecosysteem" # nolint
+          "Bos en terrestrische open natuur", "Zoetwater en estuarium", "Zee") # nolint
+gegevens <- read_vc("datastg") %>%
+  mutate(
+    Jaar = factor(Jaar),
+    Ecosysteem = factor(
+      Ecosysteem,
+      levels = ecos,
+      labels = str_wrap(ecos, 15)
+    )
+  )
+
+gegevens %>%
+  arrange(Jaar) %>%
+  group_by(Ecosysteem) %>%
+  summarise(
+    Verschil = diff(Extent) / Extent[1],
+    Jaar = tail(Jaar, 1),
+    Extent = max(Extent)
+  ) %>%
+    mutate(labypos = Extent + 550) %>%
+    mutate(Verschil = sprintf("%+.1f%%", 100 * Verschil)) -> verschil
+```
+
+```{r data_inlezen_cor-stock-account}
+gegevens_sta <- read_vc("datasta") %>%
+  arrange(match(LandCover, c("Urb", "Agr", "For", "Wat", "Sea"))) %>%
+  mutate(
+    NetChange = Loss + Gain,
+    PercNetChange = NetChange * 100 / OpeningStock,
+    TotChange = -Loss + Gain,
+    PercTotChange = TotChange * 100 / OpeningStock,
+    StabStock = OpeningStock - TotChange,
+    PercStabStock = StabStock * 100 / OpeningStock,
+    ClosingStock = OpeningStock + NetChange) %>%
+  mutate(
+    OpeningStock = sprintf("%.0f", OpeningStock),
+    ClosingStock = sprintf("%.0f", ClosingStock),
+    Loss = sprintf("%+.0f", Loss),
+    Gain = sprintf("%+.0f", Gain),
+    NetChange = sprintf("%+.0f", NetChange),
+    PercNetChange = sprintf("%+.1f%%", PercNetChange),
+    TotChange = sprintf("%.0f", TotChange),
+    PercTotChange = sprintf("%.1f%%", PercTotChange),
+    StabStock = sprintf("%.0f", StabStock),
+    PercStabStock = sprintf("%.1f%%", PercStabStock)
+    )
+```
+
+```{r data_inlezen_cor-flow-graph}
+sank_pre <- read_vc("dataflg")
+code <- read_vc("dataflgcode") %>%
+  select(c(clc_code, nara5_code, nara5_label, nara5_labels))
+```
+
+```{r data_bewerken_cor-flow-graph}
+# Data groeperen per NARA-klasse
+
+sank <- sank_pre %>%
+  left_join(code, by = c("c1990" = "clc_code")) %>%
+  rename("from" = "nara5_code") %>%
+  rename("labelS" = "nara5_labels") %>%
+  left_join(code, by = c("c2018" = "clc_code")) %>%
+  rename("to" = "nara5_code") %>%
+  rename("labelT" = "nara5_labels") %>%
+  group_by(from, to) %>%
+  summarise(value = sum(count),
+            labelS = unique(labelS),
+            labelT = unique(labelT)) %>%
+  ungroup() %>% 
+  mutate("jaarS" = 1990) %>%
+  mutate("jaarT" = 2018)
+
+# Dataframe met nodes (= codes van landgebruiksklassen en bijhorende labels)
+
+cp1 <- sank %>%
+  unite("cp1", c("jaarS","from")) %>%
+  distinct(cp1) %>%
+  rename("codetxt" = cp1)
+cp2 <- sank %>%
+  unite("cp2", c("jaarT","to")) %>%
+  distinct(cp2) %>%
+  rename("codetxt" = cp2)
+
+nodes <- cp1 %>%
+  bind_rows(cp2) %>%
+  distinct(codetxt) %>%
+  rownames_to_column() %>%
+  rename("code" = rowname) %>%
+  mutate(code = as.numeric(code) - 1)
+
+# Dataframe met links (= source (van), target (naar) en value (oppervlakte))
+
+links_pre <- sank %>%
+  unite("cp1", c("jaarS","from")) %>%
+  unite("cp2", c("jaarT","to")) %>%
+  left_join(nodes, by = c("cp1" = "codetxt")) %>%
+  rename(source = code) %>%
+  left_join(nodes, by = c("cp2" = "codetxt")) %>%
+  rename(target = code) %>%
+  dplyr::select(c(source, target, value))
+
+# Groepen aanmaken voor kleuren in grafiek en labels
+
+groups <- sank %>%
+  unite("cp1", c("jaarS","from"), remove = FALSE) %>%
+  unite("cp2", c("jaarT","to"), remove = FALSE) %>%
+  left_join(nodes, by = c("cp1" = "codetxt")) %>%
+  rename(source = code) %>%
+  left_join(nodes, by = c("cp2" = "codetxt")) %>%
+  rename(target = code)
+groups_links <- groups %>%
+  dplyr::select(labelS, source) %>%
+  distinct(source, .keep_all = TRUE)
+
+# Groepen toewijzen aan nodes en links
+
+links <- links_pre %>%
+  left_join(groups_links, by = "source") %>%
+  rename("group" = "labelS")
+
+nodes <- nodes %>%
+  left_join(select(groups, cp1, labelS), by = c("codetxt" = "cp1")) %>%
+  left_join(select(groups, cp2, labelT), by = c("codetxt" = "cp2")) %>%
+  distinct(code, .keep_all = TRUE) %>%
+  mutate(group = coalesce(labelS, labelT))
+
+# Aaneen plakken nodes en links in een List object
+
+data <- list(nodes = nodes, links = links)
+```
+
+```{r data_inlezen_cor-flow-account}
+gegevens_fla <- read_vc("datafla") %>%
+  arrange(match(LandCover, c("Urb", "Agr", "For", "Wat", "Sea", "Total"))) %>%
+  mutate(
+    CLCFSum = CLaCoFlo1 + CLaCoFlo2 + CLaCoFlo3 + CLaCoFlo4 + CLaCoFlo5 +
+      CLaCoFlo6 + CLaCoFlo7 + CLaCoFlo8,
+    CNoFlo = COpeningStock - CLCFSum,
+    PLCFSum = PLaCoFlo1 + PLaCoFlo2 + PLaCoFlo3 + PLaCoFlo4 + PLaCoFlo5 +
+      PLaCoFlo6 + PLaCoFlo7 + PLaCoFlo8,
+    PNoFlo = PClosingStock - PLCFSum) %>% 
+  mutate(
+    COpeningStock = sprintf("%.0f", COpeningStock),
+    CLCFSum = sprintf("%.0f", CLCFSum),
+    CLaCoFlo1 = sprintf("%.0f", CLaCoFlo1),
+    CLaCoFlo2 = sprintf("%.0f", CLaCoFlo2),
+    CLaCoFlo3 = sprintf("%.0f", CLaCoFlo3),
+    CLaCoFlo4 = sprintf("%.0f", CLaCoFlo4),
+    CLaCoFlo5 = sprintf("%.0f", CLaCoFlo5),
+    CLaCoFlo6 = sprintf("%.0f", CLaCoFlo6),
+    CLaCoFlo7 = sprintf("%.0f", CLaCoFlo7),
+    CLaCoFlo8 = sprintf("%.0f", CLaCoFlo8),
+    CNoFlo = sprintf("%.0f", CNoFlo),
+    PLCFSum = sprintf("%.0f", PLCFSum),
+    PLaCoFlo1 = sprintf("%.0f", PLaCoFlo1),
+    PLaCoFlo2 = sprintf("%.0f", PLaCoFlo2),
+    PLaCoFlo3 = sprintf("%.0f", PLaCoFlo3),
+    PLaCoFlo4 = sprintf("%.0f", PLaCoFlo4),
+    PLaCoFlo5 = sprintf("%.0f", PLaCoFlo5),
+    PLaCoFlo6 = sprintf("%.0f", PLaCoFlo6),
+    PLaCoFlo7 = sprintf("%.0f", PLaCoFlo7),
+    PLaCoFlo8 = sprintf("%.0f", PLaCoFlo8),
+    PNoFlo = sprintf("%.0f", PNoFlo),
+    PClosingStock = sprintf("%.0f", PClosingStock)
+    )
+```
+
+Tussen 1990 en 2018 was de uitbreiding van stedelijk en bebouwd gebied ten koste van het agro-ecosysteem de voornaamste verandering in landgebruik.
+
+```{r staafdiagram cor-stock5-graph, echo =  FALSE, fig.width = 8, fig.height = 4, fig.cap = "Figuur 1. Ecosysteemvoorraad (km²) in 1990 en 2018 (Bron: Corine). Deze figuur verwijst naar Figuur 28 in het Natuurrapport 2020. De cijfers van de grafiek zijn terug te vinden in de rekening ecosysteemvoorraad (Tabel 1).", fig.pos = "H"}
+p <- ggplot(gegevens, aes(x = Ecosysteem, y = Extent, fill = Jaar)) +
+  geom_col(position = "dodge", width = 0.5) +
+  scale_y_continuous(expand = c(0, 0), limits = c(0, 10000),
+                     breaks = c(0, 1000, 2000, 3000, 4000, 5000, 6000,
+                                7000, 8000, 9000)) +
+  scale_fill_manual(
+     values = c("2018" = inbo_steun_geelgroen, "1990" = inbo_hoofd),
+     limits = c("2018", "1990")) +
+  xlab("") +
+  ylab("ECOSYSTEEMVOORRAAD (km²)") +
+  theme(axis.title = element_text(size = 9,
+                                  margin = margin(t = 0, r = 0, b = 0, l = 0),
+                                  hjust = 0), 
+        axis.text = element_text(size = 8),
+        legend.text = element_text(size = 8),    
+        legend.title = element_blank(),
+        legend.position = "bottom",
+        legend.key.size = unit(0.3, "cm")) +
+  coord_flip() + theme(panel.grid.major.y = element_blank(),
+                       panel.grid.major.x = element_line(size = .1,
+                                                         color = "black" )) +
+    geom_text(data = verschil, aes(y = labypos, label = Verschil),
+              size = 3, color = "black")
+
+if (interactive() || opts_knit$get("rmarkdown.pandoc.to") == "html") {
+  ggplotly(p) %>%
+  plotly::config(
+    modeBarButtonsToRemove = list(
+      "lasso2d", "select2d", "hoverClosestCartesian",
+      "hoverCompareCartesian", "toggleSpikelines"
+    ),
+    displaylogo = FALSE
+  )
+} else {
+  p
+}
+```
+
+De voorraad stedelijk en bebouwd gebied nam toe met bijna 7% en zoetwater en estuarium met 15% ten opzichte van 1990. De omvang van het agro-ecosysteem daalde met bijna 3%.
+
+```{r rekening cor-stock5-account}
+gegevens_sta_2 <- gegevens_sta[, c(1, 11, 2, 3, 4, 5, 6, 7, 8, 9, 10)]
+tabel_sta <- data.frame(t(gegevens_sta_2[-1])) # om gegevenstabel te transpon.
+rownames(tabel_sta) <- c("Ecosysteemvoorraad 1990", "Ecosysteemvoorraad 2018",
+                         "Verlies", "Uitbreiding", "Nettoverandering",
+                         "% nettoverandering t.o.v. 1990", "Totale verandering",
+                         "% totale verandering t.o.v. 1990",
+                         "Stabiele ecosysteemvoorraad",
+                         "% stabiele ecosysteemvoorraad")
+tabel_sta %>%
+  kable(
+    caption = "Tabel 1: Rekening ecosysteemvoorrraad (km²) in 1990 en 2018
+    (Bron: Corine). Deze tabel verwijst naar Tabel 6
+    in het Natuurrapport 2020.",
+    col.names = c("Stedelijk en bebouwd gebied", "Agro-ecosysteem",
+                  "Bos en terrestrische open natuur", "Zoetwater en estuarium",
+                  "Zee"),
+    align = "ccccc") %>%
+  column_spec(1, width = "16em") %>%
+  column_spec(2:5, width = "10em") %>%
+  column_spec(6, width = "7em") %>%
+  row_spec(c(0), bold = TRUE,  color = "black") %>%
+  row_spec(c(1:2), bold = TRUE,  color = "black", background = "#acb2b4") %>%
+  row_spec(c(6, 8), bold = TRUE,  color = "black", background = "#e5e7e9") %>%
+  kable_styling(full_width = FALSE)
+```
+
+## Definitie
+
+De ecosysteemvoorraad (*ecosystem extent*) is een maat voor de omvang van het natuurlijk kapitaal van een gebied op basis van de oppervlakte van verschillende types bodembedekking en landgebruik [@costanza_goals_1991; @costanza_natural_1992; @daily_value_2000; @eea_land_2006; @eea_natural_2018; @ekins_four-capital_1992].
+Landgebruiksveranderingen leiden tot toe- of afnames van ecosysteemvoorraden.
+De ecosysteemvoorraad (Figuur 1) is een indicator van de *toestand van* ecosystemen, de ecosysteemverandering (Figuur 2) geeft een indicatie van de *druk op* die ecosystemen.
+
+## Bespreking
+
+De belangrijkste veranderingen in de ecosysteemvoorraden van Vlaanderen tussen 1990 en 2018 zijn de uitbreiding van het stedelijk en bebouwd gebied en de afname van het agro-ecosysteem (grasland en akker).
+De omvang van bos en terrestrische open natuur verandert in die periode minder sterk.
+Onder terrestrische open natuur verstaan we halfnatuurlijk grasland, heide, moeras, kustduin en strand. 
+Zoetwater en estuarium is in Vlaanderen beperkt in omvang, maar breidt relatief sterk uit.
+Dit komt vooral door zand- en grindontginning en de aanleg van spaarbekkens, waterwegen en havenuitbreiding.
+Ook die landgebruiksveranderingen zijn sterk verweven met de uitbreiding van stedelijk en bebouwd gebied.
+
+De totale verandering van ecosysteemvoorraden (Tabel 1) is mogelijk heel wat groter dan de cijfers van de nettoveranderingen (Figuur 1) suggereren.
+Zo daalt de voorraad bos en terrestrische open natuur netto met 1 procent, maar is 20 procent van de voorraad betrokken bij een bepaalde verandering van landgebruik of bodembedekking.
+Het deel van het ecosysteem dat niet betrokken is bij zo'n verandering wordt ook wel de stabiele ecosysteemvoorraad genoemd [@eea_land_2006; @eea_natural_2018].
+Hoe groter het aandeel van een ecosysteem dat betrokken is bij een landgebruiksverandering, des te kleiner de stabiliteit van dat ecosysteem.
+Biologisch waardevolle ecosystemen als soortenrijke graslanden en oude bossen hebben meerdere decennia tot eeuwen nodig om hun kenmerkende ecosysteemvoorraden, -structuren, -processen en soortensamenstelling te ontwikkelen.
+Voor dergelijke systemen is een hoge dynamiek in het landgebruik problematisch.
+
+De totale verandering in Tabel 1 betreft zowel veranderingen binnen een ecosysteem (bijvoorbeeld van niet-aaneengesloten stedelijk weefsel naar aaneengesloten stedelijk weefsel) als tussen die ecosystemen (bijvoorbeeld van landbouwgrasland naar loofbos).
+Voor ecosystemen met een dalende voorraad geeft de verhouding tussen de nettoverandering en de ecosysteemvoorraad van 1990 een indicatie van de 'volhoudbaarheid' of duurzaamheid van de landgebruiksveranderingen.
+
+Figuur 2 en Tabel 2 tonen welke maatschappelijke processen aan de basis liggen van de veranderingen in ecosysteemvoorraden. 
+Urbanisatie of de uitbreiding van stedelijk en bebouwd gebied is de belangrijkste oorzaak van de druk inzake landgebruiksverandering. 
+
+```{r cor-flow5-graph-voorbereiding, include = FALSE}
+# Sankeydiagram maken
+
+sankeyNetwork(Links = data$links, Nodes = data$nodes, Source = 'source',
+              Target = 'target', Value = 'value', NodeID = 'codetxt',
+              units = 'ha', colourScale = , fontSize = 12, nodeWidth = 25,
+              nodePadding = 20)
+```
+
+```{r cor-flow5-graph, echo =  FALSE, fig.cap = "Figuur 2. Ecosysteemverandering (hectare) tussen 1990 en 2018 (Bron: Corine). De gekleurde balken aan de linkerzijde tonen hoeveel hectare van een ecosysteemvoorraad geconsumeerd werden. Die aan de rechterzijde tonen met hoeveel hectare de ecosysteemvoorraad uitbreidde. De cijfers van de grafiek zijn terug te vinden in de rekening ecosysteemverandering (Tabel 2).", fig.pos = "H"}
+colors <- 'd3.scaleOrdinal() .domain(["landbouw", "urbaan", "natuur",
+"water", "zee"]) 
+.range(["#feb24c", "#a50f15", "#004529", "#6baed6", "#023858"])'
+
+sankeyNetwork(Links = data$links, Nodes = data$nodes, Source = 'source',
+              Target = 'target', Value = 'value', NodeID = 'group',
+              units = 'ha', fontSize = 12, nodeWidth = 25, nodePadding = 20,
+              NodeGroup = "group", LinkGroup = "group",
+              fontFamily = "calibri",
+              colourScale = colors, linkOpacity = 0.4,
+              showNodeValues = FALSE,
+              iterations = 0)
+```
+
+Er ging bijna acht maal meer landbouwlandschap verloren door urbanisatie (24.364 ha, Tabel 2, C.2) dan door uitbreiding van bos en terrestrische natuur (3.343 ha, Tabel 2, C.6). 
+Wanneer we ook de omvorming van urbaan landschap resp. natuurlijk landschap naar landbouwlandschap in rekening brengen (Tabel 2, C.4) is de netto-omvorming van landbouw naar urbaan (21.223 ha) ruim tien maal groter dan die van landbouw naar natuur en bos (1.978 ha). 
+In de uitwisseling tussen urbaan en natuurlijk landschap (Tabel 2, C.2 en C.6) ging dubbel zoveel van natuur naar urbaan dan andersom.
+Dit betekent dat de uitvoering van de Strategische visie Beleidsplan Ruimte Vlaanderen van de Vlaamse Regering [@brv_strategische_2018], de zogenaamde 'bouwshift', een onmisbare hefboom vormt voor de instandhouding en het herstel van landbouwbiodiversiteit en van natuurlijke ecosystemen in het algemeen.
+
+```{r cor-flow5-account}
+gegevens_fla_2 <- gegevens_fla[, c(1, 2, 20, 3, 4, 5, 6, 7, 8, 9, 10, 21, 22,
+                                   11, 12, 13, 14, 15, 16, 17, 18, 23, 19)]
+tabel_fla <- data.frame(t(gegevens_fla_2[-1])) # t = transponeert gegevenstabel
+#te transponeren, -1 wegens 1ste kolom met kolomhoofden
+rownames(tabel_fla) <- c("Ecosysteemvoorraad 1990",
+                         "Consumptie bestaande voorraad",
+                         "C1. Veranderingen binnen stedelijk en bebouwd gebied",
+                         "C2. Uitbreiding van stedelijk en bebouwd gebied",
+                         "C3. Veranderingen binnen het agro-ecosysteem",
+                         "C4. Uitbreiding van het agro-ecosysteem",
+                         "C5. Omvorming binnen bos en
+                         terrestrische open natuur",
+                         "C6. Uitbreiding van bos en terrestrische open natuur",
+                         "C7. Uitbreiding of omvormig van waterlichamen",
+                         "C8. Uitbreiding of omvorming van het marien
+                         ecosysteem", "Niet verbruikte voorraad",
+                         "Vorming nieuwe voorraad",
+                         "P1. Veranderingen binnen stedelijk en bebouwd gebied",
+                         "P2. Uitbreiding van stedelijk en bebouwd gebied",
+                         "P3. Veranderingen binnen het agro-ecosysteem",
+                         "P4. Uitbreiding van het agro-ecosysteem",
+                         "P5. Omvorming binnen bos en terrestrische
+                         open natuur", "P6. Uitbreiding van bos en
+                         terrestrische open natuur",
+                         "P7. Uitbreiding of omvormig van waterlichamen",
+                         "P8. Uitbreiding of omvorming van het
+                         marien ecosysteem", "Reeds bestaande voorraad",
+                         "Ecosysteemvoorraad 2018")
+tabel_fla %>%
+  kable(
+    caption = "Tabel 2. Rekening ecosysteemverandering (hectare)
+    tussen 1990 en 2018 (Bron: Corine).",
+    col.names = c("Stedelijk en bebouwd gebied", "Agro-ecosysteem",
+                  "Bos en terrestrische open natuur", "Zoetwater en estuarium",
+                  "Zee","Totaal"),
+    align = "cccccc") %>%
+  column_spec(1, width = "16em") %>%
+  column_spec(2:5, width = "9em") %>%
+  column_spec(6:7, width = "7em") %>%
+  row_spec(c(1, 22), bold = TRUE,  color = "black", background = "#acb2b4") %>%
+  row_spec(c(2, 12), bold = TRUE, color = "black", background = "#e5e7e9") %>%
+  row_spec(c(11,21), bold = TRUE, color = "black") %>%
+  row_spec(1:10, hline = TRUE) %>%
+  kable_styling(full_width = FALSE)
+```
+
+De oppervlaktegegevens in deze analyse moeten met de nodige omzichtigheid worden geïnterpreteerd.
+De berekeningen gebeurden op basis van Corine, de Europese *land cover inventory*. 
+Wegens de lage ruimtelijke resolutie van deze landgebruiksgegevens, laat de analyse geen precieze 'oppervlakteboekhouding' per ecosysteem toe. 
+Zo moet de oppervlakte 'agro-ecosysteem' veeleer worden geïnterpreteerd als 'oppervlakte waarbinnen het landschap grotendeels bestaat uit agro-ecosystemen (akkers en graslanden)'. 
+In die ruimte kunnen dus ook beperkte oppervlaktes met bebouwing en wegen, bos en natuur of water voorkomen.
+Een analyse op basis van Vlaamse landgebruiksgegevens met een hogere ruimtelijke resolutie vind je in de [fiche Landgebruiksverandering - Landgebruiksbestand Vlaanderen](https://www.vlaanderen.be/inbo/natuurrapport-2020/landgebruiksverandering-landgebruiksbestand-vlaanderen).
+
+## Referenties
