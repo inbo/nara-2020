@@ -5,7 +5,7 @@ bibliography: ../references.bib
 link-citations: TRUE
 hoofdstuk: 5
 thema:
-  - Water
+ - Water
 keywords:
  - niet-aasetende zeevogels
  - belgisch deel van de Noordzee
