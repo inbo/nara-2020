@@ -1,0 +1,50 @@
+..generic:
+  git2rdata: 0.2.1
+  optimize: no
+  NA string: ''
+  sorting: type
+  hash: eafd32ac7e44a11b6d91aeb74c2a6a12c7cd5bfb
+  data_hash: b708b473feb8992ffaf899ee6d33d24bfb19bb19
+type:
+  class: factor
+  labels:
+  - HNV1
+  - HNV2
+  - HNV3
+  index:
+  - 1
+  - 2
+  - 3
+  ordered: no
+vegetatie:
+  class: factor
+  labels:
+  - '-'
+  - Alle landgebruiken, zolang ze in aangegeven zijn in de verzamelaanvraag
+  - Natura2000-habitats en regionaal belangrijke biotopen
+  index:
+  - 1
+  - 2
+  - 3
+  ordered: no
+agrarisch_beheer:
+  class: factor
+  labels:
+  - 'Blijvend grasland (minimaal 5 jaar) of voor de overige natuurhabitats geen akker-
+    of tuinbouw '
+  - Landgebruiksintensiteit perceel kleiner dan of gelijk aan 3
+  - Soortgerichte beheerovereenkomst
+  index:
+  - 1
+  - 2
+  - 3
+  ordered: no
+biodiversiteit:
+  class: factor
+  labels:
+  - Beheergebied voor soortgerichte beheerovereenkomsten
+  - 'BWK: biologisch (zeer) waardevol'
+  index:
+  - 1
+  - 2
+  ordered: no

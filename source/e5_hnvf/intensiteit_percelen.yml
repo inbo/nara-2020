@@ -1,0 +1,40 @@
+..generic:
+  git2rdata: 0.2.1
+  optimize: no
+  NA string: NA
+  sorting: score
+  hash: 03b220509946e0fa0c762c793644769eaff9a6cd
+  data_hash: 42bf9888192ecd10339489cac193a6b9fd80d9a1
+teeltcombinaties:
+  class: factor
+  labels:
+  - Blijvend grasland
+  - Graan
+  - Suikerbieten - braak - groenten
+  index:
+  - 1
+  - 2
+  - 3
+  ordered: no
+percentage_en_type_KLE.beheerovereenkomst:
+  class: factor
+  labels:
+  - ''
+  - Gemengde grasstrook triorand (25%)
+  - Houtkanten (25%)
+  index:
+  - 1
+  - 2
+  - 3
+  ordered: no
+bescherming_of_biologische_landbouw:
+  class: factor
+  labels:
+  - ''
+  - Permanent grasland in VEN
+  index:
+  - 1
+  - 2
+  ordered: no
+score:
+  class: numeric

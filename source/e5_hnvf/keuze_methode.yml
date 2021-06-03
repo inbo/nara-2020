@@ -1,0 +1,102 @@
+..generic:
+  git2rdata: 0.2.1
+  optimize: no
+  NA string: ''
+  sorting: kenmerk
+  hash: df8f0a1f7b1f0b3d009db6d498fea5c83f1b4a67
+  data_hash: 968cc23f5f70d0956829d4f6ad0ebae4d119d952
+kenmerk:
+  class: factor
+  labels:
+  - Aggregatie
+  - Agrarisch beheer
+  - HNVf-indicator
+  - HNVf-score
+  - Indicator-categorieën
+  - Ruimtelijke resolutie (m)
+  index:
+  - 1
+  - 2
+  - 3
+  - 4
+  - 5
+  - 6
+  ordered: no
+denemarken:
+  class: factor
+  labels:
+  - 1 indicator
+  - '10'
+  - Beheer van het perceel
+  - Landschap, beheer, habitat, soorten
+  - Meerdere waarden
+  - Sommeren van alle subindicatoren met grenswaarde om van HNVf te spreken (min.
+    5 op 14)
+  index:
+  - 1
+  - 2
+  - 3
+  - 4
+  - 5
+  - 6
+  ordered: no
+nederland:
+  class: factor
+  labels:
+  - 1 per subtype
+  - '250'
+  - Beheer, vegetatie, soorten
+  - Binair
+  - Indien voldaan aan grenswaarde per categorie.
+  - Type bedrijf (aandeel braak, veedichtheid standaardoutput, aandeel grasland)
+  index:
+  - 1
+  - 2
+  - 3
+  - 4
+  - 5
+  - 6
+  ordered: no
+keuze:
+  class: factor
+  labels:
+  - 1 per subtype
+  - '10'
+  - Beheer van het perceel (milieueffecten)
+  - Binair
+  - Indien voldaan aan grenswaarden per subtype (zie verder bij de berekeningswijze
+    en Tabel 5)
+  - Vegetatie, landgebruik, beheer omgeving en soorten
+  index:
+  - 1
+  - 2
+  - 3
+  - 4
+  - 5
+  - 6
+  ordered: no
+verklaring:
+  class: factor
+  labels:
+  - ' In Vlaanderen is landbouw meer gemengd met andere landgebruiken waardoor we
+    moeten oppassen met een te grote resolutie. Bij soorten verkiezen we de BWK t.o.v.
+    vogelmonitoring. De BWK is kleinschalig, waardoor een ruimtelijke resolutie van
+    10 m mogelijk is zonder te grote fouten.'
+  - Deze keuze ligt meer in de lijn met de Europese omschrijving van de indicator.
+  - Het in rekening brengen van het beheer en het landgebruik van de omgeving lijkt
+    ons een relevante indicator, in bijzonder voor HNVf-subtype 2.
+  - Het lijkt ons relevanter om het beheer van het perceel rechtstreeks in te schatten
+    dan via bedrijfstype. Bovendien zijn de gehanteerde grenzen zeer laag waardoor
+    weinig bedrijven in Vlaanderen hieraan voldoen. Voor akkerbouwbedrijven zijn de
+    grenzen 5% braak en standaardoutput < 1000 €/ha. Voor veeteelt en gemengde bedrijven
+    zijn de grenzen min. 80% blijvend grasland en een veebezetting lager dan 1,5 grootvee-eenheid
+    per hectare.
+  - Het onderscheid in ecologische waarde zit eerder in de 3 HNVf-subtypes, zijnde
+    HNVf1 meer waardevol dan HNVf2 dat meer waardevol is dan HNVf3.
+  index:
+  - 1
+  - 2
+  - 3
+  - 4
+  - 5
+  ordered: no

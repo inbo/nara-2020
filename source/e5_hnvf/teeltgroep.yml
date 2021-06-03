@@ -1,0 +1,174 @@
+..generic:
+  git2rdata: 0.2.1
+  optimize: no
+  NA string: NA
+  sorting: teeltcode
+  hash: 64abd45f84486c118eaebb79f080248dbb695e9b
+  data_hash: 4cb7cd2c9c0131a20e55bbb2547a8bbbb60dbe39
+teeltcode:
+  class: integer
+teeltgroep:
+  class: factor
+  labels:
+  - aardappelen
+  - ander tijdelijk gras
+  - andere nijverheidsgewassen
+  - begraasde biet-landbouwgrond met overeenkomst
+  - blijvend grasland
+  - braak
+  - cichorei
+  - gebouw
+  - graan
+  - graszoden
+  - groenbemester
+  - groenten - peulvruchten
+  - heide in natuurbeheer
+  - hoogstam
+  - houtige gewassen
+  - houtkanten en houtwallen <= 10 m breed
+  - kleinfruit
+  - kolen
+  - korte omloophout
+  - kruiden
+  - laagstam en noten
+  - mais
+  - natuurlijk grasland (min 5 jaar)
+  - natuurlijk grasland < 5 jaar
+  - niet begraasde natuurgrond
+  - oliehoudende zaden
+  - onverharde landingsbaan of veiligheidszones
+  - overige gewassen
+  - overige groenten
+  - poelen
+  - prei
+  - serregroenten
+  - sierteelt
+  - suikerbieten
+  - tijdelijk cultuurgrasland
+  - vlas en hennep
+  - voeder - peulvruchten
+  - voeder - vlinderbloemige (invlusief menging met gras
+  - voederbieten
+  - voedergewassen andere
+  - weiland met bomen (min 5 jaar
+  - weiland met bomen < 5 jaar
+  - witloof
+  - wortel- en knolgroenten
+  index:
+  - 1
+  - 2
+  - 3
+  - 4
+  - 5
+  - 6
+  - 7
+  - 8
+  - 9
+  - 10
+  - 11
+  - 12
+  - 13
+  - 14
+  - 15
+  - 16
+  - 17
+  - 18
+  - 19
+  - 20
+  - 21
+  - 22
+  - 23
+  - 24
+  - 25
+  - 26
+  - 27
+  - 28
+  - 29
+  - 30
+  - 31
+  - 32
+  - 33
+  - 34
+  - 35
+  - 36
+  - 37
+  - 38
+  - 39
+  - 40
+  - 41
+  - 42
+  - 43
+  - 44
+  ordered: no
+gewassen:
+  class: factor
+  labels:
+  - ''
+  - aardbeien, druiven, frambozen, braam-, kiwi-, stekel-, rode, witte en zwarte bessen,
+    wijnstokken en andere eenjarige fruitteelten
+  - andere bedekking, engelwortel, niet nader omschreven gewas, teelt niet vast te
+    stellen, niet eetbare tuinbouwgewassen, blanco gewascode en volkstuinparken
+  - andijvie, artisjok, bladrammenas, blad-, groene en bleekselder, pompen, courgette,
+    rabarber, spinazie en andere groenten
+  - aubergines, krop-, ijsberg-, raket- en veldsla, kervel, tomaten, komkommer, paprika
+    en champignons
+  - bascilicum, peterselie, bieslook, geneeskrachtige en aromatische planten en kruiden
+    en andere kruiden
+  - bebossing en bomen in groep
+  - brocolli, bloem-, boeren-, savooi-, spruit-, rode, witte en Chinese kool
+  - erwten, flageolets, snijbonen, sojabonen, stamslabonen, tuin- en veldbonen
+  - festulolium, gras in onderzaai, miscanthus, Westerwolds, Engels en Italiaans raaigras
+    en snijrogge
+  - gele mosterd, sareptamosterd, japanse haver, soedangras, phacelia, mengsels van
+    groenbedekkers
+  - gerst, rogge, tarwe, boekweit, gierst, spelt, triticale, haver, sorghum, quinoa
+    en mengkoren
+  - hop en tabak
+  - klaver, luzerne, grasklaver, grasluzerne, wikke en mengsels
+  - koolzaad, raapzaad, zonnebloempitten en andere oliehoudende zaden24onverharde
+    landingsbaan of veiligheidszones25overige gewassenandere bedekking, engelwortel,
+    niet nader omschreven gewas, teelt niet vast te stellen, niet eetbare tuinbouwgewassen,
+    blanco gewascode en volkstuinparken26overige groentenandijvie, artisjok, bladrammenas,
+    blad-, groene en bleekselder, pompen, courgette, rabarber, spinazie en andere
+    groenten27poelen28prei29serregroentenaubergines, krop-, ijsberg-, raket- en veldsla,
+    kervel, tomaten, komkommer, paprika en champignons30sierteelt31suikerbieten32ander
+    tijdelijk grasFestulolium, gras in onderzaai, miscanthus, Westerwolds, Engels
+    en Italiaans raaigras en snijrogge33vlas en hennep34voeder - peulvruchtenvoedererwten,
+    tuin- en veldbonen (niet menselijke consumptie)35voeder - vlinderbloemige (invlusief
+    menging met grasklaver, luzerne, grasklaver, grasluzerne, wikke en mengsels36voederbieten37voedergewassen
+    anderevoederkool, -rapen en -wortelen en andere voedergewassen38weiland met bomen
+    < 5 jaar39witloof40wortel- en knolgroentenvenkel, ajuin, asperge, knolselder,
+    koolraap, koolrabi, pastinaak, raap, radijs, rammenas, rode biet, schorseneer,
+    wortel en sjalot41niet begraasde natuurgrond56blijvend grasland59natuurlijk grasland
+    (min 5 jaar)88weiland met bomen (min 5 jaar
+  - meerjarige fruitteelt - hoogstam en tuin met hoogstam
+  - spontane bedekking, niet ingezaaid akkerland, bloemen-, fauna- en graskruidenmengsels
+  - venkel, ajuin, asperge, knolselder, koolraap, koolrabi, pastinaak, raap, radijs,
+    rammenas, rode biet, schorseneer, wortel en sjalot41niet begraasde natuurgrond56blijvend
+    grasland59natuurlijk grasland (min 5 jaar)88weiland met bomen (min 5 jaar
+  - voedererwten, tuin- en veldbonen (niet menselijke consumptie)
+  - voederkool, -rapen en -wortelen en andere voedergewassen
+  - wijmen- en andere bebossing (korte omloophout)
+  index:
+  - 1
+  - 2
+  - 3
+  - 4
+  - 5
+  - 6
+  - 7
+  - 8
+  - 9
+  - 10
+  - 11
+  - 12
+  - 13
+  - 14
+  - 15
+  - 16
+  - 17
+  - 18
+  - 19
+  - 20
+  - 21
+  ordered: no

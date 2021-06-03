@@ -1,0 +1,27 @@
+..generic:
+  git2rdata: 0.2.1
+  optimize: no
+  NA string: ''
+  sorting: gebiedsaanduidingen
+  hash: c11d030552a8a8f13e35a1f1e0bc8ff23228c307
+  data_hash: 11373d203bf530fc43521e7cb44979c338da34d6
+gebiedsaanduidingen:
+  class: factor
+  labels:
+  - agromilieuklimaatmaatregelen met verminderd gebruik
+  - biologische landbouw
+  - VEN en habitatrichtlijngebied (zonder afwijking)
+  index:
+  - 1
+  - 2
+  - 3
+  ordered: no
+intensiteitsscore_vermindering:
+  class: factor
+  labels:
+  - steeds klasse 1
+  - vermindering met 1 klasse
+  index:
+  - 1
+  - 2
+  ordered: no

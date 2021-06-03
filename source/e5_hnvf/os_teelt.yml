@@ -1,0 +1,134 @@
+..generic:
+  git2rdata: 0.2.1
+  optimize: no
+  NA string: NA
+  sorting:
+  - teeltgroep
+  - score
+  hash: bcb1a2a845b77f4b0e1f0e6649ace83813ceedd1
+  data_hash: 360122dccf0287d58957df164671afca834620cd
+teeltgroep:
+  class: factor
+  labels:
+  - aardappelen
+  - akker_bwk
+  - bieten
+  - cichorei
+  - granen
+  - groenbemester
+  - groenten - peulvruchten
+  - kolen
+  - koolzaad
+  - korrelmaïs
+  - 'overig '
+  - overige groenten
+  - sierteelt
+  - snijmaïs
+  - tijdelijk gras
+  - vlas
+  - voeder - peulvruchten
+  - voeder - vlinderbloemige
+  index:
+  - 1
+  - 2
+  - 3
+  - 4
+  - 5
+  - 6
+  - 7
+  - 8
+  - 9
+  - 10
+  - 11
+  - 12
+  - 13
+  - 14
+  - 15
+  - 16
+  - 17
+  - 18
+  ordered: no
+teelt:
+  class: factor
+  labels:
+  - ''
+  - bloemkolen, witte kolen, broccoli, savooikolen, spruitkolen en rode kolen
+  - erwten droog geoogst
+  - snijrogge, facelia, gele mosterd en Japanse haver
+  - spelt, rogge, haver, zomertarwe, triticale, wintertarwe en -gerst (met/zonder
+    afvoer stro)
+  - stamsla, veld en bruine bonen
+  - voeder- en suikerbieten
+  - witloofwortels, wortels, rapen, prei, knolselder en asperge 1 jaar
+  - witte en rode klaver
+  - zaad- en vezelvlas
+  - zomer- en winterkoolzaad
+  index:
+  - 1
+  - 2
+  - 3
+  - 4
+  - 5
+  - 6
+  - 7
+  - 8
+  - 9
+  - 10
+  - 11
+  ordered: no
+effectief_organische_koolstof:
+  class: factor
+  labels:
+  - ''
+  - 0,15 - 0,18
+  - '0,27'
+  - '0,27, 0,37, 0,37, 0,38, 0,55 en 0,57 (gem: 0,42)'
+  - 0,46, 0,46 en 0,47
+  - '0,47'
+  - '0,47, 0,53, 0,54, 0,66, 0,72 en 0,73 (gem: 0,61'
+  - 0,51, 0,56, 0,63 en 1,2 (gem. 0.73)
+  - '0,64'
+  - 0,64 - 0,70
+  - 0,69 - 0,93
+  - 0,73 - 0,81
+  - '0,77'
+  - 0,89
+  - 1,01 tem 1,66
+  - '1,33'
+  index:
+  - 1
+  - 2
+  - 3
+  - 4
+  - 5
+  - 6
+  - 7
+  - 8
+  - 9
+  - 10
+  - 11
+  - 12
+  - 13
+  - 14
+  - 15
+  - 16
+  ordered: no
+klasse:
+  class: factor
+  labels:
+  - ''
+  - < 0,4
+  - '> 1'
+  - 0,4 - 0,6
+  - 0,6 - 0,8
+  - 0,8 - 1
+  index:
+  - 1
+  - 2
+  - 3
+  - 4
+  - 5
+  - 6
+  ordered: no
+score:
+  class: integer

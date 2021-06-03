@@ -1,0 +1,798 @@
+---
+title: "Metadata High Nature Value farming"
+date: 2020-07-01T10:00:00
+bibliography: ../references.bib
+link-citations: TRUE
+nocite: | 
+  @allan_interannual_2014, @bluthgen_quantitative_2012, @brunbjerg_development_2016, @lomba_reconciling_2015, @martin_interplay_2019, @morelli_landscape_2018, @salek_bringing_2018, @sirami_increasing_2019, @tscharntke_set-aside_2011, @tuck_land-use_2014, @zingg_landscape-scale_2018
+hoofdstuk: 5
+thema:
+  - Landbouw
+keywords:
+  - agrobiodiversiteit
+  - halfnatuurlijke graslanden
+lang: nl
+tab: metadata
+verantwoordelijke:
+- Peter Van Gossum <peter.vangossum@inbo.be>
+output: html_document
+---
+## Technische informatie
+
+```{r setup, include=FALSE}
+library(knitr)
+opts_chunk$set(echo = FALSE, message = FALSE, warning = FALSE)
+library(git2rdata)
+library(tidyverse)
+library(kableExtra)
+library(DT)
+```
+
+
+```{r databereik}
+databereik <- "2013-2016"
+```
+\- **Periodiciteit**: eenmalig
+\- **Volgende update**: onbekend
+\- **Databereik**: `r databereik`
+
+## Databron
+
+- **Producent**: Instituut voor Natuur- en Bosonderzoek
+- **Dataset**: de door VITO gemaakte VPO-landgebruiksbestanden, de Biologische Waarderingskaart en gebruikspercelenkaarten 2009-2016)
+- **Gegevensinzameling**: De gegevens van het VPO-landgebruiksbestand is gebaseerd op een groot aantal kaartlagen met ondere andere de landbouwgebruikspercelenkaart, de BWK, het Gemeenschappelijk referentiebestand (GRB), de Groenkaart, de Serrekaart en Bedrijventerreinen (voor meer info zie @poelmans_landgebruik_2019). De BWK op terreinwaarnemingen, aangevuld met vegetatiekaarten en de interpretatie van luchtfoto's. De landbouwgebruikspercelenkaart is gebaseerd op de jaarlijkse aangiftes door landbouwers.
+
+```{r data_inlezen}
+intensiteitgegevens <- read_vc("intensiteit")
+```
+## Achtergrond
+
+### Doel
+
+Het doel is om een verbeterde High-Nature-Value-farming (HNVf) indicator voor Vlaanderen te ontwikkelen. 
+De nieuwe indicator
+
+- meet kleine veranderingen in het agrarisch beheer,
+- is breed aanvaard door belanghebbenden, en
+- heeft een transparante methode.
+
+
+### Beweegredenen
+
+De HNVf-indicator is een Europese indicator voor het opvolgen van het gemeenschappelijk landbouwbeleid.  
+Deze indicator schat de biodiversiteitswaarde in van landbouwgrond. 
+@danckaert_indicatoren_2009 ontwikkelde de huidige HNVf-indicator voor Vlaanderen. 
+Deze indicator is aan een update toe omdat:
+
+1. De indicator meet geen veranderingen. 
+De waarde bleef dezelfde tijdens de volledige periode 2009-2018.
+Daarentegen nam de oppervlakte aan soortgerichte beheerovereenkomsten sterk toe.
+
+2. De Biologische Waarderingskaart is niet up-to-date voor het landbouwgebied. 
+Deze kaart is noodzakelijk voor de berekening van de indicator.
+Het INBO heeft wel de intentie om deze kaart up-to-daten met slimme beeldherkenning en door vrijwilligers in te schakelen.
+Dit project staat vermeld in de meerjarenplanning van het INBO.
+
+3. Nieuwe informatie kan de indicator verbeteren. 
+Het gaat hierbij om:
+    + de landschapselementenkaart van het Departement Landbouw en Visserij (houtige elementen),
+    + de watervlakkenkaart van het Instituut voor Natuur- en Bosonderzoek (stilstaande waterlichamen), en
+    + de landgebruikskaart van het VITO (deze kaart is nodig voor HNVf-type 2 te berekenen, zie verder).
+
+4. Wetenschappers en beleidswerkers verbeterden de oorspronkelijke methode [zie o.a. @brunbjerg_development_2016; @lomba_reconciling_2015; @maskell_exploring_2019; @van_doorn_high_2013]. 
+We willen nagaan of dit ook voor Vlaanderen mogelijk is.
+
+Aangezien op 1 jan 2022 een nieuwe periode van het Gemeenschappelijk Landbouwbeleid (GLB) begint, kan een update en verbetering van de HNVf-indicator het beleid ondersteunen. 
+De ontwikkeling van de indicator werd begeleid door een gebruikersgroep. 
+Deze bestond uit:
+
+- Departement Landbouw en Visserij
+- Vlaamse Landmaatschappij
+- Agentschap Natuur & Bos
+- Milieurapportteam
+
+In de volgende paragrafen bespreken we achtereenvolgens: 
+
+1. de Nederlandse en Deense methode, 
+2. beschikbare kaarten, 
+3. mogelijke indicatoren, en
+4. keuzes die we voor de Vlaamse HNVf-indicator(en) maken.
+
+### Nederlandse en Deense methode
+
+Om ons te inspireren voor de nieuwe Vlaamse HNVf-indicator keken we naar de Deense en Nederlandse methodiek [respectievelijk @brunbjerg_development_2016; @van_doorn_high_2013]. 
+Hierbij is het belangrijk te weten dat het doel van de Deense indicator verder gaat dan het opvolgen van de oppervlakte HNVf. 
+De Deense overheid gebruikt de indicator ook voor het gericht toekennen van subsidies. 
+In de volgende paragraaf bespreken en vergelijken we beide methoden.
+
+De Deense HNVf-indicator bestaat uit 14 subindicatoren. 
+De subindicatoren zijn ofwel proxy's voor hoge natuurwaarde of observatiegegevens over de verspreiding van zeldzame en bedreigde soorten in Denemarken. 
+De subindicatoren dekken in lijn met de EU-aanbevelingen de volgende vier categorieën: (1) landschapsstructuur, (2) natuurlijke habitats, (3) managementpraktijken en (4) verspreiding van soorten. 
+Hiervoor werd een raster van 10 x 10 meter gebruikt om maximale resolutie en maximale flexibiliteit te garanderen met betrekking tot subsidieaanvragen. 
+De 14 subindicatoren worden afzonderlijk gescoord (1: kan bijdragen aan HNV-farming, 0: niet) en vervolgens worden de deelscores opgeteld. Dit is dan de score voor de HNVF indicator.
+Landbouwpercelen met een minimale score van 5 zijn high-nature-value farming.
+
+De Nederlandse HNVf-indicator houdt meer rekening met de 3 HNVf-subtypes van @andersen_developing_2003.
+Bij elk HNVf-type zijn er afzonderlijk subindicatoren op vlak van (1) vegetatie, (2) agrarisch beheer en (3) biodiversiteit. 
+Voor elke subindicator is er een minimale waarde en het perceel is HNVf indien elke subindicator hieraan voldoet. 
+@andersen_developing_2003 vermijden ook overlap tussen de HNVf-types.
+De gekozen ruimtelijke resolutie is 250 meter omdat de gebruikte soortgegevens enkel beschikbaar zijn op kilometerhokniveau. 
+De indicator houdt rekening met alle gebieden die beheerd worden door landbouwers, dus ook natuurgebieden onder gebruiksovereenkomst.
+
+```{r Tabel 1, echo=FALSE, message=FALSE, warning=FALSE}
+nl_hnvf <- data.frame(
+  Type = c("HNVf1", "HNVf2", "HNVf3"),
+  Vegetatie = c("Indicator1", "Indicator2", "Indicator3"),
+  Beheer = c("Indicator4", "Indicator5", "Indicator6"),
+  Biodiversiteit = c("Indicator7", "Indicator8", "Indicator9")
+)
+
+nl_hnvf %>%
+  mutate_all(linebreak) %>%
+  kable(
+    caption = "Tabel 1. Nederlandse HNVf-methodiek
+        [@van_doorn_high_2013]",
+    booktabs = TRUE, escape = FALSE,
+    col.names = linebreak(c(
+      "Type", "Vegetatie", "Beheer",
+      "Biodiversiteit"
+    )),
+    align = c("l")
+  ) %>%
+  kable_styling(latex_options = c("striped", "HOLD_position"))
+```
+
+### Beschikbare kaarten
+
+Hieronder geven we een overzicht van de beschikbare kaartlagen (Tabel 2). 
+De updatefrequentie varieert van jaarlijks tot éénmalig. 
+We dienen de kaarten zodanig te combineren dat de indicator:
+
+- tussentijdse veranderingen meet tijdens een GLB-periode (onder andere voor de verplichte midtermevaluatie), en 
+- meer nauwkeurig meet bij het einde van een GLB-periode.
+
+Tussentijdse veranderingen meten we door de kaartlagen landbouwgebruikspercelenkaart uit de Verzamelaanvraag en beheerovereenkomsten te combineren. 
+Gebruikspercelen geeft ons na bewerkingen info over de intensiteit van de teeltrotatie en de grasleeftijd. De grasleeftijd is het aantal jaar dat een perceel continu in graslandgebruik is. 
+Hoe hoger de grasleeftijd, hoe hoger de koolstofwaarde en hoe beter voor de bodembiodiversiteit als het gras niet gescheurd en heringezaaid wordt. 
+Beheerovereenkomsten geeft ons na bewerking info over de opgaande kleine landschapselementen die zeker beheerd worden, de grasstroken en het aandeel landbouwgrond onder beheerovereenkomst in de omgeving van een rastercel.
+
+Nauwkeurige meting op het einde van een GLB-periode zou mogelijk zijn indien de overheidsentiteiten volgende kaarten updaten met frequentie van 6 jaar:
+
+- de landschapselementenkaart: dit was een éénmalige oefening, die mogelijks updatebaar zijn door machine learning.
+- de beheergebieden akkervogels, weidevogels, hamster, grauwe kiekendief, botanisch beheer:  het is de intentie van de VLM om naar 1 type beheergebied te gaan voor alle soortgerichte beheerovereenkomsten.
+
+```{r Tabel 2, echo=FALSE, message=FALSE, warning=FALSE}
+
+beschikbare_kaartlagen <- read_vc("kaartlagen")
+
+beschikbare_kaartlagen %>%
+  mutate_all(linebreak) %>%
+  kable(
+    caption = "Tabel 2.  Beschikbare kaartlagen voor de Vlaamse
+        HNVf-indicator",
+    booktabs = TRUE,
+    escape = FALSE,
+    col.names = linebreak(c(
+      "Kaartlaag", "Inhoud",
+      "Updatefrequentie"
+    )),
+    align = c("l")
+  ) %>%
+  kable_styling(latex_options = c("striped", "HOLD_position"))
+```
+
+### Mogelijke subindicatoren
+
+In de literatuur worden verschillende subindicatoren naar voor geschoven die een indicatie kunnen geven voor de biodiversiteitswaarde van het agro-ecosysteem. 
+In onderstaande tabel geven we aan of we ze kunnen weerhouden voor de berekening van de Vlaamse HNVf-indicator.
+
+```{r Tabel 3, echo=FALSE, message=FALSE, warning=FALSE}
+
+subindicatoren <- read_vc("subindicatoren")
+
+subindicatoren %>%
+  mutate_all(linebreak) %>%
+  kable(
+    caption = "Tabel 3. Mogelijke subindicatoren voor
+        HNVf-indicator",
+    booktabs = TRUE,
+    escape = FALSE,
+    col.names = linebreak(c(
+      "Indicator", "Type", "Bron",
+      "Betekenis", "Bruikbaarheid"
+    )),
+    align = c("l")
+  ) %>%
+  kable_styling(latex_options = c("striped", "HOLD_position"))
+```
+
+### Keuzes voor Vlaanderen
+
+Bij het maken van keuzes voor de nieuwe Vlaamse HNVf-methoden lag de focus op het ontwikkelen van een HNVf-indicator die de oppervlakte HNVf monitort en die rekening houdt met de 3 subtypes. 
+Om dit doel te realiseren hebben we onderstaande keuzes gemaakt (Tabel 4, Tabel 5).
+
+Voor HNVf-type 2 kozen we voor intensiteit als subindicator. 
+De indicator houdt rekening met gewasbeschermingsmiddelen, nitraatresidu en effecten op de bodem. 
+Het gaat hierbij zowel om intensiteit van het perceel als de omgeving. 
+Voor de omgeving kozen we voor een straal van 500 meter rond het perceel. 
+Deze twee subindicatoren integreren veel van de vermelde subindicatoren uit tabel 3:
+
+- aanwezigheid van halfnatuurlijke vegetaties,
+- aanwezigheid van kleine landschapselementen en beheerovereenkomsten,
+- aanwezigheid van agromilieuklimaatmaatregelen die bijvoorbeeld zorgen voor minder bodemverstoring (bv. niet-kerende bodembewerking) of verminderd gebruik van gewasbeschermingsmiddelen (bv. verwarringstechniek bij pitfruit) waardoor de intensiteit van deze percelen lager is. 
+Op het moment van de berekeningen hadden we geen beschikking over de kaart met agromilieumaatregelen.
+- aanwezigheid van biologische landbouw: het niet-gebruik van chemisch-synthetische gewasbeschermingsmiddelen brengen we in rekening.
+- perceel ligt in VEN en/of habitatrichtlijngebied: het niet-gebruik van chemisch-synthetische gewasbeschermingsmiddelen brengen we in rekening. Permanent en beschermde graslanden krijgen ook een lagere intensiteitsscore omdat dit statuut hen beschermt tegen scheuren.
+
+Op het moment van de berekeningen hadden we geen beschikking over de kaart met agromilieumaatregelen.
+Voor een uitgebreide bespreking van de intensiteitsindicatoren verwijzen we naar paragraaf over intensiteit landgebruik.
+
+```{r Tabel 4, echo=FALSE, message=FALSE, warning=FALSE}
+keuzes <- read_vc("keuze_methode")
+
+keuzes %>%
+  mutate_all(linebreak) %>%
+  kable(
+    caption = "Tabel 4. Keuzes voor Vlaamse HNVf-indicator",
+    booktabs = TRUE,
+    escape = FALSE,
+    col.names = linebreak(c(
+      "", "Denemarken", "Nederland",
+      "Keuze", "Verklaring"
+    )),
+    align = c("l")
+  ) %>%
+  kable_styling(latex_options = c("striped", "HOLD_position"))
+```
+
+```{r Tabel 5, echo=FALSE, message=FALSE, warning=FALSE}
+keuze_indicatoren <- read_vc("keuze_indicatoren")
+
+keuze_indicatoren %>%
+  mutate_all(linebreak) %>%
+  kable(
+    caption = "Tabel 5. Gekozen subindicatoren",
+    booktabs = TRUE,
+    escape = FALSE,
+    col.names = linebreak(c(
+      "Type", "Vegetatie", "Beheer",
+      "Biodiversiteit"
+    )),
+    align = c("l")
+  ) %>%
+  kable_styling(latex_options = c("striped", "HOLD_position"))
+```
+
+### Berekeningswijze
+
+#### A. HNV1
+
+##### A1. Vegetatie en beheer
+
+We beperken het landgebruik tot de agro-ecosystemen in landbouwbeheer.
+Dit sluit halfnatuurlijke vegetaties uit die niet aangegeven zijn in de verzamelaanvraag.
+Bijkomend sluit het halfnatuurlijke graslanden uit die aangegeven zijn door erkende terreinbeherende organisaties.
+In de indicator 2020 was de laatste correctie niet mogelijk omdat we niet beschikken over de volledige verzamelaanvraag.
+
+Om de halfnatuurlijke graslanden in landbouwbeheer te bepalen hielden we rekening met volgende kaartlagen:
+
+- de landgebruikspercelenkaarten vanaf 1999 (starttijdstip BWK 2) tot en met het jaar van de landgebruikskaart, en
+- de meest recente BWK ten opzichte van de landgebruikskaart. 
+
+De randvoorwaarden van deze HNVf1-subindicator zijn:
+
+- volledige periode aangegeven als gras (blijvend en tijdelijk gras, natuurlijk grasland, grasland met bomen) of op tijdstip van de landgebruikskaart grasland in natuurbeheer.
+Landbouwers geven graslanden in natuurbeheer eerder sporadisch aan waardoor we de continuöteit van het grasland niet kunnen inschatten door analyse van de landgebruikspercelenkaarten.
+- natura2000-grasland (inclusief waarschijnlijk en deels natura2000) of regionaal belangrijke biotoop op de meest recente BWK ten opzichte van de landgebruikskaart.
+
+Om de akkers in natuurbeheer te bepalen hielden we rekening met volgende kaartlagen:
+
+- de landgebruikspercelen kaart van het jaar van de landgebruikskaart, en
+- de meest recente BWK ten opzichte van de landgebruikskaart.
+
+De randvoorwaarden van deze HNVf1-subindicator zijn:
+
+- aangegeven als begraasde niet-landbouwgrond met overeenkomst, braak (voor meer detail zie Tabel 6), onverharde landingsbaan of veiligheidszones (deze stroken worden doorgaans begraasd of gemaaid) op de verzamelaanvraag.
+- natura2000-habitat (inclusief waarschijnlijk en deels natura2000) of regionaal belangrijke biotoop op de meest recente BWK ten opzichte van de landgebruikskaart.
+
+```{r Tabel 6, echo=FALSE, message=FALSE, warning=FALSE}
+hout_braak <- read_vc("braak")
+
+hout_braak %>%
+  mutate_all(linebreak) %>%
+  kable(
+    caption = "Tabel 6. Gewas van de verzamelaanvraag geklasseerd
+        als braak",
+    booktabs = TRUE,
+    escape = FALSE,
+    col.names = linebreak(c("Gewasgroep", "Gewas")),
+    align = c("l")
+  ) %>%
+  kable_styling(latex_options = c("striped", "HOLD_position"))
+```
+
+
+##### A2. Soorten
+
+Bij de Nederlandse methodiek is het voorkomen van vegetatie onvoldoende om als HNVf gekenmerkt te worden, ook 15% van de kenmerkende soorten dient er voor te komen.
+
+In de Nederlandse methode wordt er bij heide gekeken naar vogels en bij halfnatuurlijk grasland naar de planten en vlinders. 
+In Vlaanderen beschikken we over vogel- en vegetatiedata, vlinderdata zijn te weinig recent om gebruikt te worden. 
+Voor de vegetatie kunnen we kijken naar het voorkomen van planten of naar de biologische waardering van de vegetatie (zijnde de BWK). 
+Ondanks het feit dat de BWK niet meer recent is binnen de meeste landbouwgebieden, kiezen we voor de BWK. 
+Omdat de intentie bestaat om de BWK ook buiten habitatrichtlijngebieden te updaten kiezen we voor de BWK. Maar we zijn er ons van bewust dat deze kaart de laatste 10 jaar niet geactualiseerd is in landbouwgebieden.
+De halfnatuurlijke vegetatie dient minimaal de waarde waardevol te hebben.
+
+#### B. HNV2
+
+##### B1. Vegetatie en beheer
+
+Voor de kleinschalige mozaïeklandschappen kozen we ervoor om te werken met intensiteitsscore van het perceel en zijn omgeving. 
+De intensiteitsscore houdt rekening met diverse vegetatie- en beheerindicatoren:
+
+- de aanwezigheid van natuur en bos, 
+- het gebruik van chemisch-synthetische gewasbeschermingsmiddelen,
+- gebiedsbeperkingen inzake gewasbeschermingsmiddelen (VEN en habitatrichtlijngebieden), 
+- (historisch) permanente graslanden, 
+- biologische landbouw, 
+- het nitraatresidu, 
+- de aanwezigheid van beheerovereenkomsten en kleine landschapselementen (voor een uitgebreide beschrijving van hoe de score berekend is verwijzen we naar paragraaf _Intensiteit landgebruik_). 
+We kiezen hierbij om de drempel op een score van 3 te leggen voor zowel het perceel als zijn omgeving. 
+Deze score kwam in het Natuurrapport 2016 overeen met een soortenrijk mozaïeklandschap, zijnde een gevarieerd landschap met veel kleine landschapselementen en/of halfnatuurlijke vegetatie. 
+Ook grootschalige blijvende graslandgebieden worden hierbij als weinig intensief gekenmerkt. 
+In de huidige methode kon de blauwe dooradering niet volledig in rekening gebracht worden omdat de Vlaamse hydrografische atlas voor stromend water onvolledig is voor de niet gecategoriseerde waterlopen. 
+```{r Tabel 7, echo=FALSE, message=FALSE, warning=FALSE}
+intensiteit_perceel <- read_vc("intensiteit_percelen")
+intensiteit_perceel %>%
+  mutate_all(linebreak) %>%
+  kable(
+    caption = "Tabel 7. Voorbeelden van niet-intensieve percelen
+        (voor een uitgebreide beschrijving van de intensiteitsscore
+        zie bijlage 1)",
+    booktabs = TRUE,
+    escape = FALSE,
+    col.names = linebreak(
+      c(
+        "Teeltcombinaties",
+        "Percentage en type KLE/beheerovereenkomst",
+        "Bescherming of biologische landbouw", "Score"
+      )
+    ),
+    align = c("l")
+  ) %>%
+  kable_styling(latex_options = c("striped", "HOLD_position"))
+```
+
+```{r Tabel 8, echo=FALSE, message=FALSE, warning=FALSE}
+intensiteit_omgeving <- data.frame(
+  Akker = c(35, 30, 25),
+  Gras = c(65, 40, 35),
+  Natuur = c(0, 20, 25),
+  Bebouwd = c(0, 10, 15),
+  Score = c("2,96", "2,92", "2,93")
+)
+
+intensiteit_omgeving %>%
+  mutate_all(linebreak) %>%
+  kable(
+    caption = "Tabel 8. Voorbeelden van een niet-intensieve
+        omgeving",
+    booktabs = TRUE,
+    escape = FALSE, col.names = linebreak(
+      c(
+        "Akker (score 3,8)", "Gras (score 2,5)",
+        "Natuur, bos en KLE (score 1,4)",
+        "Bebouwd en infrastructuur (score 5)", "Score"
+      )
+    ),
+    align = c("l")
+  ) %>%
+  kable_styling(latex_options = c("striped", "HOLD_position"))
+```
+
+B2. Soorten
+
+Voor soorten doen we terug een beroep op de BWK. 
+Akker, tuinbouw of grasland dient minimaal de score waardevol te hebben.
+We sluiten rastercellen die reeds HNVf1 zijn hierbij uit.
+
+#### C. HNV3
+
+##### C1. Vegetatie en agrarisch beheer
+
+Het perceel dient in landbouwbeheer te zijn en er werd een beheerovereenkomst voor soortbescherming afgesloten. 
+Vermits terreinbeherende organisaties geen beheerovereenkomst kunnen afsluiten, zitten ze niet vervat in HNV3-subtype.
+
+##### C2. Soorten
+
+We maken hierbij gebruik van de beheergebieden (weidevogels, akkervogels, hamster, botanisch beheer) als proxy omdat de beheergebieden aangeduid werden o.b.v. hun potentiële geschiktheid en het voorkomen van soorten.
+We sluiten rastercellen die HNVf1 of HNVf2 zijn hierbij uit.
+
+#### D. Intensiteit landgebruik
+
+Het doel is om tot een score te komen die de mogelijke nadelige effecten voor biodiversiteit van het landgebruik omvat.
+
+Voor productiegrasland, akker- en tuinbouw laten we ons hierbij leiden door het gemiddelde van de score voor gewasbeschermingsmiddelengebruik, het nitraatresidu en de impact op de bodem. 
+We geven hierbij eerst de gangbare scores weer en dienen deze scores nog te verminderen voor specifieke gebiedsaanduidingen of beheerovereenkomsten of agromilieuklimaatmaatregelen die mest- en gewasbeschermingsbeperkingen opleggen.
+Bij het bepalen van de score houden we rekening met gewasrotatie. 
+De berekende score is een gemiddelde score over een 3-jarige periode.
+Berekeningen gebeuren op niveau van teeltgroep waarbij we streven om het aantal teeltgroepen zo beperkt mogelijk te houden.
+
+Voor de overige landgebruiken schatten we het effect in aan de hand van hun analogie met agrarische landgebruiken. 
+Gebouwen (inclusief serres en loodsen voor champignons), wegen, spoorwegen en de categorie overig krijgen de maximale intensiteitsscore van 5. 
+Het landgebruik water krijgt score 2.
+
+##### D1. Teeltgroep
+
+We groeperen de gewassen uit de verzamelaanvraag in functie van hun score voor nitraatresidu, gewasbescherming, bodemkoolstof, bodemerosie en bodemverdichting gegroepeerd in teeltgroepen (Tabel 9).
+
+```{r Tabel 9, echo=FALSE, message=FALSE, warning=FALSE}
+teeltgroepen <- read_vc("teeltgroep")
+
+teeltgroepen %>%
+  mutate_all(linebreak) %>%
+  kable(
+    caption = "Tabel 9. Groepering gewassen in teeltgroepen",
+    booktabs = TRUE,
+    escape = FALSE,
+    col.names = linebreak(c(
+      "Teeltcode", "Teeltgroep",
+      "Gewassen"
+    )),
+    align = c("l")
+  ) %>%
+  kable_styling(latex_options = c("striped", "HOLD_position")) %>%
+  scroll_box(width = "800px", height = "400px")
+```
+
+##### D2. Nitraatresidu
+
+Voor het nitraatresidu werden de mestrapporten (2015-2019) bekeken. 
+We keken hierbij naar het gemiddeld mediaan nitraatresidu voor deze periode (Tabel 10).
+Voor 2016 beschikten we over de cijfers en voor de andere jaren konden we het uit de figuur, die het cumulatief aantal percelen weergeeft, afleiden.
+We kiezen hierbij voor de mediaan omdat uitschieters hier weinig effect op hebben. 
+En we kiezen voor een gemiddelde over 5 jaar om de invloed van extreme weersinvloeden zoveel mogelijk te beperken. 
+Naast agro-ecosystemen worden ook tuinen bemest. 
+Laag groen stellen we hierbij gelijk aan gras en akker volgens de Biologische Waarderingskaart (hobbylandbouw en moestuinen) gelijk aan overige gewassen.
+De andere landgebruiken krijgen score 1 (< 20 kg NO~3~^-^). 
+In een volgende stap verminderen we de score voor gebieden waar bijkomende mestbeperkingen gelden (wettelijke of vrijwillig via beheerovereenkomst (Tabel 11).
+
+```{r Tabel 10, echo=FALSE, message=FALSE, warning=FALSE}
+nitraat <- read_vc("nitraatresidu")
+
+nitraat %>%
+  mutate_all(linebreak) %>%
+  kable(
+    caption = "Tabel 10. Mediaan nitraatresidu voor de periode
+        2015-2019 (bron: VLM)",
+    booktabs = TRUE,
+    escape = FALSE,
+    col.names = linebreak(
+      c(
+        "Teeltgroep",
+        "Mediaan nitraatresidu (kg nitraat-N/ha, klasse)",
+        "Intensiteitsscore"
+      )
+    ),
+    align = c("l")
+  ) %>%
+  kable_styling(latex_options = c("striped", "HOLD_position")) %>%
+  scroll_box(width = "800px", height = "300px")
+```
+
+```{r Tabel 11, echo=FALSE, message=FALSE, warning=FALSE}
+mestbeperking <- read_vc("gebied_mest")
+
+mestbeperking %>%
+  mutate_all(linebreak) %>%
+  kable(
+    caption = "Tabel 11. Vermindering intensiteitsscore voor
+        gebieden met mestbeperkingen",
+    booktabs = TRUE,
+    escape = FALSE,
+    col.names = linebreak(
+      c(
+        "Gebiedsaanduiding",
+        "Intensiteitsscore of vermindering"
+      )
+    ),
+    align = c("l")
+  ) %>%
+  kable_styling(latex_options = c("striped", "HOLD_position"))
+```
+
+##### D3. Gewasbescherming
+
+Voor gewasbescherming houden we rekening met de verdeling van [de Seq-index over de verschillende teeltgroepen]( https://lv.vlaanderen.be/nl/voorlichting-info/publicaties-cijfers/landbouwcijfers)voor de periode 2012-2016 (Tabel 12). 
+De Seq-index is een maat voor de druk die de gewasbeschermingsmiddelen uitoefenen op het waterleven.  De index weerspiegelt de gebruikte hoeveelheid actieve stof op ecotoxiciteit en verblijftijd in het milieu.
+Naast agro-ecosystemen worden ook gewasbeschermingsmiddelen toegepast in tuinen. 
+Laag groen stellen we hierbij gelijk aan gras en akker volgens de Biologische Waarderingskaart gelijk aan overige gewassen. 
+In de volgende stap verminderen we de score voor gebieden waar er beperkingen gelden voor gewasbeschermingsmiddelen (Tabel 13).
+
+```{r Tabel 12, echo=FALSE, message=FALSE, warning=FALSE}
+seqscore <- read_vc("seq")
+
+seqscore %>%
+  mutate_all(linebreak) %>%
+  kable(
+    caption = "Tabel 12. Gemiddelde Seq-score voor de periode
+        2012-2016 (bron: Departement Landbouw & Visserij)",
+    booktabs = TRUE,
+    escape = FALSE,
+    col.names = linebreak(c(
+      "Teeltgroep", "Gemiddelde seq/ha",
+      "Klasse", "Intensiteitsscore"
+    )),
+    align = c("l")
+  ) %>%
+  kable_styling(latex_options = c("striped", "HOLD_position")) %>%
+  scroll_box(width = "800px", height = "300px")
+```
+
+```{r Tabel 13, echo=FALSE, message=FALSE, warning=FALSE}
+gewasbeschermingbeperking <- read_vc("gebied_seq")
+
+gewasbeschermingbeperking %>%
+  mutate_all(linebreak) %>%
+  kable(
+    caption = "Tabel 13. Vermindering intensiteitsscore voor
+         gebieden met beperkingen gewasbeschermingsmiddelen",
+    booktabs = TRUE,
+    escape = FALSE,
+    col.names = linebreak(
+      c(
+        "Gebiedsaanduiding",
+        "Intensiteitsscore of vermindering"
+      )
+    ),
+    align = c("l")
+  ) %>%
+  kable_styling(latex_options = c("striped", "HOLD_position"))
+```
+
+##### D4. Bodemkoolstof
+
+Om het effect van een gewas in te schatten op het bodemkoolstofgehalte kijken we naar de hoeveelheid effectieve organische koolstof. 
+Dit is het product van de totale hoeveelheid aangevoerde organische koolstof en een humificatiecoëfficiënt. 
+De humificatiecoëfficiënt geeft de verhouding weer van het gehalte aan effectieve organische koolstof op het gehalte aan totale organische koolstof van vers organisch materiaal (plantenresten, mest, compost, …). 
+Om het organischekoolstofgehalte op peil te houden, moet de aanvoer van effectieve organische koolstof even groot zijn als de natuurlijke afbraak van organische koolstof in de bodem. 
+Bij een te laag organischekoolstofgehalte moet de aanvoer van effectieve organische koolstof gedurende meerdere jaren veel groter zijn dan de afbraak. 
+Bij een negatieve balans (aanvoer > afbraak) daalt het organischekoolstofgehalte in de bodem. 
+Een Vlaamse akker bevat in zijn bouwvoor gemiddeld 50 ton organische koolstof/ha.
+Ruw geschat breekt jaarlijks ongeveer 2% van deze organische koolstof af, wat overeenkomt met ±1 ton koolstof/ha.
+Om het organischekoolstofgehalte op hetzelfde peil te houden, zou jaarlijks dus ook 1 ton koolstof/ha in de bodem moeten worden gebracht.
+In Tabel 14 geven we het effectieve organischekoolstofgehalte weer voor de diverse teeltgroepen. 
+Tussen haakjes staan de specifieke teelten waarop ze gebaseerd zijn. 
+Graslanden krijgen in functie van het aantal jaren grasbedekking een score tussen 1 en 2. 
+Na 5 jaar grasbedekking wordt dit score 1,5, na 10 jaar grasbedekking score 1,2, na 15 jaar score 1,1 en na 20 jaar score 1. 
+Deze keuze houdt rekening met het koolstofvastleggingsproces in graslanden. 
+Dit proces verloopt niet lineair maar is vaak het hoogst direct na een verandering in landgebruik of landbeheer [@dhose_mogelijkheden_2017]. 
+Vervolgens evolueert de bodem naar een nieuw evenwicht dat na 20 tot 100 jaar bereikt wordt waarna de koolstofstock min of meer constant blijft. 
+[Tuinen]( https://www.bdb.be/Portals/0/docs/Dag%20van%20de%20TuinBodem%204-BodemvruchtbaarheidTuinen&OpenbaarGroen_MiaTits.pdf) krijgen ook score 1 omdat ze een gunstig tot zeer gunstig organischekoolstofgehalte hebben dankzij het frequent gebruik van compost en mest. 
+De natuurlijke en halfnatuurlijke landgebruiken krijgen score 1. 
+Hierbij beoordelen we enkel de huidige stock onder het huidig landgebruik en dus niet bv. de bodemverarming van de plaggencultuur die tot heide geleid heeft. 
+Korte omloophout krijgt score 2. 
+Laagstam, hoogstam en noten krijgen score 1. 
+Overige teelten, akker – BWK en sierteelt worden gelijkgesteld met overige groenten en krijgen score 4.
+
+Tabel 14. Teeltgroepen en effectief organische koolstof (bron: [VLM](https://www.vlm.be/nl/SiteCollectionDocuments/Demeter/5.C.5.%20Organische%20stof%20DEMETERTOOL%20LNE.pdf))
+
+```{r Tabel 14, echo=FALSE, message=FALSE, warning=FALSE}
+os <- read_vc("os_teelt")
+
+os %>%
+  mutate_all(linebreak) %>%
+  kable(
+    booktabs = TRUE,
+    escape = FALSE,
+    col.names = linebreak(
+      c(
+        "Teeltgroep", "Teelten",
+        "Effectief organische koolstof", "Klasse",
+        "Intensiteitsscore"
+      )
+    ),
+    align = c("l")
+  ) %>%
+  kable_styling(latex_options = c("striped", "HOLD_position")) %>%
+  scroll_box(width = "800px", height = "400px")
+```
+
+```{r Tabel 15, echo=FALSE, message=FALSE, warning=FALSE}
+os_landgebruik <- read_vc("os_landgebruik")
+
+os_landgebruik %>%
+  mutate_all(linebreak) %>%
+  kable(
+    caption = "Tabel 15. Overige landgebruiken en hun
+        intensiteitsscore voor koolstofvastlegging",
+    booktabs = TRUE,
+    escape = FALSE,
+    col.names = linebreak(
+      c("Landgebruik (gebiedsaanduiding)", "Score")
+    ),
+    align = c("l")
+  ) %>%
+  kable_styling(latex_options = c("striped", "HOLD_position"))
+```
+
+##### D5. Bodemverdichting
+
+Bodemverdichting is het samendrukken van bodempartikels door externe krachten, waardoor het totale poriënvolume in de bodem afneemt. 
+Die poriën zijn belangrijk voor transport van lucht en water doorheen de bodem en laten toe dat plantenwortels er zich een weg door kunnen banen. 
+Elke betreding van een bodem kan potentieel verdichting creëren, maar dat risico neemt aanzienlijk toe wanneer het gebeurt met zware machines en zeker in natte omstandigheden.
+
+Bodemverdichting is een belangrijk probleem. 
+Naar schatting 30 tot 50% van de meest productieve en vruchtbare bodems in Europa heeft te kampen met bodemverdichting. 
+Voor Vlaanderen zou dit neerkomen op een [areaal](https://ilvo.vlaanderen.be/nl/nieuws/hardnekkige-verdichting-onder-akker-en-graslanden) van 200.000 tot 300.000 ha. 
+Uit een recente [bevraging](https://ilvo.vlaanderen.be/nl/nieuws/hardnekkige-verdichting-onder-akker-en-graslanden) van Belgische landbouwers blijkt bovendien dat een derde (34%) problemen met bodemverdichting ervaart. 
+Recente trends in de Vlaamse landbouw werken bodemverdichting in de hand: 
+
+- de trend naar landbouwmachines met grotere wiellasten (vb. zelfrijdende oogstmachines), 
+- de groei van de groente- en aardappelverwerkende industrie met de bijbehorende evolutie naar contractteelt,
+- loonwerk afgestemd op de planning in de fabriek eerder dan op de weersomstandigheden, 
+- het intensief bemesten en maaien van graslanden, 
+- het verlengen van de bietengroeiperioden, en 
+- het toenemend areaal maïs en aardappelen (tot 35% van het landbouwareaal).
+Dit zijn beide teelten die laat geoogst worden.
+
+Bodemverdichting is ook niet beperkt tot de agro-ecosystemen, maar komt ook voor in [bossen](https://www.ecopedia.be/encyclopedie/bodemverdichting) (door exploitatiewerkzaamheden), in natte en vochtige hooilanden en in [tuinen](https://www.bdb.be/Portals/0/docs/Dag%20van%20de%20tuinbodem%203-%20presentatie_WimCollet.pdf) bijvoorbeeld door het gebruik van zware machines bij de aanleg van huis en/of tuin.
+
+Gewasgroepen met een hogere risico op bodemcompactie, zijnde bieten, aardappelen, groenten, maïs en (intensieve) graslanden, krijgen een intensiteitsscore van 5. 
+Granen, fruit, sierteelt, overige landbouwteelten, laag groen, hoog groen, korte-omloophout en populieren hebben een tamelijk hoog risico op bodemverdichting en krijgen score 4. 
+Naaldbos, loofbos, houtige gewassen en braak krijgen score 3 en half-natuurlijke graslanden (m.u.v. droog-voedselarm), ruigte, struweel, strand, mosduin, helmduin, ander open duinenlandschap, heide en hoogstam score 2.
+
+##### D6. Bodemerosie
+
+[Bodemerosie](https://omgeving.vlaanderen.be/erosie) door water is een proces waarbij bodemdeeltjes door de impact van regendruppels en afstromend water worden losgemaakt en getransporteerd, hetzij laagsgewijs over een grote oppervlakte (intergeulerosie), hetzij geconcentreerd in geulen (geulerosie) of ravijnen (ravijnerosie). 
+Bodemerosie door water komt ook in natuurlijke omstandigheden voor, maar door agrarische activiteiten en niet agrarische grondwerken, kan het met een factor 100 tot 1000 toenemen [@poesen_contribution_1996]. 
+Deze toename is afhankelijk van o.a. de gewasfactor. 
+Deze factor weerspiegelt de mate van bodembedekking, bij een lagere bedekking is de kans op bodemafspoeling groter. 
+De bodem is ook meer onderhevig aan directe weersinvloeden. 
+Bij de gewasfactor is er ook rekening gehouden met bewerkingserosie van o.a. rooivruchten.
+
+```{r Tabel 16, echo=FALSE, message=FALSE, warning=FALSE}
+erosie <- read_vc("erosie")
+
+erosie %>%
+  mutate_all(linebreak) %>%
+  kable(
+    caption = "Tabel 16. Landgebruiksintensiteit en erosierisico
+        van het gewas of landgebruik",
+    booktabs = TRUE,
+    escape = FALSE,
+    col.names = linebreak(c("Gewasfactor", "Score")),
+    align = c("l")
+  ) %>%
+  kable_styling(latex_options = c("striped", "HOLD_position"))
+```
+
+##### D7. Bodemverharding
+
+Als de bodem afgedicht is, is dit ook nefast voor het bodemleven. 
+Afgedichte bodem krijgt sowieso de hoogste intensiteitsscore. 
+Het is een binaire variabele omdat we geen zicht hebben op semipermeabele afdichting.
+
+##### D8. Geaggregeerde landgebruiksscore
+
+In onderstaande tabel geven we de deel- en geaggregeerde scores weer. 
+
+De geaggregeerde score is het gemiddelde van de scores voor bodemorganisch koolstofgehalte, bodemerosie, bodemverdichting, nitraatresidu en gewasbescherming. 
+Voor afgedichte bodems wordt automatisch score 5 toegekend.
+
+Tabel 17 laat toe om indicatoren te selecteren per intensiteitsklasse.
+Het is ook mogelijk om zoektermen in te geven (search) en om de indicatoren te ordenen. 
+Het resultaat kan gedownload, gekopieerd of geprint worden.
+
+```{r Tabel 17, echo=FALSE, message=FALSE, warning=FALSE}
+options(OutDec = ",")
+intensiteitgegevens %>%
+  datatable(
+    caption = "Tabel 17. Intensiteitsscores landgebruiken",
+    colnames = c(
+      "Landgebruik", "bodem- koolstof",
+      "bodem- erosie", "bodem- verdichting",
+      "gewas- bescherming", "nitraat- residu",
+      "bodem- afdichting", "totaal", "klasse"
+    ),
+    rownames = FALSE,
+    extensions = c(
+      "KeyTable", "Buttons", "Select",
+      "SearchPanes", "Scroller"
+    ),
+    options = list(
+      dom = "Bfrtip",
+      filter = "none",
+      keys = TRUE,
+      buttons = c("copy", "print", "searchPanes"),
+      language = list(
+        searchPanes = list(
+          collapse = "Selecteer"
+        )
+      ),
+      scrollY = 390,
+      scrollX = FALSE,
+      scrollCollapse = TRUE,
+      paging = FALSE,
+      columnDefs = list(
+        list(
+          searchPanes = list(show = FALSE),
+          targets = 1:7
+        ),
+        list(
+          searchPanes = list(controls = FALSE),
+          targets = 0:8
+        ),
+        list(
+          className = "dt-center",
+          targets = 0:8
+        )
+      )
+    )
+  ) %>%
+  formatRound(c(
+    "bodemkoolstof", "bodemerosie", "bodemverdichting",
+    "gewasbescherming", "nitraatresidu",
+    "bodemafdichting", "nitraatresidu", "totaal"
+  ),
+  digits = 1
+  )
+```
+
+##### D9. Correctie beheerovereenkomsten en kleine landschapselementen
+
+De landschapselementenkaart en de beheerovereenkomsten worden beide verrasterd op schaal 1 meter. 
+Het was niet mogelijk om beide kaarten op schaal 1-m te integreren. 
+Daarom aggregeren we beide kaarten op schaal 10-meter. 
+Waarna we ze optellen waarbij hun som niet meer dan 100 kan zijn.
+De uiteindelijke intensiteitsscore wordt dan als volgt berekend:
+
+((100 – aandeel) * intensiteitsscore landgebruik + som intensiteitsscore BO’s en KLE’s)/100
+
+Elke beheerovereenkomst en KLE krijgt een bijhorende intensiteitsscore.
+
+```{r Tabel 18, echo=FALSE, message=FALSE, warning=FALSE}
+intensiteit_bo <- read_vc("bo")
+
+intensiteit_bo %>%
+  mutate_all(linebreak) %>%
+  kable(
+    caption = "Tabel 18. Intensiteitsscores van
+        beheerovereenkomsten",
+    booktabs = TRUE,
+    escape = FALSE,
+    col.names = linebreak(
+      c("Beheerovereenkomsten", "Equivalent met", "Score")
+    ),
+    align = c("l")
+  ) %>%
+  kable_styling(latex_options = c("striped", "HOLD_position"))
+```
+
+```{r Tabel 19, echo=FALSE, message=FALSE, warning=FALSE}
+kle_intensiteit <- read_vc("kle")
+
+kle_intensiteit %>%
+  mutate_all(linebreak) %>%
+  kable(
+    caption = "Tabel 19. Intensiteitsscore van kleine landschapselementen",
+    booktabs = TRUE,
+    escape = FALSE,
+    col.names = linebreak(c("KLE", "Equivalent met", "Score")),
+    align = c("l")
+  ) %>%
+  kable_styling(latex_options = c("striped", "HOLD_position"))
+```
+
+## Opmerkingen bij de gegevenskwaliteit en betrouwbaarheid
+
+De berekening doet beroep op een groot aantal kaarten met een verschillende betrouwbaarheid. De betrouwbaarheid van de perceelsregistratie en de beheerovereenkomsten is hoog. De betrouwbaarheid van het landgebruiksbestand is hoog voor de toestand maar minder voor veranderingen. De landschapselementenkaart, een afgeleide van de groenkaart, heeft ook zijn beperkingen. De Biologische Waarderingskaart is betrouwbaar bij de opmaak, maar zeker buiten natuur en bos van Europees belang is de kaart niet meer up-to-date.
+Het is belangrijk bij de interpretatie van de resultaten om hiermee rekening te houden. 
+
+## Download
+
+**Broncode indicator**: [e5_hnvf_interactief.Rmd](../e5_hnvf/e5_hnvf_interactief.Rmd)
+- **Basisdata**: [oppervlakte2hnvf.tsv](../e5_hnvf/oppervlakte2hnf.tsv), [intensiteit.tsv](../e5_hnvf/intensiteit.tsv), [subindicatoren.tsv](../e5_hnvf/subindicatoren.tsv), [kaartlagen.tsv](../e5_hnvf/kaartlagen.tsv), [keuze_methode.tsv](../e5_hnvf/keuze_methode.tsv) en [keuze_indicatoren.tsv](../e5_hnvf/keuze_indicatoren.tsv)
+- **Metadata basisdata**: [oppervlakte2hnvf.yml](../e5_hnvf/oppervlakte2hnvf.yml), [intensiteit.yml](../e5_hnvf/intensiteit.yml), , [subindicatoren.yml](../e5_hnvf/subindicatoren.yml), [kaartlagen.yml](../e5_hnvf/kaartlagen.yml), [keuze_methode.yml](../e5_hnvf/keuze_methode.yml) en [keuze_indicatoren.yml](../e5_hnvf/keuze_indicatoren.yml) 
+
+## Referenties
