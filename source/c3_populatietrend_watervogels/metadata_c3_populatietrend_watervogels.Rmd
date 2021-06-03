@@ -47,7 +47,8 @@ databereik <- " 1992-2019"
 
 De berekeningswijze voor populatietrends op korte (laatste 12 jaar) en lange termijn (sinds het instellen van de Vogelrichtlijn in 1980) is beschreven in @vermeersch_resultaten_2019.
 
-### Korte-termijntrend 
+### Korte-termijntrend
+
 De korte-termijntrend werd bepaald voor de periode winter 2006/07 - winter 2017/18.
 De trendberekening gebeurt op basis van de seizoensgemiddelden, i.e. het gemiddeld aantal in de volledige winterperiode oktober-maart. Ontbrekende waarden worden bijgeschat via de zogenaamde ‘inputting’ [@onkelinx_working_2017].
 Zo kan een minimale, maximale en gemiddelde waarde van de trend berekend worden.
@@ -57,6 +58,7 @@ Als de ondergrens van het betrouwbaarheidsinterval negatief en de bovengrens pos
 We beschouwen de trend stabiel als de bovengrens aangeeft dat de toename over 12 jaar kleiner is dan 25% en de ondergrens aangeeft dat de daling minder dan 25% is.
 
 ### Lange-termijntrend
+
 De lange-termijntrend wordt op dezelfde manier berekend als de korte termijn trend.
 De periode werd vastgelegd op winter 1991/92 tot winter 2017/18.
 Door een gebrek aan voldoende gestandaardiseerde telgegevens voor 1991 kon de trendanalyse niet teruggaan tot 1980.
