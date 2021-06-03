@@ -1,0 +1,79 @@
+---
+title: "Metadata biodiversiteit van Europees belang - Populatietrend overwinterende watervogels van Europees belang"
+date: 2020-07-01T10:00:00
+bibliography: ../references.bib
+link-citations: TRUE
+nocite: |
+  @vriens_natuurindicatoren_2020
+hoofdstuk:
+- 3
+thema:
+  - Beschermde natuur
+  - Water
+keywords:
+  - Vogelrichtlijn
+  - Europese rapportage
+  - Watervogels
+  - Staat van instandhouding
+  - Populatietrend
+lang: nl
+tab: metadata
+verantwoordelijke:
+- Koen Devos <koen.devos@inbo.be>
+output: html_document
+---
+## Technische informatie
+
+```{r setup, include=FALSE}
+library(knitr)
+opts_chunk$set(echo = FALSE, message = FALSE, warning = FALSE)
+library(git2rdata)
+```
+
+```{r databereik}
+databereik <- " 1992-2019"
+```
+\- **Periodiciteit**: zesjaarlijks
+\- **Volgende update**: onbekend
+\- **Databereik**: `r databereik`
+
+## Databron
+
+- **Producent**: Instituut voor Natuur- en Bosonderzoek
+- **Dataset**: [watervogeldatabank](https://watervogels.inbo.be/info)
+- **Gegevensinzameling**: Via gestandaardiseerde tellingen in de periode oktober-maart die gebiedsdekkend over Vlaanderen worden uitgevoerd worden de aantallen en de verspreiding van de verschillende soorten nauwgezet opgevolgd.
+
+## Berekeningswijze
+
+De berekeningswijze voor populatietrends op korte (laatste 12 jaar) en lange termijn (sinds het instellen van de Vogelrichtlijn in 1980) is beschreven in @vermeersch_resultaten_2019.
+
+### Korte-termijntrend 
+De korte-termijntrend werd bepaald voor de periode winter 2006/07 - winter 2017/18.
+De trendberekening gebeurt op basis van de seizoensgemiddelden, i.e. het gemiddeld aantal in de volledige winterperiode oktober-maart. Ontbrekende waarden worden bijgeschat via de zogenaamde ‘inputting’ [@onkelinx_working_2017].
+Zo kan een minimale, maximale en gemiddelde waarde van de trend berekend worden.
+De minima en maxima komen respectievelijk overeen met de onder- en bovengrens van het betrouwbaarheidsinterval.
+We beschouwen een trend negatief/positief als het volledige betrouwbaarheidsinterval negatief/positief is.
+Als de ondergrens van het betrouwbaarheidsinterval negatief en de bovengrens positief is, is de trend stabiel of onbekend.
+We beschouwen de trend stabiel als de bovengrens aangeeft dat de toename over 12 jaar kleiner is dan 25% en de ondergrens aangeeft dat de daling minder dan 25% is.
+
+### Lange-termijntrend
+De lange-termijntrend wordt op dezelfde manier berekend als de korte termijn trend.
+De periode werd vastgelegd op winter 1991/92 tot winter 2017/18.
+Door een gebrek aan voldoende gestandaardiseerde telgegevens voor 1991 kon de trendanalyse niet teruggaan tot 1980.
+
+
+## Opmerkingen bij de gegevenskwaliteit en betrouwbaarheid
+
+Het berekenen van maandelijkse totaalaantallen en seizoensgemiddelden gebeurt louter op basis van effectief getelde aantallen.
+Er worden dus geen bijschattingen uitgevoerd voor niet getelde gebieden.
+Omwille van de hoge telvolledigheid wordt aangenomen dat dit slechts een heel beperkte invloed heeft op de aantallen die in verschillende maanden of winters geteld worden.
+Voor de meeste soorten geven de getelde aantallen dan ook een betrouwbaar beeld van de werkelijke populatiegrootte en trends.
+
+## Download
+
+**Broncode indicator**: [c3_populatietrend_watervogels.Rmd](../c3_populatietrend_watervogels/c3_populatietrend_watervogels.Rmd)
+- **Basisdata**: [populatietrends_watervogels.tsv](../c3_populatietrend_watervogels/populatietrends_watervogels.tsv)
+- **Metadata basisdata**: [populatietrends_watervogels.yml](../c3_populatietrend_watervogels/populatietrends_watervogels.yml)
+- **Overzichtstabel**: [overzicht_watervogelsoort.tsv](../c3_populatietrend_watervogels/overzicht_watervogelsoort.tsv)
+
+## Referenties

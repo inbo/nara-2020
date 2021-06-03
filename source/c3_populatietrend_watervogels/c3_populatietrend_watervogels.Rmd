@@ -1,0 +1,140 @@
+---
+title: "Biodiversiteit van Europees belang - Populatietrend overwinterende watervogels van Europees belang"
+date: 2020-07-01T10:00:00
+bibliography: ../references.bib
+link-citations: TRUE
+hoofdstuk:
+- 3
+thema:
+  - Beschermde natuur
+  - Water
+keywords:
+  - Vogelrichtlijn
+  - Europese rapportage
+  - Watervogels
+  - Staat van instandhouding
+  - Populatietrend
+lang: nl
+tab: indicator
+verantwoordelijke:
+- Koen Devos <koen.devos@inbo.be>
+output: html_document
+---
+
+```{r setup, include=FALSE}
+library(knitr)
+opts_chunk$set(
+  message = FALSE,
+  warning = FALSE,
+  echo = FALSE
+)
+library(tidyverse)
+library(git2rdata)
+library(plotly)
+library(INBOtheme)
+library(htmlwidgets)
+
+set.seed(20200520)
+setWidgetIdSeed(20200520)
+
+options(htmlwidgets.TOJSON_ARGS = list(pretty = TRUE))
+theme_set(theme_nara())
+switch_colour(inbo_hoofd)
+```
+
+```{r data_inlezen}
+gegevens <- read_vc("populatietrends_watervogels") %>%
+  mutate(Trend = factor(Trend,
+    ordered = TRUE,
+    levels = c(
+      "onbekend", "afname", "mogelijke afname", "stabiel",
+      "mogelijke toename", "toename"
+    )
+  )) %>%
+  mutate(Periode = factor(Periode,
+    ordered = TRUE, levels = c("korte termijn", "lange termijn"),
+    labels = c("Korte termijn", "Lange termijn")
+  ))
+
+overzicht <- read_vc("overzicht_watervogelsoort") %>%
+  mutate(Kortetermijn = factor(Populatietrend_korte_termijn, ordered = TRUE,
+                               levels = c("afnemend", "fluctuerend", "stabiel",
+                                          "toenemend"))) %>%
+  mutate(Langetermijn = factor(Populatietrend_lange_termijn, ordered = TRUE,
+                               levels = c("afnemend", "fluctuerend", "stabiel",
+                                          "toenemend"),
+                               labels = c("afnemend", "fluctuerend", "stabiel",
+                                          "toenemend")))
+```
+
+De populaties van een aantal overwinterende watervogelsoorten van Europees belang gaan in Vlaanderen nog steeds achteruit.
+
+```{r staafdiagram, fig.width = 4, fig.height = 4, fig.cap = "Populatietrend op korte en lange termijn van negentien overwinterende watervogelsoorten van Europees belang in Vlaanderen. Deze figuur verwijst naar figuur 23 in het Natuurrapport 2020."}
+gegevens <- gegevens %>%
+  group_by(Periode) %>%
+  mutate(prop = Aantal / sum(Aantal) * 100) %>%
+  mutate(lab.ypos = cumsum(prop) - 0.5 * prop) %>%
+  ungroup()
+gegevens <- gegevens %>%
+  filter(Aantal > 0)
+
+p <- ggplot(gegevens, aes(x = Periode, y = prop, fill = Trend)) +
+  geom_bar(stat = "identity", width = 0.5) +
+  scale_y_continuous(
+    expand = c(0, 0), labels = scales::percent_format(accuracy = 1, scale = 1),
+    limits = c(0, 100), breaks = c(10, 20, 30, 40, 50, 60, 70, 80, 90, 100)
+  ) +
+  labs(x = "", y = "POPULATIETREND VAN WATERVOGELS (%)") +
+  theme(
+    axis.title = element_text(size = 10,
+                              margin = margin(t = 0, r = 0, b = 0, l = 0),
+                              hjust = 0),
+    axis.text = element_text(size = 10),
+    legend.text = element_text(size = 10),
+    legend.title = element_blank(),
+    legend.key.size = unit(0.3, "cm")
+  ) +
+  scale_fill_manual(
+    breaks = c(
+      "toename", "mogelijke toename", "stabiel", "mogelijke afname",
+      "afname", "onbekend"
+    ),
+    values = c(
+      "onbekend" = inbo_grijs, "afname" = inbo_rood,
+      "mogelijke afname" = inbo_oranje, "stabiel" = inbo_steun_blauw,
+      "mogelijke toename" = inbo_lichtgroen, "toename" = inbo_groen
+    ),
+    labels = c(
+      "Toename", "Mogelijke toename", "Stabiel", "Mogelijke afname",
+      "Afname", "Onbekend"
+    )
+  )
+p <- p + geom_text(aes(y = lab.ypos, label = Aantal), color = "white", size = 6)
+p
+```
+
+## Definitie
+
+De indicator toont de populatietrend op korte (2007-2018) en lange termijn (1991-2018) van 19 overwinterende watervogelsoorten van Europees belang in Vlaanderen. 
+
+## Bespreking
+De Europese Vogelrichtlijn verplicht de lidstaten om zesjaarlijks te rapporteren over de populatiegrootte en -trend (op lange en korte termijn) van alle regelmatig broedende en een aantal niet-broedende, doortrekkende en overwinterende vogelsoorten op hun grondgebied [@vermeersch_resultaten_2019].
+De rapportering beperkt zich dus niet tot de Bijlage I soorten van de Vogelrichtlijn en soorten die in belangrijke aantallen op hun grondgebied voorkomen (1% norm).
+Deze indicator bespreekt de populatietrends van 19 overwinterende watervogels van Europees belang waarvoor kwantitatieve populatiedoelen zijn geformuleerd in de gewestelijke instandhoudingsdoelen (G-IHD) [@paelinckx_gewestelijke_2009-1; @vermeersch_resultaten_2019].
+
+Op lange termijn doen acht van de negentien soorten het significant beter.
+De populaties van pijlstaart, wintertaling, tafeleend, steenloper, kuifeend, bergeend en kemphaan gaan echter significant achteruit.
+Ook op korte termijn is dat het geval voor pijlstaart, wintertaling, tafeleend en bergeend.
+
+```{r tabel}
+kable(overzicht[, (1:3)], col.names = c("Soort", "Korte termijn",
+                                        "Lange termijn"),
+      caption = "Overzicht van de populatietrend op korte en lange termijn
+      per soort")
+```
+
+Er gaan zowel op lange als korte termijn nog altijd soorten achteruit.
+De verdere achteruitgang van de soorten van Europees belang is niet gestopt.
+Vlaanderen heeft de beleidsdoelen voor 2020 zoals geformuleerd in het Vlaams Natura 2000-programma dan ook niet gehaald.
+
+## Referenties
