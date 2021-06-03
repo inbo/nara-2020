@@ -1,0 +1,248 @@
+---
+title: "Metadata biodiversiteit van Europees belang - Regionale drukfactoren voor de habitats van Europees belang"
+date: 2020-07-01T10:00:00
+bibliography: ../references.bib
+link-citations: TRUE
+nocite: |
+  @vriens_natuurindicatoren_2020
+hoofdstuk:
+- 3
+- 5
+thema:
+  - Beschermde natuur
+keywords:
+  - Habitatrichtlijn
+  - Europese rapportage
+  - Habitats van Europees belang
+  - De biodiversiteit onder druk
+lang: nl
+tab: metadata
+verantwoordelijke:
+- Inne Vught <inne.vught@inbo.be>
+output: html_document
+---
+## Technische informatie
+
+```{r setup, include=FALSE}
+library(knitr)
+opts_chunk$set(echo = FALSE, message = FALSE, warning = FALSE)
+library(git2rdata)
+```
+
+```{r databereik}
+databereik <- "2013-2019"
+```
+\- **Periodiciteit**: zesjaarlijks
+\- **Volgende update**: onbekend
+\- **Databereik**: `r databereik`
+
+## Databron
+
+- **Producent**: Instituut voor Natuur- en Bosonderzoek
+- **Dataset**: In @paelinckx_regionale_2019 zijn voor elke habitat van Europees belang de belangrijkste drukfactoren (nu en/of in de voorbije 6 jaar)) en bedreigingen (in de 2 komende rapportagecycli, dus de komende 12 jaar) bepaald.
+Deze informatie vormt de basis voor deze prioriteringsanalyse.
+- **Gegevensinzameling**: Hoe de drukfactoren voor de habitats van Europees belang bepaald zijn, staat in @paelinckx_regionale_2019.
+Het belang van drukfactoren/bedreigingen die vooral inwerken op het areaal en/of de oppervlakte van een habitat hangt samen met de trend van areaal en/of oppervlakte.
+Drukfactoren/bedreigingen die vooral inwerken op de specifieke structuren en functies zijn vooral via expertoordeel geselecteerd en beoordeeld.
+
+## Berekeningswijze
+Deze analyse volgt grotendeels de berekeningswijze van @paelinckx_analyse_2019.
+We maken eerst een prioritering van de in @paelinckx_regionale_2019 gerapporteerde drukfactoren (verleden tot heden) en bedreigingen (toekomst) per ecosysteem en vervolgens een integratie over alle ecosystemen heen. 
+
+De drukfactoren en bedreigingen zoals die aan de Europese Commissie gerapporteerd worden, zijn aan specifieke sectoren of activiteiten toegeschreven [@paelinckx_regionale_2019].
+Ze komen niet overeen met de indeling van de drukken van het Natuurrapport 2020.
+Daarom wijzen we in een eerste stap de gerapporteerde drukfactoren toe aan de verschillende categorieën uit het Natuurrapport (zie Tabel 1): landgebruiksverandering, versnippering, verontreiniging, vermesting, verzuring,  verdroging, invasieve uitheemse soorten en klimaatverandering.
+We vullen deze categorieën nog aan met de volgende specifieke categorieën: verstoring van de hydro- en geomorfologie, achterstallig of onaangepast beheer, professionele visvangst en viskweek en verschillende vormen van verstoring zoals overbetreding, lawaai...
+
+```{r data_inlezen}
+library(tidyverse)
+indeling <- read_vc("indeling_drukfactoren") %>%
+  mutate(Drukfactor = factor(Drukfactor,
+    ordered = TRUE,
+    levels = c(
+      "Vermestingvia de lucht",
+      "Versnippering",
+      "Vermesting via grond- en oppervlaktewater en via bodem",
+      "Landgebruiksverandering",
+      "Verstoring hydro- en geomorfologie",
+      "Verdroging", "Verzuring",
+      "Invasieve uitheemse soorten",
+      "Klimaatverandering",
+      "Onaangepast of achterstallig beheer",
+      "Verstoring", "Professionele visvangst en viskweek", "Verontreiniging"
+    ),
+    labels = c(
+      "Vermesting via de lucht",
+      "Versnippering", "Vermesting via grond- en oppervlaktewater en via bodem",
+      "Landgebruiksverandering",
+      "Verstoring hydro- en geomorfologie",
+      "Verdroging", "verzuring",
+      "Invasieve uitheemse soorten",
+      "Klimaatverandering",
+      "Onaangepast of achterstallig beheer",
+      "Verstoring", "Professionele visvangst en viskweek", "Verontreiniging"
+    )
+  ))
+
+heide <- read_vc("prioritering_heide_landduinen") %>%
+  mutate(habitat_2310 = factor(habitat_2310,
+    ordered = TRUE,
+    levels = c("H", "M", "H > M", "L > M", "GI"),
+    labels = c("H", "M", "H > M", "L > M", "")
+  )) %>%
+  mutate(habitat_2330 = factor(habitat_2330,
+    ordered = TRUE,
+    levels = c("H", "M", "H > M", "L > M", "GI"),
+    labels = c("H", "M", "H > M", "L > M", "")
+  )) %>%
+  mutate(habitat_4010 = factor(habitat_4010,
+    ordered = TRUE,
+    levels = c("H", "M", "H > M", "L > M", "GI"),
+    labels = c("H", "M", "H > M", "L > M", "")
+  )) %>%
+  mutate(habitat_4030 = factor(habitat_4030,
+    ordered = TRUE,
+    levels = c("H", "M", "H > M", "L > M", "GI"),
+    labels = c("H", "M", "H > M", "L > M", "")
+  )) %>%
+  mutate(habitat_5130 = factor(habitat_5130,
+    ordered = TRUE,
+    levels = c("H", "M", "H > M", "L > M", "GI"),
+    labels = c("H", "M", "H > M", "L > M", "")
+  ))
+
+integratie <- read_vc("integratietabel") %>%
+  mutate(bos = factor(bos,
+    ordered = TRUE, levels = c(
+      "prioriteit 1",
+      "prioriteit 2",
+      "lagere prioriteit"
+    ),
+    labels = c("1", "2", "")
+  )) %>%
+  mutate(grasland = factor(grasland,
+    ordered = TRUE,
+    levels = c(
+      "prioriteit 1",
+      "prioriteit 2",
+      "lagere prioriteit"
+    ),
+    labels = c("1", "2", "")
+  )) %>%
+  mutate(heide_en_landduinen = factor(heide_en_landduinen,
+    ordered = TRUE,
+    levels = c("prioriteit 1", "prioriteit 2", "lagere prioriteit"),
+    labels = c("1", "2", "")
+  )) %>%
+  mutate(moeras = factor(moeras,
+    ordered = TRUE,
+    levels = c(
+      "prioriteit 1", "prioriteit 2",
+      "lagere prioriteit"
+    ),
+    labels = c("1", "2", "")
+  )) %>%
+  mutate(rivieren_en_stilstaande_wateren =
+           factor(rivieren_en_stilstaande_wateren,
+    ordered = TRUE, levels = c("prioriteit 1", "prioriteit 2",
+                               "lagere prioriteit"),
+    labels = c("1", "2", "")
+  )) %>%
+  mutate(kustduinen_en_strand = factor(kustduinen_en_strand,
+    ordered = TRUE,
+    levels = c("prioriteit 1", "prioriteit 2", "lagere prioriteit"),
+    labels = c("1", "2", "")
+  )) %>%
+  mutate(estuaria_slikken_en_schorren = factor(estuaria_slikken_en_schorren,
+    ordered = TRUE, levels = c("prioriteit 1", "prioriteit 2",
+                               "lagere prioriteit"),
+    labels = c("1", "2", "")
+  ))
+```
+
+```{r tabel 1}
+library(kableExtra)
+kable(indeling[, (2:3)], col.names = c("EUcode", "Beschrijving"),
+      caption = "Tabel 1: Toewijzing van de gerapporteerde drukfactoren uit
+      Paelinckx et al. (2019) aan de verschillende categorieën volgens de
+      indeling van drukfactoren uit het Natuurrapport 2020.") %>%
+  pack_rows(index = c("Vermesting via de lucht" = 3, "Versnippering" = 2,
+                      "Vermesting via grond- en oppervlaktewater en
+                      via bodem" = 5, "Landgebruiksverandering" = 7,
+                      "Verstoring hydro- en geomorfologie" = 8,
+                      "Verdroging" = 4, "Verzuring" = 1,
+                      "Invasieve uitheemse soorten" = 3,
+                      "Klimaatverandering" = 6, "Onaangepast of
+                      achterstallig beheer" = 7, "Verstoring" = 6,
+                      "Professionele visvangst en viskweek" = 3,
+                      "Verontreiniging" = 1)) %>%
+  kable_paper() %>%
+  scroll_box(width = "100%", height = "400px")
+```
+
+In een tweede stap prioriteren we voor elk ecosysteem afzonderlijk de drukfactoren.
+De prioritering gebeurt op basis van het aantal habitats van het ecosysteem waarvoor die druk hoog of matig gerankt is.
+Tabel 2 toont hoe dit voor het ecosysteem heide en landduinen gebeurd is.
+Het aantal habitats waarop de druk een hoge impact heeft, wordt verdubbeld en opgeteld bij het aantal habitats waarop de druk een matige impact heeft. Op basis van die score kunnen we elke druk volgens onderstaande regels prioriteren:
+
+- Prioriteit 1: score  ≧  aantal habitats binnen het ecosysteem
+- Prioriteit 2:  aantal habitats/2 ≦ score < aantal habitats
+- Prioriteit 3: score < aantal habitats/2
+- Prioriteit 4: score = 1, d.w.z. dat de druk bij slechts 1 habitat binnen het ecosysteem van matig belang is.
+
+In het geval dat een druk in de toekomst evolueert tot een bedreiging met een hoger of lager belang, wordt die als vertrekbasis genomen.
+Als een matige of hoge druk in de toekomst afneemt tot een bedreiging met belang ‘laag’, wordt die niet meegeteld.
+
+
+```{r tabel 2}
+dt <- c(1, 3, 6, 8, 12, 15, 17, 19, 21)
+kable(heide,
+  col.names = c(
+    "Druk", "2310", "2330", "4010", "4030", "5130", "Aantal H", "Aantal M",
+    "Score", "Prioriteit"
+  ),
+  caption = "Tabel 2: Prioritering van de drukfactoren voor het ecosysteem heide
+  en inlandse duinen."
+) %>%
+  kable_styling(full_width = FALSE) %>%
+  row_spec(dt, bold = TRUE, background = "grey", hline_after = TRUE)
+```
+
+In de laatste stap prioriteren we de drukfactoren over alle ecosystemen heen (zie Tabel 3) op basis van:
+
+- een score o.b.v het aantal ecosystemen waarvoor de druk prioriteit 1 of prioriteit 2 heeft, het aantal ecosystemen met prioriteit 1 wordt hierbij verdubbeld en opgeteld bij het aantal ecosystemen met prioriteit 2
+- het aantal habitats waarvoor de druk hoog is.
+
+```{r tabel 3}
+kable(integratie, col.names = c("Druk", "Bos", "Grasland",
+                                "Heide en landduinen", "Moeras",
+                                "Rivieren en stilstaande wateren",
+                                "Kustduinen en strand",
+                                "Estuaria, slikken en schorren",
+                                "Score", "Aantal habitats met H"),
+      caption = "Tabel 3: Integratie van de prioritering over alle
+      ecosystemen heen.") %>%
+  kable_styling(bootstrap_options = "striped", font_size = 11)
+```
+
+Op basis van de commentaar van de lectoren is ook verdroging in de uiteindelijke overzichtstabel toegevoegd als belangrijke druk voor de rivieren en stilstaande wateren.
+
+## Opmerkingen bij de gegevenskwaliteit en betrouwbaarheid
+
+We werken bij het bepalen van de prioritering met het aantal habitats dat onderhevig is aan een druk en niet met het oppervlakteaandeel.
+Behalve voor stikstofdepositie bestaan er voor een benadering via oppervlakteaandeel geen data.
+
+De selectie van drukfactoren en bedreigingen dient te gebeuren uit een door de EC samengestelde standaardlijst waarbij de drukken opgesplitst zijn naar hun sectorale bronnen (landbouw, bosbouw, transportsystemen…).
+Er mogen per habitattype maximaal 10 drukfactoren, respectievelijk bedreigingen opgenomen worden.
+Daarvan mogen er maximaal 5 met ‘hoog belang’ aangeduid worden, de overige hebben een ‘matig belang’.
+
+## Download
+
+**Broncode indicator**: [c3_drukfactoren_habitats.Rmd](../c3_drukfactoren_habitats/c3_drukfactoren_habitats.Rmd)
+- **Basisdata**: [overzichtstabel.tsv](../c3_drukfactoren_habitats/overzichtstabel.tsv)
+- **Metadata basisdata**: [overzichtstabel.yml](../c3_drukfactoren_habitats/overzichtstabel.yml)
+- **Indeling drukfactoren**: [indeling_drukfactoren.tsv](../c3_drukfactoren_habitats/indeling_drukfactoren.tsv)
+- **Prioritering drukfactoren heide en inlandse duinen**: [prioritering_heide_landduinen.tsv](../c3_drukfactoren_habitats/prioritering_heide_landduinen.tsv)
+- **Integratie prioritering over alle ecosystemen heen**: [integratietabel.tsv](../c3_drukfactoren_habitats/integratietabel.tsv)
+
+## Referenties

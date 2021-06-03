@@ -1,0 +1,12 @@
+..generic:
+  git2rdata: 0.3.1
+  optimize: no
+  NA string: NA
+  hash: 543fd2cece3c9c82bfa0278e9b7cef8e55c05ef1
+  data_hash: 0ec047145009025eb4ac9f695462bcc9bdf86542
+Drukfactor:
+  class: character
+Europese_code:
+  class: character
+Beschrijving:
+  class: character

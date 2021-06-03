@@ -1,0 +1,57 @@
+Drukfactor	Europese_code	Beschrijving
+Vermesting via de lucht	A27	Agricultural activities generating air pollution
+Vermesting via de lucht	E06	Air pollution not directly attributed to specific transport activities
+Vermesting via de lucht	Xo	Threats and pressures from outside the Member State
+Versnippering	A05	Removal of small landscape features for agricultural land parcel consolidation (hedges, stone walls, rushes, open ditches, springs, solitary trees, etc.)
+Versnippering	A03	Conversion from mixed farming and agroforestry systems to specialised (e.g. single crop)  production
+Vermesting via grond- en oppervlaktewater en via bodem	A20	Application of synthetic (mineral) fertilisers on agricultural land
+Vermesting via grond- en oppervlaktewater en via bodem	A26	Agricultural activities generating diffuse pollution to surface or ground waters
+Vermesting via grond- en oppervlaktewater en via bodem	I01	Problematic native plants & animals
+Vermesting via grond- en oppervlaktewater en via bodem	J01	Mixed source pollution to surface and ground waters (limnic and terrestrial)
+Vermesting via grond- en oppervlaktewater en via bodem	J02	Mixed source marine water pollution (marine and coastal)
+Landgebruiksverandering	A02	Conversion from one type of agricultural land use to another (excluding drainage and burning)
+Landgebruiksverandering	A04	Changes in terrain and surface of agricultural areas
+Landgebruiksverandering	B01	Conversion to forest from other land uses, or afforestation (excluding drainage)
+Landgebruiksverandering	F01	Conversion from other land uses to housing, settlement or recreational areas (excluding drainage and modification of coastline, estuary and coastal conditions)
+Landgebruiksverandering	F03	Conversion from other land uses to commercial / industrial areas (excluding drainage and modification of coastline, estuary and coastal conditions)
+Landgebruiksverandering	F05	Creation or development of sports, tourism and leisure infrastructure (outside the urban or recreational areas)
+Landgebruiksverandering	F08	Modification of coastline, estuary and coastal conditions for development, use and protection of residential, commercial, industrial and recreational infrastructure and areas (including sea defences or coastal protection works and infrastructures)
+Verstoring hydro- en geomorfologie	E01	Roads, paths railroads and related infrastructure (e.g. bridges, viaducts, tunnels); incl. pollution
+Verstoring hydro- en geomorfologie	E02	Operation of shipping lanes and ferry lanes transport; incl. pollution
+Verstoring hydro- en geomorfologie	E03	Maintenance and construction of shipping lanes, ferry lanes and anchorage infrastructure ( e.g. canalisation, dredging)
+Verstoring hydro- en geomorfologie	F28	Modification of flooding regimes, flood protection for residential or recreational development
+Verstoring hydro- en geomorfologie	K04	Modification of hydrological flow
+Verstoring hydro- en geomorfologie	K05	Physical alteration of water bodies
+Verstoring hydro- en geomorfologie	D02	Hydropower  (dams, weirs, run-off-the-river), including infrastructure
+Verstoring hydro- en geomorfologie	L01	Abiotic natural processes (e.g. erosion, silting up, drying out, submersion, salinization)
+Verdroging	A31	Drainage for use as agricultural land
+Verdroging	F33	Abstraction of ground and surface waters (including marine) for public water supply and recreational use
+Verdroging	K01	Abstraction from groundwater, surface water or mixed water
+Verdroging	K02	Drainage
+verzuring	J03	Mixed source air pollution, air-borne pollutants
+Invasieve uitheemse soorten	I01	Invasive alien species of Union concern
+Invasieve uitheemse soorten	I02	Other invasive alien species (other then species of Union concern)
+Invasieve uitheemse soorten	I05	Plant and animal diseases, pathogens and pests
+Klimaatverandering	N01	Temperature changes (e.g. rise of temperature & extremes) due to climate change
+Klimaatverandering	N02	Droughts and decreases in precipitation due to climate change
+Klimaatverandering	N03	Increases or changes in precipitation due to climate change
+Klimaatverandering	N04	Sea-level and wave exposure changes due to climate change
+Klimaatverandering	N05	Change of habitat location, size, and / or quality due to climate change
+Klimaatverandering	N08	Change of species distribution (natural newcomers) due to climate change
+Onaangepast of achterstallig beheer	A06	Abandonment of grassland management (e.g. cessation of grazing or of mowing)
+Onaangepast of achterstallig beheer	A07	Abandonment of management/use of other agricultural and agroforestry systems (all except grassland)
+Onaangepast of achterstallig beheer	A10	Extensive grazing or undergrazing by livestock
+Onaangepast of achterstallig beheer	B07	Removal of dead and dying trees, including debris
+Onaangepast of achterstallig beheer	B09	Clear-cutting, removal of all trees
+Onaangepast of achterstallig beheer	L02	Natural succession resulting in species composition change (other than by direct changes of agricultural or forestry practices)
+Onaangepast of achterstallig beheer	L03	Accumulation of organic material
+Verstoring	F06	Development and maintenance of beach areas for tourism and recreation incl. beach nourishment and beach cleaning
+Verstoring	F07	Sports, tourism and leisure activities
+Verstoring	G08	Management of fishing stocks and game
+Verstoring	H04	Vandalism or arson
+Verstoring	H06	Closure or restricted access to site/habitat
+Verstoring	H08	Other human intrusions and disturbance not mentioned above
+Professionele visvangst en viskweek	G01	Marine fish and shellfish harvesting (professional, recreational) causing reduction of species/prey populations and disturbance of species
+Professionele visvangst en viskweek	G03	Marine fish and shellfish harvesting (professional, recreational) activities causing physical loss and disturbance of seafloor habitats.
+Professionele visvangst en viskweek	G05	Freshwater fish and shellfish harvesting (professional)
+Verontreiniging	J04	Mixed source soil pollution and solid waste (excluding discharges)
