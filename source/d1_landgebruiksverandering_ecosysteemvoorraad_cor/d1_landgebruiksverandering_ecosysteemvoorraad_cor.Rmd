@@ -44,8 +44,8 @@ switch_colour(inbo_hoofd) # het INBO-kleurenpallet activeren
 ```
 
 ```{r data_inlezen_cor-stock-graph}
-ecos <- c("Stedelijk en bebouwd gebied", "Agro-ecosysteem" # nolint
-          "Bos en terrestrische open natuur", "Zoetwater en estuarium", "Zee") # nolint
+ecos <- c("Stedelijk en bebouwd gebied", "Agro-ecosysteem",
+          "Bos en terrestrische open natuur", "Zoetwater en estuarium", "Zee")
 gegevens <- read_vc("datastg") %>%
   mutate(
     Jaar = factor(Jaar),
