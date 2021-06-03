@@ -1,0 +1,18 @@
+..generic:
+  git2rdata: 0.2.1
+  optimize: no
+  NA string: ''
+  sorting: gewasgroep
+  hash: a3388a58b5a0a14f8e5db06ee213e354656df0a5
+  data_hash: fe01fc8e0ca8db4e94363e142062f008c284ee93
+gewasgroep:
+  class: factor
+  labels: Braak
+  index: 1
+  ordered: no
+gewas:
+  class: factor
+  labels: Braakliggend land met/zonder minimale activiteit, faunamengsel, graskruidenmengsel,
+    bloemenmengsel en bloemenmengsel voor EAG braak
+  index: 1
+  ordered: no

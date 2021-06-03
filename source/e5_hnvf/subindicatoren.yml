@@ -1,0 +1,136 @@
+..generic:
+  git2rdata: 0.2.1
+  optimize: no
+  NA string: ''
+  sorting: indicator
+  hash: bb3ce9a87cd9ff3caa71c45026522546abf50de1
+  data_hash: d0b7b3d3ae73da69988460671d54fd0eb3e00ec6
+indicator:
+  class: factor
+  labels:
+  - Beschermde gebieden (habitats)
+  - Biologische landbouw
+  - Landgebruiks-intensiteit
+  - Niet-landbouw-habitat (half-natuurlijk)
+  - Perceelsgrootte
+  - Randdensiteit (m/ha)
+  - Shannon diversity index
+  - Variatie in landgebruiks-intensiteit
+  index:
+  - 1
+  - 2
+  - 3
+  - 4
+  - 5
+  - 6
+  - 7
+  - 8
+  ordered: no
+type:
+  class: factor
+  labels:
+  - Beheer (inschatting intensiteit)
+  - Beheer (lagere intensiteit)
+  - Landschap
+  - Landschap & beheer (intensiteit landgebruik)
+  - Landschap (diversiteit landgebruik)
+  - Vegetatie
+  index:
+  - 1
+  - 2
+  - 3
+  - 4
+  - 5
+  - 6
+  ordered: no
+bron:
+  class: factor
+  labels:
+  - Allan e.a. (2014)
+  - Allan e.a. (2014) (relatie met biodiversiteit) en Blüthgen e.a. (2012) (intensiteitsindex)
+  - Brunbjerg e.a. (2016)
+  - Lomba e.a. (2015) and Martin e.a. (2019)
+  - Lomba e.a. (2015), Martin e.a. (2019), and Tscharntke, Batáry, en Dormann (2011)
+  - Šálek e.a. (2018), Morelli, Benedetti, en Šímová (2018), and Sirami e.a. (2019)
+  - Šálek e.a. (2018), Tscharntke, Batáry, en Dormann (2011), and Zingg, Grenz, en
+    Humbert (2018)
+  - Tuck e.a. (2014) and Brunbjerg e.a. (2016)
+  index:
+  - 1
+  - 2
+  - 3
+  - 4
+  - 5
+  - 6
+  - 7
+  - 8
+  ordered: no
+betekenis:
+  class: factor
+  labels:
+  - Biologische landbouw verhoogt de soortenrijkdom op het perceel met 30%. Dit is
+    wel teeltafhankelijk. Het effect neemt toe in intensieve landschappen (zijnde
+    hoog aandeel akker).
+  - Grenswaarde 20%, bij kwaliteitsvoller habitat mag dit lager zijn. Voor vogels
+    is 20% de grenswaarde
+  - Habitats in beschermde gebieden geven een indicatie dat ze waardevol zijn
+  - Hoge variatie in landgebruiksintensiteit bij graslanden is positief voor de biodiversiteit.
+    Intensiteit wordt berekend als combinatie van bemesting, frequentie van maaien
+    en veedichtheid.
+  - Hogere intensiteit (bemestingen, gewasbeschermingsmiddelen, bewerkingen) verlaagt
+    de biodiversiteit
+  - Indien randen bestaan uit halfnatuurlijk habitat is dit een goede indicator. De
+    grenswaarde ligt hier op 0,2 tot 0,4 km rand/ha. En beheerovereenkomsten hebben
+    een grotere meerwaarde in éénvoudige landschappen (1-20% halfnatuurlijk habitat)
+  - Kleinere gemiddelde perceelsgrootte is positief gerelateerd met biodiversiteit.
+    Bv. een daling van 5 naar 2,8 ha heeft een even sterk effect als een toename van
+    halfnatuurlijk habitat van 0,5 naar 11%.
+  - Meer diverse landschappen met meer evenredige aanwezigheid landgebruikstypes zijn
+    meer divers.
+  index:
+  - 1
+  - 2
+  - 3
+  - 4
+  - 5
+  - 6
+  - 7
+  - 8
+  ordered: no
+bruikbaarheid:
+  class: factor
+  labels:
+  - Beheerovereenkomsten zetten sterk in op randen en dit lijkt ons hiervoor een goede
+    indicator.
+  - Biologische landbouw komt slechts beperkt voor in Vlaanderen. Biologische landbouw
+    kan wel meegenomen worden bij de inschatting van de intensiteit, waarbij rekening
+    gehouden wordt dat de bewerkingsintensiteit van biologische landbouw intensief
+    kan zijn (bv. bij maïs en groenten).
+  - De gemiddelde perceelsgrootte blijkt na het uittesten geen goede indicator. Dit
+    komt doordat urbanisatie, natuur en landbouw op kleine schaal naast elkaar voorkomen.
+    Waardoor de gemiddelde landbouwperceelsgrootte soms op een beperkt aantal percelen
+    berekend wordt. Bovendien is de gemiddelde ‘perceelsgrootte’ in Vlaanderen in
+    vergelijking met andere landen klein.
+  - In Vlaanderen kunnen we dit gelijk stellen aan de Natura2000-habitats en de regionaal
+    belangrijke biotopen.
+  - In Vlaanderen zijn de details van het graslandbeheer niet beschikbaar in de gebruikspercelenkaart
+    en daarom weerhouden we deze indicator niet
+  - Vlaanderen kent een intensief landgebruik afgewisseld met niet-intensieve teelten.
+    De intensiteit kent ook ruimtelijke variatie, waardoor het een goede indicator
+    lijkt. Het is belangrijk hierbij dat bij de berekening van de intensiteit rekening
+    wordt gehouden met de diverse aspecten (bemestingen, gewasbeschermingsmiddelen,
+    bewerkingen)
+  - Vlaanderen kent nog een aantal mozaïeklandschappen (waarbij natuur en landbouw
+    sterk verweven zijn) en dit kan helpen om deze landschappen te lokaliseren
+  - Vlaanderen kent nog kleinschalige landschappen met hogere biodiversiteit. Dus
+    dit lijkt een goede indicator. Het probleem is wel hoe we met urbanisatie omgaan.
+  index:
+  - 1
+  - 2
+  - 3
+  - 4
+  - 5
+  - 6
+  - 7
+  - 8
+  ordered: no

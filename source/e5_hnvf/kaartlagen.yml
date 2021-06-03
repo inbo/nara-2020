@@ -1,0 +1,79 @@
+..generic:
+  git2rdata: 0.2.1
+  optimize: no
+  NA string: ''
+  sorting: kaartlaag
+  hash: 1ef886813b60c73f26ee53f0e359e84ccbda5f71
+  data_hash: 89c23a63a5fe8368f0495ea32d1dcccad588a7bc
+kaartlaag:
+  class: factor
+  labels:
+  - Beheergebieden akkervogels, weidevogels, botanisch beheer, grauwe kiekendief en
+    hamster
+  - Beheerovereenkomsten
+  - Biologische waarderingskaart
+  - Broedvogelatlas
+  - Landschapselementenkaart
+  - Verzamelaanvraag
+  - Vlaamse hydrografische atlas
+  - Watervlakkenkaart
+  index:
+  - 1
+  - 2
+  - 3
+  - 4
+  - 5
+  - 6
+  - 7
+  - 8
+  ordered: no
+inhoud:
+  class: factor
+  labels:
+  - ' Vlakkenkaart met alle stilstaande oppervlaktewateren'
+  - Contouren waarin specifieke beheerovereenkomsten kunnen gesloten worden. Bij de
+    afbakening van deze gebieden is, rekening gehouden met de kans op succes en actueel
+    voorkomen van soorten.
+  - Landbouwteelt op perceelsniveau
+  - Lijnenkaart van alle waterlopen, zeker de geklasseerde en afhankelijk van het
+    gebied ook de niet-geklasseerde
+  - Verspreiding van de broedvogels op kilometerhokniveau
+  - Vlakkenkaart met codes voor bodembedekking en landgebruik en de biologische waardering
+    ervan
+  - Vlakkenkaart met opgaande kleine landschapselementen in het landbouwgebied met
+    als hoofdcategorieën haag, houtkant, boom, bomengroep, bomenrij en bosrand
+  - Vlakkenkaart met verschillende beheerovereenkomsten
+  index:
+  - 1
+  - 2
+  - 3
+  - 4
+  - 5
+  - 6
+  - 7
+  - 8
+  ordered: no
+updatefrequentie:
+  class: factor
+  labels:
+  - Jaarlijks
+  - Jaarlijks, blijvend grasland is geen afzonderlijke code maar wordt door het Departement
+    Landbouw & Visserij zelf berekend
+  - 'Onregelmatig, versie 1: 1978-1996, versie 2 1997-2010. Sinds 2010 wordt de kaart
+    continu bijgewerkt waarbij de focus ligt op de habitatrichtlijngebieden. Doel
+    is om deze om de 12-18 jaar te actualiseren. Buiten deze zones wordt de kaart
+    op geactualiseerd op basis van externe vegetatiekarteringen of luchtfoto-interpretatie,
+    dus niet gebiedsdekkend.'
+  - Update bij veranderingen/bijkomende gegevens, onvolledig voor de niet gecategoriseerde
+    waterlopen
+  - Voor de indicator zou een update voor elke GLB-periode handig zijn
+  - 'Vorige atlas: 2000-2002, nieuwe atlas 2020 – 2022, dus om de 20 jaar, niet-frequent
+    genoeg'
+  index:
+  - 1
+  - 2
+  - 3
+  - 4
+  - 5
+  - 6
+  ordered: no

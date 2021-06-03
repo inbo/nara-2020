@@ -1,0 +1,61 @@
+..generic:
+  git2rdata: 0.2.1
+  optimize: no
+  NA string: NA
+  sorting:
+  - beheerovereenkomsten
+  - score
+  hash: 9a789f4bcc94d49e092106391b8a19d0ca51359d
+  data_hash: 4ba7fd8be37a27991609428405f068b134a0667a
+beheerovereenkomsten:
+  class: factor
+  labels:
+  - aanleg en onderhoud grasstrook of grasstrook 15 juni (MB2015), Faunabeheer grasland
+    uitgestelde maaidatum, kuikenweide, beweiden 20 mei of standweide (MB2015), weidevogelbeheer
+    omzetten akkerland en maaien of begrazen (MB 2011) en weidevogelbeheer beweiden
+    of maaien (MB2011)
+  - aanleg en onderhoud vluchtstrook (MB2015) en akkervogelbeheer vogelvoedselgewas
+    (MB2011)
+  - erosiebeheer aanleg en onderhoud grasbufferstrook, grasgang, grasgang = rand (MB2011),
+    erosiebeheer grasbufferstrook zonder/ met teeltbeperking (MB2011), erosiebeheer
+    aanleg dam + erosiepoel – akker of gras (MB2011) en perceelsrandenbeheer milieu
+  - faunabeheer akkerland voedselgewas (MB2015)
+  - KLE (her)aanleg poel of onderhoud poel (MB2011)
+  - onderhoud gemengde grasstrook (plus) (MB2015), aanleg en onderhoud gemengde grasstrook
+    (plus) of bloemenstrook (MB2015), ontwikkeling of instandhouding soortenrijk grasland
+    (MB2015), perceelsrandenbeheer natuur 15 juni of 15 juli of duorand (MB2011),
+    Botanisch beheer grasland maaien 1 of 16 juni, grasland beweiden 1 juni en akkerland
+    (MB2011) en akkervogelbeheer gemengde grasstrook duorand of triorand (MB2011)
+  - onderhoud haag, kaphaag, heg, houtkant, knotbomenrij of bomenrij (MB2015), KLE
+    aanplant houtkant, heg of haag streekeigen/autochtoon (MB2011) en KLE onderhoud
+    heg, houtkant of haag (MB2011),
+  index:
+  - 1
+  - 2
+  - 3
+  - 4
+  - 5
+  - 6
+  - 7
+  ordered: no
+equivalent_met:
+  class: factor
+  labels:
+  - blijvend grasland
+  - braak
+  - graan
+  - halfnatuurlijk grasland
+  - loofbos
+  - tijdelijk grasland
+  - water
+  index:
+  - 1
+  - 2
+  - 3
+  - 4
+  - 5
+  - 6
+  - 7
+  ordered: no
+score:
+  class: numeric

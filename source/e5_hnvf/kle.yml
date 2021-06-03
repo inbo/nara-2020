@@ -1,0 +1,29 @@
+..generic:
+  git2rdata: 0.2.1
+  optimize: no
+  NA string: ''
+  sorting:
+  - kle
+  - score
+  hash: 00c95b824758c2a4c6375ea9fcdba85ee182b3e8
+  data_hash: 1818caa0c8bdcd5da5a79e55a8bf32b2da5ffe29
+kle:
+  class: factor
+  labels:
+  - boom, bomengroep of -rij
+  - houtkant of haag
+  index:
+  - 1
+  - 2
+  ordered: no
+equivalent_met:
+  class: factor
+  labels:
+  - loofbos
+  - populieren
+  index:
+  - 1
+  - 2
+  ordered: no
+score:
+  class: numeric

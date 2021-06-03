@@ -1,0 +1,29 @@
+..generic:
+  git2rdata: 0.2.1
+  optimize: no
+  NA string: ''
+  sorting: gebiedsaanduidingen
+  hash: c8dc0039eea894c989b1dfe4153494ae6f4be5c1
+  data_hash: 28fc0e4b6f53517540af529573eea02fa315d8b3
+gebiedsaanduidingen:
+  class: factor
+  labels:
+  - BO waterkwaliteit grasland en bieten
+  - kwetsbaar gebied natuur (huiskavels en ontheffingen)
+  - kwetsbaar gebied natuur (muv huiskavels en ontheffingen)
+  index:
+  - 1
+  - 2
+  - 3
+  ordered: no
+intensiteitsscore_vermindering:
+  class: factor
+  labels:
+  - geen verandering
+  - steeds klasse 1
+  - vermindering met 1 klasse
+  index:
+  - 1
+  - 2
+  - 3
+  ordered: no

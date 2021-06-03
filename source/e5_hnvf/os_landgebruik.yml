@@ -1,0 +1,44 @@
+..generic:
+  git2rdata: 0.2.1
+  optimize: no
+  NA string: ''
+  sorting:
+  - landgebruik
+  - score
+  hash: ba9ef36832acc29742d698c5bb825e2ecceca6f8
+  data_hash: db5ba66e1eb2bab0873d82f1cd897018bd92f3bc
+landgebruik:
+  class: factor
+  labels:
+  - blijvend gras (ifv aantal jaren gras)
+  - bos, moeras en riet
+  - gras (historisch permanent graslanden, permanente graslanden in VEN, ecologisch
+    kwetsbare blijvende graslanden)
+  - halfnatuurlijk grasland
+  - heide en duin
+  - hoogstam, laagstam en noten
+  - korte omloophout
+  - laaggroen
+  - populier, hooggroen en houtige gewassen
+  index:
+  - 1
+  - 2
+  - 3
+  - 4
+  - 5
+  - 6
+  - 7
+  - 8
+  - 9
+  ordered: no
+score:
+  class: factor
+  labels:
+  - '1'
+  - 1 tem 2
+  - '2'
+  index:
+  - 1
+  - 2
+  - 3
+  ordered: no
