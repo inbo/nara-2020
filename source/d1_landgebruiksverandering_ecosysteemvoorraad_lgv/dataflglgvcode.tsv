@@ -1,0 +1,36 @@
+lg_code	lg_label	nara5_code	nara5_label	nara5_labels	nara10_code	nara10_label	nara10_labels
+1	Ruigte	3	Bos en terrestrische open natuur	natuur	3	Grasland	grasland
+2	Loofbos	3	Bos en terrestrische open natuur	natuur	4	Bos en houtige vegetatie	bos
+3	Populieren	3	Bos en terrestrische open natuur	natuur	4	Bos en houtige vegetatie	bos
+4	Naaldbos	3	Bos en terrestrische open natuur	natuur	4	Bos en houtige vegetatie	bos
+5	Alluviaal bos	3	Bos en terrestrische open natuur	natuur	4	Bos en houtige vegetatie	bos
+6	Halfnatuurlijk grasland	3	Bos en terrestrische open natuur	natuur	3	Grasland	grasland
+7	Heide	3	Bos en terrestrische open natuur	natuur	5	Heide en landduin	heide
+8	Kustduin	3	Bos en terrestrische open natuur	natuur	6	Strand en kustduin	duinen
+9	Moeras	3	Bos en terrestrische open natuur	natuur	7	Moeras	moeras
+10	Slik en schorre	4	Zoetwater en estuarium	water	9	Marien - Estuarium	estuarium
+11	Akker	2	Agro-ecosysteem	landbouw	2	Akker	akker
+12	Niet-geregistreerde landbouw	2	Agro-ecosysteem	landbouw	2	Akker	akker
+13	Hoogstamboomgaard	2	Agro-ecosysteem	landbouw	3	Grasland	grasland
+14	Laagstamboomgaard	2	Agro-ecosysteem	landbouw	2	Akker	akker
+15	Cultuurgrasland permanent	2	Agro-ecosysteem	landbouw	3	Grasland	grasland
+19	Gebouw	1	Stedelijk en bebouwd gebied	urbaan	1	Stedelijk en bebouwd gebied	urbaan
+20	Overig laag groen	3	Bos en terrestrische natuur	natuur	3	Grasland	grasland
+21	Overig hoog groen	3	Bos en terrestrische natuur	natuur	4	Bos en houtige vegetatie	bos
+22	Weg	1	Stedelijk en bebouwd gebied	urbaan	1	Stedelijk en bebouwd gebied	urbaan
+24	Water	4	Zoetwater en estuarium	water	8	Zoetwater	zoetwater
+25	Overig	1	Stedelijk en bebouwd gebied	urbaan	1	Stedelijk en bebouwd gebied	urbaan
+26	Overgangswater	4	Zoetwater en estuarium	water	9	Marien - Estuarium	estuarium
+27	Marien	5	Zee	zee	10	Marien - Zee	zee
+30	Struweel	3	Bos en terrestrische open natuur	natuur	4	Bos en houtige vegetatie	bos
+31	Huizen en tuinen	1	Stedelijk en bebouwd gebied	urbaan	1	Stedelijk en bebouwd gebied	urbaan
+32	Industrie	1	Stedelijk en bebouwd gebied	urbaan	1	Stedelijk en bebouwd gebied	urbaan
+33	Commerciële doeleinden	1	Stedelijk en bebouwd gebied	urbaan	1	Stedelijk en bebouwd gebied	urbaan
+34	Diensten	1	Stedelijk en bebouwd gebied	urbaan	1	Stedelijk en bebouwd gebied	urbaan
+35	Recreatie	1	Stedelijk en bebouwd gebied	urbaan	1	Stedelijk en bebouwd gebied	urbaan
+36	Landbouwgebouwen en -infrastrucuur	1	Stedelijk en bebouwd gebied	urbaan	1	Stedelijk en bebouwd gebied	urbaan
+37	Overige bebouwde terreinen	1	Stedelijk en bebouwd gebied	urbaan	1	Stedelijk en bebouwd gebied	urbaan
+38	Overige onbebouwde terreinen	1	Stedelijk en bebouwd gebied	urbaan	1	Stedelijk en bebouwd gebied	urbaan
+39	Wegen en spoorwegen	1	Stedelijk en bebouwd gebied	urbaan	1	Stedelijk en bebouwd gebied	urbaan
+40	Groeves	1	Stedelijk en bebouwd gebied	urbaan	1	Stedelijk en bebouwd gebied	urbaan
+41	Commerciële luchthavens	1	Stedelijk en bebouwd gebied	urbaan	1	Stedelijk en bebouwd gebied	urbaan

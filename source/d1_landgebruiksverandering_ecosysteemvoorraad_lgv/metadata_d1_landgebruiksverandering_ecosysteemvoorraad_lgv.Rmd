@@ -1,0 +1,131 @@
+---
+title: "Metadata van Landgebruiksverandering - Ecosysteemvoorraad Landgebruiksbestand Vlaanderen"
+date: 2020-07-01T10:00:00
+bibliography: ../references.bib
+link-citations: TRUE
+hoofdstuk: 4
+thema:
+  - Natuur & maatschappij
+  - Landbouw
+keywords:
+  - landgebruiksverandering
+  - ruimtebeslag
+  - natuurlijk kapitaal
+  - natural capital accounting
+  - ecosystem extent
+lang: nl
+tab: metadata
+verantwoordelijke:
+- Wouter Van Reeth <wouter.vanreeth@inbo.be>
+output: html_document
+---
+## Technische informatie
+
+```{r setup, include=FALSE}
+library(knitr)
+opts_chunk$set(echo = FALSE, message = FALSE, warning = FALSE)
+library(git2rdata)
+library(kableExtra)
+```
+
+```{r databereik}
+databereik <- paste(
+  range(read_vc("datastglgv")$Jaar),
+  collapse = "-"
+)
+```
+\- **Periodiciteit**: driejaarlijks
+\- **Volgende update**: 2022
+\- **Databereik**: `r databereik`
+
+```{r data_inlezen_cor-klassen}
+gegevens_clslgv <- read_vc("dataclslgv")
+```
+
+
+## Databron
+
+- **Producent**: Departement Omgeving, Instituut voor Natuur- en Bosonderzoek, Departement Landbouw & Visserij
+- **Dataset**: Landgebruiksbestand Vlaanderen (2013, 2016); Ecotopenkaart Schelde-estuarium (2013, 2016); Landbouwgebruikspercelenkaart (2008-2015)
+- **Gegevensinzameling**: De gegevens van het landgebruiksbestand Vlaanderen zijn gebaseerd op een interpretatie van luchtfoto's, op administratieve aangiftes door landgebruikers en eigenaars of op terreinwaarnemingen.
+De ecotopenkaart is gebaseerd op terreinwaarnemingen. De landbouwgebruikspercelenkaart is gebaseerd op de jaarlijkse aangifte door landbouwers. 
+
+## Berekeningswijze
+
+Het Landgebruiksbestand Vlaanderen van het Departement Omgeving combineert gegevens uit diverse GIS-lagen en andere (ruimtelijke) databanken [@poelmans_landgebruik_2019].
+Die gegevens zijn volgens een bepaalde volgorde samengevoegd in een geodatabase met 4 rasterlagen met een 10m-resolutie (1 are): niveau 1 bodembedekking (22 klassen); niveau 2 verstedelijkt landgebruik (39 klassen); niveau 3 multifunctioneel landgebruik (6 klassen); en niveau 4 haventerreinen en militaire domeinen (2 klassen).
+Deze lagen worden in een bepaalde volgorde verder gecombineerd tot een éénlagige gebiedsdekkende landgebruikskaart (18 klassen) [@poelmans_landgebruik_2019].
+
+Voor deze indicator is de bodembedekkingslaag van het Landgebruiksbestand Vlaanderen als volgt aangepast:
+
+1. In het Schelde-estuarium zijn de slikken en schorren aangepast op basis van ecotopenkaarten voor 2013 en 2016, waarbij de slikken en schorren voorrang krijgen op de waterlaag of andere terrestrische klassen (bv. overig laag groen).
+2. In het IJzer- en het Schelde-estuarium is het water in de zone onder getijdeninvloed geherklasseerd tot een extra klasse 'overgangswater', het overig water wordt beschouwd als 'zoetwater'.
+3. De wateroppervlakte voor de kust is uitgebreid tot het volledige Belgische deel van de Noordzee en als 'marien' geklasseerd.
+4. De bodembedekkingsklasse 'ruigte en struweel' is opgesplitst in 'ruigte' en 'struweel' op basis van de rasterlaag 'BWK_natuur'.
+5. Landbouwpercelen die in 2015 (of 2012) als grasland zijn aangegeven en waarvoor in één of meer van de vier voorgaande jaren een andere teelt is aangegeven, zijn geherklasseerd als akker. Grasland krijgt hierdoor de betekenis van blijvend (vijfjarig) cultuurgrasland.
+Stappen 1 tot 5 resulteren in een aangepaste bodembedekkingskaart met 25 klassen (zie Tabel 3, kolom 1).
+6. De aangepaste bodembedekkingskaart is vervolgens samengevoegd met de niveaus 2 tot 4 van het Landgebruiksbestand Vlaanderen volgens de procedure beschreven in [@poelmans_landgebruik_2019]. 
+Hierdoor wordt van de meeste ecosystemen een beperkte oppervlakte geherklasseerd naar stedelijk en bebouwd gebied.
+Er is afgeweken van de procedure van [@poelmans_landgebruik_2019] voor de cellen die als bodembedekking 'overig' (d.w.z. 'onbekend') hebben en die buiten de zone 'verstedelijkt landgebruik' (landgebruiksbestand, niveau 2) liggen. Die percelen zijn voor deze analyse meegeteld bij in de klasse 'stedelijk en bebouwd gebied'.
+Dit leidt tot een aangepaste landgebruikskaart met 34 landgebruiksklassen (Zie Tabel 3, kolom 2).
+7. De aangepaste landgebruikskaart wordt herleid tot een ecosysteemkaart met 10 klassen (zie Tabel 3, kolom 3).
+Die indeling is gebaseerd op een ecosysteemtypologie voorgesteld door de Europese Commissie [@maes_mapping_2013; @maes_mapping_2018] en de [richtlijnen](https://land.copernicus.eu/user-corner/technical-library/corine-land-cover-nomenclature-guidelines/html) van de [Copernicus Land Monitoring Service](https://land.copernicus.eu/pan-european/corine-land-cover).
+
+Voor de indicator/rekening ecosysteemvoorraad (*stock account*) is het aantal pixels (are) per ecosysteemklasse berekend voor de jaren 2013 en 2016.
+Voor de indicator/rekening Ecosysteemverandering (*flow account*) is op basis van dezelfde data een kruistabel berekend en omgezet in een Sankey-stroomschema dat aangeeft welke ecosysteemklassen in welke zijn veranderd. 
+De structuur van de rekening is gebaseerd op een voorstel van het Europees Milieuagentschap [@eea_land_2006; @eea_natural_2018].
+
+```{r tabel ecosystem classes}
+tabel_clslgv <- data.frame(gegevens_clslgv)
+tabel_clslgv2 <- subset(tabel_clslgv, select = c(1:3))
+tabel_clslgv2 %>%
+  kable(
+    caption = "Tabel 3: Klassen van aangepaste bodembedekkingskaart en
+    landgebruikskaart en omzetting landgebruikskaart naar ecosysteemvoorraad.",
+    col.names = c("Aangepaste bodembedekkingskaart",
+                  "Aangepaste landgebruikskaart",
+                  "Ecosysteemvoorraad NARA niveau 2"),
+    align = "lll"
+  ) %>%
+  column_spec(1:3, width = "25em") %>%
+  row_spec(c(0), bold = TRUE, color = "black") %>%
+  row_spec(c(1:35), font_size = "x-small") %>%
+  kable_styling("striped", full_width = FALSE)
+```
+
+## Opmerkingen bij de gegevenskwaliteit en betrouwbaarheid
+
+Op de ecosysteemkaarten werd een validatie toegepast [@olofsson_good_2014].
+De procedure staat beschreven in de [fiche Landgebruiksverandering -  Validate](https://www.vlaanderen.be/inbo/natuurrapport-2020/landgebruiksverandering-validatie).
+Hieruit blijkt dat cijfers van de ecosysteemvoorraden, en vooral die van de landgebruiksveranderingen tussen 2013 en 2016, met de nodige voorzichtigheid moeten worden geïnterpreteerd.
+De gemiddelde betrouwbaarheid van de bodembedekkingskaart in het aanduiden OF een cel verandert tussen 2013 en 2016, bedraagt 90-91%, met 99% voor de onveranderde cellen en (slechts) 20% voor de veranderende cellen. 
+De veranderingen worden dus sterk overschat.
+De betrouwbaarheid in het aanduiden HOE een cel verandert (d.w.z. 'wat verandert in wat'?) bedraagt slechts 15% voor de veranderende cellen.
+Voor de landgebruiksverandering naar stedelijk en bebouwd gebied of naar akker is de betrouwbaarheid hoger.
+De onnauwkeurigheden zijn toe te schrijven aan de volgende factoren:
+
+1. Fouten bij de interpretatie van luchtfoto's bij de opmaak van de groenkaart, een van de basiskaarten in het landgebruiksbestand Vlaanderen.
+Zo werd in 2016 omwille van de droogte heel wat laag groen niet herkend en onterecht geklasseerd als 'overig'.
+In dat geval selecteert de procedure soms (verouderde) data uit de Biologische Waarderingskaart, waardoor een reeds verdwenen bodembedekking, bv. struweel, onterecht weer in de data opduikt.
+Ook verschillen in de hoek of de lichtinval bij opeenvolgende luchtfoto's dragen bij aan de overschattting van de veranderingen, bijvoorbeeld op perceelsranden. 
+2. Gegevens inzake bodembedekking op basis van terreinwaarnemingen veranderen soms omwille van verbeteringen in de karteermethode.
+In dat geval weerspiegelt een toe- of afname van een bepaalde vegetatie geen werkelijke verandering op het terrein.
+Dit is onder andere het geval voor sommige types heide- en moerasvegetatie.
+3. De Biologische Waarderingskaart is sterk verouderd in zones buiten het Natura 2000-netwerk.
+Ook binnen dit netwerk worden de gegevens slechts met een periodiciteit van 18 jaar bijgewerkt. 
+Daardoor kunnen de geregistreerde veranderingen niet correct aan de driejarige periode van het landgebruiksbestand worden toegeschreven.
+4. Ecosystemen komen in werkelijkheid vaak in gradiënten en complexen voor. 
+De Biologische Waarderingskaart registreert deze als 'habitatcomplexen' aan de hand van meerdere karteringseenheden.
+Het landgebruiksbestand Vlaanderen weerhoudt enkel de eerste, dominante vegetatie-eenheid. 
+Daardoor blijven kleinschalige veranderingen binnen habitatcomplexen soms buiten beeld.
+
+Ondanks de hoge ruimtelijke resolutie, het hoge aantal klassen en de frequente update (3-jaarlijks) van het landgebruiksbestand, raden we af om de kortetermijnveranderinen  tussen verschillende 'groene' ecosysteemklassen op een strikt boekhoudkundige manier te interpreteren.
+De gegevens bieden wel beleidsrelevante informatie over de grootteordes van de ecosystemen, de dominante landgebruiksveranderingen en de trends op langere termijn (bv. 5 à 10 jaar).
+
+## Download
+
+**Broncode indicator**: [d1_landgebruiksverandering_ecosysteemvoorraad_lgv.Rmd](../d1_landgebruiksverandering_ecosysteemvoorraad_lgv/d1_landgebruiksverandering_ecosysteemvoorraad_lgv.Rmd)
+- **Basisdata**: [datastglgv.tsv](../d1_landgebruiksverandering_ecosysteemvoorraad_lgv/datastglgv.tsv), [datastalgv.tsv](../d1_landgebruiksverandering_ecosysteemvoorraad_lgv/datastalgv.tsv), [dataflglgv.tsv](../d1_landgebruiksverandering_ecosysteemvoorraad_lgv/dataflglgv.tsv), [dataflglgvcode.tsv](../d1_landgebruiksverandering_ecosysteemvoorraad_lgv/dataflglgvcode.tsv), [dataflalgv.tsv](../d1_landgebruiksverandering_ecosysteemvoorraad_lgv/dataflalgv.tsv), [dataclslgv.tsv](../d1_landgebruiksverandering_ecosysteemvoorraad_lgv/datacslslgv.tsv)
+- **Metadata basisdata**: [datastglgv.yml](../d1_landgebruiksverandering_ecosysteemvoorraad_lgv/datastglgv.yml), [datastalgv.yml](../d1_landgebruiksverandering_ecosysteemvoorraad_lgv/datastalgv.yml), [dataflglgv.yml](../d1_landgebruiksverandering_ecosysteemvoorraad_lgv/dataflglgv.yml), [dataflgcodelgv.yml](../d1_landgebruiksverandering_ecosysteemvoorraad_lgv/dataflgcodelgv.yml), [dataflalgv.yml](../d1_landgebruiksverandering_ecosysteemvoorraad_lgv/dataflalgv.yml), [dataclslgv.yml](../d1_landgebruiksverandering_ecosysteemvoorraad_lgv/datacslslgv.yml)
+
+## Referenties

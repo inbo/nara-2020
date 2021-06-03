@@ -1,0 +1,170 @@
+..generic:
+  git2rdata: 0.2.1
+  optimize: no
+  NA string: NA
+  sorting: lg_code
+  hash: 01e537bada2ab3b5e0b69f9c290fab9c2f3be228
+  data_hash: 4217ce2ea5ecd1ed63e00ae14a091a98e71241ae
+lg_code:
+  class: integer
+lg_label:
+  class: factor
+  labels:
+  - Akker
+  - Alluviaal bos
+  - Commerciële doeleinden
+  - Commerciële luchthavens
+  - Cultuurgrasland permanent
+  - Diensten
+  - Gebouw
+  - Groeves
+  - Halfnatuurlijk grasland
+  - Heide
+  - Hoogstamboomgaard
+  - Huizen en tuinen
+  - Industrie
+  - Kustduin
+  - Laagstamboomgaard
+  - Landbouwgebouwen en -infrastrucuur
+  - Loofbos
+  - Marien
+  - Moeras
+  - Naaldbos
+  - Niet-geregistreerde landbouw
+  - Overgangswater
+  - Overig
+  - Overig hoog groen
+  - Overig laag groen
+  - Overige bebouwde terreinen
+  - Overige onbebouwde terreinen
+  - Populieren
+  - Recreatie
+  - Ruigte
+  - Slik en schorre
+  - Struweel
+  - Water
+  - Weg
+  - Wegen en spoorwegen
+  index:
+  - 1
+  - 2
+  - 3
+  - 4
+  - 5
+  - 6
+  - 7
+  - 8
+  - 9
+  - 10
+  - 11
+  - 12
+  - 13
+  - 14
+  - 15
+  - 16
+  - 17
+  - 18
+  - 19
+  - 20
+  - 21
+  - 22
+  - 23
+  - 24
+  - 25
+  - 26
+  - 27
+  - 28
+  - 29
+  - 30
+  - 31
+  - 32
+  - 33
+  - 34
+  - 35
+  ordered: no
+nara5_code:
+  class: integer
+nara5_label:
+  class: factor
+  labels:
+  - Agro-ecosysteem
+  - Bos en terrestrische natuur
+  - Bos en terrestrische open natuur
+  - Stedelijk en bebouwd gebied
+  - Zee
+  - Zoetwater en estuarium
+  index:
+  - 1
+  - 2
+  - 3
+  - 4
+  - 5
+  - 6
+  ordered: no
+nara5_labels:
+  class: factor
+  labels:
+  - landbouw
+  - natuur
+  - urbaan
+  - water
+  - zee
+  index:
+  - 1
+  - 2
+  - 3
+  - 4
+  - 5
+  ordered: no
+nara10_code:
+  class: integer
+nara10_label:
+  class: factor
+  labels:
+  - Akker
+  - Bos en houtige vegetatie
+  - Grasland
+  - Heide en landduin
+  - Marien - Estuarium
+  - Marien - Zee
+  - Moeras
+  - Stedelijk en bebouwd gebied
+  - Strand en kustduin
+  - Zoetwater
+  index:
+  - 1
+  - 2
+  - 3
+  - 4
+  - 5
+  - 6
+  - 7
+  - 8
+  - 9
+  - 10
+  ordered: no
+nara10_labels:
+  class: factor
+  labels:
+  - akker
+  - bos
+  - duinen
+  - estuarium
+  - grasland
+  - heide
+  - moeras
+  - urbaan
+  - zee
+  - zoetwater
+  index:
+  - 1
+  - 2
+  - 3
+  - 4
+  - 5
+  - 6
+  - 7
+  - 8
+  - 9
+  - 10
+  ordered: no
