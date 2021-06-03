@@ -52,4 +52,4 @@ Alleen die waterlichamen zijn meegenomen die in beide periodes zijn beoordeeld. 
 
 **Broncode indicator**: [e6_oppervlaktewateren_ecologische_toestand.Rmd](../e6_oppervlaktewateren_ecologische_toestand/e6_oppervlaktewateren_ecologische_toestand.Rmd)
 - **Basisdata**: [vmm_data_2012.tsv](../e6_oppervlaktewateren_ecologische_toestand/vmm_data_2012.tsv), [vmm_data_2018.tsv](../e6_oppervlaktewateren_ecologische_toestand/vmm_data_2018.tsv)
-- **Metadata basisdata**: [vmm_data_2012.yml](../e6_oppervlaktewateren_ecologische_toestand/vmm_data_20112.yml), [vmm_data_2018.yml](../e6_oppervlaktewateren_ecologische_toestand/vmm_data_2018.yml)
+- **Metadata basisdata**: [vmm_data_2012.yml](../e6_oppervlaktewateren_ecologische_toestand/vmm_data_2012.yml), [vmm_data_2018.yml](../e6_oppervlaktewateren_ecologische_toestand/vmm_data_2018.yml)
