@@ -503,7 +503,7 @@ mestbeperking %>%
 
 <font size="3"> D3. Gewasbescherming</font>
 
-Voor gewasbescherming houden we rekening met de verdeling van [de Seq-index over de verschillende teeltgroepen]( https://lv.vlaanderen.be/nl/voorlichting-info/publicaties-cijfers/landbouwcijfers)voor de periode 2012-2016 (Tabel 12). 
+Voor gewasbescherming houden we rekening met de verdeling van [de Seq-index over de verschillende teeltgroepen](https://lv.vlaanderen.be/nl/voorlichting-info/publicaties-cijfers/landbouwcijfers)voor de periode 2012-2016 (Tabel 12). 
 De Seq-index is een maat voor de druk die de gewasbeschermingsmiddelen uitoefenen op het waterleven.  De index weerspiegelt de gebruikte hoeveelheid actieve stof op ecotoxiciteit en verblijftijd in het milieu.
 Naast agro-ecosystemen worden ook gewasbeschermingsmiddelen toegepast in tuinen. 
 Laag groen stellen we hierbij gelijk aan gras en akker volgens de Biologische Waarderingskaart gelijk aan overige gewassen. 
@@ -568,7 +568,7 @@ Na 5 jaar grasbedekking wordt dit score 1,5, na 10 jaar grasbedekking score 1,2,
 Deze keuze houdt rekening met het koolstofvastleggingsproces in graslanden. 
 Dit proces verloopt niet lineair maar is vaak het hoogst direct na een verandering in landgebruik of landbeheer [@dhose_t_mogelijkheden_2017]. 
 Vervolgens evolueert de bodem naar een nieuw evenwicht dat na 20 tot 100 jaar bereikt wordt waarna de koolstofstock min of meer constant blijft. 
-[Tuinen]( https://www.bdb.be/Portals/0/docs/Dag%20van%20de%20TuinBodem%204-BodemvruchtbaarheidTuinen&OpenbaarGroen_MiaTits.pdf) krijgen ook score 1 omdat ze een gunstig tot zeer gunstig organischekoolstofgehalte hebben dankzij het frequent gebruik van compost en mest. 
+[Tuinen](https://www.bdb.be/Portals/0/docs/Dag%20van%20de%20TuinBodem%204-BodemvruchtbaarheidTuinen&OpenbaarGroen_MiaTits.pdf) krijgen ook score 1 omdat ze een gunstig tot zeer gunstig organischekoolstofgehalte hebben dankzij het frequent gebruik van compost en mest. 
 De natuurlijke en halfnatuurlijke landgebruiken krijgen score 1. 
 Hierbij beoordelen we enkel de huidige stock onder het huidig landgebruik en dus niet bv. de bodemverarming van de plaggencultuur die tot heide geleid heeft. 
 Korte omloophout krijgt score 2. 
