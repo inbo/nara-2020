@@ -1,0 +1,43 @@
+..generic:
+  git2rdata: 0.2.1
+  optimize: no
+  NA string: NA
+  sorting:
+  - bostype
+  - plot
+  hash: 659c0f431ed1b8dce2d8bd7d8c40d7214ebb5446
+  data_hash: 5b430fd293785ccaac579573234036588c4ed722
+bostype:
+  class: factor
+  labels:
+  - Beuk
+  - 'Corsicaanse den '
+  - Grove den
+  - Zomereik
+  index:
+  - 1
+  - 2
+  - 3
+  - 4
+  ordered: no
+plot:
+  class: factor
+  labels:
+  - Brasschaat
+  - Gontrode
+  - Ravels
+  - Wijnendale
+  - Zonikn
+  index:
+  - 1
+  - 2
+  - 3
+  - 4
+  - 5
+  ordered: no
+Nkg:
+  class: numeric
+jaar:
+  class: integer
+'N':
+  class: numeric

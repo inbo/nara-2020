@@ -1,6 +1,6 @@
 {
   "R": {
-    "Version": "4.0.2",
+    "Version": "4.1.0",
     "Repositories": [
       {
         "Name": "CRAN",
@@ -52,8 +52,8 @@
       "Package": "INBOmd",
       "Version": "0.4.9",
       "Source": "GitHub",
-      "Remotes": "inbo/INBOtheme, thierryo/qrcode",
       "RemoteType": "github",
+      "Remotes": "inbo/INBOtheme, thierryo/qrcode",
       "RemoteHost": "api.github.com",
       "RemoteRepo": "INBOmd",
       "RemoteUsername": "inbo",
@@ -65,8 +65,8 @@
       "Package": "INBOtheme",
       "Version": "0.5.8",
       "Source": "GitHub",
-      "Remotes": "clauswilke/colorblindr",
       "RemoteType": "github",
+      "Remotes": "clauswilke/colorblindr",
       "RemoteHost": "api.github.com",
       "RemoteRepo": "INBOtheme",
       "RemoteUsername": "inbo",
@@ -426,7 +426,7 @@
       "RemoteUsername": "codemeta",
       "RemoteRef": "HEAD",
       "RemoteSha": "3587a8463118ae72cdfa8bea01c0c5592a03daa9",
-      "Hash": "4060846b7f8fb63cff425135b26df9c7"
+      "Hash": "30c16517e9b2e5f095b0afb63fbd52de"
     },
     "codetools": {
       "Package": "codetools",
@@ -1564,6 +1564,13 @@
       "Source": "Repository",
       "Repository": "CRAN",
       "Hash": "6f76f71042411426ec8df6c54f34e6dd"
+    },
+    "segmented": {
+      "Package": "segmented",
+      "Version": "1.3-4",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Hash": "69c8364de576f1e4455800d6183fc88e"
     },
     "selectr": {
       "Package": "selectr",
