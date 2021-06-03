@@ -1,0 +1,67 @@
+---
+title: "metadata overwinterende watervogels"
+date: 2020-07-01T10:00:00
+bibliography: ../references.bib
+link-citations: TRUE
+hoofdstuk: 5
+thema:
+  - Water
+keywords:
+  - estuaria
+  - watervogels
+  - sigmagebieden
+lang: nl
+tab: metadata
+verantwoordelijke:
+- Helen Michels <Helen.michels@inbo.be>
+output: html_document
+---
+## Technische informatie
+
+```{r setup, include=FALSE}
+library(knitr)
+opts_chunk$set(echo = FALSE, message = FALSE, warning = FALSE)
+library(git2rdata)
+```
+
+```{r databereik}
+databereik <- "1991 - 2018"
+```
+\- **Periodiciteit**: jaarlijks
+\- **Volgende update**: onbekend
+\- **Databereik**: `r databereik`
+
+## Databron
+
+- **Producent**: Instituut voor Natuur- en Bosonderzoek
+- **Dataset**: Om het wintermaximum van watervogels te berekenen wordt er gebruik gemaakt van de watervogeldatabank [link] (www.watervogels.inbo.be).
+De Zeeschelde-analyseset wordt gebruikt voor datapunten in de Zeeschelde, de analyseset van de midmaandelijkse telling wordt gebruikt voor de datapunten in de zijrivieren en de Sigmagebieden.
+
+ 
+- **Gegevensinzameling**: De data worden via gestandaardiseerde tellingen verzameld in het kader van MONEOS en en het INBO project 'Monitoring overwinterende watervogels'.
+
+
+## Berekeningswijze
+
+Voor het wintermaximum van het aantal watervogels in de Zeeschelde en de zijrivieren wordt het aantal watervogels in de Zeeschelde en in de zijrivieren per maand bij elkaar opgeteld.
+Voor het wintermaximum van van het aantal watervogels in de Zeeschelde, de zijrivieren en de Sigmagebieden  wordt hier ook het aantal watervogels in de sigmagebieden bij opgeteld.
+Vervolgens wordt het wintermaximum berekend.
+Dit is het maximum aantal watervogels dat werd waargenomen in de periode oktober-maart. 
+Per jaar wordt vervolgens een glijdend vijfjarig gemiddelde en een 95 % betrouwbaarheidsinterval berekend.
+
+## Opmerkingen bij de gegevenskwaliteit en betrouwbaarheid
+
+Vóór 1999 zijn er geen tellingen van kievit, wulp en waterhoen in de zijrivieren. De wintermaxima vóór 1999 zijn een lichte onderschatting van de reële aantallen. 
+
+## Download
+
+**Broncode indicator**: [e6_oppervlaktewateren_wintermaximum_watervogels.Rmd](../e6_oppervlaktewateren_wintermaximum_watervogels/e6_oppervlaktewateren_wintermaximum_watervogels.Rmd)
+- **Basisdata**: [mav_zsczr.tsv](../e6_oppervlaktewateren_wintermaximum_watervogels/mav_zsczr.tsv), [mav_zsczrsigma.tsv](../e6_oppervlaktewateren_wintermaximum_watervogels/mav_zsczrsigma.tsv)
+- **Metadata basisdata**: [mav_zsczr.yml](../e6_oppervlaktewateren_wintermaximum_watervogels/mav_zsczr.yml), [mav_zsczrsigma.yml](../e6_oppervlaktewateren_wintermaximum_watervogels/mav_zsczrsigma.yml)
+
+
+
+
+
+
+

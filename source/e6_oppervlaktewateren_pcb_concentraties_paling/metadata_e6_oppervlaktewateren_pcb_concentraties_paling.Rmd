@@ -1,0 +1,46 @@
+---
+title: "metadata concentratie PCB in spierweefsel van paling"
+date: 2020-07-01T10:00:00
+bibliography: ../references.bib
+link-citations: TRUE
+hoofdstuk: 5
+thema:
+  - Water
+keywords:
+  - paling
+  - pcb concentraties
+  - bioaccumulatie
+lang: nl
+tab: metadata
+verantwoordelijke:
+- Helen Michels <Helen.michels@inbo.be>
+output: html_document
+---
+## Technische informatie
+
+```{r setup, include=FALSE}
+library(knitr)
+opts_chunk$set(echo = FALSE, message = FALSE, warning = FALSE)
+library(git2rdata)
+```
+
+```{r databereik}
+databereik <- "2015 - 2018"
+```
+\- **Periodiciteit**: onbekend
+\- **Volgende update**: onbekend
+\- **Databereik**: `r databereik`
+
+## Databron
+
+- **Producent**: Universiteit Antwerpen en Instituut voor Natuur- en Bosonderzoek
+- **Dataset**: De data van de periode 2015-2018 staan beschreven in  [@teunen_veldstudies_2020]. De data uit de periode 1994-2005 zijn gepubliceerd in [@van_gerven_verspreiding_2003]. 
+- **Gegevensinzameling**: De data worden verzameld in kader van de Kaderrichtlijn Water [@teunen_veldstudies_2020].
+
+## Download
+
+**Broncode indicator**: [e6_oppervlaktewateren_pcb_concentraties_paling.Rmd](../e6_oppervlaktewateren_pcb_concentraties_paling/e6_oppervlaktewateren_pcb_concentraties_paling.Rmd)
+- **Basisdata**: [data_pcb_2015_2018.tsv](../e6_oppervlaktewateren_pcb_concentraties_paling/data_pcb_2015_2018.tsv) 
+- **Metadata basisdata**: [data_pcb_2015_2018.yml](../e6_oppervlaktewateren_pcb_concentraties_paling/data_pcb_2015_2018.yml)
+
+## Referenties

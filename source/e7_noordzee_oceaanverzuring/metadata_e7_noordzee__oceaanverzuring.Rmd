@@ -1,0 +1,53 @@
+---
+title: "Metadata oceaanverzuring"
+date: 2020-07-01T10:00:00
+bibliography: ../references.bib
+link-citations: TRUE
+hoofdstuk: 5
+thema:
+  - Water
+keywords:
+ - Belgisch deel van de Noordzee
+ - buffercapaciteit zeewater
+ - klimaatverandering
+lang: nl
+tab: metadata
+verantwoordelijke:
+- Helen Michels <Helen.michels@inbo.be>
+output: html_document
+---
+## Technische informatie
+
+```{r setup, include=FALSE}
+library(knitr)
+opts_chunk$set(echo = FALSE, message = FALSE, warning = FALSE)
+library(git2rdata)
+```
+
+```{r databereik}
+databereik <- "2017 - 2019"
+```
+\- **Periodiciteit**: maandelijks
+\- **Volgende update**: onbekend
+\- **Databereik**: `r databereik`
+
+## Databron
+
+- **Producent**: Vlaams Instituut voor de Zee (VLIZ)
+- **Dataset**: Koolstofobservaties voor het Belgisch deel van de Noordzee, binnen de scope van ICOS. 
+- **Gegevensinzameling**: De dataverzameling gebeurt aan de hand van ICOS (Integrated Carbon Observation System). De data worden echter niet gepubliceerd op de ICOS portaal website en vallen niet onder het ICOS databeleid of licentie.
+ICOS is een Europese monitoringsinfrastructuur (ERIC) die de broeikasgasbalans van het Europese continent en de aanpalende regio's monitort en observeert.
+Het FWO ondersteunt de Vlaamse deelname aan ICOS.
+
+## Download
+
+- **Broncode indicator**: [e7_noordzee__oceaanverzuring.Rmd](../e7_noordzee__oceaanverzuring/e7_noordzee__oceaanverzuring.Rmd)
+- **Basisdata**: [icos_data_for_nara_report2020.tsv](../e7_noordzee__oceaanverzuring/icos_data_for_nara_report2020.tsv)
+- **Metadata basisdata**: [icos_data_for_nara_report2020.yml](../e7_noordzee__oceaanverzuring/icos_data_for_nara_report2020.yml)
+
+
+
+
+
+
+
