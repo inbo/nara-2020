@@ -566,7 +566,7 @@ Tussen haakjes staan de specifieke teelten waarop ze gebaseerd zijn.
 Graslanden krijgen in functie van het aantal jaren grasbedekking een score tussen 1 en 2. 
 Na 5 jaar grasbedekking wordt dit score 1,5, na 10 jaar grasbedekking score 1,2, na 15 jaar score 1,1 en na 20 jaar score 1. 
 Deze keuze houdt rekening met het koolstofvastleggingsproces in graslanden. 
-Dit proces verloopt niet lineair maar is vaak het hoogst direct na een verandering in landgebruik of landbeheer [@dhose_mogelijkheden_2017]. 
+Dit proces verloopt niet lineair maar is vaak het hoogst direct na een verandering in landgebruik of landbeheer [@dhose_t_mogelijkheden_2017]. 
 Vervolgens evolueert de bodem naar een nieuw evenwicht dat na 20 tot 100 jaar bereikt wordt waarna de koolstofstock min of meer constant blijft. 
 [Tuinen]( https://www.bdb.be/Portals/0/docs/Dag%20van%20de%20TuinBodem%204-BodemvruchtbaarheidTuinen&OpenbaarGroen_MiaTits.pdf) krijgen ook score 1 omdat ze een gunstig tot zeer gunstig organischekoolstofgehalte hebben dankzij het frequent gebruik van compost en mest. 
 De natuurlijke en halfnatuurlijke landgebruiken krijgen score 1. 
