@@ -1,0 +1,79 @@
+---
+title: "Metadata Biodiversiteit van Europees belang - Populatietrend van broedvogels van Europees belang"
+date: 2020-07-01T10:00:00
+bibliography: ../references.bib
+link-citations: TRUE
+nocite: |
+   @vriens_natuurindicatoren_2020
+hoofdstuk:
+- 3
+thema:
+  - Beschermde natuur
+keywords:
+  - Vogelrichtlijn
+  - Europese rapportage
+  - Broedvogels
+  - Staat van instandhouding
+  - Populatietrend
+lang: nl
+tab: metadata
+verantwoordelijke:
+- Glenn Vermeersch <glenn.vermeersch@inbo.be>
+output: html_document
+---
+## Technische informatie
+
+```{r setup, include=FALSE}
+library(knitr)
+opts_chunk$set(echo = FALSE, message = FALSE, warning = FALSE)
+library(git2rdata)
+```
+
+```{r databereik}
+databereik <- "1980-2019"
+```
+\- **Periodiciteit**: zesjaarlijks
+\- **Volgende update**: onbekend
+\- **Databereik**: `r databereik`
+
+## Databron
+
+- **Producent**: Instituut voor Natuur- en Bosonderzoek i.s.m. Natuurpunt Studie vzw
+- **Dataset**: De ABV databank en BBV databank vormen de basis.
+Aanvullende gegevens werden gehaald uit [www.Avimap.be](http://www.avimap.be), [losse waarnemingen](https://waarnemingen.be), soortspecifieke projecten en/of regionale publicaties voor zover deze niet reeds werden opgenomen in de bestaande databanken.
+- **Gegevensinzameling**: In @vermeersch_methodehandleiding_2018 staat de methodiek waarmee de gegevens ingezameld worden gedetailleerd beschreven.
+Het technisch achtergrondrapport [@onkelinx_trends_2020] bevat een beknopte [beschrijving](https://inbo-abv.netlify.app/2-inzameling-van-de-tellingen-in-het-veld.html).
+Het BBV-project volgt sinds 1994 de jaarlijkse aantalsontwikkeling van zeldzame (<250 broedparen), kolonievormende en vanuit gevangenschap verwilderde (de zogenaamde ‘exoten’) broedvogelsoorten, in totaal een 90-tal.
+Die soorten worden in principe gebiedsdekkend geteld volgens de methode van de uitgebreide territoriumkartering (in detail beschreven in o.a. @vergeer_handleiding_2016).
+
+## Berekeningswijze
+
+De berekeningswijze voor populatietrends op korte (2007-2018) en lange termijn (sinds het instellen van de Vogelrichtlijn in 1980) is beschreven in @vermeersch_resultaten_2019.
+
+### Korte-termijntrend
+
+Zowel in Vlaanderen, Wallonië als Brussel bestaan er een aantal langlopende monitoringsprojecten die toelaten om voor alle soorten minimaal een trendrichting te bepalen.
+Voor algemene broedvogels betreft het een relatieve trend gebaseerd op steekproeven, terwijl de meeste zeldzame soorten en kolonievogels jaarlijks geteld worden.
+Voor de algemene broedvogelsoorten kan ook een boven- en ondergrens (betrouwbaarheidsinterval) van de trend berekend worden, terwijl voor de andere soorten een ‘best single value’ beschikbaar is.
+De data van de algemene broedvogelsoorten worden nationaal geanalyseerd door middel van het TRIM-softwarepakket.
+
+### Lange-termijntrend
+
+Omdat er voor het grootste deel van de broedvogelsoorten geen statistisch goed onderbouwde lange-termijntrend voorhanden is, wordt op nationaal niveau een trend berekend door de meest recente nationale populatiegegevens (2013-2018) te vergelijken met de nationale populatiegegevens zoals vermeld in de Belgische broedvogelatlas (periode 1973-1977) van @devillers_atlas_1988.
+Hierbij wordt enkel een indicatie van richting gegeven (toename, afname, stabiel of fluctuerend).
+
+## Opmerkingen bij de gegevenskwaliteit en betrouwbaarheid
+
+De kwaliteit van de data is voor veel zeldzame en schaarse soorten erg goed.
+Ook voor algemene broedvogels beschikken we sinds de start van het ABV-project (opgestart in Vlaanderen in 2007) over statistisch sterk onderbouwde populatietrends op korte termijn.
+Het bepalen van precieze aantalsschattingen van algemene broedvogels ligt moeilijker, o.a. doordat de recente atlasgegevens nog niet beschikbaar waren.
+Voor het grootste deel van de broedvogelsoorten zijn geen statistisch goed onderbouwde lange-termijntrends voorhanden.
+
+## Download
+
+**Broncode indicator**: [c3_populatietrend_broedvogels.Rmd](../c3_populatietrend_broedvogels/c3_populatietrend_broedvogels.Rmd)
+- **Basisdata**: [populatietrends_broedvogels.tsv](../c3_populatietrend_broedvogels/populatietrends_broedvogels.tsv)
+- **Metadata basisdata**: [populatietrends_broedvogels.yml](../c3_populatietrend_broedvogels/populatietrends_broedvogels.yml)
+- **Overzichtstabel**: [overzicht_broedvogelsoort.tsv](../c3_populatietrend_broedvogels/overzicht_broedvogelsoort.tsv)
+
+## Referenties
