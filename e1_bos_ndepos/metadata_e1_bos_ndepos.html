@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+
+<html lang="nl" xml:lang="nl">
+
+<head>
+<meta name="INBO-publication-date" content="2020-07-01T10:00:00" /><!-- ISO 8601 timezone: CET/CEST -->
+<meta name="INBO-keywords" content="stikstof, level II, langetermijnmeetnet" />
+<meta name="INBO-name" content="Metadata Bos - Stikstofdepositie en stikstofconcentratie in bladeren en naalden van bomen" />
+<meta name="INBO-tab" content="metadata" />
+<meta name="INBO-chapter" content="5" />
+<meta name="INBO-chapter-title" content="Trends per ecosysteem" />
+<meta name="INBO-theme" content="Bos" />
+<meta name="INBO-PureId" content="18013701" />
+<meta name="INBO-language" content="nl" /><!-- ISO 639-1 -->
+<!-- end INBO meta data-->
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+
+<title>Metadata Bos - Stikstofdepositie en stikstofconcentratie in bladeren en naalden van bomen</title>
+
+<script src="../libs/jquery-1.11.3/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="../libs/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
+<script src="../libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="../libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="../libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<style>h1 {font-size: 34px;}
+       h1.title {font-size: 38px;}
+       h2 {font-size: 30px;}
+       h3 {font-size: 24px;}
+       h4 {font-size: 18px;}
+       h5 {font-size: 16px;}
+       h6 {font-size: 12px;}
+       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+       pre:not([class]) { background-color: white }</style>
+<script src="../libs/navigation-1.1/tabsets.js"></script>
+<script src="../libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
+
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+
+<body>
+
+
+<h1 class="title toc-ignore">Metadata Bos - Stikstofdepositie en stikstofconcentratie in bladeren en naalden van bomen</h1>
+
+<div id="technische-informatie" class="section level2">
+<h2>Technische informatie</h2>
+<p>- <strong>Periodiciteit</strong>: eenmalig - <strong>Volgende update</strong>: onbekend - <strong>Databereik</strong>: Stikstofdepositie: 1992-2018; Stikstofconcentratie in bladeren en naalden: 1995-2017</p>
+</div>
+<div id="databron" class="section level2">
+<h2>Databron</h2>
+<ul>
+<li><strong>Producent</strong>: Instituut voor Natuur- en Bosonderzoek</li>
+<li><strong>Dataset</strong>: Databank meetnet Intensieve Monitoring Bosecosystemen (Level II)</li>
+<li><strong>Gegevensinzameling</strong>: De wijze van gegevensinzameling staat beschreven in <span class="citation">Verstraeten e.a. (<a href="#ref-verstraeten_bosgezondheid_2010" role="doc-biblioref">2010</a>)</span>.</li>
+</ul>
+</div>
+<div id="berekeningswijze" class="section level2">
+<h2>Berekeningswijze</h2>
+<p>De deposities van stikstof (kgN/ha*jaar – NH<sub>4</sub><sup>+</sup> en NO<sub>3</sub><sup>-</sup>) worden continu gemeten in de vijf intensief bemeten ICP Forests Level II plots. De gemiddelde stikstofconcentratie in bladeren en naalden (mg N/kg DS 105°C) wordt tweejaarlijks gemeten en bepaald. De proefvlakken in Ravels en Brasschaat bestaan respectievelijk uit Corsicaanse den en grove den. Wijnendale (beuk), Gontrode (zomereik en beuk) en Hoeilaart (beuk) zijn proefvlakken in loofbos. In loofbos vertegenwoordigt behalve de doorval door het bladerdek ook stamafvloei bij beuk een belangrijk aandeel van de depositie (zo’n 3-14%). De stamafvloei is inbegrepen in onze dataset, behalve in 1992-1993.</p>
+<p>Voor de trendanalyses van zowel de deposities als de bladconcentraties gebruiken we een gesegmenteerde regressieanalyse <span class="citation">(Muggeo <a href="#ref-muggeo_interval_2017" role="doc-biblioref">2017</a>)</span>. Gesegmenteerde regressie wordt gebruikt wanneer de relatie tussen twee variabelen op een of meerdere punten in de tijd verandert. Het bereik van de verklarende variabele wordt ter hoogte van de breekpunten opgedeeld in verschillende segmenten en voor elk segment wordt een aparte (lineaire) regressieanalyse uitgevoerd. De methode laat toe om veranderingen in de trend van de stikstofdepositie en de bladconcentratie te detecteren. Voor de analyse gebruiken we het R-package <code>Segmented</code>. De analyse wordt uitgevoerd voor elke plot apart. De methode vertrekt van een lineair startmodel voor elke plot, waarna het model een eerste breekpunt zoekt. Een score-test (<code>pscore.test</code>) geeft uitsluitsel over de significantie van het breekpunt <span class="citation">(Muggeo <a href="#ref-muggeo_testing_2016" role="doc-biblioref">2016</a>)</span>. Als het eerste breekpunt significant is, zoekt het model naar een tweede breekpunt en zo verder tot er geen significant breekpunt meer gevonden kan worden.</p>
+</div>
+<div id="download" class="section level2">
+<h2>Download</h2>
+<p><strong>Broncode indicator</strong>: <a href="../e1_bos_ndepos/e1_bos_ndepos.Rmd">E1_bos_Ndepos.Rmd</a> - <strong>Basisdata</strong>: <a href="../e1_bos_ndepos/tblndepos.tsv">Stikstofdepositie</a>; <a href="../e1_bos_ndepos/tblndepos.tsv">Stikstofconc. blad &amp; naald</a> - <strong>Metadata basisdata</strong>: <a href="../e1_bos_ndepos/tblndepos.yml">Stikstofdepositie</a>; <a href="../e1_bos_ndepos/tblndepos.yml">Stikstofconc. blad &amp; naald</a></p>
+</div>
+<div id="referenties" class="section level2 unnumbered">
+<h2>Referenties</h2>
+<div id="refs" class="references">
+<div id="ref-muggeo_interval_2017">
+<p>Muggeo, Vito M. R. 2017. “Interval estimation for the breakpoint in segmented regression: a smoothed score-based approach”. <em>Australian &amp; New Zealand Journal of Statistics</em> 59 (3): 311–22. <a href="https://doi.org/10.1111/anzs.12200">https://doi.org/10.1111/anzs.12200</a>.</p>
+</div>
+<div id="ref-muggeo_testing_2016">
+<p>———. 2016. “Testing with a nuisance parameter present only under the alternative: a score-based approach with application to segmented modelling”. <em>Journal of Statistical Computation and Simulation</em> 86 (15): 3059–67. <a href="https://doi.org/10.1080/00949655.2016.1149855">https://doi.org/10.1080/00949655.2016.1149855</a>.</p>
+</div>
+<div id="ref-verstraeten_bosgezondheid_2010">
+<p>Verstraeten, Arne, Geert Sioen, Johan Neirynck, J. Corluy, Pieter Dhaluin, L. De Geest, E. Smesman, S. Coenen, Peter Roskams, en Maarten Hens. 2010. “Bosgezondheid in Vlaanderen. Bosvitaliteitsinventaris, meetnet Intensieve Monitoring Bosecosystemen en meetstation luchtverontreiniging. Resultaten 2008-2009.” Brussel: Instituut voor Natuur- en Bosonderzoek.</p>
+</div>
+</div>
+</div>
+
+<h2>Meer weten?</h2>
+
+<ul>
+<li><a href = "mailto:maarten.stevens@inbo.be">maarten.stevens@inbo.be</a></li>
+</ul>
+
+
+</body>
+</html>

@@ -1,0 +1,14 @@
+..generic:
+  git2rdata: 0.3.1
+  optimize: no
+  NA string: NA
+  hash: bc1c0e9eaf29b5fd393e526b7d09efba358fbf98
+  data_hash: 67325cd7d2456a02edb72940a99c3fbd0dfcd581
+Categorie:
+  class: character
+Ecosysteem:
+  class: character
+Waarde:
+  class: integer
+Variabele:
+  class: character

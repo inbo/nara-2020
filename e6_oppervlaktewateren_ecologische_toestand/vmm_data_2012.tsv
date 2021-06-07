@@ -1,0 +1,502 @@
+orde	waterlichaam_code	Waterlichaam_naam	categorie	categorie_2	type	statuut	speerpunt_aandachtsgebied	stroomgebied	bekken	beoordeling_eco	beoordeling_FC	totale_beoordeling_bio	beoordeling_hydmo	fb_eqr	fb_beoordeling	fb_jaar	fp_eqr	fp_beoordeling	fp_jaar	mf_eqr	mf_beoordeling	mf_jaar	mmif_eqr	mmif_beoordeling	mmif_jaar	vis_eqr	vis_beoordeling	vis_jaar	vis_jaar.1	AantalBemonsterdeBiota	AantalNietRelevanteBiota	AantalRelevanteBiota	VerhoudingBemonsterdeBiotaTovRelevanteBiota
+L1	L107_10	KEMMELBEEK	rivier	rivier	Bk	Sterk Veranderd	Aandachtsgebied	 Schelde	Ijzer	4	3	4	NA	0.21	Ontoereikend	2012	NA	n.r.	NA	0.23	Ontoereikend	2012	0.3	Ontoereikend	2011	0.28	Ontoereikend	2011	NA	4	1	4	4/apr
+L1	L107_104	NEERBEEK	rivier	rivier	Bk	Sterk Veranderd	Andere         	 Schelde	Leie	5	3	5	NA	0.14	Slecht	2013	NA	n.r.	NA	0	Slecht	2013	0.05	Slecht	2012	0	Slecht	2010	NA	4	1	4	4/apr
+L1	L107_105	PALINGBEEK	rivier	rivier	Bk	Sterk Veranderd	Andere         	 Schelde	Leie	5	3	5	NA	0.31	Ontoereikend	2010	NA	n.r.	NA	0	Slecht	2010	0.3	Ontoereikend	2010	0	Slecht	2010	NA	4	1	4	4/apr
+L1	L107_11	WANEBEEK	rivier	rivier	Bk	Sterk Veranderd	Aandachtsgebied	 Schelde	Ijzer	4	3	4	NA	0.21	Ontoereikend	2012	NA	n.r.	NA	0.23	Ontoereikend	2012	0.3	Ontoereikend	2011	NA	n.b.	NA	NA	3	1	4	3/apr
+L1	L107_112	LA HAUTE PLANCHE	rivier	rivier	Bk	Natuurlijk     	Andere         	 Schelde	Leie	5	3	5	NA	0.25	Ontoereikend	2013	NA	n.r.	NA	0	Slecht	2011	0.1	Slecht	2011	NA	n.b.	NA	NA	3	1	4	3/apr
+L1	L107_113	DOUVEBEEK	rivier	rivier	Bk	Sterk Veranderd	Andere         	 Schelde	Leie	5	3	5	NA	0.03	Slecht	2011	NA	n.r.	NA	0.02	Slecht	2011	0.25	Slecht	2010	0	Slecht	2012	NA	4	1	4	4/apr
+L1	L107_116	GROTE SPIERE	rivier	rivier	Bk	Sterk Veranderd	Andere         	 Schelde	Boven-Schelde	4	3	4	NA	0.39	Ontoereikend	2013	NA	n.r.	NA	0.5	Matig	2013	0.45	Ontoereikend	2011	NA	n.b.	NA	NA	3	1	4	3/apr
+L1	L107_12	VLETERBEEK	rivier	rivier	Bk	Sterk Veranderd	Aandachtsgebied	 Schelde	Ijzer	5	3	5	NA	0.43	Matig	2013	NA	n.r.	NA	0.1	Slecht	2012	0.6	Matig	2012	NA	n.b.	NA	NA	3	1	4	3/apr
+L1	L107_120	SCHEEBEEK	rivier	rivier	Bk	Sterk Veranderd	Andere         	 Schelde	Boven-Schelde	5	3	5	NA	0.03	Slecht	2013	NA	n.r.	NA	0.08	Slecht	2013	0.2	Slecht	2011	0	Slecht	2010	NA	4	1	4	4/apr
+L1	L107_122	HET GELEED	rivier	rivier	Pb	Sterk Veranderd	Andere         	 Schelde	Brugse Polders	3	3	3	NA	NA	n.r.	NA	NA	n.r.	NA	0.5	Matig	2010	0.65	Goed	2012	NA	n.b.	NA	NA	2	2	3	2/mrt
+L1	L107_123	KANAAL VAN BRUGGE NAAR SLUIS	rivier	rivier	Pz	Kunstmatig     	Andere         	 Schelde	Brugse Polders	4	3	4	NA	0.7	Goed	2012	NA	n.r.	NA	0.37	Ontoereikend	2012	0.73	Goed	2010	0.44	Ontoereikend	2010	NA	4	1	4	4/apr
+L1	L107_124	RONSELAREBEEK	rivier	rivier	Pb	Natuurlijk     	Andere         	 Schelde	Brugse Polders	3	3	3	NA	NA	n.r.	NA	NA	n.r.	NA	0.15	Slecht	2013	0.5	Matig	2011	NA	n.b.	NA	NA	2	2	3	2/mrt
+L1	L107_130	KLEINE GEUL	rivier	rivier	Pb	Sterk Veranderd	Andere         	 Schelde	Brugse Polders	5	3	5	NA	NA	n.r.	NA	NA	n.r.	NA	0	Slecht	2009	NA	n.b.	NA	NA	n.b.	NA	NA	1	2	3	1/mrt
+L1	L107_131	LISSEWEEGSEVAART	rivier	rivier	Pb	Natuurlijk     	Andere         	 Schelde	Brugse Polders	5	3	5	NA	NA	n.r.	NA	NA	n.r.	NA	0.1	Slecht	2012	0.1	Slecht	2009	NA	n.b.	NA	NA	2	2	3	2/mrt
+L1	L107_133	BLANKENBERGSEVAART L1	rivier	rivier	Pb	Sterk Veranderd	Andere         	 Schelde	Brugse Polders	5	3	5	NA	NA	n.r.	NA	NA	n.r.	NA	0	Slecht	2012	0.6	Goed	2010	NA	n.b.	NA	NA	2	2	3	2/mrt
+L1	L107_135	JABBEEKSE BEEK	rivier	rivier	Bk	Sterk Veranderd	Andere         	 Schelde	Brugse Polders	5	3	5	NA	0.31	Ontoereikend	2013	NA	n.r.	NA	0.25	Ontoereikend	2010	0.25	Slecht	2012	0.37	Ontoereikend	2010	NA	4	1	4	4/apr
+L1	L107_136	HOGE WATERING	rivier	rivier	Pz	Sterk Veranderd	Andere         	 Schelde	Brugse Polders	4	3	4	NA	0.46	Matig	2013	NA	n.r.	NA	0.35	Ontoereikend	2012	0.45	Matig	2012	NA	n.b.	NA	NA	3	1	4	3/apr
+L1	L107_140	SCHELLEVLIET	rivier	rivier	Pb	Natuurlijk     	Andere         	 Schelde	Brugse Polders	3	3	3	NA	NA	n.r.	NA	NA	n.r.	NA	NA	n.b.	NA	0.5	Matig	2009	NA	n.b.	NA	NA	1	2	3	1/mrt
+L1	L107_143	GROOT ZWIN - NOORDGELEED	rivier	rivier	Pb	Sterk Veranderd	Andere         	 Schelde	Brugse Polders	5	3	5	NA	NA	n.r.	NA	NA	n.r.	NA	0	Slecht	2012	0.5	Matig	2011	0.48	Matig	2011	NA	3	2	3	3/mrt
+L1	L107_149	PROVINCIEGELEED	rivier	rivier	Pb	Sterk Veranderd	Andere         	 Schelde	Ijzer	3	3	3	NA	NA	n.r.	NA	NA	n.r.	NA	0.8	Goed	2012	0.45	Matig	2010	NA	n.b.	NA	NA	2	2	3	2/mrt
+L1	L107_150	GRANINGATEVLIET	rivier	rivier	Pb	Sterk Veranderd	Andere         	 Schelde	Ijzer	4	3	4	NA	NA	n.r.	NA	NA	n.r.	NA	1	Goed	2008	0.25	Ontoereikend	2010	0.28	Ontoereikend	2012	NA	3	2	3	3/mrt
+L1	L107_16	HARINGEBEEK	rivier	rivier	Bk	Sterk Veranderd	Andere         	 Schelde	Ijzer	4	3	4	NA	0.12	Slecht	2013	NA	n.r.	NA	0	Slecht	2013	0.4	Ontoereikend	2011	NA	n.b.	NA	NA	3	1	4	3/apr
+L1	L107_17	STEENVOORDEBEEK (WATOU)	rivier	rivier	Bk	Sterk Veranderd	Andere         	 Schelde	Ijzer	4	3	4	NA	0.12	Slecht	2013	NA	n.r.	NA	0	Slecht	2013	0.4	Ontoereikend	2011	NA	n.b.	NA	NA	3	1	4	3/apr
+L1	L107_202	OOSTPOLDERKREEK	rivier	rivier	Pb	Sterk Veranderd	Andere         	 Schelde	Gentse Kanalen	5	3	5	NA	NA	n.r.	NA	NA	n.r.	NA	0	Slecht	2010	0.2	Ontoereikend	2011	NA	n.b.	NA	NA	2	2	3	2/mrt
+L1	L107_209	ZWARTESLUISBEEK L1	rivier	rivier	Pz	Sterk Veranderd	Aandachtsgebied	 Schelde	Gentse Kanalen	5	3	5	NA	0.23	Ontoereikend	2010	NA	n.r.	NA	0.15	Slecht	2010	0.65	Goed	2012	0.32	Ontoereikend	2010	NA	4	1	4	4/apr
+L1	L107_213	EEKLOSE WATERGANG	rivier	rivier	Pb	Sterk Veranderd	Andere         	 Schelde	Brugse Polders	3	3	2	NA	NA	n.r.	NA	NA	n.r.	NA	0.7	Goed	2010	0.65	Goed	2010	NA	n.b.	NA	NA	2	2	3	2/mrt
+L1	L107_218	SLEIDINGSVAARDEKEN	rivier	rivier	Bk	Kunstmatig     	Andere         	 Schelde	Gentse Kanalen	4	3	4	NA	0.25	Ontoereikend	2009	NA	n.r.	NA	0.45	Matig	2009	0.75	Goed	2012	0.37	Ontoereikend	2011	NA	4	1	4	4/apr
+L1	L107_219	BURGGRAVENSTROOM	rivier	rivier	Bk	Kunstmatig     	Andere         	 Schelde	Gentse Kanalen	4	3	4	NA	0.38	Ontoereikend	2012	NA	n.r.	NA	0.52	Matig	2012	0.8	Goed	2010	0.41	Ontoereikend	2012	NA	4	1	4	4/apr
+L1	L107_225	KEUTELBEEK	rivier	rivier	Bk	Sterk Veranderd	Andere         	 Schelde	Brugse Polders	4	3	4	NA	NA	n.b.	NA	NA	n.r.	NA	0.65	Goed	2012	0.45	Ontoereikend	2012	NA	n.b.	NA	NA	2	1	4	2/apr
+L1	L107_234	POEKEBEEK L1	rivier	rivier	Bk	Sterk Veranderd	Aandachtsgebied	 Schelde	Gentse Kanalen	5	3	5	NA	0.15	Slecht	2009	NA	n.r.	NA	0	Slecht	2009	0.25	Slecht	2012	0	Slecht	2010	NA	4	1	4	4/apr
+L1	L107_235	REIGERBEEK	rivier	rivier	Bk	Sterk Veranderd	Aandachtsgebied	 Schelde	Gentse Kanalen	5	3	5	NA	0.14	Slecht	2010	NA	n.r.	NA	0	Slecht	2010	0.6	Matig	2011	0.27	Ontoereikend	2010	NA	4	1	4	4/apr
+L1	L107_236	NEERSCHUURBEEK	rivier	rivier	Bk	Sterk Veranderd	Aandachtsgebied	 Schelde	Gentse Kanalen	5	3	5	NA	0.11	Slecht	2010	NA	n.r.	NA	0.03	Slecht	2010	0.55	Matig	2011	0.2	Slecht	2010	NA	4	1	4	4/apr
+L1	L107_237	SPEIBEEK	rivier	rivier	Bk	Sterk Veranderd	Andere         	 Schelde	Leie	5	3	5	NA	0.17	Slecht	2012	NA	n.r.	NA	0.4	Matig	2012	0.35	Ontoereikend	2012	NA	n.b.	NA	NA	3	1	4	3/apr
+L1	L107_239	OUDE MANDEL L1	rivier	rivier	Bk	Sterk Veranderd	Andere         	 Schelde	Leie	4	3	4	NA	0.28	Ontoereikend	2013	NA	n.r.	NA	0.83	Goed	2012	0.4	Ontoereikend	2012	NA	n.b.	NA	NA	3	1	4	3/apr
+L1	L107_240	ZOUBEEK	rivier	rivier	Bk	Sterk Veranderd	Andere         	 Schelde	Leie	5	3	5	NA	0.08	Slecht	2013	NA	n.r.	NA	0.4	Matig	2012	0.15	Slecht	2011	NA	n.b.	NA	NA	3	1	4	3/apr
+L1	L107_241	KATTEBEEK	rivier	rivier	Bk	Sterk Veranderd	Andere         	 Schelde	Leie	4	3	4	NA	0.2	Ontoereikend	2012	NA	n.r.	NA	0.4	Matig	2012	0.45	Ontoereikend	2011	NA	n.b.	NA	NA	3	1	4	3/apr
+L1	L107_242	DUIVEBEEK	rivier	rivier	Bk	Natuurlijk     	Andere         	 Schelde	Leie	5	3	5	NA	0.2	Ontoereikend	2009	NA	n.r.	NA	0	Slecht	2009	0.35	Ontoereikend	2010	0	Slecht	2010	NA	4	1	4	4/apr
+L1	L107_246	STAMPKOTBEEK - MOLENBEEK	rivier	rivier	Bk	Sterk Veranderd	Andere         	 Schelde	Boven-Schelde	5	3	5	NA	0.47	Matig	2013	NA	n.r.	NA	0.02	Slecht	2013	0.7	Goed	2011	0.2	Slecht	2011	NA	4	1	4	4/apr
+L1	L107_247	STAMPKOTBEEK - WALLEBEEK	rivier	rivier	Bk	Sterk Veranderd	Andere         	 Schelde	Boven-Schelde	5	3	5	NA	0.22	Ontoereikend	2009	NA	n.r.	NA	0	Slecht	2009	0.35	Ontoereikend	2011	NA	n.b.	NA	NA	3	1	4	3/apr
+L1	L107_253	STAMPKOTBEEK - MUNKBOSBEEK	rivier	rivier	Bk	Sterk Veranderd	Andere         	 Schelde	Boven-Schelde	3	3	3	NA	0.55	Matig	2013	NA	n.r.	NA	0.02	Slecht	2013	0.55	Matig	2012	NA	n.b.	NA	NA	3	1	4	3/apr
+L1	L107_254	MOLENBEEK - BEIAARDBEEK	rivier	rivier	Bk	Natuurlijk     	Andere         	 Schelde	Boven-Schelde	5	3	5	NA	0.41	Matig	2009	NA	n.r.	NA	0.1	Slecht	2009	0.65	Matig	2012	NA	n.b.	NA	NA	3	1	4	3/apr
+L1	L107_266	PEERDESTOKBEEK	rivier	rivier	Bk	Sterk Veranderd	Aandachtsgebied	 Schelde	Boven-Schelde	5	3	5	NA	0.32	Ontoereikend	2011	NA	n.r.	NA	NA	n.b.	NA	0.45	Ontoereikend	2011	0.2	Slecht	2012	NA	3	1	4	3/apr
+L1	L107_272	OPHASSELTBEEK	rivier	rivier	Bk	Sterk Veranderd	Aandachtsgebied	 Schelde	Dender	5	3	5	NA	0.42	Matig	2009	NA	n.r.	NA	0.17	Slecht	2009	0.55	Matig	2012	NA	n.b.	NA	NA	3	1	4	3/apr
+L1	L107_273	MOLENBEEK - PACHTBOSBEEK L1	rivier	rivier	Bk	Sterk Veranderd	Aandachtsgebied	 Schelde	Dender	5	3	5	NA	0.35	Ontoereikend	2009	NA	n.r.	NA	0.03	Slecht	2009	0.65	Matig	2010	0.2	Slecht	2012	NA	4	1	4	4/apr
+L1	L107_274	MOLENBEEK - KALSTERBEEK	rivier	rivier	Bk	Sterk Veranderd	Andere         	 Schelde	Dender	5	3	5	NA	0.33	Ontoereikend	2013	NA	n.r.	NA	0.22	Ontoereikend	2013	0.4	Ontoereikend	2011	NA	n.b.	NA	NA	3	1	4	3/apr
+L1	L107_275	TER ERPENBEEK	rivier	rivier	Bk	Sterk Veranderd	Andere         	 Schelde	Dender	5	3	5	NA	0.21	Ontoereikend	2009	NA	n.r.	NA	0.07	Slecht	2009	0.45	Ontoereikend	2012	NA	n.b.	NA	NA	3	1	4	3/apr
+L1	L107_276	MOLENBEEK - GRAADBEEK	rivier	rivier	Bk	Sterk Veranderd	Andere         	 Schelde	Dender	5	3	5	NA	0.2	Ontoereikend	2008	NA	n.r.	NA	0.07	Slecht	2008	0.3	Ontoereikend	2011	0.2	Slecht	2010	NA	4	1	4	4/apr
+L1	L107_277	WILDEBEEK	rivier	rivier	Bk	Sterk Veranderd	Andere         	 Schelde	Dender	5	3	5	NA	0	Slecht	2010	NA	n.r.	NA	0	Slecht	2010	0.2	Slecht	2012	NA	n.b.	NA	NA	3	1	4	3/apr
+L1	L107_279	MOLENBEEK - VOGELENZANGBEEK	rivier	rivier	Bk	Sterk Veranderd	Andere         	 Schelde	Dender	5	3	5	NA	0.39	Ontoereikend	2010	NA	n.r.	NA	0.45	Matig	2010	0.4	Ontoereikend	2012	0.23	Slecht	2010	NA	4	1	4	4/apr
+L1	L107_282	MOLENBEEK - GONDEBEEK	rivier	rivier	Bk	Sterk Veranderd	Aandachtsgebied	 Schelde	Beneden-Schelde	5	3	5	NA	0.07	Slecht	2009	NA	n.r.	NA	0.05	Slecht	2009	0.45	Ontoereikend	2011	0.2	Slecht	2011	NA	4	1	4	4/apr
+L1	L107_287	MOLENBEEK - GROTE BEEK	rivier	rivier	Bk	Sterk Veranderd	Andere         	 Schelde	Beneden-Schelde	4	3	4	NA	0.25	Ontoereikend	2013	NA	n.r.	NA	0	Slecht	2013	0.45	Ontoereikend	2012	0.37	Ontoereikend	2010	NA	4	1	4	4/apr
+L1	L107_289	DAMSLOOT	rivier	rivier	Bk	Natuurlijk     	Aandachtsgebied	 Schelde	Beneden-Schelde	4	3	4	NA	0.49	Matig	2010	NA	n.r.	NA	0.2	Ontoereikend	2010	0.65	Matig	2012	NA	n.b.	NA	NA	3	1	4	3/apr
+L1	L107_296	VOORSTESLOOT	rivier	rivier	Bk	Sterk Veranderd	Aandachtsgebied	 Schelde	Beneden-Schelde	5	3	5	NA	NA	n.b.	NA	NA	n.r.	NA	0	Slecht	2009	0.8	Goed	2011	NA	n.b.	NA	NA	2	1	4	2/apr
+L1	L107_299	VONDELBEEK L1	rivier	rivier	Bk	Sterk Veranderd	Andere         	 Schelde	Dender	5	3	5	NA	0.02	Slecht	2009	NA	n.r.	NA	0.07	Slecht	2009	0.2	Slecht	2012	NA	n.b.	NA	NA	3	1	4	3/apr
+L1	L107_3	BROENBEEK	rivier	rivier	Bk	Sterk Veranderd	Andere         	 Schelde	Ijzer	5	3	5	NA	0.26	Ontoereikend	2013	NA	n.r.	NA	0.2	Ontoereikend	2012	0.3	Ontoereikend	2012	NA	n.b.	NA	NA	3	1	4	3/apr
+L1	L107_305	ZELEBEEK	rivier	rivier	Bk	Natuurlijk     	Aandachtsgebied	 Schelde	Beneden-Schelde	5	3	5	NA	0.22	Ontoereikend	2009	NA	n.r.	NA	0.15	Slecht	2009	0.5	Matig	2010	NA	n.b.	NA	NA	3	1	4	3/apr
+L1	L107_325	GROTE ASTBEEK	rivier	rivier	Bk	Natuurlijk     	Andere         	 Schelde	Gentse Kanalen	4	3	4	NA	0.39	Ontoereikend	2010	NA	n.r.	NA	0.25	Ontoereikend	2010	NA	n.b.	NA	NA	n.b.	NA	NA	2	1	4	2/apr
+L1	L107_328	ZUIDELIJKE WATERGANG	rivier	rivier	Pb	Sterk Veranderd	Andere         	 Schelde	Beneden-Schelde	4	3	4	NA	NA	n.r.	NA	NA	n.r.	NA	0.53	Matig	2011	0.3	Ontoereikend	2011	0.55	Matig	2011	NA	3	2	3	3/mrt
+L1	L107_329	BLOKSTRAATBEEK	rivier	rivier	Pz	Sterk Veranderd	Andere         	 Schelde	Beneden-Schelde	4	3	4	NA	0.38	Ontoereikend	2012	NA	n.r.	NA	0.4	Matig	2012	0.45	Matig	2012	NA	n.b.	NA	NA	3	1	4	3/apr
+L1	L107_33	BOMMELAREVAART	rivier	rivier	Pb	Sterk Veranderd	Andere         	 Schelde	Ijzer	5	3	5	NA	NA	n.r.	NA	NA	n.r.	NA	0	Slecht	2010	0.45	Matig	2012	NA	n.b.	NA	NA	2	2	3	2/mrt
+L1	L107_330	WATERLOOP VAN DE HOGE LANDEN L1	rivier	rivier	Bk	Sterk Veranderd	Andere         	 Schelde	Beneden-Schelde	5	3	5	NA	0.23	Ontoereikend	2012	NA	n.r.	NA	0.18	Slecht	2012	0.3	Ontoereikend	2012	NA	n.b.	NA	NA	3	1	4	3/apr
+L1	L107_333	DOORLOOP	rivier	rivier	Pb	Sterk Veranderd	Aandachtsgebied	 Schelde	Beneden-Schelde	4	3	4	NA	NA	n.r.	NA	NA	n.r.	NA	0.52	Matig	2012	0.35	Ontoereikend	2012	NA	n.b.	NA	NA	2	2	3	2/mrt
+L1	L107_335	MOLENBEEK - BEVERBEEK	rivier	rivier	Bk	Sterk Veranderd	Andere         	 Schelde	Dender	4	3	4	NA	0.33	Ontoereikend	2011	NA	n.r.	NA	0.4	Matig	2011	0.45	Ontoereikend	2011	NA	n.b.	NA	NA	3	1	4	3/apr
+L1	L107_336	DE RIJT	rivier	rivier	Bk	Sterk Veranderd	Andere         	 Schelde	Dender	5	3	5	NA	0.59	Matig	2013	NA	n.r.	NA	0.05	Slecht	2013	0.35	Ontoereikend	2011	NA	n.b.	NA	NA	3	1	4	3/apr
+L1	L107_34	RINGSLOT	rivier	rivier	Pb	Sterk Veranderd	Andere         	 Schelde	Ijzer	3	3	2	NA	NA	n.r.	NA	NA	n.r.	NA	0.63	Goed	2011	0.6	Goed	2010	NA	n.b.	NA	NA	2	2	3	2/mrt
+L1	L107_37	LANGGELEED	rivier	rivier	Pb	Sterk Veranderd	Andere         	 Schelde	Ijzer	3	3	2	NA	NA	n.r.	NA	NA	n.r.	NA	0.67	Goed	2010	0.6	Goed	2010	NA	n.b.	NA	NA	2	2	3	2/mrt
+L1	L107_4	KORVERSBEEK	rivier	rivier	Bk	Sterk Veranderd	Andere         	 Schelde	Ijzer	3	3	3	NA	0.24	Ontoereikend	2013	NA	n.r.	NA	0.1	Slecht	2013	0.5	Matig	2012	NA	n.b.	NA	NA	3	1	4	3/apr
+L1	L107_40	STENENSLUISVAART	rivier	rivier	Pz	Sterk Veranderd	Aandachtsgebied	 Schelde	Ijzer	4	3	4	NA	0.26	Ontoereikend	2009	NA	n.r.	NA	0.2	Ontoereikend	2009	0.2	Ontoereikend	2011	NA	n.b.	NA	NA	3	1	4	3/apr
+L1	L107_403	MOLENBEEK - NEERPEDEBEEK	rivier	rivier	Bk	Natuurlijk     	Andere         	 Schelde	Beneden-Schelde	5	3	5	NA	0.15	Slecht	2009	NA	n.r.	NA	NA	n.b.	NA	0.25	Slecht	2010	NA	n.b.	NA	NA	2	1	4	2/apr
+L1	L107_404	LOTBEEK	rivier	rivier	Bk	Natuurlijk     	Andere         	 Schelde	Dijle Zenne	5	3	5	NA	0.15	Slecht	2012	NA	n.r.	NA	0	Slecht	2012	0.2	Slecht	2012	NA	n.b.	NA	NA	3	1	4	3/apr
+L1	L107_407	GROEBENGRACHT	rivier	rivier	Bk	Natuurlijk     	Andere         	 Schelde	Dijle Zenne	5	3	5	NA	0.14	Slecht	2010	NA	n.r.	NA	0.2	Ontoereikend	2010	0.35	Ontoereikend	2010	NA	n.b.	NA	NA	3	1	4	3/apr
+L1	L107_409	KLEINE MAALBEEK	rivier	rivier	Bk	Natuurlijk     	Aandachtsgebied	 Schelde	Dijle Zenne	4	3	4	NA	0.23	Ontoereikend	2009	NA	n.r.	NA	0.5	Matig	2009	0.3	Ontoereikend	2012	NA	n.b.	NA	NA	3	1	4	3/apr
+L1	L107_411	MOLENBEEK - PARKBEEK	rivier	rivier	Bk	Natuurlijk     	Andere         	 Schelde	Dijle Zenne	4	3	4	NA	0.38	Ontoereikend	2012	NA	n.r.	NA	0.4	Matig	2012	0.6	Matig	2012	0.26	Ontoereikend	2012	NA	4	1	4	4/apr
+L1	L107_413	TANGEBEEK	rivier	rivier	Bk	Natuurlijk     	Andere         	 Schelde	Dijle Zenne	4	3	4	NA	0.29	Ontoereikend	2011	NA	n.r.	NA	0.37	Ontoereikend	2011	0.55	Matig	2011	NA	n.b.	NA	NA	3	1	4	3/apr
+L1	L107_417	DE GROTE LAAK	rivier	rivier	Bk	Kunstmatig     	Aandachtsgebied	 Schelde	Dijle Zenne	5	3	5	NA	0.33	Ontoereikend	2012	NA	n.r.	NA	0.08	Slecht	2012	0.25	Slecht	2010	NA	n.b.	NA	NA	3	1	4	3/apr
+L1	L107_418	MENE	rivier	rivier	Bk	Natuurlijk     	Andere         	 Schelde	Demer	4	3	4	NA	0.43	Matig	2012	NA	n.r.	NA	0.3	Ontoereikend	2012	0.45	Ontoereikend	2012	NA	n.b.	NA	NA	3	1	4	3/apr
+L1	L107_421	GENOVEVABEEK	rivier	rivier	Bk	Natuurlijk     	Andere         	 Schelde	Demer	5	3	5	NA	0.1	Slecht	2012	NA	n.r.	NA	0.03	Slecht	2012	0.1	Slecht	2012	NA	n.b.	NA	NA	3	1	4	3/apr
+L1	L107_422	'S HERTOGENGRACHT	rivier	rivier	Bk	Natuurlijk     	Andere         	 Schelde	Demer	5	3	5	NA	0.21	Ontoereikend	2011	NA	n.r.	NA	0.02	Slecht	2011	0.35	Ontoereikend	2010	NA	n.b.	NA	NA	3	1	4	3/apr
+L1	L107_423	BEGIJNEBEEK L1	rivier	rivier	Bk	Natuurlijk     	Aandachtsgebied	 Schelde	Demer	5	3	5	NA	0.15	Slecht	2009	NA	n.r.	NA	0.2	Ontoereikend	2008	0.25	Slecht	2011	0.36	Ontoereikend	2011	NA	4	1	4	4/apr
+L1	L107_424	VIJVERSLOOP	rivier	rivier	Bk	Natuurlijk     	Aandachtsgebied	 Schelde	Demer	5	3	5	NA	0.17	Slecht	2012	NA	n.r.	NA	0	Slecht	2012	0.1	Slecht	2012	NA	n.b.	NA	NA	3	1	4	3/apr
+L1	L107_431	ST-ODULPHUSBEEK	rivier	rivier	Bk	Natuurlijk     	Andere         	 Schelde	Demer	5	3	5	NA	0.21	Ontoereikend	2010	NA	n.r.	NA	0	Slecht	2010	0.4	Ontoereikend	2010	NA	n.b.	NA	NA	3	1	4	3/apr
+L1	L107_432	DORMAALBEEK	rivier	rivier	Bk	Natuurlijk     	Andere         	 Schelde	Demer	4	3	4	NA	0.43	Matig	2009	NA	n.r.	NA	0.23	Ontoereikend	2009	0.45	Ontoereikend	2012	0.68	Goed	2012	NA	4	1	4	4/apr
+L1	L107_433	BEVERBEEK	rivier	rivier	Bk	Sterk Veranderd	Aandachtsgebied	 Schelde	Dender	3	3	3	NA	0.58	Matig	2013	NA	n.r.	NA	0.05	Slecht	2013	0.5	Matig	2010	NA	n.b.	NA	NA	3	1	4	3/apr
+L1	L107_434	SCHEIBEEK	rivier	rivier	Bk	Natuurlijk     	Aandachtsgebied	 Schelde	Dender	5	3	5	NA	0.22	Ontoereikend	2008	NA	n.r.	NA	0.1	Slecht	2008	0.5	Matig	2012	0.41	Ontoereikend	2011	NA	4	1	4	4/apr
+L1	L107_435	AREBEEK	rivier	rivier	Bk	Natuurlijk     	Aandachtsgebied	 Schelde	Dender	4	3	4	NA	0.31	Ontoereikend	2010	NA	n.r.	NA	0.25	Ontoereikend	2010	0.3	Ontoereikend	2010	0.41	Ontoereikend	2011	NA	4	1	4	4/apr
+L1	L107_439	IJSE L1	rivier	rivier	Bk	Natuurlijk     	Speerpuntgebied	 Schelde	Dijle Zenne	4	3	4	NA	0.31	Ontoereikend	2008	NA	n.r.	NA	0.23	Ontoereikend	2008	0.4	Ontoereikend	2011	0.45	Matig	2012	NA	4	1	4	4/apr
+L1	L107_441	LANGEGRACHT	rivier	rivier	Bk	Natuurlijk     	Speerpuntgebied	 Schelde	Dijle Zenne	5	3	5	NA	0.08	Slecht	2010	NA	n.r.	NA	0.2	Ontoereikend	2010	0.15	Slecht	2012	NA	n.b.	NA	NA	3	1	4	3/apr
+L1	L107_449	VOER (BERTEM)	rivier	rivier	Bk	Natuurlijk     	Aandachtsgebied	 Schelde	Dijle Zenne	5	3	5	NA	0.13	Slecht	2008	NA	n.r.	NA	0.05	Slecht	2008	0.55	Matig	2012	0.29	Ontoereikend	2011	NA	4	1	4	4/apr
+L1	L107_451	GROTE LAAK - GROTE LOOP - MESTENLOOP	rivier	rivier	BkK	Natuurlijk     	Aandachtsgebied	 Schelde	Demer	5	3	5	NA	0.19	Slecht	2009	NA	n.r.	NA	0.33	Ontoereikend	2009	0.3	Ontoereikend	2009	NA	n.b.	NA	NA	3	1	4	3/apr
+L1	L107_452	LAARBEEK	rivier	rivier	Bk	Natuurlijk     	Aandachtsgebied	 Schelde	Demer	5	3	5	NA	0.31	Ontoereikend	2011	NA	n.r.	NA	0.1	Slecht	2011	0.5	Matig	2011	NA	n.b.	NA	NA	3	1	4	3/apr
+L1	L107_453	ZWARTEBEEK (SCHERPENHEUVEL-ZICHEM)	rivier	rivier	BkK	Natuurlijk     	Aandachtsgebied	 Schelde	Demer	5	3	5	NA	0.21	Ontoereikend	2012	NA	n.r.	NA	0.02	Slecht	2012	0.4	Ontoereikend	2012	NA	n.b.	NA	NA	3	1	4	3/apr
+L1	L107_454	KLEINEBEEK - RIJSELSESTRAATVLIET	rivier	rivier	BkK	Natuurlijk     	Aandachtsgebied	 Schelde	Demer	4	3	4	NA	0.25	Ontoereikend	2013	NA	n.r.	NA	0.23	Ontoereikend	2013	0.5	Matig	2012	NA	n.b.	NA	NA	3	1	4	3/apr
+L1	L107_462	LEMINGSBEEK	rivier	rivier	Bk	Natuurlijk     	Andere         	 Schelde	Dijle Zenne	5	3	5	NA	0.21	Ontoereikend	2011	NA	n.r.	NA	0	Slecht	2011	0.1	Slecht	2011	NA	n.b.	NA	NA	3	1	4	3/apr
+L1	L107_463	AABEEK (MECHELEN)	rivier	rivier	Bk	Sterk Veranderd	Aandachtsgebied	 Schelde	Dijle Zenne	5	3	5	NA	0.23	Ontoereikend	2009	NA	n.r.	NA	0.33	Ontoereikend	2009	0.55	Matig	2012	0.2	Slecht	2010	NA	4	1	4	4/apr
+L1	L107_464	LEYBEEK	rivier	rivier	Bk	Natuurlijk     	Aandachtsgebied	 Schelde	Dijle Zenne	5	3	5	NA	0.39	Ontoereikend	2012	NA	n.r.	NA	0.07	Slecht	2012	0.35	Ontoereikend	2012	NA	n.b.	NA	NA	3	1	4	3/apr
+L1	L107_47	ZARRENBEEK L1	rivier	rivier	Bk	Sterk Veranderd	Andere         	 Schelde	Ijzer	5	3	5	NA	0.36	Ontoereikend	2013	NA	n.r.	NA	0	Slecht	2012	0.25	Slecht	2011	NA	n.b.	NA	NA	3	1	4	3/apr
+L1	L107_48	KANAAL VAN ESEN	rivier	rivier	Pz	Kunstmatig     	Andere         	 Schelde	Ijzer	4	3	4	NA	0.26	Ontoereikend	2013	NA	n.r.	NA	0.18	Slecht	2013	0.3	Ontoereikend	2012	NA	n.b.	NA	NA	3	1	4	3/apr
+L1	L107_5	BOLLAERTBEEK	rivier	rivier	Bk	Sterk Veranderd	Andere         	 Schelde	Ijzer	4	3	4	NA	0.28	Ontoereikend	2013	NA	n.r.	NA	0	Slecht	2013	0.35	Ontoereikend	2011	NA	n.b.	NA	NA	3	1	4	3/apr
+L1	L107_56	REYGAERTSVLIET	rivier	rivier	Pb	Sterk Veranderd	Andere         	 Schelde	Ijzer	4	3	4	NA	NA	n.r.	NA	NA	n.r.	NA	0.33	Ontoereikend	2010	0.7	Goed	2010	NA	n.b.	NA	NA	2	2	3	2/mrt
+L1	L107_6	DIKKEBUSBEEK	rivier	rivier	Bk	Sterk Veranderd	Andere         	 Schelde	Ijzer	5	3	5	NA	0.13	Slecht	2010	NA	n.r.	NA	0	Slecht	2010	0.75	Goed	2012	NA	n.b.	NA	NA	3	1	4	3/apr
+L1	L107_60	GROOTGELEED	rivier	rivier	Pb	Sterk Veranderd	Andere         	 Schelde	Ijzer	3	3	3	NA	NA	n.r.	NA	NA	n.r.	NA	0	Slecht	2013	0.55	Matig	2012	NA	n.b.	NA	NA	2	2	3	2/mrt
+L1	L107_600	LEYLOOP	rivier	rivier	BkK	Sterk Veranderd	Andere         	 Maas	Maas	3	3	3	NA	0.77	Goed	2013	NA	n.r.	NA	0.63	Goed	2013	0.8	Goed	2010	0.56	Matig	2011	NA	4	1	4	4/apr
+L1	L107_601	DE AA (RAVELS)	rivier	rivier	BkK	Natuurlijk     	Andere         	 Maas	Maas	3	3	3	NA	0.48	Matig	2013	NA	n.r.	NA	0.47	Matig	2013	0.6	Matig	2010	0.45	Matig	2011	NA	4	1	4	4/apr
+L1	L107_602	BLAUWPUTTEN EN LEILOOP	rivier	rivier	BkK	Sterk Veranderd	Aandachtsgebied	 Maas	Maas	3	3	3	NA	0.51	Matig	2011	NA	n.r.	NA	0.48	Matig	2011	0.6	Matig	2010	NA	n.b.	NA	NA	3	1	4	3/apr
+L1	L107_603	HEERLESE LOOP	rivier	rivier	BkK	Sterk Veranderd	Aandachtsgebied	 Maas	Maas	5	3	5	NA	0.13	Slecht	2012	NA	n.r.	NA	0.35	Ontoereikend	2012	0.55	Matig	2012	NA	n.b.	NA	NA	3	1	4	3/apr
+L1	L107_607	MERKSKE L1	rivier	rivier	BkK	Natuurlijk     	Speerpuntgebied	 Maas	Maas	4	3	4	NA	0.25	Ontoereikend	2009	NA	n.r.	NA	0.4	Matig	2012	0.85	Goed	2012	NA	n.b.	NA	NA	3	1	4	3/apr
+L1	L107_609	KLEINE MARK	rivier	rivier	BkK	Natuurlijk     	Aandachtsgebied	 Maas	Maas	5	3	5	NA	0.16	Slecht	2012	NA	n.r.	NA	0.48	Matig	2012	0.55	Matig	2012	NA	n.b.	NA	NA	3	1	4	3/apr
+L1	L107_61	VAARTDIJKGELEED	rivier	rivier	Pz	Sterk Veranderd	Andere         	 Schelde	Ijzer	5	3	5	NA	0.14	Slecht	2013	NA	n.r.	NA	0	Slecht	2012	0.5	Matig	2012	NA	n.b.	NA	NA	3	1	4	3/apr
+L1	L107_610	MARK L1	rivier	rivier	BkK	Natuurlijk     	Aandachtsgebied	 Maas	Maas	5	3	5	NA	0.25	Ontoereikend	2010	NA	n.r.	NA	0.38	Ontoereikend	2010	0.55	Matig	2011	0.2	Slecht	2012	NA	4	1	4	4/apr
+L1	L107_613	SLUISKENSVIJVER	rivier	rivier	BkK	Sterk Veranderd	Aandachtsgebied	 Maas	Maas	4	3	4	NA	0.43	Matig	2012	NA	n.r.	NA	0.21	Ontoereikend	2012	0.6	Matig	2012	NA	n.b.	NA	NA	3	1	4	3/apr
+L1	L107_614	WEERIJSEBEEK L1	rivier	rivier	BkK	Natuurlijk     	Aandachtsgebied	 Maas	Maas	5	3	5	NA	0.34	Ontoereikend	2013	NA	n.r.	NA	0.4	Matig	2010	0.55	Matig	2010	0.33	Ontoereikend	2012	NA	4	1	4	4/apr
+L1	L107_615	KLEINE BEEK (WUUSTWEZEL)	rivier	rivier	BkK	Sterk Veranderd	Aandachtsgebied	 Maas	Maas	4	3	4	NA	0.48	Matig	2012	NA	n.r.	NA	0.35	Ontoereikend	2012	0.65	Matig	2012	NA	n.b.	NA	NA	3	1	4	3/apr
+L1	L107_629	KLEIN WILBOEREBEEK	rivier	rivier	BkK	Natuurlijk     	Speerpuntgebied	 Schelde	Nete	5	3	5	NA	0.6	Goed	2012	NA	n.r.	NA	0.05	Slecht	2012	0.6	Matig	2012	0.45	Matig	2012	NA	4	1	4	4/apr
+L1	L107_63	BOERGONJEVAART	rivier	rivier	Pz	Natuurlijk     	Andere         	 Schelde	Ijzer	5	3	5	NA	0.12	Slecht	2009	NA	n.r.	NA	0.23	Ontoereikend	2009	0.2	Ontoereikend	2011	0.33	Ontoereikend	2012	NA	4	1	4	4/apr
+L1	L107_631	MOLENBEEK - BOLLAAK L1	rivier	rivier	BkK	Natuurlijk     	Speerpuntgebied	 Schelde	Nete	4	3	4	NA	0.58	Matig	2011	NA	n.r.	NA	0.4	Matig	2011	0.4	Ontoereikend	2011	0.55	Matig	2012	NA	4	1	4	4/apr
+L1	L107_632	DE DELFTE BEEK	rivier	rivier	BkK	Natuurlijk     	Speerpuntgebied	 Schelde	Nete	4	3	4	NA	0.24	Ontoereikend	2012	NA	n.r.	NA	0.53	Matig	2012	0.65	Matig	2012	0.5	Matig	2012	NA	4	1	4	4/apr
+L1	L107_633	BOSBEEK - DIEPTELOOP	rivier	rivier	BkK	Natuurlijk     	Speerpuntgebied	 Schelde	Nete	3	3	3	NA	0.52	Matig	2011	NA	n.r.	NA	0.45	Matig	2011	0.5	Matig	2011	0.45	Matig	2012	NA	4	1	4	4/apr
+L1	L107_638	GROTE CALIE	rivier	rivier	BkK	Sterk Veranderd	Aandachtsgebied	 Schelde	Nete	3	3	3	NA	0.58	Matig	2011	NA	n.r.	NA	0.59	Matig	2011	0.75	Goed	2011	0.57	Matig	2011	NA	4	1	4	4/apr
+L1	L107_640	DE AA - NATTENLOOP	rivier	rivier	BkK	Natuurlijk     	Aandachtsgebied	 Schelde	Nete	5	3	5	NA	0.4	Matig	2011	NA	n.r.	NA	0.46	Matig	2013	0.25	Slecht	2011	0.65	Goed	2011	NA	4	1	4	4/apr
+L1	L107_644	ITTERBEEK (DUFFEL)	rivier	rivier	Bk	Natuurlijk     	Aandachtsgebied	 Schelde	Nete	4	3	4	NA	0.31	Ontoereikend	2012	NA	n.r.	NA	0.43	Matig	2012	0.3	Ontoereikend	2012	NA	n.b.	NA	NA	3	1	4	3/apr
+L1	L107_648	BRUINBEEK	rivier	rivier	Bk	Natuurlijk     	Andere         	 Schelde	Dijle Zenne	4	3	4	NA	0.27	Ontoereikend	2009	NA	n.r.	NA	0.5	Matig	2009	0.3	Ontoereikend	2012	NA	n.b.	NA	NA	3	1	4	3/apr
+L1	L107_650	REEHAGENBEEK	rivier	rivier	Bk	Natuurlijk     	Andere         	 Schelde	Dijle Zenne	4	3	4	NA	0.23	Ontoereikend	2009	NA	n.r.	NA	0.23	Ontoereikend	2009	0.3	Ontoereikend	2012	0.33	Ontoereikend	2012	NA	4	1	4	4/apr
+L1	L107_654	LARUMSE LOOP	rivier	rivier	BkK	Sterk Veranderd	Speerpuntgebied	 Schelde	Nete	5	3	5	NA	0.15	Slecht	2012	NA	n.r.	NA	0.65	Goed	2012	0.75	Goed	2009	NA	n.b.	NA	NA	3	1	4	3/apr
+L1	L107_655	DALEMANSLOOP	rivier	rivier	BkK	Sterk Veranderd	Speerpuntgebied	 Schelde	Nete	3	3	2	NA	0.73	Goed	2012	NA	n.r.	NA	0.62	Goed	2012	0.7	Goed	2012	NA	n.b.	NA	NA	3	1	4	3/apr
+L1	L107_656	BEGGELBEEK	rivier	rivier	Bk	Sterk Veranderd	Aandachtsgebied	 Schelde	Nete	5	3	5	NA	0.33	Ontoereikend	2011	NA	n.r.	NA	0.08	Slecht	2011	0.6	Matig	2011	NA	n.b.	NA	NA	3	1	4	3/apr
+L1	L107_66	KERKBEEK	rivier	rivier	Bk	Sterk Veranderd	Andere         	 Schelde	Brugse Polders	3	3	3	NA	0.24	Ontoereikend	2013	NA	n.r.	NA	0.4	Matig	2013	0.6	Matig	2012	NA	n.b.	NA	NA	3	1	4	3/apr
+L1	L107_664	MOLENBEEK - ZIJP	rivier	rivier	Bk	Natuurlijk     	Aandachtsgebied	 Schelde	Beneden-Schelde	5	3	5	NA	0.11	Slecht	2009	NA	n.r.	NA	0.12	Slecht	2010	0.3	Ontoereikend	2011	0.29	Ontoereikend	2011	NA	4	1	4	4/apr
+L1	L107_665	BOUWBEEK	rivier	rivier	Bk	Natuurlijk     	Aandachtsgebied	 Schelde	Beneden-Schelde	5	3	5	NA	0.23	Ontoereikend	2011	NA	n.r.	NA	0	Slecht	2011	0.3	Ontoereikend	2011	0.2	Slecht	2010	NA	4	1	4	4/apr
+L1	L107_67	LIJSTERBEEK	rivier	rivier	Bk	Sterk Veranderd	Andere         	 Schelde	Brugse Polders	3	3	2	NA	0.5	Matig	2013	NA	n.r.	NA	0.5	Matig	2013	0.75	Goed	2011	NA	n.b.	NA	NA	3	1	4	3/apr
+L1	L107_677	DIEPE BEEK	rivier	rivier	BkK	Natuurlijk     	Aandachtsgebied	 Schelde	Beneden-Schelde	5	3	5	NA	0.03	Slecht	2011	NA	n.r.	NA	0.2	Ontoereikend	2011	0.1	Slecht	2011	0	Slecht	2010	NA	4	1	4	4/apr
+L1	L107_681	KOUDE BEEK	rivier	rivier	BkK	Natuurlijk     	Aandachtsgebied	 Schelde	Beneden-Schelde	4	3	4	NA	0.23	Ontoereikend	2012	NA	n.r.	NA	0.45	Matig	2012	0.3	Ontoereikend	2012	NA	n.b.	NA	NA	3	1	4	3/apr
+L1	L107_684	SCHOON SCHIJN	rivier	rivier	Pz	Sterk Veranderd	Andere         	 Schelde	Beneden-Schelde	4	3	4	NA	0.47	Matig	2009	NA	n.r.	NA	0.22	Ontoereikend	2012	0.4	Matig	2012	NA	n.b.	NA	NA	3	1	4	3/apr
+L1	L107_688	LAARSE BEEK	rivier	rivier	BkK	Natuurlijk     	Andere         	 Schelde	Beneden-Schelde	3	3	3	NA	0.4	Matig	2012	NA	n.r.	NA	0.43	Matig	2012	0.7	Goed	2012	NA	n.b.	NA	NA	3	1	4	3/apr
+L1	L107_695	VARENDONKSE BEEK	rivier	rivier	BkK	Natuurlijk     	Aandachtsgebied	 Schelde	Nete	4	3	4	NA	0.37	Ontoereikend	2011	NA	n.r.	NA	0.5	Matig	2011	0.5	Matig	2011	NA	n.b.	NA	NA	3	1	4	3/apr
+L1	L107_702	MILLEGEMLOOP	rivier	rivier	BkK	Sterk Veranderd	Andere         	 Schelde	Nete	4	3	4	NA	0.34	Ontoereikend	2010	NA	n.r.	NA	0.73	Goed	2010	0.4	Ontoereikend	2010	NA	n.b.	NA	NA	3	1	4	3/apr
+L1	L107_705	SCHEPPELIJKE NETE	rivier	rivier	BkK	Natuurlijk     	Andere         	 Schelde	Nete	3	3	3	NA	0.42	Matig	2011	NA	n.r.	NA	0.7	Goed	2011	0.55	Matig	2011	0.45	Matig	2010	NA	4	1	4	4/apr
+L1	L107_706	MOLSE NETE L1	rivier	rivier	BkK	Natuurlijk     	Andere         	 Schelde	Nete	4	3	4	NA	0.49	Matig	2011	NA	n.r.	NA	0.52	Matig	2011	0.55	Matig	2011	0.4	Ontoereikend	2010	NA	4	1	4	4/apr
+L1	L107_708	GROTE NETE L1	rivier	rivier	BkK	Natuurlijk     	Speerpuntgebied	 Schelde	Nete	4	3	4	NA	0.65	Goed	2013	NA	n.r.	NA	0.57	Matig	2013	0.6	Matig	2010	0.38	Ontoereikend	2012	NA	4	1	4	4/apr
+L1	L107_722	WAMP L1	rivier	rivier	BkK	Sterk Veranderd	Speerpuntgebied	 Schelde	Nete	4	3	4	NA	0.39	Ontoereikend	2013	NA	n.r.	NA	0.4	Matig	2013	0.7	Goed	2010	0.6	Matig	2010	NA	4	1	4	4/apr
+L1	L107_723	RODE LOOP	rivier	rivier	BkK	Sterk Veranderd	Speerpuntgebied	 Schelde	Nete	3	3	3	NA	0.51	Matig	2013	NA	n.r.	NA	0.69	Goed	2013	0.75	Goed	2010	0.63	Matig	2011	NA	4	1	4	4/apr
+L1	L107_729	STAPKENSLOOP	rivier	rivier	BkK	Sterk Veranderd	Andere         	 Schelde	Nete	4	3	4	NA	0.36	Ontoereikend	2011	NA	n.r.	NA	0.52	Matig	2011	0.35	Ontoereikend	2011	NA	n.b.	NA	NA	3	1	4	3/apr
+L1	L107_735	GESTELBEEK	rivier	rivier	BkK	Natuurlijk     	Aandachtsgebied	 Schelde	Nete	4	3	4	NA	0.2	Ontoereikend	2012	NA	n.r.	NA	0.35	Ontoereikend	2012	0.65	Matig	2012	NA	n.b.	NA	NA	3	1	4	3/apr
+L1	L107_740	BERGEBEEK	rivier	rivier	Bk	Natuurlijk     	Aandachtsgebied	 Schelde	Nete	4	3	4	NA	0.22	Ontoereikend	2013	NA	n.r.	NA	0.38	Ontoereikend	2010	0.3	Ontoereikend	2010	NA	n.b.	NA	NA	3	1	4	3/apr
+L1	L107_741	SPILLEBEEK	rivier	rivier	BkK	Sterk Veranderd	Andere         	 Maas	Maas	5	3	5	NA	0.25	Ontoereikend	2010	NA	n.r.	NA	0.32	Ontoereikend	2007	0.25	Slecht	2010	NA	n.b.	NA	NA	3	1	4	3/apr
+L1	L107_742	PLATTE BEEK	rivier	rivier	BkK	Sterk Veranderd	Speerpuntgebied	 Schelde	Nete	4	3	4	NA	0.32	Ontoereikend	2012	NA	n.r.	NA	0.28	Ontoereikend	2012	0.65	Matig	2012	NA	n.b.	NA	NA	3	1	4	3/apr
+L1	L107_78	DEVEBEEK L1	rivier	rivier	Bk	Natuurlijk     	Andere         	 Schelde	Leie	5	3	5	NA	0.32	Ontoereikend	2009	NA	n.r.	NA	0	Slecht	2009	0.1	Slecht	2010	0	Slecht	2011	NA	4	1	4	4/apr
+L1	L107_8	IEPERLEE	rivier	rivier	Bk	Sterk Veranderd	Andere         	 Schelde	Ijzer	4	3	4	NA	0.22	Ontoereikend	2013	NA	n.r.	NA	0.37	Ontoereikend	2013	0.35	Ontoereikend	2010	NA	n.b.	NA	NA	3	1	4	3/apr
+L1	L107_809	KLEINE HERK L1	rivier	rivier	Bk	Natuurlijk     	Aandachtsgebied	 Schelde	Demer	5	3	5	NA	0.29	Ontoereikend	2012	NA	n.r.	NA	0	Slecht	2012	0.5	Matig	2012	NA	n.b.	NA	NA	3	1	4	3/apr
+L1	L107_810	WINTERBEEK (KORTESSEM)	rivier	rivier	Bk	Natuurlijk     	Speerpuntgebied	 Schelde	Demer	4	3	4	NA	0.28	Ontoereikend	2012	NA	n.r.	NA	0.4	Matig	2012	0.5	Matig	2012	NA	n.b.	NA	NA	3	1	4	3/apr
+L1	L107_812	MOMBEEK L1	rivier	rivier	Bk	Natuurlijk     	Speerpuntgebied	 Schelde	Demer	5	3	5	NA	0.04	Slecht	2009	NA	n.r.	NA	0.1	Slecht	2009	0.3	Ontoereikend	2011	NA	n.b.	NA	NA	3	1	4	3/apr
+L1	L107_814	STEENLAAK	rivier	rivier	BkK	Natuurlijk     	Andere         	 Schelde	Demer	3	3	3	NA	0.61	Goed	2012	NA	n.r.	NA	0.43	Matig	2012	0.55	Matig	2012	NA	n.b.	NA	NA	3	1	4	3/apr
+L1	L107_82	BABILLEBEEK	rivier	rivier	Bk	Sterk Veranderd	Andere         	 Schelde	Leie	5	3	5	NA	0.01	Slecht	2010	NA	n.r.	NA	0	Slecht	2010	0.25	Slecht	2012	NA	n.b.	NA	NA	3	1	4	3/apr
+L1	L107_824	ROELBEEK	rivier	rivier	Bk	Natuurlijk     	Andere         	 Schelde	Demer	5	3	5	NA	0.21	Ontoereikend	2010	NA	n.r.	NA	0	Slecht	2010	0.55	Matig	2010	NA	n.b.	NA	NA	3	1	4	3/apr
+L1	L107_83	ROOBEEK	rivier	rivier	Bk	Sterk Veranderd	Andere         	 Schelde	Leie	5	3	5	NA	0.22	Ontoereikend	2013	NA	n.r.	NA	0	Slecht	2013	0.3	Ontoereikend	2010	0	Slecht	2011	NA	4	1	4	4/apr
+L1	L107_836	LAAMBEEK	rivier	rivier	BkK	Natuurlijk     	Aandachtsgebied	 Schelde	Demer	4	3	4	NA	0.36	Ontoereikend	2012	NA	n.r.	NA	0.45	Matig	2012	0.35	Ontoereikend	2012	NA	n.b.	NA	NA	3	1	4	3/apr
+L1	L107_839	ZONDERIKBEEK	rivier	rivier	BkK	Natuurlijk     	Andere         	 Schelde	Demer	4	3	4	NA	0.29	Ontoereikend	2009	NA	n.r.	NA	0.25	Ontoereikend	2009	0.45	Ontoereikend	2012	NA	n.b.	NA	NA	3	1	4	3/apr
+L1	L107_84	KROMMEBEEK	rivier	rivier	Bk	Sterk Veranderd	Andere         	 Schelde	Leie	5	3	5	NA	0.14	Slecht	2010	NA	n.r.	NA	0	Slecht	2010	0.25	Slecht	2011	NA	n.b.	NA	NA	3	1	4	3/apr
+L1	L107_846	KAATSBEEK	rivier	rivier	BkK	Sterk Veranderd	Aandachtsgebied	 Schelde	Demer	3	3	3	NA	0.65	Goed	2012	NA	n.r.	NA	0.43	Matig	2012	0.55	Matig	2012	NA	n.b.	NA	NA	3	1	4	3/apr
+L1	L107_847	WINTERBEEK (BILZEN)	rivier	rivier	Bk	Sterk Veranderd	Speerpuntgebied	 Schelde	Demer	5	3	5	NA	0.04	Slecht	2009	NA	n.r.	NA	0.02	Slecht	2007	0.6	Matig	2010	NA	n.b.	NA	NA	3	1	4	3/apr
+L1	L107_848	DEMER L1	rivier	rivier	Bk	Sterk Veranderd	Speerpuntgebied	 Schelde	Demer	5	3	5	NA	0.48	Matig	2007	NA	n.r.	NA	0.2	Ontoereikend	2013	0.5	Matig	2010	NA	n.b.	NA	NA	3	1	4	3/apr
+L1	L107_852	MUNSTERBEEK L1	rivier	rivier	BkK	Natuurlijk     	Speerpuntgebied	 Schelde	Demer	3	3	3	NA	0.75	Goed	2009	NA	n.r.	NA	0.4	Matig	2009	0.5	Matig	2011	NA	n.b.	NA	NA	3	1	4	3/apr
+L1	L107_853	ZUTENDAALBEEK	rivier	rivier	BkK	Natuurlijk     	Speerpuntgebied	 Schelde	Demer	4	3	4	NA	0.71	Goed	2012	NA	n.r.	NA	0.2	Ontoereikend	2012	0.65	Matig	2012	NA	n.b.	NA	NA	3	1	4	3/apr
+L1	L107_854	BOLLISENBEEK	rivier	rivier	BkK	Natuurlijk     	Aandachtsgebied	 Maas	Maas	3	3	3	NA	0.59	Matig	2009	NA	n.r.	NA	0.4	Matig	2009	0.5	Matig	2012	0.55	Matig	2011	NA	4	1	4	4/apr
+L1	L107_855	DOMMEL L1	rivier	rivier	BkK	Sterk Veranderd	Aandachtsgebied	 Maas	Maas	3	3	3	NA	0.37	Ontoereikend	2013	NA	n.r.	NA	0.44	Matig	2012	0.55	Matig	2010	NA	n.b.	NA	NA	3	1	4	3/apr
+L1	L107_856	HOLVENLOOP	rivier	rivier	BkK	Natuurlijk     	Aandachtsgebied	 Maas	Maas	5	3	5	NA	0.42	Matig	2009	NA	n.r.	NA	0.27	Ontoereikend	2009	0.35	Ontoereikend	2012	0.23	Slecht	2011	NA	4	1	4	4/apr
+L1	L107_857	EINDERGATLOOP	rivier	rivier	BkK	Natuurlijk     	Aandachtsgebied	 Maas	Maas	4	3	4	NA	0.2	Ontoereikend	2012	NA	n.r.	NA	0.4	Matig	2012	0.35	Ontoereikend	2012	NA	n.b.	NA	NA	3	1	4	3/apr
+L1	L107_858	WARMBEEK L1	rivier	rivier	BkK	Natuurlijk     	Speerpuntgebied	 Maas	Maas	4	3	4	NA	0.59	Matig	2012	NA	n.r.	NA	0.6	Goed	2013	0.55	Matig	2010	0.6	Matig	2012	NA	4	1	4	4/apr
+L1	L107_859	PRINSENLOOP	rivier	rivier	BkK	Natuurlijk     	Andere         	 Maas	Maas	3	3	3	NA	0.44	Matig	2009	NA	n.r.	NA	0.4	Matig	2009	0.6	Matig	2010	0.55	Matig	2012	NA	4	1	4	4/apr
+L1	L107_861	ABEEK L1	rivier	rivier	BkK	Sterk Veranderd	Speerpuntgebied	 Maas	Maas	3	3	3	NA	0.5	Matig	2011	NA	n.r.	NA	0.43	Matig	2013	0.65	Matig	2008	0.65	Goed	2010	NA	4	1	4	4/apr
+L1	L107_866	LOSSING L1	rivier	rivier	BkK	Kunstmatig     	Aandachtsgebied	 Maas	Maas	4	3	4	NA	0.64	Goed	2013	NA	n.r.	NA	0.28	Ontoereikend	2007	0.9	Goed	2007	0.48	Matig	2011	NA	4	1	4	4/apr
+L1	L107_869	SOERBEEK	rivier	rivier	BkK	Natuurlijk     	Speerpuntgebied	 Maas	Maas	5	3	5	NA	0.17	Slecht	2012	NA	n.r.	NA	0.5	Matig	2012	0.8	Goed	2012	0.48	Matig	2010	NA	4	1	4	4/apr
+L1	L107_876	BOSBEEK L1	rivier	rivier	BkK	Natuurlijk     	Speerpuntgebied	 Maas	Maas	5	3	5	NA	1	Zeer goed	2012	NA	n.r.	NA	NA	n.b.	NA	0.5	Matig	2011	0.2	Slecht	2011	NA	3	1	4	3/apr
+L1	L107_879	VRIETSELBEEK - OUDE MAAS (DILSEN)	rivier	rivier	BkK	Sterk Veranderd	Aandachtsgebied	 Maas	Maas	4	3	4	NA	0.4	Matig	2007	NA	n.r.	NA	0.25	Ontoereikend	2007	0.75	Goed	2009	NA	n.b.	NA	NA	3	1	4	3/apr
+L1	L107_883	ZIEPBEEK	rivier	rivier	BkK	Sterk Veranderd	Aandachtsgebied	 Maas	Maas	4	3	4	NA	0.33	Ontoereikend	2009	NA	n.r.	NA	0.52	Matig	2009	0.5	Matig	2012	0.29	Ontoereikend	2010	NA	4	1	4	4/apr
+L1	L107_885	HEESWATER	rivier	rivier	Bk	Sterk Veranderd	Andere         	 Maas	Beneden-Schelde	5	3	5	NA	0.1	Slecht	2012	NA	n.r.	NA	0.17	Slecht	2012	0.2	Slecht	2010	NA	n.b.	NA	NA	3	1	4	3/apr
+L1	L107_890	BEEK - DE BUTH (TONGEREN)	rivier	rivier	Bk	Sterk Veranderd	Andere         	 Maas	Maas	5	3	5	NA	0.07	Slecht	2009	NA	n.r.	NA	0.05	Slecht	2009	0.15	Slecht	2010	0	Slecht	2010	NA	4	1	4	4/apr
+L1	L107_891	VOER (VOEREN)	rivier	rivier	Bk	Sterk Veranderd	Andere         	 Maas	Maas	4	3	4	NA	0.32	Ontoereikend	2013	NA	n.r.	NA	0.37	Ontoereikend	2013	0.6	Matig	2012	0.34	Ontoereikend	2010	NA	4	1	4	4/apr
+L1	L107_892	BEEK (VOEREN)	rivier	rivier	Bk	Sterk Veranderd	Andere         	 Maas	Maas	5	3	5	NA	0.18	Slecht	2011	NA	n.r.	NA	0	Slecht	2011	0.2	Slecht	2010	NA	n.b.	NA	NA	3	1	4	3/apr
+L1	L107_893	GULP	rivier	rivier	Bk	Natuurlijk     	Andere         	 Maas	Maas	4	3	4	NA	0.58	Matig	2009	NA	n.r.	NA	0.37	Ontoereikend	2009	0.6	Matig	2012	0.52	Matig	2010	NA	4	1	4	4/apr
+L1	L107_91	PLAATSBEEK	rivier	rivier	Bk	Sterk Veranderd	Andere         	 Schelde	Leie	5	3	5	NA	0.1	Slecht	2013	NA	n.r.	NA	0.1	Slecht	2013	0.05	Slecht	2010	NA	n.b.	NA	NA	3	1	4	3/apr
+L1	L107_92	MAALBEEK (LEIEBEKKEN)	rivier	rivier	Bk	Sterk Veranderd	Andere         	 Schelde	Leie	5	3	5	NA	0.18	Slecht	2009	NA	n.r.	NA	0	Slecht	2009	0.25	Slecht	2011	0.2	Slecht	2010	NA	4	1	4	4/apr
+L1	L107_97	KASSELRIJBEEK - WEST	rivier	rivier	Bk	Sterk Veranderd	Andere         	 Schelde	Leie	5	3	5	NA	0.07	Slecht	2010	NA	n.r.	NA	0	Slecht	2010	0	Slecht	2011	0	Slecht	2010	NA	4	1	4	4/apr
+L1	L107_98	GAVERBEEK	rivier	rivier	Bk	Sterk Veranderd	Andere         	 Schelde	Leie	5	3	5	NA	0.22	Ontoereikend	2013	NA	n.r.	NA	0.25	Ontoereikend	2013	0.25	Slecht	2012	0	Slecht	2010	NA	4	1	4	4/apr
+L1	L110_1100	ZILVERBEEK	rivier	rivier	Bk	Natuurlijk     	Andere         	 Schelde	Dijle Zenne	3	3	3	NA	0.57	Matig	2010	NA	n.r.	NA	0.53	Matig	2010	0.65	Matig	2010	NA	n.b.	NA	NA	3	1	4	3/apr
+L1	L111_1001	MARTJEVAART - LEKKERBOTERBEEK	rivier	rivier	Bk	Sterk Veranderd	Andere         	 Schelde	Ijzer	5	3	5	NA	0.06	Slecht	2009	NA	n.r.	NA	0.02	Slecht	2009	0.25	Slecht	2010	NA	n.b.	NA	NA	3	1	4	3/apr
+L1	L111_1003	GELUWEBEEK	rivier	rivier	Bk	Sterk Veranderd	Andere         	 Schelde	Leie	5	3	5	NA	0.06	Slecht	2012	NA	n.r.	NA	0.08	Slecht	2012	0.2	Slecht	2011	NA	n.b.	NA	NA	3	1	4	3/apr
+L1	L111_1004	RIJTGRACHT	rivier	rivier	Bk	Sterk Veranderd	Andere         	 Schelde	Boven-Schelde	5	3	5	NA	0.22	Ontoereikend	2008	NA	n.r.	NA	0.3	Ontoereikend	2008	0.2	Slecht	2011	NA	n.b.	NA	NA	3	1	4	3/apr
+L1	L111_1005	KALSIJDEADER	rivier	rivier	Pb	Sterk Veranderd	Andere         	 Schelde	Brugse Polders	5	3	5	NA	NA	n.r.	NA	NA	n.r.	NA	0	Slecht	2010	0.5	Matig	2011	NA	n.b.	NA	NA	2	2	3	2/mrt
+L1	L111_1006	HOOFDSLOOT	rivier	rivier	Bk	Natuurlijk     	Andere         	 Schelde	Brugse Polders	4	3	4	NA	0.65	Goed	2012	NA	n.r.	NA	0.45	Matig	2012	0.7	Goed	2008	0.29	Ontoereikend	2011	NA	4	1	4	4/apr
+L1	L111_1007	STEGERSZWIN	rivier	rivier	Pb	Sterk Veranderd	Andere         	 Schelde	Brugse Polders	4	3	4	NA	NA	n.r.	NA	NA	n.r.	NA	0.23	Ontoereikend	2009	0.25	Ontoereikend	2010	0.32	Ontoereikend	2011	NA	3	2	3	3/mrt
+L1	L111_1010	OOSTKERKEVAART	rivier	rivier	Pb	Sterk Veranderd	Andere         	 Schelde	Ijzer	5	3	5	NA	NA	n.r.	NA	NA	n.r.	NA	0	Slecht	2009	0.65	Goed	2011	NA	n.b.	NA	NA	2	2	3	2/mrt
+L1	L111_1011	BOEREKREEK	rivier	rivier	Pb	Sterk Veranderd	Andere         	 Schelde	Gentse Kanalen	3	3	2	NA	NA	n.r.	NA	NA	n.r.	NA	0	Slecht	2013	0.6	Goed	2010	NA	n.b.	NA	NA	2	2	3	2/mrt
+L1	L111_1014	MEREBEEK	rivier	rivier	Bk	Sterk Veranderd	Andere         	 Schelde	Gentse Kanalen	3	3	3	NA	0.36	Ontoereikend	2013	NA	n.r.	NA	0.6	Goed	2013	0.75	Goed	2010	0.45	Matig	2011	NA	4	1	4	4/apr
+L1	L111_1015	OUDE AVAART	rivier	rivier	Pb	Sterk Veranderd	Andere         	 Schelde	Ijzer	4	3	4	NA	NA	n.r.	NA	NA	n.r.	NA	0.22	Ontoereikend	2012	0.55	Matig	2012	0.31	Ontoereikend	2012	NA	3	2	3	3/mrt
+L1	L111_1016	WANTEBEEK	rivier	rivier	Bk	Sterk Veranderd	Aandachtsgebied	 Schelde	Gentse Kanalen	4	3	4	NA	0.35	Ontoereikend	2013	NA	n.r.	NA	0.37	Ontoereikend	2013	0.35	Ontoereikend	2010	NA	n.b.	NA	NA	3	1	4	3/apr
+L1	L111_1018	LEEBEEK	rivier	rivier	Bk	Sterk Veranderd	Andere         	 Schelde	Boven-Schelde	5	3	5	NA	0.28	Ontoereikend	2013	NA	n.r.	NA	0.25	Ontoereikend	2013	0.3	Ontoereikend	2012	0.2	Slecht	2011	NA	4	1	4	4/apr
+L1	L111_1019	MOLENBEEK - MARKEBEEK	rivier	rivier	Bk	Sterk Veranderd	Aandachtsgebied	 Schelde	Boven-Schelde	4	3	4	NA	0.42	Matig	2010	NA	n.r.	NA	0.2	Ontoereikend	2009	0.5	Matig	2012	NA	n.b.	NA	NA	3	1	4	3/apr
+L1	L111_1020	OOSSEBEEK	rivier	rivier	Bk	Sterk Veranderd	Andere         	 Schelde	Boven-Schelde	4	3	4	NA	0.54	Matig	2013	NA	n.r.	NA	0.1	Slecht	2013	0.3	Ontoereikend	2011	NA	n.b.	NA	NA	3	1	4	3/apr
+L1	L111_1021	ZWALMBEEK	rivier	rivier	Bk	Sterk Veranderd	Aandachtsgebied	 Schelde	Boven-Schelde	4	3	4	NA	0.27	Ontoereikend	2009	NA	n.r.	NA	0.33	Ontoereikend	2009	0.55	Matig	2010	0.38	Ontoereikend	2012	NA	4	1	4	4/apr
+L1	L111_1022	MOLENBEEK (RONSE)	rivier	rivier	Bk	Sterk Veranderd	Andere         	 Schelde	Boven-Schelde	5	3	5	NA	0.02	Slecht	2009	NA	n.r.	NA	0.03	Slecht	2009	0.25	Slecht	2012	NA	n.b.	NA	NA	3	1	4	3/apr
+L1	L111_1024	BAVEGEMSE BEEK	rivier	rivier	Bk	Sterk Veranderd	Andere         	 Schelde	Beneden-Schelde	5	3	5	NA	0.32	Ontoereikend	2008	NA	n.r.	NA	0	Slecht	2008	0.15	Slecht	2011	0.17	Slecht	2012	NA	4	1	4	4/apr
+L1	L111_1025	MAANBEEK	rivier	rivier	Bk	Sterk Veranderd	Speerpuntgebied	 Schelde	Beneden-Schelde	4	3	4	NA	0.2	Ontoereikend	2011	NA	n.r.	NA	0.28	Ontoereikend	2011	0.35	Ontoereikend	2012	NA	n.b.	NA	NA	3	1	4	3/apr
+L1	L111_1027	GROOTEBEEK	rivier	rivier	Bk	Sterk Veranderd	Andere         	 Schelde	Dender	5	3	5	NA	0.19	Slecht	2009	NA	n.r.	NA	0	Slecht	2009	0.55	Matig	2011	NA	n.b.	NA	NA	3	1	4	3/apr
+L1	L111_1028	LANGELEDE	rivier	rivier	Bk	Sterk Veranderd	Andere         	 Schelde	Gentse Kanalen	4	3	4	NA	0.47	Matig	2008	NA	n.r.	NA	0.28	Ontoereikend	2008	0.8	Goed	2010	0.7	Goed	2011	NA	4	1	4	4/apr
+L1	L111_1029	KLEINE WATERGANG	rivier	rivier	Bk	Natuurlijk     	Aandachtsgebied	 Schelde	Gentse Kanalen	4	3	4	NA	0.29	Ontoereikend	2013	NA	n.r.	NA	0.33	Ontoereikend	2013	0.45	Ontoereikend	2009	NA	n.b.	NA	NA	3	1	4	3/apr
+L1	L111_1030	WATERGANG VAN DE MOERBEKEPOLDER	rivier	rivier	Bk	Sterk Veranderd	Andere         	 Schelde	Gentse Kanalen	3	3	2	NA	0.38	Ontoereikend	2013	NA	n.r.	NA	0.13	Slecht	2013	0.85	Goed	2011	NA	n.b.	NA	NA	3	1	4	3/apr
+L1	L111_1031	KANAAL VAN STEKENE	rivier	rivier	Bk	Natuurlijk     	Andere         	 Schelde	Gentse Kanalen	4	3	4	NA	0.34	Ontoereikend	2009	NA	n.r.	NA	0.35	Ontoereikend	2009	0.5	Matig	2009	0.36	Ontoereikend	2011	NA	4	1	4	4/apr
+L1	L111_1032	DIJKGRACHT	rivier	rivier	Pz	Sterk Veranderd	Andere         	 Schelde	Beneden-Schelde	5	3	5	NA	0.36	Ontoereikend	2011	NA	n.r.	NA	0.13	Slecht	2011	0.25	Ontoereikend	2011	NA	n.b.	NA	NA	3	1	4	3/apr
+L1	L111_1033	PAPENMEERSBEEK	rivier	rivier	Bk	Natuurlijk     	Andere         	 Schelde	Dender	4	3	4	NA	0.2	Ontoereikend	2008	NA	n.r.	NA	0.27	Ontoereikend	2008	0.4	Ontoereikend	2010	0.6	Matig	2012	NA	4	1	4	4/apr
+L1	L111_1034	NIEUWE GRACHT	rivier	rivier	Pb	Sterk Veranderd	Andere         	 Schelde	Ijzer	4	3	4	NA	NA	n.r.	NA	NA	n.r.	NA	0.38	Ontoereikend	2012	0.45	Matig	2012	NA	n.b.	NA	NA	2	2	3	2/mrt
+L1	L111_1035	KOEVAARDEKEN	rivier	rivier	Pz	Sterk Veranderd	Aandachtsgebied	 Schelde	Ijzer	3	3	3	NA	0.68	Goed	2012	NA	n.r.	NA	0.55	Matig	2012	0.65	Goed	2012	NA	n.b.	NA	NA	3	1	4	3/apr
+L1	L111_1036	ZUUNBEEK L1	rivier	rivier	Bk	Natuurlijk     	Andere         	 Schelde	Dijle Zenne	5	3	5	NA	0.13	Slecht	2009	NA	n.r.	NA	0	Slecht	2009	0.35	Ontoereikend	2010	NA	n.b.	NA	NA	3	1	4	3/apr
+L1	L111_1037	MOLENBEEK - LAKEBEEK	rivier	rivier	Bk	Natuurlijk     	Andere         	 Schelde	Dijle Zenne	5	3	5	NA	0.04	Slecht	2009	NA	n.r.	NA	0.23	Ontoereikend	2012	0.45	Ontoereikend	2012	0.2	Slecht	2011	NA	4	1	4	4/apr
+L1	L111_1038	MAALBEEK - AMELVONNEBEEK	rivier	rivier	Bk	Natuurlijk     	Andere         	 Schelde	Beneden-Schelde	5	3	5	NA	0.27	Ontoereikend	2011	NA	n.r.	NA	0.13	Slecht	2011	0.3	Ontoereikend	2009	NA	n.b.	NA	NA	3	1	4	3/apr
+L1	L111_1039	STEENVOORDBEEK (TERNAT)	rivier	rivier	Bk	Natuurlijk     	Aandachtsgebied	 Schelde	Dender	3	3	3	NA	0.37	Ontoereikend	2013	NA	n.r.	NA	0.15	Slecht	2013	0.55	Matig	2011	NA	n.b.	NA	NA	3	1	4	3/apr
+L1	L111_1040	BELLEBEEK L1	rivier	rivier	Bk	Natuurlijk     	Aandachtsgebied	 Schelde	Dender	5	3	5	NA	0.18	Slecht	2009	NA	n.r.	NA	0.1	Slecht	2009	0.45	Ontoereikend	2010	0.23	Slecht	2012	NA	4	1	4	4/apr
+L1	L111_1041	WINGE L1	rivier	rivier	Bk	Natuurlijk     	Aandachtsgebied	 Schelde	Demer	5	3	5	NA	0.23	Ontoereikend	2008	NA	n.r.	NA	0.17	Slecht	2008	0.35	Ontoereikend	2011	0.43	Ontoereikend	2011	NA	4	1	4	4/apr
+L1	L111_1042	LEIBEEK - LIPSEBEEK L1	rivier	rivier	Bk	Natuurlijk     	Aandachtsgebied	 Schelde	Dijle Zenne	5	3	5	NA	0.19	Slecht	2009	NA	n.r.	NA	0	Slecht	2009	0.25	Slecht	2012	0.2	Slecht	2012	NA	4	1	4	4/apr
+L1	L111_1043	WEESBEEK L1	rivier	rivier	Bk	Natuurlijk     	Aandachtsgebied	 Schelde	Dijle Zenne	4	3	4	NA	0.26	Ontoereikend	2009	NA	n.r.	NA	0.5	Matig	2009	0.5	Matig	2011	0.38	Ontoereikend	2011	NA	4	1	4	4/apr
+L1	L111_1044	KASTEELBEEK	rivier	rivier	Bk	Sterk Veranderd	Andere         	 Schelde	Ijzer	5	3	5	NA	0.09	Slecht	2009	NA	n.r.	NA	0.18	Slecht	2009	0.35	Ontoereikend	2012	0.38	Ontoereikend	2012	NA	4	1	4	4/apr
+L1	L111_1045	GROTEBEEK - WINTERBEEK	rivier	rivier	BkK	Natuurlijk     	Aandachtsgebied	 Schelde	Demer	5	3	5	NA	0.24	Ontoereikend	2012	NA	n.r.	NA	0.3	Ontoereikend	2012	0.2	Slecht	2012	NA	n.b.	NA	NA	3	1	4	3/apr
+L1	L111_1046	GROTE MOTTE	rivier	rivier	Bk	Natuurlijk     	Aandachtsgebied	 Schelde	Demer	5	3	5	NA	0.07	Slecht	2009	NA	n.r.	NA	0.3	Ontoereikend	2009	0.75	Goed	2012	0.36	Ontoereikend	2011	NA	4	1	4	4/apr
+L1	L111_1047	BAREBEEK L1	rivier	rivier	Bk	Natuurlijk     	Andere         	 Schelde	Dijle Zenne	4	3	4	NA	0.47	Matig	2012	NA	n.r.	NA	0.3	Ontoereikend	2012	0.35	Ontoereikend	2011	0.58	Matig	2011	NA	4	1	4	4/apr
+L1	L111_1048	ZIJDELINGSGELEED	rivier	rivier	Pb	Sterk Veranderd	Andere         	 Schelde	Ijzer	4	3	4	NA	NA	n.r.	NA	NA	n.r.	NA	0.33	Ontoereikend	2010	0.7	Goed	2010	0.27	Ontoereikend	2012	NA	3	2	3	3/mrt
+L1	L111_1049	MUNTLOOP	rivier	rivier	BkK	Sterk Veranderd	Aandachtsgebied	 Maas	Maas	4	3	4	NA	0.3	Ontoereikend	2012	NA	n.r.	NA	0.37	Ontoereikend	2012	0.65	Matig	2012	NA	n.b.	NA	NA	3	1	4	3/apr
+L1	L111_1050	WEHAGENBEEK	rivier	rivier	BkK	Sterk Veranderd	Aandachtsgebied	 Maas	Maas	3	3	3	NA	0.45	Matig	2012	NA	n.r.	NA	0.61	Goed	2012	0.7	Goed	2012	NA	n.b.	NA	NA	3	1	4	3/apr
+L1	L111_1052	LAAKBEEK	rivier	rivier	BkK	Sterk Veranderd	Speerpuntgebied	 Schelde	Nete	4	3	4	NA	0.25	Ontoereikend	2012	NA	n.r.	NA	0.45	Matig	2012	0.75	Goed	2012	NA	n.b.	NA	NA	3	1	4	3/apr
+L1	L111_1053	MOUBEEK	rivier	rivier	Bk	Sterk Veranderd	Andere         	 Schelde	Brugse Polders	5	3	5	NA	0.31	Ontoereikend	2009	NA	n.r.	NA	0.47	Matig	2009	0.25	Slecht	2010	NA	n.b.	NA	NA	3	1	4	3/apr
+L1	L111_1054	GOORBOSBEEK	rivier	rivier	Bk	Sterk Veranderd	Aandachtsgebied	 Schelde	Nete	5	3	5	NA	0.29	Ontoereikend	2012	NA	n.r.	NA	0.4	Matig	2012	0.2	Slecht	2012	NA	n.b.	NA	NA	3	1	4	3/apr
+L1	L111_1056	VROUWVLIET L1	rivier	rivier	Bk	Natuurlijk     	Andere         	 Schelde	Dijle Zenne	5	3	5	NA	0.35	Ontoereikend	2012	NA	n.r.	NA	0	Slecht	2012	0.2	Slecht	2010	0.32	Ontoereikend	2012	NA	4	1	4	4/apr
+L1	L111_1057	GROTE MOLENBEEK L1	rivier	rivier	Bk	Natuurlijk     	Aandachtsgebied	 Schelde	Beneden-Schelde	5	3	5	NA	0.02	Slecht	2011	NA	n.r.	NA	0	Slecht	2011	0.3	Ontoereikend	2011	NA	n.b.	NA	NA	3	1	4	3/apr
+L1	L111_1058	ZWARTE BEEK (WILLEBROEK)	rivier	rivier	Bk	Natuurlijk     	Aandachtsgebied	 Schelde	Beneden-Schelde	4	3	4	NA	0.47	Matig	2012	NA	n.r.	NA	0.33	Ontoereikend	2012	0.45	Ontoereikend	2012	NA	n.b.	NA	NA	3	1	4	3/apr
+L1	L111_1059	ZIELBEEK - BOSBEEK L1	rivier	rivier	Bk	Sterk Veranderd	Andere         	 Schelde	Beneden-Schelde	5	3	5	NA	0.04	Slecht	2011	NA	n.r.	NA	0.05	Slecht	2011	0.25	Slecht	2011	NA	n.b.	NA	NA	3	1	4	3/apr
+L1	L111_1060	GROOT SCHIJN L1	rivier	rivier	BkK	Natuurlijk     	Aandachtsgebied	 Schelde	Beneden-Schelde	3	3	3	NA	0.43	Matig	2011	NA	n.r.	NA	0.5	Matig	2011	0.7	Goed	2011	NA	n.b.	NA	NA	3	1	4	3/apr
+L1	L111_1062	HERSELTSELOOP	rivier	rivier	Bk	Natuurlijk     	Aandachtsgebied	 Schelde	Nete	5	3	5	NA	0.36	Ontoereikend	2010	NA	n.r.	NA	0.09	Slecht	2010	0.45	Ontoereikend	2010	NA	n.b.	NA	NA	3	1	4	3/apr
+L1	L111_1063	STEENKENSBEEK	rivier	rivier	Bk	Natuurlijk     	Aandachtsgebied	 Schelde	Nete	5	3	5	NA	0.09	Slecht	2010	NA	n.r.	NA	0	Slecht	2011	0.3	Ontoereikend	2011	NA	n.b.	NA	NA	3	1	4	3/apr
+L1	L111_1064	ST. TRUDOLEKEN	rivier	rivier	Bk	Natuurlijk     	Andere         	 Schelde	Brugse Polders	5	3	5	NA	0.06	Slecht	2009	NA	n.r.	NA	0.18	Slecht	2009	0.8	Goed	2011	NA	n.b.	NA	NA	3	1	4	3/apr
+L1	L111_1065	ASBEEK	rivier	rivier	BkK	Sterk Veranderd	Speerpuntgebied	 Schelde	Nete	3	3	3	NA	0.56	Matig	2012	NA	n.r.	NA	0.53	Matig	2012	0.8	Goed	2012	NA	n.b.	NA	NA	3	1	4	3/apr
+L1	L111_1066	LOEIJENS NEETJE	rivier	rivier	BkK	Sterk Veranderd	Speerpuntgebied	 Schelde	Nete	3	3	3	NA	0.6	Goed	2011	NA	n.r.	NA	0.45	Matig	2011	0.6	Matig	2011	0.63	Matig	2011	NA	4	1	4	4/apr
+L1	L111_1067	KLEINE NETE L1	rivier	rivier	BkK	Sterk Veranderd	Speerpuntgebied	 Schelde	Nete	3	3	3	NA	0.56	Matig	2013	NA	n.r.	NA	0.44	Matig	2013	0.88	Goed	2010	NA	n.b.	NA	NA	3	1	4	3/apr
+L1	L111_1068	GETEBEEK	rivier	rivier	Bk	Sterk Veranderd	Andere         	 Schelde	Brugse Polders	5	3	5	NA	0.14	Slecht	2010	NA	n.r.	NA	0.17	Slecht	2010	0.35	Ontoereikend	2012	NA	n.b.	NA	NA	3	1	4	3/apr
+L1	L111_1069	AFWATERINGSGRACHT	rivier	rivier	Pb	Kunstmatig     	Andere         	 Schelde	Beneden-Schelde	4	3	4	NA	NA	n.r.	NA	NA	n.r.	NA	0.22	Ontoereikend	2012	0.45	Matig	2012	NA	n.b.	NA	NA	2	2	3	2/mrt
+L1	L111_1070	WIMP L1	rivier	rivier	BkK	Sterk Veranderd	Andere         	 Schelde	Nete	4	3	4	NA	0.49	Matig	2011	NA	n.r.	NA	0.42	Matig	2011	0.3	Ontoereikend	2011	NA	n.b.	NA	NA	3	1	4	3/apr
+L1	L111_1071	GOORLOOP	rivier	rivier	BkK	Sterk Veranderd	Aandachtsgebied	 Schelde	Nete	5	3	5	NA	0.22	Ontoereikend	2012	NA	n.r.	NA	0	Slecht	2012	0.1	Slecht	2012	NA	n.b.	NA	NA	3	1	4	3/apr
+L1	L111_1072	POVERSBEEK	rivier	rivier	Bk	Natuurlijk     	Aandachtsgebied	 Schelde	Brugse Polders	3	3	3	NA	0.4	Matig	2013	NA	n.r.	NA	0.03	Slecht	2013	0.5	Matig	2011	NA	n.b.	NA	NA	3	1	4	3/apr
+L1	L111_1073	RINGBEEK	rivier	rivier	Bk	Sterk Veranderd	Andere         	 Schelde	Brugse Polders	5	3	5	NA	0.37	Ontoereikend	2013	NA	n.r.	NA	0.9	Goed	2013	0.3	Ontoereikend	2010	NA	n.b.	NA	NA	3	1	4	3/apr
+L1	L111_1074	HERK L1	rivier	rivier	Bk	Sterk Veranderd	Andere         	 Schelde	Demer	4	3	4	NA	0.33	Ontoereikend	2009	NA	n.r.	NA	0.23	Ontoereikend	2009	0.5	Matig	2012	0.35	Ontoereikend	2012	NA	4	1	4	4/apr
+L1	L111_1075	MELSTERBEEK L1	rivier	rivier	Bk	Sterk Veranderd	Andere         	 Schelde	Demer	4	3	4	NA	0.3	Ontoereikend	2009	NA	n.r.	NA	0.23	Ontoereikend	2009	0.5	Matig	2011	NA	n.b.	NA	NA	3	1	4	3/apr
+L1	L111_1076	CICINDRIA	rivier	rivier	Bk	Sterk Veranderd	Andere         	 Schelde	Demer	5	3	5	NA	0.19	Slecht	2008	NA	n.r.	NA	0.1	Slecht	2008	0.45	Ontoereikend	2011	0.26	Ontoereikend	2012	NA	4	1	4	4/apr
+L1	L111_1077	MOLENBEEK (SINT-TRUIDEN)	rivier	rivier	Bk	Sterk Veranderd	Andere         	 Schelde	Demer	5	3	5	NA	0.64	Goed	2009	NA	n.r.	NA	0.17	Slecht	2009	0.5	Matig	2012	0.38	Ontoereikend	2012	NA	4	1	4	4/apr
+L1	L111_1078	GRONDBEEK	rivier	rivier	Bk	Natuurlijk     	Andere         	 Schelde	Demer	5	3	5	NA	0.25	Ontoereikend	2009	NA	n.r.	NA	0.17	Slecht	2009	NA	n.b.	NA	NA	n.b.	NA	NA	2	1	4	2/apr
+L1	L111_1079	HELDERBEEK	rivier	rivier	BkK	Natuurlijk     	Speerpuntgebied	 Schelde	Demer	4	3	4	NA	0.69	Goed	2012	NA	n.r.	NA	0.23	Ontoereikend	2012	0.4	Ontoereikend	2010	NA	n.b.	NA	NA	3	1	4	3/apr
+L1	L111_1080	ZWARTEBEEK L1	rivier	rivier	BkK	Natuurlijk     	Speerpuntgebied	 Schelde	Demer	3	3	3	NA	0.7	Goed	2007	NA	n.r.	NA	0.4	Matig	2013	0.6	Matig	2010	0.61	Matig	2012	NA	4	1	4	4/apr
+L1	L111_1081	MANGELBEEK L1	rivier	rivier	BkK	Natuurlijk     	Aandachtsgebied	 Schelde	Demer	4	3	4	NA	0.25	Ontoereikend	2009	NA	n.r.	NA	0.23	Ontoereikend	2007	0.35	Ontoereikend	2010	NA	n.b.	NA	NA	3	1	4	3/apr
+L1	L111_1082	SLANGBEEK	rivier	rivier	BkK	Sterk Veranderd	Andere         	 Schelde	Demer	4	3	4	NA	0.37	Ontoereikend	2012	NA	n.r.	NA	0.3	Ontoereikend	2012	0.65	Matig	2012	NA	n.b.	NA	NA	3	1	4	3/apr
+L1	L111_1083	MISERIKBEEK	rivier	rivier	BkK	Natuurlijk     	Aandachtsgebied	 Schelde	Demer	4	3	4	NA	0.37	Ontoereikend	2012	NA	n.r.	NA	0.3	Ontoereikend	2012	0.55	Matig	2009	NA	n.b.	NA	NA	3	1	4	3/apr
+L1	L111_1084	MANDEL L1	rivier	rivier	Bk	Sterk Veranderd	Andere         	 Schelde	Leie	5	3	5	NA	0.31	Ontoereikend	2009	NA	n.r.	NA	0	Slecht	2009	0.3	Ontoereikend	2012	0	Slecht	2011	NA	4	1	4	4/apr
+L1	L111_1085	WILDERBEEK	rivier	rivier	Bk	Natuurlijk     	Andere         	 Schelde	Demer	4	3	4	NA	0.88	Zeer goed	2009	NA	n.r.	NA	0.4	Matig	2009	0.3	Ontoereikend	2009	NA	n.b.	NA	NA	3	1	4	3/apr
+L1	L111_1086	LOZERBROEKBEEK	rivier	rivier	BkK	Natuurlijk     	Andere         	 Maas	Maas	5	3	5	NA	0.17	Slecht	2012	NA	n.r.	NA	0.54	Matig	2012	0.4	Ontoereikend	2010	NA	n.b.	NA	NA	3	1	4	3/apr
+L1	L111_1087	HORSTGATERBEEK	rivier	rivier	BkK	Natuurlijk     	Aandachtsgebied	 Maas	Maas	5	3	5	NA	0.18	Slecht	2012	NA	n.r.	NA	0.27	Ontoereikend	2012	0.35	Ontoereikend	2012	0.14	Slecht	2011	NA	4	1	4	4/apr
+L1	L111_1088	ITTERBEEK L1	rivier	rivier	BkK	Natuurlijk     	Aandachtsgebied	 Maas	Maas	4	3	4	NA	0.43	Matig	2013	NA	n.r.	NA	0.5	Matig	2009	0.55	Matig	2010	NA	n.b.	NA	NA	3	1	4	3/apr
+L1	L111_1089	WITBEEK	rivier	rivier	BkK	Sterk Veranderd	Aandachtsgebied	 Maas	Maas	3	3	3	NA	0.61	Goed	2012	NA	n.r.	NA	0.4	Matig	2012	0.75	Goed	2012	NA	n.b.	NA	NA	3	1	4	3/apr
+L1	L111_1090	ZANDERBEEK	rivier	rivier	BkK	Sterk Veranderd	Aandachtsgebied	 Maas	Maas	4	3	4	NA	0.32	Ontoereikend	2007	NA	n.r.	NA	0.25	Ontoereikend	2007	0.9	Goed	2007	0.52	Matig	2012	NA	4	1	4	4/apr
+L1	L111_1091	KIKBEEK	rivier	rivier	BkK	Sterk Veranderd	Aandachtsgebied	 Maas	Maas	4	3	4	NA	0.36	Ontoereikend	2012	NA	n.r.	NA	0.27	Ontoereikend	2012	0.5	Matig	2011	NA	n.b.	NA	NA	3	1	4	3/apr
+L1	L111_1092	ZOUW	rivier	rivier	Bk	Sterk Veranderd	Andere         	 Maas	Maas	5	3	5	NA	0.02	Slecht	2012	NA	n.r.	NA	0.2	Ontoereikend	2012	0.25	Slecht	2012	NA	n.b.	NA	NA	3	1	4	3/apr
+L1	L111_1093	EZELSBEEK	rivier	rivier	Bk	Sterk Veranderd	Andere         	 Maas	Maas	5	3	5	NA	0.09	Slecht	2012	NA	n.r.	NA	0.08	Slecht	2012	0.15	Slecht	2010	NA	n.b.	NA	NA	3	1	4	3/apr
+L1	L111_1094	HEULEBEEK L1	rivier	rivier	Bk	Sterk Veranderd	Aandachtsgebied	 Schelde	Leie	5	3	5	NA	0.22	Ontoereikend	2013	NA	n.r.	NA	0	Slecht	2013	0.15	Slecht	2012	0.2	Slecht	2011	NA	4	1	4	4/apr
+L1	L111_1095	KLEINE LAAK	rivier	rivier	BkK	Natuurlijk     	Aandachtsgebied	 Schelde	Nete	3	3	2	NA	0.61	Goed	2011	NA	n.r.	NA	0.6	Goed	2011	0.75	Goed	2011	NA	n.b.	NA	NA	3	1	4	3/apr
+L1	L111_1096	GROTE LAAK L1	rivier	rivier	BkK	Natuurlijk     	Aandachtsgebied	 Schelde	Nete	5	3	5	NA	0.23	Ontoereikend	2011	NA	n.r.	NA	0.1	Slecht	2011	0.1	Slecht	2011	NA	n.b.	NA	NA	3	1	4	3/apr
+L1	L111_1097	KASSELRIJBEEK - OOST	rivier	rivier	Bk	Sterk Veranderd	Andere         	 Schelde	Leie	5	3	5	NA	0.07	Slecht	2010	NA	n.r.	NA	0	Slecht	2010	0	Slecht	2011	NA	n.b.	NA	NA	3	1	4	3/apr
+L1	L111_1098	KEIBEEK	rivier	rivier	Bk	Sterk Veranderd	Andere         	 Schelde	Leie	5	3	5	NA	0.1	Slecht	2010	NA	n.r.	NA	0	Slecht	2010	0.35	Ontoereikend	2010	NA	n.b.	NA	NA	3	1	4	3/apr
+L1	L111_1099	GAVERSE BEEK (BECQUE DE NEUVILLE)	rivier	rivier	Bk	Sterk Veranderd	Andere         	 Schelde	Leie	5	3	5	NA	0.08	Slecht	2011	NA	n.r.	NA	0	Slecht	2011	0.1	Slecht	2007	NA	n.b.	NA	NA	3	1	4	3/apr
+L1	L111_1101	GROTE KEIGNAERT	rivier	rivier	Pb	Sterk Veranderd	Andere         	 Schelde	Ijzer	5	3	5	NA	NA	n.r.	NA	NA	n.r.	NA	0.17	Slecht	2010	0.55	Matig	2010	NA	n.b.	NA	NA	2	2	3	2/mrt
+L1	L111_1102	KLEINE A - WILDERTSE BEEK	rivier	rivier	BkK	Sterk Veranderd	Andere         	 Maas	Maas	5	3	5	NA	0.29	Ontoereikend	2013	NA	n.r.	NA	0.46	Matig	2010	0.5	Matig	2010	0.43	Ontoereikend	2012	NA	4	1	4	4/apr
+L1	L111_1104	DESPIERREBEEK	rivier	rivier	Bk	Sterk Veranderd	Andere         	 Schelde	Leie	5	3	5	NA	0.19	Slecht	2013	NA	n.r.	NA	0.5	Matig	2010	0.25	Slecht	2010	NA	n.b.	NA	NA	3	1	4	3/apr
+L1	L111_1105	MELSENBEEK	rivier	rivier	Bk	Natuurlijk     	Aandachtsgebied	 Schelde	Beneden-Schelde	4	3	4	NA	0.48	Matig	2013	NA	n.r.	NA	0	Slecht	2013	NA	n.b.	NA	0.4	Ontoereikend	2011	NA	3	1	4	3/apr
+L1	L111_1106	DONKSE BEEK	rivier	rivier	Pz	Sterk Veranderd	Andere         	 Schelde	Beneden-Schelde	5	3	5	NA	0.32	Ontoereikend	2012	NA	n.r.	NA	0	Slecht	2012	0.25	Ontoereikend	2012	NA	n.b.	NA	NA	3	1	4	3/apr
+L1	L111_1107	SLIJKVAART	rivier	rivier	Pb	Sterk Veranderd	Andere         	 Schelde	Ijzer	4	3	4	NA	NA	n.r.	NA	NA	n.r.	NA	0.35	Ontoereikend	2010	0.3	Ontoereikend	2012	NA	n.b.	NA	NA	2	2	3	2/mrt
+L1	L111_1108	STEENGRACHT	rivier	rivier	Pb	Sterk Veranderd	Andere         	 Schelde	Ijzer	5	3	5	NA	NA	n.r.	NA	NA	n.r.	NA	0	Slecht	2010	0.45	Matig	2010	NA	n.b.	NA	NA	2	2	3	2/mrt
+L1	L111_1109	MOERDIJKVAART L1	rivier	rivier	Bk	Natuurlijk     	Andere         	 Schelde	Ijzer	5	3	5	NA	0.17	Slecht	2013	NA	n.r.	NA	0	Slecht	2013	0.1	Slecht	2011	0.32	Ontoereikend	2012	NA	4	1	4	4/apr
+L1	L111_1110	EDE	rivier	rivier	Bk	Sterk Veranderd	Andere         	 Schelde	Brugse Polders	4	3	4	NA	0.22	Ontoereikend	2012	NA	n.r.	NA	0.6	Goed	2012	0.5	Matig	2011	NA	n.b.	NA	NA	3	1	4	3/apr
+L1	L111_1111	GELEEDBEEK - PASSENDALEGELEED	rivier	rivier	Pb	Natuurlijk     	Andere         	 Schelde	Brugse Polders	5	3	5	NA	NA	n.r.	NA	NA	n.r.	NA	0	Slecht	2012	0.5	Matig	2011	NA	n.b.	NA	NA	2	2	3	2/mrt
+L1	L111_1112	ISABELLASTROOM	rivier	rivier	Bk	Sterk Veranderd	Andere         	 Schelde	Gentse Kanalen	4	3	4	NA	0.31	Ontoereikend	2010	NA	n.r.	NA	0.43	Matig	2010	0.75	Goed	2011	0.31	Ontoereikend	2011	NA	4	1	4	4/apr
+L1	L111_1113	LACHENEBEEK	rivier	rivier	Bk	Natuurlijk     	Aandachtsgebied	 Schelde	Nete	5	3	5	NA	0.14	Slecht	2012	NA	n.r.	NA	0.4	Matig	2012	0.5	Matig	2012	NA	n.b.	NA	NA	3	1	4	3/apr
+L1	L111_1114	ANTITANKGRACHT ZUID	rivier	rivier	Bk	Kunstmatig     	Aandachtsgebied	 Schelde	Beneden-Schelde	3	3	2	NA	0.88	Goed	2013	NA	n.r.	NA	0.53	Matig	2013	0.8	Goed	2009	NA	n.b.	NA	NA	3	1	4	3/apr
+L1	L111_1201	S HERTOGENDIJKSE BEEK	rivier	rivier	Pz	Sterk Veranderd	Andere         	 Schelde	Beneden-Schelde	4	3	4	NA	0.46	Matig	2012	NA	n.r.	NA	0.3	Ontoereikend	2012	0.25	Ontoereikend	2012	NA	n.b.	NA	NA	3	1	4	3/apr
+L1	L111_15	HEIDEBEEK (VLETEREN)	rivier	rivier	Pz	Natuurlijk     	Aandachtsgebied	 Schelde	Ijzer	5	3	5	NA	0.05	Slecht	2010	NA	n.r.	NA	0.13	Slecht	2010	0.4	Matig	2010	NA	n.b.	NA	NA	3	1	4	3/apr
+L1	L111_18	ST-MACHUITSBEEK	rivier	rivier	Pb	Sterk Veranderd	Andere         	 Schelde	Ijzer	5	3	5	NA	NA	n.r.	NA	NA	n.r.	NA	0.08	Slecht	2012	0.5	Matig	2010	NA	n.b.	NA	NA	2	2	3	2/mrt
+L1	L111_238	KROMMEDIJKBEEK	rivier	rivier	Bk	Sterk Veranderd	Andere         	 Schelde	Leie	5	3	5	NA	0.39	Ontoereikend	2013	NA	n.r.	NA	0	Slecht	2012	0.15	Slecht	2012	0.29	Ontoereikend	2012	NA	4	1	4	4/apr
+L1	L111_298	OUDE DENDER	rivier	rivier	Bk	Sterk Veranderd	Andere         	 Schelde	Dender	5	3	5	NA	0.1	Slecht	2008	NA	n.r.	NA	0	Slecht	2008	0.8	Goed	2012	0.2	Slecht	2012	NA	4	1	4	4/apr
+L1	L111_315	FONDATIEGRACHT	rivier	rivier	Bk	Sterk Veranderd	Aandachtsgebied	 Schelde	Gentse Kanalen	NA	NA	n.b.	NA	NA	n.b.	NA	NA	n.r.	NA	NA	n.b.	NA	NA	n.b.	NA	NA	n.b.	NA	NA	0	1	4	0/4
+L1	L111_326	BARBIERBEEK	rivier	rivier	Bk	Sterk Veranderd	Aandachtsgebied	 Schelde	Beneden-Schelde	5	3	5	NA	0.25	Ontoereikend	2012	NA	n.r.	NA	0.62	Goed	2012	0.25	Slecht	2012	0.1	Slecht	2011	NA	4	1	4	4/apr
+L1	L111_419	SCHOORBROEKBEEK	rivier	rivier	Bk	Natuurlijk     	Andere         	 Schelde	Demer	4	3	4	NA	0.34	Ontoereikend	2008	NA	n.r.	NA	0.43	Matig	2007	0.85	Goed	2011	NA	n.b.	NA	NA	3	1	4	3/apr
+L1	L111_436	VELPE L1	rivier	rivier	Bk	Natuurlijk     	Aandachtsgebied	 Schelde	Demer	5	3	5	NA	0.28	Ontoereikend	2009	NA	n.r.	NA	0.47	Matig	2013	0.6	Matig	2012	0.2	Slecht	2011	NA	4	1	4	4/apr
+L1	L111_624	TAPPELBEEK	rivier	rivier	BkK	Natuurlijk     	Speerpuntgebied	 Schelde	Nete	4	3	4	NA	0.51	Matig	2012	NA	n.r.	NA	0.35	Ontoereikend	2012	0.8	Goed	2012	NA	n.b.	NA	NA	3	1	4	3/apr
+L1	L111_627	KLEINE BEEK (ZANDHOVEN)	rivier	rivier	BkK	Natuurlijk     	Speerpuntgebied	 Schelde	Nete	4	3	4	NA	0.63	Goed	2012	NA	n.r.	NA	0.28	Ontoereikend	2012	0.75	Goed	2012	NA	n.b.	NA	NA	3	1	4	3/apr
+L1	L111_639	VISBEEK	rivier	rivier	BkK	Natuurlijk     	Aandachtsgebied	 Schelde	Nete	4	3	4	NA	0.21	Ontoereikend	2010	NA	n.r.	NA	0.45	Matig	2011	0.55	Matig	2011	NA	n.b.	NA	NA	3	1	4	3/apr
+L1	L111_659	KREKELBEEK	rivier	rivier	BkK	Natuurlijk     	Andere         	 Schelde	Nete	5	3	5	NA	0.25	Ontoereikend	2012	NA	n.r.	NA	0.08	Slecht	2012	0.28	Slecht	2012	NA	n.b.	NA	NA	3	1	4	3/apr
+L1	L111_674	BENEDENVLIET L1	rivier	rivier	Bk	Natuurlijk     	Aandachtsgebied	 Schelde	Beneden-Schelde	5	3	5	NA	0.17	Slecht	2011	NA	n.r.	NA	0.1	Slecht	2011	0.5	Matig	2011	0.37	Ontoereikend	2010	NA	4	1	4	4/apr
+L1	L111_675	KLEIN SCHIJN	rivier	rivier	BkK	Sterk Veranderd	Andere         	 Schelde	Beneden-Schelde	5	3	5	NA	0.41	Matig	2012	NA	n.r.	NA	0.27	Ontoereikend	2012	0.3	Ontoereikend	2012	0.2	Slecht	2011	NA	4	1	4	4/apr
+L1	L111_676	WEZELSE BEEK	rivier	rivier	BkK	Sterk Veranderd	Aandachtsgebied	 Schelde	Beneden-Schelde	3	3	3	NA	0.56	Matig	2012	NA	n.r.	NA	0.47	Matig	2012	0.5	Matig	2010	0.55	Matig	2011	NA	4	1	4	4/apr
+L1	L111_699	SCHERPENBERGLOOP	rivier	rivier	BkK	Natuurlijk     	Speerpuntgebied	 Schelde	Nete	3	3	3	NA	0.53	Matig	2012	NA	n.r.	NA	0.53	Matig	2012	0.7	Goed	2012	NA	n.b.	NA	NA	3	1	4	3/apr
+L1	L111_707	KLEINE HOOFDGRACHT	rivier	rivier	BkK	Natuurlijk     	Speerpuntgebied	 Schelde	Nete	4	3	4	NA	0.56	Matig	2013	NA	n.r.	NA	0.3	Ontoereikend	2013	0.8	Goed	2008	0.58	Matig	2010	NA	4	1	4	4/apr
+L1	L111_717	DESSELSE NEET	rivier	rivier	BkK	Natuurlijk     	Speerpuntgebied	 Schelde	Nete	3	3	3	NA	0.45	Matig	2012	NA	n.r.	NA	0.42	Matig	2012	0.85	Goed	2012	0.59	Matig	2011	NA	4	1	4	4/apr
+L1	L111_724	ANTITANKGRACHT NOORD	rivier	rivier	Bk	Kunstmatig     	Andere         	 Schelde	Beneden-Schelde	4	3	4	NA	1	Goed	2013	NA	n.r.	NA	0.7	Goed	2013	0.8	Goed	2009	NA	n.b.	NA	NA	3	1	4	3/apr
+L1	L111_844	STIEMER	rivier	rivier	BkK	Sterk Veranderd	Aandachtsgebied	 Schelde	Demer	5	3	5	NA	0.14	Slecht	2007	NA	n.r.	NA	0.42	Matig	2007	0.4	Ontoereikend	2010	NA	n.b.	NA	NA	3	1	4	3/apr
+VL	VL05_102	DEMER V	rivier	rivier	Rg	Sterk Veranderd	Andere         	 Schelde	Demer	4	3	4	NA	0.43	Matig	2010	1	Goed	2007	0.6	Goed	2013	0.45	Ontoereikend	2010	0.5	Matig	2012	NA	5	0	5	5/mei
+VL	VL05_103	DEMER VI	rivier	rivier	Rg	Sterk Veranderd	Aandachtsgebied	 Schelde	Demer	4	3	4	NA	0.34	Ontoereikend	2010	1	Goed	2007	0.43	Matig	2010	0.38	Ontoereikend	2010	0.5	Matig	2012	NA	5	0	5	5/mei
+VL	VL05_104	DEMER VII	rivier	rivier	Rg	Sterk Veranderd	Aandachtsgebied	 Schelde	Demer	4	3	4	NA	0.79	Goed	2013	1	Goed	2007	0.23	Ontoereikend	2013	0.48	Matig	2010	0.47	Matig	2012	NA	5	0	5	5/mei
+VL	VL05_105	GETE I	rivier	rivier	Rk	Sterk Veranderd	Andere         	 Schelde	Demer	5	3	5	NA	0.44	Matig	2011	NA	n.r.	NA	0.3	Ontoereikend	2011	0.4	Ontoereikend	2010	0	Slecht	2010	NA	4	1	4	4/apr
+VL	VL05_106	GETE II	rivier	rivier	Rg	Sterk Veranderd	Andere         	 Schelde	Demer	4	3	4	NA	0.54	Matig	2013	1	Goed	2007	0.36	Ontoereikend	2013	0.4	Ontoereikend	2010	0.4	Matig	2010	NA	5	0	5	5/mei
+VL	VL05_108	HERK + KLEINE HERK	rivier	rivier	Bg	Natuurlijk     	Aandachtsgebied	 Schelde	Demer	5	3	5	NA	0.49	Matig	2011	NA	n.r.	NA	0.03	Slecht	2011	0.45	Ontoereikend	2011	0.48	Matig	2012	NA	4	1	4	4/apr
+VL	VL05_110	MANGELBEEK	rivier	rivier	BgK	Natuurlijk     	Aandachtsgebied	 Schelde	Demer	5	3	5	NA	0.34	Ontoereikend	2011	NA	n.r.	NA	0.17	Slecht	2011	0.45	Ontoereikend	2011	0.58	Matig	2012	NA	4	1	4	4/apr
+VL	VL05_113	MOMBEEK	rivier	rivier	Bg	Natuurlijk     	Speerpuntgebied	 Schelde	Demer	5	3	5	NA	0.16	Slecht	2011	NA	n.r.	NA	0.35	Ontoereikend	2011	0.4	Ontoereikend	2011	0.65	Goed	2012	NA	4	1	4	4/apr
+VL	VL05_114	MUNSTERBEEK	rivier	rivier	BgK	Sterk Veranderd	Speerpuntgebied	 Schelde	Demer	4	3	4	NA	0.59	Matig	2011	NA	n.r.	NA	0.4	Matig	2011	0.65	Goed	2011	0.2	Ontoereikend	2010	NA	4	1	4	4/apr
+VL	VL05_115	VELPE	rivier	rivier	Bg	Natuurlijk     	Aandachtsgebied	 Schelde	Demer	4	3	4	NA	0.37	Ontoereikend	2011	NA	n.r.	NA	0.57	Matig	2013	0.55	Matig	2011	0.49	Matig	2011	NA	4	1	4	4/apr
+VL	VL05_116	WINGE	rivier	rivier	Bg	Natuurlijk     	Aandachtsgebied	 Schelde	Demer	4	3	4	NA	0.38	Ontoereikend	2011	NA	n.r.	NA	0.46	Matig	2011	0.55	Matig	2011	0.58	Matig	2011	NA	4	1	4	4/apr
+VL	VL05_118	ZWARTWATER	rivier	rivier	Bg	Natuurlijk     	Andere         	 Schelde	Demer	4	3	4	NA	0.41	Matig	2011	NA	n.r.	NA	0.49	Matig	2011	0.75	Goed	2011	0.43	Ontoereikend	2010	NA	4	1	4	4/apr
+VL	VL05_119	VINNE	meer	meer	Ami	Sterk Veranderd	Andere         	 Schelde	Demer	4	3	4	NA	0.75	Goed	2011	0.6	Goed	2010	0.52	Matig	2008	0.78	Goed	2011	0.24	Ontoereikend	2009	NA	5	0	5	5/mei
+VL	VL05_12	POPERINGEVAART	rivier	rivier	Bg	Sterk Veranderd	Aandachtsgebied	 Schelde	Ijzer	4	3	4	NA	0.32	Ontoereikend	2010	NA	n.r.	NA	0.4	Matig	2010	0.45	Ontoereikend	2010	0.55	Matig	2010	NA	4	1	4	4/apr
+VL	VL05_121	AA II	rivier	rivier	BgK	Sterk Veranderd	Speerpuntgebied	 Schelde	Nete	3	3	3	NA	0.65	Goed	2013	NA	n.r.	NA	0.61	Goed	2013	0.7	Goed	2010	0.6	Matig	2011	NA	4	1	4	4/apr
+VL	VL05_122	GROTE LAAK	rivier	rivier	BgK	Sterk Veranderd	Aandachtsgebied	 Schelde	Nete	5	3	5	NA	0.14	Slecht	2011	NA	n.r.	NA	0.04	Slecht	2011	0.05	Slecht	2011	NA	n.b.	NA	NA	3	1	4	3/apr
+VL	VL05_124	GROTE NETE II	rivier	rivier	BgK	Sterk Veranderd	Aandachtsgebied	 Schelde	Nete	4	3	4	NA	0.38	Ontoereikend	2013	NA	n.r.	NA	0.4	Matig	2010	0.55	Matig	2010	0.49	Matig	2012	NA	4	1	4	4/apr
+VL	VL05_129	MOLENBEEK - BOLLAAK	rivier	rivier	BgK	Natuurlijk     	Speerpuntgebied	 Schelde	Nete	4	3	4	NA	0.49	Matig	2010	NA	n.r.	NA	0.47	Matig	2013	0.75	Goed	2010	0.49	Matig	2012	NA	4	1	4	4/apr
+VL	VL05_130	WAMP	rivier	rivier	BgK	Sterk Veranderd	Speerpuntgebied	 Schelde	Nete	3	3	3	NA	0.57	Matig	2013	NA	n.r.	NA	0.58	Matig	2013	0.85	Goed	2010	0.58	Matig	2010	NA	4	1	4	4/apr
+VL	VL05_131	WIMP	rivier	rivier	BgK	Sterk Veranderd	Andere         	 Schelde	Nete	4	3	4	NA	0.4	Matig	2011	NA	n.r.	NA	0.55	Matig	2011	0.65	Matig	2011	0.37	Ontoereikend	2011	NA	4	1	4	4/apr
+VL	VL05_134	BERWIJN	rivier	rivier	Bg	Natuurlijk     	Aandachtsgebied	 Maas	Maas	3	3	3	NA	0.38	Ontoereikend	2013	NA	n.r.	NA	0.47	Matig	2013	0.75	Goed	2012	0.63	Matig	2010	NA	4	1	4	4/apr
+VL	VL05_135	BOSBEEK	rivier	rivier	BgK	Natuurlijk     	Speerpuntgebied	 Maas	Maas	4	3	4	NA	0.53	Matig	2011	NA	n.r.	NA	0.28	Ontoereikend	2011	0.5	Matig	2011	0.68	Goed	2011	NA	4	1	4	4/apr
+VL	VL05_136	DOMMEL	rivier	rivier	BgK	Natuurlijk     	Aandachtsgebied	 Maas	Maas	4	3	4	NA	0.32	Ontoereikend	2013	NA	n.r.	NA	0.5	Matig	2013	0.58	Matig	2010	0.52	Matig	2011	NA	4	1	4	4/apr
+VL	VL05_137	ITTERBEEK I	rivier	rivier	BgK	Sterk Veranderd	Aandachtsgebied	 Maas	Maas	4	3	4	NA	0.39	Ontoereikend	2013	NA	n.r.	NA	0.5	Matig	2010	0.65	Matig	2010	0.43	Ontoereikend	2010	NA	4	1	4	4/apr
+VL	VL05_138	ITTERBEEK II	rivier	rivier	BgK	Sterk Veranderd	Aandachtsgebied	 Maas	Maas	4	3	4	NA	0.35	Ontoereikend	2013	NA	n.r.	NA	0.56	Matig	2010	0.85	Goed	2007	0.35	Ontoereikend	2011	NA	4	1	4	4/apr
+VL	VL05_139	JEKER I	rivier	rivier	Bg	Natuurlijk     	Andere         	 Maas	Maas	5	3	5	NA	0.17	Slecht	2010	NA	n.r.	NA	0.4	Matig	2010	0.45	Ontoereikend	2012	0.15	Slecht	2010	NA	4	1	4	4/apr
+VL	VL05_14	VLADSLOVAART	rivier	rivier	Pb	Sterk Veranderd	Andere         	 Schelde	Ijzer	4	3	4	NA	NA	n.r.	NA	0.41	Matig	2012	0.37	Ontoereikend	2011	0.45	Matig	2012	0.53	Matig	2007	NA	4	1	4	4/apr
+VL	VL05_140	JEKER II	rivier	rivier	Rk	Natuurlijk     	Andere         	 Maas	Maas	5	3	5	NA	0.18	Slecht	2010	NA	n.r.	NA	0.3	Ontoereikend	2010	0.25	Slecht	2010	0.2	Slecht	2010	NA	4	1	4	4/apr
+VL	VL05_141	LOSSING	rivier	rivier	BgK	Natuurlijk     	Aandachtsgebied	 Maas	Maas	4	3	4	NA	0.25	Ontoereikend	2013	NA	n.r.	NA	0.48	Matig	2010	0.7	Goed	2010	0.48	Matig	2011	NA	4	1	4	4/apr
+VL	VL05_146	MERKSKE	rivier	rivier	BgK	Natuurlijk     	Speerpuntgebied	 Maas	Maas	3	3	3	NA	0.52	Matig	2013	NA	n.r.	NA	0.57	Matig	2013	0.8	Goed	2010	0.45	Matig	2012	NA	4	1	4	4/apr
+VL	VL05_147	WARMBEEK	rivier	rivier	BgK	Natuurlijk     	Speerpuntgebied	 Maas	Maas	3	3	3	NA	0.72	Goed	2010	NA	n.r.	NA	0.47	Matig	2013	0.5	Matig	2010	0.68	Goed	2012	NA	4	1	4	4/apr
+VL	VL05_148	WEERIJSEBEEK	rivier	rivier	BgK	Sterk Veranderd	Aandachtsgebied	 Maas	Maas	4	3	4	NA	0.51	Matig	2013	NA	n.r.	NA	0.57	Matig	2010	0.65	Matig	2010	0.44	Ontoereikend	2012	NA	4	1	4	4/apr
+VL	VL05_149	AFLEIDINGSKANAAL van de LEIE II + KANAAL van EEKLO	rivier	rivier	Rg	Kunstmatig     	Andere         	 Schelde	Brugse Polders	4	3	4	NA	0.57	Matig	2011	0.56	Matig	2012	0.4	Matig	2011	0.4	Ontoereikend	2010	0.37	Matig	2011	NA	5	0	5	5/mei
+VL	VL08_132	GETIJDENETES	rivier	overgangswater	Mlz	Sterk Veranderd	Aandachtsgebied	 Schelde	Nete	5	3	5	NA	NA	n.r.	NA	0.25	Ontoereikend	2012	0.2	Ontoereikend	2008	0.18	Slecht	2008	0.41	Ontoereikend	2012	NA	4	1	4	4/apr
+VL	VL05_150	AFLEIDINGSKANAAL van de LEIE/SCHIPDONKKANAAL I	rivier	rivier	Rg	Kunstmatig     	Andere         	 Schelde	Gentse Kanalen	5	3	5	NA	0.6	Goed	2013	0.4	Ontoereikend	2012	NA	n.r.	NA	0.2	Slecht	2012	0.29	Ontoereikend	2011	NA	4	1	4	4/apr
+VL	VL05_151	ALBERTKANAAL	rivier	rivier	Rg	Kunstmatig     	Andere         	 Schelde	Beneden-Schelde	5	3	5	NA	0.58	Matig	2013	1	Goed	2012	NA	n.r.	NA	0.35	Ontoereikend	2010	0.24	Slecht	2008	NA	4	1	4	4/apr
+VL	VL05_152	AVRIJEVAART + SLEIDINGSVAARDEKE	rivier	rivier	Rk	Kunstmatig     	Andere         	 Schelde	Gentse Kanalen	4	3	4	NA	0.59	Matig	2010	0.51	Matig	2012	0.35	Ontoereikend	2010	0.8	Goed	2010	0.39	Matig	2011	NA	5	0	5	5/mei
+VL	VL05_153	BERGENVAART	rivier	rivier	Pb	Kunstmatig     	Andere         	 Schelde	Ijzer	4	3	4	NA	NA	n.r.	NA	0.52	Matig	2012	0.3	Ontoereikend	2010	0.75	Goed	2012	0.41	Ontoereikend	2010	NA	4	1	4	4/apr
+VL	VL05_154	BRAKELEIKEN + LIEVE	rivier	rivier	Rk	Kunstmatig     	Aandachtsgebied	 Schelde	Gentse Kanalen	3	3	3	NA	0.5	Matig	2012	NA	n.r.	NA	0.57	Matig	2012	0.7	Goed	2011	0.49	Matig	2012	NA	4	1	4	4/apr
+VL	VL05_158	KANAAL BOSSUIT-KORTRIJK	rivier	rivier	Rg	Kunstmatig     	Andere         	 Schelde	Leie	4	3	4	NA	0.47	Matig	2013	0.93	Goed	2012	0.4	Matig	2013	0.55	Matig	2012	0.22	Ontoereikend	2009	NA	5	0	5	5/mei
+VL	VL05_159	KANAAL CHARLEROI-BRUSSEL	rivier	rivier	Rg	Kunstmatig     	Andere         	 Schelde	Dijle Zenne	4	3	4	NA	0.56	Matig	2013	0.38	Ontoereikend	2012	NA	n.r.	NA	0.35	Ontoereikend	2010	0.31	Ontoereikend	2007	NA	4	1	4	4/apr
+VL	VL05_160	KANAAL DESSEL-KWAADMECHELEN + KANAAL DESSEL-SCHOTEN + KANAAL BOCHOLT-HERENTALS (deels)	rivier	rivier	Rg	Kunstmatig     	Andere         	 Schelde	Beneden-Schelde	4	3	4	NA	0.83	Goed	2011	0.98	Goed	2008	NA	n.r.	NA	0.6	Matig	2012	0.26	Ontoereikend	2012	NA	4	1	4	4/apr
+VL	VL05_161	KANAAL DUINKERKE-NIEUWPOORT	rivier	rivier	Rg	Kunstmatig     	Andere         	 Schelde	Ijzer	5	3	5	NA	0.61	Goed	2011	0.23	Ontoereikend	2012	NA	n.r.	NA	0.2	Slecht	2011	0.63	Goed	2011	NA	4	1	4	4/apr
+VL	VL05_163	KANAAL GENT-OOSTENDE II	rivier	rivier	Rg	Kunstmatig     	Andere         	 Schelde	Gentse Kanalen	4	3	4	NA	0.39	Ontoereikend	2010	0.45	Matig	2012	NA	n.r.	NA	0.3	Ontoereikend	2010	0.37	Ontoereikend	2010	NA	4	1	4	4/apr
+VL	VL05_166	KANAAL IEPER-IJZER	rivier	rivier	Rg	Kunstmatig     	Andere         	 Schelde	Ijzer	5	3	5	NA	0.35	Ontoereikend	2011	0.09	Slecht	2012	0.23	Ontoereikend	2011	0.53	Matig	2012	0.37	Ontoereikend	2008	NA	5	0	5	5/mei
+VL	VL05_167	KANAAL LEUVEN-DIJLE	rivier	rivier	Rg	Kunstmatig     	Andere         	 Schelde	Dijle Zenne	3	3	3	NA	0.74	Goed	2011	1	Goed	2012	NA	n.r.	NA	0.55	Matig	2012	0.44	Matig	2011	NA	4	1	4	4/apr
+VL	VL05_168	KANAAL PLASSENDALE-NIEUWPOORT	rivier	rivier	Rg	Kunstmatig     	Andere         	 Schelde	Ijzer	4	3	4	NA	0.66	Goed	2011	0.43	Matig	2012	NA	n.r.	NA	0.28	Ontoereikend	2012	0.59	Goed	2012	NA	4	1	4	4/apr
+VL	VL05_169	KANAAL ROESELARE-LEIE	rivier	rivier	Rg	Kunstmatig     	Andere         	 Schelde	Leie	4	3	4	NA	0.59	Matig	2011	0.43	Matig	2012	NA	n.r.	NA	0.4	Ontoereikend	2011	0.66	Goed	2010	NA	4	1	4	4/apr
+VL	VL05_17	ISABELLAVAART	rivier	rivier	Pb	Sterk Veranderd	Andere         	 Schelde	Brugse Polders	5	3	5	NA	NA	n.r.	NA	0.2	Ontoereikend	2012	0.07	Slecht	2011	0.45	Matig	2011	0.27	Ontoereikend	2012	NA	4	1	4	4/apr
+VL	VL05_170	KANAAL VAN BEVERLO	rivier	rivier	Rg	Kunstmatig     	Andere         	 Schelde	Nete	3	3	3	NA	0.53	Matig	2011	0.98	Goed	2008	NA	n.r.	NA	0.7	Goed	2011	0.44	Matig	2011	NA	4	1	4	4/apr
+VL	VL05_171	LEDE	rivier	rivier	Bg	Kunstmatig     	Andere         	 Schelde	Beneden-Schelde	5	3	5	NA	0.35	Ontoereikend	2013	0.91	Goed	2012	0.62	Goed	2013	0.55	Matig	2009	0.26	Ontoereikend	2011	NA	5	0	5	5/mei
+VL	VL05_174	LOKANAAL	rivier	rivier	Rk	Kunstmatig     	Andere         	 Schelde	Ijzer	5	3	5	NA	0.38	Ontoereikend	2012	NA	n.r.	NA	0.1	Slecht	2011	0.4	Ontoereikend	2010	0.22	Ontoereikend	2010	NA	4	1	4	4/apr
+VL	VL05_175	MOERVAART	rivier	rivier	Rg	Kunstmatig     	Andere         	 Schelde	Gentse Kanalen	4	3	4	NA	0.54	Matig	2013	0.69	Goed	2012	0.23	Ontoereikend	2013	0.6	Matig	2011	0.44	Matig	2009	NA	5	0	5	5/mei
+VL	VL05_177	NIEUWE KALE	rivier	rivier	Rk	Kunstmatig     	Andere         	 Schelde	Gentse Kanalen	4	3	4	NA	0.54	Matig	2013	NA	n.r.	NA	0.43	Matig	2013	0.55	Matig	2011	0.33	Ontoereikend	2010	NA	4	1	4	4/apr
+VL	VL05_18	KERKEBEEK	rivier	rivier	Bg	Sterk Veranderd	Andere         	 Schelde	Brugse Polders	4	3	4	NA	0.35	Ontoereikend	2011	NA	n.r.	NA	0.5	Matig	2011	0.35	Matig	2011	0.27	Matig	2010	NA	4	1	4	4/apr
+VL	VL05_180	ZARRENBEEK	rivier	rivier	Bg	Kunstmatig     	Andere         	 Schelde	Ijzer	5	3	5	NA	0.11	Slecht	2010	NA	n.r.	NA	0	Slecht	2010	0.2	Slecht	2010	0	Slecht	2012	NA	4	1	4	4/apr
+VL	VL05_182	ZUIDLEDE	rivier	rivier	Rk	Kunstmatig     	Aandachtsgebied	 Schelde	Gentse Kanalen	4	3	4	NA	0.47	Matig	2013	NA	n.r.	NA	0.27	Ontoereikend	2013	0.6	Matig	2011	0.37	Ontoereikend	2011	NA	4	1	4	4/apr
+VL	VL05_183	ZUID-WILLEMSVAART + KANAAL BOCHOLT-HERENTALS (deels) + KANAAL BRIEGDEN-NEERHAREN	rivier	rivier	Rg	Kunstmatig     	Andere         	 Maas	Maas	4	3	4	NA	0.38	Ontoereikend	2010	1	Goed	2009	NA	n.r.	NA	0.4	Ontoereikend	2010	0.37	Matig	2012	NA	4	1	4	4/apr
+VL	VL08_39	GETIJDEDURME	rivier	overgangswater	Mlz	Sterk Veranderd	Aandachtsgebied	 Schelde	Beneden-Schelde	5	3	5	NA	NA	n.r.	NA	0.65	Goed	2012	0.37	Ontoereikend	2008	0.16	Slecht	2008	0.25	Ontoereikend	2011	NA	4	1	4	4/apr
+VL	VL05_187	ANTWERPSE HAVENDOKKEN + SCHELDE-RIJNVERBINDING	meer	meer	Bzl	Kunstmatig     	Andere         	 Schelde	Beneden-Schelde	4	3	4	NA	0.66	Goed	2011	0.97	Goed	2012	NA	n.r.	NA	0.21	Ontoereikend	2011	0.56	Matig	2008	NA	4	1	4	4/apr
+VL	VL05_188	BLANKAART Spaarbekken	meer	meer	Ami	Kunstmatig     	Andere         	 Schelde	Ijzer	3	3	2	NA	NA	n.r.	NA	0.82	Goed	2012	NA	n.r.	NA	NA	n.r.	NA	NA	n.r.	NA	NA	1	4	1	1/jan
+VL	VL05_189	BLOKKERSDIJK	meer	meer	Ami	Kunstmatig     	Andere         	 Schelde	Beneden-Schelde	3	3	3	NA	0.51	Matig	2011	1	Goed	2008	0.6	Goed	2008	0.7	Goed	2008	NA	n.b.	NA	NA	4	0	5	4/mei
+VL	VL05_190	BOUDEWIJNKANAAL + ACHTERHAVEN ZEEBRUGGE	meer	meer	Bs	Kunstmatig     	Andere         	 Schelde	Brugse Polders	4	3	4	NA	NA	n.r.	NA	1	Goed	2012	NA	n.r.	NA	NA	n.r.	NA	0.35	Ontoereikend	2009	NA	2	3	2	2/feb
+VL	VL05_191	DESSELSE ZANDPUTTEN	meer	meer	Awom	Kunstmatig     	Andere         	 Schelde	Nete	4	3	4	NA	0.62	Goed	2013	1	Goed	2009	0.5	Matig	2013	0.81	Goed	2012	0.29	Ontoereikend	2011	NA	5	0	5	5/mei
+VL	VL05_192	DONKMEER	meer	meer	Ami	Kunstmatig     	Andere         	 Schelde	Beneden-Schelde	4	3	4	NA	0.6	Goed	2013	0.23	Ontoereikend	2012	0.02	Slecht	2013	0.9	Goed	2011	0.58	Matig	2008	NA	5	0	5	5/mei
+VL	VL05_193	EISDEN MIJN	meer	meer	Awe	Kunstmatig     	Andere         	 Maas	Maas	4	3	4	NA	0.64	Goed	2012	1	Goed	2009	NA	n.b.	NA	0.9	Goed	2012	0.24	Ontoereikend	2012	NA	4	0	5	4/mei
+VL	VL05_194	GALGENWEEL	meer	meer	Bzl	Kunstmatig     	Andere         	 Schelde	Beneden-Schelde	5	3	5	NA	NA	n.r.	NA	1	Goed	2010	0	Slecht	2008	0.3	Ontoereikend	2011	0.23	Ontoereikend	2011	NA	4	1	4	4/apr
+VL	VL05_195	GAVERS HARELBEKE	meer	meer	Awe	Kunstmatig     	Andere         	 Schelde	Leie	4	3	4	NA	0.84	Goed	2012	0.66	Goed	2009	0.6	Goed	2012	0.85	Goed	2010	0.34	Ontoereikend	2009	NA	5	0	5	5/mei
+VL	VL05_196	GRINDPLAS KESSENICH	meer	meer	Awe	Kunstmatig     	Andere         	 Maas	Maas	4	3	4	NA	0.59	Matig	2010	1	Goed	2010	0.35	Ontoereikend	2007	0.89	Goed	2010	0.58	Matig	2007	NA	5	0	5	5/mei
+VL	VL05_197	GROTE VIJVER MECHELEN	meer	meer	Awe	Kunstmatig     	Andere         	 Schelde	Dijle Zenne	3	3	3	NA	0.77	Goed	2011	1	Goed	2009	0.63	Goed	2008	0.65	Matig	2011	0.43	Matig	2008	NA	5	0	5	5/mei
+VL	VL05_198	HAZEWINKEL	meer	meer	Awe	Kunstmatig     	Andere         	 Schelde	Beneden-Schelde	4	3	4	NA	0.72	Goed	2012	1	Goed	2009	NA	n.b.	NA	0.97	Goed	2012	0.29	Ontoereikend	2007	NA	4	0	5	4/mei
+VL	VL05_199	KLUIZEN I + II Spaarbekkens	meer	meer	Ami	Kunstmatig     	Andere         	 Schelde	Gentse Kanalen	3	3	2	NA	NA	n.r.	NA	1	Goed	2012	NA	n.r.	NA	NA	n.r.	NA	NA	n.r.	NA	NA	1	4	1	1/jan
+VL	VL05_2	GROTE KEMMELBEEK	rivier	rivier	Bg	Sterk Veranderd	Aandachtsgebied	 Schelde	Ijzer	5	3	5	NA	0.21	Ontoereikend	2011	NA	n.r.	NA	0.15	Slecht	2011	0.25	Slecht	2011	0.7	Goed	2011	NA	4	1	4	4/apr
+VL	VL05_20	RIVIERBEEK + HERTSBERGEBEEK	rivier	rivier	Bg	Natuurlijk     	Aandachtsgebied	 Schelde	Brugse Polders	5	3	5	NA	0.28	Ontoereikend	2011	NA	n.r.	NA	0.43	Matig	2011	0.23	Slecht	2012	0.23	Slecht	2010	NA	4	1	4	4/apr
+VL	VL05_200	SCHULENSMEER	meer	meer	Awe	Kunstmatig     	Andere         	 Schelde	Demer	5	3	5	NA	0.71	Goed	2013	0.9	Goed	2010	0.13	Slecht	2008	0.58	Matig	2011	0.53	Matig	2008	NA	5	0	5	5/mei
+VL	VL05_201	SPAANJERD + HEERENLAAK	meer	meer	Awe	Kunstmatig     	Andere         	 Maas	Maas	3	3	3	NA	0.45	Matig	2010	1	Goed	2009	0.55	Matig	2007	0.77	Goed	2010	0.58	Matig	2007	NA	5	0	5	5/mei
+VL	VL05_202	SPUIKOM OOSTENDE	meer	meer	Bs	Kunstmatig     	Andere         	 Schelde	Brugse Polders	3	3	2	NA	NA	n.r.	NA	0.95	Goed	2011	NA	n.r.	NA	NA	n.r.	NA	NA	n.r.	NA	NA	1	4	1	1/jan
+VL	VL05_21	ZUIDERVAARTJE	rivier	rivier	Pz	Sterk Veranderd	Andere         	 Schelde	Brugse Polders	5	3	5	NA	0.15	Slecht	2011	1	Goed	2012	0.6	Goed	2011	0.4	Matig	2012	0.27	Ontoereikend	2011	NA	5	0	5	5/mei
+VL	VL05_22	ZWINNEVAART	rivier	rivier	Pb	Sterk Veranderd	Andere         	 Schelde	Brugse Polders	5	3	5	NA	NA	n.r.	NA	0.32	Ontoereikend	2012	0.17	Slecht	2011	0.45	Matig	2011	0.3	Ontoereikend	2012	NA	4	1	4	4/apr
+VL	VL05_23	ZWIN	kustwater	kustwater	K1	Natuurlijk     	Andere         	 Schelde	Brugse Polders	NA	NA	n.b.	NA	NA	n.v.t.	NA	NA	n.b.	NA	NA	n.b.	NA	NA	n.b.	NA	NA	n.r.	NA	NA	0	1	4	0/4
+VL	VL05_24	MEREBEEK + BORISGRACHT + LIEVE	rivier	rivier	Bg	Sterk Veranderd	Andere         	 Schelde	Gentse Kanalen	4	3	4	NA	0.51	Matig	2013	NA	n.r.	NA	0.6	Goed	2013	0.7	Goed	2010	0.35	Ontoereikend	2011	NA	4	1	4	4/apr
+VL	VL05_25	OUDE KALE	rivier	rivier	Bg	Sterk Veranderd	Aandachtsgebied	 Schelde	Gentse Kanalen	4	3	4	NA	0.35	Ontoereikend	2013	NA	n.r.	NA	0.59	Matig	2013	0.8	Goed	2012	0.27	Ontoereikend	2011	NA	4	1	4	4/apr
+VL	VL05_26	POEKEBEEK	rivier	rivier	Bg	Sterk Veranderd	Aandachtsgebied	 Schelde	Gentse Kanalen	4	3	4	NA	0.4	Matig	2013	NA	n.r.	NA	0.58	Matig	2013	0.65	Matig	2012	0.34	Ontoereikend	2010	NA	4	1	4	4/apr
+VL	VL05_28	BENEDENVLIET	rivier	rivier	Bg	Sterk Veranderd	Aandachtsgebied	 Schelde	Beneden-Schelde	5	3	5	NA	0.22	Ontoereikend	2011	NA	n.r.	NA	0.05	Slecht	2011	0.45	Matig	2011	0	Slecht	2010	NA	4	1	4	4/apr
+VL	VL05_29	GROOT SCHIJN	rivier	rivier	BgK	Natuurlijk     	Andere         	 Schelde	Beneden-Schelde	5	3	5	NA	0.41	Matig	2011	NA	n.r.	NA	0.45	Matig	2011	0.6	Matig	2011	0.2	Slecht	2010	NA	4	1	4	4/apr
+VL	VL05_3	HANDZAMEVAART	rivier	rivier	Bg	Sterk Veranderd	Andere         	 Schelde	Ijzer	5	3	5	NA	0.16	Slecht	2011	NA	n.r.	NA	0	Slecht	2011	0.3	Ontoereikend	2012	0.4	Matig	2012	NA	4	1	4	4/apr
+VL	VL05_30	GROTE MOLENBEEK - DE VLIET	rivier	rivier	Bg	Sterk Veranderd	Aandachtsgebied	 Schelde	Beneden-Schelde	5	3	5	NA	0.22	Ontoereikend	2011	NA	n.r.	NA	0.25	Ontoereikend	2011	0.4	Ontoereikend	2011	0.2	Slecht	2010	NA	4	1	4	4/apr
+VL	VL05_31	KALKENSE VAART	rivier	rivier	Bg	Sterk Veranderd	Speerpuntgebied	 Schelde	Beneden-Schelde	4	3	4	NA	0.44	Matig	2013	NA	n.r.	NA	0	Slecht	2013	0.75	Goed	2011	0.41	Ontoereikend	2012	NA	4	1	4	4/apr
+VL	VL05_32	MOLENBEEK - GROTE BEEK	rivier	rivier	Bg	Sterk Veranderd	Andere         	 Schelde	Beneden-Schelde	5	3	5	NA	0.27	Ontoereikend	2012	NA	n.r.	NA	0	Slecht	2012	0.3	Ontoereikend	2011	0.27	Ontoereikend	2010	NA	4	1	4	4/apr
+VL	VL05_34	NOORD-ZUIDVERBINDING	rivier	rivier	Pb	Sterk Veranderd	Andere         	 Schelde	Beneden-Schelde	5	3	5	NA	NA	n.r.	NA	0.57	Matig	2012	0.12	Slecht	2011	0.55	Matig	2010	NA	n.b.	NA	NA	3	1	4	3/apr
+VL	VL05_35	VERLEGDE SCHIJN - HOOFDGRACHT	rivier	rivier	BgK	Sterk Veranderd	Andere         	 Schelde	Beneden-Schelde	5	3	5	NA	0.21	Ontoereikend	2011	NA	n.r.	NA	0	Slecht	2011	0.3	Ontoereikend	2011	0.27	Ontoereikend	2012	NA	4	1	4	4/apr
+VL	VL05_36	VERLEGDE SCHIJN - VOORGRACHT	rivier	rivier	BgK	Sterk Veranderd	Andere         	 Schelde	Beneden-Schelde	5	3	5	NA	0.57	Matig	2011	NA	n.r.	NA	0.12	Slecht	2011	0.4	Ontoereikend	2011	0.3	Ontoereikend	2012	NA	4	1	4	4/apr
+VL	VL05_38	ZIELBEEK - BOSBEEK	rivier	rivier	Bg	Sterk Veranderd	Andere         	 Schelde	Beneden-Schelde	5	3	5	NA	0.09	Slecht	2011	NA	n.r.	NA	0.23	Ontoereikend	2011	0.45	Matig	2011	0	Slecht	2010	NA	4	1	4	4/apr
+VL	VL05_4	HEIDEBEEK	rivier	rivier	Bg	Natuurlijk     	Andere         	 Schelde	Ijzer	5	3	5	NA	0.24	Ontoereikend	2011	NA	n.r.	NA	0.03	Slecht	2011	0.3	Ontoereikend	2010	0.5	Matig	2010	NA	4	1	4	4/apr
+VL	VL05_44	DEVEBEEK	rivier	rivier	Bg	Sterk Veranderd	Andere         	 Schelde	Leie	5	3	5	NA	0.02	Slecht	2011	NA	n.r.	NA	0	Slecht	2011	0.25	Slecht	2010	0.23	Slecht	2011	NA	4	1	4	4/apr
+VL	VL05_45	GAVERBEEK I	rivier	rivier	Bg	Sterk Veranderd	Andere         	 Schelde	Leie	5	3	5	NA	0.16	Slecht	2011	NA	n.r.	NA	0.5	Matig	2011	0.3	Ontoereikend	2011	0.2	Ontoereikend	2010	NA	4	1	4	4/apr
+VL	VL05_46	GAVERBEEK II	rivier	rivier	Bg	Sterk Veranderd	Andere         	 Schelde	Leie	5	3	5	NA	0.07	Slecht	2008	NA	n.r.	NA	0.17	Slecht	2011	0.35	Ontoereikend	2011	0	Slecht	2010	NA	4	1	4	4/apr
+VL	VL05_47	HEULEBEEK	rivier	rivier	Bg	Sterk Veranderd	Aandachtsgebied	 Schelde	Leie	5	3	5	NA	0.07	Slecht	2011	NA	n.r.	NA	0.3	Ontoereikend	2011	0.25	Ontoereikend	2012	0.1	Slecht	2011	NA	4	1	4	4/apr
+VL	VL05_49	LEIE II	rivier	rivier	Rg	Sterk Veranderd	Andere         	 Schelde	Leie	4	3	4	NA	0.51	Matig	2011	0.4	Ontoereikend	2012	NA	n.r.	NA	0.4	Ontoereikend	2010	0.44	Ontoereikend	2010	NA	4	1	4	4/apr
+VL	VL05_5	IEPERLEE + VERWEZEN KANAAL IEPER-KOMEN	rivier	rivier	Bg	Sterk Veranderd	Andere         	 Schelde	Ijzer	4	3	4	NA	0.51	Matig	2011	NA	n.r.	NA	0.47	Matig	2011	0.45	Matig	2011	0.31	Ontoereikend	2010	NA	4	1	4	4/apr
+VL	VL05_50	LEIE III	rivier	rivier	Rg	Sterk Veranderd	Andere         	 Schelde	Leie	5	3	5	NA	0.58	Matig	2011	0.4	Ontoereikend	2012	NA	n.r.	NA	0.25	Slecht	2011	0.42	Ontoereikend	2010	NA	4	1	4	4/apr
+VL	VL05_51	MANDEL I	rivier	rivier	Bg	Sterk Veranderd	Andere         	 Schelde	Leie	5	3	5	NA	0.08	Slecht	2011	NA	n.r.	NA	0.05	Slecht	2011	0.05	Slecht	2012	0	Slecht	2011	NA	4	1	4	4/apr
+VL	VL05_52	MANDEL II	rivier	rivier	Bg	Sterk Veranderd	Andere         	 Schelde	Leie	5	3	5	NA	0.05	Slecht	2011	NA	n.r.	NA	0	Slecht	2011	0.05	Slecht	2012	0.2	Slecht	2011	NA	4	1	4	4/apr
+VL	VL05_53	OUDE MANDEL	rivier	rivier	Bg	Natuurlijk     	Andere         	 Schelde	Leie	5	3	5	NA	0.05	Slecht	2011	NA	n.r.	NA	0.47	Matig	2011	0.3	Ontoereikend	2011	0.32	Ontoereikend	2011	NA	4	1	4	4/apr
+VL	VL05_54	TOERISTISCHE LEIE	rivier	rivier	Rg	Sterk Veranderd	Andere         	 Schelde	Leie	4	3	4	NA	0.55	Matig	2011	0.37	Ontoereikend	2012	NA	n.b.	NA	0.45	Matig	2010	0.44	Matig	2010	NA	4	0	5	4/mei
+VL	VL05_58	BOVEN-SCHELDE IV	rivier	rivier	Rg	Sterk Veranderd	Andere         	 Schelde	Boven-Schelde	4	3	4	NA	0.76	Goed	2013	0.84	Goed	2012	NA	n.b.	NA	0.43	Ontoereikend	2012	0.32	Ontoereikend	2010	NA	4	0	5	4/mei
+VL	VL05_6	IEPERLEED	rivier	rivier	Pb	Sterk Veranderd	Andere         	 Schelde	Ijzer	5	3	5	NA	NA	n.r.	NA	0.28	Ontoereikend	2012	0	Slecht	2011	0.2	Ontoereikend	2011	0.38	Ontoereikend	2012	NA	4	1	4	4/apr
+VL	VL05_60	MOLENBEEK - MAARKEBEEK	rivier	rivier	Bg	Sterk Veranderd	Aandachtsgebied	 Schelde	Boven-Schelde	5	3	5	NA	0.61	Goed	2013	NA	n.r.	NA	0.42	Matig	2013	0.3	Ontoereikend	2012	0	Slecht	2010	NA	4	1	4	4/apr
+VL	VL05_61	RONE	rivier	rivier	Bg	Sterk Veranderd	Andere         	 Schelde	Boven-Schelde	5	3	5	NA	0.11	Slecht	2013	NA	n.r.	NA	0.15	Slecht	2013	0.35	Ontoereikend	2010	0.2	Slecht	2011	NA	4	1	4	4/apr
+VL	VL05_62	STAMPKOTBEEK	rivier	rivier	Bg	Sterk Veranderd	Andere         	 Schelde	Boven-Schelde	5	3	5	NA	0.41	Matig	2013	NA	n.r.	NA	NA	n.b.	NA	0.45	Ontoereikend	2012	0.33	Ontoereikend	2011	NA	3	1	4	3/apr
+VL	VL05_64	ZWARTE SPIEREBEEK	rivier	rivier	Bg	Sterk Veranderd	Andere         	 Schelde	Boven-Schelde	5	3	5	NA	0.19	Slecht	2013	NA	n.r.	NA	0.08	Slecht	2013	0.3	Ontoereikend	2012	0	Slecht	2010	NA	4	1	4	4/apr
+VL	VL05_66	BELLEBEEK	rivier	rivier	Bg	Natuurlijk     	Aandachtsgebied	 Schelde	Dender	4	3	4	NA	0.24	Ontoereikend	2011	NA	n.r.	NA	0.35	Ontoereikend	2011	0.5	Matig	2012	0.63	Matig	2012	NA	4	1	4	4/apr
+VL	VL05_67	DENDER I	rivier	rivier	Rg	Sterk Veranderd	Andere         	 Schelde	Dender	4	3	4	NA	0.49	Matig	2012	0.58	Matig	2012	NA	n.r.	NA	0.35	Ontoereikend	2012	0.44	Matig	2011	NA	4	1	4	4/apr
+VL	VL05_70	DENDER IV	rivier	rivier	Rg	Sterk Veranderd	Andere         	 Schelde	Dender	3	3	3	NA	0.52	Matig	2012	0.58	Matig	2012	NA	n.r.	NA	0.55	Matig	2011	0.43	Matig	2011	NA	4	1	4	4/apr
+VL	VL05_73	MOLENBEEK - PACHTBOSBEEK	rivier	rivier	Bg	Sterk Veranderd	Aandachtsgebied	 Schelde	Dender	4	3	4	NA	0.4	Matig	2011	NA	n.r.	NA	0.42	Matig	2011	0.6	Matig	2012	0.2	Ontoereikend	2012	NA	4	1	4	4/apr
+VL	VL05_74	MOLENBEEK - TER ERPENBEEK	rivier	rivier	Bg	Sterk Veranderd	Andere         	 Schelde	Dender	4	3	4	NA	0.49	Matig	2013	NA	n.r.	NA	0.51	Matig	2013	0.45	Matig	2012	0.33	Ontoereikend	2012	NA	4	1	4	4/apr
+VL	VL05_75	VONDELBEEK	rivier	rivier	Bg	Sterk Veranderd	Andere         	 Schelde	Dender	5	3	5	NA	0.14	Slecht	2011	NA	n.r.	NA	0	Slecht	2011	0.2	Slecht	2012	0.28	Ontoereikend	2012	NA	4	1	4	4/apr
+VL	VL05_77	DIJLE I	rivier	rivier	Rg	Natuurlijk     	Aandachtsgebied	 Schelde	Dijle Zenne	4	3	4	NA	0.51	Matig	2013	0.97	Zeer goed	2011	0.5	Matig	2013	0.45	Ontoereikend	2010	0.54	Matig	2010	NA	5	0	5	5/mei
+VL	VL05_81	DIJLE V	rivier	rivier	Rg	Sterk Veranderd	Aandachtsgebied	 Schelde	Dijle Zenne	4	3	4	NA	0.49	Matig	2010	0.98	Goed	2011	0.56	Matig	2010	0.4	Ontoereikend	2010	0.4	Ontoereikend	2010	NA	5	0	5	5/mei
+VL	VL05_85	LEIBEEK - LAAKBEEK	rivier	rivier	Bg	Natuurlijk     	Aandachtsgebied	 Schelde	Dijle Zenne	5	3	5	NA	0.13	Slecht	2012	NA	n.r.	NA	0.45	Matig	2012	0.4	Ontoereikend	2012	0.4	Ontoereikend	2012	NA	4	1	4	4/apr
+VL	VL05_86	NETHEN	rivier	rivier	Bg	Natuurlijk     	Aandachtsgebied	 Schelde	Dijle Zenne	4	3	4	NA	0.51	Matig	2013	NA	n.r.	NA	0.5	Matig	2010	0.55	Matig	2010	0.37	Ontoereikend	2010	NA	4	1	4	4/apr
+VL	VL05_87	VOER (Leuven)	rivier	rivier	Bg	Sterk Veranderd	Aandachtsgebied	 Schelde	Dijle Zenne	4	3	4	NA	0.2	Ontoereikend	2011	NA	n.r.	NA	0.24	Ontoereikend	2011	0.3	Ontoereikend	2012	0.25	Matig	2011	NA	4	1	4	4/apr
+VL	VL05_89	VUNT	rivier	rivier	Bg	Sterk Veranderd	Andere         	 Schelde	Dijle Zenne	4	3	4	NA	0.25	Ontoereikend	2011	NA	n.r.	NA	0.33	Ontoereikend	2011	0.35	Matig	2011	0.4	Matig	2012	NA	4	1	4	4/apr
+VL	VL05_9	IJZER III	rivier	rivier	Rg	Sterk Veranderd	Andere         	 Schelde	Ijzer	5	3	5	NA	0.3	Ontoereikend	2010	0.13	Slecht	2012	NA	n.r.	NA	0.2	Slecht	2011	0.52	Matig	2011	NA	4	1	4	4/apr
+VL	VL05_90	WEESBEEK	rivier	rivier	Bg	Sterk Veranderd	Aandachtsgebied	 Schelde	Dijle Zenne	3	3	3	NA	0.43	Matig	2011	NA	n.r.	NA	0.41	Matig	2011	0.55	Matig	2011	0.4	Matig	2011	NA	4	1	4	4/apr
+VL	VL05_93	ZENNE II	rivier	rivier	Rg	Sterk Veranderd	Andere         	 Schelde	Dijle Zenne	5	3	5	NA	0.43	Matig	2013	0.78	Goed	2012	0.3	Ontoereikend	2013	0.25	Ontoereikend	2010	0.4	Matig	2012	NA	5	0	5	5/mei
+VL	VL05_94	ZUUNBEEK	rivier	rivier	Bg	Sterk Veranderd	Aandachtsgebied	 Schelde	Dijle Zenne	4	3	4	NA	0.2	Ontoereikend	2012	NA	n.r.	NA	0.43	Matig	2012	0.25	Ontoereikend	2010	0.2	Ontoereikend	2010	NA	4	1	4	4/apr
+VL	VL05_97	DE HULPE - ZWART WATER	rivier	rivier	BgK	Sterk Veranderd	Aandachtsgebied	 Schelde	Demer	5	3	5	NA	0.37	Ontoereikend	2011	NA	n.r.	NA	0.2	Ontoereikend	2011	0.25	Slecht	2011	0	Slecht	2010	NA	4	1	4	4/apr
+VL	VL05_98	DEMER I	rivier	rivier	Bg	Sterk Veranderd	Speerpuntgebied	 Schelde	Demer	5	3	5	NA	0.35	Ontoereikend	2013	NA	n.r.	NA	0.45	Matig	2013	0.7	Goed	2010	0.75	Goed	2012	NA	4	1	4	4/apr
+VL	VL05_99	DEMER II	rivier	rivier	Bg	Sterk Veranderd	Aandachtsgebied	 Schelde	Demer	4	3	4	NA	0.17	Slecht	2013	NA	n.r.	NA	0.66	Goed	2010	0.6	Matig	2010	0.45	Matig	2012	NA	4	1	4	4/apr
+VL	VL08_125	GROTE NETE III	rivier	rivier	BgK	Natuurlijk     	Aandachtsgebied	 Schelde	Nete	4	3	4	NA	0.6	Goed	2013	NA	n.r.	NA	0	Slecht	2013	0.55	Matig	2010	0.37	Ontoereikend	2012	NA	4	1	4	4/apr
+VL	VL08_41	ZEESCHELDE II	rivier	overgangswater	Mlz	Sterk Veranderd	Aandachtsgebied	 Schelde	Beneden-Schelde	5	3	5	NA	NA	n.r.	NA	0.92	Goed	2012	NA	n.b.	NA	0.16	Slecht	2008	0.73	Matig	2012	NA	3	1	4	3/apr
+VL	VL08_156	GENTSE BINNENWATEREN	rivier	rivier	Rg	Kunstmatig     	Andere         	 Schelde	Gentse Kanalen	4	3	4	NA	0.54	Matig	2008	0.71	Goed	2012	NA	n.r.	NA	0.45	Goed	2011	0.35	Ontoereikend	2012	NA	4	1	4	4/apr
+VL	VL08_157	ISABELLAWATERING	rivier	rivier	Rk	Kunstmatig     	Andere         	 Schelde	Gentse Kanalen	4	3	4	NA	0.48	Matig	2013	NA	n.r.	NA	0.35	Ontoereikend	2013	0.7	Goed	2012	0.48	Matig	2010	NA	4	1	4	4/apr
+VL	VL08_16	BLANKENBERGSE VAART + NOORDEDE	rivier	rivier	Pb	Sterk Veranderd	Andere         	 Schelde	Brugse Polders	5	3	5	NA	NA	n.r.	NA	0.46	Matig	2012	0.17	Slecht	2010	0.25	Ontoereikend	2010	0.4	Ontoereikend	2012	NA	4	1	4	4/apr
+VL	VL08_162	KANAAL GENT-OOSTENDE I + COUPURE + VERBINDINGSKANAAL	rivier	rivier	Rg	Kunstmatig     	Andere         	 Schelde	Gentse Kanalen	5	3	5	NA	0.37	Ontoereikend	2010	0.69	Goed	2012	NA	n.r.	NA	0.55	Goed	2010	0.15	Slecht	2010	NA	4	1	4	4/apr
+VL	VL08_164	KANAAL GENT-OOSTENDE III	rivier	rivier	Rg	Kunstmatig     	Andere         	 Schelde	Brugse Polders	5	3	5	NA	0.67	Goed	2011	0.78	Goed	2012	NA	n.r.	NA	0.28	Slecht	2010	0.44	Matig	2010	NA	4	1	4	4/apr
+VL	VL08_172	LEOPOLDKANAAL I	rivier	rivier	Rk	Kunstmatig     	Andere         	 Schelde	Gentse Kanalen	5	3	5	NA	0.36	Ontoereikend	2013	NA	n.r.	NA	0.2	Ontoereikend	2013	0.4	Ontoereikend	2012	0.5	Matig	2009	NA	4	1	4	4/apr
+VL	VL08_173	LEOPOLDKANAAL II	rivier	rivier	Rk	Kunstmatig     	Andere         	 Schelde	Brugse Polders	4	3	4	NA	0.36	Ontoereikend	2011	NA	n.r.	NA	0.23	Ontoereikend	2011	0.35	Ontoereikend	2010	0.5	Matig	2009	NA	4	1	4	4/apr
+VL	VL08_176	NETEKANAAL	rivier	rivier	Rg	Kunstmatig     	Andere         	 Schelde	Nete	4	3	4	NA	0.79	Goed	2011	1	Goed	2008	NA	n.r.	NA	0.45	Ontoereikend	2011	0.37	Matig	2009	NA	4	1	4	4/apr
+VL	VL08_178	NOORDELIJKE RINGVAART	rivier	rivier	Rg	Kunstmatig     	Andere         	 Schelde	Gentse Kanalen	4	3	4	NA	0.52	Matig	2009	0.56	Matig	2012	NA	n.r.	NA	0.35	Ontoereikend	2012	NA	n.b.	NA	NA	3	1	4	3/apr
+VL	VL08_179	WESTELIJKE RINGVAART	rivier	rivier	Rg	Kunstmatig     	Andere         	 Schelde	Gentse Kanalen	4	3	4	NA	0.72	Goed	2010	0.42	Matig	2012	NA	n.r.	NA	0.3	Ontoereikend	2010	NA	n.b.	NA	NA	3	1	4	3/apr
+VL	VL08_95	GETIJDEDIJLE & GETIJDEZENNE	rivier	overgangswater	Mlz	Sterk Veranderd	Aandachtsgebied	 Schelde	Dijle Zenne	5	3	5	NA	NA	n.r.	NA	1	Goed	2012	0.24	Ontoereikend	2008	0.19	Slecht	2008	0.18	Slecht	2009	NA	4	1	4	4/apr
+VL	VL11_40	ZEESCHELDE I	rivier	overgangswater	Mlz	Sterk Veranderd	Aandachtsgebied	 Schelde	Beneden-Schelde	5	3	5	NA	NA	n.r.	NA	0.18	Slecht	2012	NA	n.b.	NA	0.09	Slecht	2008	0.73	Matig	2012	NA	3	1	4	3/apr
+VL	VL08_27	ZWARTESLUISBEEK	rivier	rivier	Pb	Sterk Veranderd	Aandachtsgebied	 Schelde	Gentse Kanalen	5	3	5	NA	NA	n.r.	NA	0.96	Goed	2012	0	Slecht	2012	0.55	Matig	2011	0.41	Ontoereikend	2010	NA	4	1	4	4/apr
+VL	VL08_43	ZEESCHELDE IV	overgangswater	overgangswater	O1brak	Sterk Veranderd	Aandachtsgebied	 Schelde	Beneden-Schelde	4	3	4	NA	NA	n.v.t.	NA	NA	n.r.	NA	0.28	Ontoereikend	2013	0.71	Matig	2007	0.5	Matig	2012	NA	3	1	4	3/apr
+VL	VL11_42	ZEESCHELDE III + RUPEL	overgangswater	overgangswater	O1o	Sterk Veranderd	Aandachtsgebied	 Schelde	Beneden-Schelde	5	3	5	NA	NA	n.v.t.	NA	1	Goed	2012	NA	n.b.	NA	0.24	Slecht	2008	0.34	Ontoereikend	2012	NA	3	0	5	3/mei
+VL	VL05_15	HAVENGEUL IJZER	overgangswater	overgangswater	O2zout	Sterk Veranderd	Andere         	 Schelde	Ijzer	4	3	4	NA	NA	n.v.t.	NA	NA	n.r.	NA	0.23	Ontoereikend	2008	0.53	Matig	2008	0.61	Matig	2012	NA	3	1	4	3/apr
+VL	VL08_48	LEIE I	rivier	rivier	Rg	Sterk Veranderd	Andere         	 Schelde	Leie	4	3	4	NA	0.43	Matig	2013	0.36	Ontoereikend	2012	NA	n.r.	NA	0.35	Ontoereikend	2010	0.48	Matig	2010	NA	4	1	4	4/apr
+VL	VL08_55	BOVEN-SCHELDE I	rivier	rivier	Rg	Sterk Veranderd	Andere         	 Schelde	Boven-Schelde	4	3	4	NA	0.54	Matig	2013	0.82	Goed	2012	NA	n.b.	NA	0.35	Ontoereikend	2012	0.49	Matig	2010	NA	4	0	5	4/mei
+VL	VL08_7	IJZER I	rivier	rivier	Rk	Sterk Veranderd	Andere         	 Schelde	Ijzer	4	3	4	NA	0.4	Matig	2013	NA	n.r.	NA	NA	n.r.	NA	0.6	Matig	2011	0.53	Matig	2011	NA	3	2	3	3/mrt
+VL	VL08_71	DENDER V	rivier	rivier	Rg	Sterk Veranderd	Andere         	 Schelde	Dender	3	3	3	NA	0.34	Ontoereikend	2013	0.6	Goed	2012	NA	n.r.	NA	0.45	Matig	2012	0.43	Matig	2011	NA	4	1	4	4/apr
+VL	VL08_72	MARK (Denderbekken)	rivier	rivier	Bg	Sterk Veranderd	Aandachtsgebied	 Schelde	Dender	4	3	4	NA	0.63	Goed	2013	NA	n.r.	NA	0.48	Matig	2013	0.73	Goed	2012	0.42	Ontoereikend	2011	NA	4	1	4	4/apr
+VL	VL08_8	IJZER II	rivier	rivier	Rg	Sterk Veranderd	Andere         	 Schelde	Ijzer	4	3	4	NA	0.36	Ontoereikend	2008	0.2	Ontoereikend	2012	NA	n.r.	NA	0.4	Ontoereikend	2012	0.52	Matig	2011	NA	4	1	4	4/apr
+VL	VL08_80	DIJLE IV	rivier	rivier	Rg	Sterk Veranderd	Andere         	 Schelde	Dijle Zenne	3	3	3	NA	0.51	Matig	2010	1	Goed	2007	0.63	Goed	2013	0.45	Matig	2010	0.44	Matig	2010	NA	5	0	5	5/mei
+VL	VL08_82	DIJLE VI	rivier	rivier	Rg	Sterk Veranderd	Aandachtsgebied	 Schelde	Dijle Zenne	4	3	4	NA	0.74	Goed	2013	0.97	Goed	2012	0.23	Ontoereikend	2010	0.4	Ontoereikend	2010	0.31	Ontoereikend	2010	NA	5	0	5	5/mei
+VL	VL08_92	ZENNE I	rivier	rivier	Rg	Sterk Veranderd	Andere         	 Schelde	Dijle Zenne	5	3	5	NA	0.5	Matig	2013	1	Goed	2012	0.37	Ontoereikend	2013	0.32	Ontoereikend	2010	0.52	Goed	2012	NA	5	0	5	5/mei
+VL	VL05_186	ZEEBRUGGE BUITENHAVEN	overgangswater	overgangswater	O2zout	Kunstmatig     	Andere         	 Schelde	Brugse Polders	3	3	n.b.	NA	NA	n.v.t.	NA	NA	n.r.	NA	NA	n.r.	NA	NA	n.r.	NA	NA	n.r.	NA	NA	0	4	1	0/1
+VL	VL09_78	DIJLE II	rivier	rivier	Rg	Natuurlijk     	Aandachtsgebied	 Schelde	Dijle Zenne	4	3	4	NA	0.41	Matig	2010	1	Zeer goed	2007	0.37	Ontoereikend	2010	0.45	Ontoereikend	2010	0.65	Goed	2011	NA	5	0	5	5/mei
+VL	VL11_1	BLANKAART WATERLOPEN	rivier	rivier	Pz	Sterk Veranderd	Aandachtsgebied	 Schelde	Ijzer	4	3	4	NA	0.24	Ontoereikend	2013	0.44	Matig	2012	0.67	Goed	2011	0.55	Matig	2010	0.39	Ontoereikend	2010	NA	5	0	5	5/mei
+VL	VL11_10	MARTJEVAART	rivier	rivier	Bg	Sterk Veranderd	Andere         	 Schelde	Ijzer	5	3	5	NA	0.03	Slecht	2011	NA	n.r.	NA	0.2	Ontoereikend	2011	0.15	Slecht	2010	0.43	Ontoereikend	2010	NA	4	1	4	4/apr
+VL	VL11_107	GROTE GETE + BORGGRACHT	rivier	rivier	Bg	Sterk Veranderd	Andere         	 Schelde	Demer	4	3	4	NA	0.45	Matig	2011	NA	n.r.	NA	0.33	Ontoereikend	2011	0.5	Matig	2011	0.18	Ontoereikend	2010	NA	4	1	4	4/apr
+VL	VL11_109	KLEINE GETE + VLOEDGRACHT	rivier	rivier	Bg	Sterk Veranderd	Andere         	 Schelde	Demer	4	3	4	NA	0.25	Ontoereikend	2010	NA	n.r.	NA	0.48	Matig	2010	0.43	Ontoereikend	2010	0.5	Matig	2012	NA	4	1	4	4/apr
+VL	VL11_11	MOERDIJKVAART	rivier	rivier	Bg	Sterk Veranderd	Andere         	 Schelde	Ijzer	5	3	5	NA	0.55	Matig	2011	NA	n.r.	NA	0.03	Slecht	2011	0.5	Matig	2012	0.27	Ontoereikend	2012	NA	4	1	4	4/apr
+VL	VL11_117	ZWARTEBEEK	rivier	rivier	BgK	Natuurlijk     	Speerpuntgebied	 Schelde	Demer	3	3	3	NA	0.79	Goed	2010	NA	n.r.	NA	0.58	Matig	2013	0.63	Matig	2007	0.47	Matig	2012	NA	4	1	4	4/apr
+VL	VL11_120	AA I	rivier	rivier	BgK	Sterk Veranderd	Aandachtsgebied	 Schelde	Nete	5	3	5	NA	0.19	Slecht	2010	NA	n.r.	NA	0.63	Goed	2013	0.65	Matig	2010	0.42	Ontoereikend	2011	NA	4	1	4	4/apr
+VL	VL11_123	GROTE NETE I	rivier	rivier	BgK	Natuurlijk     	Speerpuntgebied	 Schelde	Nete	3	3	3	NA	0.38	Ontoereikend	2013	NA	n.r.	NA	0.56	Matig	2013	0.75	Goed	2010	0.69	Goed	2012	NA	4	1	4	4/apr
+VL	VL11_126	KLEINE NETE I	rivier	rivier	BgK	Sterk Veranderd	Speerpuntgebied	 Schelde	Nete	3	3	3	NA	0.6	Goed	2013	NA	n.r.	NA	0.55	Matig	2013	0.75	Goed	2010	0.68	Goed	2010	NA	4	1	4	4/apr
+VL	VL11_127	KLEINE NETE II	rivier	rivier	BgK	Sterk Veranderd	Speerpuntgebied	 Schelde	Nete	3	3	3	NA	0.47	Matig	2013	NA	n.r.	NA	0.52	Matig	2013	0.83	Goed	2010	0.63	Matig	2010	NA	4	1	4	4/apr
+VL	VL11_128	MOL NEET	rivier	rivier	BgK	Sterk Veranderd	Andere         	 Schelde	Nete	4	3	4	NA	0.21	Ontoereikend	2011	NA	n.r.	NA	0.65	Goed	2011	0.65	Goed	2010	0.6	Goed	2010	NA	4	1	4	4/apr
+VL	VL11_13	VEURNE AMBACHT POLDER WATERLOPEN	rivier	rivier	Pb	Sterk Veranderd	Andere         	 Schelde	Ijzer	5	3	5	NA	NA	n.r.	NA	0.35	Ontoereikend	2012	0	Slecht	2011	0.4	Matig	2010	0.33	Ontoereikend	2012	NA	4	1	4	4/apr
+VL	VL11_133	ABEEK	rivier	rivier	BgK	Natuurlijk     	Speerpuntgebied	 Maas	Maas	3	3	3	NA	0.5	Matig	2013	NA	n.r.	NA	0.62	Goed	2013	0.83	Goed	2008	0.49	Matig	2011	NA	4	1	4	4/apr
+VL	VL11_145	MARK (Maas)	rivier	rivier	BgK	Sterk Veranderd	Aandachtsgebied	 Maas	Maas	4	3	4	NA	0.39	Ontoereikend	2013	NA	n.r.	NA	0.61	Goed	2013	0.58	Matig	2010	0.57	Matig	2012	NA	4	1	4	4/apr
+VL	VL11_155	BRUGSE REIEN	meer	meer	Ai	Kunstmatig     	Andere         	 Schelde	Brugse Polders	3	3	3	NA	0.62	Goed	2011	0.46	Matig	2012	NA	n.r.	NA	0.65	Matig	2012	0.51	Matig	2011	NA	4	1	4	4/apr
+VL	VL11_165	KANAAL GENT-TERNEUZEN + GENTSE HAVENDOKKEN	rivier	rivier	Rg	Kunstmatig     	Andere         	 Schelde	Gentse Kanalen	5	3	5	NA	0.46	Matig	2010	1	Goed	2012	NA	n.r.	NA	0.2	Slecht	2012	NA	n.b.	NA	NA	3	1	4	3/apr
+VL	VL11_181	ZEEKANAAL BRUSSEL-SCHELDE	rivier	rivier	Rg	Kunstmatig     	Andere         	 Schelde	Beneden-Schelde	4	3	4	NA	0.86	Goed	2013	0.4	Ontoereikend	2012	NA	n.r.	NA	0.25	Ontoereikend	2010	0.31	Ontoereikend	2009	NA	4	1	4	4/apr
+VL	VL11_19	OOSTENDS KREKENGEBIED	rivier	rivier	Pb	Sterk Veranderd	Andere         	 Schelde	Ijzer	4	3	4	NA	NA	n.r.	NA	0.54	Matig	2012	0.28	Ontoereikend	2011	0.28	Ontoereikend	2011	0.27	Ontoereikend	2012	NA	4	1	4	4/apr
+VL	VL11_203	MAAS I+II+III	rivier	rivier	Rzg	Sterk Veranderd	Aandachtsgebied	 Maas	Maas	3	3	3	NA	0.51	Matig	2013	0.93	Goed	2012	0.55	Matig	2010	0.6	Matig	2010	0.54	Matig	2012	NA	5	0	5	5/mei
+VL	VL11_204	BOVEN-SCHELDE II+III	rivier	rivier	Rg	Sterk Veranderd	Andere         	 Schelde	Boven-Schelde	4	3	4	NA	0.42	Matig	2010	0.93	Goed	2012	NA	n.r.	NA	0.3	Ontoereikend	2007	0.41	Ontoereikend	2010	NA	4	1	4	4/apr
+VL	VL11_205	DEMER III+IV	rivier	rivier	Rk	Natuurlijk     	Andere         	 Schelde	Demer	4	3	4	NA	0.51	Matig	2010	NA	n.r.	NA	0.47	Matig	2013	0.45	Ontoereikend	2010	0.38	Ontoereikend	2012	NA	4	1	4	4/apr
+VL	VL11_206	DENDER II+III	rivier	rivier	Rg	Sterk Veranderd	Andere         	 Schelde	Dender	4	3	4	NA	0.59	Matig	2012	0.48	Matig	2012	NA	n.r.	NA	0.43	Ontoereikend	2011	0.5	Matig	2011	NA	4	1	4	4/apr
+VL	VL11_207	MELSTERBEEK I+II	rivier	rivier	Bg	Sterk Veranderd	Andere         	 Schelde	Demer	4	3	4	NA	0.46	Matig	2011	NA	n.r.	NA	0.21	Ontoereikend	2011	0.45	Ontoereikend	2011	0.49	Matig	2012	NA	4	1	4	4/apr
+VL	VL11_33	MOLENBEEK - KOTTEMBEEK	rivier	rivier	Bg	Sterk Veranderd	Andere         	 Schelde	Beneden-Schelde	5	3	5	NA	0.1	Slecht	2013	NA	n.r.	NA	0.02	Slecht	2013	0.35	Ontoereikend	2011	0.37	Matig	2012	NA	4	1	4	4/apr
+VL	VL11_37	WATERLOOP VAN DE HOGE LANDEN + MELKADER	rivier	rivier	Pb	Sterk Veranderd	Andere         	 Schelde	Beneden-Schelde	5	3	5	NA	NA	n.r.	NA	0.36	Ontoereikend	2012	0.18	Slecht	2011	0.55	Matig	2012	0.37	Ontoereikend	2012	NA	4	1	4	4/apr
+VL	VL08_184	BLANKENBERGSE HAVENGEUL + JACHTHAVENS	overgangswater	overgangswater	O2zout	Kunstmatig     	Andere         	 Schelde	Brugse Polders	3	3	n.b.	NA	NA	n.v.t.	NA	NA	n.r.	NA	NA	n.r.	NA	NA	n.r.	NA	NA	n.r.	NA	NA	0	4	1	0/1
+VL	VL08_185	OOSTENDSE HAVENGEUL + DOKKEN	overgangswater	overgangswater	O2zout	Kunstmatig     	Andere         	 Schelde	Brugse Polders	3	3	n.b.	NA	NA	n.v.t.	NA	NA	n.r.	NA	NA	n.r.	NA	NA	n.r.	NA	NA	n.r.	NA	NA	0	4	1	0/1
+VL	VL11_59	GROTE SPIEREBEEK	rivier	rivier	Bg	Sterk Veranderd	Andere         	 Schelde	Boven-Schelde	5	3	5	NA	0.11	Slecht	2010	NA	n.r.	NA	0.05	Slecht	2013	0.15	Slecht	2012	0	Slecht	2010	NA	4	1	4	4/apr
+VL	VL11_63	ZWALM	rivier	rivier	Bg	Natuurlijk     	Aandachtsgebied	 Schelde	Boven-Schelde	4	3	4	NA	0.66	Goed	2012	NA	n.r.	NA	0.37	Ontoereikend	2012	0.55	Matig	2012	0.45	Matig	2012	NA	4	1	4	4/apr
+VL	VL11_76	BAREBEEK	rivier	rivier	Bg	Natuurlijk     	Andere         	 Schelde	Dijle Zenne	5	3	5	NA	0.36	Ontoereikend	2011	NA	n.r.	NA	0.03	Slecht	2011	0.25	Slecht	2011	0.35	Ontoereikend	2011	NA	4	1	4	4/apr
+VL	VL11_79	DIJLE III	rivier	rivier	Rg	Sterk Veranderd	Andere         	 Schelde	Dijle Zenne	3	3	n.b.	NA	NA	n.r.	NA	NA	n.r.	NA	NA	n.r.	NA	NA	n.r.	NA	NA	n.r.	NA	NA	0	5	0	0/0
+VL	VL11_83	IJSSE	rivier	rivier	Bg	Sterk Veranderd	Speerpuntgebied	 Schelde	Dijle Zenne	3	3	3	NA	0.59	Matig	2011	NA	n.r.	NA	0.59	Matig	2011	0.6	Matig	2011	0.66	Goed	2012	NA	4	1	4	4/apr
+VL	VL11_84	LAAN	rivier	rivier	Bg	Natuurlijk     	Speerpuntgebied	 Schelde	Dijle Zenne	3	3	3	NA	0.5	Matig	2010	NA	n.r.	NA	0.49	Matig	2013	0.6	Matig	2010	0.58	Matig	2010	NA	4	1	4	4/apr
+VL	VL11_88	VROUWVLIET	rivier	rivier	Bg	Sterk Veranderd	Andere         	 Schelde	Dijle Zenne	4	3	4	NA	0.39	Ontoereikend	2011	NA	n.r.	NA	0.45	Matig	2011	0.35	Ontoereikend	2011	0.35	Matig	2012	NA	4	1	4	4/apr
+VL	VL11_91	WOLUWE	rivier	rivier	Bg	Sterk Veranderd	Aandachtsgebied	 Schelde	Dijle Zenne	5	3	5	NA	0.35	Ontoereikend	2013	NA	n.r.	NA	0.41	Matig	2013	0.63	Goed	2010	0.2	Ontoereikend	2010	NA	4	1	4	4/apr
+VL	VL11_96	BEGIJNENBEEK	rivier	rivier	Bg	Sterk Veranderd	Aandachtsgebied	 Schelde	Demer	4	3	4	NA	0.22	Ontoereikend	2011	NA	n.r.	NA	0.45	Matig	2011	0.35	Ontoereikend	2011	0.59	Goed	2011	NA	4	1	4	4/apr

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+
+<html lang="nl" xml:lang="nl">
+
+<head>
+<meta name="INBO-publication-date" content="2020-07-01T10:00:00" /><!-- ISO 8601 timezone: CET/CEST -->
+<meta name="INBO-keywords" content="houtvolume, bosinventaris, aanwas, houtoogst" />
+<meta name="INBO-name" content="Metadata bos - Houtvoorraad in private en publieke bossen" />
+<meta name="INBO-tab" content="metadata" />
+<meta name="INBO-chapter" content="5" />
+<meta name="INBO-chapter-title" content="Trends per ecosysteem" />
+<meta name="INBO-theme" content="Bos" />
+<meta name="INBO-PureId" content="18013701" />
+<meta name="INBO-language" content="nl" /><!-- ISO 639-1 -->
+<!-- end INBO meta data-->
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+
+<title>Metadata bos - Houtvoorraad in private en publieke bossen</title>
+
+<script src="../libs/jquery-1.11.3/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="../libs/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
+<script src="../libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="../libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="../libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<style>h1 {font-size: 34px;}
+       h1.title {font-size: 38px;}
+       h2 {font-size: 30px;}
+       h3 {font-size: 24px;}
+       h4 {font-size: 18px;}
+       h5 {font-size: 16px;}
+       h6 {font-size: 12px;}
+       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+       pre:not([class]) { background-color: white }</style>
+<script src="../libs/navigation-1.1/tabsets.js"></script>
+<script src="../libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
+
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+
+<body>
+
+
+<h1 class="title toc-ignore">Metadata bos - Houtvoorraad in private en publieke bossen</h1>
+
+<div id="technische-informatie" class="section level2">
+<h2>Technische informatie</h2>
+<p>- <strong>Periodiciteit</strong>: eenmalig - <strong>Volgende update</strong>: onbekend - <strong>Databereik</strong>: VBI 1: 1997-1999 en VBI 2: 2009-2019</p>
+</div>
+<div id="databron" class="section level2">
+<h2>Databron</h2>
+<ul>
+<li><strong>Producent</strong>: Instituut voor Natuur- en Bosonderzoek</li>
+<li><strong>Dataset</strong>: Databank Vlaamse Bosinventaris (v16-03-2020). De databank kan opgevraagd worden bij het <a href="https://www.natuurenbos.be/beleid-wetgeving/natuurbeheer/bosinventaris/contact">Agentschap Natuur en Bos</a>.</li>
+<li><strong>Gegevensinzameling</strong>: De <strong>Vlaamse bosinventaris</strong> (VBI) bestaat uit een steekproef van punten waarvoor op het terrein de toestand van het bos wordt opgemeten <span class="citation">(Westra e.a. <a href="#ref-westra_opmaak_2015" role="doc-biblioref">2015</a>; Wouters e.a. <a href="#ref-wouters_ontwerp_2008" role="doc-biblioref">2008</a>)</span>. De meetcyclus van de eerste bosinventaris (VBI 1) liep van 1997 tot 1999, de tweede meetcyclus (VBI 2) van 2009 tot 2019. De steekproef wordt gekozen uit een vast raster van 27.163 punten. Voor elk punt in het raster wordt beoordeeld of het al dan niet in bos ligt. De punten die in bos liggen worden opgemeten volgens een gestandaardiseerd veldprotocol. De website van het <a href="https://www.natuurenbos.be/beleid-wetgeving/natuurbeheer/bosinventaris/hoe-gebeuren-de-metingen">Agentschap Natuur en Bos</a> geeft een overzicht van de methodologie. De analyse van de houtvoorraad is gebaseerd op de metingen binnen de bosbouwproefvlakken van de VBI. Een bosbouwproefvlak heeft een oppervlakte van 1018 m².</li>
+</ul>
+</div>
+<div id="berekeningswijze" class="section level2">
+<h2>Berekeningswijze</h2>
+<p>Het rapport van <span class="citation">Westra e.a. (<a href="#ref-westra_opmaak_2015" role="doc-biblioref">2015</a>)</span> geeft een uitgebreid overzicht van de opbouw van de analysedatabank, de analysevariabelen en van de statistische analyses. Aangezien een groot aantal observaties in de twee opeenvolgende periodes van de VBI gecorreleerd zijn (gepaarde plots), gebruiken we mixed effect regressiemodellen. De statistische analyses werden uitgevoerd in R (package <code>lme4</code>).</p>
+<p>De analyse van het houtvolume is gebaseerd op tabel 3 van de VBI-databank (<code>tbl3BestandskaraktKwant</code>). De variabele <code>v11_Volume_ha</code> in deze tabel geeft per periode voor elk segment van een steekproefpunt (plot) het totaal volume hout per hectare. De volumes op segmentniveau worden gesommeerd op plotniveau op basis van het aandeel van elk segment in een steekproefpunt. De tabel <code>tblPlotStrataDynamic</code> geeft het eigenaarstype (publiek/privaat) per steekproefpunt en periode.</p>
+<p>Het lineair mixed model gebruikt de VBI-periode en het eigenaarstype als fixed effects en de gepaarde plots als random effects. De responsvariabele is het houtvolume (m³/ha) in een steekproefpunt.</p>
+</div>
+<div id="download" class="section level2">
+<h2>Download</h2>
+<p><strong>Broncode indicator</strong>: <a href="../e1_bos_bestandsvolume/e1_bos_bestandsvolume.Rmd">E1_bos_bestandsvolume.Rmd</a> - <strong>Basisdata</strong>: <a href="../e1_bos_bestandsvolume/datahoutvolume.tsv">dataHoutvolume.tsv</a> - <strong>Metadata basisdata</strong>: <a href="../e1_bos_bestandsvolume/datahoutvolume.yml">dataHoutvolume.yml</a></p>
+</div>
+<div id="referenties" class="section level2 unnumbered">
+<h2>Referenties</h2>
+<div id="refs" class="references">
+<div id="ref-westra_opmaak_2015">
+<p>Westra, Toon, Pieter Verschelde, Hans Van Calster, Els Lommelen, Thierry Onkelinx, Paul Quataert, en Leen Govaere. 2015. “Opmaak van een analysestramien voor de gegevens van de vlaamse bosinventarisatie (INBO.R.2015.9034827)”. Brussel: Instituut voor Natuur- en Bosonderzoek.</p>
+</div>
+<div id="ref-wouters_ontwerp_2008">
+<p>Wouters, Jasper, Paul Quataert, Thierry Onkelinx, en Dirk Bauwens. 2008. “Ontwerp en handleiding voor de tweede regionale bosinventarisatie van het Vlaamse Gewest. (INBO.R.2008.17).” Brussel: Instituut voor Natuur- en Bosonderzoek.</p>
+</div>
+</div>
+</div>
+
+<h2>Meer weten?</h2>
+
+<ul>
+<li><a href = "mailto:maarten.stevens@inbo.be">maarten.stevens@inbo.be</a></li>
+</ul>
+
+
+</body>
+</html>

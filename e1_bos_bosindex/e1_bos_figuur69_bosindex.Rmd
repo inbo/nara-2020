@@ -1,0 +1,113 @@
+---
+title: "Bos - Bosindex Europese regio's"
+date: 2020-07-01T10:00:00
+bibliography: ../references.bib
+link-citations: TRUE
+hoofdstuk: 5
+thema:
+  - Bos
+keywords:
+  - bosindex
+  - bosoppervlakte
+  - extent
+  - bebossingsgraad
+  - europa
+  - lidstaten
+lang: nl
+tab: indicator
+verantwoordelijke:
+- Maarten Stevens <maarten.stevens@inbo.be>
+output: html_document
+---
+
+```{r setup, include=FALSE}
+library(knitr)
+opts_chunk$set(
+  message = FALSE,
+  warning = FALSE,
+  echo = FALSE
+)
+library(tidyverse)
+library(git2rdata)
+library(plotly)
+library(INBOtheme)
+library(htmlwidgets)
+
+theme_set(theme_nara()) # het nara-kleurenpallet selecteren
+switch_colour(inbo_hoofd) # het INBO-kleurenpallet activeren
+
+set.seed(20200520)
+setWidgetIdSeed(20200520)
+options(htmlwidgets.TOJSON_ARGS = list(pretty = TRUE))
+```
+
+```{r data_inlezen}
+gegevens <- read_vc("bosindex") %>%
+  mutate(naam = factor(naam,
+                       levels = naam[order(bosindex, decreasing = FALSE)])) %>%
+  mutate(kort = factor(kort,
+                       levels = kort[order(bosindex, decreasing = TRUE)]))
+```
+
+Vlaanderen behoort tot de bosarmste regio’s van Europa.
+
+```{r staafdiagram, fig.width = 6, fig.height = 8, fig.cap = "Figuur 1. Bosindex van Europese landen [blauw; @eurostat_agriculture_2019] en 9 regio’s die qua bevolkingsdichtheid, welvaartspeil en oppervlakte vergelijkbaar zijn met Vlaanderen (groen; gebaseerd op EFI Forest map of Europe, 2011). Deze figuur verwijst naar figuur 69 in het Natuurrapport 2020."}
+colbelg <- gegevens %>%  # kleur naam België en Vlaams gewest definiëren
+  mutate(colbelg = ifelse(gegevens$kort %in% c("BE", "VL"),
+                          inbo_steun_donkerroos, inbo_steun_blauw)) %>%
+  filter(naam != "Turkije") %>%
+  arrange(bosindex) %>%
+  dplyr::select(colbelg) %>%
+  dplyr::pull(colbelg)
+
+p <- ggplot(gegevens %>% filter(naam != "Turkije"),
+            aes(x = naam, y = bosindex,
+                text = paste("Land/Regio: ", naam,
+                             "\nBosindex: ",
+                             scales::percent(bosindex, accuracy = 0.1)))) +
+  geom_bar(stat = "identity", position = "stack", width = 0.5,
+           fill = inbo_steun_blauw) +
+  geom_bar(data = gegevens %>%
+             filter(regio == "regio"), fill = inbo_groen,
+           stat = "identity",
+           position = "stack", width = 0.5) +
+  scale_y_continuous(expand = c(0, 0),
+                     labels = scales::percent_format(accuracy = 1)) +
+  labs(y = "BOSINDEX") +
+  theme(axis.title.x = element_text(margin = margin(t = 5, r = 0, b = 0, l = 0),
+                                    hjust = 0),
+        axis.text.y = element_text(color = colbelg),
+        axis.title.y = element_blank(),
+        panel.grid.major.y = element_blank(),
+        panel.grid.major.x = element_line(colour = "grey", linetype = "dotted"),
+        legend.key.size = unit(0.3, "cm")) +
+  coord_flip()
+
+
+if (interactive() || opts_knit$get("rmarkdown.pandoc.to") == "html") {
+  ggplotly(p, tooltip = c("text")) %>%
+  plotly::config(
+    modeBarButtonsToRemove = list(
+      "lasso2d", "select2d", "hoverClosestCartesian",
+      "hoverCompareCartesian", "toggleSpikelines"
+    ),
+    displaylogo = FALSE
+  )
+} else {
+  p
+}
+```
+
+## Definitie
+
+De bosindex geeft aan welk percentage van een gebied bebost is.
+
+## Bespreking
+
+Vlaanderen heeft een bosindex van 10,3 procent [@quataert_advies_2019]. 
+In Europa hebben alleen Malta en IJsland een nog lagere bosindex [@eurostat_agriculture_2019]. 
+De indices op lidstaatniveau verbergen grote regionale verschillen. 
+Kijken we naar een aantal sociaaleconomische regio’s die qua bevolkingsdichtheid, economisch welvaartspeil en oppervlakte de meeste gelijkenissen vertonen met Vlaanderen, dan staat Vlaanderen ook daar onderaan de rangschikking. 
+Alleen West-Nederland heeft met 4,4 procent nog minder bos dan Vlaanderen.
+
+## Referenties

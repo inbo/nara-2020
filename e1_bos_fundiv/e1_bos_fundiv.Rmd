@@ -1,0 +1,473 @@
+---
+title: "Bos - Functionele diversiteit van bomen"
+date: 2020-07-01T10:00:00
+bibliography: ../references.bib
+link-citations: TRUE
+hoofdstuk: 5
+thema:
+  - Bos
+keywords:
+  - functionele diversiteit
+  - boomsoorten
+  - functionele dispersie
+  - functionele kenmerken
+lang: nl
+tab: indicator
+verantwoordelijke:
+- Maarten Stevens <maarten.stevens@inbo.be>
+output: html_document
+---
+
+```{r setup, include=FALSE}
+library(knitr)
+opts_chunk$set(
+  message = FALSE,
+  warning = FALSE,
+  echo = FALSE
+)
+library(brms)
+library(git2rdata)
+library(FD)
+library(ggcorrplot)
+library(plotly)
+library(htmlwidgets)
+library(ggeffects) # effecten van modellen plotten
+library(tidyverse)
+library(INBOtheme)
+library(raster)
+library(spData)
+library(viridis)
+library(leaflet)
+
+theme_set(theme_nara()) # het nara-kleurenpallet selecteren
+switch_colour(inbo_hoofd) # het INBO-kleurenpallet activeren
+
+set.seed(20200520)
+setWidgetIdSeed(20200520)
+options(htmlwidgets.TOJSON_ARGS = list(pretty = TRUE))
+```
+
+```{r data_inlezen}
+tbl0boom <- read_vc("tbl0boom") # Dataset boomsoorten
+pnv <- read_vc("pnv") %>% # Dataset pnv-type per plot
+  mutate(IDPlots = factor(IDPlots))
+traits <- read_vc("traits") # Dataset functionele kenmerken
+bostypes <- read_vc("bostypes") # Om de pnv-types te groeperen in bostypes
+```
+
+```{r data_bewerken, results='hide'}
+# De master dataset opmaken op basis van tbl0Boom en de functionele kenmerken
+# toevoegen aan elke boomsoort
+boomsoorten_basalarea_ha <- tbl0boom %>%
+  group_by(IDPlots) %>%
+  filter(!any(is.na(BasalArea_m2))) %>%
+  ungroup() %>%
+  filter(StatusTreeCode == 1) %>%
+  dplyr::select(
+    IDPlots,
+    IDSegments,
+    Periode,
+    Species,
+    SpeciesGroup,
+    BasalArea_m2,
+    PotArea,
+    AreaA4_m2,
+    AreaA3_m2,
+    AreaA2_m2
+  ) %>%
+  mutate(Area = ifelse(
+    round(PotArea) == round(63.61725),
+    AreaA2_m2,
+    ifelse(round(PotArea) == round(254.469), AreaA3_m2, AreaA4_m2)
+  )) %>%
+  mutate(BasalArea_ha = BasalArea_m2 / Area * 10000) %>%
+  group_by(IDPlots, Periode, Species, SpeciesGroup) %>%
+  summarise(Species_BasalArea_ha = sum(BasalArea_ha)) %>%
+  ungroup() %>%
+  group_by(IDPlots, Periode) %>%
+  mutate(Total_basal_area = sum(Species_BasalArea_ha)) %>%
+  # berekenen total basal area
+  ungroup()
+
+master_data <- boomsoorten_basalarea_ha %>%
+  left_join(., traits %>% dplyr::select(-SpeciesGroup), by = "Species") %>% # nolint
+  unite(
+    col = ID,
+    IDPlots,
+    Periode,
+    sep = "_",
+    remove = FALSE
+  ) %>%
+  mutate_at(vars(ID, IDPlots, Periode, Species, SpeciesGroup), as.factor)
+
+# Controle correlatie tussen traits
+cormat <- traits %>%
+  dplyr::select(
+    -Species, -SpeciesGroup, -Fall_foliage, -Rooting_type,
+    -Flower_type
+  ) %>%
+  na.omit() %>%
+  cor() %>%
+  round(1)
+p_mat <- cor_pmat(traits %>% dplyr::select(
+  -Species, -SpeciesGroup,
+  -Fall_foliage
+) %>%
+  mutate(Rooting_type = as.numeric(as.factor(Rooting_type))) %>%
+  mutate(Flower_type = as.numeric(as.factor(Flower_type))) %>%
+  na.omit())
+# ggcorrplot(cormat, hc.order = TRUE, type = "lower", lab = TRUE, p.mat = p.mat,  # nolint
+# insig = "blank")  # nolint
+# Evergreen en broadleaf zitten al in de PM removal index en zijn sterk
+# gecorreleerd met SLA. Leaf P is sterk gecorreleerd met leaf N -> Evergreen,
+# broadleaf en Leaf P worden niet meegenomen in de analyse.
+
+# Functie voor de berekening van de bedekkingsgraad van elk functioneel kenmerk
+# per plot (trait coverage).  threshold-waarde; hier 90%).
+trait_coverage <- function(trait_name, threshold) {
+  name <- paste(trait_name, "_tc", sep = "") # df met plots coverage hoger dan
+  # threshold en aantal plots per periode hoger dan threshold
+  a <- master_data %>%
+    mutate(Trait01 = ifelse(is.na(!!sym(trait_name)), 0, 1)) %>%
+    mutate(BasalAreaxTrait01 = Species_BasalArea_ha * Trait01) %>%
+    group_by(ID, IDPlots, Periode, Total_basal_area) %>%
+    mutate(
+      Sum_BasalAreaxTrait01 = sum(BasalAreaxTrait01),
+      !!name := Sum_BasalAreaxTrait01 / Total_basal_area * 100
+    ) %>%
+    ungroup()
+  b <- a %>%
+    filter(!!sym(name) > threshold)
+
+  c <- b %>%
+    dplyr::select(ID, IDPlots, Periode, !!name) %>%
+    group_by(ID, IDPlots, Periode) %>%
+    summarise(!!sym(name) := mean(!!sym(name)))
+  d <- c %>% # aantal plots per periode met coverage groter dan threshold
+    group_by(Periode) %>%
+    summarise(Aantal_plots_boven_threshold = n())
+  list <- list(a, b, c, d)
+  return(list)
+}
+
+# Functionele diversiteit berekenen (FDis)
+# De data eerst omvormen in een species (als rownames) x trait matrix ‘x’ en
+# een plot (als rownames) x species matrix. Elke soort moet een traitwaarde
+# hebben en de soorten in beide matrices moeten in dezelfde (alfabetische)
+# volgorde staan. Seed mass en pollinator-index worden niet in de FDis
+# berekening opgenomen, omdat er voor te veel soorten geen waarde is.
+
+data <- master_data %>%
+  dplyr::select(ID) %>%
+  unique()
+trait_names <-
+  c(
+    "Max_height",
+    "SLA",
+    "Wood_density",
+    "Leaf_N",
+    # "Leaf_P",
+    "LQ",
+    "PM_removal",
+    "Drought_tolerance",
+    "Fire_tolerance",
+    "Waterlogging_tolerance",
+    "Resprouting_capacity",
+    "Leaf_size",
+    "Fall_foliage",
+    "Rooting_type",
+    "Flower_type"
+  )
+
+for (i in seq_len(length(trait_names))) {
+  x <- trait_coverage(trait_names[i], 90)[[2]] %>%
+    as.data.frame() %>%
+    dplyr::select(ID) %>%
+    unique()
+  data <- inner_join(data, x, by = "ID")
+}
+
+traits_plots_90 <- data %>%
+  left_join(., master_data, by = "ID") %>%
+  drop_na(`Max_height`:`Waterlogging_tolerance`) %>%
+  arrange(Species)
+
+a <- traits_plots_90 %>%
+  dplyr::select(ID, Species, Species_BasalArea_ha) %>%
+  pivot_wider(names_from = Species, values_from = Species_BasalArea_ha) %>%
+  mutate_all(~ replace(., is.na(.), "0"))
+
+species_list <- a %>%
+  pivot_longer(cols = `Acer campestre`:`Ulmus species`, names_to = "Species",
+               values_to = "BA") %>%
+  dplyr::select(Species) %>%
+  unique()
+
+a <- a %>%
+  mutate_at(vars(-ID), as.numeric) %>%
+  column_to_rownames(var = "ID")
+
+x <- traits %>%
+  arrange(Species) %>%
+  right_join(., species_list, by = "Species") %>%
+  dplyr::select(
+    Species,
+    Max_height,
+    SLA,
+    Wood_density,
+    Leaf_N,
+    # Leaf_P,
+    LQ,
+    PM_removal,
+    Drought_tolerance,
+    Fire_tolerance,
+    Waterlogging_tolerance,
+    Resprouting_capacity,
+    Leaf_size,
+    Fall_foliage,
+    Rooting_type,
+    Flower_type
+  ) %>%
+  mutate(Fall_foliage = factor(Fall_foliage)) %>%
+  mutate(Rooting_type = factor(Rooting_type)) %>%
+  mutate(Flower_type = factor(Flower_type)) %>%
+  arrange(Species) %>%
+  remove_rownames() %>%
+  column_to_rownames(var = "Species")
+```
+
+```{r fd, results='hide', eval = !file.exists("fd.rds")}
+fd <- dbFD(x = x, a = a, w.abun = TRUE, corr = "lingoes", messages = FALSE)
+saveRDS(fd, file = "fd.rds")
+```
+
+
+```{r data_bewerken2, results='hide'}
+fd <- readRDS("fd.rds")
+fdis <- fd$FDis %>%
+  as.data.frame() %>%
+  rownames_to_column("ID") %>%
+  left_join(., master_data %>% dplyr::select(ID, IDPlots, Periode) %>% # nolint
+    unique(), by = "ID")
+names(fdis) <- c("ID", "FDis", "IDPlots", "Periode")
+fdis$IDPlots <- factor(fdis$IDPlots) # nolint
+
+# CWM berekenen voor relevante traits
+trait_names_cwm <-
+  c(
+    "Max_height",
+    "SLA",
+    "Wood_density",
+    "Leaf_N",
+    "Leaf_P",
+    "LQ",
+    "PM_removal",
+    "Drought_tolerance",
+    "Fire_tolerance",
+    "Waterlogging_tolerance",
+    "Seed_mass",
+    "Pollinator_index"
+  )
+
+cwm_continuous_trait <- function(data, trait_name) {
+  name <- paste(trait_name, "_cwm", sep = "")
+  data %>%
+    na.omit() %>%
+    group_by(ID, IDPlots, Periode) %>%
+    mutate(Total_basal_area_adjusted = sum(Species_BasalArea_ha)) %>%
+    mutate(traitxBA = Species_BasalArea_ha * !!sym(trait_name)) %>%
+    group_by(ID, IDPlots, Periode, Total_basal_area_adjusted) %>%
+    summarise(sumtraitxBA = sum(traitxBA)) %>%
+    mutate(!!name := sumtraitxBA / Total_basal_area_adjusted) %>%
+    ungroup()
+}
+
+data_cwm <- master_data %>%
+  dplyr::select(ID, IDPlots, Periode) %>%
+  unique()
+
+for (i in seq_len(length(trait_names_cwm))) {
+  x <- cwm_continuous_trait(trait_coverage(trait_names_cwm[i], 90)[[2]] %>%
+    as.data.frame(), trait_names_cwm[i]) %>%
+    dplyr::select(-IDPlots, -Periode, -Total_basal_area_adjusted, -sumtraitxBA)
+  data_cwm <- full_join(data_cwm, x, by = "ID")
+}
+
+# Dataset klaarmaken voor analyse
+fdis_stuurvariabelen <- fdis %>%
+  left_join(., pnv, by = "IDPlots") %>%
+  left_join(., bostypes, by = "pnv") %>%
+  mutate_at(
+    .vars = c("Periode", "Bostype"),
+    .funs = as.factor
+  ) %>%
+  filter(Bostype != "Wilgenvloedbos")
+
+# Bayesiaanse regressie met het brms package. Omdat de analyse lang duurt,
+# hebben we de resultaten weggeschreven (Bostypes.Rdata)
+# form <- bf(FDis ~ Bostype * Periode + (1|IDPlots))  # nolint
+# brm_Bostypes <- brm(data = fdis_stuurvariabelen, form,  # nolint
+#            control = list(max_treedepth = 18), iter = 2000, chains = 4, # nolint
+#            prior = set_prior("normal(0,100)", class = "b"))  # nolint
+
+# save(brm_Bostypes, file = "bostypesresult.rdata")  # nolint
+
+load(file = "bostypesresult.rdata") # nolint
+
+### Analyse CWM per trait
+cwm_stuurvariabelen <- data_cwm %>%
+  left_join(., pnv, by = "IDPlots") %>%
+  left_join(., bostypes, by = "pnv") %>%
+  mutate_at(
+    .vars = c("Periode", "Bostype"),
+    .funs = as.factor
+  ) %>%
+  filter(Bostype != "Wilgenvloedbos")
+
+# Je kan de CWM-analyse voor elke trait uitvoeren met volgende code
+# (vervang brm_Max_height door de trait name uit de dataset):
+# brm_Max_height <- brm(data = CWM_stuurvariabelen, Max_height_CWM ~ Bostype * Periode + (1|IDPlots),  # nolint
+#                       control = list(max_treedepth = 12), iter = 2000, chains = 2)  # nolint
+
+# Net als voor de FDis-analyse vonden de grootste veranderingen plaats in de
+# arme eiken-beukenbossen, waar de soortenrijkdom van bomen en het aandeel
+# loofhout toenamen door bosomvorming en in mindere mate door
+# natuurlijke successie.
+```
+
+De functionele diversiteit van de Vlaamse bossen neemt toe, vooral door de omvorming van homogene dennen- en populierenbestanden naar gemengde bestanden.
+
+```{r staafdiagram, fig.width = 7, fig.height = 4, fig.cap = "Figuur 1. Gemiddelde en 95% betrouwbaarheidsinterval van de functionele diversiteit (FDis = functionele dispersie - @laliberte_distance-based_2010) van bomen per bostype (PNV) in de bosbouwproefvlakken van de Vlaamse bosinventaris (VBI). De indicator is 0 als er maar één soort aanwezig is, maar heeft geen bovengrens."}
+
+pred_m <- ggpredict(brm_Bostypes, terms = c("Periode", "Bostype")) %>%
+  mutate(x = dplyr::recode(x, "1" = "VBI1", "2" = "VBI2")) %>%
+  mutate(group = dplyr::recode(group,
+    "Arm eiken-beukenbos" =
+      "Arm Eiken-beukenbos"
+  )) %>%
+  mutate(group2 = dplyr::recode(group,
+    "Arm Eiken-beukenbos" = "Arm E-B",
+    "Eiken-beukenbos" = "E-B",
+    "Eiken-haagbeukenbos" = "E-Hb",
+    "Elzen-vogelkersbos" = "E-Vk",
+    "Elzenbroekbos" = "Eb"
+  ))
+
+p <- ggplot(pred_m, aes(
+  x = group, y = predicted, fill = x,
+  text = paste(
+    "Periode: ", x,
+    "\nSchatting: ", round(predicted, 2),
+    "\nBI: ", round(conf.low, 2), " - ",
+    round(conf.high, 2)
+  )
+)) +
+  geom_bar(stat = "identity", position = "dodge", width = 0.7) +
+  geom_errorbar(aes(ymin = conf.low, ymax = conf.high, ),
+    width = 0.01,
+    colour = "black", position = position_dodge(width = 0.7)
+  ) +
+  scale_y_continuous(
+    expand = c(0, 0),
+    labels = scales::number_format(accuracy = 0.01)
+  ) +
+  labs(y = "FUNCTIONELE DIVERSITEIT (FDis)", fill = "") +
+  theme(
+    axis.title.x = element_text(
+      margin = margin(
+        t = 10, r = 0,
+        b = 0, l = 0
+      ),
+      hjust = 0
+    ),
+    axis.title.y = element_blank(),
+    panel.grid.major.x = element_line(colour = "grey", linetype = "dotted"),
+    panel.grid.major.y = element_blank(),
+    legend.key.size = unit(0.3, "cm")
+  ) +
+  coord_flip()
+
+ggplotly(p, tooltip = c("text"))
+```
+
+## Definitie
+
+De functionele diversiteit is een maat voor de verscheidenheid van kenmerken van soorten (bv. groeisnelheid, bladoppervlakte, aanwezigheid nectar) die bijdragen aan bepaalde ecosysteemprocessen (bv. koolstofopslag, beschaduwing, bestuiving).
+
+## Bespreking
+
+De functionele diversiteit neemt toe in elk groeiplaatstype (PNV-type). 
+Hoe goed een ecosysteem functioneert, hangt af van de functies die elk van de soorten vervult.
+Een bos met een hoge functionele diversiteit heeft een groter potentieel om meerdere functies of ecosysteemdiensten te ondersteunen. 
+
+De kenmerken van soorten (Eng: *traits*) vertellen ons dus iets over het functioneren van een ecosysteem.
+**Responskenmerken** beschrijven hoe een soort reageert op omgevingskenmerken.
+De interactie tussen omgevingsfactoren (temperatuur, vocht, bodem, ...) en responskenmerken werkt als een filter op de soortensamenstelling en resulteert in een bepaalde gemeenschapsstructuur.
+Omgekeerd beschrijven **effectkenmerken** hoe een soort zijn omgeving beïnvloedt.
+Zo beïnvloeden bomen door beschaduwing de groei van planten op de bodem en zorgen schimmels voor de afbraak van organisch materiaal.
+De eigenschappen van een ecosysteem en de (ecosysteem)diensten die het levert worden eerder door de functionele structuur van een gemeenschap bepaald, dan door het aantal soorten [@hooper_effects_2005].
+
+We gebruiken de functionele diversiteit van de boomlaag als indicator voor het functioneren van bossen.
+De indicator houdt alleen rekening met de soorten van de boomlaag, omdat bomen de meest structurerende componenten van een bos zijn en omdat het bosbeheer vooral op dat niveau ingrijpt.
+
+Vooral de bossen op arme zandgronden maken een inhaalbeweging en komen op het niveau van de andere bostypes (Figuur 2). 
+De omvorming van homogene dennen- en populierenbestanden naar gemengde bestanden speelt een belangrijke rol in de toename van de functionele diversiteit. 
+Ook de geleidelijke, natuurlijke doorgroei van nieuwe boomsoorten met andere functionele kenmerken heeft een positieve impact.
+
+```{r kaarten, fig.width = 10, fig.height = 5, fig.cap = "Figuur 2. Functionele diversiteit (FDis) binnen de plots in beide inventarisatieperiodes van de VBI."}
+
+# De exacte geografische coördinanten van de steekproefpunten worden niet
+# meegeleverd, maar kunnen opgevraagd worden bij het Agentschap voor Natuur
+# en Bos (ANB).
+
+theoretische_coordinaten_plots <- read_vc("theoretische_coordinaten") %>%
+  mutate(IDPlots = factor(IDPlots))
+map_data <-
+  left_join(fdis,
+    theoretische_coordinaten_plots,
+    by = "IDPlots"
+  )
+
+crs_lam72 <- CRS(SRS_string = "EPSG:31300")
+ptn1 <- map_data %>%
+  filter(Periode == 1)
+ptn1 <- SpatialPointsDataFrame(ptn1[c("X", "Y")],
+  ptn1[!(names(ptn1) %in% c("X", "Y"))],
+  proj4string = crs_lam72
+)
+ptn1 <- spTransform(ptn1, CRS(SRS_string = "EPSG:4326"))
+ptn2 <- map_data %>%
+  filter(Periode == 2)
+ptn2 <- SpatialPointsDataFrame(ptn2[c("X", "Y")],
+  ptn2[!(names(ptn2) %in% c("X", "Y"))],
+  proj4string = crs_lam72
+)
+ptn2 <- spTransform(ptn2, CRS(SRS_string = "EPSG:4326"))
+
+pal <- colorNumeric(
+  palette = "plasma",
+  domain = ptn2$FDis
+)
+
+leaflet() %>%
+  addTiles(options = providerTileOptions(minZoom = 8, maxZoom = 10)) %>%
+  addCircleMarkers(
+    data = ptn1, color = ~ pal(FDis), radius = 3,
+    group = "VBI 1", stroke = FALSE, fillOpacity = 0.5
+  ) %>%
+  addCircleMarkers(
+    data = ptn2, color = ~ pal(FDis), radius = 3, group = "VBI 2",
+    stroke = FALSE, fillOpacity = 0.5
+  ) %>%
+  addLayersControl(
+    overlayGroups = c("VBI 1", "VBI 2"),
+    options = layersControlOptions(collapsed = FALSE)
+  ) %>%
+  addLegend(
+    position = "topright", pal = pal,
+    values = ptn2@data$FDis, title = "Functionele<br>diversiteit"
+  ) %>%
+  hideGroup("VBI 2")
+```
+
+## Referenties

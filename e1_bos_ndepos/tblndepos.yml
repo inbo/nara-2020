@@ -1,0 +1,112 @@
+..generic:
+  git2rdata: 0.2.1
+  optimize: no
+  NA string: NA
+  sorting:
+  - bostype
+  - plot
+  hash: d8720553eeee8acb9a79eff44bb738860c3e1d81
+  data_hash: cfe18edc7b8a6b2267797ec82cd50b0b30a5dce8
+jaar:
+  class: integer
+plot:
+  class: factor
+  labels:
+  - Brasschaat
+  - Gontrode
+  - Hoeilaart
+  - Ravels
+  - Wijnendale
+  index:
+  - 1
+  - 2
+  - 3
+  - 4
+  - 5
+  ordered: no
+bostype:
+  class: factor
+  labels:
+  - loof
+  - naald
+  index:
+  - 1
+  - 2
+  ordered: no
+plotnr:
+  class: integer
+nh4_n:
+  class: numeric
+no3_n:
+  class: numeric
+nanorg:
+  class: numeric
+norg:
+  class: numeric
+norg.anorg:
+  class: numeric
+opmerkingen:
+  class: factor
+  labels:
+  - ''
+  - stamafvloei werd nog niet gemeten
+  index:
+  - 1
+  - 2
+  ordered: no
+..generic:
+  git2rdata: 0.2.1
+  optimize: no
+  NA string: NA
+  sorting:
+  - bostype
+  - plot
+  hash: d8720553eeee8acb9a79eff44bb738860c3e1d81
+  data_hash: cfe18edc7b8a6b2267797ec82cd50b0b30a5dce8
+jaar:
+  class: integer
+plot:
+  class: factor
+  labels:
+  - Brasschaat
+  - Gontrode
+  - Hoeilaart
+  - Ravels
+  - Wijnendale
+  index:
+  - 1
+  - 2
+  - 3
+  - 4
+  - 5
+  ordered: no
+bostype:
+  class: factor
+  labels:
+  - loof
+  - naald
+  index:
+  - 1
+  - 2
+  ordered: no
+plotnr:
+  class: integer
+nh4_n:
+  class: numeric
+no3_n:
+  class: numeric
+nanorg:
+  class: numeric
+norg:
+  class: numeric
+norg.anorg:
+  class: numeric
+opmerkingen:
+  class: factor
+  labels:
+  - ''
+  - stamafvloei werd nog niet gemeten
+  index:
+  - 1
+  - 2
+  ordered: no

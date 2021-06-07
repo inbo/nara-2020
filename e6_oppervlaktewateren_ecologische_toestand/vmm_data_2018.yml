@@ -1,0 +1,72 @@
+..generic:
+  git2rdata: 0.3.1
+  optimize: no
+  NA string: NA
+  hash: d4209e33d79de5b985ec682249c2903346d1b344
+  data_hash: 746b14da891a760aeb3fc09f39043d2e0d961b3a
+orde:
+  class: character
+waterlichaam_code:
+  class: character
+waterlichaam_naam:
+  class: character
+categorie:
+  class: character
+categorie_2:
+  class: character
+type:
+  class: character
+statuut:
+  class: character
+speerpunt_aandachtsgebied:
+  class: character
+Stroomgebied:
+  class: character
+bekken:
+  class: character
+beoordeling_eco:
+  class: character
+beoordeling_fc:
+  class: integer
+totale_beoordeling_bio:
+  class: character
+beoordeling_hydmo:
+  class: character
+fb_eqr:
+  class: numeric
+fb_beoordeling:
+  class: character
+fb_jaar:
+  class: integer
+fp_eqr:
+  class: numeric
+fp_beoordeling:
+  class: character
+fp_jaar:
+  class: integer
+mf_eqr:
+  class: numeric
+mf_beoordeling:
+  class: character
+mf_jaar:
+  class: integer
+mmif_eqr:
+  class: numeric
+mmif_beoordeling:
+  class: character
+mmif_jaar:
+  class: integer
+vis_eqr:
+  class: numeric
+vis_beoordeling:
+  class: character
+vis_jaar:
+  class: character
+AantalBemonsterdeBiota:
+  class: integer
+AantalNietRelevanteBiota:
+  class: integer
+AantalRelevanteBiota:
+  class: integer
+VerhoudingBemonsterdeBiotaTovRelevanteBiota:
+  class: character

@@ -1,0 +1,93 @@
+---
+title: "Biodiversiteit van Europees belang - Regionale drukfactoren voor de habitats van Europees belang"
+date: 2020-07-01T10:00:00
+bibliography: ../references.bib
+link-citations: TRUE
+hoofdstuk:
+- 3
+- 5
+thema:
+  - Beschermde natuur
+keywords:
+  - Habitatrichtlijn
+  - Europese rapportage
+  - Habitats van Europees belang
+  - De biodiversiteit onder druk
+lang: nl
+tab: indicator
+verantwoordelijke:
+- Inne Vught <inne.vught@inbo.be>
+output: html_document
+---
+
+```{r setup, include=FALSE}
+library(knitr)
+opts_chunk$set(
+  message = FALSE,
+  warning = FALSE,
+  echo = FALSE
+)
+library(tidyverse)
+library(git2rdata)
+library(plotly)
+library(INBOtheme)
+library(htmlwidgets)
+
+set.seed(20200520)
+setWidgetIdSeed(20200520)
+options(htmlwidgets.TOJSON_ARGS = list(pretty = TRUE))
+
+theme_set(theme_nara())
+switch_colour(inbo_hoofd)
+```
+
+```{r data_inlezen}
+overzicht <- read_vc("overzichtstabel") %>%
+  mutate_at(vars(bos:estuaria_slikken_en_schorren), recode,
+            "prioritair" = "x", "niet prioritair" = "") %>%
+  dplyr::rename("Bos" = "bos", "Grasland" = "grasland", "Heide en landduinen" =
+                  "heide_en_landduinen", "Moeras" = "moeras",
+                "Rivieren en stilstaande wateren" =
+                  "rivieren_en_stilstaande_wateren",
+                "Kustduinen en strand" = "kustduinen_en_strand",
+                "Estuaria, slikken en schorren" =
+                  "estuaria_slikken_en_schorren")
+```
+
+In het Natuurrapport 2020 staat een overzichtstabel van de belangrijkste drukfactoren voor de habitats van Europees belang op Vlaamse schaal en per ecosysteem.
+Er blijken enkele foutjes ingeslopen te zijn.
+Hieronder geven we de aangepaste tabel.
+Vermesting via de lucht en versnippering zijn de belangrijkste drukken die een gunstige staat van instandhouding van de habitats van Europees belang in Vlaanderen in de weg staan.
+Verstoring van de hydro- en geomorfologie en landgebruiksverandering vervolledigen de top vijf.
+
+```{r overzichtstabel}
+kable(overzicht, caption = "Overzicht van de
+      belangrijkste drukfactoren voor de habitats van Europees belang op
+      Vlaamse schaal en per ecosysteem. Deze tabel verwijst naar tabel 3
+      in het Natuurrapport 2020.")
+```
+
+## Definitie
+
+De tabel rangschikt de drukfactoren en, indien deze in de toekomst verhogen of verlagen, bedreigingen voor de habitats van Europees belang volgens het belang om ze op Vlaamse schaal aan te pakken.
+Deze prioritering gebeurt op basis van het aantal habitats van Europees belang dat onderhevig is aan deze drukfactoren.
+Bij elke druk wordt aangegeven op welk ecosysteem deze een belangrijke impact heeft.
+
+## Bespreking
+
+Ondanks de implementatie van het Vlaamse Natura 2000-beleid en de realisatie van het Vlaams Natura 2000-programma gaat het nog altijd niet goed met de biodiversiteit van Europees belang in Vlaanderen.
+Slechts drie habitats van Europees belang verkeren in een gunstige toestand [@paelinckx_regionale_2019].
+Om voor alle habitats een gunstige staat van instandhouding te bereiken, is het essentieel dat de aanhoudende externe drukfactoren en/of hun impact verlaagd worden [@paelinckx_regionale_2019].
+
+Met deze analyse onderzochten we welke drukfactoren prioritair aangepakt moeten worden met oog op de realisatie van de instandhoudingsdoelen.
+We gingen na welke drukfactoren en, indien deze in de toekomst verhogen of verlagen, welke bedreigingen een hoge of matige impact hebben op de verschillende habitats van Europees belang.
+Daaruit hebben we prioriteiten voor een meer bovenlokale tot regionale aanpak afgeleid.
+We baseerden ons hierbij op aantal habitats dat aan een druk onderhevig is en niet op het oppervlakteaandeel van de habitats.
+
+Vermesting via de lucht en versnippering blijven de belangrijkste drukfactoren die een gunstige staat van instandhouding van de habitats van Europees belang in Vlaanderen in de weg staan.
+Verstoring van de hydro- en geomorfologie, landgebruiksverandering, achterstallig of onaangepast beheer en verzuring vervolledigen het lijstje van drukfactoren die prioritair op Vlaamse schaal aangepakt moeten worden.
+
+Hoewel het hier gaat over een prioritering voor een meer bovenlokale tot regionale aanpak zullen vaak gebiedsgerichte tot lokale maatregelen nodig zijn om (de impact van) een druk te verlagen.
+Anderzijds is het succes van gebiedsgerichte tot lokale maatregelen afhankelijk van de toestand in de ruime omgeving.
+
+## Referenties

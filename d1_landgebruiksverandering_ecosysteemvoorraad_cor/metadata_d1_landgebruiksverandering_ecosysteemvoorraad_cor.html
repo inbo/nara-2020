@@ -1,0 +1,852 @@
+<!DOCTYPE html>
+
+<html lang="nl" xml:lang="nl">
+
+<head>
+<meta name="INBO-publication-date" content="2020-07-01T10:00:00" /><!-- ISO 8601 timezone: CET/CEST -->
+<meta name="INBO-keywords" content="landgebruiksverandering, ruimtebeslag, natuurlijk kapitaal, natural capital accounting, ecosystem extent" />
+<meta name="INBO-name" content="Metadata van Landgebruiksverandering - Ecosysteemvoorraad Corine" />
+<meta name="INBO-tab" content="metadata" />
+<meta name="INBO-chapter" content="4" />
+<meta name="INBO-chapter-title" content="De biodiversiteit onder druk" />
+<meta name="INBO-theme" content="Natuur &amp; maatschappij, Landbouw" />
+<meta name="INBO-PureId" content="18013709, 18051200" />
+<meta name="INBO-language" content="nl" /><!-- ISO 639-1 -->
+<!-- end INBO meta data-->
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+
+<title>Metadata van Landgebruiksverandering - Ecosysteemvoorraad Corine</title>
+
+<script src="../libs/jquery-1.11.3/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="../libs/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
+<script src="../libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="../libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="../libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<style>h1 {font-size: 34px;}
+       h1.title {font-size: 38px;}
+       h2 {font-size: 30px;}
+       h3 {font-size: 24px;}
+       h4 {font-size: 18px;}
+       h5 {font-size: 16px;}
+       h6 {font-size: 12px;}
+       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+       pre:not([class]) { background-color: white }</style>
+<script src="../libs/navigation-1.1/tabsets.js"></script>
+<script src="../libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
+<script src="../libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="../libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
+
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+
+<body>
+
+
+<h1 class="title toc-ignore">Metadata van Landgebruiksverandering - Ecosysteemvoorraad Corine</h1>
+
+<div id="technische-informatie" class="section level2">
+<h2>Technische informatie</h2>
+<p>- <strong>Periodiciteit</strong>: zesjaarlijks - <strong>Volgende update</strong>: 2025 - <strong>Databereik</strong>: 1990-2018</p>
+</div>
+<div id="databron" class="section level2">
+<h2>Databron</h2>
+<ul>
+<li><strong>Producent</strong>: Copernicus Land Monitoring Service</li>
+<li><strong>Dataset</strong>: <em>Status layers</em> 1990 en 2018 van de Corine <em>land cover inventory</em>.</li>
+<li><strong>Gegevensinzameling</strong>: De bodembedekkings- en landgebruikskaarten van Corine worden opgemaakt op basis van een semi-automatische interpretatie van Europese satellietbeelden. Dit gebeurt per land door lokale experten met behulp van foto’s en kaartmateriaal die voor dat land beschikbaar zijn. Voor België interpreteert het NGI de satellietbeelden.</li>
+</ul>
+</div>
+<div id="berekeningswijze" class="section level2">
+<h2>Berekeningswijze</h2>
+<p>Corine bevat voor heel Europa gebiedsdekkende gegevens over 44 types van bodembedekking en landgebruik. Hiervan komen er 31 in Vlaanderen voor (zie Tabel 3, Corine niveau 3). Voor deze analyse werden ze gegroepeerd in 5 ecosysteemklassen (zie Tabel 3, NARA niveau 1). Die indeling is gebaseerd op een ecosysteemtypologie voorgesteld door de Europese Commissie <span class="citation">(Maes e.a. <a href="#ref-maes_mapping_2013" role="doc-biblioref">2013</a>, <a href="#ref-maes_mapping_2018" role="doc-biblioref">2018</a>)</span> en de <a href="https://land.copernicus.eu/user-corner/technical-library/corine-land-cover-nomenclature-guidelines/html">richtlijnen</a> van de <a href="https://land.copernicus.eu/pan-european/corine-land-cover">Copernicus Land Monitoring Service</a>. Met ArcGIS werden de Corinegegevens voor het Vlaams Gewest geselecteerd en werd het Belgisch deel van de Noordzee toegevoegd. Voor de rekening/indicator Ecosysteemvoorraad (<em>stock account</em>) is het aantal pixels (hectare) per ecosysteemklasse berekend voor de jaren 1990 en 2018. Voor de rekening/indicator Ecosysteemverandering (<em>flow account</em>) is op basis van dezelfde data een kruistabel berekend en omgezet in een Sankey-stroomschema dat aangeeft welke ecosysteemklassen in welke zijn veranderd. De structuur van de rekening is gebaseerd op een voorstel van het Europees Milieuagentschap <span class="citation">(EEA <a href="#ref-eea_land_2006" role="doc-biblioref">2006</a><a href="#ref-eea_land_2006" role="doc-biblioref">a</a>, <a href="#ref-eea_natural_2018" role="doc-biblioref">2018</a>)</span>.</p>
+<table class="table table-striped" style="width: auto !important; margin-left: auto; margin-right: auto;">
+<caption>
+Tabel 3: Ecosysteemclassificaties in Corine, EU Mapping &amp; Assessment of Ecosystems and their Services (MAES) en het Natuurrapport 2020 (NARA).
+</caption>
+<thead>
+<tr>
+<th style="text-align:center;font-weight: bold;color: black !important;">
+Code
+</th>
+<th style="text-align:left;font-weight: bold;color: black !important;">
+Corine niveau 3
+</th>
+<th style="text-align:left;font-weight: bold;color: black !important;">
+Corine niveau 2
+</th>
+<th style="text-align:left;font-weight: bold;color: black !important;">
+Corine niveau 1
+</th>
+<th style="text-align:left;font-weight: bold;color: black !important;">
+MAES
+</th>
+<th style="text-align:left;font-weight: bold;color: black !important;">
+NARA niveau 2
+</th>
+<th style="text-align:left;font-weight: bold;color: black !important;">
+NARA niveau 1
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center;width: 4em; font-size: x-smallpx;">
+111
+</td>
+<td style="text-align:left;width: 11em; font-size: x-smallpx;">
+Continuous urban fabric
+</td>
+<td style="text-align:left;width: 11em; font-size: x-smallpx;">
+Urban fabric
+</td>
+<td style="text-align:left;width: 11em; font-size: x-smallpx;">
+Artificial surfaces
+</td>
+<td style="text-align:left;width: 8em; font-size: x-smallpx;">
+Urban
+</td>
+<td style="text-align:left;width: 9em; font-size: x-smallpx;">
+Stedelijk en bebouwd gebied
+</td>
+<td style="text-align:left;width: 9em; font-size: x-smallpx;">
+Stedelijk en bebouwd gebied
+</td>
+</tr>
+<tr>
+<td style="text-align:center;width: 4em; font-size: x-smallpx;">
+112
+</td>
+<td style="text-align:left;width: 11em; font-size: x-smallpx;">
+Discontinuous urban fabric
+</td>
+<td style="text-align:left;width: 11em; font-size: x-smallpx;">
+Urban fabric
+</td>
+<td style="text-align:left;width: 11em; font-size: x-smallpx;">
+Artificial surfaces
+</td>
+<td style="text-align:left;width: 8em; font-size: x-smallpx;">
+Urban
+</td>
+<td style="text-align:left;width: 9em; font-size: x-smallpx;">
+Stedelijk en bebouwd gebied
+</td>
+<td style="text-align:left;width: 9em; font-size: x-smallpx;">
+Stedelijk en bebouwd gebied
+</td>
+</tr>
+<tr>
+<td style="text-align:center;width: 4em; font-size: x-smallpx;">
+121
+</td>
+<td style="text-align:left;width: 11em; font-size: x-smallpx;">
+Industrial or commercial units
+</td>
+<td style="text-align:left;width: 11em; font-size: x-smallpx;">
+Industrial, commercial and transport units
+</td>
+<td style="text-align:left;width: 11em; font-size: x-smallpx;">
+Artificial surfaces
+</td>
+<td style="text-align:left;width: 8em; font-size: x-smallpx;">
+Urban
+</td>
+<td style="text-align:left;width: 9em; font-size: x-smallpx;">
+Stedelijk en bebouwd gebied
+</td>
+<td style="text-align:left;width: 9em; font-size: x-smallpx;">
+Stedelijk en bebouwd gebied
+</td>
+</tr>
+<tr>
+<td style="text-align:center;width: 4em; font-size: x-smallpx;">
+122
+</td>
+<td style="text-align:left;width: 11em; font-size: x-smallpx;">
+Road and rail networks and associated land
+</td>
+<td style="text-align:left;width: 11em; font-size: x-smallpx;">
+Industrial, commercial and transport units
+</td>
+<td style="text-align:left;width: 11em; font-size: x-smallpx;">
+Artificial surfaces
+</td>
+<td style="text-align:left;width: 8em; font-size: x-smallpx;">
+Urban
+</td>
+<td style="text-align:left;width: 9em; font-size: x-smallpx;">
+Stedelijk en bebouwd gebied
+</td>
+<td style="text-align:left;width: 9em; font-size: x-smallpx;">
+Stedelijk en bebouwd gebied
+</td>
+</tr>
+<tr>
+<td style="text-align:center;width: 4em; font-size: x-smallpx;">
+123
+</td>
+<td style="text-align:left;width: 11em; font-size: x-smallpx;">
+Port areas
+</td>
+<td style="text-align:left;width: 11em; font-size: x-smallpx;">
+Industrial, commercial and transport units
+</td>
+<td style="text-align:left;width: 11em; font-size: x-smallpx;">
+Artificial surfaces
+</td>
+<td style="text-align:left;width: 8em; font-size: x-smallpx;">
+Urban
+</td>
+<td style="text-align:left;width: 9em; font-size: x-smallpx;">
+Stedelijk en bebouwd gebied
+</td>
+<td style="text-align:left;width: 9em; font-size: x-smallpx;">
+Stedelijk en bebouwd gebied
+</td>
+</tr>
+<tr>
+<td style="text-align:center;width: 4em; font-size: x-smallpx;">
+124
+</td>
+<td style="text-align:left;width: 11em; font-size: x-smallpx;">
+Airports
+</td>
+<td style="text-align:left;width: 11em; font-size: x-smallpx;">
+Industrial, commercial and transport units
+</td>
+<td style="text-align:left;width: 11em; font-size: x-smallpx;">
+Artificial surfaces
+</td>
+<td style="text-align:left;width: 8em; font-size: x-smallpx;">
+Urban
+</td>
+<td style="text-align:left;width: 9em; font-size: x-smallpx;">
+Stedelijk en bebouwd gebied
+</td>
+<td style="text-align:left;width: 9em; font-size: x-smallpx;">
+Stedelijk en bebouwd gebied
+</td>
+</tr>
+<tr>
+<td style="text-align:center;width: 4em; font-size: x-smallpx;">
+131
+</td>
+<td style="text-align:left;width: 11em; font-size: x-smallpx;">
+Mineral extraction sites
+</td>
+<td style="text-align:left;width: 11em; font-size: x-smallpx;">
+Mine, dump and construction sites
+</td>
+<td style="text-align:left;width: 11em; font-size: x-smallpx;">
+Artificial surfaces
+</td>
+<td style="text-align:left;width: 8em; font-size: x-smallpx;">
+Urban
+</td>
+<td style="text-align:left;width: 9em; font-size: x-smallpx;">
+Stedelijk en bebouwd gebied
+</td>
+<td style="text-align:left;width: 9em; font-size: x-smallpx;">
+Stedelijk en bebouwd gebied
+</td>
+</tr>
+<tr>
+<td style="text-align:center;width: 4em; font-size: x-smallpx;">
+132
+</td>
+<td style="text-align:left;width: 11em; font-size: x-smallpx;">
+Dump sites
+</td>
+<td style="text-align:left;width: 11em; font-size: x-smallpx;">
+Mine, dump and construction sites
+</td>
+<td style="text-align:left;width: 11em; font-size: x-smallpx;">
+Artificial surfaces
+</td>
+<td style="text-align:left;width: 8em; font-size: x-smallpx;">
+Urban
+</td>
+<td style="text-align:left;width: 9em; font-size: x-smallpx;">
+Stedelijk en bebouwd gebied
+</td>
+<td style="text-align:left;width: 9em; font-size: x-smallpx;">
+Stedelijk en bebouwd gebied
+</td>
+</tr>
+<tr>
+<td style="text-align:center;width: 4em; font-size: x-smallpx;">
+133
+</td>
+<td style="text-align:left;width: 11em; font-size: x-smallpx;">
+Construction sites
+</td>
+<td style="text-align:left;width: 11em; font-size: x-smallpx;">
+Mine, dump and construction sites
+</td>
+<td style="text-align:left;width: 11em; font-size: x-smallpx;">
+Artificial surfaces
+</td>
+<td style="text-align:left;width: 8em; font-size: x-smallpx;">
+Urban
+</td>
+<td style="text-align:left;width: 9em; font-size: x-smallpx;">
+Stedelijk en bebouwd gebied
+</td>
+<td style="text-align:left;width: 9em; font-size: x-smallpx;">
+Stedelijk en bebouwd gebied
+</td>
+</tr>
+<tr>
+<td style="text-align:center;width: 4em; font-size: x-smallpx;">
+141
+</td>
+<td style="text-align:left;width: 11em; font-size: x-smallpx;">
+Green urban areas
+</td>
+<td style="text-align:left;width: 11em; font-size: x-smallpx;">
+Artificial, non-agricultural vegetated areas
+</td>
+<td style="text-align:left;width: 11em; font-size: x-smallpx;">
+Artificial surfaces
+</td>
+<td style="text-align:left;width: 8em; font-size: x-smallpx;">
+Urban
+</td>
+<td style="text-align:left;width: 9em; font-size: x-smallpx;">
+Stedelijk en bebouwd gebied
+</td>
+<td style="text-align:left;width: 9em; font-size: x-smallpx;">
+Stedelijk en bebouwd gebied
+</td>
+</tr>
+<tr>
+<td style="text-align:center;width: 4em; font-size: x-smallpx;">
+142
+</td>
+<td style="text-align:left;width: 11em; font-size: x-smallpx;">
+Sport and leisure facilities
+</td>
+<td style="text-align:left;width: 11em; font-size: x-smallpx;">
+Artificial, non-agricultural vegetated areas
+</td>
+<td style="text-align:left;width: 11em; font-size: x-smallpx;">
+Artificial surfaces
+</td>
+<td style="text-align:left;width: 8em; font-size: x-smallpx;">
+Urban
+</td>
+<td style="text-align:left;width: 9em; font-size: x-smallpx;">
+Stedelijk en bebouwd gebied
+</td>
+<td style="text-align:left;width: 9em; font-size: x-smallpx;">
+Stedelijk en bebouwd gebied
+</td>
+</tr>
+<tr>
+<td style="text-align:center;width: 4em; font-size: x-smallpx;">
+211
+</td>
+<td style="text-align:left;width: 11em; font-size: x-smallpx;">
+Non-irrigated arable land
+</td>
+<td style="text-align:left;width: 11em; font-size: x-smallpx;">
+Arable land
+</td>
+<td style="text-align:left;width: 11em; font-size: x-smallpx;">
+Agricultural areas
+</td>
+<td style="text-align:left;width: 8em; font-size: x-smallpx;">
+Cropland
+</td>
+<td style="text-align:left;width: 9em; font-size: x-smallpx;">
+Akker
+</td>
+<td style="text-align:left;width: 9em; font-size: x-smallpx;">
+Agro-ecosysteem
+</td>
+</tr>
+<tr>
+<td style="text-align:center;width: 4em; font-size: x-smallpx;">
+222
+</td>
+<td style="text-align:left;width: 11em; font-size: x-smallpx;">
+Fruit trees and berry plantations
+</td>
+<td style="text-align:left;width: 11em; font-size: x-smallpx;">
+Permanent crops
+</td>
+<td style="text-align:left;width: 11em; font-size: x-smallpx;">
+Agricultural areas
+</td>
+<td style="text-align:left;width: 8em; font-size: x-smallpx;">
+Cropland
+</td>
+<td style="text-align:left;width: 9em; font-size: x-smallpx;">
+Akker
+</td>
+<td style="text-align:left;width: 9em; font-size: x-smallpx;">
+Agro-ecosysteem
+</td>
+</tr>
+<tr>
+<td style="text-align:center;width: 4em; font-size: x-smallpx;">
+231
+</td>
+<td style="text-align:left;width: 11em; font-size: x-smallpx;">
+Pastures
+</td>
+<td style="text-align:left;width: 11em; font-size: x-smallpx;">
+Pastures
+</td>
+<td style="text-align:left;width: 11em; font-size: x-smallpx;">
+Agricultural areas
+</td>
+<td style="text-align:left;width: 8em; font-size: x-smallpx;">
+Grassland
+</td>
+<td style="text-align:left;width: 9em; font-size: x-smallpx;">
+Grasland
+</td>
+<td style="text-align:left;width: 9em; font-size: x-smallpx;">
+Agro-ecosysteem
+</td>
+</tr>
+<tr>
+<td style="text-align:center;width: 4em; font-size: x-smallpx;">
+242
+</td>
+<td style="text-align:left;width: 11em; font-size: x-smallpx;">
+Complex cultivation patterns
+</td>
+<td style="text-align:left;width: 11em; font-size: x-smallpx;">
+Hetergeneous agricultural areas
+</td>
+<td style="text-align:left;width: 11em; font-size: x-smallpx;">
+Agricultural areas
+</td>
+<td style="text-align:left;width: 8em; font-size: x-smallpx;">
+Cropland
+</td>
+<td style="text-align:left;width: 9em; font-size: x-smallpx;">
+Akker
+</td>
+<td style="text-align:left;width: 9em; font-size: x-smallpx;">
+Agro-ecosysteem
+</td>
+</tr>
+<tr>
+<td style="text-align:center;width: 4em; font-size: x-smallpx;">
+243
+</td>
+<td style="text-align:left;width: 11em; font-size: x-smallpx;">
+Land principally occupied by agriculture, with significant areas of natural vegetation
+</td>
+<td style="text-align:left;width: 11em; font-size: x-smallpx;">
+Hetergeneous agricultural areas
+</td>
+<td style="text-align:left;width: 11em; font-size: x-smallpx;">
+Agricultural areas
+</td>
+<td style="text-align:left;width: 8em; font-size: x-smallpx;">
+Cropland
+</td>
+<td style="text-align:left;width: 9em; font-size: x-smallpx;">
+Akker
+</td>
+<td style="text-align:left;width: 9em; font-size: x-smallpx;">
+Agro-ecosysteem
+</td>
+</tr>
+<tr>
+<td style="text-align:center;width: 4em; font-size: x-smallpx;">
+311
+</td>
+<td style="text-align:left;width: 11em; font-size: x-smallpx;">
+Broad-leaved forest
+</td>
+<td style="text-align:left;width: 11em; font-size: x-smallpx;">
+Forests
+</td>
+<td style="text-align:left;width: 11em; font-size: x-smallpx;">
+Forests and semi-natural areas
+</td>
+<td style="text-align:left;width: 8em; font-size: x-smallpx;">
+Woodland and forest
+</td>
+<td style="text-align:left;width: 9em; font-size: x-smallpx;">
+Bos
+</td>
+<td style="text-align:left;width: 9em; font-size: x-smallpx;">
+Bos en terrestrische open natuur
+</td>
+</tr>
+<tr>
+<td style="text-align:center;width: 4em; font-size: x-smallpx;">
+312
+</td>
+<td style="text-align:left;width: 11em; font-size: x-smallpx;">
+Coniferous forest
+</td>
+<td style="text-align:left;width: 11em; font-size: x-smallpx;">
+Forests
+</td>
+<td style="text-align:left;width: 11em; font-size: x-smallpx;">
+Forests and semi-natural areas
+</td>
+<td style="text-align:left;width: 8em; font-size: x-smallpx;">
+Woodland and forest
+</td>
+<td style="text-align:left;width: 9em; font-size: x-smallpx;">
+Bos
+</td>
+<td style="text-align:left;width: 9em; font-size: x-smallpx;">
+Bos en terrestrische open natuur
+</td>
+</tr>
+<tr>
+<td style="text-align:center;width: 4em; font-size: x-smallpx;">
+313
+</td>
+<td style="text-align:left;width: 11em; font-size: x-smallpx;">
+Mixed forest
+</td>
+<td style="text-align:left;width: 11em; font-size: x-smallpx;">
+Forests
+</td>
+<td style="text-align:left;width: 11em; font-size: x-smallpx;">
+Forests and semi-natural areas
+</td>
+<td style="text-align:left;width: 8em; font-size: x-smallpx;">
+Woodland and forest
+</td>
+<td style="text-align:left;width: 9em; font-size: x-smallpx;">
+Bos
+</td>
+<td style="text-align:left;width: 9em; font-size: x-smallpx;">
+Bos en terrestrische open natuur
+</td>
+</tr>
+<tr>
+<td style="text-align:center;width: 4em; font-size: x-smallpx;">
+321
+</td>
+<td style="text-align:left;width: 11em; font-size: x-smallpx;">
+Natural grasslands
+</td>
+<td style="text-align:left;width: 11em; font-size: x-smallpx;">
+Scrub and/or herbaceous vegetation associations
+</td>
+<td style="text-align:left;width: 11em; font-size: x-smallpx;">
+Forests and semi-natural areas
+</td>
+<td style="text-align:left;width: 8em; font-size: x-smallpx;">
+Grassland
+</td>
+<td style="text-align:left;width: 9em; font-size: x-smallpx;">
+Grasland
+</td>
+<td style="text-align:left;width: 9em; font-size: x-smallpx;">
+Bos en terrestrische open natuur
+</td>
+</tr>
+<tr>
+<td style="text-align:center;width: 4em; font-size: x-smallpx;">
+322
+</td>
+<td style="text-align:left;width: 11em; font-size: x-smallpx;">
+Moors and heathland
+</td>
+<td style="text-align:left;width: 11em; font-size: x-smallpx;">
+Scrub and/or herbaceous vegetation associations
+</td>
+<td style="text-align:left;width: 11em; font-size: x-smallpx;">
+Forests and semi-natural areas
+</td>
+<td style="text-align:left;width: 8em; font-size: x-smallpx;">
+Heathland and shrub
+</td>
+<td style="text-align:left;width: 9em; font-size: x-smallpx;">
+Heide en landduin
+</td>
+<td style="text-align:left;width: 9em; font-size: x-smallpx;">
+Bos en terrestrische open natuur
+</td>
+</tr>
+<tr>
+<td style="text-align:center;width: 4em; font-size: x-smallpx;">
+324
+</td>
+<td style="text-align:left;width: 11em; font-size: x-smallpx;">
+Transitional woodland-shrub
+</td>
+<td style="text-align:left;width: 11em; font-size: x-smallpx;">
+Scrub and/or herbaceous vegetation associations
+</td>
+<td style="text-align:left;width: 11em; font-size: x-smallpx;">
+Forests and semi-natural areas
+</td>
+<td style="text-align:left;width: 8em; font-size: x-smallpx;">
+Woodland and forest
+</td>
+<td style="text-align:left;width: 9em; font-size: x-smallpx;">
+Bos
+</td>
+<td style="text-align:left;width: 9em; font-size: x-smallpx;">
+Bos en terrestrische open natuur
+</td>
+</tr>
+<tr>
+<td style="text-align:center;width: 4em; font-size: x-smallpx;">
+331
+</td>
+<td style="text-align:left;width: 11em; font-size: x-smallpx;">
+Beaches, dunes, sands
+</td>
+<td style="text-align:left;width: 11em; font-size: x-smallpx;">
+Open spaces with little or no vegetation
+</td>
+<td style="text-align:left;width: 11em; font-size: x-smallpx;">
+Forests and semi-natural areas
+</td>
+<td style="text-align:left;width: 8em; font-size: x-smallpx;">
+Sparsely vegetated areas
+</td>
+<td style="text-align:left;width: 9em; font-size: x-smallpx;">
+Kustduin en strand
+</td>
+<td style="text-align:left;width: 9em; font-size: x-smallpx;">
+Bos en terrestrische open natuur
+</td>
+</tr>
+<tr>
+<td style="text-align:center;width: 4em; font-size: x-smallpx;">
+411
+</td>
+<td style="text-align:left;width: 11em; font-size: x-smallpx;">
+Inland marshes
+</td>
+<td style="text-align:left;width: 11em; font-size: x-smallpx;">
+Inland wetlands
+</td>
+<td style="text-align:left;width: 11em; font-size: x-smallpx;">
+Wetlands
+</td>
+<td style="text-align:left;width: 8em; font-size: x-smallpx;">
+Wetlands
+</td>
+<td style="text-align:left;width: 9em; font-size: x-smallpx;">
+Moeras
+</td>
+<td style="text-align:left;width: 9em; font-size: x-smallpx;">
+Bos en terrestrische open natuur
+</td>
+</tr>
+<tr>
+<td style="text-align:center;width: 4em; font-size: x-smallpx;">
+412
+</td>
+<td style="text-align:left;width: 11em; font-size: x-smallpx;">
+Peat bogs
+</td>
+<td style="text-align:left;width: 11em; font-size: x-smallpx;">
+Inland wetlands
+</td>
+<td style="text-align:left;width: 11em; font-size: x-smallpx;">
+Wetlands
+</td>
+<td style="text-align:left;width: 8em; font-size: x-smallpx;">
+Wetlands
+</td>
+<td style="text-align:left;width: 9em; font-size: x-smallpx;">
+Moeras
+</td>
+<td style="text-align:left;width: 9em; font-size: x-smallpx;">
+Bos en terrestrische open natuur
+</td>
+</tr>
+<tr>
+<td style="text-align:center;width: 4em; font-size: x-smallpx;">
+421
+</td>
+<td style="text-align:left;width: 11em; font-size: x-smallpx;">
+Salt marshes
+</td>
+<td style="text-align:left;width: 11em; font-size: x-smallpx;">
+Maritime wetlands
+</td>
+<td style="text-align:left;width: 11em; font-size: x-smallpx;">
+Wetlands
+</td>
+<td style="text-align:left;width: 8em; font-size: x-smallpx;">
+Marine inlets and transitional waters
+</td>
+<td style="text-align:left;width: 9em; font-size: x-smallpx;">
+Estuarium
+</td>
+<td style="text-align:left;width: 9em; font-size: x-smallpx;">
+Zoetwater en estuarium
+</td>
+</tr>
+<tr>
+<td style="text-align:center;width: 4em; font-size: x-smallpx;">
+423
+</td>
+<td style="text-align:left;width: 11em; font-size: x-smallpx;">
+Intertidal flats
+</td>
+<td style="text-align:left;width: 11em; font-size: x-smallpx;">
+Maritime wetlands
+</td>
+<td style="text-align:left;width: 11em; font-size: x-smallpx;">
+Wetlands
+</td>
+<td style="text-align:left;width: 8em; font-size: x-smallpx;">
+Marine inlets and transitional waters
+</td>
+<td style="text-align:left;width: 9em; font-size: x-smallpx;">
+Estuarium
+</td>
+<td style="text-align:left;width: 9em; font-size: x-smallpx;">
+Zoetwater en estuarium
+</td>
+</tr>
+<tr>
+<td style="text-align:center;width: 4em; font-size: x-smallpx;">
+511
+</td>
+<td style="text-align:left;width: 11em; font-size: x-smallpx;">
+Water courses
+</td>
+<td style="text-align:left;width: 11em; font-size: x-smallpx;">
+Inland waters
+</td>
+<td style="text-align:left;width: 11em; font-size: x-smallpx;">
+Water bodies
+</td>
+<td style="text-align:left;width: 8em; font-size: x-smallpx;">
+Rivers and lakes
+</td>
+<td style="text-align:left;width: 9em; font-size: x-smallpx;">
+Zoetwater
+</td>
+<td style="text-align:left;width: 9em; font-size: x-smallpx;">
+Zoetwater en estuarium
+</td>
+</tr>
+<tr>
+<td style="text-align:center;width: 4em; font-size: x-smallpx;">
+512
+</td>
+<td style="text-align:left;width: 11em; font-size: x-smallpx;">
+Water bodies
+</td>
+<td style="text-align:left;width: 11em; font-size: x-smallpx;">
+Inland waters
+</td>
+<td style="text-align:left;width: 11em; font-size: x-smallpx;">
+Water bodies
+</td>
+<td style="text-align:left;width: 8em; font-size: x-smallpx;">
+Rivers and lakes
+</td>
+<td style="text-align:left;width: 9em; font-size: x-smallpx;">
+Zoetwater
+</td>
+<td style="text-align:left;width: 9em; font-size: x-smallpx;">
+Zoetwater en estuarium
+</td>
+</tr>
+<tr>
+<td style="text-align:center;width: 4em; font-size: x-smallpx;">
+522
+</td>
+<td style="text-align:left;width: 11em; font-size: x-smallpx;">
+Estuaries
+</td>
+<td style="text-align:left;width: 11em; font-size: x-smallpx;">
+Marine waters
+</td>
+<td style="text-align:left;width: 11em; font-size: x-smallpx;">
+Water bodies
+</td>
+<td style="text-align:left;width: 8em; font-size: x-smallpx;">
+Marine inlets and transitional waters
+</td>
+<td style="text-align:left;width: 9em; font-size: x-smallpx;">
+Estuarium
+</td>
+<td style="text-align:left;width: 9em; font-size: x-smallpx;">
+Zoetwater en estuarium
+</td>
+</tr>
+<tr>
+<td style="text-align:center;width: 4em; font-size: x-smallpx;">
+523
+</td>
+<td style="text-align:left;width: 11em; font-size: x-smallpx;">
+Sea and ocean
+</td>
+<td style="text-align:left;width: 11em; font-size: x-smallpx;">
+Marine waters
+</td>
+<td style="text-align:left;width: 11em; font-size: x-smallpx;">
+Water bodies
+</td>
+<td style="text-align:left;width: 8em; font-size: x-smallpx;">
+Marine
+</td>
+<td style="text-align:left;width: 9em; font-size: x-smallpx;">
+Zee
+</td>
+<td style="text-align:left;width: 9em; font-size: x-smallpx;">
+Zee
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="opmerkingen-bij-de-gegevenskwaliteit-en-betrouwbaarheid" class="section level2">
+<h2>Opmerkingen bij de gegevenskwaliteit en betrouwbaarheid</h2>
+<p>De landgebruikskaarten van de Corine <em>status layers</em> hebben een resolutie van 100 x 100 m. De gemiddelde thematische nauwkeurigheid van de status layers is volgens de Copernicus Land Monitoring Service hoger dan 85%. Een validatie van de Corine status layer van 2000 kwam uit op een gemiddelde nauwkeurigheid van 87% +/- 0.8% met hogere of lagere percentages voor de verschillende klassen. De meeste onnauwkeurigheden betreffen verschillen binnen de subklassen van Corine niveau 1, bijvoorbeeld tussen verschillende types <em>agricultural areas</em> of tussen verschillende types <em>forests and semi-natural areas</em> <span class="citation">(EEA <a href="#ref-eea_thematic_2006" role="doc-biblioref">2006</a><a href="#ref-eea_thematic_2006" role="doc-biblioref">b</a>)</span>. Doordat de minimum mapping unit 25 ha bedraagt voor vlakvormige elementen en 100 m breedte voor lijnvormige, zijn de data minder geschikt voor precieze oppervlakteberekeningen of voor de analyse van kleinschalig landgebruik zoals verspreide bebouwing, lintbebouwing of kleine natuursnippers. Om die reden worden de gegevens in het Natuurrapport 2020 enkel gebruikt voor de analyse van ecosysteemveranderingen volgens 5 klassen over een periode van meer dan 25 jaar. De nauwkeurigheid van de veranderingen tussen 1990 en 2018 voor de verschillende veranderingsklassen (bv. van agro-ecosysteem naar stedelijk en bebouwd gebied) is niet bekend.</p>
+</div>
+<div id="download" class="section level2">
+<h2>Download</h2>
+<p><strong>Broncode indicator</strong>: <a href="../d1_landgebruiksverandering_ecosysteemvoorraad_cor/d1_landgebruiksverandering_ecosysteemvoorraad_cor.Rmd">d1_landgebruiksverandering_ecosysteemvoorraad_cor.Rmd</a> - <strong>Basisdata</strong>: <a href="../d1_landgebruiksverandering_ecosysteemvoorraad_cor/datastg.tsv">datastg.tsv</a>, <a href="../d1_landgebruiksverandering_ecosysteemvoorraad_cor/datasta.tsv">datasta.tsv</a>, <a href="../d1_landgebruiksverandering_ecosysteemvoorraad_cor/dataflg.tsv">dataflg.tsv</a>, <a href="../d1_landgebruiksverandering_ecosysteemvoorraad_cor/dataflgcode.tsv">dataflgcode.tsv</a>, <a href="../d1_landgebruiksverandering_ecosysteemvoorraad_cor/datafla.tsv">datafla.tsv</a>, <a href="../d1_landgebruiksverandering_ecosysteemvoorraad_cor/datacls.tsv">datacls.tsv</a> - <strong>Metadata basisdata</strong>: <a href="../d1_landgebruiksverandering_ecosysteemvoorraad_cor/datastg.yml">datastg.yml</a>, <a href="../d1_landgebruiksverandering_ecosysteemvoorraad_cor/datasta.yml">datasta.yml</a>, <a href="../d1_landgebruiksverandering_ecosysteemvoorraad_cor/dataflg.yml">dataflg.yml</a>, <a href="../d1_landgebruiksverandering_ecosysteemvoorraad_cor/dataflgcode.yml">dataflgcode.yml</a>, <a href="../d1_landgebruiksverandering_ecosysteemvoorraad_cor/datafla.yml">datafla.yml</a>, <a href="../d1_landgebruiksverandering_ecosysteemvoorraad_cor/datacls.yml">datacls.yml</a></p>
+</div>
+<div id="referenties" class="section level2 unnumbered">
+<h2>Referenties</h2>
+<div id="refs" class="references">
+<div id="ref-eea_land_2006">
+<p>EEA. 2006a. “Land accounts for Europe 1990 – 2000. Towards integrated land and ecosystem accounting. (EEA Report 11/2006).” Kopenhagen: European Environment Agency.</p>
+</div>
+<div id="ref-eea_thematic_2006">
+<p>———. 2006b. “The thematic accuracy of Corine land cover 2000 - Assessment using LUCAS — European Environment Agency”. Publication 7/2006. Copenhague: European Environment Agency. <a href="https://www.eea.europa.eu/publications/technical_report_2006_7">https://www.eea.europa.eu/publications/technical_report_2006_7</a>.</p>
+</div>
+<div id="ref-eea_natural_2018">
+<p>———. 2018. “Natural capital accounting in support of policy making in Europe. A review based on EEA ecosystem accounting work. (EEA Report 26/2018).” Kopenhagen: European Environment Agency.</p>
+</div>
+<div id="ref-maes_mapping_2018">
+<p>Maes, J., A. Teller, M. Erhard, B. Grizzetti, J. I. Barredo, M. L. Paracchini, F. Somma, e.a. 2018. <em>Mapping and assessment of ecosystems and their services: An analytical framework for ecosystem condition: Discussion paper – Final</em>. Luxemburg: Publications office of the European Union.</p>
+</div>
+<div id="ref-maes_mapping_2013">
+<p>Maes, J., A. Teller, M. Erhard, C. Liquete, L. Braat, P. Berry, B. Egoh, e.a. 2013. “Mapping and assessment of ecosystems and their services. An analytical framework for ecosystem assessments under action 5 of the EU Biodiversity Strategy to 2020”. Luxembourg: Publications office of the European Union.</p>
+</div>
+</div>
+</div>
+
+<h2>Meer weten?</h2>
+
+<ul>
+<li><a href = "mailto:wouter.vanreeth@inbo.be">wouter.vanreeth@inbo.be</a></li>
+</ul>
+
+
+</body>
+</html>

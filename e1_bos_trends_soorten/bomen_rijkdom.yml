@@ -1,0 +1,177 @@
+..generic:
+  git2rdata: 0.2.1
+  optimize: no
+  NA string: NA
+  sorting: IDPlots
+  hash: d956ad5d04c09baf1c8fd74434f548a8d19be2cd
+  data_hash: 030c6f585a66ab39d2a2f6de8a1f542a50e756dd
+IDPlots:
+  class: numeric
+Periode:
+  class: numeric
+IDGroup:
+  class: character
+PlotWeight:
+  class: numeric
+StartPeriode:
+  class: numeric
+DateDendro:
+  class: numeric
+Reeks:
+  class: numeric
+NbSpec:
+  class: integer
+StandType:
+  class: factor
+  labels:
+  - gemengd loofhout
+  - gemengd naaldhout
+  - kapvlakte
+  - loofhout
+  - naaldhout
+  - niet van toepassing
+  index:
+  - 1
+  - 2
+  - 3
+  - 4
+  - 5
+  - 6
+  ordered: no
+OwnerType:
+  class: factor
+  labels:
+  - Privaat
+  - Publiek
+  index:
+  - 1
+  - 2
+  ordered: no
+ForestType:
+  class: factor
+  labels:
+  - A
+  - B
+  - C
+  - D
+  - E
+  - F
+  - G
+  - H
+  - I
+  - J
+  index:
+  - 1
+  - 2
+  - 3
+  - 4
+  - 5
+  - 6
+  - 7
+  - 8
+  - 9
+  - 10
+  ordered: no
+UBBP_MeerDan10Jr:
+  class: factor
+  labels:
+  - 'FALSE'
+  - 'TRUE'
+  index:
+  - 1
+  - 2
+  ordered: no
+UBBP:
+  class: factor
+  labels:
+  - 'FALSE'
+  - 'TRUE'
+  index:
+  - 1
+  - 2
+  ordered: no
+ForestAge:
+  class: factor
+  labels:
+  - recent
+  - oud
+  index:
+  - 1
+  - 2
+  ordered: no
+Frag:
+  class: numeric
+pnv:
+  class: integer
+Paired_1_2:
+  class: logical
+fpnv:
+  class: factor
+  labels:
+  - '12'
+  - '14'
+  - '20'
+  - '23'
+  - '40'
+  - '43'
+  - '50'
+  - '68'
+  - '69'
+  - '78'
+  - '79'
+  index:
+  - 1
+  - 2
+  - 3
+  - 4
+  - 5
+  - 6
+  - 7
+  - 8
+  - 9
+  - 10
+  - 11
+  ordered: no
+Frag2:
+  class: numeric
+fPeriode:
+  class: factor
+  labels:
+  - VBI 1
+  - VBI 2
+  index:
+  - 1
+  - 2
+  ordered: no
+fpnvGroup:
+  class: factor
+  labels:
+  - Arm Eiken-beukenbos
+  - Eiken-beukenbos
+  - Eiken-haagbeukenbos
+  - Elzen-vogelkersbos
+  - Elzenbroekbos
+  - Wilgenvloedbos
+  index:
+  - 1
+  - 2
+  - 3
+  - 4
+  - 5
+  - 6
+  ordered: no
+FragInv:
+  class: numeric
+Weight:
+  class: numeric
+Year:
+  class: numeric
+Rand:
+  class: factor
+  labels:
+  - Rand
+  - Volledig in bos
+  index:
+  - 1
+  - 2
+  ordered: no

@@ -1,0 +1,778 @@
+Nummer	Kenmerk	Omschrijving	period_start	Jaar	effect_coarse	n
+1	CSR ordinate values	C	1950	2018	+	79
+2	CSR ordinate values	C	1950	2018	~	48
+3	CSR ordinate values	C	1950	2018	-	101
+4	CSR ordinate values	C	1950	2018	?	24
+5	CSR ordinate values	C	1990	2018	+	89
+6	CSR ordinate values	C	1990	2018	~	81
+7	CSR ordinate values	C	1990	2018	-	67
+8	CSR ordinate values	C	1990	2018	?	32
+9	CSR ordinate values	R	1950	2018	+	75
+10	CSR ordinate values	R	1950	2018	~	43
+11	CSR ordinate values	R	1950	2018	-	120
+12	CSR ordinate values	R	1950	2018	?	25
+13	CSR ordinate values	R	1990	2018	+	73
+14	CSR ordinate values	R	1990	2018	~	79
+15	CSR ordinate values	R	1990	2018	-	90
+16	CSR ordinate values	R	1990	2018	?	36
+17	CSR ordinate values	S	1950	2018	+	71
+18	CSR ordinate values	S	1950	2018	~	39
+19	CSR ordinate values	S	1950	2018	-	90
+20	CSR ordinate values	S	1950	2018	?	27
+21	CSR ordinate values	S	1990	2018	+	94
+22	CSR ordinate values	S	1990	2018	~	72
+23	CSR ordinate values	S	1990	2018	-	44
+24	CSR ordinate values	S	1990	2018	?	35
+25	Ecologische amplitude	Brede amplitude	1950	2018	+	63
+26	Ecologische amplitude	Brede amplitude	1950	2018	~	34
+27	Ecologische amplitude	Brede amplitude	1950	2018	-	89
+28	Ecologische amplitude	Brede amplitude	1950	2018	?	19
+29	Ecologische amplitude	Brede amplitude	1990	2018	+	67
+30	Ecologische amplitude	Brede amplitude	1990	2018	~	66
+31	Ecologische amplitude	Brede amplitude	1990	2018	-	63
+32	Ecologische amplitude	Brede amplitude	1990	2018	?	27
+33	Ecologische amplitude	Smalle amplitude	1950	2018	+	100
+34	Ecologische amplitude	Smalle amplitude	1950	2018	~	39
+35	Ecologische amplitude	Smalle amplitude	1950	2018	-	109
+36	Ecologische amplitude	Smalle amplitude	1950	2018	?	53
+37	Ecologische amplitude	Smalle amplitude	1990	2018	+	126
+38	Ecologische amplitude	Smalle amplitude	1990	2018	~	68
+39	Ecologische amplitude	Smalle amplitude	1990	2018	-	88
+40	Ecologische amplitude	Smalle amplitude	1990	2018	?	68
+41	Ecotoopgroep	A12	1950	2018	?	1
+42	Ecotoopgroep	A12	1990	2018	?	2
+43	Ecotoopgroep	A15	1950	2018	?	2
+44	Ecotoopgroep	A15	1990	2018	+	1
+45	Ecotoopgroep	A15	1990	2018	?	2
+46	Ecotoopgroep	A16	1950	2018	+	1
+47	Ecotoopgroep	A16	1950	2018	-	8
+48	Ecotoopgroep	A16	1950	2018	?	3
+49	Ecotoopgroep	A16	1990	2018	+	5
+50	Ecotoopgroep	A16	1990	2018	~	2
+51	Ecotoopgroep	A16	1990	2018	-	4
+52	Ecotoopgroep	A16	1990	2018	?	5
+53	Ecotoopgroep	A16zt	1950	2018	+	1
+54	Ecotoopgroep	A16zt	1950	2018	-	3
+55	Ecotoopgroep	A16zt	1950	2018	?	1
+56	Ecotoopgroep	A16zt	1990	2018	+	3
+57	Ecotoopgroep	A16zt	1990	2018	~	1
+58	Ecotoopgroep	A16zt	1990	2018	-	1
+59	Ecotoopgroep	A16zt	1990	2018	?	1
+60	Ecotoopgroep	A18	1950	2018	+	1
+61	Ecotoopgroep	A18	1950	2018	-	11
+62	Ecotoopgroep	A18	1950	2018	?	4
+63	Ecotoopgroep	A18	1990	2018	+	3
+64	Ecotoopgroep	A18	1990	2018	~	2
+65	Ecotoopgroep	A18	1990	2018	-	6
+66	Ecotoopgroep	A18	1990	2018	?	9
+67	Ecotoopgroep	bA10	1950	2018	?	1
+68	Ecotoopgroep	bA10	1990	2018	?	1
+69	Ecotoopgroep	bK20	1950	2018	+	1
+70	Ecotoopgroep	bK20	1950	2018	?	1
+71	Ecotoopgroep	bK20	1990	2018	?	1
+72	Ecotoopgroep	bK40	1950	2018	+	6
+73	Ecotoopgroep	bK40	1950	2018	~	2
+74	Ecotoopgroep	bK40	1950	2018	-	6
+75	Ecotoopgroep	bK40	1950	2018	?	1
+76	Ecotoopgroep	bK40	1990	2018	+	1
+77	Ecotoopgroep	bK40	1990	2018	~	5
+78	Ecotoopgroep	bK40	1990	2018	-	4
+79	Ecotoopgroep	bK40	1990	2018	?	3
+80	Ecotoopgroep	H22	1950	2018	-	1
+81	Ecotoopgroep	H22	1990	2018	+	2
+82	Ecotoopgroep	H22	1990	2018	?	1
+83	Ecotoopgroep	H27	1950	2018	+	4
+84	Ecotoopgroep	H27	1950	2018	~	2
+85	Ecotoopgroep	H27	1950	2018	-	1
+86	Ecotoopgroep	H27	1950	2018	?	2
+87	Ecotoopgroep	H27	1990	2018	+	9
+88	Ecotoopgroep	H27	1990	2018	~	3
+89	Ecotoopgroep	H27	1990	2018	-	1
+90	Ecotoopgroep	H28	1950	2018	+	2
+91	Ecotoopgroep	H28	1950	2018	~	2
+92	Ecotoopgroep	H28	1950	2018	-	1
+93	Ecotoopgroep	H28	1990	2018	+	3
+94	Ecotoopgroep	H28	1990	2018	~	2
+95	Ecotoopgroep	H28	1990	2018	-	1
+96	Ecotoopgroep	H28	1990	2018	?	1
+97	Ecotoopgroep	H42	1950	2018	+	11
+98	Ecotoopgroep	H42	1950	2018	~	4
+99	Ecotoopgroep	H42	1950	2018	-	3
+100	Ecotoopgroep	H42	1950	2018	?	2
+101	Ecotoopgroep	H42	1990	2018	+	12
+102	Ecotoopgroep	H42	1990	2018	~	4
+103	Ecotoopgroep	H42	1990	2018	-	3
+104	Ecotoopgroep	H42	1990	2018	?	2
+105	Ecotoopgroep	H43	1950	2018	+	6
+106	Ecotoopgroep	H43	1950	2018	~	3
+107	Ecotoopgroep	H43	1950	2018	-	2
+108	Ecotoopgroep	H43	1950	2018	?	6
+109	Ecotoopgroep	H43	1990	2018	+	8
+110	Ecotoopgroep	H43	1990	2018	~	4
+111	Ecotoopgroep	H43	1990	2018	-	1
+112	Ecotoopgroep	H43	1990	2018	?	6
+113	Ecotoopgroep	H46	1950	2018	+	4
+114	Ecotoopgroep	H46	1950	2018	~	2
+115	Ecotoopgroep	H46	1950	2018	-	1
+116	Ecotoopgroep	H46	1990	2018	+	4
+117	Ecotoopgroep	H46	1990	2018	~	2
+118	Ecotoopgroep	H46	1990	2018	?	1
+119	Ecotoopgroep	H47	1950	2018	+	13
+120	Ecotoopgroep	H47	1950	2018	~	5
+121	Ecotoopgroep	H47	1950	2018	-	8
+122	Ecotoopgroep	H47	1950	2018	?	3
+123	Ecotoopgroep	H47	1990	2018	+	16
+124	Ecotoopgroep	H47	1990	2018	~	7
+125	Ecotoopgroep	H47	1990	2018	-	6
+126	Ecotoopgroep	H47	1990	2018	?	3
+127	Ecotoopgroep	H61	1950	2018	~	1
+128	Ecotoopgroep	H61	1950	2018	-	1
+129	Ecotoopgroep	H61	1990	2018	~	2
+130	Ecotoopgroep	H61	1990	2018	?	1
+131	Ecotoopgroep	H62	1950	2018	+	1
+132	Ecotoopgroep	H62	1950	2018	-	4
+133	Ecotoopgroep	H62	1990	2018	+	1
+134	Ecotoopgroep	H62	1990	2018	~	3
+135	Ecotoopgroep	H62	1990	2018	?	1
+136	Ecotoopgroep	H63	1950	2018	+	1
+137	Ecotoopgroep	H63	1950	2018	-	2
+138	Ecotoopgroep	H63	1950	2018	?	2
+139	Ecotoopgroep	H63	1990	2018	+	1
+140	Ecotoopgroep	H63	1990	2018	-	2
+141	Ecotoopgroep	H63	1990	2018	?	1
+142	Ecotoopgroep	H69	1950	2018	+	3
+143	Ecotoopgroep	H69	1950	2018	~	1
+144	Ecotoopgroep	H69	1950	2018	-	1
+145	Ecotoopgroep	H69	1950	2018	?	1
+146	Ecotoopgroep	H69	1990	2018	+	3
+147	Ecotoopgroep	H69	1990	2018	~	1
+148	Ecotoopgroep	H69	1990	2018	-	2
+149	Ecotoopgroep	H69	1990	2018	?	1
+150	Ecotoopgroep	K21	1950	2018	+	1
+151	Ecotoopgroep	K21	1990	2018	+	1
+152	Ecotoopgroep	K22	1950	2018	+	1
+153	Ecotoopgroep	K22	1950	2018	~	2
+154	Ecotoopgroep	K22	1950	2018	-	1
+155	Ecotoopgroep	K22	1990	2018	+	6
+156	Ecotoopgroep	K22	1990	2018	~	1
+157	Ecotoopgroep	K22	1990	2018	?	3
+158	Ecotoopgroep	K23	1950	2018	+	2
+159	Ecotoopgroep	K23	1950	2018	-	2
+160	Ecotoopgroep	K23	1990	2018	+	3
+161	Ecotoopgroep	K23	1990	2018	~	1
+162	Ecotoopgroep	K27	1950	2018	+	9
+163	Ecotoopgroep	K27	1950	2018	~	4
+164	Ecotoopgroep	K27	1950	2018	-	13
+165	Ecotoopgroep	K27	1950	2018	?	10
+166	Ecotoopgroep	K27	1990	2018	+	11
+167	Ecotoopgroep	K27	1990	2018	~	16
+168	Ecotoopgroep	K27	1990	2018	-	4
+169	Ecotoopgroep	K27	1990	2018	?	10
+170	Ecotoopgroep	K28	1950	2018	+	13
+171	Ecotoopgroep	K28	1950	2018	~	4
+172	Ecotoopgroep	K28	1950	2018	-	9
+173	Ecotoopgroep	K28	1950	2018	?	4
+174	Ecotoopgroep	K28	1990	2018	+	7
+175	Ecotoopgroep	K28	1990	2018	~	5
+176	Ecotoopgroep	K28	1990	2018	-	16
+177	Ecotoopgroep	K28	1990	2018	?	8
+178	Ecotoopgroep	K41	1950	2018	~	1
+179	Ecotoopgroep	K41	1950	2018	-	2
+180	Ecotoopgroep	K41	1990	2018	+	2
+181	Ecotoopgroep	K41	1990	2018	~	1
+182	Ecotoopgroep	K42	1950	2018	+	1
+183	Ecotoopgroep	K42	1950	2018	~	1
+184	Ecotoopgroep	K42	1950	2018	-	4
+185	Ecotoopgroep	K42	1950	2018	?	1
+186	Ecotoopgroep	K42	1990	2018	+	5
+187	Ecotoopgroep	K42	1990	2018	~	1
+188	Ecotoopgroep	K42	1990	2018	-	1
+189	Ecotoopgroep	K42	1990	2018	?	2
+190	Ecotoopgroep	K43	1950	2018	+	1
+191	Ecotoopgroep	K43	1950	2018	-	4
+192	Ecotoopgroep	K43	1950	2018	?	1
+193	Ecotoopgroep	K43	1990	2018	+	2
+194	Ecotoopgroep	K43	1990	2018	~	1
+195	Ecotoopgroep	K43	1990	2018	-	1
+196	Ecotoopgroep	K43	1990	2018	?	2
+197	Ecotoopgroep	K46	1950	2018	+	6
+198	Ecotoopgroep	K46	1950	2018	~	3
+199	Ecotoopgroep	K46	1950	2018	-	11
+200	Ecotoopgroep	K46	1950	2018	?	5
+201	Ecotoopgroep	K46	1990	2018	+	11
+202	Ecotoopgroep	K46	1990	2018	~	4
+203	Ecotoopgroep	K46	1990	2018	-	4
+204	Ecotoopgroep	K46	1990	2018	?	7
+205	Ecotoopgroep	K47	1950	2018	+	18
+206	Ecotoopgroep	K47	1950	2018	~	10
+207	Ecotoopgroep	K47	1950	2018	-	37
+208	Ecotoopgroep	K47	1950	2018	?	6
+209	Ecotoopgroep	K47	1990	2018	+	26
+210	Ecotoopgroep	K47	1990	2018	~	18
+211	Ecotoopgroep	K47	1990	2018	-	27
+212	Ecotoopgroep	K47	1990	2018	?	12
+213	Ecotoopgroep	K48	1950	2018	+	26
+214	Ecotoopgroep	K48	1950	2018	~	15
+215	Ecotoopgroep	K48	1950	2018	-	32
+216	Ecotoopgroep	K48	1950	2018	?	5
+217	Ecotoopgroep	K48	1990	2018	+	17
+218	Ecotoopgroep	K48	1990	2018	~	24
+219	Ecotoopgroep	K48	1990	2018	-	35
+220	Ecotoopgroep	K48	1990	2018	?	8
+221	Ecotoopgroep	K61	1950	2018	+	1
+222	Ecotoopgroep	K61	1950	2018	-	3
+223	Ecotoopgroep	K61	1990	2018	+	1
+224	Ecotoopgroep	K61	1990	2018	~	1
+225	Ecotoopgroep	K61	1990	2018	?	2
+226	Ecotoopgroep	K62	1950	2018	~	2
+227	Ecotoopgroep	K62	1950	2018	-	6
+228	Ecotoopgroep	K62	1950	2018	?	4
+229	Ecotoopgroep	K62	1990	2018	+	1
+230	Ecotoopgroep	K62	1990	2018	~	2
+231	Ecotoopgroep	K62	1990	2018	-	5
+232	Ecotoopgroep	K62	1990	2018	?	3
+233	Ecotoopgroep	K63	1950	2018	+	4
+234	Ecotoopgroep	K63	1950	2018	~	3
+235	Ecotoopgroep	K63	1950	2018	-	6
+236	Ecotoopgroep	K63	1950	2018	?	6
+237	Ecotoopgroep	K63	1990	2018	+	5
+238	Ecotoopgroep	K63	1990	2018	~	6
+239	Ecotoopgroep	K63	1990	2018	-	3
+240	Ecotoopgroep	K63	1990	2018	?	3
+241	Ecotoopgroep	K67	1950	2018	+	12
+242	Ecotoopgroep	K67	1950	2018	~	10
+243	Ecotoopgroep	K67	1950	2018	-	29
+244	Ecotoopgroep	K67	1950	2018	?	7
+245	Ecotoopgroep	K67	1990	2018	+	15
+246	Ecotoopgroep	K67	1990	2018	~	18
+247	Ecotoopgroep	K67	1990	2018	-	27
+248	Ecotoopgroep	K67	1990	2018	?	6
+249	Ecotoopgroep	K68	1950	2018	+	11
+250	Ecotoopgroep	K68	1950	2018	~	1
+251	Ecotoopgroep	K68	1950	2018	-	12
+252	Ecotoopgroep	K68	1950	2018	?	2
+253	Ecotoopgroep	K68	1990	2018	+	11
+254	Ecotoopgroep	K68	1990	2018	~	4
+255	Ecotoopgroep	K68	1990	2018	-	11
+256	Ecotoopgroep	K68	1990	2018	?	2
+257	Ecotoopgroep	Muur	1950	2018	+	4
+258	Ecotoopgroep	Muur	1950	2018	?	1
+259	Ecotoopgroep	Muur	1990	2018	+	5
+260	Ecotoopgroep	Muur	1990	2018	-	1
+261	Ecotoopgroep	Muur	1990	2018	?	1
+262	Ecotoopgroep	zK20	1950	2018	?	2
+263	Ecotoopgroep	zK20	1990	2018	+	1
+264	Ellenberg Reactiegetal hergroepering	acidic	1950	2018	+	6
+265	Ellenberg Reactiegetal hergroepering	acidic	1950	2018	~	8
+266	Ellenberg Reactiegetal hergroepering	acidic	1950	2018	-	25
+267	Ellenberg Reactiegetal hergroepering	acidic	1950	2018	?	7
+268	Ellenberg Reactiegetal hergroepering	acidic	1990	2018	+	15
+269	Ellenberg Reactiegetal hergroepering	acidic	1990	2018	~	15
+270	Ellenberg Reactiegetal hergroepering	acidic	1990	2018	-	9
+271	Ellenberg Reactiegetal hergroepering	acidic	1990	2018	?	16
+272	Ellenberg Reactiegetal hergroepering	weakly acidic	1950	2018	+	36
+273	Ellenberg Reactiegetal hergroepering	weakly acidic	1950	2018	~	15
+274	Ellenberg Reactiegetal hergroepering	weakly acidic	1950	2018	-	43
+275	Ellenberg Reactiegetal hergroepering	weakly acidic	1950	2018	?	18
+276	Ellenberg Reactiegetal hergroepering	weakly acidic	1990	2018	+	49
+277	Ellenberg Reactiegetal hergroepering	weakly acidic	1990	2018	~	22
+278	Ellenberg Reactiegetal hergroepering	weakly acidic	1990	2018	-	37
+279	Ellenberg Reactiegetal hergroepering	weakly acidic	1990	2018	?	19
+280	Ellenberg Reactiegetal hergroepering	weakly basic or basic	1950	2018	+	71
+281	Ellenberg Reactiegetal hergroepering	weakly basic or basic	1950	2018	~	31
+282	Ellenberg Reactiegetal hergroepering	weakly basic or basic	1950	2018	-	59
+283	Ellenberg Reactiegetal hergroepering	weakly basic or basic	1950	2018	?	40
+284	Ellenberg Reactiegetal hergroepering	weakly basic or basic	1990	2018	+	79
+285	Ellenberg Reactiegetal hergroepering	weakly basic or basic	1990	2018	~	48
+286	Ellenberg Reactiegetal hergroepering	weakly basic or basic	1990	2018	-	55
+287	Ellenberg Reactiegetal hergroepering	weakly basic or basic	1990	2018	?	43
+288	Ellenberg Stikstof hergroepering	nitrogen deprived	1950	2018	+	14
+289	Ellenberg Stikstof hergroepering	nitrogen deprived	1950	2018	~	12
+290	Ellenberg Stikstof hergroepering	nitrogen deprived	1950	2018	-	43
+291	Ellenberg Stikstof hergroepering	nitrogen deprived	1950	2018	?	19
+292	Ellenberg Stikstof hergroepering	nitrogen deprived	1990	2018	+	34
+293	Ellenberg Stikstof hergroepering	nitrogen deprived	1990	2018	~	24
+294	Ellenberg Stikstof hergroepering	nitrogen deprived	1990	2018	-	19
+295	Ellenberg Stikstof hergroepering	nitrogen deprived	1990	2018	?	26
+296	Ellenberg Stikstof hergroepering	nitrogen intermediat	1950	2018	+	72
+297	Ellenberg Stikstof hergroepering	nitrogen intermediat	1950	2018	~	27
+298	Ellenberg Stikstof hergroepering	nitrogen intermediat	1950	2018	-	78
+299	Ellenberg Stikstof hergroepering	nitrogen intermediat	1950	2018	?	31
+300	Ellenberg Stikstof hergroepering	nitrogen intermediat	1990	2018	+	85
+301	Ellenberg Stikstof hergroepering	nitrogen intermediat	1990	2018	~	49
+302	Ellenberg Stikstof hergroepering	nitrogen intermediat	1990	2018	-	53
+303	Ellenberg Stikstof hergroepering	nitrogen intermediat	1990	2018	?	40
+304	Ellenberg Stikstof hergroepering	nitrogen rich	1950	2018	+	61
+305	Ellenberg Stikstof hergroepering	nitrogen rich	1950	2018	~	26
+306	Ellenberg Stikstof hergroepering	nitrogen rich	1950	2018	-	44
+307	Ellenberg Stikstof hergroepering	nitrogen rich	1950	2018	?	20
+308	Ellenberg Stikstof hergroepering	nitrogen rich	1990	2018	+	52
+309	Ellenberg Stikstof hergroepering	nitrogen rich	1990	2018	~	43
+310	Ellenberg Stikstof hergroepering	nitrogen rich	1990	2018	-	58
+311	Ellenberg Stikstof hergroepering	nitrogen rich	1990	2018	?	25
+312	Ellenberg Temperatuur hergroepering	cool	1950	2018	+	1
+313	Ellenberg Temperatuur hergroepering	cool	1950	2018	-	4
+314	Ellenberg Temperatuur hergroepering	cool	1950	2018	?	4
+315	Ellenberg Temperatuur hergroepering	cool	1990	2018	+	5
+316	Ellenberg Temperatuur hergroepering	cool	1990	2018	~	1
+317	Ellenberg Temperatuur hergroepering	cool	1990	2018	-	3
+318	Ellenberg Temperatuur hergroepering	cool	1990	2018	?	2
+319	Ellenberg Temperatuur hergroepering	moderate	1950	2018	+	109
+320	Ellenberg Temperatuur hergroepering	moderate	1950	2018	~	47
+321	Ellenberg Temperatuur hergroepering	moderate	1950	2018	-	131
+322	Ellenberg Temperatuur hergroepering	moderate	1950	2018	?	52
+323	Ellenberg Temperatuur hergroepering	moderate	1990	2018	+	116
+324	Ellenberg Temperatuur hergroepering	moderate	1990	2018	~	86
+325	Ellenberg Temperatuur hergroepering	moderate	1990	2018	-	105
+326	Ellenberg Temperatuur hergroepering	moderate	1990	2018	?	66
+327	Ellenberg Temperatuur hergroepering	warm	1950	2018	+	18
+328	Ellenberg Temperatuur hergroepering	warm	1950	2018	~	4
+329	Ellenberg Temperatuur hergroepering	warm	1950	2018	-	8
+330	Ellenberg Temperatuur hergroepering	warm	1950	2018	?	7
+331	Ellenberg Temperatuur hergroepering	warm	1990	2018	+	25
+332	Ellenberg Temperatuur hergroepering	warm	1990	2018	~	7
+333	Ellenberg Temperatuur hergroepering	warm	1990	2018	-	7
+334	Ellenberg Temperatuur hergroepering	warm	1990	2018	?	11
+335	Ellenberg Vocht hergroepering	dry	1950	2018	+	83
+336	Ellenberg Vocht hergroepering	dry	1950	2018	~	37
+337	Ellenberg Vocht hergroepering	dry	1950	2018	-	99
+338	Ellenberg Vocht hergroepering	dry	1950	2018	?	34
+339	Ellenberg Vocht hergroepering	dry	1990	2018	+	93
+340	Ellenberg Vocht hergroepering	dry	1990	2018	~	60
+341	Ellenberg Vocht hergroepering	dry	1990	2018	-	78
+342	Ellenberg Vocht hergroepering	dry	1990	2018	?	41
+343	Ellenberg Vocht hergroepering	moist	1950	2018	+	34
+344	Ellenberg Vocht hergroepering	moist	1950	2018	~	19
+345	Ellenberg Vocht hergroepering	moist	1950	2018	-	28
+346	Ellenberg Vocht hergroepering	moist	1950	2018	?	10
+347	Ellenberg Vocht hergroepering	moist	1990	2018	+	39
+348	Ellenberg Vocht hergroepering	moist	1990	2018	~	30
+349	Ellenberg Vocht hergroepering	moist	1990	2018	-	23
+350	Ellenberg Vocht hergroepering	moist	1990	2018	?	12
+351	Ellenberg Vocht hergroepering	submerged	1950	2018	+	1
+352	Ellenberg Vocht hergroepering	submerged	1950	2018	-	8
+353	Ellenberg Vocht hergroepering	submerged	1950	2018	?	5
+354	Ellenberg Vocht hergroepering	submerged	1990	2018	+	3
+355	Ellenberg Vocht hergroepering	submerged	1990	2018	~	1
+356	Ellenberg Vocht hergroepering	submerged	1990	2018	-	5
+357	Ellenberg Vocht hergroepering	submerged	1990	2018	?	8
+358	Ellenberg Vocht hergroepering	temporarilly submerged	1950	2018	+	2
+359	Ellenberg Vocht hergroepering	temporarilly submerged	1950	2018	~	1
+360	Ellenberg Vocht hergroepering	temporarilly submerged	1950	2018	-	10
+361	Ellenberg Vocht hergroepering	temporarilly submerged	1950	2018	?	4
+362	Ellenberg Vocht hergroepering	temporarilly submerged	1990	2018	+	10
+363	Ellenberg Vocht hergroepering	temporarilly submerged	1990	2018	~	1
+364	Ellenberg Vocht hergroepering	temporarilly submerged	1990	2018	-	8
+365	Ellenberg Vocht hergroepering	temporarilly submerged	1990	2018	?	7
+366	Ellenberg Vocht hergroepering	wet	1950	2018	+	29
+367	Ellenberg Vocht hergroepering	wet	1950	2018	~	7
+368	Ellenberg Vocht hergroepering	wet	1950	2018	-	30
+369	Ellenberg Vocht hergroepering	wet	1950	2018	?	15
+370	Ellenberg Vocht hergroepering	wet	1990	2018	+	36
+371	Ellenberg Vocht hergroepering	wet	1990	2018	~	26
+372	Ellenberg Vocht hergroepering	wet	1990	2018	-	20
+373	Ellenberg Vocht hergroepering	wet	1990	2018	?	21
+374	Graad van polyploidie	Diploid	1950	2018	+	40
+375	Graad van polyploidie	Diploid	1950	2018	~	31
+376	Graad van polyploidie	Diploid	1950	2018	-	75
+377	Graad van polyploidie	Diploid	1950	2018	?	16
+378	Graad van polyploidie	Diploid	1990	2018	+	44
+379	Graad van polyploidie	Diploid	1990	2018	~	59
+380	Graad van polyploidie	Diploid	1990	2018	-	44
+381	Graad van polyploidie	Diploid	1990	2018	?	23
+382	Graad van polyploidie	Not diploid	1950	2018	+	60
+383	Graad van polyploidie	Not diploid	1950	2018	~	28
+384	Graad van polyploidie	Not diploid	1950	2018	-	71
+385	Graad van polyploidie	Not diploid	1950	2018	?	18
+386	Graad van polyploidie	Not diploid	1990	2018	+	68
+387	Graad van polyploidie	Not diploid	1990	2018	~	44
+388	Graad van polyploidie	Not diploid	1990	2018	-	60
+389	Graad van polyploidie	Not diploid	1990	2018	?	22
+390	habitatgroep (ecotopen)	akker	1950	2018	+	35
+391	habitatgroep (ecotopen)	akker	1950	2018	~	16
+392	habitatgroep (ecotopen)	akker	1950	2018	-	53
+393	habitatgroep (ecotopen)	akker	1950	2018	?	14
+394	habitatgroep (ecotopen)	akker	1990	2018	+	31
+395	habitatgroep (ecotopen)	akker	1990	2018	~	25
+396	habitatgroep (ecotopen)	akker	1990	2018	-	59
+397	habitatgroep (ecotopen)	akker	1990	2018	?	18
+398	habitatgroep (ecotopen)	bos	1950	2018	+	79
+399	habitatgroep (ecotopen)	bos	1950	2018	~	34
+400	habitatgroep (ecotopen)	bos	1950	2018	-	67
+401	habitatgroep (ecotopen)	bos	1950	2018	?	23
+402	habitatgroep (ecotopen)	bos	1990	2018	+	89
+403	habitatgroep (ecotopen)	bos	1990	2018	~	68
+404	habitatgroep (ecotopen)	bos	1990	2018	-	43
+405	habitatgroep (ecotopen)	bos	1990	2018	?	28
+406	habitatgroep (ecotopen)	brakke tot zilte milieus	1950	2018	+	14
+407	habitatgroep (ecotopen)	brakke tot zilte milieus	1950	2018	~	8
+408	habitatgroep (ecotopen)	brakke tot zilte milieus	1950	2018	-	19
+409	habitatgroep (ecotopen)	brakke tot zilte milieus	1950	2018	?	7
+410	habitatgroep (ecotopen)	brakke tot zilte milieus	1990	2018	+	11
+411	habitatgroep (ecotopen)	brakke tot zilte milieus	1990	2018	~	9
+412	habitatgroep (ecotopen)	brakke tot zilte milieus	1990	2018	-	17
+413	habitatgroep (ecotopen)	brakke tot zilte milieus	1990	2018	?	9
+414	habitatgroep (ecotopen)	duinen	1950	2018	-	2
+415	habitatgroep (ecotopen)	duinen	1950	2018	?	2
+416	habitatgroep (ecotopen)	duinen	1990	2018	+	1
+417	habitatgroep (ecotopen)	duinen	1990	2018	-	1
+418	habitatgroep (ecotopen)	duinen	1990	2018	?	1
+419	habitatgroep (ecotopen)	grasland	1950	2018	+	61
+420	habitatgroep (ecotopen)	grasland	1950	2018	~	37
+421	habitatgroep (ecotopen)	grasland	1950	2018	-	92
+422	habitatgroep (ecotopen)	grasland	1950	2018	?	29
+423	habitatgroep (ecotopen)	grasland	1990	2018	+	79
+424	habitatgroep (ecotopen)	grasland	1990	2018	~	78
+425	habitatgroep (ecotopen)	grasland	1990	2018	-	50
+426	habitatgroep (ecotopen)	grasland	1990	2018	?	35
+427	habitatgroep (ecotopen)	heide	1950	2018	+	2
+428	habitatgroep (ecotopen)	heide	1950	2018	~	2
+429	habitatgroep (ecotopen)	heide	1950	2018	-	14
+430	habitatgroep (ecotopen)	heide	1950	2018	?	5
+431	habitatgroep (ecotopen)	heide	1990	2018	+	11
+432	habitatgroep (ecotopen)	heide	1990	2018	~	6
+433	habitatgroep (ecotopen)	heide	1990	2018	-	6
+434	habitatgroep (ecotopen)	heide	1990	2018	?	7
+435	habitatgroep (ecotopen)	moeras	1950	2018	+	19
+436	habitatgroep (ecotopen)	moeras	1950	2018	~	7
+437	habitatgroep (ecotopen)	moeras	1950	2018	-	27
+438	habitatgroep (ecotopen)	moeras	1950	2018	?	17
+439	habitatgroep (ecotopen)	moeras	1990	2018	+	27
+440	habitatgroep (ecotopen)	moeras	1990	2018	~	20
+441	habitatgroep (ecotopen)	moeras	1990	2018	-	23
+442	habitatgroep (ecotopen)	moeras	1990	2018	?	23
+443	habitatgroep (ecotopen)	urbaan	1950	2018	+	8
+444	habitatgroep (ecotopen)	urbaan	1950	2018	~	1
+445	habitatgroep (ecotopen)	urbaan	1950	2018	?	1
+446	habitatgroep (ecotopen)	urbaan	1990	2018	+	10
+447	habitatgroep (ecotopen)	urbaan	1990	2018	-	2
+448	habitatgroep (ecotopen)	urbaan	1990	2018	?	2
+449	habitatgroep (ecotopen)	zoet water	1950	2018	+	1
+450	habitatgroep (ecotopen)	zoet water	1950	2018	-	12
+451	habitatgroep (ecotopen)	zoet water	1950	2018	?	6
+452	habitatgroep (ecotopen)	zoet water	1990	2018	+	7
+453	habitatgroep (ecotopen)	zoet water	1990	2018	~	1
+454	habitatgroep (ecotopen)	zoet water	1990	2018	-	7
+455	habitatgroep (ecotopen)	zoet water	1990	2018	?	12
+456	Indigeniteit	archeofyt	1950	2018	+	9
+457	Indigeniteit	archeofyt	1950	2018	~	2
+458	Indigeniteit	archeofyt	1950	2018	-	13
+459	Indigeniteit	archeofyt	1950	2018	?	3
+460	Indigeniteit	archeofyt	1990	2018	+	13
+461	Indigeniteit	archeofyt	1990	2018	~	1
+462	Indigeniteit	archeofyt	1990	2018	-	16
+463	Indigeniteit	archeofyt	1990	2018	?	3
+464	Indigeniteit	inheems	1950	2018	+	129
+465	Indigeniteit	inheems	1950	2018	~	69
+466	Indigeniteit	inheems	1950	2018	-	184
+467	Indigeniteit	inheems	1950	2018	?	67
+468	Indigeniteit	inheems	1990	2018	+	145
+469	Indigeniteit	inheems	1990	2018	~	129
+470	Indigeniteit	inheems	1990	2018	-	127
+471	Indigeniteit	inheems	1990	2018	?	86
+472	Indigeniteit	neofyt	1950	2018	+	28
+473	Indigeniteit	neofyt	1950	2018	~	4
+474	Indigeniteit	neofyt	1950	2018	-	8
+475	Indigeniteit	neofyt	1950	2018	?	4
+476	Indigeniteit	neofyt	1990	2018	+	52
+477	Indigeniteit	neofyt	1990	2018	~	6
+478	Indigeniteit	neofyt	1990	2018	-	12
+479	Indigeniteit	neofyt	1990	2018	?	9
+480	Socio-ecologische groepen Stieperaere en Fransen	aanspoelingsgordels, natte ruigten en rivierbegeleidende wilgestruwelen van voedselrijk milieu	1950	2018	+	8
+481	Socio-ecologische groepen Stieperaere en Fransen	aanspoelingsgordels, natte ruigten en rivierbegeleidende wilgestruwelen van voedselrijk milieu	1950	2018	~	2
+482	Socio-ecologische groepen Stieperaere en Fransen	aanspoelingsgordels, natte ruigten en rivierbegeleidende wilgestruwelen van voedselrijk milieu	1950	2018	-	5
+483	Socio-ecologische groepen Stieperaere en Fransen	aanspoelingsgordels, natte ruigten en rivierbegeleidende wilgestruwelen van voedselrijk milieu	1950	2018	?	2
+484	Socio-ecologische groepen Stieperaere en Fransen	aanspoelingsgordels, natte ruigten en rivierbegeleidende wilgestruwelen van voedselrijk milieu	1990	2018	+	6
+485	Socio-ecologische groepen Stieperaere en Fransen	aanspoelingsgordels, natte ruigten en rivierbegeleidende wilgestruwelen van voedselrijk milieu	1990	2018	~	7
+486	Socio-ecologische groepen Stieperaere en Fransen	aanspoelingsgordels, natte ruigten en rivierbegeleidende wilgestruwelen van voedselrijk milieu	1990	2018	-	6
+487	Socio-ecologische groepen Stieperaere en Fransen	aanspoelingsgordels, natte ruigten en rivierbegeleidende wilgestruwelen van voedselrijk milieu	1990	2018	?	3
+488	Socio-ecologische groepen Stieperaere en Fransen	akkers op kalkrijke grond	1950	2018	+	1
+489	Socio-ecologische groepen Stieperaere en Fransen	akkers op kalkrijke grond	1990	2018	?	1
+490	Socio-ecologische groepen Stieperaere en Fransen	akkers op relatief voedselarme, kalkarme grond	1950	2018	+	5
+491	Socio-ecologische groepen Stieperaere en Fransen	akkers op relatief voedselarme, kalkarme grond	1950	2018	-	10
+492	Socio-ecologische groepen Stieperaere en Fransen	akkers op relatief voedselarme, kalkarme grond	1950	2018	?	3
+493	Socio-ecologische groepen Stieperaere en Fransen	akkers op relatief voedselarme, kalkarme grond	1990	2018	+	4
+494	Socio-ecologische groepen Stieperaere en Fransen	akkers op relatief voedselarme, kalkarme grond	1990	2018	~	2
+495	Socio-ecologische groepen Stieperaere en Fransen	akkers op relatief voedselarme, kalkarme grond	1990	2018	-	11
+496	Socio-ecologische groepen Stieperaere en Fransen	akkers op relatief voedselarme, kalkarme grond	1990	2018	?	2
+497	Socio-ecologische groepen Stieperaere en Fransen	akkers op voedselrijke kalkhoudende maar niet kalkrijke grond	1950	2018	+	6
+498	Socio-ecologische groepen Stieperaere en Fransen	akkers op voedselrijke kalkhoudende maar niet kalkrijke grond	1950	2018	~	6
+499	Socio-ecologische groepen Stieperaere en Fransen	akkers op voedselrijke kalkhoudende maar niet kalkrijke grond	1950	2018	-	17
+500	Socio-ecologische groepen Stieperaere en Fransen	akkers op voedselrijke kalkhoudende maar niet kalkrijke grond	1950	2018	?	4
+501	Socio-ecologische groepen Stieperaere en Fransen	akkers op voedselrijke kalkhoudende maar niet kalkrijke grond	1990	2018	+	6
+502	Socio-ecologische groepen Stieperaere en Fransen	akkers op voedselrijke kalkhoudende maar niet kalkrijke grond	1990	2018	~	10
+503	Socio-ecologische groepen Stieperaere en Fransen	akkers op voedselrijke kalkhoudende maar niet kalkrijke grond	1990	2018	-	17
+504	Socio-ecologische groepen Stieperaere en Fransen	akkers op voedselrijke kalkhoudende maar niet kalkrijke grond	1990	2018	?	2
+505	Socio-ecologische groepen Stieperaere en Fransen	alluviale bossen, op min of meer hydromorfe bodem	1950	2018	+	4
+506	Socio-ecologische groepen Stieperaere en Fransen	alluviale bossen, op min of meer hydromorfe bodem	1950	2018	~	3
+507	Socio-ecologische groepen Stieperaere en Fransen	alluviale bossen, op min of meer hydromorfe bodem	1950	2018	-	3
+508	Socio-ecologische groepen Stieperaere en Fransen	alluviale bossen, op min of meer hydromorfe bodem	1950	2018	?	2
+509	Socio-ecologische groepen Stieperaere en Fransen	alluviale bossen, op min of meer hydromorfe bodem	1990	2018	+	7
+510	Socio-ecologische groepen Stieperaere en Fransen	alluviale bossen, op min of meer hydromorfe bodem	1990	2018	~	3
+511	Socio-ecologische groepen Stieperaere en Fransen	alluviale bossen, op min of meer hydromorfe bodem	1990	2018	-	2
+512	Socio-ecologische groepen Stieperaere en Fransen	alluviale bossen, op min of meer hydromorfe bodem	1990	2018	?	1
+513	Socio-ecologische groepen Stieperaere en Fransen	bossen op gerijpte, matig voedselrijke tot voedselrijke, matig vochtige tot droge grond	1950	2018	+	12
+514	Socio-ecologische groepen Stieperaere en Fransen	bossen op gerijpte, matig voedselrijke tot voedselrijke, matig vochtige tot droge grond	1950	2018	~	5
+515	Socio-ecologische groepen Stieperaere en Fransen	bossen op gerijpte, matig voedselrijke tot voedselrijke, matig vochtige tot droge grond	1950	2018	-	4
+516	Socio-ecologische groepen Stieperaere en Fransen	bossen op gerijpte, matig voedselrijke tot voedselrijke, matig vochtige tot droge grond	1950	2018	?	3
+517	Socio-ecologische groepen Stieperaere en Fransen	bossen op gerijpte, matig voedselrijke tot voedselrijke, matig vochtige tot droge grond	1990	2018	+	10
+518	Socio-ecologische groepen Stieperaere en Fransen	bossen op gerijpte, matig voedselrijke tot voedselrijke, matig vochtige tot droge grond	1990	2018	~	6
+519	Socio-ecologische groepen Stieperaere en Fransen	bossen op gerijpte, matig voedselrijke tot voedselrijke, matig vochtige tot droge grond	1990	2018	-	5
+520	Socio-ecologische groepen Stieperaere en Fransen	bossen op gerijpte, matig voedselrijke tot voedselrijke, matig vochtige tot droge grond	1990	2018	?	5
+521	Socio-ecologische groepen Stieperaere en Fransen	bossen op gerijpte, zwak zure tot kalkrijke, relatief droge grond	1950	2018	+	6
+522	Socio-ecologische groepen Stieperaere en Fransen	bossen op gerijpte, zwak zure tot kalkrijke, relatief droge grond	1950	2018	-	3
+523	Socio-ecologische groepen Stieperaere en Fransen	bossen op gerijpte, zwak zure tot kalkrijke, relatief droge grond	1950	2018	?	1
+524	Socio-ecologische groepen Stieperaere en Fransen	bossen op gerijpte, zwak zure tot kalkrijke, relatief droge grond	1990	2018	+	5
+525	Socio-ecologische groepen Stieperaere en Fransen	bossen op gerijpte, zwak zure tot kalkrijke, relatief droge grond	1990	2018	~	3
+526	Socio-ecologische groepen Stieperaere en Fransen	bossen op gerijpte, zwak zure tot kalkrijke, relatief droge grond	1990	2018	?	2
+527	Socio-ecologische groepen Stieperaere en Fransen	bossen op jonge, weinig stabiele, matig vochtige puinbodems (ravijnbossen)	1950	2018	+	3
+528	Socio-ecologische groepen Stieperaere en Fransen	bossen op jonge, weinig stabiele, matig vochtige puinbodems (ravijnbossen)	1990	2018	+	5
+529	Socio-ecologische groepen Stieperaere en Fransen	bossen op matig voedselarme, droge zure grond	1950	2018	+	8
+530	Socio-ecologische groepen Stieperaere en Fransen	bossen op matig voedselarme, droge zure grond	1950	2018	~	6
+531	Socio-ecologische groepen Stieperaere en Fransen	bossen op matig voedselarme, droge zure grond	1950	2018	-	11
+532	Socio-ecologische groepen Stieperaere en Fransen	bossen op matig voedselarme, droge zure grond	1950	2018	?	4
+533	Socio-ecologische groepen Stieperaere en Fransen	bossen op matig voedselarme, droge zure grond	1990	2018	+	11
+534	Socio-ecologische groepen Stieperaere en Fransen	bossen op matig voedselarme, droge zure grond	1990	2018	~	10
+535	Socio-ecologische groepen Stieperaere en Fransen	bossen op matig voedselarme, droge zure grond	1990	2018	-	6
+536	Socio-ecologische groepen Stieperaere en Fransen	bossen op matig voedselarme, droge zure grond	1990	2018	?	5
+537	Socio-ecologische groepen Stieperaere en Fransen	bossen op relatief voedselrijke, vochtige tot natte grond en van brongebieden	1950	2018	+	5
+538	Socio-ecologische groepen Stieperaere en Fransen	bossen op relatief voedselrijke, vochtige tot natte grond en van brongebieden	1950	2018	-	3
+539	Socio-ecologische groepen Stieperaere en Fransen	bossen op relatief voedselrijke, vochtige tot natte grond en van brongebieden	1950	2018	?	2
+540	Socio-ecologische groepen Stieperaere en Fransen	bossen op relatief voedselrijke, vochtige tot natte grond en van brongebieden	1990	2018	+	11
+541	Socio-ecologische groepen Stieperaere en Fransen	bossen op relatief voedselrijke, vochtige tot natte grond en van brongebieden	1990	2018	-	4
+542	Socio-ecologische groepen Stieperaere en Fransen	bossen op relatief voedselrijke, vochtige tot natte grond en van brongebieden	1990	2018	?	1
+543	Socio-ecologische groepen Stieperaere en Fransen	bossen op voedselarme tot matig voedselrijke, neutrale tot kalkhoudende grond	1950	2018	+	1
+544	Socio-ecologische groepen Stieperaere en Fransen	bossen op voedselarme tot matig voedselrijke, neutrale tot kalkhoudende grond	1990	2018	+	2
+545	Socio-ecologische groepen Stieperaere en Fransen	droge heiden op zeer voedselarme grond	1950	2018	+	1
+546	Socio-ecologische groepen Stieperaere en Fransen	droge heiden op zeer voedselarme grond	1950	2018	-	3
+547	Socio-ecologische groepen Stieperaere en Fransen	droge heiden op zeer voedselarme grond	1990	2018	+	2
+548	Socio-ecologische groepen Stieperaere en Fransen	droge heiden op zeer voedselarme grond	1990	2018	~	2
+549	Socio-ecologische groepen Stieperaere en Fransen	graslanden op droge, voedselarme tot matig voedselrijke, niet tot matig kalkhoudende, neutrale tot zwak basische grond	1950	2018	+	5
+550	Socio-ecologische groepen Stieperaere en Fransen	graslanden op droge, voedselarme tot matig voedselrijke, niet tot matig kalkhoudende, neutrale tot zwak basische grond	1950	2018	~	2
+551	Socio-ecologische groepen Stieperaere en Fransen	graslanden op droge, voedselarme tot matig voedselrijke, niet tot matig kalkhoudende, neutrale tot zwak basische grond	1950	2018	-	11
+552	Socio-ecologische groepen Stieperaere en Fransen	graslanden op droge, voedselarme tot matig voedselrijke, niet tot matig kalkhoudende, neutrale tot zwak basische grond	1950	2018	?	5
+553	Socio-ecologische groepen Stieperaere en Fransen	graslanden op droge, voedselarme tot matig voedselrijke, niet tot matig kalkhoudende, neutrale tot zwak basische grond	1990	2018	+	4
+554	Socio-ecologische groepen Stieperaere en Fransen	graslanden op droge, voedselarme tot matig voedselrijke, niet tot matig kalkhoudende, neutrale tot zwak basische grond	1990	2018	~	8
+555	Socio-ecologische groepen Stieperaere en Fransen	graslanden op droge, voedselarme tot matig voedselrijke, niet tot matig kalkhoudende, neutrale tot zwak basische grond	1990	2018	-	8
+556	Socio-ecologische groepen Stieperaere en Fransen	graslanden op droge, voedselarme tot matig voedselrijke, niet tot matig kalkhoudende, neutrale tot zwak basische grond	1990	2018	?	2
+557	Socio-ecologische groepen Stieperaere en Fransen	graslanden op droge, voedselarme, kalkarme, zure grond	1950	2018	+	1
+558	Socio-ecologische groepen Stieperaere en Fransen	graslanden op droge, voedselarme, kalkarme, zure grond	1950	2018	~	3
+559	Socio-ecologische groepen Stieperaere en Fransen	graslanden op droge, voedselarme, kalkarme, zure grond	1950	2018	-	6
+560	Socio-ecologische groepen Stieperaere en Fransen	graslanden op droge, voedselarme, kalkarme, zure grond	1950	2018	?	2
+561	Socio-ecologische groepen Stieperaere en Fransen	graslanden op droge, voedselarme, kalkarme, zure grond	1990	2018	+	1
+562	Socio-ecologische groepen Stieperaere en Fransen	graslanden op droge, voedselarme, kalkarme, zure grond	1990	2018	~	3
+563	Socio-ecologische groepen Stieperaere en Fransen	graslanden op droge, voedselarme, kalkarme, zure grond	1990	2018	-	4
+564	Socio-ecologische groepen Stieperaere en Fransen	graslanden op droge, voedselarme, kalkarme, zure grond	1990	2018	?	3
+565	Socio-ecologische groepen Stieperaere en Fransen	graslanden op droge, voedselarme, kalkrijke of zinkhoudende, neutrale tot basische grond	1950	2018	+	2
+566	Socio-ecologische groepen Stieperaere en Fransen	graslanden op droge, voedselarme, kalkrijke of zinkhoudende, neutrale tot basische grond	1950	2018	~	1
+567	Socio-ecologische groepen Stieperaere en Fransen	graslanden op droge, voedselarme, kalkrijke of zinkhoudende, neutrale tot basische grond	1950	2018	-	1
+568	Socio-ecologische groepen Stieperaere en Fransen	graslanden op droge, voedselarme, kalkrijke of zinkhoudende, neutrale tot basische grond	1950	2018	?	1
+569	Socio-ecologische groepen Stieperaere en Fransen	graslanden op droge, voedselarme, kalkrijke of zinkhoudende, neutrale tot basische grond	1990	2018	+	3
+570	Socio-ecologische groepen Stieperaere en Fransen	graslanden op droge, voedselarme, kalkrijke of zinkhoudende, neutrale tot basische grond	1990	2018	~	1
+571	Socio-ecologische groepen Stieperaere en Fransen	graslanden op droge, voedselarme, kalkrijke of zinkhoudende, neutrale tot basische grond	1990	2018	-	1
+572	Socio-ecologische groepen Stieperaere en Fransen	graslanden op droge, voedselarme, kalkrijke of zinkhoudende, neutrale tot basische grond	1990	2018	?	1
+573	Socio-ecologische groepen Stieperaere en Fransen	hoge schorren en contactsituaties tussen zout en zoet milieu	1950	2018	+	1
+574	Socio-ecologische groepen Stieperaere en Fransen	hoge schorren en contactsituaties tussen zout en zoet milieu	1950	2018	?	1
+575	Socio-ecologische groepen Stieperaere en Fransen	hoge schorren en contactsituaties tussen zout en zoet milieu	1990	2018	+	1
+576	Socio-ecologische groepen Stieperaere en Fransen	hoogvenen, natte heiden en onbemeste graslanden op natte, zeer voedselarme, zure, humeuze grond	1950	2018	+	1
+577	Socio-ecologische groepen Stieperaere en Fransen	hoogvenen, natte heiden en onbemeste graslanden op natte, zeer voedselarme, zure, humeuze grond	1950	2018	~	1
+578	Socio-ecologische groepen Stieperaere en Fransen	hoogvenen, natte heiden en onbemeste graslanden op natte, zeer voedselarme, zure, humeuze grond	1950	2018	-	3
+579	Socio-ecologische groepen Stieperaere en Fransen	hoogvenen, natte heiden en onbemeste graslanden op natte, zeer voedselarme, zure, humeuze grond	1990	2018	+	2
+580	Socio-ecologische groepen Stieperaere en Fransen	hoogvenen, natte heiden en onbemeste graslanden op natte, zeer voedselarme, zure, humeuze grond	1990	2018	~	2
+581	Socio-ecologische groepen Stieperaere en Fransen	hoogvenen, natte heiden en onbemeste graslanden op natte, zeer voedselarme, zure, humeuze grond	1990	2018	?	2
+582	Socio-ecologische groepen Stieperaere en Fransen	jonge aanplanten en zomen op voedsel- (vooral stikstof-) rijke, neutrale, humeuze matig vochtige tot droge grond	1950	2018	+	18
+583	Socio-ecologische groepen Stieperaere en Fransen	jonge aanplanten en zomen op voedsel- (vooral stikstof-) rijke, neutrale, humeuze matig vochtige tot droge grond	1950	2018	~	6
+584	Socio-ecologische groepen Stieperaere en Fransen	jonge aanplanten en zomen op voedsel- (vooral stikstof-) rijke, neutrale, humeuze matig vochtige tot droge grond	1950	2018	-	8
+585	Socio-ecologische groepen Stieperaere en Fransen	jonge aanplanten en zomen op voedsel- (vooral stikstof-) rijke, neutrale, humeuze matig vochtige tot droge grond	1950	2018	?	1
+586	Socio-ecologische groepen Stieperaere en Fransen	jonge aanplanten en zomen op voedsel- (vooral stikstof-) rijke, neutrale, humeuze matig vochtige tot droge grond	1990	2018	+	15
+587	Socio-ecologische groepen Stieperaere en Fransen	jonge aanplanten en zomen op voedsel- (vooral stikstof-) rijke, neutrale, humeuze matig vochtige tot droge grond	1990	2018	~	10
+588	Socio-ecologische groepen Stieperaere en Fransen	jonge aanplanten en zomen op voedsel- (vooral stikstof-) rijke, neutrale, humeuze matig vochtige tot droge grond	1990	2018	-	8
+589	Socio-ecologische groepen Stieperaere en Fransen	jonge aanplanten en zomen op voedsel- (vooral stikstof-) rijke, neutrale, humeuze matig vochtige tot droge grond	1990	2018	?	1
+590	Socio-ecologische groepen Stieperaere en Fransen	kaalslagen op matig vochtige tot droge, matig voedselrijke tot voedselrijke grond	1950	2018	+	4
+591	Socio-ecologische groepen Stieperaere en Fransen	kaalslagen op matig vochtige tot droge, matig voedselrijke tot voedselrijke grond	1950	2018	~	1
+592	Socio-ecologische groepen Stieperaere en Fransen	kaalslagen op matig vochtige tot droge, matig voedselrijke tot voedselrijke grond	1950	2018	-	4
+593	Socio-ecologische groepen Stieperaere en Fransen	kaalslagen op matig vochtige tot droge, matig voedselrijke tot voedselrijke grond	1990	2018	+	3
+594	Socio-ecologische groepen Stieperaere en Fransen	kaalslagen op matig vochtige tot droge, matig voedselrijke tot voedselrijke grond	1990	2018	~	2
+595	Socio-ecologische groepen Stieperaere en Fransen	kaalslagen op matig vochtige tot droge, matig voedselrijke tot voedselrijke grond	1990	2018	-	2
+596	Socio-ecologische groepen Stieperaere en Fransen	kaalslagen op matig vochtige tot droge, matig voedselrijke tot voedselrijke grond	1990	2018	?	3
+597	Socio-ecologische groepen Stieperaere en Fransen	matig bemeste graslanden op (matig) vochtige grond	1950	2018	+	7
+598	Socio-ecologische groepen Stieperaere en Fransen	matig bemeste graslanden op (matig) vochtige grond	1950	2018	~	10
+599	Socio-ecologische groepen Stieperaere en Fransen	matig bemeste graslanden op (matig) vochtige grond	1950	2018	-	22
+600	Socio-ecologische groepen Stieperaere en Fransen	matig bemeste graslanden op (matig) vochtige grond	1950	2018	?	1
+601	Socio-ecologische groepen Stieperaere en Fransen	matig bemeste graslanden op (matig) vochtige grond	1990	2018	+	11
+602	Socio-ecologische groepen Stieperaere en Fransen	matig bemeste graslanden op (matig) vochtige grond	1990	2018	~	17
+603	Socio-ecologische groepen Stieperaere en Fransen	matig bemeste graslanden op (matig) vochtige grond	1990	2018	-	8
+604	Socio-ecologische groepen Stieperaere en Fransen	matig bemeste graslanden op (matig) vochtige grond	1990	2018	?	6
+605	Socio-ecologische groepen Stieperaere en Fransen	matig bemeste graslanden op natte grond	1950	2018	+	4
+606	Socio-ecologische groepen Stieperaere en Fransen	matig bemeste graslanden op natte grond	1950	2018	-	8
+607	Socio-ecologische groepen Stieperaere en Fransen	matig bemeste graslanden op natte grond	1950	2018	?	3
+608	Socio-ecologische groepen Stieperaere en Fransen	matig bemeste graslanden op natte grond	1990	2018	+	4
+609	Socio-ecologische groepen Stieperaere en Fransen	matig bemeste graslanden op natte grond	1990	2018	~	8
+610	Socio-ecologische groepen Stieperaere en Fransen	matig bemeste graslanden op natte grond	1990	2018	-	1
+611	Socio-ecologische groepen Stieperaere en Fransen	matig bemeste graslanden op natte grond	1990	2018	?	2
+612	Socio-ecologische groepen Stieperaere en Fransen	matig voedselarme, kalkarme, zure laagveenmoerassen	1950	2018	+	1
+613	Socio-ecologische groepen Stieperaere en Fransen	matig voedselarme, kalkarme, zure laagveenmoerassen	1950	2018	-	4
+614	Socio-ecologische groepen Stieperaere en Fransen	matig voedselarme, kalkarme, zure laagveenmoerassen	1950	2018	?	3
+615	Socio-ecologische groepen Stieperaere en Fransen	matig voedselarme, kalkarme, zure laagveenmoerassen	1990	2018	+	6
+616	Socio-ecologische groepen Stieperaere en Fransen	matig voedselarme, kalkarme, zure laagveenmoerassen	1990	2018	~	3
+617	Socio-ecologische groepen Stieperaere en Fransen	matig voedselarme, kalkarme, zure laagveenmoerassen	1990	2018	-	1
+618	Socio-ecologische groepen Stieperaere en Fransen	matig voedselarme, kalkarme, zure laagveenmoerassen	1990	2018	?	4
+619	Socio-ecologische groepen Stieperaere en Fransen	muren en rotsen	1950	2018	+	3
+620	Socio-ecologische groepen Stieperaere en Fransen	muren en rotsen	1990	2018	+	4
+621	Socio-ecologische groepen Stieperaere en Fransen	muren en rotsen	1990	2018	?	1
+622	Socio-ecologische groepen Stieperaere en Fransen	onbemeste graslanden op vochtige tot natte voedselarme, zwak zure grond	1950	2018	~	2
+623	Socio-ecologische groepen Stieperaere en Fransen	onbemeste graslanden op vochtige tot natte voedselarme, zwak zure grond	1950	2018	-	2
+624	Socio-ecologische groepen Stieperaere en Fransen	onbemeste graslanden op vochtige tot natte voedselarme, zwak zure grond	1990	2018	+	3
+625	Socio-ecologische groepen Stieperaere en Fransen	onbemeste graslanden op vochtige tot natte voedselarme, zwak zure grond	1990	2018	~	1
+626	Socio-ecologische groepen Stieperaere en Fransen	onbemeste graslanden op vochtige tot natte voedselarme, zwak zure grond	1990	2018	-	1
+627	Socio-ecologische groepen Stieperaere en Fransen	onbemeste graslanden op vochtige tot natte voedselarme, zwak zure grond	1990	2018	?	1
+628	Socio-ecologische groepen Stieperaere en Fransen	onbemeste, heischrale graslanden op matig vochtige tot droge, voedselarme, zure, humeuze grond	1950	2018	+	1
+629	Socio-ecologische groepen Stieperaere en Fransen	onbemeste, heischrale graslanden op matig vochtige tot droge, voedselarme, zure, humeuze grond	1950	2018	~	1
+630	Socio-ecologische groepen Stieperaere en Fransen	onbemeste, heischrale graslanden op matig vochtige tot droge, voedselarme, zure, humeuze grond	1950	2018	-	5
+631	Socio-ecologische groepen Stieperaere en Fransen	onbemeste, heischrale graslanden op matig vochtige tot droge, voedselarme, zure, humeuze grond	1990	2018	+	3
+632	Socio-ecologische groepen Stieperaere en Fransen	onbemeste, heischrale graslanden op matig vochtige tot droge, voedselarme, zure, humeuze grond	1990	2018	~	1
+633	Socio-ecologische groepen Stieperaere en Fransen	onbemeste, heischrale graslanden op matig vochtige tot droge, voedselarme, zure, humeuze grond	1990	2018	-	2
+634	Socio-ecologische groepen Stieperaere en Fransen	onbemeste, heischrale graslanden op matig vochtige tot droge, voedselarme, zure, humeuze grond	1990	2018	?	1
+635	Socio-ecologische groepen Stieperaere en Fransen	open, matig voedselrijke tot voedselarme, vochtige grond	1950	2018	+	2
+636	Socio-ecologische groepen Stieperaere en Fransen	open, matig voedselrijke tot voedselarme, vochtige grond	1950	2018	-	2
+637	Socio-ecologische groepen Stieperaere en Fransen	open, matig voedselrijke tot voedselarme, vochtige grond	1950	2018	?	1
+638	Socio-ecologische groepen Stieperaere en Fransen	open, matig voedselrijke tot voedselarme, vochtige grond	1990	2018	+	2
+639	Socio-ecologische groepen Stieperaere en Fransen	open, matig voedselrijke tot voedselarme, vochtige grond	1990	2018	-	1
+640	Socio-ecologische groepen Stieperaere en Fransen	open, matig voedselrijke tot voedselarme, vochtige grond	1990	2018	?	6
+641	Socio-ecologische groepen Stieperaere en Fransen	open, voedsel- (spediaal stikstof-) rijke, natte grond	1950	2018	+	5
+642	Socio-ecologische groepen Stieperaere en Fransen	open, voedsel- (spediaal stikstof-) rijke, natte grond	1950	2018	~	1
+643	Socio-ecologische groepen Stieperaere en Fransen	open, voedsel- (spediaal stikstof-) rijke, natte grond	1950	2018	-	3
+644	Socio-ecologische groepen Stieperaere en Fransen	open, voedsel- (spediaal stikstof-) rijke, natte grond	1950	2018	?	2
+645	Socio-ecologische groepen Stieperaere en Fransen	open, voedsel- (spediaal stikstof-) rijke, natte grond	1990	2018	+	1
+646	Socio-ecologische groepen Stieperaere en Fransen	open, voedsel- (spediaal stikstof-) rijke, natte grond	1990	2018	-	9
+647	Socio-ecologische groepen Stieperaere en Fransen	open, voedsel- (spediaal stikstof-) rijke, natte grond	1990	2018	?	4
+648	Socio-ecologische groepen Stieperaere en Fransen	regelmatig betreden plaatsen op voedselrijke grond (tredplanten)	1950	2018	+	3
+649	Socio-ecologische groepen Stieperaere en Fransen	regelmatig betreden plaatsen op voedselrijke grond (tredplanten)	1950	2018	~	3
+650	Socio-ecologische groepen Stieperaere en Fransen	regelmatig betreden plaatsen op voedselrijke grond (tredplanten)	1950	2018	-	5
+651	Socio-ecologische groepen Stieperaere en Fransen	regelmatig betreden plaatsen op voedselrijke grond (tredplanten)	1950	2018	?	2
+652	Socio-ecologische groepen Stieperaere en Fransen	regelmatig betreden plaatsen op voedselrijke grond (tredplanten)	1990	2018	+	4
+653	Socio-ecologische groepen Stieperaere en Fransen	regelmatig betreden plaatsen op voedselrijke grond (tredplanten)	1990	2018	~	2
+654	Socio-ecologische groepen Stieperaere en Fransen	regelmatig betreden plaatsen op voedselrijke grond (tredplanten)	1990	2018	-	8
+655	Socio-ecologische groepen Stieperaere en Fransen	regelmatig betreden plaatsen op voedselrijke grond (tredplanten)	1990	2018	?	2
+656	Socio-ecologische groepen Stieperaere en Fransen	relatief voedselrijke plaatsen met wisselende waterstand	1950	2018	+	10
+657	Socio-ecologische groepen Stieperaere en Fransen	relatief voedselrijke plaatsen met wisselende waterstand	1950	2018	~	4
+658	Socio-ecologische groepen Stieperaere en Fransen	relatief voedselrijke plaatsen met wisselende waterstand	1950	2018	-	11
+659	Socio-ecologische groepen Stieperaere en Fransen	relatief voedselrijke plaatsen met wisselende waterstand	1950	2018	?	3
+660	Socio-ecologische groepen Stieperaere en Fransen	relatief voedselrijke plaatsen met wisselende waterstand	1990	2018	+	8
+661	Socio-ecologische groepen Stieperaere en Fransen	relatief voedselrijke plaatsen met wisselende waterstand	1990	2018	~	7
+662	Socio-ecologische groepen Stieperaere en Fransen	relatief voedselrijke plaatsen met wisselende waterstand	1990	2018	-	9
+663	Socio-ecologische groepen Stieperaere en Fransen	relatief voedselrijke plaatsen met wisselende waterstand	1990	2018	?	4
+664	Socio-ecologische groepen Stieperaere en Fransen	ruigten op betreden, voedselrijke, niet humeuze, kalkhoudende maar niet kalkrijke, droge grond	1950	2018	+	10
+665	Socio-ecologische groepen Stieperaere en Fransen	ruigten op betreden, voedselrijke, niet humeuze, kalkhoudende maar niet kalkrijke, droge grond	1950	2018	~	5
+666	Socio-ecologische groepen Stieperaere en Fransen	ruigten op betreden, voedselrijke, niet humeuze, kalkhoudende maar niet kalkrijke, droge grond	1950	2018	-	13
+667	Socio-ecologische groepen Stieperaere en Fransen	ruigten op betreden, voedselrijke, niet humeuze, kalkhoudende maar niet kalkrijke, droge grond	1950	2018	?	6
+668	Socio-ecologische groepen Stieperaere en Fransen	ruigten op betreden, voedselrijke, niet humeuze, kalkhoudende maar niet kalkrijke, droge grond	1990	2018	+	13
+669	Socio-ecologische groepen Stieperaere en Fransen	ruigten op betreden, voedselrijke, niet humeuze, kalkhoudende maar niet kalkrijke, droge grond	1990	2018	~	9
+670	Socio-ecologische groepen Stieperaere en Fransen	ruigten op betreden, voedselrijke, niet humeuze, kalkhoudende maar niet kalkrijke, droge grond	1990	2018	-	13
+671	Socio-ecologische groepen Stieperaere en Fransen	ruigten op betreden, voedselrijke, niet humeuze, kalkhoudende maar niet kalkrijke, droge grond	1990	2018	?	1
+672	Socio-ecologische groepen Stieperaere en Fransen	ruigten op weinig betreden, kalkrijke, niet humeuze, droge grond	1950	2018	+	6
+673	Socio-ecologische groepen Stieperaere en Fransen	ruigten op weinig betreden, kalkrijke, niet humeuze, droge grond	1950	2018	~	2
+674	Socio-ecologische groepen Stieperaere en Fransen	ruigten op weinig betreden, kalkrijke, niet humeuze, droge grond	1950	2018	-	4
+675	Socio-ecologische groepen Stieperaere en Fransen	ruigten op weinig betreden, kalkrijke, niet humeuze, droge grond	1950	2018	?	4
+676	Socio-ecologische groepen Stieperaere en Fransen	ruigten op weinig betreden, kalkrijke, niet humeuze, droge grond	1990	2018	+	7
+677	Socio-ecologische groepen Stieperaere en Fransen	ruigten op weinig betreden, kalkrijke, niet humeuze, droge grond	1990	2018	~	3
+678	Socio-ecologische groepen Stieperaere en Fransen	ruigten op weinig betreden, kalkrijke, niet humeuze, droge grond	1990	2018	-	4
+679	Socio-ecologische groepen Stieperaere en Fransen	ruigten op weinig betreden, kalkrijke, niet humeuze, droge grond	1990	2018	?	2
+680	Socio-ecologische groepen Stieperaere en Fransen	ruigten op weinig betreden, voedselrijke, humeuze, matig droge grond	1950	2018	+	6
+681	Socio-ecologische groepen Stieperaere en Fransen	ruigten op weinig betreden, voedselrijke, humeuze, matig droge grond	1950	2018	~	3
+682	Socio-ecologische groepen Stieperaere en Fransen	ruigten op weinig betreden, voedselrijke, humeuze, matig droge grond	1950	2018	-	4
+683	Socio-ecologische groepen Stieperaere en Fransen	ruigten op weinig betreden, voedselrijke, humeuze, matig droge grond	1990	2018	+	8
+684	Socio-ecologische groepen Stieperaere en Fransen	ruigten op weinig betreden, voedselrijke, humeuze, matig droge grond	1990	2018	~	2
+685	Socio-ecologische groepen Stieperaere en Fransen	ruigten op weinig betreden, voedselrijke, humeuze, matig droge grond	1990	2018	-	5
+686	Socio-ecologische groepen Stieperaere en Fransen	ruigten op weinig betreden, voedselrijke, humeuze, matig droge grond	1990	2018	?	3
+687	Socio-ecologische groepen Stieperaere en Fransen	stranden, zeeduinen en zandige vloedmerken	1950	2018	+	1
+688	Socio-ecologische groepen Stieperaere en Fransen	stranden, zeeduinen en zandige vloedmerken	1950	2018	-	1
+689	Socio-ecologische groepen Stieperaere en Fransen	stranden, zeeduinen en zandige vloedmerken	1950	2018	?	1
+690	Socio-ecologische groepen Stieperaere en Fransen	stranden, zeeduinen en zandige vloedmerken	1990	2018	-	1
+691	Socio-ecologische groepen Stieperaere en Fransen	struwelen op matig vochtige tot droge, relatief voedselrijke grond	1950	2018	+	6
+692	Socio-ecologische groepen Stieperaere en Fransen	struwelen op matig vochtige tot droge, relatief voedselrijke grond	1950	2018	~	3
+693	Socio-ecologische groepen Stieperaere en Fransen	struwelen op matig vochtige tot droge, relatief voedselrijke grond	1950	2018	-	3
+694	Socio-ecologische groepen Stieperaere en Fransen	struwelen op matig vochtige tot droge, relatief voedselrijke grond	1950	2018	?	2
+695	Socio-ecologische groepen Stieperaere en Fransen	struwelen op matig vochtige tot droge, relatief voedselrijke grond	1990	2018	+	8
+696	Socio-ecologische groepen Stieperaere en Fransen	struwelen op matig vochtige tot droge, relatief voedselrijke grond	1990	2018	~	4
+697	Socio-ecologische groepen Stieperaere en Fransen	struwelen op matig vochtige tot droge, relatief voedselrijke grond	1990	2018	-	2
+698	Socio-ecologische groepen Stieperaere en Fransen	struwelen op matig vochtige tot droge, relatief voedselrijke grond	1990	2018	?	2
+699	Socio-ecologische groepen Stieperaere en Fransen	verlandingsvegetaties in zoete, voedselrijke, stagnerende of lichtstromende ondiepe tot diepe wateren; dikwijls veenvormend	1950	2018	+	6
+700	Socio-ecologische groepen Stieperaere en Fransen	verlandingsvegetaties in zoete, voedselrijke, stagnerende of lichtstromende ondiepe tot diepe wateren; dikwijls veenvormend	1950	2018	~	2
+701	Socio-ecologische groepen Stieperaere en Fransen	verlandingsvegetaties in zoete, voedselrijke, stagnerende of lichtstromende ondiepe tot diepe wateren; dikwijls veenvormend	1950	2018	-	6
+702	Socio-ecologische groepen Stieperaere en Fransen	verlandingsvegetaties in zoete, voedselrijke, stagnerende of lichtstromende ondiepe tot diepe wateren; dikwijls veenvormend	1950	2018	?	4
+703	Socio-ecologische groepen Stieperaere en Fransen	verlandingsvegetaties in zoete, voedselrijke, stagnerende of lichtstromende ondiepe tot diepe wateren; dikwijls veenvormend	1990	2018	+	9
+704	Socio-ecologische groepen Stieperaere en Fransen	verlandingsvegetaties in zoete, voedselrijke, stagnerende of lichtstromende ondiepe tot diepe wateren; dikwijls veenvormend	1990	2018	~	5
+705	Socio-ecologische groepen Stieperaere en Fransen	verlandingsvegetaties in zoete, voedselrijke, stagnerende of lichtstromende ondiepe tot diepe wateren; dikwijls veenvormend	1990	2018	-	3
+706	Socio-ecologische groepen Stieperaere en Fransen	verlandingsvegetaties in zoete, voedselrijke, stagnerende of lichtstromende ondiepe tot diepe wateren; dikwijls veenvormend	1990	2018	?	4
+707	Socio-ecologische groepen Stieperaere en Fransen	verlandingsvegetaties in zoete, voedselrijke, stromende of periodiek droogvallende wateren; niet veenvormend	1950	2018	+	3
+708	Socio-ecologische groepen Stieperaere en Fransen	verlandingsvegetaties in zoete, voedselrijke, stromende of periodiek droogvallende wateren; niet veenvormend	1950	2018	~	2
+709	Socio-ecologische groepen Stieperaere en Fransen	verlandingsvegetaties in zoete, voedselrijke, stromende of periodiek droogvallende wateren; niet veenvormend	1950	2018	-	8
+710	Socio-ecologische groepen Stieperaere en Fransen	verlandingsvegetaties in zoete, voedselrijke, stromende of periodiek droogvallende wateren; niet veenvormend	1950	2018	?	2
+711	Socio-ecologische groepen Stieperaere en Fransen	verlandingsvegetaties in zoete, voedselrijke, stromende of periodiek droogvallende wateren; niet veenvormend	1990	2018	+	3
+712	Socio-ecologische groepen Stieperaere en Fransen	verlandingsvegetaties in zoete, voedselrijke, stromende of periodiek droogvallende wateren; niet veenvormend	1990	2018	~	3
+713	Socio-ecologische groepen Stieperaere en Fransen	verlandingsvegetaties in zoete, voedselrijke, stromende of periodiek droogvallende wateren; niet veenvormend	1990	2018	-	6
+714	Socio-ecologische groepen Stieperaere en Fransen	verlandingsvegetaties in zoete, voedselrijke, stromende of periodiek droogvallende wateren; niet veenvormend	1990	2018	?	9
+715	Socio-ecologische groepen Stieperaere en Fransen	zoete tot matig brakke, (matig) voedselrijke wateren (overwegend obligate waterplanten)	1950	2018	-	8
+716	Socio-ecologische groepen Stieperaere en Fransen	zoete tot matig brakke, (matig) voedselrijke wateren (overwegend obligate waterplanten)	1950	2018	?	5
+717	Socio-ecologische groepen Stieperaere en Fransen	zoete tot matig brakke, (matig) voedselrijke wateren (overwegend obligate waterplanten)	1990	2018	+	3
+718	Socio-ecologische groepen Stieperaere en Fransen	zoete tot matig brakke, (matig) voedselrijke wateren (overwegend obligate waterplanten)	1990	2018	~	1
+719	Socio-ecologische groepen Stieperaere en Fransen	zoete tot matig brakke, (matig) voedselrijke wateren (overwegend obligate waterplanten)	1990	2018	-	4
+720	Socio-ecologische groepen Stieperaere en Fransen	zoete tot matig brakke, (matig) voedselrijke wateren (overwegend obligate waterplanten)	1990	2018	?	8
+721	Socio-ecologische groepen Stieperaere en Fransen	zoete, voedselarme wateren en de periodiek droogvallende oevers ervan	1950	2018	?	1
+722	Socio-ecologische groepen Stieperaere en Fransen	zoete, voedselarme wateren en de periodiek droogvallende oevers ervan	1990	2018	+	2
+723	Socio-ecologische groepen Stieperaere en Fransen	zoete, voedselarme wateren en de periodiek droogvallende oevers ervan	1990	2018	?	1
+724	Socio-ecologische groepen Stieperaere en Fransen	zomen op kalkhoudende, lemige, matig vochtige tot droge grond	1950	2018	-	1
+725	Socio-ecologische groepen Stieperaere en Fransen	zomen op kalkhoudende, lemige, matig vochtige tot droge grond	1950	2018	?	2
+726	Socio-ecologische groepen Stieperaere en Fransen	zomen op kalkhoudende, lemige, matig vochtige tot droge grond	1990	2018	+	1
+727	Socio-ecologische groepen Stieperaere en Fransen	zomen op kalkhoudende, lemige, matig vochtige tot droge grond	1990	2018	~	1
+728	Socio-ecologische groepen Stieperaere en Fransen	zomen op kalkhoudende, lemige, matig vochtige tot droge grond	1990	2018	?	1
+729	Socio-ecologische groepen Stieperaere en Fransen	zoute tot sterk brakke wateren, slikken en lage schorren	1950	2018	?	1
+730	Socio-ecologische groepen Stieperaere en Fransen	zoute tot sterk brakke wateren, slikken en lage schorren	1990	2018	?	1
+731	substraat (ecotopen)	aquatisch	1950	2018	+	1
+732	substraat (ecotopen)	aquatisch	1950	2018	-	12
+733	substraat (ecotopen)	aquatisch	1950	2018	?	6
+734	substraat (ecotopen)	aquatisch	1990	2018	+	7
+735	substraat (ecotopen)	aquatisch	1990	2018	~	1
+736	substraat (ecotopen)	aquatisch	1990	2018	-	7
+737	substraat (ecotopen)	aquatisch	1990	2018	?	12
+738	substraat (ecotopen)	terrestrisch	1950	2018	+	163
+739	substraat (ecotopen)	terrestrisch	1950	2018	~	74
+740	substraat (ecotopen)	terrestrisch	1950	2018	-	196
+741	substraat (ecotopen)	terrestrisch	1950	2018	?	69
+742	substraat (ecotopen)	terrestrisch	1990	2018	+	197
+743	substraat (ecotopen)	terrestrisch	1990	2018	~	134
+744	substraat (ecotopen)	terrestrisch	1990	2018	-	150
+745	substraat (ecotopen)	terrestrisch	1990	2018	?	88
+746	voedselrijkdom (ecotopen)	matig voedselrijk	1950	2018	+	111
+747	voedselrijkdom (ecotopen)	matig voedselrijk	1950	2018	~	51
+748	voedselrijkdom (ecotopen)	matig voedselrijk	1950	2018	-	147
+749	voedselrijkdom (ecotopen)	matig voedselrijk	1950	2018	?	46
+750	voedselrijkdom (ecotopen)	matig voedselrijk	1990	2018	+	142
+751	voedselrijkdom (ecotopen)	matig voedselrijk	1990	2018	~	97
+752	voedselrijkdom (ecotopen)	matig voedselrijk	1990	2018	-	109
+753	voedselrijkdom (ecotopen)	matig voedselrijk	1990	2018	?	61
+754	voedselrijkdom (ecotopen)	voedselarm	1950	2018	+	62
+755	voedselrijkdom (ecotopen)	voedselarm	1950	2018	~	34
+756	voedselrijkdom (ecotopen)	voedselarm	1950	2018	-	77
+757	voedselrijkdom (ecotopen)	voedselarm	1950	2018	?	31
+758	voedselrijkdom (ecotopen)	voedselarm	1990	2018	+	89
+759	voedselrijkdom (ecotopen)	voedselarm	1990	2018	~	58
+760	voedselrijkdom (ecotopen)	voedselarm	1990	2018	-	39
+761	voedselrijkdom (ecotopen)	voedselarm	1990	2018	?	37
+762	voedselrijkdom (ecotopen)	voedselrijk	1950	2018	+	77
+763	voedselrijkdom (ecotopen)	voedselrijk	1950	2018	~	35
+764	voedselrijkdom (ecotopen)	voedselrijk	1950	2018	-	95
+765	voedselrijkdom (ecotopen)	voedselrijk	1950	2018	?	25
+766	voedselrijkdom (ecotopen)	voedselrijk	1990	2018	+	66
+767	voedselrijkdom (ecotopen)	voedselrijk	1990	2018	~	63
+768	voedselrijkdom (ecotopen)	voedselrijk	1990	2018	-	98
+769	voedselrijkdom (ecotopen)	voedselrijk	1990	2018	?	35
+770			1950	2018	+	167
+771			1950	2018	~	75
+772			1950	2018	-	205
+773			1950	2018	?	75
+774			1990	2018	+	219
+775			1990	2018	~	136
+776			1990	2018	-	156
+777			1990	2018	?	101

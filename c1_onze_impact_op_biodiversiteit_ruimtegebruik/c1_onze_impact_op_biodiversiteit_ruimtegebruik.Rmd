@@ -1,0 +1,232 @@
+---
+title: "Algemene toestand en trends in Vlaanderen - Ruimtegebruik"
+date: 2020-07-01T10:00:00
+bibliography: ../references.bib
+link-citations: TRUE
+hoofdstuk: 3
+thema:
+  - Natuur & maatschappij
+keywords:
+  - landgebruiksverandering
+  - ruimtebeslag
+  - natuurlijk kapitaal
+  - natural capital accounting
+  - ecosystem extent
+lang: nl
+tab: indicator
+verantwoordelijke:
+- Wouter Van Reeth <wouter.vanreeth@inbo.be>
+output: html_document
+---
+
+```{r setup, include=FALSE}
+library(knitr)
+opts_chunk$set(
+  message = FALSE,
+  warning = FALSE,
+  echo = FALSE
+)
+library(git2rdata)
+library(plotly)
+library(tidyverse)
+library(INBOtheme)
+library(htmlwidgets)
+library(kableExtra)
+library(formattable)
+library(ggrepel)
+
+set.seed(20200520)
+setWidgetIdSeed(20200520)
+options(htmlwidgets.TOJSON_ARGS = list(pretty = TRUE))
+
+theme_set(theme_nara()) # het nara-kleurenpallet selecteren
+switch_colour(inbo_hoofd) # het INBO-kleurenpallet activeren
+```
+
+```{r data_inlezen+bewerken_ecosysteemvoorraad-benchmark}
+landgebruikgegevens <- read_vc("datavoorraad") %>%
+  mutate(Stedelijk_bebouwd_gebied = as.integer(Stedelijk_bebouwd_gebied)) %>%
+  mutate(Akker_grasland = as.integer(Akker_grasland)) %>%
+  mutate(Natuur = as.integer(Natuur)) %>%
+  mutate(Zoetwater_estuarium = as.integer(Zoetwater_estuarium)) %>%
+  mutate(Zee = as.integer(Zee))
+
+landgebruikgegevens <- landgebruikgegevens %>%
+  gather(key = Landgebruik, value = Oppervlakte, -NUTS1regio)
+
+landgebruikgegevens <- landgebruikgegevens %>%
+  mutate(Landgebruik = as.factor(Landgebruik)) %>%
+  mutate(Landgebruik = factor(Landgebruik, ordered = TRUE,
+                              levels = c("Zee", "Zoetwater_estuarium",
+                                         "Natuur", "Akker_grasland",
+                                         "Stedelijk_bebouwd_gebied"))) %>%
+  mutate(NUTS1regio = as.factor(NUTS1regio)) %>%
+  mutate(NUTS1regio = factor(NUTS1regio, ordered = TRUE,
+                             levels = c("Ostösterreich", "Hessen",
+                                        "Oost-Nederland", "Comunidad de Madrid",
+                                        "Southeast England", "Zuid-Nederland",
+                                        "Nordrhein-Westfalen", "Île-de-France",
+                                        "West-Nederland", "Vlaams Gewest"))) %>%
+  group_by(NUTS1regio) %>%
+  mutate(prop = Oppervlakte / sum(Oppervlakte) * 100) %>%
+  mutate(Oppervlakte = round(x = Oppervlakte, digits = 0)) %>%
+  ungroup()
+```
+
+```{r data_inlezen_urbanisatie-bevolking-benchmark}
+gegevens2 <- read_vc("dataurbanisatie")
+```
+
+```{r data_inlezen_urbanisatie-welvaart-benchmark}
+gegevens3 <- read_vc("datawelvaart")
+```
+
+
+Het Vlaams Gewest is koploper in Europa wat betreft het aandeel stedelijk en bebouwd gebied.
+Het aandeel natuurlijke ecosystemen is daarentegen het laagst in Vlaanderen.
+
+```{r staafdiagram ecosysteemvoorraad-benchmark, echo =  FALSE, fig.width = 8, fig.height = 4, fig.cap = "Figuur 1. Ruimtegebruik en ecosysteemvoorraad in Vlaanderen en 9 andere sociaal-economische topregio's in 2018 (Bron: Corine, Eurostat). Deze figuur verwijst naar Figuur 8 in het Natuurrapport 2020.", fig.pos = "H"}
+test <- function(x) formattable::percent(x, 0) / 100
+colorx <- c("black", "black", "black", "black", "black", "black", "black",
+            "black", "black", inbo_hoofd)
+
+p <- ggplot(landgebruikgegevens, aes(x = NUTS1regio, y = prop,
+                                     fill = Landgebruik)) +
+  geom_bar(stat = "identity", width = 0.5) +
+  scale_y_continuous(
+    expand = c(0, 0),
+    labels = test,
+    limits = c(0, 102),
+    breaks = c(10, 20, 30, 40, 50, 60, 70, 80, 90, 100)
+  ) +
+  labs(x = "", y = "% VAN DE OPPERVLAKTE VAN DE REGIO") +
+  theme(legend.position = "bottom") +
+  scale_fill_manual(
+    breaks = c("Stedelijk_bebouwd_gebied", "Akker_grasland", "Natuur",
+               "Zoetwater_estuarium", "Zee"),
+    values = c("Zee" = inbo_grijsblauw, "Zoetwater_estuarium" = inbo_lichtblauw,
+               "Natuur" = inbo_groen, "Akker_grasland" = inbo_geelgr,
+               "Stedelijk_bebouwd_gebied" = inbo_rood),
+    labels = c("Stedelijk en bebouwd gebied", "Akker en grasland",
+               "Terrestrische natuur", "Zoetwater en estuarium", "Zee")
+  ) +
+  theme(
+    axis.title = element_text(margin = margin(t = 0, r = 0, b = 0, l = 0),
+                              hjust = 0),
+    axis.text.y = element_text(color = colorx),
+    legend.title = element_blank(),
+    legend.key.size = unit(0.3, "cm")
+  ) +
+  guides(fill = guide_legend(ncol = 3))
+
+p <- p + coord_flip() + theme(
+  panel.grid.major.y = element_blank(),
+  panel.grid.major.x = element_line(size = .1, color = "black")
+)
+
+p
+```
+
+
+## Definitie
+
+De ecosysteemvoorraad (*ecosystem extent*) [(zie fiche Landgebruiksverandering - Ecosysteemvoorraad Corine)](https://www.vlaanderen.be/inbo/backgroundindicatoren/landgebruiksverandering-ecosysteemvoorraad-corine) is een maat voor de omvang van het natuurlijk kapitaal van een gebied op basis van de oppervlakte van verschillende types bodembedekking en landgebruik [@costanza_goals_1991; @costanza_natural_1992; @daily_value_2000; @eea_land_2006; @eea_natural_2018; @ekins_four-capital_1992].
+Landgebruiksveranderingen leiden tot toe- of afnames van ecosysteemvoorraden.
+Deze indicator (Figuur 1) vergelijkt de ecosysteemvoorraad van Vlaanderen met die van negen andere sociaal-economische topregio's in de Europese Unie. 
+
+## Bespreking
+
+De toename van stedelijk en bebouwd gebied en de afname van landbouwareaal waren de voorbije 25 jaar de dominante landgebruiksveranderingen in heel Europa [@eea_european_2005,p.p.41; @eea_state_2020, p.p.118].
+Vlaanderen is hierin een koploper binnen de Europese Unie (zie Figuur 2). 
+We vergeleken de urbanisatie in Vlaanderen met die in negen Europese NUTS1-regio’s ^[NUTS of Nomenclature d’Unités Territoriales Statistiques is een gestandaardiseerde classificatie van landen en regio’s die wordt gebruikt binnen de Europese Unie voor statistische ruimtelijke analyses. NUTS-1 omvat 92 regio’s, net onder het nationale niveau, zoals het Vlaams, het Brussels Hoofdstedelijk en het Waals Gewest. NUTS-2 vertegenwoordigt het niveau van de provincies. Kleinere landen zonder gewestelijke indeling, zoals Denemarken, Ierland en het Groothertogdom Luxemburg, worden ook op NUTS-1-niveau geplaatst.] die qua bevolkingsdichtheid, welvaartspeil en oppervlakte de meeste gelijkenis vertonen met Vlaanderen.
+
+Van deze ‘sociaal-economische topregio’s’ bleek Vlaanderen in 2018 veruit het hoogste aandeel stedelijk en bebouwd gebied te hebben, en het laagste aandeel terrestrische natuurlijke ecosystemen (bos en struweel, halfnatuurlijk grasland, heide en landduinen, moeras, en kustduinen en strand).
+
+De bevolkingsdichtheid in regio’s als West-Nederland of Nordrhein-Westfalen is vergelijkbaar met of hoger dan die in Vlaanderen (zie Figuur 2) maar het aandeel stedelijk en bebouwd gebied is er lager.
+Zij gebruiken voor het huisvesten van hun bevolking en het uitvoeren van hun economische activiteiten hun ruimte efficiënter.
+
+```{r relatie urbanisatie-bevolkingsdichtheid, echo =  FALSE, fig.width = 8, fig.height = 4, fig.cap = "Figuur 2. Bevolkingsdichtheid en urbanisatie in Vlaanderen en 9 andere sociaal-economische topregio's in 2018 (Bron: Corine, Eurostat). Deze figuur verwijst naar Figuur 9 in het Natuurrapport 2020.", fig.pos = "H"}
+test <- function(x) formattable::percent(x, 0) / 100
+labelregio <- c("Comunidad de Madrid", "Hessen", "Nordrhein-Westfalen",
+                "Oost-Nederland", "Ostösterreich", "Southeast England",
+                "Vlaams Gewest", "West-Nederland", "Zuid-Nederland",
+                "Île-de-France")
+
+t <- ggplot(gegevens2, aes(x = Bevolkingsdichtheid, y = Urbanisatie,
+                           label = labelregio)) +
+  geom_point(aes(color = Type, size = Type)) +
+  scale_size_manual(values = c(2, 2.5)) +
+  scale_color_manual(values = c(inbo_grijs, inbo_hoofd)) +
+  scale_y_continuous(
+    expand = c(0, 0),
+    labels = test,
+    limits = c(0, 32),
+    breaks = c(5, 10, 15, 20, 25, 30)
+  ) +
+  scale_x_continuous(
+    expand = c(0, 0),
+    limits = c(0, 1050),
+    breaks = c(0, 200, 400, 600, 800, 1000)
+  ) +
+  xlab(expression(BEVOLKINGSDICHTHEID ~ (inwoners / km^2))) +
+  ylab("AANDEEL STEDELIJK EN BEBOUWD GEBIED (%)") +
+  theme(
+    axis.title.y = element_text(margin = margin(t = 0, r = 10, b = 0, l = 0),
+                                hjust = 0),
+    axis.title.x = element_text(margin = margin(t = 10, r = 0, b = 0, l = 0),
+                                hjust = 0.5),
+    legend.position = "none",
+    panel.grid.major.x = element_line(size = .1, color = "black")
+  )
+
+p <- t + geom_text_repel(size = 5)
+
+p
+```
+
+Regio's als Zuid-Nederland, West-Nederland en Nordhrein-Westfalen hebben per hoofd van de bevolking een economisch welvaartspeil vergelijkbaar met of hoger dan dat in Vlaanderen (zie Figuur 3), maar een (veel) lager aandeel stedelijk en bebouwd gebied. Zij realiseren met een lagere urbanisatie dus een vergelijkbare of hogere economische performantie.
+
+```{r relatie urbanisatie-welvaart, echo =  FALSE, fig.width = 8, fig.height = 4, fig.cap = "Figuur 3. Economische welvaart  en urbanisatie in Vlaanderen en 9 andere sociaal-economische topregio's in 2018 (Bron: Corine, Eurostat).", fig.pos = "H"}
+test <- function(x) formattable::percent(x, 0) / 100
+labelregio <- c("Comunidad de Madrid", "Hessen", "Nordrhein-Westfalen",
+                "Oost-Nederland", "Ostösterreich", "Southeast England",
+                "Vlaams Gewest", "West-Nederland", "Zuid-Nederland",
+                "Île-de-France")
+
+t <- ggplot(gegevens3, aes(x = Urbanisatie, y = Welvaartspeil,
+                           label = labelregio)) +
+  geom_point(aes(color = Type, size = Type)) +
+  scale_size_manual(values = c(2, 2.5)) +
+  scale_color_manual(values = c(inbo_grijs, inbo_hoofd)) +
+  scale_y_continuous(
+    expand = c(0, 0),
+    limits = c(95, 205),
+    breaks = c(100, 125, 150, 175, 200)
+  ) +
+  scale_x_continuous(
+    expand = c(0, 0),
+    labels = test,
+    limits = c(0, 32),
+    breaks = c(5, 10, 15, 20, 25, 30)
+  ) +
+  xlab("AANDEEL STEDELIJK EN BEBOUWD GEBIED (%)") +
+  ylab("WELVAARTSPEIL (bbp/capita)") +
+  theme(
+    axis.title.y = element_text(family = "Helvetica", size = 18,
+                                margin = margin(t = 0, r = 10, b = 0, l = 0),
+                                hjust = 0),
+    axis.title.x = element_text(family = "Helvetica", size = 18,
+                                margin = margin(t = 10, r = 0, b = 0, l = 0),
+                                hjust = 0.5),
+    axis.text = element_text(family = "Helvetica", size = 18),
+    legend.position = "none",
+    panel.grid.major.x = element_line(size = .1, color = "black")
+  )
+
+p <- t + geom_text_repel(size = 6)
+
+p
+```
+
+
+## Referenties

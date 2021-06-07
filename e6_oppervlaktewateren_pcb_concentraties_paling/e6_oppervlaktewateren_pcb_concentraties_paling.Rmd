@@ -1,0 +1,88 @@
+---
+title: "Oppervlaktewateren - PCB concentraties in paling"
+date: 2020-07-01T10:00:00
+bibliography: ../references.bib
+link-citations: TRUE
+hoofdstuk: 5
+thema:
+  - Water
+keywords:
+  - paling
+  - pcb concentraties
+  - bioaccumulatie
+lang: nl
+tab: indicator
+verantwoordelijke:
+- Helen Michels <Helen.michels@inbo.be>
+output: html_document
+---
+
+```{r setup, include=FALSE}
+library(knitr)
+opts_chunk$set(
+  message = FALSE,
+  warning = FALSE,
+  echo = FALSE
+)
+library(tidyverse)
+library(git2rdata)
+library(plotly)
+library(INBOtheme)
+library(htmlwidgets)
+
+set.seed(20200520)
+setWidgetIdSeed(20200520)
+options(htmlwidgets.TOJSON_ARGS = list(pretty = TRUE))
+
+theme_set(theme_nara()) # het nara-kleurenpallet selecteren
+switch_colour(inbo_hoofd) # het INBO-kleurenpallet activeren
+```
+De concentratie van polychloorbifenylen in spierweefsel van paling is nog steeds te hoog in de periode 2015-2018. 
+
+```{r data_inlezen voor figuur 106, results = "hide" }
+# data formating voor figuur 106
+pcbgegevens <- read_vc("data_pcb_2015_2018")
+
+pcbgegevens <- pcbgegevens %>%
+  mutate(p = as.factor(klasse)) %>%
+  mutate(klasse = factor(klasse, , ordered = TRUE,
+                         levels = c("niet afwijkend (< 603 ng/g vet)",
+                                    "licht afwijkend (603 - 1514 ng/g vet)",
+                                    "afwijkend (1514 - 3804 ng/g vet)",
+                                    "sterk afwijkend (>3804 ng/g vet)")))
+
+pcbgegevens <- pcbgegevens %>%
+  mutate(prop = aantal_meetplaatsen / sum(aantal_meetplaatsen) * 100) %>%
+  mutate(prop = round(x = prop, digits = 0)) %>%
+  mutate(label1 = scales::percent(prop / 100, accuracy = 1)) %>%
+  mutate(label2 = paste0(klasse, " \n", label1)) %>%
+  arrange(desc(klasse)) %>%
+  mutate(lab.ypos = cumsum(prop) - 0.5 * prop)
+```
+```{r staafdiagram, fig.width = 10, fig.height = 5, fig.cap = "Figuur 1: Procentuele klassenverdeling van PCB-concentraties in spierweefsel van paling (op vetbasis) in de periode 2015-2018 Bron: ([@teunen_veldstudies_2020-1]). Deze figuur komt overeen met figuur 106 in het Natuurrapport 2020. "}
+colors <- c(inbo_rood, inbo_oranje, inbo_geelgr, inbo_lichtblauw)
+fig <- plot_ly(pcbgegevens, labels = ~klasse, values = ~prop,
+               hoverinfo = "label", marker = list(
+  colors = colors,
+  line = list(color = "#FFFFFF", width = 1)
+), direction = "clockwise") # Ik heb er voor gekozen om enkel de labels te
+#tonen en dus niet de waarden omdat deze reeds in de figuur staan
+fig <- fig %>% add_pie(hole = 0.6) # maakt een gat in de figuur zodat de figuur
+#een donut wordt
+fig <- fig %>% layout(xaxis = list(showgrid = FALSE, zeroline = FALSE,
+                                   showticklabels = FALSE))
+fig
+```
+
+## Definitie
+Polychloorbifenylen (PCB's) zijn persistente polluenten die zich kunnen opstapelen doorheen de verschillende lagen van de voedselketen.
+Door hun vetminnend karakter stapelen zich op in vetweefsel van mens en dier en zijn ze uitermate schadelijk.
+
+## Bespreking
+De Kaderrichtlijn Water heeft voor een aantal toxische stoffen, waaronder PCB's kwaliteitsnormen voor biota vastegelegd.
+De PCB-concentraties in het spierweefsel van paling lagen in de periode 2015-2018 tussen 10 en 4292 ng/g natgewicht (mediaan 420 ng/g natgewicht).
+Dat is lager dan de concentraties in palingen gevangen in de periode tussen 1994-2005, namelijk 3,5-12.455 ng/g natgewicht (mediaan 605 ng/g natgewicht).
+De daling is echter onvoldoende.
+In de periode 2015-2018 scoort 68 procent van de 41 meetplaatsen slecht tot zeer slecht en 51 procent van de metingen overschrijdt nog altijd de humane consumptienorm [@teunen_veldstudies_2020-1].
+
+## Referenties

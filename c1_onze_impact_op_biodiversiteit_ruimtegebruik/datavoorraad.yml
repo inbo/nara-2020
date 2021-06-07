@@ -1,0 +1,19 @@
+..generic:
+  git2rdata: 0.2.1
+  optimize: no
+  NA string: NA
+  sorting: NUTS1regio
+  hash: f8bc5f1122734372a57a12e4fa65b3ff5aa68cb8
+  data_hash: e8afb2e294667a1ab70fa943d19f1e3a69a06921
+NUTS1regio:
+  class: character
+Stedelijk_bebouwd_gebied:
+  class: integer
+Akker_grasland:
+  class: integer
+Natuur:
+  class: integer
+Zoetwater_estuarium:
+  class: integer
+Zee:
+  class: integer

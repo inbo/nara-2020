@@ -1,0 +1,183 @@
+---
+title: "Bescherming en beheer in Vlaanderen - Oppervlakte juridisch beschermd"
+date: 2020-07-01T10:00:00
+bibliography: ../references.bib
+link-citations: TRUE
+hoofdstuk:
+- 3
+- 5
+thema:
+  - Beschermde natuur
+keywords:
+  - juridische bescherming
+  - ecosystemen
+lang: nl
+tab: indicator
+verantwoordelijke:
+- Inne Vught <inne.vught@inbo.be>
+output: html_document
+---
+
+```{r setup, include=FALSE}
+library(knitr)
+opts_chunk$set(
+  message = FALSE,
+  warning = FALSE,
+  echo = FALSE
+)
+library(tidyverse)
+library(git2rdata)
+library(plotly)
+library(INBOtheme)
+library(htmlwidgets)
+
+set.seed(20200520)
+setWidgetIdSeed(20200520)
+options(htmlwidgets.TOJSON_ARGS = list(pretty = TRUE))
+```
+
+```{r data_inlezen}
+gegevens <- read_vc("bescherming")
+```
+
+In zesentwintig procent van de oppervlakte van Vlaanderen is natuur juridisch beschermd.
+Veertien procent van Vlaanderen ligt binnen gebieden met een (inter)nationaal beschermingsstatuut, waaronder reservaten (twee procent van Vlaanderen).
+
+```{r omvormen gegevens}
+gegevens <- gegevens %>%
+  mutate(Beschermingscategorie = as.factor(Beschermingscategorie)) %>%
+  mutate(Beschermingscategorie = factor(Beschermingscategorie,
+    ordered = TRUE,
+    levels = c(
+      "rest", "Extra opp. andere beschermingsregimes",
+      "Extra opp. beschermd gebied geen reservaat",
+      "Oppervlakte natuur- of bosreservaat"
+    ),
+    labels = c(
+      "rest", "Extra opp. andere beschermingsregimes",
+      "Extra opp. beschermd gebied geen reservaat",
+      "Oppervlakte natuur- of bosreservaat"
+    )
+  )) %>%
+  mutate(Ecosysteem = as.factor(Ecosysteem)) %>%
+  mutate(Ecosysteem = factor(Ecosysteem,
+    ordered = TRUE,
+    levels = c(
+      "Stedelijk en bebouwd gebied", "Stilstaande wateren", "Rivieren",
+      "Estuaria, slikken en schorren", "Akker",
+      "Productie en overige graslanden",
+      "Halfnatuurlijke graslanden", "Kustduinen en strand", "Moeras",
+      "Heide en landduinen", "Bos", "Vlaanderen"
+    ),
+    labels = c(
+      "Stedelijk en bebouwd gebied", "Stilstaande wateren", "Rivieren",
+      "Estuaria, slikken en schorren", "Akker",
+      "Productie en overige graslanden",
+      "Halfnatuurlijke graslanden", "Kustduinen en strand", "Moeras",
+      "Heide en landduinen", "Bos", "Vlaanderen"
+    )
+  ))
+gegevens <- gegevens %>%
+  group_by(Ecosysteem) %>%
+  mutate(Ecosysteem = recode(Ecosysteem, "Rivieren" = "Rivieren*")) %>%
+  mutate(prop = Waarde / sum(Waarde)) %>%
+  ungroup()
+
+gegevens <- gegevens %>%
+  filter(!Beschermingscategorie == "rest")
+```
+
+```{r staafdiagram, fig.width = 10, fig.height = 4, fig.cap = "Figuur 1. Oppervlakteaandeel gelegen in een zone waarbinnen natuur één of andere vorm van juridische bescherming geniet. Deze figuur verwijst naar figuur 24 in het Natuurrapport 2020."}
+p <- ggplot(gegevens, aes(x = Ecosysteem, y = prop,
+                          fill = Beschermingscategorie,
+                          text = paste(
+    "Aandeel:", scales::percent(prop, accuracy = 0.1)
+    )
+    )) +
+  geom_bar(stat = "identity", width = 0.5) +
+  labs(x = "", y = "CUMULATIEF AANDEEL MET NATUURBESCHERMINGSTATUUT (%)") +
+  scale_y_continuous(
+    expand = c(0, 0), labels = scales::percent_format(accuracy = 1),
+    limits = c(0, 1)
+  ) +
+  scale_fill_manual(
+    breaks = c(
+      "Oppervlakte natuur- of bosreservaat", "Extra opp. beschermd gebied
+      geen reservaat",
+      "Extra opp. andere beschermingsregimes"
+    ),
+    values = c(
+      "Extra opp. andere beschermingsregimes" = inbo_steun_geelgroen,
+      "Extra opp. beschermd gebied geen reservaat" = inbo_steun_blauw,
+      "Oppervlakte natuur- of bosreservaat" = inbo_hoofd
+    ),
+    labels = c(
+      "Aandeel natuurreservaten",
+      "Extra aandeel gebieden met een (inter)nationaal beschermingsstatuut ander
+      dan natuurreservaat", "Extra aandeel andere beschermingsmaatregelen buiten
+      'beschermde' gebieden"
+    )
+  ) +
+  theme(
+    axis.title = element_text(margin = margin(t = 0, r = 0, b = 0, l = 0),
+                              hjust = 0),
+    axis.text = element_text(),
+    axis.ticks.y = element_blank(),
+    legend.text = element_text(margin = margin(t = 2)),
+    legend.spacing = unit(0.1, "cm"),
+    legend.title = element_blank(),
+    panel.grid.major.y = element_blank(),
+    panel.grid.major.x = element_line(colour = "grey", linetype = "dotted"),
+    legend.key.size = unit(0.3, "cm")
+  ) +
+  coord_flip()
+
+if (interactive() || opts_knit$get("rmarkdown.pandoc.to") == "html") {
+  ggplotly(p, tooltip = c("Ecosysteem", "Beschermingscategorie", "text")) %>%
+    plotly::config(
+      modeBarButtonsToRemove = list(
+        "lasso2d", "select2d", "hoverClosestCartesian",
+        "hoverCompareCartesian", "toggleSpikelines"
+      ),
+      displaylogo = FALSE
+    )
+} else {
+  p
+}
+```
+
+## Definitie
+
+De indicator toont voor heel Vlaanderen en per ecosysteem het oppervlakteaandeel (lengteaandeel bij rivieren) waarbinnen natuur een of andere vorm van juridische bescherming geniet. We onderscheiden drie beschermingscategorieën:
+
+1. natuur- of bosreservaten
+2. beschermde gebieden met een ander (inter)nationaal beschermingsstatuut dan de reservaten
+3. bescherming door andere maatregelen buiten de genoemde beschermde gebieden
+
+De mate en wijze van bescherming verschillen sterk tussen de drie categorieën.
+
+## Bespreking
+
+In ongeveer 26% van Vlaanderen geniet natuur een of andere vorm van juridische bescherming
+
+Twee procent van Vlaanderen bestaat uit natuurreservaten. Het gaat om Vlaamse natuurreservaten, erkende natuurreservaten, Vlaamse en erkende bosreservaten en gebieden met een natuurbeheerplan type 4.
+Binnen deze gebieden is natuur het meest strikt beschermd.
+Niet alleen zijn bepaalde activiteiten er verboden, de reservaten worden ook actief beheerd om natuur in stand te houden of verder te ontwikkelen.
+
+Een extra 12% van Vlaanderen ligt binnen gebieden met een ander (inter)nationaal beschermingsstatuut.
+Het gaat om Speciale Beschermingszones (SBZ), het Vlaams Ecologisch Netwerk (VEN), de Ramsar-gebieden en de beschermde duingebieden.
+Binnen deze gebieden geniet natuur extra bescherming via vastgestelde gebiedsgerichte beschermingsbepalingen.
+
+Ook buiten bovengenoemde beschermde gebieden, die samen 14% van Vlaanderen bestrijken, wordt natuur juridisch beschermd.
+Op een extra 12% van Vlaanderen wordt natuur beschermd door andere juridische instrumenten.
+Het gaat om bescherming van bossen door het Bosdecreet en om de bescherming van vegetaties en kleine landschapselementen door middel van een verbod of omgevingsvergunningsplicht op bepaalde vegetatiewijzigingen [(Vegetatiebesluit van 23/7/1998)](https://codex.vlaanderen.be/Zoeken/Document.aspx?DID=1006311&param=inhoud&ref=search&AVIDS=).
+
+Bijna de volledige oppervlakte van de meest natuurlijke ecosystemen, zoals heide, moerassen en estuaria, slikken en schorren,  is  juridisch beschermd in Vlaanderen.
+Ook de kustduinen zijn goed beschermd, de bescherming van het strand daarentegen is beperkt tot enkele zones.
+Van de halfnatuurlijke graslanden is slechts 67%  beschermd door natuurwetgeving.
+Een deel van de resterende oppervlakte wordt wel beschermd in navolging van de landbouwwetgeving.
+Bossen zijn in principe beschermd door het Bosdecreet.
+Het bosecosysteem van de landgebruikskaart omvat naast het bos dat voldoet aan de juridische definitie van bos echter ook ander opgaand groen, zoals bomenrijen en houtkanten.
+Deze vallen buiten de juridische bescherming van het Bosdecreet.
+De bescherming van de rivieren en stilstaande oppervlaktewateren ligt grotendeels vervat in het Decreet Integraal Waterbeleid en de acties uit de stroomgebiedbeheerplannen.
+De beschermingsgraad ligt in werkelijkheid hoger dan weergegeven in bovenstaande figuur.

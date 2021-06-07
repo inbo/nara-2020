@@ -1,0 +1,38 @@
+..generic:
+  git2rdata: 0.2.1
+  optimize: no
+  NA string: NA
+  sorting: LandCover
+  hash: 533bb78e0fb7a1f2f8788cf4799411ded82d75b3
+  data_hash: a18b9319e0517c73b5186a266f1d92a388c86081
+LandCover:
+  class: factor
+  labels:
+  - Crop
+  - Dune
+  - Estu
+  - For
+  - Gras
+  - Heath
+  - Marsh
+  - Sea
+  - Urb
+  - Water
+  index:
+  - 1
+  - 2
+  - 3
+  - 4
+  - 5
+  - 6
+  - 7
+  - 8
+  - 9
+  - 10
+  ordered: no
+OpeningStock:
+  class: numeric
+Loss:
+  class: numeric
+Gain:
+  class: numeric

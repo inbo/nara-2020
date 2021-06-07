@@ -1,0 +1,111 @@
+..generic:
+  git2rdata: 0.2.1
+  optimize: no
+  NA string: NA
+  sorting: IDPlots
+  hash: 7ec3ce2beb37022a85414724d297adbce6268586
+  data_hash: 2fb724a2bce534a734caa941eb8939303926e26a
+IDPlots:
+  class: numeric
+IDGroup:
+  class: character
+Periode:
+  class: numeric
+PlotWeight:
+  class: numeric
+v40_L:
+  class: numeric
+v41_N:
+  class: numeric
+v42_R:
+  class: numeric
+v43_V:
+  class: numeric
+v44_T:
+  class: numeric
+NbHerbL:
+  class: numeric
+OwnerType:
+  class: factor
+  labels:
+  - Private
+  - Public
+  index:
+  - 1
+  - 2
+  ordered: no
+ForestAge:
+  class: factor
+  labels:
+  - recent
+  - oud
+  index:
+  - 1
+  - 2
+  ordered: no
+Frag:
+  class: numeric
+fPeriode:
+  class: factor
+  labels:
+  - '1'
+  - '2'
+  index:
+  - 1
+  - 2
+  ordered: no
+fpnv:
+  class: factor
+  labels:
+  - '12'
+  - '14'
+  - '20'
+  - '23'
+  - '40'
+  - '43'
+  - '50'
+  - '68'
+  - '69'
+  - '78'
+  - '79'
+  index:
+  - 1
+  - 2
+  - 3
+  - 4
+  - 5
+  - 6
+  - 7
+  - 8
+  - 9
+  - 10
+  - 11
+  ordered: no
+fpnvGroup:
+  class: factor
+  labels:
+  - Arm Eiken-beukenbos
+  - Eiken-beukenbos
+  - Eiken-haagbeukenbos
+  - Elzen-vogelkersbos
+  - Elzenbroekbos
+  - Wilgenvloedbos
+  index:
+  - 1
+  - 2
+  - 3
+  - 4
+  - 5
+  - 6
+  ordered: no
+Rand:
+  class: factor
+  labels:
+  - Rand
+  - Volledig in bos
+  index:
+  - 1
+  - 2
+  ordered: no
+FragInv:
+  class: numeric

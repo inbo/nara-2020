@@ -1,0 +1,4111 @@
+---
+title: "Multisoortenindex voor plantensoorten in Vlaanderen"
+date: 2020-07-01T10:00:00
+bibliography: ../references.bib
+link-citations: TRUE
+hoofdstuk: 
+  - 3
+  - 4
+  - 5
+thema:
+  - Natuur & maatschappij
+  - Klimaat
+  - Landbouw
+  - Beschermde natuur
+  - Water
+keywords:
+  - MSI
+  - multisoortenindex
+  - planten
+  - flora
+  - biodiversiteit
+lang: nl
+tab: indicator
+verantwoordelijke:
+- Anik Schneiders <anik.schneiders@inbo.be>
+output: html_document
+---
+
+```{r setup, include=FALSE}
+library(knitr)
+opts_chunk$set(
+  message = FALSE,
+  warning = FALSE,
+  echo = FALSE
+)
+library(tidyverse)
+library(git2rdata)
+library(plotly)
+library(tidyverse)
+library(INBOtheme)
+library(htmlwidgets)
+set.seed(20200520)
+setWidgetIdSeed(20200520)
+options(htmlwidgets.TOJSON_ARGS = list(pretty = TRUE))
+```
+
+```{r data_inlezen}
+tbleffect <- read_vc("tbleffect") %>%
+  mutate(effect_lbl = recode(effect_coarse,
+    "-" = "Afname",
+    "+" = "Toename",
+    "~" = "Stabiel",
+    "?" = "Onzeker"
+  ))
+tbltrend <- read_vc("tbltrend")
+
+## Alle soorten ##############################
+msi_all <- tbltrend %>%
+  filter(is.na(Kenmerk), period_start == 1950)
+msi_allbar <- tbleffect %>%
+  filter(is.na(Kenmerk), period_start == 1950) %>%
+  mutate(tot = sum(n), prop = n / tot) %>%
+  mutate(effect_lbl = fct_relevel(
+    effect_lbl,
+    "Toename",
+    "Stabiel",
+    "Afname",
+    "Onzeker"
+  )) %>%
+  mutate(effect_lbl = factor(effect_lbl,
+    ordered = TRUE,
+    levels = c(
+      "Toename",
+      "Stabiel",
+      "Afname",
+      "Onzeker"
+    )
+  )) %>%
+  arrange(desc(effect_lbl)) %>%
+  mutate(lab.xpos = cumsum(prop) - 0.5 * prop)
+onzeker <- msi_allbar %>%
+  filter(effect_lbl == "Onzeker")
+afname <- msi_allbar %>%
+  filter(effect_lbl == "Afname")
+stabiel <- msi_allbar %>%
+  filter(effect_lbl == "Stabiel")
+toename <- msi_allbar %>%
+  filter(effect_lbl == "Toename")
+
+## Klimaat ##############################
+
+msi_clim <- tbltrend %>%
+  filter(
+    Kenmerk == "Ellenberg Temperatuur hergroepering",
+    period_start == 1950
+  )
+msi_climbar <- tbleffect %>%
+  filter(
+    Kenmerk == "Ellenberg Temperatuur hergroepering",
+    period_start == 1950
+  ) %>%
+  group_by(Omschrijving) %>%
+  mutate(tot = sum(n), prop = n / tot) %>%
+  mutate(effect_lbl = fct_relevel(
+    effect_lbl,
+    "Toename",
+    "Stabiel",
+    "Afname",
+    "Onzeker"
+  )) %>%
+  arrange(desc(effect_lbl)) %>%
+  mutate(lab.xpos = cumsum(prop) - 0.5 * prop)
+onzeker_climbar <- msi_climbar %>%
+  filter(effect_lbl == "Onzeker")
+afname_climbar <- msi_climbar %>%
+  filter(effect_lbl == "Afname")
+stabiel_climbar <- msi_climbar %>%
+  filter(effect_lbl == "Stabiel")
+toename_climbar <- msi_climbar %>%
+  filter(effect_lbl == "Toename")
+
+## Ecosystemen ##############################
+msi_eco <- tbltrend %>%
+  filter(
+    Kenmerk == "habitatgroep (ecotopen)",
+    period_start == 1950
+  )
+msi_ecobar <- tbleffect %>%
+  filter(
+    Kenmerk == "habitatgroep (ecotopen)",
+    period_start == 1950
+  ) %>%
+  group_by(Omschrijving) %>%
+  mutate(tot = sum(n), prop = n / tot) %>%
+  mutate(effect_lbl = fct_relevel(
+    effect_lbl,
+    "Toename",
+    "Stabiel",
+    "Afname",
+    "Onzeker"
+  )) %>%
+  arrange(desc(effect_lbl)) %>%
+  mutate(lab.xpos = cumsum(prop) - 0.5 * prop)
+onzeker_ecobar <- msi_ecobar %>%
+  filter(effect_lbl == "Onzeker")
+afname_ecobar <- msi_ecobar %>%
+  filter(effect_lbl == "Afname")
+stabiel_ecobar <- msi_ecobar %>%
+  filter(effect_lbl == "Stabiel")
+toename_ecobar <- msi_ecobar %>%
+  filter(effect_lbl == "Toename")
+
+
+## Vermesting en verzuring ##############################
+msi_mest <- tbltrend %>%
+  filter(
+    Kenmerk == "Ellenberg Stikstof hergroepering",
+    period_start == 1950
+  )
+msi_mestbar <- tbleffect %>%
+  filter(
+    Kenmerk == "Ellenberg Stikstof hergroepering",
+    period_start == 1950
+  ) %>%
+  group_by(Omschrijving) %>%
+  mutate(tot = sum(n), prop = n / tot) %>%
+  mutate(effect_lbl = fct_relevel(
+    effect_lbl,
+    "Toename",
+    "Stabiel",
+    "Afname",
+    "Onzeker"
+  )) %>%
+  arrange(desc(effect_lbl)) %>%
+  mutate(lab.xpos = cumsum(prop) - 0.5 * prop)
+onzeker_mestbar <- msi_mestbar %>%
+  filter(effect_lbl == "Onzeker")
+afname_mestbar <- msi_mestbar %>%
+  filter(effect_lbl == "Afname")
+stabiel_mestbar <- msi_mestbar %>%
+  filter(effect_lbl == "Stabiel")
+toename_mestbar <- msi_mestbar %>%
+  filter(effect_lbl == "Toename")
+
+
+msi_zuur <- tbltrend %>%
+  filter(
+    Kenmerk == "Ellenberg Reactiegetal hergroepering",
+    period_start == 1950
+  )
+msi_zuurbar <- tbleffect %>%
+  filter(
+    Kenmerk == "Ellenberg Reactiegetal hergroepering",
+    period_start == 1950
+  ) %>%
+  group_by(Omschrijving) %>%
+  mutate(tot = sum(n), prop = n / tot) %>%
+  mutate(effect_lbl = fct_relevel(
+    effect_lbl,
+    "Toename",
+    "Stabiel",
+    "Afname",
+    "Onzeker"
+  )) %>%
+  arrange(desc(effect_lbl)) %>%
+  mutate(lab.xpos = cumsum(prop) - 0.5 * prop)
+onzeker_zuurbar <- msi_zuurbar %>%
+  filter(effect_lbl == "Onzeker")
+afname_zuurbar <- msi_zuurbar %>%
+  filter(effect_lbl == "Afname")
+stabiel_zuurbar <- msi_zuurbar %>%
+  filter(effect_lbl == "Stabiel")
+toename_zuurbar <- msi_zuurbar %>%
+  filter(effect_lbl == "Toename")
+
+
+## Waterplanten ##############################
+msi_water <- tbltrend %>%
+  filter(
+    Kenmerk == "Ellenberg Vocht hergroepering",
+    period_start == 1950
+  )
+msi_waterbar <- tbleffect %>%
+  filter(
+    Kenmerk == "Ellenberg Vocht hergroepering",
+    period_start == 1950
+  ) %>%
+  group_by(Omschrijving) %>%
+  mutate(tot = sum(n), prop = n / tot) %>%
+  mutate(effect_lbl = fct_relevel(
+    effect_lbl,
+    "Toename",
+    "Stabiel",
+    "Afname",
+    "Onzeker"
+  )) %>%
+  arrange(desc(effect_lbl)) %>%
+  mutate(lab.xpos = cumsum(prop) - 0.5 * prop)
+onzeker_waterbar <- msi_waterbar %>%
+  filter(effect_lbl == "Onzeker")
+afname_waterbar <- msi_waterbar %>%
+  filter(effect_lbl == "Afname")
+stabiel_waterbar <- msi_waterbar %>%
+  filter(effect_lbl == "Stabiel")
+toename_waterbar <- msi_waterbar %>%
+  filter(effect_lbl == "Toename")
+```
+
+De multisoortenindex of MSI voor plantensoorten vertoont sinds 1950 een stabiele trend. Van de algemene plantensoorten gaan er 167 soorten beduidend op vooruit, versus 205 soorten die  achteruitgaan. Bij de winnaars zitten warmteminnende soorten en soorten van voedselrijke habitats, bij de verliezers soorten van voedselarme graslanden en aquatische soorten.
+
+
+```{r interactieve figuur all, fig.cap = "Figuur 1. Multisoortenindex (MSI) voor plantensoorten in de periode 1950-2018 in Vlaanderen. De grafiek toont de gemodelleerde trend en het 95% betrouwbaarheidsinterval. Het jaar 2000 (blauwe lijn) is het referentiejaar (100%). De balk rechts toont het aantal soorten dat significant voor- of achteruitgaat, stabiel blijft of een onzekere trend vertoont ten opzichte van 1950. Deze figuur verwijst naar figuur 11 in het Natuurrapport 2020."}
+f1 <- list(
+  color = "rgb(0, 0, 0)",
+  size = 12
+)
+f2 <- list(
+  color = "rgb(0, 0, 0)",
+  size = 14
+)
+
+hline <- function(y = 0, color = "rgb(0, 0, 0, 0.6)") {
+  list(
+    type = "line",
+    x0 = 0,
+    x1 = 1,
+    xref = "paper",
+    y0 = y,
+    y1 = y,
+    opacity = 0.1,
+    line = list(color = color, dash = "dash")
+  )
+}
+
+vline <- function(x = 0, color = inbo_steun_blauw) {
+  list(
+    type = "line",
+    y0 = 0.05,
+    y1 = 0.95,
+    yref = "paper",
+    x0 = x,
+    x1 = x,
+    line = list(color = color)
+  )
+}
+a <- list(
+  title = "",
+  showgrid = TRUE,
+  showline = FALSE,
+  showticklabels = TRUE,
+  tickfont = f1,
+  ticks = "outside",
+  tickmode = "array",
+  tickvals = list(1950, 1960, 1970, 1980, 1990, 2000, 2010, 2020),
+  range = c(1950, 2022),
+  zeroline = FALSE
+)
+e <- list(
+  title = "",
+  showgrid = TRUE,
+  showline = FALSE,
+  showticklabels = FALSE,
+  tickfont = f1,
+  tickmode = "array",
+  tickvals = list(1950, 1960, 1970, 1980, 1990, 2000, 2010, 2020),
+  range = c(1950, 2022),
+  showticks = FALSE,
+  zeroline = FALSE
+)
+b <- list(
+  title = "",
+  showgrid = TRUE,
+  showline = FALSE,
+  showticklabels = TRUE,
+  tickcolor = "rgb(127, 127, 127)",
+  tickformat = "%",
+  ticks = "outside",
+  tickmode = "array",
+  tickvals = list(0.33, 0.5, 0.75, 1, 1.33, 2),
+  tickfont = f1,
+  titlefont = f2,
+  range = c(0.28, 2),
+  zeroline = FALSE
+)
+
+f <- list(
+  title = "",
+  showgrid = TRUE,
+  showline = FALSE,
+  showticklabels = TRUE,
+  tickcolor = "rgb(127, 127, 127)",
+  tickformat = "%",
+  ticks = "outside",
+  tickmode = "array",
+  tickvals = list(0.33, 0.5, 0.75, 1, 1.33, 2, 3.33),
+  tickfont = f1,
+  titlefont = f2,
+  range = c(0.28, 3.35),
+  zeroline = FALSE
+)
+c <- list(
+  title = "",
+  showgrid = FALSE,
+  showline = FALSE,
+  showticklabels = FALSE,
+  autorange = "reversed",
+  tickcolor = "rgb(255, 255, 255)",
+  zeroline = FALSE
+)
+
+d <- list(
+  title = "",
+  gridcolor = "rgb(0, 0, 0)",
+  showgrid = FALSE,
+  showline = FALSE,
+  showticklabels = TRUE,
+  tickcolor = "rgb(127, 127, 127)",
+  tickformat = "%",
+  tickfont = f1,
+  ticks = "outside",
+  side = "right",
+  zeroline = FALSE
+)
+
+q <- c("25%", "33%", "50%", "75%", "100%", "133%", "200%")
+
+fig1 <- plot_ly(msi_all,
+  x = ~Jaar,
+  y = ~expmean_upr,
+  type = "scatter",
+  mode = "lines",
+  line = list(color = "transparent"),
+  showlegend = FALSE,
+  name = "bovengrens 95% betrouwbaarheidsinterval",
+  hoverinfo = "text"
+) %>%
+  style(hoverinfo = "none") %>%
+  add_trace(
+    y = ~expmean_lwr,
+    type = "scatter",
+    mode = "lines",
+    fill = "tonexty",
+    fillcolor = toRGB(inbo_rood, 0.2),
+    line = list(color = "transparent"),
+    showlegend = FALSE,
+    name = "ondergrens 95% betrouwbaarheidsinterval",
+    hoverinfo = "text"
+  ) %>%
+  style(hoverinfo = "none") %>%
+  add_trace(
+    y = ~expmean_est,
+    type = "scatter",
+    mode = "lines",
+    line = list(color = inbo_rood),
+    name = "gemiddelde",
+    hoverinfo = "text",
+    text = ~ paste(
+      "</br> Mean Species Index (2000 = 100)",
+      "</br> -  Gemiddeld: ",
+      round(expmean_est * 100, 2), "%",
+      "</br> -  Bovengrens 95% CI: ",
+      round(expmean_lwr * 100, 2), "%",
+      "</br> -  Ondergrens 95% CI: ",
+      round(expmean_upr * 100, 2), "%",
+      "</br> Jaar:", Jaar
+    )
+  ) %>%
+  layout(
+    shapes = list(vline(2000)),
+    xaxis = a,
+    yaxis = b,
+    hoverlabel = list(font = f1)
+  )
+
+fig2 <- plot_ly(onzeker,
+  y = ~prop,
+  type = "bar",
+  name = "Onzeker",
+  hoverinfo = "text",
+  text = ~ paste(
+    "</br> Aandeel: ",
+    round(prop * 100, 0), "%",
+    "</br> Aantal: ", n,
+    "</br> Categorie: ", "Onzeker"
+  ),
+  marker = list(
+    color = inbo_lichtgrijs,
+    line = list(
+      color = inbo_lichtgrijs,
+      width = 3
+    )
+  )
+) %>%
+  add_trace(
+    data = afname,
+    y = ~prop,
+    name = "Afname",
+    text = ~ paste(
+      "</br> Aandeel: ", round(prop * 100, 0), "%",
+      "</br> Aantal: ", n,
+      "</br> Categorie: ", "Afname"
+    ),
+    marker = list(
+      color = inbo_steun_blauw,
+      line = list(
+        color = inbo_steun_blauw,
+        width = 3
+      )
+    )
+  ) %>%
+  add_trace(
+    data = stabiel,
+    y = ~prop,
+    name = "Stabiel",
+    text = ~ paste(
+      "</br> Aandeel: ", round(prop * 100, 0), "%",
+      "</br> Aantal: ", n,
+      "</br> Categorie: ", "Stabiel"
+    ),
+    marker = list(
+      color = inbo_groen,
+      line = list(
+        color = inbo_groen,
+        width = 3
+      )
+    )
+  ) %>%
+  add_trace(
+    data = toename,
+    y = ~prop,
+    name = "Toename",
+    text = ~ paste(
+      "</br> Aandeel: ", round(prop * 100, 0), "%",
+      "</br> Aantal: ", n,
+      "</br> Categorie: ", "Toename"
+    ),
+    marker = list(
+      color = inbo_hoofd,
+      line = list(
+        color = inbo_hoofd,
+        width = 3
+      )
+    )
+  ) %>%
+  layout(
+    barmode = "stack",
+    xaxis = c,
+    yaxis = d,
+    width = 0.3,
+    legend = list(font = f1, x = 1.1),
+    hoverlabel = list(font = f1)
+  ) %>%
+  add_annotations(
+    y = onzeker$lab.xpos,
+    x = 0.1,
+    text = onzeker$n,
+    xref = "x",
+    yref = "y",
+    showarrow = FALSE,
+    font = f1
+  ) %>%
+  add_annotations(
+    y = afname$lab.xpos,
+    x = 0.1,
+    text = afname$n,
+    xref = "x",
+    yref = "y",
+    showarrow = FALSE,
+    font = f1
+  ) %>%
+  add_annotations(
+    y = stabiel$lab.xpos,
+    x = 0.1,
+    text = stabiel$n,
+    xref = "x",
+    yref = "y",
+    showarrow = FALSE,
+    font = f1
+  ) %>%
+  add_annotations(
+    y = toename$lab.xpos,
+    x = 0.1,
+    text = toename$n,
+    xref = "x",
+    yref = "y",
+    showarrow = FALSE,
+    font = f1
+  )
+
+fig <- subplot(fig1,
+  fig2,
+  nrows = 1,
+  widths = c(0.8, 0.2),
+  titleY = TRUE
+) %>%
+  layout(annotations = list(
+    list(
+      x = 1,
+      y = 1.03,
+      text = "Aantal soorten",
+      showarrow = FALSE,
+      xref = "paper",
+      yref = "paper"
+    ),
+    list(
+      x = -0.15,
+      y = 0.5,
+      text = "MSI(2000 = 100%)",
+      showarrow = FALSE,
+      textangle = 270,
+      xref = "paper",
+      yref = "paper"
+    )
+  ))
+fig
+```
+
+## Definitie
+
+De multisoortenindex of MSI voor planten is een ruwe graadmeter voor de globale trend van de biodiversiteit in de wereld of in een land of regio. 
+De index is een eerste knipperlicht voor veranderingen in de biodiversiteit.
+
+Multisoortenindexen zoals de MSI voor plantensoorten en de Living Planet Index of LPI voor diersoorten zijn ontwikkeld als graadmeter voor de globale biodiversiteitstrend op mondiale schaal of op schaal van een land of een regio [@buckland_geometric_2011]. 
+Er worden jaarlijkse indexcijfers berekend voor alle soorten waarvoor populatiegrootte- of verspreidingsgegevens beschikbaar zijn. 
+Elke soort kan een winnaar of verliezer zijn. 
+Alle soorten samen tonen in één oogopslag of de biodiversiteit er globaal genomen eerder op voor- of achteruitgaat. 
+
+## Bespreking
+
+### Algemene biodiversiteitstrends
+
+De multisoortenindex of MSI voor plantensoorten vertoont sinds 1950 een relatief stabiele trend [@van_calster_florabank_2020]. De lichte schommelingen zijn niet significant. Van de algemene plantensoorten gaan er 167 soorten beduidend op vooruit, versus 205 soorten die  achteruitgaan. De positieve en negatieve trends houden elkaar in balans, waardoor de globale trend constant blijft. 
+
+Of een winnaar of verliezer te interpreteren is als een positief of negatief signaal voor de natuur in Vlaanderen hangt af van het ecologische profiel van de soort en de oorzaken van de toename of afname. 
+De oefening is daarom, waar mogelijk, verfijnd om uitspraken te doen over specifieke drukfactoren of ecosystemen. 
+Zo zijn de soorten gevoelig voor klimaatverandering opgedeeld in drie groepen op basis van hun temperatuurvoorkeur. 
+Voor de drukfactor vermesting zijn ze opgedeeld op basis van hun voorkeur voor stikstofarme, matig stikstofrijke of stikstofrijke milieus. 
+Als de lijst voldoende groot was, is er ook op ecosysteemniveau een trend berekend. 
+Als voor een ecosysteem - zoals voor bossen of meren en rivieren - een betere, meer specifieke dataset beschikbaar is, wordt de MSI voor planten in het Natuurrapport 2020 niet getoond.
+
+### MSI klimaatverandering
+
+```{r interactieve figuur klimaat, fig.cap = "Figuur 2. Multisoortenindex (MSI) voor plantensoorten in de periode 1950-2018. De berekening is gebaseerd op de kans op voorkomen van 385 vaatplanten in Vlaanderen, opgedeeld per temperatuurvoorkeur volgens Ellenbergwaarden. De grafiek toont de gemodelleerde trend en het 95% betrouwbaarheidsinterval. Het jaar 2000 (blauwe lijn) is het referentiejaar (100%). De balk rechts toont het aantal soorten dat significant voor- of achteruitgaat, stabiel blijft of een onzekere trend vertoont ten opzichte van 1950. Deze figuur verwijst naar figuur 58 in het Natuurrapport 2020."}
+## cool
+fig3 <- plot_ly(msi_clim,
+  x = ~Jaar,
+  y = ~expmean_upr,
+  type = "scatter",
+  mode = "lines",
+  transforms = list(
+    list(
+      type = "filter",
+      target = ~Omschrijving,
+      operation = "=",
+      value = "cool"
+    )
+  ),
+  line = list(color = "transparent"),
+  showlegend = FALSE,
+  name = "bovengrens 95% betrouwbaarheidsinterval",
+  hoverinfo = "text"
+) %>%
+  style(hoverinfo = "none") %>%
+  add_trace(
+    y = ~expmean_lwr,
+    type = "scatter",
+    mode = "lines",
+    fill = "tonexty",
+    fillcolor = toRGB(inbo_rood, 0.2),
+    line = list(color = "transparent"),
+    showlegend = FALSE,
+    name = "ondergrens 95% betrouwbaarheidsinterval",
+    hoverinfo = "text"
+  ) %>%
+  style(hoverinfo = "none") %>%
+  add_trace(
+    y = ~expmean_est,
+    type = "scatter",
+    mode = "lines",
+    line = list(color = inbo_rood),
+    name = "gemiddelde",
+    hoverinfo = "text",
+    text = ~ paste(
+      "</br> Mean Species Index (2000 = 100)",
+      "</br> -  Gemiddeld:",
+      round(expmean_est * 100, 2), "%",
+      "</br> -  Bovengrens 95% CI: ",
+      round(expmean_lwr * 100, 2), "%",
+      "</br> -  Ondergrens 95% CI: ",
+      round(expmean_upr * 100, 2), "%",
+      "</br> Jaar:", Jaar
+    )
+  ) %>%
+  layout(
+    shapes = list(vline(2000)),
+    xaxis = e,
+    yaxis = b,
+    hoverlabel = list(font = f1)
+  )
+
+
+fig4 <- plot_ly(onzeker_climbar,
+  y = ~prop,
+  type = "bar",
+  legendgroup = ~"Onzeker",
+  name = "Onzeker",
+  transforms = list(
+    list(
+      type = "filter",
+      target = ~Omschrijving,
+      operation = "=",
+      value = "cool"
+    )
+  ),
+  hoverinfo = "text",
+  text = ~ paste(
+    "</br> Aandeel: ",
+    round(prop * 100, 0), "%",
+    "</br> Aantal: ", n,
+    "</br> Categorie: ", "Onzeker"
+  ),
+  marker = list(
+    color = inbo_lichtgrijs,
+    line = list(
+      color = inbo_lichtgrijs,
+      width = 3
+    )
+  )
+) %>%
+  add_trace(
+    data = afname_climbar,
+    y = ~prop,
+    legendgroup = ~"Afname",
+    name = "Afname",
+    transforms = list(
+      list(
+        type = "filter",
+        target = ~Omschrijving,
+        operation = "=",
+        value = "cool"
+      )
+    ),
+    text = ~ paste(
+      "</br> Aandeel: ",
+      round(prop * 100, 0), "%",
+      "</br> Aantal: ", n,
+      "</br> Categorie: ", "Afname"
+    ),
+    marker = list(
+      color = inbo_steun_blauw,
+      line = list(
+        color = inbo_steun_blauw,
+        width = 3
+      )
+    )
+  ) %>%
+  add_trace(
+    data = stabiel_climbar,
+    y = ~prop,
+    legendgroup = ~"Stabiel",
+    name = "Stabiel",
+    transforms = list(
+      list(
+        type = "filter",
+        target = ~Omschrijving,
+        operation = "=",
+        value = "cool"
+      )
+    ),
+    text = ~ paste(
+      "</br> Aandeel: ",
+      round(prop * 100, 0), "%",
+      "</br> Aantal: ", n,
+      "</br> Categorie: ", "Stabiel"
+    ),
+    marker = list(
+      color = inbo_groen,
+      line = list(
+        color = inbo_groen,
+        width = 3
+      )
+    )
+  ) %>%
+  add_trace(
+    data = toename_climbar,
+    y = ~prop,
+    legendgroup = ~"Toename",
+    name = "Toename",
+    transforms = list(
+      list(
+        type = "filter",
+        target = ~Omschrijving,
+        operation = "=",
+        value = "cool"
+      )
+    ),
+    text = ~ paste(
+      "</br> Aandeel: ",
+      round(prop * 100, 0), "%",
+      "</br> Aantal: ", n,
+      "</br> Categorie: ", "Toename"
+    ),
+    marker = list(
+      color = inbo_hoofd,
+      line = list(
+        color = inbo_hoofd,
+        width = 3
+      )
+    )
+  ) %>%
+  layout(
+    barmode = "stack",
+    xaxis = c,
+    yaxis = d,
+    legend = list(font = f1, x = 1.10),
+    hoverlabel = list(font = f1),
+    width = 100,
+    autosize = FALSE
+  )
+
+onzeker_climbar_cool <- onzeker_climbar %>%
+  filter(Omschrijving == "cool")
+toename_climbar_cool <- toename_climbar %>%
+  filter(Omschrijving == "cool")
+afname_climbar_cool <- afname_climbar %>%
+  filter(Omschrijving == "cool")
+stabiel_climbar_cool <- stabiel_climbar %>%
+  filter(Omschrijving == "cool")
+
+fig4 <- fig4 %>%
+  add_annotations(
+    y = onzeker_climbar_cool$lab.xpos,
+    x = 0.1,
+    text = onzeker_climbar_cool$n,
+    xref = "x",
+    yref = "y",
+    showarrow = FALSE,
+    font = f1
+  ) %>%
+  add_annotations(
+    y = afname_climbar_cool$lab.xpos,
+    x = 0.1,
+    text = afname_climbar_cool$n,
+    xref = "x",
+    yref = "y",
+    showarrow = FALSE,
+    font = f1
+  ) %>%
+  add_annotations(
+    y = toename_climbar_cool$lab.xpos,
+    x = 0.1,
+    text = toename_climbar_cool$n,
+    xref = "x",
+    yref = "y",
+    showarrow = FALSE,
+    font = f1
+  )
+
+fig_clim_cool <- subplot(fig3,
+  fig4,
+  nrows = 1,
+  widths = c(0.8, 0.2),
+  titleY = TRUE
+)
+
+## warm
+
+fig5 <- plot_ly(msi_clim,
+  x = ~Jaar,
+  y = ~expmean_upr,
+  type = "scatter",
+  mode = "lines",
+  transforms = list(
+    list(
+      type = "filter",
+      target = ~Omschrijving,
+      operation = "=",
+      value = "warm"
+    )
+  ),
+  line = list(color = "transparent"),
+  showlegend = FALSE,
+  name = "bovengrens 95% betrouwbaarheidsinterval",
+  hoverinfo = "text"
+) %>%
+  style(hoverinfo = "none") %>%
+  add_trace(
+    y = ~expmean_lwr,
+    type = "scatter",
+    mode = "lines",
+    fill = "tonexty",
+    fillcolor = toRGB(inbo_rood, 0.2),
+    line = list(color = "transparent"),
+    showlegend = FALSE,
+    name = "ondergrens 95% betrouwbaarheidsinterval",
+    hoverinfo = "text"
+  ) %>%
+  style(hoverinfo = "none") %>%
+  add_trace(
+    y = ~expmean_est,
+    type = "scatter",
+    mode = "lines",
+    line = list(color = inbo_rood),
+    name = "gemiddelde",
+    hoverinfo = "text",
+    text = ~ paste(
+      "</br> Mean Species Index (2000 = 100)",
+      "</br> -  Gemiddeld: ",
+      round(expmean_est * 100, 2), "%",
+      "</br> -  Bovengrens 95% CI: ",
+      round(expmean_lwr * 100, 2), "%",
+      "</br> -  Ondergrens 95% CI: ",
+      round(expmean_upr * 100, 2), "%",
+      "</br> Jaar:", Jaar
+    )
+  ) %>%
+  layout(
+    shapes = list(vline(2000)),
+    xaxis = e,
+    yaxis = b,
+    hoverlabel = list(font = f1)
+  )
+
+fig6 <- plot_ly(onzeker_climbar,
+  y = ~prop,
+  type = "bar",
+  legendgroup = ~"Onzeker",
+  name = "Onzeker",
+  transforms = list(
+    list(
+      type = "filter",
+      target = ~Omschrijving,
+      operation = "=",
+      value = "warm"
+    )
+  ),
+  hoverinfo = "text",
+  showlegend = FALSE,
+  text = ~ paste(
+    "</br> Aandeel: ",
+    round(prop * 100, 0), "%",
+    "</br> Aantal: ", n,
+    "</br> Categorie: ", "Onzeker"
+  ),
+  marker = list(
+    color = inbo_lichtgrijs,
+    line = list(
+      color = inbo_lichtgrijs,
+      width = 3
+    )
+  )
+) %>%
+  add_trace(
+    data = afname_climbar,
+    y = ~prop,
+    legendgroup = ~"Afname",
+    name = "Afname",
+    transforms = list(
+      list(
+        type = "filter",
+        target = ~Omschrijving,
+        operation = "=",
+        value = "warm"
+      )
+    ),
+    text = ~ paste(
+      "</br> Aandeel: ",
+      round(prop * 100, 0), "%",
+      "</br> Aantal: ", n,
+      "</br> Categorie: ", "Afname"
+    ),
+    marker = list(
+      color = inbo_steun_blauw,
+      line = list(
+        color = inbo_steun_blauw,
+        width = 3
+      )
+    )
+  ) %>%
+  add_trace(
+    data = stabiel_climbar,
+    y = ~prop,
+    legendgroup = ~"Stabiel",
+    name = "Stabiel",
+    transforms = list(
+      list(
+        type = "filter",
+        target = ~Omschrijving,
+        operation = "=",
+        value = "warm"
+      )
+    ),
+    text = ~ paste(
+      "</br> Aandeel: ",
+      round(prop * 100, 0), "%",
+      "</br> Aantal: ", n,
+      "</br> Categorie: ", "Stabiel"
+    ),
+    marker = list(
+      color = inbo_groen,
+      line = list(
+        color = inbo_groen,
+        width = 3
+      )
+    )
+  ) %>%
+  add_trace(
+    data = toename_climbar,
+    y = ~prop,
+    legendgroup = ~"Toename",
+    name = "Toename",
+    transforms = list(
+      list(
+        type = "filter",
+        target = ~Omschrijving,
+        operation = "=",
+        value = "warm"
+      )
+    ),
+    text = ~ paste(
+      "</br> Aandeel: ",
+      round(prop * 100, 0), "%",
+      "</br> Aantal: ", n,
+      "</br> Categorie: ", "Toename"
+    ),
+    marker = list(
+      color = inbo_hoofd,
+      line = list(
+        color = inbo_hoofd,
+        width = 3
+      )
+    )
+  ) %>%
+  layout(
+    barmode = "stack",
+    xaxis = c,
+    yaxis = d,
+    width = 0.3,
+    legend = list(font = f1),
+    hoverlabel = list(font = f1)
+  )
+
+onzeker_climbar_warm <- onzeker_climbar %>%
+  filter(Omschrijving == "warm")
+toename_climbar_warm <- toename_climbar %>%
+  filter(Omschrijving == "warm")
+afname_climbar_warm <- afname_climbar %>%
+  filter(Omschrijving == "warm")
+stabiel_climbar_warm <- stabiel_climbar %>%
+  filter(Omschrijving == "warm")
+
+fig6 <- fig6 %>%
+  add_annotations(
+    y = onzeker_climbar_warm$lab.xpos,
+    x = 0.1,
+    text = onzeker_climbar_warm$n,
+    xref = "x",
+    yref = "y",
+    showarrow = FALSE, font = f1
+  ) %>%
+  add_annotations(
+    y = afname_climbar_warm$lab.xpos,
+    x = 0.1,
+    text = afname_climbar_warm$n,
+    xref = "x",
+    yref = "y",
+    showarrow = FALSE,
+    font = f1
+  ) %>%
+  add_annotations(
+    y = stabiel_climbar_warm$lab.xpos,
+    x = 0.1,
+    text = stabiel_climbar_warm$n,
+    xref = "x",
+    yref = "y",
+    showarrow = FALSE,
+    font = f1
+  ) %>%
+  add_annotations(
+    y = toename_climbar_warm$lab.xpos,
+    x = 0.1,
+    text = toename_climbar_warm$n,
+    xref = "x",
+    yref = "y",
+    showarrow = FALSE,
+    font = f1
+  )
+
+fig_clim_warm <- subplot(fig5,
+  fig6,
+  nrows = 1,
+  widths = c(0.8, 0.2),
+  titleY = TRUE
+)
+
+## moderate
+
+fig7 <- plot_ly(msi_clim,
+  x = ~Jaar,
+  y = ~expmean_upr,
+  type = "scatter",
+  mode = "lines",
+  transforms = list(
+    list(
+      type = "filter",
+      target = ~Omschrijving,
+      operation = "=",
+      value = "moderate"
+    )
+  ),
+  line = list(color = "transparent"),
+  showlegend = FALSE,
+  name = "bovengrens 95% betrouwbaarheidsinterval",
+  hoverinfo = "text"
+) %>%
+  style(hoverinfo = "none") %>%
+  add_trace(
+    y = ~expmean_lwr,
+    type = "scatter",
+    mode = "lines",
+    fill = "tonexty",
+    fillcolor = toRGB(inbo_rood, 0.2),
+    line = list(color = "transparent"),
+    showlegend = FALSE,
+    name = "ondergrens 95% betrouwbaarheidsinterval",
+    hoverinfo = "text"
+  ) %>%
+  style(hoverinfo = "none") %>%
+  add_trace(
+    y = ~expmean_est,
+    type = "scatter",
+    mode = "lines",
+    line = list(color = inbo_rood),
+    name = "gemiddelde",
+    hoverinfo = "text",
+    text = ~ paste(
+      "</br> Mean Species Index (2000 = 100)",
+      "</br> -  Gemiddeld: ",
+      round(expmean_est * 100, 2), "%",
+      "</br> -  Bovengrens 95% CI: ",
+      round(expmean_lwr * 100, 2), "%",
+      "</br> -  Ondergrens 95% CI: ",
+      round(expmean_upr * 100, 2), "%",
+      "</br> Jaar:", Jaar
+    )
+  ) %>%
+  layout(
+    shapes = list(vline(2000)),
+    xaxis = a,
+    yaxis = b,
+    hoverlabel = list(font = f1)
+  )
+
+fig8 <- plot_ly(onzeker_climbar,
+  y = ~prop,
+  type = "bar",
+  legendgroup = ~"Onzeker",
+  name = "Onzeker",
+  transforms = list(
+    list(
+      type = "filter",
+      target = ~Omschrijving,
+      operation = "=",
+      value = "moderate"
+    )
+  ),
+  hoverinfo = "text",
+  text = ~ paste(
+    "</br> Aandeel: ",
+    round(prop * 100, 0), "%",
+    "</br> Aantal: ", n,
+    "</br> Categorie: ", "Onzeker"
+  ),
+  showlegend = FALSE,
+  marker = list(
+    color = inbo_lichtgrijs,
+    line = list(
+      color = inbo_lichtgrijs,
+      width = 3
+    )
+  )
+) %>%
+  add_trace(
+    data = afname_climbar,
+    y = ~prop,
+    legendgroup = ~"Afname",
+    name = "Afname",
+    transforms = list(
+      list(
+        type = "filter",
+        target = ~Omschrijving,
+        operation = "=",
+        value = "moderate"
+      )
+    ),
+    text = ~ paste(
+      "</br> Aandeel: ",
+      round(prop * 100, 0), "%",
+      "</br> Aantal: ", n,
+      "</br> Categorie: ", "Afname"
+    ),
+    marker = list(
+      color = inbo_steun_blauw,
+      line = list(
+        color = inbo_steun_blauw,
+        width = 3
+      )
+    )
+  ) %>%
+  add_trace(
+    data = stabiel_climbar,
+    y = ~prop,
+    legendgroup = ~"Stabiel",
+    name = "Stabiel",
+    transforms = list(
+      list(
+        type = "filter",
+        target = ~Omschrijving,
+        operation = "=",
+        value = "moderate"
+      )
+    ),
+    text = ~ paste(
+      "</br> Aandeel: ",
+      round(prop * 100, 0), "%",
+      "</br> Aantal: ", n,
+      "</br> Categorie: ", "Stabiel"
+    ),
+    marker = list(
+      color = inbo_groen,
+      line = list(
+        color = inbo_groen,
+        width = 3
+      )
+    )
+  ) %>%
+  add_trace(
+    data = toename_climbar,
+    y = ~prop,
+    legendgroup = ~"Toename",
+    name = "Toename",
+    transforms = list(
+      list(
+        type = "filter",
+        target = ~Omschrijving,
+        operation = "=",
+        value = "moderate"
+      )
+    ),
+    text = ~ paste(
+      "</br> Aandeel: ",
+      round(prop * 100, 0), "%",
+      "</br> Aantal: ", n,
+      "</br> Categorie: ", "Toename"
+    ),
+    marker = list(
+      color = inbo_hoofd,
+      line = list(
+        color = inbo_hoofd,
+        width = 3
+      )
+    )
+  ) %>%
+  layout(
+    barmode = "stack",
+    xaxis = c,
+    yaxis = d,
+    width = 0.3,
+    legend = list(font = f1),
+    hoverlabel = list(font = f1)
+  )
+
+onzeker_climbar_moderate <- onzeker_climbar %>%
+  filter(Omschrijving == "moderate")
+toename_climbar_moderate <- toename_climbar %>%
+  filter(Omschrijving == "moderate")
+afname_climbar_moderate <- afname_climbar %>%
+  filter(Omschrijving == "moderate")
+stabiel_climbar_moderate <- stabiel_climbar %>%
+  filter(Omschrijving == "moderate")
+
+fig8 <- fig8 %>%
+  add_annotations(
+    y = onzeker_climbar_moderate$lab.xpos,
+    x = 0.1,
+    text = onzeker_climbar_moderate$n,
+    xref = "x",
+    yref = "y",
+    showarrow = FALSE,
+    font = f1
+  ) %>%
+  add_annotations(
+    y = afname_climbar_moderate$lab.xpos,
+    x = 0.1,
+    text = afname_climbar_moderate$n,
+    xref = "x",
+    yref = "y",
+    showarrow = FALSE,
+    font = f1
+  ) %>%
+  add_annotations(
+    y = stabiel_climbar_moderate$lab.xpos,
+    x = 0.1,
+    text = stabiel_climbar_moderate$n,
+    xref = "x",
+    yref = "y",
+    showarrow = FALSE,
+    font = f1
+  ) %>%
+  add_annotations(
+    y = toename_climbar_moderate$lab.xpos,
+    x = 0.1,
+    text = toename_climbar_moderate$n,
+    xref = "x",
+    yref = "y",
+    showarrow = FALSE,
+    font = f1
+  )
+
+fig_clim_moderate <- subplot(fig7,
+  fig8,
+  nrows = 1,
+  widths = c(0.8, 0.2),
+  titleY = TRUE
+)
+
+fig_clim <- subplot(fig_clim_warm,
+  fig_clim_cool,
+  fig_clim_moderate,
+  nrows = 3,
+  titleY = TRUE
+) %>%
+  layout(annotations = list(
+    list(
+      x = 0.4,
+      y = 1.03,
+      text = "Warmteminnende plantensoorten",
+      showarrow = FALSE,
+      xref = "paper",
+      yref = "paper"
+    ),
+    list(
+      x = 0.4,
+      y = 0.66,
+      text = "Koudminnende plantensoorten",
+      showarrow = FALSE,
+      xref = "paper",
+      yref = "paper"
+    ),
+    list(
+      x = 0.4,
+      y = 0.32,
+      text = "Indifferente plantensoorten",
+      showarrow = FALSE,
+      xref = "paper",
+      yref = "paper"
+    ),
+    list(
+      x = -0.15,
+      y = 0.5,
+      text = "MSI(2000 = 100%)",
+      showarrow = FALSE,
+      textangle = 270,
+      xref = "paper",
+      yref = "paper"
+    ),
+    list(
+      x = 1,
+      y = 1.03,
+      text = "Aantal soorten",
+      showarrow = FALSE,
+      xref = "paper",
+      yref = "paper"
+    )
+  ))
+fig_clim
+```
+
+De samenstelling van plantengemeenschappen in Vlaanderen verandert.
+Figuur 2 toont een MSI gebaseerd op de kans op voorkomen van 385 vaatplanten, opgedeeld op basis van hun temperatuurvoorkeur (Ellenbergwaarde). 
+Vóór 2000 is de MSI van de warmteminnende soorten significant lager.
+Warmteliefhebbers gaan er het sterkst op vooruit vanaf de jaren tachtig. 
+Die evolutie is grotendeels toe te schrijven aan de verdere verspreiding van soorten die we van nature in Zuid-Europa aantreffen.
+Meer dan de helft van de warmteminnende soorten die het beter doen, verkiest voedselrijke akkers als leefgebied. 
+Voor koudeminnende soorten is geen duidelijke trend zichtbaar.
+Het overgrote deel van de bestudeerde plantensoorten betreft indifferente soorten. Dit aandeel wijzigt niet significant.
+Recent onderzoek in enkele Vlaamse en Europese bossen toont vergelijkbare resultaten [@de_frenne_light_2015; @de_frenne_microclimate_2013; @zellweger_forest_2020]. 
+Het aantal warmteminnende soorten in de kruid- en struiklaag neemt significant toe. 
+De trend hangt nauw samen met het heersende microklimaat: in dichte bossen zijn de verschuivingen kleiner dan in open bossen, omdat die laatste een minder sterke buffer vormen tegen omgevingsfactoren.
+
+### MSI vermesting
+
+```{r interactieve figuur mest, fig.cap = "Figuur 3. Multisoortenindex (MSI) voor plantensoorten in de periode 1950-2018. De berekening is gebaseerd op de kans op voorkomen van 447 vaatplanten opgedeeld op basis van hun nutriëntenvoorkeur volgens de Ellenbergwaarde N: 88 soorten van stikstofarme milieus, 208 soorten van matig stikstofrijke milieus en 151 soorten van stikstofrijke milieus. De grafiek toont de gemodelleerde trend en het 95% betrouwbaarheidsinterval. Het jaar 2000 (blauwe lijn) is het referentiejaar (100%). De balk rechts toont het aantal soorten dat significant voor- of achteruitgaat, stabiel blijft of een onzekere trend vertoont ten opzichte van 1950. Deze figuur verwijst naar figuur 44 in het Natuurrapport 2020."}
+## stikstofarm
+fig9 <- plot_ly(msi_mest,
+  x = ~Jaar,
+  y = ~expmean_upr,
+  type = "scatter",
+  mode = "lines",
+  transforms = list(
+    list(
+      type = "filter",
+      target = ~Omschrijving,
+      operation = "=",
+      value = "nitrogen deprived"
+    )
+  ),
+  line = list(color = "transparent"),
+  showlegend = FALSE,
+  name = "bovengrens 95% betrouwbaarheidsinterval",
+  hoverinfo = "text"
+) %>%
+  style(hoverinfo = "none") %>%
+  add_trace(
+    y = ~expmean_lwr,
+    type = "scatter",
+    mode = "lines",
+    fill = "tonexty",
+    fillcolor = toRGB(inbo_rood, 0.2),
+    line = list(color = "transparent"),
+    showlegend = FALSE,
+    name = "ondergrens 95% betrouwbaarheidsinterval",
+    hoverinfo = "text"
+  ) %>%
+  style(hoverinfo = "none") %>%
+  add_trace(
+    y = ~expmean_est,
+    type = "scatter",
+    mode = "lines",
+    line = list(color = inbo_rood),
+    name = "gemiddelde", hoverinfo = "text",
+    text = ~ paste(
+      "</br> Mean Species Index (2000 = 100)",
+      "</br> -  Gemiddeld: ",
+      round(expmean_est * 100, 2), "%",
+      "</br> -  Bovengrens 95% CI: ",
+      round(expmean_lwr * 100, 2), "%",
+      "</br> -  Ondergrens 95% CI: ",
+      round(expmean_upr * 100, 2), "%",
+      "</br> Jaar:", Jaar
+    )
+  ) %>%
+  layout(
+    shapes = list(vline(2000)),
+    xaxis = e,
+    yaxis = b,
+    hoverlabel = list(font = f1)
+  )
+
+fig10 <- plot_ly(onzeker_mestbar,
+  y = ~prop,
+  type = "bar",
+  legendgroup = ~"Onzeker",
+  name = "Onzeker",
+  transforms = list(
+    list(
+      type = "filter",
+      target = ~Omschrijving,
+      operation = "=",
+      value = "nitrogen deprived"
+    )
+  ),
+  hoverinfo = "text",
+  text = ~ paste(
+    "</br> Aandeel: ",
+    round(prop * 100, 0), "%",
+    "</br> Aantal: ", n,
+    "</br> Categorie: ", "Onzeker"
+  ),
+  marker = list(
+    color = inbo_lichtgrijs,
+    line = list(
+      color = inbo_lichtgrijs,
+      width = 3
+    )
+  )
+) %>%
+  add_trace(
+    data = afname_mestbar,
+    y = ~prop,
+    legendgroup = ~"Afname",
+    name = "Afname",
+    transforms = list(
+      list(
+        type = "filter",
+        target = ~Omschrijving,
+        operation = "=",
+        value = "nitrogen deprived"
+      )
+    ),
+    text = ~ paste(
+      "</br> Aandeel: ",
+      round(prop * 100, 0), "%",
+      "</br> Aantal: ", n,
+      "</br> Categorie: ", "Afname"
+    ),
+    marker = list(
+      color = inbo_steun_blauw,
+      line = list(
+        color = inbo_steun_blauw,
+        width = 3
+      )
+    )
+  ) %>%
+  add_trace(
+    data = stabiel_mestbar,
+    y = ~prop,
+    legendgroup = ~"Stabiel",
+    name = "Stabiel",
+    transforms = list(
+      list(
+        type = "filter",
+        target = ~Omschrijving,
+        operation = "=",
+        value = "nitrogen deprived"
+      )
+    ),
+    text = ~ paste(
+      "</br> Aandeel: ",
+      round(prop * 100, 0), "%",
+      "</br> Aantal: ", n,
+      "</br> Categorie: ", "Stabiel"
+    ),
+    marker = list(
+      color = inbo_groen,
+      line = list(
+        color = inbo_groen,
+        width = 3
+      )
+    )
+  ) %>%
+  add_trace(
+    data = toename_mestbar,
+    y = ~prop,
+    legendgroup = ~"Toename",
+    name = "Toename",
+    transforms = list(
+      list(
+        type = "filter",
+        target = ~Omschrijving,
+        operation = "=",
+        value = "nitrogen deprived"
+      )
+    ),
+    text = ~ paste(
+      "</br> Aandeel: ",
+      round(prop * 100, 0), "%",
+      "</br> Aantal: ", n,
+      "</br> Categorie: ", "Toename"
+    ),
+    marker = list(
+      color = inbo_hoofd,
+      line = list(
+        color = inbo_hoofd,
+        width = 3
+      )
+    )
+  ) %>%
+  layout(
+    barmode = "stack",
+    xaxis = c,
+    yaxis = d,
+    legend = list(font = f1, x = 1.10),
+    hoverlabel = list(font = f1),
+    width = 100,
+    autosize = FALSE
+  )
+
+onzeker_mestbar_arm <- onzeker_mestbar %>%
+  filter(Omschrijving == "nitrogen deprived")
+toename_mestbar_arm <- toename_mestbar %>%
+  filter(Omschrijving == "nitrogen deprived")
+afname_mestbar_arm <- afname_mestbar %>%
+  filter(Omschrijving == "nitrogen deprived")
+stabiel_mestbar_arm <- stabiel_mestbar %>%
+  filter(Omschrijving == "nitrogen deprived")
+
+fig10 <- fig10 %>%
+  add_annotations(
+    y = onzeker_mestbar_arm$lab.xpos,
+    x = 0.1,
+    text = onzeker_mestbar_arm$n,
+    xref = "x",
+    yref = "y",
+    showarrow = FALSE,
+    font = f1
+  ) %>%
+  add_annotations(
+    y = afname_mestbar_arm$lab.xpos,
+    x = 0.1,
+    text = afname_mestbar_arm$n,
+    xref = "x",
+    yref = "y",
+    showarrow = FALSE,
+    font = f1
+  ) %>%
+  add_annotations(
+    y = stabiel_mestbar_arm$lab.xpos,
+    x = 0.1,
+    text = stabiel_mestbar_arm$n,
+    xref = "x",
+    yref = "y",
+    showarrow = FALSE,
+    font = f1
+  ) %>%
+  add_annotations(
+    y = toename_mestbar_arm$lab.xpos,
+    x = 0.1,
+    text = toename_mestbar_arm$n,
+    xref = "x",
+    yref = "y",
+    showarrow = FALSE,
+    font = f1
+  )
+
+fig_mest_arm <- subplot(fig9,
+  fig10,
+  nrows = 1,
+  widths = c(0.8, 0.2),
+  titleY = TRUE
+)
+
+## gemiddeld
+
+fig11 <- plot_ly(msi_mest,
+  x = ~Jaar,
+  y = ~expmean_upr,
+  type = "scatter",
+  mode = "lines",
+  transforms = list(
+    list(
+      type = "filter",
+      target = ~Omschrijving,
+      operation = "=",
+      value = "nitrogen intermediat"
+    )
+  ),
+  line = list(color = "transparent"),
+  showlegend = FALSE,
+  name = "bovengrens 95% betrouwbaarheidsinterval",
+  hoverinfo = "text"
+) %>%
+  style(hoverinfo = "none") %>%
+  add_trace(
+    y = ~expmean_lwr,
+    type = "scatter",
+    mode = "lines",
+    fill = "tonexty",
+    fillcolor = toRGB(inbo_rood, 0.2),
+    line = list(color = "transparent"),
+    showlegend = FALSE,
+    name = "ondergrens 95% betrouwbaarheidsinterval",
+    hoverinfo = "text"
+  ) %>%
+  style(hoverinfo = "none") %>%
+  add_trace(
+    y = ~expmean_est,
+    type = "scatter",
+    mode = "lines",
+    line = list(color = inbo_rood),
+    name = "gemiddelde",
+    hoverinfo = "text",
+    text = ~ paste(
+      "</br> Mean Species Index (2000 = 100)",
+      "</br> -  Gemiddeld: ",
+      round(expmean_est * 100, 2), "%",
+      "</br> -  Bovengrens 95% CI: ",
+      round(expmean_lwr * 100, 2), "%",
+      "</br> -  Ondergrens 95% CI: ",
+      round(expmean_upr * 100, 2), "%",
+      "</br> Jaar:", Jaar
+    )
+  ) %>%
+  layout(
+    shapes = list(vline(2000)),
+    xaxis = e,
+    yaxis = b,
+    hoverlabel = list(font = f1)
+  )
+
+fig12 <- plot_ly(onzeker_mestbar,
+  y = ~prop,
+  type = "bar",
+  legendgroup = ~"Onzeker",
+  name = "Onzeker",
+  transforms = list(
+    list(
+      type = "filter",
+      target = ~Omschrijving,
+      operation = "=",
+      value = "nitrogen intermediat"
+    )
+  ),
+  hoverinfo = "text",
+  showlegend = FALSE,
+  text = ~ paste(
+    "</br> Aandeel: ",
+    round(prop * 100, 0), "%",
+    "</br> Aantal: ", n,
+    "</br> Categorie: ", "Onzeker"
+  ),
+  marker = list(
+    color = inbo_lichtgrijs,
+    line = list(
+      color = inbo_lichtgrijs,
+      width = 3
+    )
+  )
+) %>%
+  add_trace(
+    data = afname_mestbar,
+    y = ~prop,
+    legendgroup = ~"Afname",
+    name = "Afname",
+    transforms = list(
+      list(
+        type = "filter",
+        target = ~Omschrijving,
+        operation = "=",
+        value = "nitrogen intermediat"
+      )
+    ),
+    text = ~ paste(
+      "</br> Aandeel: ",
+      round(prop * 100, 0), "%",
+      "</br> Aantal: ", n,
+      "</br> Categorie: ", "Afname"
+    ),
+    marker = list(
+      color = inbo_steun_blauw,
+      line = list(
+        color = inbo_steun_blauw,
+        width = 3
+      )
+    )
+  ) %>%
+  add_trace(
+    data = stabiel_mestbar,
+    y = ~prop,
+    legendgroup = ~"Stabiel",
+    name = "Stabiel",
+    transforms = list(
+      list(
+        type = "filter",
+        target = ~Omschrijving,
+        operation = "=",
+        value = "nitrogen intermediat"
+      )
+    ),
+    text = ~ paste(
+      "</br> Aandeel: ",
+      round(prop * 100, 0), "%",
+      "</br> Aantal: ", n,
+      "</br> Categorie: ", "Stabiel"
+    ),
+    marker = list(
+      color = inbo_groen,
+      line = list(
+        color = inbo_groen,
+        width = 3
+      )
+    )
+  ) %>%
+  add_trace(
+    data = toename_mestbar,
+    y = ~prop,
+    legendgroup = ~"Toename",
+    name = "Toename",
+    transforms = list(
+      list(
+        type = "filter",
+        target = ~Omschrijving,
+        operation = "=",
+        value = "nitrogen intermediat"
+      )
+    ),
+    text = ~ paste(
+      "</br> Aandeel: ",
+      round(prop * 100, 0), "%",
+      "</br> Aantal: ", n,
+      "</br> Categorie: ", "Toename"
+    ),
+    marker = list(
+      color = inbo_hoofd,
+      line = list(
+        color = inbo_hoofd,
+        width = 3
+      )
+    )
+  ) %>%
+  layout(
+    barmode = "stack",
+    xaxis = c,
+    yaxis = d,
+    width = 0.3,
+    legend = list(font = f1),
+    hoverlabel = list(font = f1)
+  )
+
+onzeker_mestbar_gem <- onzeker_mestbar %>%
+  filter(Omschrijving == "nitrogen intermediat")
+toename_mestbar_gem <- toename_mestbar %>%
+  filter(Omschrijving == "nitrogen intermediat")
+afname_mestbar_gem <- afname_mestbar %>%
+  filter(Omschrijving == "nitrogen intermediat")
+stabiel_mestbar_gem <- stabiel_mestbar %>%
+  filter(Omschrijving == "nitrogen intermediat")
+
+
+fig12 <- fig12 %>%
+  add_annotations(
+    y = onzeker_mestbar_gem$lab.xpos,
+    x = 0.1,
+    text = onzeker_mestbar_gem$n,
+    xref = "x",
+    yref = "y",
+    showarrow = FALSE,
+    font = f1
+  ) %>%
+  add_annotations(
+    y = afname_mestbar_gem$lab.xpos,
+    x = 0.1,
+    text = afname_mestbar_gem$n,
+    xref = "x",
+    yref = "y",
+    showarrow = FALSE,
+    font = f1
+  ) %>%
+  add_annotations(
+    y = stabiel_mestbar_gem$lab.xpos,
+    x = 0.1,
+    text = stabiel_mestbar_gem$n,
+    xref = "x",
+    yref = "y",
+    showarrow = FALSE,
+    font = f1
+  ) %>%
+  add_annotations(
+    y = toename_mestbar_gem$lab.xpos,
+    x = 0.1,
+    text = toename_mestbar_gem$n,
+    xref = "x",
+    yref = "y",
+    showarrow = FALSE,
+    font = f1
+  )
+
+fig_mest_gem <- subplot(fig11,
+  fig12,
+  nrows = 1,
+  widths = c(0.8, 0.2),
+  titleY = TRUE
+)
+
+## stikstofrijk
+
+fig13 <- plot_ly(msi_mest,
+  x = ~Jaar,
+  y = ~expmean_upr,
+  type = "scatter",
+  mode = "lines",
+  transforms = list(
+    list(
+      type = "filter",
+      target = ~Omschrijving,
+      operation = "=",
+      value = "nitrogen rich"
+    )
+  ),
+  line = list(color = "transparent"),
+  showlegend = FALSE,
+  name = "bovengrens 95% betrouwbaarheidsinterval",
+  hoverinfo = "text"
+) %>%
+  style(hoverinfo = "none") %>%
+  add_trace(
+    y = ~expmean_lwr,
+    type = "scatter",
+    mode = "lines",
+    fill = "tonexty",
+    fillcolor = toRGB(inbo_rood, 0.2),
+    line = list(color = "transparent"),
+    showlegend = FALSE,
+    name = "ondergrens 95% betrouwbaarheidsinterval",
+    hoverinfo = "text"
+  ) %>%
+  style(hoverinfo = "none") %>%
+  add_trace(
+    y = ~expmean_est,
+    type = "scatter",
+    mode = "lines",
+    line = list(color = inbo_rood),
+    name = "gemiddelde",
+    hoverinfo = "text",
+    text = ~ paste(
+      "</br> Mean Species Index (2000 = 100)",
+      "</br> -  Gemiddeld: ",
+      round(expmean_est * 100, 2), "%",
+      "</br> -  Bovengrens 95% CI: ",
+      round(expmean_lwr * 100, 2), "%",
+      "</br> -  Ondergrens 95% CI: ",
+      round(expmean_upr * 100, 2), "%",
+      "</br> Jaar:", Jaar
+    )
+  ) %>%
+  layout(
+    shapes = list(vline(2000)),
+    xaxis = a,
+    yaxis = b,
+    hoverlabel = list(font = f1)
+  )
+
+fig14 <- plot_ly(onzeker_mestbar,
+  y = ~prop, type = "bar",
+  legendgroup = ~"Onzeker",
+  name = "Onzeker", transforms = list(
+    list(
+      type = "filter",
+      target = ~Omschrijving,
+      operation = "=",
+      value = "nitrogen rich"
+    )
+  ),
+  hoverinfo = "text",
+  text = ~ paste(
+    "</br> Aandeel: ",
+    round(prop * 100, 0), "%",
+    "</br> Aantal: ", n,
+    "</br> Categorie: ", "Onzeker"
+  ),
+  showlegend = FALSE,
+  marker = list(
+    color = inbo_lichtgrijs,
+    line = list(
+      color = inbo_lichtgrijs,
+      width = 3
+    )
+  )
+) %>%
+  add_trace(
+    data = afname_mestbar,
+    y = ~prop,
+    legendgroup = ~"Afname",
+    name = "Afname",
+    transforms = list(
+      list(
+        type = "filter",
+        target = ~Omschrijving,
+        operation = "=",
+        value = "nitrogen rich"
+      )
+    ),
+    text = ~ paste(
+      "</br> Aandeel: ",
+      round(prop * 100, 0), "%",
+      "</br> Aantal: ", n,
+      "</br> Categorie: ", "Afname"
+    ),
+    marker = list(
+      color = inbo_steun_blauw,
+      line = list(
+        color = inbo_steun_blauw,
+        width = 3
+      )
+    )
+  ) %>%
+  add_trace(
+    data = stabiel_mestbar,
+    y = ~prop,
+    legendgroup = ~"Stabiel",
+    name = "Stabiel",
+    transforms = list(
+      list(
+        type = "filter",
+        target = ~Omschrijving,
+        operation = "=",
+        value = "nitrogen rich"
+      )
+    ),
+    text = ~ paste(
+      "</br> Aandeel: ",
+      round(prop * 100, 0), "%",
+      "</br> Aantal: ", n,
+      "</br> Categorie: ", "Stabiel"
+    ),
+    marker = list(
+      color = inbo_groen,
+      line = list(
+        color = inbo_groen,
+        width = 3
+      )
+    )
+  ) %>%
+  add_trace(
+    data = toename_mestbar,
+    y = ~prop,
+    legendgroup = ~"Toename",
+    name = "Toename",
+    transforms = list(
+      list(
+        type = "filter",
+        target = ~Omschrijving,
+        operation = "=",
+        value = "nitrogen rich"
+      )
+    ),
+    text = ~ paste(
+      "</br> Aandeel: ",
+      round(prop * 100, 0), "%",
+      "</br> Aantal: ", n,
+      "</br> Categorie: ", "Toename"
+    ),
+    marker = list(
+      color = inbo_hoofd,
+      line = list(
+        color = inbo_hoofd,
+        width = 3
+      )
+    )
+  ) %>%
+  layout(
+    barmode = "stack",
+    xaxis = c,
+    yaxis = d,
+    width = 0.3,
+    legend = list(font = f1),
+    hoverlabel = list(font = f1)
+  )
+
+onzeker_mestbar_rijk <- onzeker_mestbar %>%
+  filter(Omschrijving == "nitrogen rich")
+toename_mestbar_rijk <- toename_mestbar %>%
+  filter(Omschrijving == "nitrogen rich")
+afname_mestbar_rijk <- afname_mestbar %>%
+  filter(Omschrijving == "nitrogen rich")
+stabiel_mestbar_rijk <- stabiel_mestbar %>%
+  filter(Omschrijving == "nitrogen rich")
+
+
+fig14 <- fig14 %>%
+  add_annotations(
+    y = onzeker_mestbar_rijk$lab.xpos,
+    x = 0.1,
+    text = onzeker_mestbar_rijk$n,
+    xref = "x",
+    yref = "y",
+    showarrow = FALSE,
+    font = f1
+  ) %>%
+  add_annotations(
+    y = afname_mestbar_rijk$lab.xpos,
+    x = 0.1,
+    text = afname_mestbar_rijk$n,
+    xref = "x",
+    yref = "y",
+    showarrow = FALSE,
+    font = f1
+  ) %>%
+  add_annotations(
+    y = stabiel_mestbar_rijk$lab.xpos,
+    x = 0.1,
+    text = stabiel_mestbar_rijk$n,
+    xref = "x",
+    yref = "y",
+    showarrow = FALSE,
+    font = f1
+  ) %>%
+  add_annotations(
+    y = toename_mestbar_rijk$lab.xpos,
+    x = 0.1,
+    text = toename_mestbar_rijk$n,
+    xref = "x",
+    yref = "y",
+    showarrow = FALSE,
+    font = f1
+  )
+
+fig_mest_rijk <- subplot(fig13,
+  fig14,
+  nrows = 1,
+  widths = c(0.8, 0.2),
+  titleY = TRUE
+)
+
+fig_mest <- subplot(fig_mest_arm,
+  fig_mest_gem,
+  fig_mest_rijk,
+  nrows = 3,
+  titleY = TRUE
+) %>%
+  layout(annotations = list(
+    list(
+      x = 0.4,
+      y = 1.03,
+      text = "Soorten gebonden aan voedselarme habitats",
+      showarrow = FALSE,
+      xref = "paper",
+      yref = "paper"
+    ),
+    list(
+      x = 0.4,
+      y = 0.66,
+      text = "Soorten gebonden aan matig voedselrijke habitats ",
+      showarrow = FALSE,
+      xref = "paper",
+      yref = "paper"
+    ),
+    list(
+      x = 0.4,
+      y = 0.32,
+      text = "Soorten gebonden aan voedselrijke habitats ",
+      showarrow = FALSE,
+      xref = "paper",
+      yref = "paper"
+    ),
+    list(
+      x = -0.15,
+      y = 0.5,
+      text = "MSI(2000 = 100%)",
+      showarrow = FALSE,
+      textangle = 270,
+      xref = "paper",
+      yref = "paper"
+    ),
+    list(
+      x = 1,
+      y = 1.03,
+      text = "Aantal soorten",
+      showarrow = FALSE,
+      xref = "paper",
+      yref = "paper"
+    )
+  ))
+fig_mest
+```
+
+Figuur 3 toont de evolutie van de multisoortenindex van 447 vaatplanten, opgedeeld op basis van hun nutriëntenvoorkeur (Ellenbergwaarde-N, stikstof maar ook fosfor en kalium). 
+De index voor typische soorten voor voedselrijke habitats geeft aan dat die soorten geleidelijk zijn toegenomen, wat resulteerde in een significante toename tussen 1950 en het referentiejaar 2000 (zie Figuur 3 onderaan). 
+Vanaf 2000 zien we geen significante verandering meer. Voor soorten gebonden aan voedselarme (zie Figuur 3 boven) en matig voedselrijke habitats (zie Figuur 3 midden) zijn er geen duidelijke wijzigingen in de MSI. 
+Voor soorten gebonden aan voedselarme habitats wordt de afname van 42 soorten gemaskeerd door de sterkere toename van 14 soorten tijdens de periode 1950-2018. 
+Een aantal van die soorten zijn ook kenmerkend voor een stedelijke omgeving, wat hun vooruitgang kan verklaren. 
+Het effect van vermesting op de samenstelling van de plantengemeenschap blijkt ook uit de afname van zeldzame soorten uit voedselarme milieus en van mossoorten op de Rode Lijst [@van_landuyt_atlas_2006; @van_landuyt_een_2017]. 
+Vooral levermossen van voedselarme terrestrische habitats zijn sterk achteruitgegaan. 
+De toename van stikstofminnende soorten en/of de afname van soorten gebonden aan stikstofarme habitats zijn het meest uitgesproken in gebieden met voedselarme en zure zandgronden onderhevig aan hoge stikstofdeposities [@van_landuyt_changes_2008].
+
+### MSI verzuring
+
+```{r interactieve figuur zuur, fig.cap = "Figuur 4. Multisoortenindex (MSI) voor plantensoorten in de periode 1950-2018. De berekening is gebaseerd op de kans op voorkomen van 359 vaatplanten opgedeeld op basis van de Ellenbergwaarden voor zuurtegraad: 46 soorten van zure milieus, 112 soorten van matig zure milieus en 201 soorten van (matig) basische milieus. De grafiek toont de gemodelleerde trend en het 95% betrouwbaarheidsinterval. Het jaar 2000 (blauwe lijn) is het referentiejaar (100%). De balk rechts toont het aantal soorten dat significant voor- of achteruitgaat, stabiel blijft of een onzekere trend vertoont ten opzichte van 1950. Deze figuur verwijst naar figuur 45 in het Natuurrapport 2020."}
+## zuur
+fig15 <- plot_ly(msi_zuur,
+  x = ~Jaar,
+  y = ~expmean_upr,
+  type = "scatter",
+  mode = "lines",
+  transforms = list(
+    list(
+      type = "filter",
+      target = ~Omschrijving,
+      operation = "=",
+      value = "acidic"
+    )
+  ),
+  line = list(color = "transparent"),
+  showlegend = FALSE,
+  name = "bovengrens 95% betrouwbaarheidsinterval",
+  hoverinfo = "text"
+) %>%
+  style(hoverinfo = "none") %>%
+  add_trace(
+    y = ~expmean_lwr,
+    type = "scatter",
+    mode = "lines",
+    fill = "tonexty",
+    fillcolor = toRGB(inbo_rood, 0.2),
+    line = list(color = "transparent"),
+    showlegend = FALSE,
+    name = "ondergrens 95% betrouwbaarheidsinterval",
+    hoverinfo = "text"
+  ) %>%
+  style(hoverinfo = "none") %>%
+  add_trace(
+    y = ~expmean_est,
+    type = "scatter",
+    mode = "lines",
+    line = list(color = inbo_rood),
+    name = "gemiddelde",
+    hoverinfo = "text",
+    text = ~ paste(
+      "</br> Mean Species Index (2000 = 100)",
+      "</br> -  Gemiddeld: ",
+      round(expmean_est * 100, 2), "%",
+      "</br> -  Bovengrens 95% CI: ",
+      round(expmean_lwr * 100, 2), "%",
+      "</br> -  Ondergrens 95% CI: ",
+      round(expmean_upr * 100, 2), "%",
+      "</br> Jaar:", Jaar
+    )
+  ) %>%
+  layout(
+    shapes = list(vline(2000)),
+    xaxis = e,
+    yaxis = b,
+    hoverlabel = list(font = f1)
+  )
+
+fig16 <- plot_ly(onzeker_zuurbar,
+  y = ~prop,
+  type = "bar",
+  legendgroup = ~"Onzeker",
+  name = "Onzeker", transforms = list(
+    list(
+      type = "filter",
+      target = ~Omschrijving,
+      operation = "=",
+      value = "acidic"
+    )
+  ),
+  hoverinfo = "text",
+  text = ~ paste(
+    "</br> Aandeel: ",
+    round(prop * 100, 0), "%",
+    "</br> Aantal: ", n,
+    "</br> Categorie: ", "Onzeker"
+  ),
+  marker = list(
+    color = inbo_lichtgrijs,
+    line = list(
+      color = inbo_lichtgrijs,
+      width = 3
+    )
+  )
+) %>%
+  add_trace(
+    data = afname_zuurbar,
+    y = ~prop,
+    legendgroup = ~"Afname",
+    name = "Afname",
+    transforms = list(
+      list(
+        type = "filter",
+        target = ~Omschrijving,
+        operation = "=",
+        value = "acidic"
+      )
+    ),
+    text = ~ paste(
+      "</br> Aandeel: ",
+      round(prop * 100, 0), "%",
+      "</br> Aantal: ", n,
+      "</br> Categorie: ", "Afname"
+    ),
+    marker = list(
+      color = inbo_steun_blauw,
+      line = list(
+        color = inbo_steun_blauw,
+        width = 3
+      )
+    )
+  ) %>%
+  add_trace(
+    data = stabiel_zuurbar,
+    y = ~prop,
+    legendgroup = ~"Stabiel",
+    name = "Stabiel",
+    transforms = list(
+      list(
+        type = "filter",
+        target = ~Omschrijving,
+        operation = "=",
+        value = "acidic"
+      )
+    ),
+    text = ~ paste(
+      "</br> Aandeel: ",
+      round(prop * 100, 0), "%",
+      "</br> Aantal: ", n,
+      "</br> Categorie: ", "Stabiel"
+    ),
+    marker = list(
+      color = inbo_groen,
+      line = list(
+        color = inbo_groen,
+        width = 3
+      )
+    )
+  ) %>%
+  add_trace(
+    data = toename_zuurbar,
+    y = ~prop,
+    legendgroup = ~"Toename",
+    name = "Toename",
+    transforms = list(
+      list(
+        type = "filter",
+        target = ~Omschrijving,
+        operation = "=",
+        value = "acidic"
+      )
+    ),
+    text = ~ paste(
+      "</br> Aandeel: ",
+      round(prop * 100, 0), "%",
+      "</br> Aantal: ", n,
+      "</br> Categorie: ", "Toename"
+    ),
+    marker = list(
+      color = inbo_hoofd,
+      line = list(
+        color = inbo_hoofd,
+        width = 3
+      )
+    )
+  ) %>%
+  layout(
+    barmode = "stack",
+    xaxis = c,
+    yaxis = d,
+    legend = list(font = f1, x = 1.10),
+    hoverlabel = list(font = f1),
+    width = 100,
+    autosize = FALSE
+  )
+
+onzeker_zuurbar_zuur <- onzeker_zuurbar %>%
+  filter(Omschrijving == "acidic")
+toename_zuurbar_zuur <- toename_zuurbar %>%
+  filter(Omschrijving == "acidic")
+afname_zuurbar_zuur <- afname_zuurbar %>%
+  filter(Omschrijving == "acidic")
+stabiel_zuurbar_zuur <- stabiel_zuurbar %>%
+  filter(Omschrijving == "acidic")
+
+
+fig16 <- fig16 %>%
+  add_annotations(
+    y = onzeker_zuurbar_zuur$lab.xpos,
+    x = 0.1,
+    text = onzeker_zuurbar_zuur$n,
+    xref = "x",
+    yref = "y",
+    showarrow = FALSE,
+    font = f1
+  ) %>%
+  add_annotations(
+    y = afname_zuurbar_zuur$lab.xpos,
+    x = 0.1,
+    text = afname_zuurbar_zuur$n,
+    xref = "x",
+    yref = "y",
+    showarrow = FALSE,
+    font = f1
+  ) %>%
+  add_annotations(
+    y = stabiel_zuurbar_zuur$lab.xpos,
+    x = 0.1,
+    text = stabiel_zuurbar_zuur$n,
+    xref = "x",
+    yref = "y",
+    showarrow = FALSE,
+    font = f1
+  ) %>%
+  add_annotations(
+    y = toename_zuurbar_zuur$lab.xpos,
+    x = 0.1,
+    text = toename_zuurbar_zuur$n,
+    xref = "x",
+    yref = "y",
+    showarrow = FALSE,
+    font = f1
+  )
+
+fig_zuur_zuur <- subplot(fig15,
+  fig16,
+  nrows = 1,
+  widths = c(0.8, 0.2),
+  titleY = TRUE
+)
+
+## zwak zuur
+
+fig17 <- plot_ly(msi_zuur,
+  x = ~Jaar,
+  y = ~expmean_upr,
+  type = "scatter",
+  mode = "lines",
+  transforms = list(
+    list(
+      type = "filter",
+      target = ~Omschrijving,
+      operation = "=",
+      value = "weakly acidic"
+    )
+  ),
+  line = list(color = "transparent"),
+  showlegend = FALSE,
+  name = "bovengrens 95% betrouwbaarheidsinterval",
+  hoverinfo = "text"
+) %>%
+  style(hoverinfo = "none") %>%
+  add_trace(
+    y = ~expmean_lwr,
+    type = "scatter",
+    mode = "lines",
+    fill = "tonexty",
+    fillcolor = toRGB(inbo_rood, 0.2),
+    line = list(color = "transparent"),
+    showlegend = FALSE,
+    name = "ondergrens 95% betrouwbaarheidsinterval",
+    hoverinfo = "text"
+  ) %>%
+  style(hoverinfo = "none") %>%
+  add_trace(
+    y = ~expmean_est,
+    type = "scatter",
+    mode = "lines",
+    line = list(color = inbo_rood),
+    name = "gemiddelde",
+    hoverinfo = "text",
+    text = ~ paste(
+      "</br> Mean Species Index (2000 = 100)",
+      "</br> -  Gemiddeld: ",
+      round(expmean_est * 100, 2), "%",
+      "</br> -  Bovengrens 95% CI: ",
+      round(expmean_lwr * 100, 2), "%",
+      "</br> -  Ondergrens 95% CI: ",
+      round(expmean_upr * 100, 2), "%",
+      "</br> Jaar:", Jaar
+    )
+  ) %>%
+  layout(
+    shapes = list(vline(2000)),
+    xaxis = a,
+    yaxis = b,
+    hoverlabel = list(font = f1)
+  )
+
+fig18 <- plot_ly(onzeker_zuurbar,
+  y = ~prop,
+  type = "bar",
+  legendgroup = ~"Onzeker",
+  name = "Onzeker", transforms = list(
+    list(
+      type = "filter",
+      target = ~Omschrijving,
+      operation = "=",
+      value = "weakly acidic"
+    )
+  ),
+  hoverinfo = "text",
+  showlegend = FALSE,
+  text = ~ paste(
+    "</br> Aandeel: ",
+    round(prop * 100, 0), "%",
+    "</br> Aantal: ", n,
+    "</br> Categorie: ", "Onzeker"
+  ),
+  marker = list(
+    color = inbo_lichtgrijs,
+    line = list(
+      color = inbo_lichtgrijs,
+      width = 3
+    )
+  )
+) %>%
+  add_trace(
+    data = afname_zuurbar,
+    y = ~prop,
+    legendgroup = ~"Afname",
+    name = "Afname",
+    transforms = list(
+      list(
+        type = "filter",
+        target = ~Omschrijving,
+        operation = "=",
+        value = "weakly acidic"
+      )
+    ),
+    text = ~ paste(
+      "</br> Aandeel: ",
+      round(prop * 100, 0), "%",
+      "</br> Aantal: ", n,
+      "</br> Categorie: ", "Afname"
+    ),
+    marker = list(
+      color = inbo_steun_blauw,
+      line = list(
+        color = inbo_steun_blauw,
+        width = 3
+      )
+    )
+  ) %>%
+  add_trace(
+    data = stabiel_zuurbar,
+    y = ~prop,
+    legendgroup = ~"Stabiel",
+    name = "Stabiel",
+    transforms = list(
+      list(
+        type = "filter",
+        target = ~Omschrijving,
+        operation = "=",
+        value = "weakly acidic"
+      )
+    ),
+    text = ~ paste(
+      "</br> Aandeel: ",
+      round(prop * 100, 0), "%",
+      "</br> Aantal: ", n,
+      "</br> Categorie: ", "Stabiel"
+    ),
+    marker = list(
+      color = inbo_groen,
+      line = list(
+        color = inbo_groen,
+        width = 3
+      )
+    )
+  ) %>%
+  add_trace(
+    data = toename_zuurbar,
+    y = ~prop,
+    legendgroup = ~"Toename",
+    name = "Toename",
+    transforms = list(
+      list(
+        type = "filter",
+        target = ~Omschrijving,
+        operation = "=",
+        value = "weakly acidic"
+      )
+    ),
+    text = ~ paste(
+      "</br> Aandeel: ",
+      round(prop * 100, 0), "%",
+      "</br> Aantal: ", n,
+      "</br> Categorie: ", "Toename"
+    ),
+    marker = list(
+      color = inbo_hoofd,
+      line = list(
+        color = inbo_hoofd,
+        width = 3
+      )
+    )
+  ) %>%
+  layout(
+    barmode = "stack",
+    xaxis = c,
+    yaxis = d,
+    width = 0.3,
+    legend = list(font = f1),
+    hoverlabel = list(font = f1)
+  )
+
+onzeker_zuurbar_zwak <- onzeker_zuurbar %>%
+  filter(Omschrijving == "weakly acidic")
+toename_zuurbar_zwak <- toename_zuurbar %>%
+  filter(Omschrijving == "weakly acidic")
+afname_zuurbar_zwak <- afname_zuurbar %>%
+  filter(Omschrijving == "weakly acidic")
+stabiel_zuurbar_zwak <- stabiel_zuurbar %>%
+  filter(Omschrijving == "weakly acidic")
+
+fig18 <- fig18 %>%
+  add_annotations(
+    y = onzeker_zuurbar_zwak$lab.xpos,
+    x = 0.1,
+    text = onzeker_zuurbar_zwak$n,
+    xref = "x",
+    yref = "y",
+    showarrow = FALSE,
+    font = f1
+  ) %>%
+  add_annotations(
+    y = afname_zuurbar_zwak$lab.xpos,
+    x = 0.1,
+    text = afname_zuurbar_zwak$n,
+    xref = "x",
+    yref = "y",
+    showarrow = FALSE,
+    font = f1
+  ) %>%
+  add_annotations(
+    y = stabiel_zuurbar_zwak$lab.xpos,
+    x = 0.1,
+    text = stabiel_zuurbar_zwak$n,
+    xref = "x",
+    yref = "y",
+    showarrow = FALSE,
+    font = f1
+  ) %>%
+  add_annotations(
+    y = toename_zuurbar_zwak$lab.xpos,
+    x = 0.1,
+    text = toename_zuurbar_zwak$n,
+    xref = "x",
+    yref = "y",
+    showarrow = FALSE,
+    font = f1
+  )
+
+fig_zuur_zwak <- subplot(fig17,
+  fig18,
+  nrows = 1,
+  widths = c(0.8, 0.2),
+  titleY = TRUE
+)
+
+## (zwak) basisch
+
+fig19 <- plot_ly(msi_zuur,
+  x = ~Jaar,
+  y = ~expmean_upr,
+  type = "scatter",
+  mode = "lines",
+  transforms = list(
+    list(
+      type = "filter",
+      target = ~Omschrijving,
+      operation = "=",
+      value = "weakly basic or basic"
+    )
+  ),
+  line = list(color = "transparent"),
+  showlegend = FALSE,
+  name = "bovengrens 95% betrouwbaarheidsinterval",
+  hoverinfo = "text"
+) %>%
+  style(hoverinfo = "none") %>%
+  add_trace(
+    y = ~expmean_lwr,
+    type = "scatter",
+    mode = "lines",
+    fill = "tonexty",
+    fillcolor = toRGB(inbo_rood, 0.2),
+    line = list(color = "transparent"),
+    showlegend = FALSE,
+    name = "ondergrens 95% betrouwbaarheidsinterval",
+    hoverinfo = "text"
+  ) %>%
+  style(hoverinfo = "none") %>%
+  add_trace(
+    y = ~expmean_est,
+    type = "scatter",
+    mode = "lines",
+    line = list(color = inbo_rood),
+    name = "gemiddelde",
+    hoverinfo = "text",
+    text = ~ paste(
+      "</br> Mean Species Index (2000 = 100)",
+      "</br> -  Gemiddeld: ",
+      round(expmean_est * 100, 2), "%",
+      "</br> -  Bovengrens 95% CI: ",
+      round(expmean_lwr * 100, 2), "%",
+      "</br> -  Ondergrens 95% CI: ",
+      round(expmean_upr * 100, 2), "%",
+      "</br> Jaar:", Jaar
+    )
+  ) %>%
+  layout(
+    shapes = list(vline(2000)),
+    xaxis = e,
+    yaxis = b,
+    hoverlabel = list(font = f1)
+  )
+
+fig20 <- plot_ly(onzeker_zuurbar,
+  y = ~prop,
+  type = "bar",
+  legendgroup = ~"Onzeker",
+  name = "Onzeker", transforms = list(
+    list(
+      type = "filter",
+      target = ~Omschrijving,
+      operation = "=",
+      value = "weakly basic or basic"
+    )
+  ),
+  hoverinfo = "text",
+  text = ~ paste(
+    "</br> Aandeel: ",
+    round(prop * 100, 0), "%",
+    "</br> Aantal: ", n,
+    "</br> Categorie: ", "Onzeker"
+  ),
+  showlegend = FALSE,
+  marker = list(
+    color = inbo_lichtgrijs,
+    line = list(
+      color = inbo_lichtgrijs,
+      width = 3
+    )
+  )
+) %>%
+  add_trace(
+    data = afname_zuurbar,
+    y = ~prop,
+    legendgroup = ~"Afname",
+    name = "Afname",
+    transforms = list(
+      list(
+        type = "filter",
+        target = ~Omschrijving,
+        operation = "=",
+        value = "weakly basic or basic"
+      )
+    ),
+    text = ~ paste(
+      "</br> Aandeel: ",
+      round(prop * 100, 0), "%",
+      "</br> Aantal: ", n,
+      "</br> Categorie: ", "Afname"
+    ),
+    marker = list(
+      color = inbo_steun_blauw,
+      line = list(
+        color = inbo_steun_blauw,
+        width = 3
+      )
+    )
+  ) %>%
+  add_trace(
+    data = stabiel_zuurbar,
+    y = ~prop,
+    legendgroup = ~"Stabiel",
+    name = "Stabiel",
+    transforms = list(
+      list(
+        type = "filter",
+        target = ~Omschrijving,
+        operation = "=",
+        value = "weakly basic or basic"
+      )
+    ),
+    text = ~ paste(
+      "</br> Aandeel: ",
+      round(prop * 100, 0), "%",
+      "</br> Aantal: ", n,
+      "</br> Categorie: ", "Stabiel"
+    ),
+    marker = list(
+      color = inbo_groen,
+      line = list(
+        color = inbo_groen,
+        width = 3
+      )
+    )
+  ) %>%
+  add_trace(
+    data = toename_zuurbar,
+    y = ~prop,
+    legendgroup = ~"Toename",
+    name = "Toename",
+    transforms = list(
+      list(
+        type = "filter",
+        target = ~Omschrijving,
+        operation = "=",
+        value = "weakly basic or basic"
+      )
+    ),
+    text = ~ paste(
+      "</br> Aandeel: ",
+      round(prop * 100, 0), "%",
+      "</br> Aantal: ", n,
+      "</br> Categorie: ", "Toename"
+    ),
+    marker = list(
+      color = inbo_hoofd,
+      line = list(
+        color = inbo_hoofd,
+        width = 3
+      )
+    )
+  ) %>%
+  layout(
+    barmode = "stack",
+    xaxis = c,
+    yaxis = d,
+    legend = list(font = f1),
+    hoverlabel = list(font = f1)
+  )
+
+onzeker_zuurbar_basisch <- onzeker_zuurbar %>%
+  filter(Omschrijving == "weakly basic or basic")
+toename_zuurbar_basisch <- toename_zuurbar %>%
+  filter(Omschrijving == "weakly basic or basic")
+afname_zuurbar_basisch <- afname_zuurbar %>%
+  filter(Omschrijving == "weakly basic or basic")
+stabiel_zuurbar_basisch <- stabiel_zuurbar %>%
+  filter(Omschrijving == "weakly basic or basic")
+
+
+fig20 <- fig20 %>%
+  add_annotations(
+    y = onzeker_zuurbar_basisch$lab.xpos,
+    x = 0.1,
+    text = onzeker_zuurbar_basisch$n,
+    xref = "x",
+    yref = "y",
+    showarrow = FALSE,
+    font = f1
+  ) %>%
+  add_annotations(
+    y = afname_zuurbar_basisch$lab.xpos,
+    x = 0.1,
+    text = afname_zuurbar_basisch$n,
+    xref = "x",
+    yref = "y",
+    showarrow = FALSE,
+    font = f1
+  ) %>%
+  add_annotations(
+    y = stabiel_zuurbar_basisch$lab.xpos,
+    x = 0.1,
+    text = stabiel_zuurbar_basisch$n,
+    xref = "x",
+    yref = "y",
+    showarrow = FALSE,
+    font = f1
+  ) %>%
+  add_annotations(
+    y = toename_zuurbar_basisch$lab.xpos,
+    x = 0.1,
+    text = toename_zuurbar_basisch$n,
+    xref = "x",
+    yref = "y",
+    showarrow = FALSE,
+    font = f1
+  )
+
+fig_zuur_basisch <- subplot(fig19,
+  fig20,
+  nrows = 1,
+  widths = c(0.8, 0.2),
+  titleY = TRUE
+)
+
+fig_zuur <- subplot(fig_zuur_zuur,
+  fig_zuur_basisch,
+  fig_zuur_zwak,
+  nrows = 3,
+  titleY = TRUE
+) %>%
+  layout(annotations = list(
+    list(
+      x = 0.4,
+      y = 1.03,
+      text = "Soorten gebonden aan (zwak) basisch milieu",
+      showarrow = FALSE,
+      xref = "paper",
+      yref = "paper"
+    ),
+    list(
+      x = 0.4,
+      y = 0.66,
+      text = "Soorten gebonden aan zwak zuur milieu",
+      showarrow = FALSE,
+      xref = "paper",
+      yref = "paper"
+    ),
+    list(
+      x = 0.4,
+      y = 0.32,
+      text = "Soorten gebonden aan zuur milieu",
+      showarrow = FALSE,
+      xref = "paper",
+      yref = "paper"
+    ),
+    list(
+      x = -0.15,
+      y = 0.5,
+      text = "MSI(2000 = 100%)",
+      showarrow = FALSE,
+      textangle = 270,
+      xref = "paper",
+      yref = "paper"
+    ),
+    list(
+      x = 1,
+      y = 1.03,
+      text = "Aantal soorten",
+      showarrow = FALSE,
+      xref = "paper",
+      yref = "paper"
+    )
+  ))
+fig_zuur
+```
+
+De index van zuurminnende soorten geeft aan dat die soorten geleidelijk zijn afgenomen tussen 1950 en het referentiejaar 2000 (zie Figuur 4). 
+De zuurminnende soorten die achteruitgaan zijn soorten van stikstofarme milieus, waardoor het vermestende effect het verzurende effect maskeert. 
+Epifytische blad- en levermossen vertonen wel significante veranderingen door verzuring. 
+Ze waren enkele decennia geleden grotendeels verdwenen uit Vlaanderen, maar nemen de laatste jaren sterk toe [@hoffmann_verspreiding_1993; @van_landuyt_een_2011; @van_landuyt_een_2017]. 
+Omdat ook vermesting en klimatologische omstandigheden het voorkomen van epifytische mossen beïnvloeden, kan die trend niet eenduidig worden toegeschreven aan de afname van de verzurende deposities [@bates_can_2011].
+
+### Heide
+
+```{r interactieve figuur heide, fig.cap = "Figuur 5. Multisoortenindex (MSI) voor 23 plantensoorten van heide en landduinen in de periode 1950-2018 in Vlaanderen. De grafiek toont de gemodelleerde trend en het 95% betrouwbaarheidsinterval. Het jaar 2000 (blauwe lijn) is het referentiejaar (100%). De balk rechts toont het aantal soorten dat significant voor- of achteruitgaat, stabiel blijft of een onzekere trend vertoont ten opzichte van 1950. Deze figuur verwijst naar figuur 84 in het Natuurrapport 2020."}
+fig21 <- plot_ly(msi_eco,
+  x = ~Jaar,
+  y = ~expmean_upr,
+  type = "scatter",
+  mode = "lines",
+  transforms = list(
+    list(
+      type = "filter",
+      target = ~Omschrijving,
+      operation = "=",
+      value = "heide"
+    )
+  ),
+  line = list(color = "transparent"),
+  showlegend = FALSE,
+  name = "bovengrens 95% betrouwbaarheidsinterval",
+  hoverinfo = "text"
+) %>%
+  style(hoverinfo = "none") %>%
+  add_trace(
+    y = ~expmean_lwr,
+    type = "scatter",
+    mode = "lines",
+    fill = "tonexty",
+    fillcolor = toRGB(inbo_rood, 0.2),
+    line = list(color = "transparent"),
+    showlegend = FALSE,
+    name = "ondergrens 95% betrouwbaarheidsinterval",
+    hoverinfo = "text"
+  ) %>%
+  style(hoverinfo = "none") %>%
+  add_trace(
+    y = ~expmean_est,
+    type = "scatter",
+    mode = "lines",
+    line = list(color = inbo_rood),
+    name = "gemiddelde",
+    hoverinfo = "text",
+    text = ~ paste(
+      "</br> Mean Species Index (2000 = 100)",
+      "</br> -  Gemiddeld: ",
+      round(expmean_est * 100, 2), "%",
+      "</br> -  Bovengrens 95% CI: ",
+      round(expmean_lwr * 100, 2), "%",
+      "</br> -  Ondergrens 95% CI: ",
+      round(expmean_upr * 100, 2), "%",
+      "</br> Jaar:", Jaar
+    )
+  ) %>%
+  layout(
+    shapes = list(vline(2000)),
+    xaxis = a,
+    yaxis = b,
+    hoverlabel = list(font = f1)
+  )
+
+fig22 <- plot_ly(onzeker_ecobar,
+  y = ~prop,
+  type = "bar",
+  legendgroup = ~"Onzeker",
+  name = "Onzeker",
+  transforms = list(
+    list(
+      type = "filter",
+      target = ~Omschrijving,
+      operation = "=",
+      value = "heide"
+    )
+  ),
+  hoverinfo = "text",
+  text = ~ paste(
+    "</br> Aandeel: ",
+    round(prop * 100, 0), "%",
+    "</br> Aantal: ", n,
+    "</br> Categorie: ", "Onzeker"
+  ),
+  marker = list(
+    color = inbo_lichtgrijs,
+    line = list(
+      color = inbo_lichtgrijs,
+      width = 3
+    )
+  )
+) %>%
+  add_trace(
+    data = afname_ecobar,
+    y = ~prop,
+    legendgroup = ~"Afname",
+    name = "Afname",
+    transforms = list(
+      list(
+        type = "filter",
+        target = ~Omschrijving,
+        operation = "=",
+        value = "heide"
+      )
+    ),
+    text = ~ paste(
+      "</br> Aandeel: ",
+      round(prop * 100, 0), "%",
+      "</br> Aantal: ", n,
+      "</br> Categorie: ", "Afname"
+    ),
+    marker = list(
+      color = inbo_steun_blauw,
+      line = list(
+        color = inbo_steun_blauw,
+        width = 3
+      )
+    )
+  ) %>%
+  add_trace(
+    data = stabiel_ecobar,
+    y = ~prop,
+    legendgroup = ~"Stabiel",
+    name = "Stabiel",
+    transforms = list(
+      list(
+        type = "filter",
+        target = ~Omschrijving,
+        operation = "=",
+        value = "heide"
+      )
+    ),
+    text = ~ paste(
+      "</br> Aandeel: ",
+      round(prop * 100, 0), "%",
+      "</br> Aantal: ", n,
+      "</br> Categorie: ", "Stabiel"
+    ),
+    marker = list(
+      color = inbo_groen,
+      line = list(
+        color = inbo_groen,
+        width = 3
+      )
+    )
+  ) %>%
+  add_trace(
+    data = toename_ecobar,
+    y = ~prop,
+    legendgroup = ~"Toename",
+    name = "Toename",
+    transforms = list(
+      list(
+        type = "filter",
+        target = ~Omschrijving,
+        operation = "=",
+        value = "heide"
+      )
+    ),
+    text = ~ paste(
+      "</br> Aandeel: ",
+      round(prop * 100, 0), "%",
+      "</br> Aantal: ", n,
+      "</br> Categorie: ", "Toename"
+    ),
+    marker = list(
+      color = inbo_hoofd,
+      line = list(
+        color = inbo_hoofd,
+        width = 3
+      )
+    )
+  ) %>%
+  layout(
+    barmode = "stack",
+    xaxis = c,
+    yaxis = d,
+    legend = list(font = f1, x = 1.10),
+    hoverlabel = list(font = f1)
+  )
+
+onzeker_ecobar_heide <- onzeker_ecobar %>%
+  filter(Omschrijving == "heide")
+toename_ecobar_heide <- toename_ecobar %>%
+  filter(Omschrijving == "heide")
+afname_ecobar_heide <- afname_ecobar %>%
+  filter(Omschrijving == "heide")
+stabiel_ecobar_heide <- stabiel_ecobar %>%
+  filter(Omschrijving == "heide")
+
+
+fig22 <- fig22 %>%
+  add_annotations(
+    y = onzeker_ecobar_heide$lab.xpos,
+    x = 0.1,
+    text = onzeker_ecobar_heide$n,
+    xref = "x",
+    yref = "y",
+    showarrow = FALSE,
+    font = f1
+  ) %>%
+  add_annotations(
+    y = afname_ecobar_heide$lab.xpos,
+    x = 0.1,
+    text = afname_ecobar_heide$n,
+    xref = "x",
+    yref = "y",
+    showarrow = FALSE,
+    font = f1
+  ) %>%
+  add_annotations(
+    y = stabiel_ecobar_heide$lab.xpos,
+    x = 0.1,
+    text = stabiel_ecobar_heide$n,
+    xref = "x",
+    yref = "y",
+    showarrow = FALSE,
+    font = f1
+  ) %>%
+  add_annotations(
+    y = toename_ecobar_heide$lab.xpos,
+    x = 0.1,
+    text = toename_ecobar_heide$n,
+    xref = "x",
+    yref = "y",
+    showarrow = FALSE,
+    font = f1
+  )
+
+fig_eco_heide <- subplot(fig21,
+  fig22,
+  nrows = 1,
+  widths = c(0.8, 0.2),
+  titleY = TRUE
+) %>%
+  layout(annotations = list(
+    list(
+      x = -0.15,
+      y = 0.5,
+      text = "MSI(2000 = 100%)",
+      showarrow = FALSE,
+      textangle = 270,
+      xref = "paper",
+      yref = "paper"
+    ),
+    list(
+      x = 1,
+      y = 1.03,
+      text = "Aantal soorten",
+      showarrow = FALSE,
+      xref = "paper",
+      yref = "paper"
+    )
+  ))
+fig_eco_heide
+```
+
+De multisoortenindex toont de kans op het voorkomen van 23 plantensoorten typisch voor heide en landduinen ten opzichte van het referentiejaar 2000 (zie Figuur 5) [@van_calster_florabank_2020]. De soortenrijkdom halverwege de twintigste eeuw was significant hoger dan nu. De veranderingen sinds het jaar 2000 zijn onvoldoende uitgesproken om een toename af te leiden. Het aantal afgenomen soorten (14) ten opzichte van de jaren 1950 is ruim drie keer groter dan het aantal stabiele en toegenomen soorten (4).
+
+Het signaal dat de MSI geeft, wordt enigszins afgezwakt doordat heel wat zeldzame, bedreigde en verdwenen soorten om modeltechnische redenen niet in de index vertegenwoordigd zijn (zie metadata).
+Soorten als ronde zonnedauw en klokjesgentiaan bepalen mee de habitatkwaliteit van verschillende heidehabitats van Europees belang maar ontbreken in de index. 
+Die soorten worden wel meegerekend in de Rode Lijst-indicator voor heide (zie Rode Lijst-status - Heide, Moeras, Kustduin).
+
+### Moeras
+
+```{r interactieve figuur moeras, fig.cap = "Figuur 6. Multisoortenindex (MSI) voor 70 moerasplanten in de periode 1950-2018 in Vlaanderen. Gemodelleerde waarden en 95% betrouwbaarheidsinterval. Het jaar 2000 (blauwe lijn) is het referentiejaar (100%). De balk rechts toont het aantal soorten dat significant voor- of achteruitgaat, stabiel blijft of een onzekere trend vertoont ten opzichte van 1950. Deze figuur verwijst naar figuur 87 in het Natuurrapport 2020."}
+fig23 <- plot_ly(msi_eco,
+  x = ~Jaar,
+  y = ~expmean_upr,
+  type = "scatter",
+  mode = "lines",
+  transforms = list(
+    list(
+      type = "filter",
+      target = ~Omschrijving,
+      operation = "=",
+      value = "moeras"
+    )
+  ),
+  line = list(color = "transparent"),
+  showlegend = FALSE,
+  name = "bovengrens 95% betrouwbaarheidsinterval",
+  hoverinfo = "text"
+) %>%
+  style(hoverinfo = "none") %>%
+  add_trace(
+    y = ~expmean_lwr,
+    type = "scatter",
+    mode = "lines",
+    fill = "tonexty",
+    fillcolor = toRGB(inbo_rood, 0.2),
+    line = list(color = "transparent"),
+    showlegend = FALSE,
+    name = "ondergrens 95% betrouwbaarheidsinterval",
+    hoverinfo = "text"
+  ) %>%
+  style(hoverinfo = "none") %>%
+  add_trace(
+    y = ~expmean_est,
+    type = "scatter",
+    mode = "lines",
+    line = list(color = inbo_rood),
+    name = "gemiddelde",
+    hoverinfo = "text",
+    text = ~ paste(
+      "</br> Mean Species Index (2000 = 100)",
+      "</br> -  Gemiddeld: ",
+      round(expmean_est * 100, 2), "%",
+      "</br> -  Bovengrens 95% CI: ",
+      round(expmean_lwr * 100, 2), "%",
+      "</br> -  Ondergrens 95% CI: ",
+      round(expmean_upr * 100, 2), "%",
+      "</br> Jaar:", Jaar
+    )
+  ) %>%
+  layout(
+    shapes = list(vline(2000)),
+    xaxis = a,
+    yaxis = b,
+    hoverlabel = list(font = f1)
+  )
+
+fig24 <- plot_ly(onzeker_ecobar,
+  y = ~prop,
+  type = "bar",
+  name = "Onzeker",
+  transforms = list(
+    list(
+      type = "filter",
+      target = ~Omschrijving,
+      operation = "=",
+      value = "moeras"
+    )
+  ),
+  hoverinfo = "text",
+  text = ~ paste(
+    "</br> Aandeel: ",
+    round(prop * 100, 0), "%",
+    "</br> Aantal: ", n,
+    "</br> Categorie: ", "Onzeker"
+  ),
+  marker = list(
+    color = inbo_lichtgrijs,
+    line = list(
+      color = inbo_lichtgrijs,
+      width = 3
+    )
+  )
+) %>%
+  add_trace(
+    data = afname_ecobar,
+    y = ~prop,
+    name = "Afname",
+    transforms = list(
+      list(
+        type = "filter",
+        target = ~Omschrijving,
+        operation = "=",
+        value = "moeras"
+      )
+    ),
+    text = ~ paste(
+      "</br> Aandeel: ",
+      round(prop * 100, 0), "%",
+      "</br> Aantal: ", n,
+      "</br> Categorie: ", "Afname"
+    ),
+    marker = list(
+      color = inbo_steun_blauw,
+      line = list(
+        color = inbo_steun_blauw,
+        width = 3
+      )
+    )
+  ) %>%
+  add_trace(
+    data = stabiel_ecobar,
+    y = ~prop,
+    name = "Stabiel",
+    transforms = list(
+      list(
+        type = "filter",
+        target = ~Omschrijving,
+        operation = "=",
+        value = "moeras"
+      )
+    ),
+    text = ~ paste(
+      "</br> Aandeel: ",
+      round(prop * 100, 0), "%",
+      "</br> Aantal: ", n,
+      "</br> Categorie: ", "Stabiel"
+    ),
+    marker = list(
+      color = inbo_groen,
+      line = list(
+        color = inbo_groen,
+        width = 3
+      )
+    )
+  ) %>%
+  add_trace(
+    data = toename_ecobar,
+    y = ~prop,
+    name = "Toename",
+    transforms = list(
+      list(
+        type = "filter",
+        target = ~Omschrijving,
+        operation = "=",
+        value = "moeras"
+      )
+    ),
+    text = ~ paste(
+      "</br> Aandeel: ",
+      round(prop * 100, 0), "%",
+      "</br> Aantal: ", n,
+      "</br> Categorie: ", "Toename"
+    ),
+    marker = list(
+      color = inbo_hoofd,
+      line = list(
+        color = inbo_hoofd,
+        width = 3
+      )
+    )
+  ) %>%
+  layout(
+    barmode = "stack",
+    xaxis = c,
+    yaxis = d,
+    legend = list(font = f1, x = 1.10),
+    hoverlabel = list(font = f1)
+  )
+
+onzeker_ecobar_moeras <- onzeker_ecobar %>%
+  filter(Omschrijving == "moeras")
+toename_ecobar_moeras <- toename_ecobar %>%
+  filter(Omschrijving == "moeras")
+afname_ecobar_moeras <- afname_ecobar %>%
+  filter(Omschrijving == "moeras")
+stabiel_ecobar_moeras <- stabiel_ecobar %>%
+  filter(Omschrijving == "moeras")
+
+fig24 <- fig24 %>%
+  add_annotations(
+    y = onzeker_ecobar_moeras$lab.xpos,
+    x = 0.1,
+    text = onzeker_ecobar_moeras$n,
+    xref = "x",
+    yref = "y",
+    showarrow = FALSE,
+    font = f1
+  ) %>%
+  add_annotations(
+    y = afname_ecobar_moeras$lab.xpos,
+    x = 0.1,
+    text = afname_ecobar_moeras$n,
+    xref = "x",
+    yref = "y",
+    showarrow = FALSE,
+    font = f1
+  ) %>%
+  add_annotations(
+    y = stabiel_ecobar_moeras$lab.xpos,
+    x = 0.1,
+    text = stabiel_ecobar_moeras$n,
+    xref = "x",
+    yref = "y",
+    showarrow = FALSE,
+    font = f1
+  ) %>%
+  add_annotations(
+    y = toename_ecobar_moeras$lab.xpos,
+    x = 0.1,
+    text = toename_ecobar_moeras$n,
+    xref = "x",
+    yref = "y",
+    showarrow = FALSE,
+    font = f1
+  )
+
+fig_eco_moeras <- subplot(fig23,
+  fig24,
+  nrows = 1,
+  widths = c(0.8, 0.2),
+  titleY = TRUE
+) %>%
+  layout(annotations = list(
+    list(
+      x = -0.15,
+      y = 0.5,
+      text = "MSI(2000 = 100%)",
+      showarrow = FALSE,
+      textangle = 270,
+      xref = "paper",
+      yref = "paper"
+    ),
+    list(
+      x = 1,
+      y = 1.03,
+      text = "Aantal soorten",
+      showarrow = FALSE,
+      xref = "paper",
+      yref = "paper"
+    )
+  ))
+fig_eco_moeras
+```
+
+De multisoortenindex toont de kans op het voorkomen van zeventig plantensoorten typisch voor moeras ten opzichte van het referentiejaar 2000 (zie Figuur 6) [@van_calster_florabank_2020].
+De veranderingen zijn onvoldoende uitgesproken om een statistisch significante toe- of afname af te leiden. 
+Het aantal stabiele en toenemende soorten (26) is ongeveer gelijk aan het aantal soorten met een afnemende verspreiding (33).
+
+De MSI rapporteert over de verspreiding van de meer algemene soorten maar geeft niet noodzakelijk een correct signaal over veranderingen in de omvang of kwaliteit van een ecosysteem. 
+Zo kunnen bij het verdwijnen of inkrimpen van moerassen een aantal moerasplanten overleven op andere natte plaatsen, zoals oevers van plassen en waterlopen. 
+Bovendien zijn heel wat Rode Lijst-soorten zoals slijkzegge, ronde zegge, tweehuizige zegge, lavendelhei, veenmosorchis en galigaan – niet in de index opgenomen, omdat de schaarse waarnemingen niet voldoen aan de modeltechnische randvoorwaarden (zie metadata).
+Die soorten worden wel meegerekend in de Rode Lijst-indicator voor moeras (zie Rode Lijst-status - Heide, Moeras, Kustduin).
+
+### Agroecosystemen
+
+```{r interactieve figuur agroecosystemen, fig.cap = "Figuur 7. Multisoortenindex (MSI) voor flora gebaseerd op 118 akkersoorten (boven) en 219 graslandsoorten (onder) voor de periode 1950 tot 2018 in Vlaanderen. De grafiek toont de gemodelleerde trend en het 95% betrouwbaarheidsinterval. Het jaar 2000 (blauwe lijn) is het referentiejaar (100%). De balk rechts toont het aantal soorten dat significant voor- of achteruitgaat, stabiel blijft of een onzekere trend vertoont ten opzichte van 1950. Deze figuur verwijst naar figuur 95 in het Natuurrapport 2020."}
+fig25 <- plot_ly(msi_eco,
+  x = ~Jaar,
+  y = ~expmean_upr,
+  type = "scatter",
+  mode = "lines",
+  transforms = list(
+    list(
+      type = "filter",
+      target = ~Omschrijving,
+      operation = "=",
+      value = "akker"
+    )
+  ),
+  line = list(color = "transparent"),
+  showlegend = FALSE,
+  name = "bovengrens 95% betrouwbaarheidsinterval",
+  hoverinfo = "text"
+) %>%
+  style(hoverinfo = "none") %>%
+  add_trace(
+    y = ~expmean_lwr,
+    type = "scatter",
+    mode = "lines",
+    fill = "tonexty",
+    fillcolor = toRGB(inbo_rood, 0.2),
+    line = list(color = "transparent"),
+    showlegend = FALSE,
+    name = "ondergrens 95% betrouwbaarheidsinterval",
+    hoverinfo = "text"
+  ) %>%
+  style(hoverinfo = "none") %>%
+  add_trace(
+    y = ~expmean_est,
+    type = "scatter",
+    mode = "lines",
+    line = list(color = inbo_rood),
+    name = "gemiddelde",
+    hoverinfo = "text",
+    text = ~ paste(
+      "</br> Mean Species Index (2000 = 100)",
+      "</br> -  Gemiddeld: ",
+      round(expmean_est * 100, 2), "%",
+      "</br> -  Bovengrens 95% CI: ",
+      round(expmean_lwr * 100, 2), "%",
+      "</br> -  Ondergrens 95% CI: ",
+      round(expmean_upr * 100, 2), "%",
+      "</br> Jaar:", Jaar
+    )
+  ) %>%
+  layout(
+    shapes = list(vline(2000)),
+    xaxis = e,
+    yaxis = b,
+    hoverlabel = list(font = f1)
+  )
+
+
+fig26 <- plot_ly(onzeker_ecobar,
+  y = ~prop,
+  type = "bar",
+  legendgroup = ~"Onzeker",
+  name = "Onzeker", transforms = list(
+    list(
+      type = "filter",
+      target = ~Omschrijving,
+      operation = "=",
+      value = "akker"
+    )
+  ),
+  hoverinfo = "text",
+  text = ~ paste(
+    "</br> Aandeel: ",
+    round(prop * 100, 0), "%",
+    "</br> Aantal: ", n,
+    "</br> Categorie: ", "Onzeker"
+  ),
+  marker = list(
+    color = inbo_lichtgrijs,
+    line = list(
+      color = inbo_lichtgrijs,
+      width = 3
+    )
+  )
+) %>%
+  add_trace(
+    data = afname_ecobar,
+    y = ~prop,
+    legendgroup = ~"Afname",
+    name = "Afname",
+    transforms = list(
+      list(
+        type = "filter",
+        target = ~Omschrijving,
+        operation = "=",
+        value = "akker"
+      )
+    ),
+    text = ~ paste(
+      "</br> Aandeel: ",
+      round(prop * 100, 0), "%",
+      "</br> Aantal: ", n,
+      "</br> Categorie: ", "Afname"
+    ),
+    marker = list(
+      color = inbo_steun_blauw,
+      line = list(
+        color = inbo_steun_blauw,
+        width = 3
+      )
+    )
+  ) %>%
+  add_trace(
+    data = stabiel_ecobar,
+    y = ~prop,
+    legendgroup = ~"Stabiel",
+    name = "Stabiel",
+    transforms = list(
+      list(
+        type = "filter",
+        target = ~Omschrijving,
+        operation = "=",
+        value = "akker"
+      )
+    ),
+    text = ~ paste(
+      "</br> Aandeel: ",
+      round(prop * 100, 0), "%",
+      "</br> Aantal: ", n,
+      "</br> Categorie: ", "Stabiel"
+    ),
+    marker = list(
+      color = inbo_groen,
+      line = list(
+        color = inbo_groen,
+        width = 3
+      )
+    )
+  ) %>%
+  add_trace(
+    data = toename_ecobar,
+    y = ~prop,
+    legendgroup = ~"Toename",
+    name = "Toename",
+    transforms = list(
+      list(
+        type = "filter",
+        target = ~Omschrijving,
+        operation = "=",
+        value = "akker"
+      )
+    ),
+    text = ~ paste(
+      "</br> Aandeel: ",
+      round(prop * 100, 0), "%",
+      "</br> Aantal: ", n,
+      "</br> Categorie: ", "Toename"
+    ),
+    marker = list(
+      color = inbo_hoofd,
+      line = list(
+        color = inbo_hoofd,
+        width = 3
+      )
+    )
+  ) %>%
+  layout(
+    barmode = "stack",
+    xaxis = c,
+    yaxis = d,
+    legend = list(font = f1, x = 1.10),
+    hoverlabel = list(font = f1)
+  )
+
+onzeker_ecobar_akker <- onzeker_ecobar %>%
+  filter(Omschrijving == "akker")
+toename_ecobar_akker <- toename_ecobar %>%
+  filter(Omschrijving == "akker")
+afname_ecobar_akker <- afname_ecobar %>%
+  filter(Omschrijving == "akker")
+stabiel_ecobar_akker <- stabiel_ecobar %>%
+  filter(Omschrijving == "akker")
+
+fig26 <- fig26 %>%
+  add_annotations(
+    y = onzeker_ecobar_akker$lab.xpos,
+    x = 0.1,
+    text = onzeker_ecobar_akker$n,
+    xref = "x",
+    yref = "y",
+    showarrow = FALSE,
+    font = f1
+  )
+fig26 <- fig26 %>%
+  add_annotations(
+    y = afname_ecobar_akker$lab.xpos,
+    x = 0.1,
+    text = afname_ecobar_akker$n,
+    xref = "x",
+    yref = "y",
+    showarrow = FALSE, font = f1
+  ) %>%
+  add_annotations(
+    y = stabiel_ecobar_akker$lab.xpos,
+    x = 0.1,
+    text = stabiel_ecobar_akker$n,
+    xref = "x",
+    yref = "y",
+    showarrow = FALSE,
+    font = f1
+  )
+
+fig26 <- fig26 %>% add_annotations(
+  y = toename_ecobar_akker$lab.xpos,
+  x = 0.1,
+  text = toename_ecobar_akker$n,
+  xref = "x",
+  yref = "y",
+  showarrow = FALSE,
+  font = f1
+)
+
+fig_eco_akker <- subplot(fig25,
+  fig26,
+  nrows = 1,
+  widths = c(0.8, 0.2),
+  titleY = TRUE
+)
+
+fig27 <- plot_ly(msi_eco,
+  x = ~Jaar,
+  y = ~expmean_upr,
+  type = "scatter",
+  mode = "lines",
+  transforms = list(
+    list(
+      type = "filter",
+      target = ~Omschrijving,
+      operation = "=",
+      value = "grasland"
+    )
+  ),
+  line = list(color = "transparent"),
+  showlegend = FALSE,
+  name = "bovengrens 95% betrouwbaarheidsinterval",
+  hoverinfo = "text"
+) %>%
+  style(hoverinfo = "none") %>%
+  add_trace(
+    y = ~expmean_lwr,
+    type = "scatter",
+    mode = "lines",
+    fill = "tonexty",
+    fillcolor = toRGB(inbo_rood, 0.2),
+    line = list(color = "transparent"),
+    showlegend = FALSE,
+    name = "ondergrens 95% betrouwbaarheidsinterval",
+    hoverinfo = "text"
+  ) %>%
+  style(hoverinfo = "none") %>%
+  add_trace(
+    y = ~expmean_est,
+    type = "scatter",
+    mode = "lines",
+    line = list(color = inbo_rood),
+    name = "gemiddelde",
+    hoverinfo = "text",
+    text = ~ paste(
+      "</br> Mean Species Index (2000 = 100)",
+      "</br> -  Gemiddeld: ",
+      round(expmean_est * 100, 2), "%",
+      "</br> -  Bovengrens 95% CI: ",
+      round(expmean_lwr * 100, 2), "%",
+      "</br> -  Ondergrens 95% CI: ",
+      round(expmean_upr * 100, 2), "%",
+      "</br> Jaar:", Jaar
+    )
+  ) %>%
+  layout(
+    shapes = list(vline(2000)),
+    xaxis = a,
+    yaxis = b,
+    hoverlabel = list(font = f1)
+  )
+
+fig28 <- plot_ly(onzeker_ecobar,
+  y = ~prop,
+  type = "bar",
+  legendgroup = ~"Onzeker",
+  name = "Onzeker",
+  transforms = list(
+    list(
+      type = "filter",
+      target = ~Omschrijving,
+      operation = "=",
+      value = "grasland"
+    )
+  ),
+  hoverinfo = "text",
+  showlegend = FALSE,
+  text = ~ paste(
+    "</br> Aandeel: ",
+    round(prop * 100, 0), "%",
+    "</br> Aantal: ", n,
+    "</br> Categorie: ", "Onzeker"
+  ),
+  marker = list(
+    color = inbo_lichtgrijs,
+    line = list(
+      color = inbo_lichtgrijs,
+      width = 3
+    )
+  )
+) %>%
+  add_trace(
+    data = afname_ecobar,
+    y = ~prop,
+    legendgroup = ~"Afname",
+    name = "Afname",
+    transforms = list(
+      list(
+        type = "filter",
+        target = ~Omschrijving,
+        operation = "=",
+        value = "grasland"
+      )
+    ),
+    text = ~ paste(
+      "</br> Aandeel: ",
+      round(prop * 100, 0), "%",
+      "</br> Aantal: ", n,
+      "</br> Categorie: ", "Afname"
+    ),
+    marker = list(
+      color = inbo_steun_blauw,
+      line = list(
+        color = inbo_steun_blauw,
+        width = 3
+      )
+    )
+  ) %>%
+  add_trace(
+    data = stabiel_ecobar,
+    y = ~prop,
+    legendgroup = ~"Stabiel",
+    name = "Stabiel",
+    transforms = list(
+      list(
+        type = "filter",
+        target = ~Omschrijving,
+        operation = "=",
+        value = "grasland"
+      )
+    ),
+    text = ~ paste(
+      "</br> Aandeel: ",
+      round(prop * 100, 0), "%",
+      "</br> Aantal: ", n,
+      "</br> Categorie: ", "Stabiel"
+    ),
+    marker = list(
+      color = inbo_groen,
+      line = list(
+        color = inbo_groen,
+        width = 3
+      )
+    )
+  ) %>%
+  add_trace(
+    data = toename_ecobar,
+    y = ~prop,
+    legendgroup = ~"Toename",
+    name = "Toename",
+    transforms = list(
+      list(
+        type = "filter",
+        target = ~Omschrijving,
+        operation = "=",
+        value = "grasland"
+      )
+    ),
+    text = ~ paste(
+      "</br> Aandeel: ",
+      round(prop * 100, 0), "%",
+      "</br> Aantal: ", n,
+      "</br> Categorie: ", "Toename"
+    ),
+    marker = list(
+      color = inbo_hoofd,
+      line = list(
+        color = inbo_hoofd,
+        width = 3
+      )
+    )
+  ) %>%
+  layout(
+    barmode = "stack",
+    xaxis = c,
+    yaxis = d,
+    legend = list(font = f1, x = 1.10),
+    hoverlabel = list(font = f1)
+  )
+
+onzeker_ecobar_gras <- onzeker_ecobar %>%
+  filter(Omschrijving == "grasland")
+toename_ecobar_gras <- toename_ecobar %>%
+  filter(Omschrijving == "grasland")
+afname_ecobar_gras <- afname_ecobar %>%
+  filter(Omschrijving == "grasland")
+stabiel_ecobar_gras <- stabiel_ecobar %>%
+  filter(Omschrijving == "grasland")
+
+
+fig28 <- fig28 %>%
+  add_annotations(
+    y = onzeker_ecobar_gras$lab.xpos,
+    x = 0.1,
+    text = onzeker_ecobar_gras$n,
+    xref = "x",
+    yref = "y",
+    showarrow = FALSE,
+    font = f1
+  ) %>%
+  add_annotations(
+    y = afname_ecobar_gras$lab.xpos,
+    x = 0.1,
+    text = afname_ecobar_gras$n,
+    xref = "x",
+    yref = "y",
+    showarrow = FALSE,
+    font = f1
+  ) %>%
+  add_annotations(
+    y = stabiel_ecobar_gras$lab.xpos,
+    x = 0.1,
+    text = stabiel_ecobar_gras$n,
+    xref = "x",
+    yref = "y",
+    showarrow = FALSE,
+    font = f1
+  ) %>%
+  add_annotations(
+    y = toename_ecobar_gras$lab.xpos,
+    x = 0.1,
+    text = toename_ecobar_gras$n,
+    xref = "x",
+    yref = "y",
+    showarrow = FALSE,
+    font = f1
+  )
+
+fig_eco_gras <- subplot(fig27,
+  fig28,
+  nrows = 1,
+  widths = c(0.8, 0.2),
+  titleY = TRUE
+)
+
+fig_eco_agro <- subplot(fig_eco_akker,
+  fig_eco_gras,
+  nrows = 2,
+  titleY = TRUE
+) %>%
+  layout(annotations = list(
+    list(
+      x = 0.4,
+      y = 0.51,
+      text = "Graslandsoorten",
+      showarrow = FALSE,
+      xref = "paper",
+      yref = "paper"
+    ),
+    list(
+      x = 0.4,
+      y = 1.03,
+      text = "Akkersoorten",
+      showarrow = FALSE,
+      xref = "paper",
+      yref = "paper"
+    ),
+    list(
+      x = -0.15,
+      y = 0.5,
+      text = "MSI(2000 = 100%)",
+      showarrow = FALSE,
+      textangle = 270,
+      xref = "paper",
+      yref = "paper"
+    ),
+    list(
+      x = 1,
+      y = 1.03,
+      text = "Aantal soorten",
+      showarrow = FALSE,
+      xref = "paper",
+      yref = "paper"
+    )
+  ))
+fig_eco_agro
+```
+
+De multisoortenindex (MSI) van akkerplanten is het hoogst in het referentiejaar 2000 en significant lager in de jaren tussen 1952 en 1990 en in de recente jaren (zie Figuur 7 boven). 
+Een toename in de periode 1952-1990 werd dus gevolgd door een afname de laatste jaren. 
+De algemene trend verbergt tegenovergestelde veranderingen in de soortensamenstelling. 
+Klassieke Europese graanonkruiden (bv. korenbloem) hebben plaatsgemaakt voor maïsonkruiden die resistent zijn tegen de gebruikte herbiciden  (C4-grassen, bv. Europese hanenpoot, kale gierst en draadgierst) en aan soorten van hakvruchtakkers  (bv. zwarte nachtschade en kleine majer; zie ook [@van_landuyt_akkerflora_2018]). 
+Door die wijziging worden gespecialiseerde akkeronkruiden die kenmerkend zijn voor het agrarisch gebied zeldzamer. 
+De index voor graslandsoorten verandert niet significant doorheen de onderzochte periode (zie Figuur 7 onder). 
+De trendtoename van zestig soorten compenseert de trendafname van negentig soorten. 
+Het zijn vooral de soorten van voedselarme graslanden die achteruitgaan, zoals de soorten van struisgrasgrasland, heischraal grasland, dottergrasland en glanshavergrasland. 
+Soorten die vooruitgaan zijn vooral soorten van voedselrijke graslanden en/of verruigde graslanden (bv. kleefkruid, harig wilgenroosje).
+
+### Oppervlaktewateren
+
+```{r oppervlaktewateren, fig.cap = "Figuur 8. Multisoortenindex (MSI) voor 32 plantensoorten van aquatische systemen in de periode 1950-2018 in Vlaanderen. De grafiek toont de gemodelleerde trend en het 95% betrouwbaarheidsinterval. Het jaar 2000 (blauwe lijn) is het referentiejaar (100%). De balk rechts toont het aantal soorten dat significant voor- of achteruitgaat, stabiel blijft of een onzekere trend vertoont ten opzichte van 1950. Deze figuur verwijst naar figuur 100 in het Natuurrapport 2020." }
+fig29 <- plot_ly(msi_water,
+  x = ~Jaar,
+  y = ~expmean_upr,
+  type = "scatter",
+  mode = "lines",
+  transforms = list(
+    list(
+      type = "filter",
+      target = ~Omschrijving,
+      operation = "=",
+      value = "submerged"
+    )
+  ),
+  line = list(color = "transparent"),
+  showlegend = FALSE,
+  name = "bovengrens 95% betrouwbaarheidsinterval",
+  hoverinfo = "text"
+) %>%
+  style(hoverinfo = "none") %>%
+  add_trace(
+    y = ~expmean_lwr,
+    type = "scatter",
+    mode = "lines",
+    fill = "tonexty",
+    fillcolor = toRGB(inbo_rood, 0.2),
+    line = list(color = "transparent"),
+    showlegend = FALSE,
+    name = "ondergrens 95% betrouwbaarheidsinterval",
+    hoverinfo = "text"
+  ) %>%
+  style(hoverinfo = "none") %>%
+  add_trace(
+    y = ~expmean_est,
+    type = "scatter",
+    mode = "lines",
+    line = list(color = inbo_rood),
+    name = "gemiddelde",
+    hoverinfo = "text",
+    text = ~ paste(
+      "</br> Mean Species Index (2000 = 100)",
+      "</br> -  Gemiddeld: ",
+      round(expmean_est * 100, 2), "%",
+      "</br> -  Bovengrens 95% CI: ",
+      round(expmean_lwr * 100, 2), "%",
+      "</br> -  Ondergrens 95% CI: ",
+      round(expmean_upr * 100, 2), "%",
+      "</br> Jaar:", Jaar
+    )
+  ) %>%
+  layout(
+    shapes = list(vline(2000)),
+    xaxis = a,
+    yaxis = f,
+    hoverlabel = list(font = f1)
+  )
+
+fig30 <- plot_ly(onzeker_waterbar,
+  y = ~prop, type = "bar", name = "Onzeker", transforms = list(
+    list(
+      type = "filter",
+      target = ~Omschrijving,
+      operation = "=",
+      value = "submerged"
+    )
+  ),
+  hoverinfo = "text",
+  text = ~ paste(
+    "</br> Aandeel: ",
+    round(prop * 100, 0), "%",
+    "</br> Aantal: ", n,
+    "</br> Categorie: ", "Onzeker"
+  ),
+  marker = list(
+    color = inbo_lichtgrijs,
+    line = list(
+      color = inbo_lichtgrijs,
+      width = 3
+    )
+  )
+) %>%
+  add_trace(
+    data = afname_waterbar,
+    y = ~prop,
+    name = "Afname",
+    transforms = list(
+      list(
+        type = "filter",
+        target = ~Omschrijving,
+        operation = "=",
+        value = "submerged"
+      )
+    ),
+    text = ~ paste(
+      "</br> Aandeel: ",
+      round(prop * 100, 0), "%",
+      "</br> Aantal: ", n,
+      "</br> Categorie: ", "Afname"
+    ),
+    marker = list(
+      color = inbo_steun_blauw,
+      line = list(
+        color = inbo_steun_blauw,
+        width = 3
+      )
+    )
+  ) %>%
+  add_trace(
+    data = stabiel_waterbar,
+    y = ~prop,
+    name = "Stabiel",
+    transforms = list(
+      list(
+        type = "filter",
+        target = ~Omschrijving,
+        operation = "=",
+        value = "submerged"
+      )
+    ),
+    text = ~ paste(
+      "</br> Aandeel: ",
+      round(prop * 100, 0), "%",
+      "</br> Aantal: ", n,
+      "</br> Categorie: ", "Stabiel"
+    ),
+    marker = list(
+      color = inbo_groen,
+      line = list(
+        color = inbo_groen,
+        width = 3
+      )
+    )
+  ) %>%
+  add_trace(
+    data = toename_waterbar,
+    y = ~prop,
+    name = "Toename",
+    transforms = list(
+      list(
+        type = "filter",
+        target = ~Omschrijving,
+        operation = "=",
+        value = "submerged"
+      )
+    ),
+    text = ~ paste(
+      "</br> Aandeel: ",
+      round(prop * 100, 0), "%",
+      "</br> Aantal: ", n,
+      "</br> Categorie: ", "Toename"
+    ),
+    marker = list(
+      color = inbo_hoofd,
+      line = list(
+        color = inbo_hoofd,
+        width = 3
+      )
+    )
+  ) %>%
+  layout(
+    barmode = "stack",
+    xaxis = c,
+    yaxis = d,
+    legend = list(font = f1, x = 1.10),
+    hoverlabel = list(font = f1)
+  )
+
+onzeker_waterbar_submerged <- onzeker_waterbar %>%
+  filter(Omschrijving == "submerged")
+toename_waterbar_submerged <- toename_waterbar %>%
+  filter(Omschrijving == "submerged")
+afname_waterbar_submerged <- afname_waterbar %>%
+  filter(Omschrijving == "submerged")
+stabiel_waterbar_submerged <- stabiel_waterbar %>%
+  filter(Omschrijving == "submerged")
+
+fig30 <- fig30 %>%
+  add_annotations(
+    y = onzeker_waterbar_submerged$lab.xpos,
+    x = 0.1,
+    text = onzeker_waterbar_submerged$n,
+    xref = "x",
+    yref = "y",
+    showarrow = FALSE,
+    font = f1
+  ) %>%
+  add_annotations(
+    y = afname_waterbar_submerged$lab.xpos,
+    x = 0.1,
+    text = afname_waterbar_submerged$n,
+    xref = "x",
+    yref = "y",
+    showarrow = FALSE,
+    font = f1
+  ) %>%
+  add_annotations(
+    y = toename_waterbar_submerged$lab.xpos,
+    x = 0.1,
+    text = toename_ecobar_moeras$n,
+    xref = "x",
+    yref = "y",
+    showarrow = FALSE,
+    font = f1
+  )
+fig_water_submerged <-
+  subplot(fig29,
+    fig30,
+    nrows = 1,
+    widths = c(0.8, 0.2),
+    titleY = TRUE
+  ) %>%
+  layout(annotations = list(
+    list(
+      x = -0.15,
+      y = 0.5,
+      text = "MSI(2000 = 100%)",
+      showarrow = FALSE,
+      textangle = 270,
+      xref = "paper",
+      yref = "paper"
+    ),
+    list(
+      x = 1,
+      y = 1.03,
+      text = "Aantal soorten",
+      showarrow = FALSE,
+      xref = "paper",
+      yref = "paper"
+    )
+  ))
+fig_water_submerged
+```
+
+
+De multisoortenindex voor aquatische systemen vertoont een dalende trend tussen 1960 en 2000. 
+Die daling staat in contrast met de algemene multisoortenindex (zie Figuur 1). 
+De daling is toe te schrijven aan de vermesting en de vervuiling met zuurstofbindende stoffen en chemische polluenten. 
+Vanaf 2005 lijkt er een licht herstel op te treden. 
+Die toename is voorlopig onvoldoende uitgesproken om van een statistisch betekenisvolle trend te spreken. 
+
+De multisoortenindex bevat om modeltechnische redenen vooral algemene soorten en minder zeldzame of bedreigde soorten of soorten die sinds 1950 uit Vlaanderen verdwenen zijn (zie metadata). 
+Oppervlaktewateren bevatten naar verhouding echter veel van die zeldzame of bedreigde soorten. 
+Zo is 77 procent van de soorten van stromend water regionaal uitgestorven, ernstig bedreigd, bedreigd, kwetsbaar of bijna in gevaar. 
+Voor slikken en schorren is dat 73 procent, voor stilstaand water 50 procent [@decleer_hoe_2019; @maes_database_2019].
+
+## Referenties

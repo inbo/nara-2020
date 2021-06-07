@@ -1,0 +1,15 @@
+..generic:
+  git2rdata: 0.3.1
+  optimize: no
+  NA string: NA
+  sorting:
+  - land
+  - product
+  hash: 0ab5adde800859732bfb7976eed5d438590e8fc0
+  data_hash: 4a865bb0e896b794418e92025da90342539af595
+land:
+  class: character
+score:
+  class: numeric
+product:
+  class: character
