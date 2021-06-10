@@ -47,15 +47,15 @@ RUN  apt-get update \
 ## Install R base
 RUN  apt-get update \
   && apt-get install -y --no-install-recommends \
-    r-base-core=4.0.5-1.2004.0 \
-    r-base-dev=4.0.5-1.2004.0 \
+    r-base-core=4.1.0-1.2004.0 \
+    r-base-dev=4.1.0-1.2004.0 \
     r-cran-boot=1.3-28-1cran1.2004.0 \
     r-cran-class=7.3-19-1.2004.0 \
     r-cran-cluster=2.1.2-1.2004.0 \
     r-cran-codetools=0.2-18-1cran1.2004.0 \
     r-cran-foreign=0.8.81-1.2004.0 \
     r-cran-kernsmooth=2.23-20-1cran1.2004.0 \
-    r-cran-lattice=0.20-44-1cran1.2004.0 \
+    r-cran-lattice=0.20-44-1cran2~ubuntu20.04.1~ppa1 \
     r-cran-mass=7.3-54-1.2004.0 \
     r-cran-matrix=1.3-3-1.2004.0 \
     r-cran-mgcv=1.8-35-1cran1.2004.0 \
@@ -64,7 +64,7 @@ RUN  apt-get update \
     r-cran-rpart=4.1-15-2focal0 \
     r-cran-spatial=7.3-11-2focal0 \
     r-cran-survival=3.2-11-1cran1.2004.0 \
-    r-recommended=4.0.5-1.2004.0
+    r-recommended=4.1.0-1.2004.0
 
 ## Install wget
 RUN  apt-get update \
