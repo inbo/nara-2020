@@ -505,6 +505,13 @@
       "Repository": "CRAN",
       "Hash": "53cbed70a2f7472d48fb6aef08442f25"
     },
+    "d3r": {
+      "Package": "d3r",
+      "Version": "0.9.1",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Hash": "608910e45605ee3a09a27bef43ca5b08"
+    },
     "data.table": {
       "Package": "data.table",
       "Version": "1.14.0",
@@ -636,6 +643,13 @@
       "Repository": "CRAN",
       "Hash": "e32cfc0973caba11b65b1fa691b4d8c9"
     },
+    "formattable": {
+      "Package": "formattable",
+      "Version": "0.2.1",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Hash": "870d6d5d39b23923d0c816f904075b4c"
+    },
     "fs": {
       "Package": "fs",
       "Version": "1.5.0",
@@ -705,6 +719,13 @@
       "Source": "Repository",
       "Repository": "CRAN",
       "Hash": "3eb6477d01eb5bbdc03f7d5f70f2733e"
+    },
+    "ggrepel": {
+      "Package": "ggrepel",
+      "Version": "0.9.1",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Hash": "08ab869f37e6a7741a64ab9069bcb67d"
     },
     "ggridges": {
       "Package": "ggridges",
@@ -1557,6 +1578,18 @@
       "Source": "Repository",
       "Repository": "CRAN",
       "Hash": "02f7d4821a7ca841bbfdf3b7176ce6cf"
+    },
+    "sankeyD3": {
+      "Package": "sankeyD3",
+      "Version": "0.3.2",
+      "Source": "GitHub",
+      "RemoteType": "github",
+      "RemoteHost": "api.github.com",
+      "RemoteUsername": "fbreitwieser",
+      "RemoteRepo": "sankeyD3",
+      "RemoteRef": "master",
+      "RemoteSha": "fd50a74e29056e0d67d75b4d04de47afb2f932bc",
+      "Hash": "70573387500e97866367ec6f7b034243"
     },
     "sass": {
       "Package": "sass",
