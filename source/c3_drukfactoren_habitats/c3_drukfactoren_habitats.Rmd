@@ -43,34 +43,15 @@ switch_colour(inbo_hoofd)
 
 ```{r data_inlezen}
 overzicht <- read_vc("overzichtstabel") %>%
-  mutate(bos = factor(bos, ordered = TRUE,
-                      levels = c("prioritair", "niet prioritair"),
-                      labels = c("x", ""))) %>%
-  mutate(grasland = factor(grasland,
-    ordered = TRUE,
-    levels = c("prioritair", "niet prioritair"), labels = c("x", "")
-  )) %>%
-  mutate(heide_en_landduinen = factor(heide_en_landduinen,
-    ordered = TRUE,
-    levels = c("prioritair", "niet prioritair"), labels = c("x", "")
-  )) %>%
-  mutate(moeras = factor(moeras,
-    ordered = TRUE,
-    levels = c("prioritair", "niet prioritair"), labels = c("x", "")
-  )) %>%
-  mutate(rivieren_en_stilstaande_wateren =
-           factor(rivieren_en_stilstaande_wateren,
-    ordered = TRUE, levels = c("prioritair", "niet prioritair"),
-    labels = c("x", "")
-  )) %>%
-  mutate(kustduinen_en_strand = factor(kustduinen_en_strand,
-    ordered = TRUE,
-    levels = c("prioritair", "niet prioritair"), labels = c("x", "")
-  )) %>%
-  mutate(estuaria_slikken_en_schorren = factor(estuaria_slikken_en_schorren,
-    ordered = TRUE,
-    levels = c("prioritair", "niet prioritair"), labels = c("x", "")
-  ))
+  mutate_at(vars(bos:estuaria_slikken_en_schorren), recode,
+            "prioritair" = "x", "niet prioritair" = "") %>%
+  dplyr::rename("Bos" = "bos", "Grasland" = "grasland", "Heide en landduinen" =
+                  "heide_en_landduinen", "Moeras" = "moeras",
+                "Rivieren en stilstaande wateren" =
+                  "rivieren_en_stilstaande_wateren",
+                "Kustduinen en strand" = "kustduinen_en_strand",
+                "Estuaria, slikken en schorren" =
+                  "estuaria_slikken_en_schorren")
 ```
 
 In het Natuurrapport 2020 staat een overzichtstabel van de belangrijkste drukfactoren voor de habitats van Europees belang op Vlaamse schaal en per ecosysteem.
@@ -80,10 +61,7 @@ Vermesting via de lucht en versnippering zijn de belangrijkste drukken die een g
 Verstoring van de hydro- en geomorfologie en landgebruiksverandering vervolledigen de top vijf.
 
 ```{r overzichtstabel}
-kable(overzicht, col.names = c("Druk", "Bos", "Grasland", "Heide en landduinen",
-                               "Moeras", "Rivieren en stilstaande wateren",
-                               "Kustduinen en strand", "Estuaria, slikken en
-                               schorren"), caption = "Overzicht van de
+kable(overzicht, caption = "Overzicht van de
       belangrijkste drukfactoren voor de habitats van Europees belang op
       Vlaamse schaal en per ecosysteem. Deze tabel verwijst naar tabel 3
       in het Natuurrapport 2020.")

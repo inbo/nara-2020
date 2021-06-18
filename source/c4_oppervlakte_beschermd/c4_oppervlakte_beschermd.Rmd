@@ -64,15 +64,15 @@ gegevens <- gegevens %>%
     ordered = TRUE,
     levels = c(
       "Stedelijk en bebouwd gebied", "Stilstaande wateren", "Rivieren",
-      "Estuaria, slikken en schorren", "Akker", "Productie en
-      overige graslanden",
+      "Estuaria, slikken en schorren", "Akker",
+      "Productie en overige graslanden",
       "Halfnatuurlijke graslanden", "Kustduinen en strand", "Moeras",
       "Heide en landduinen", "Bos", "Vlaanderen"
     ),
     labels = c(
       "Stedelijk en bebouwd gebied", "Stilstaande wateren", "Rivieren",
-      "Estuaria, slikken en schorren", "Akker", "Productie en
-      overige graslanden",
+      "Estuaria, slikken en schorren", "Akker",
+      "Productie en overige graslanden",
       "Halfnatuurlijke graslanden", "Kustduinen en strand", "Moeras",
       "Heide en landduinen", "Bos", "Vlaanderen"
     )
@@ -80,24 +80,25 @@ gegevens <- gegevens %>%
 gegevens <- gegevens %>%
   group_by(Ecosysteem) %>%
   mutate(Ecosysteem = recode(Ecosysteem, "Rivieren" = "Rivieren*")) %>%
-  mutate(prop = Waarde / sum(Waarde) * 100) %>%
-  mutate(prop = round(x = prop, digits = 0)) %>%
+  mutate(prop = Waarde / sum(Waarde)) %>%
   ungroup()
 
 gegevens <- gegevens %>%
   filter(!Beschermingscategorie == "rest")
 ```
 
-```{r staafdiagram, fig.width = 10, fig.height = 4, fig.cap = "Oppervlakteaandeel gelegen in een zone waarbinnen natuur één of andere vorm van juridische bescherming geniet. Deze figuur verwijst naar figuur 24 in het Natuurrapport 2020."}
+```{r staafdiagram, fig.width = 10, fig.height = 4, fig.cap = "Figuur 1. Oppervlakteaandeel gelegen in een zone waarbinnen natuur één of andere vorm van juridische bescherming geniet. Deze figuur verwijst naar figuur 24 in het Natuurrapport 2020."}
 p <- ggplot(gegevens, aes(x = Ecosysteem, y = prop,
-                          fill = Beschermingscategorie)) +
+                          fill = Beschermingscategorie,
+                          text = paste(
+    "Aandeel:", scales::percent(prop, accuracy = 0.1)
+    )
+    )) +
   geom_bar(stat = "identity", width = 0.5) +
-  theme(aspect.ratio = .35) +
   labs(x = "", y = "CUMULATIEF AANDEEL MET NATUURBESCHERMINGSTATUUT (%)") +
   scale_y_continuous(
-    expand = c(0, 0), labels = scales::percent_format(accuracy = 1,
-                                                      scale = 1),
-    limits = c(0, 100), breaks = c(0, 10, 20, 30, 40, 50, 60, 70, 80, 90)
+    expand = c(0, 0), labels = scales::percent_format(accuracy = 1),
+    limits = c(0, 1)
   ) +
   scale_fill_manual(
     breaks = c(
@@ -132,7 +133,7 @@ p <- ggplot(gegevens, aes(x = Ecosysteem, y = prop,
   coord_flip()
 
 if (interactive() || opts_knit$get("rmarkdown.pandoc.to") == "html") {
-  ggplotly(p) %>%
+  ggplotly(p, tooltip = c("Ecosysteem", "Beschermingscategorie", "text")) %>%
     plotly::config(
       modeBarButtonsToRemove = list(
         "lasso2d", "select2d", "hoverClosestCartesian",
@@ -150,9 +151,7 @@ if (interactive() || opts_knit$get("rmarkdown.pandoc.to") == "html") {
 De indicator toont voor heel Vlaanderen en per ecosysteem het oppervlakteaandeel (lengteaandeel bij rivieren) waarbinnen natuur een of andere vorm van juridische bescherming geniet. We onderscheiden drie beschermingscategorieën:
 
 1. natuur- of bosreservaten
-
 2. beschermde gebieden met een ander (inter)nationaal beschermingsstatuut dan de reservaten
-
 3. bescherming door andere maatregelen buiten de genoemde beschermde gebieden
 
 De mate en wijze van bescherming verschillen sterk tussen de drie categorieën.

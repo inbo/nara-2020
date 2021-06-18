@@ -3863,7 +3863,7 @@ Soorten die vooruitgaan zijn vooral soorten van voedselrijke graslanden en/of ve
 
 ### Oppervlaktewateren
 
-```{r fig.cap = "Figuur 8. Multisoortenindex (MSI) voor 32 plantensoorten van aquatische systemen in de periode 1950-2018 in Vlaanderen. De grafiek toont de gemodelleerde trend en het 95% betrouwbaarheidsinterval. Het jaar 2000 (blauwe lijn) is het referentiejaar (100%). De balk rechts toont het aantal soorten dat significant voor- of achteruitgaat, stabiel blijft of een onzekere trend vertoont ten opzichte van 1950. Deze figuur verwijst naar figuur 100 in het Natuurrapport 2020." }
+```{r oppervlaktewateren, fig.cap = "Figuur 8. Multisoortenindex (MSI) voor 32 plantensoorten van aquatische systemen in de periode 1950-2018 in Vlaanderen. De grafiek toont de gemodelleerde trend en het 95% betrouwbaarheidsinterval. Het jaar 2000 (blauwe lijn) is het referentiejaar (100%). De balk rechts toont het aantal soorten dat significant voor- of achteruitgaat, stabiel blijft of een onzekere trend vertoont ten opzichte van 1950. Deze figuur verwijst naar figuur 100 in het Natuurrapport 2020." }
 fig29 <- plot_ly(msi_water,
   x = ~Jaar,
   y = ~expmean_upr,

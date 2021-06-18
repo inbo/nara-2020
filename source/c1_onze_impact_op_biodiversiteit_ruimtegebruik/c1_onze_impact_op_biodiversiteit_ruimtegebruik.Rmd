@@ -111,12 +111,9 @@ p <- ggplot(landgebruikgegevens, aes(x = NUTS1regio, y = prop,
                "Terrestrische natuur", "Zoetwater en estuarium", "Zee")
   ) +
   theme(
-    axis.title = element_text(family = "Helvetica", size = 18,
-                              margin = margin(t = 0, r = 0, b = 0, l = 0),
+    axis.title = element_text(margin = margin(t = 0, r = 0, b = 0, l = 0),
                               hjust = 0),
-    axis.text.y = element_text(family = "Helvetica", size = 18, color = colorx),
-    axis.text.x = element_text(family = "Helvetica", size = 18),
-    legend.text = element_text(family = "Helvetica", size = 18),
+    axis.text.y = element_text(color = colorx),
     legend.title = element_blank(),
     legend.key.size = unit(0.3, "cm")
   ) +
@@ -133,7 +130,7 @@ p
 
 ## Definitie
 
-De ecosysteemvoorraad (*ecosystem extent*) [(zie fiche Landgebruiksverandering - Ecosysteemvoorraad Corine)](https://www.vlaanderen.be/inbo/natuurrapport-2020/ecosysteemvoorraad-corine) is een maat voor de omvang van het natuurlijk kapitaal van een gebied op basis van de oppervlakte van verschillende types bodembedekking en landgebruik [@costanza_goals_1991; @costanza_natural_1992; @daily_value_2000; @eea_land_2006; @eea_natural_2018; @ekins_four-capital_1992].
+De ecosysteemvoorraad (*ecosystem extent*) [(zie fiche Landgebruiksverandering - Ecosysteemvoorraad Corine)](https://www.vlaanderen.be/inbo/backgroundindicatoren/landgebruiksverandering-ecosysteemvoorraad-corine) is een maat voor de omvang van het natuurlijk kapitaal van een gebied op basis van de oppervlakte van verschillende types bodembedekking en landgebruik [@costanza_goals_1991; @costanza_natural_1992; @daily_value_2000; @eea_land_2006; @eea_natural_2018; @ekins_four-capital_1992].
 Landgebruiksveranderingen leiden tot toe- of afnames van ecosysteemvoorraden.
 Deze indicator (Figuur 1) vergelijkt de ecosysteemvoorraad van Vlaanderen met die van negen andere sociaal-economische topregio's in de Europese Unie. 
 
@@ -174,18 +171,15 @@ t <- ggplot(gegevens2, aes(x = Bevolkingsdichtheid, y = Urbanisatie,
   xlab(expression(BEVOLKINGSDICHTHEID ~ (inwoners / km^2))) +
   ylab("AANDEEL STEDELIJK EN BEBOUWD GEBIED (%)") +
   theme(
-    axis.title.y = element_text(family = "Helvetica", size = 18,
-                                margin = margin(t = 0, r = 10, b = 0, l = 0),
+    axis.title.y = element_text(margin = margin(t = 0, r = 10, b = 0, l = 0),
                                 hjust = 0),
-    axis.title.x = element_text(family = "Helvetica", size = 18,
-                                margin = margin(t = 10, r = 0, b = 0, l = 0),
+    axis.title.x = element_text(margin = margin(t = 10, r = 0, b = 0, l = 0),
                                 hjust = 0.5),
-    axis.text = element_text(family = "Helvetica", size = 18),
     legend.position = "none",
     panel.grid.major.x = element_line(size = .1, color = "black")
   )
 
-p <- t + geom_text_repel(size = 6)
+p <- t + geom_text_repel(size = 5)
 
 p
 ```

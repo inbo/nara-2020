@@ -46,7 +46,7 @@ indicatorgegevens1 <- read_vc("indicatoren1")
 Indicatoren helpen het biodiversiteitsbeleid te onderbouwen. De focus van de huidige indicatorenset ligt vooral op oppervlakte- of voorraadindicatoren en soortindicatoren.
 Indicatoren voor genetische diversiteit ontbreken.
 
-```{r biodiversiteit, fig.width = 7, fig.height = 5, fig.cap = "Figuur 1. Het aantal indicatoren in dit Natuurrapport gerangschikt volgens de vier organisatieniveaus en de vier invalshoeken voor het beschrijven van de biodiversiteit."}
+```{r biodiversiteit, fig.width = 7, fig.height = 5, fig.cap = "Figuur 1. Het aantal indicatoren in dit Natuurrapport gerangschikt volgens de vier organisatieniveaus en de vier invalshoeken voor het beschrijven van de biodiversiteit. Deze figuur verwijst naar figuur 6 uit het Natuurrapport 2020."}
 indicatorgegevens1 <- indicatorgegevens1 %>%
   mutate(
     kwadrant = factor(
