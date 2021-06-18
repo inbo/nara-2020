@@ -46,7 +46,7 @@ indicatorgegevens1 <- read_vc("indicatoren1")
 Indicatoren helpen het biodiversiteitsbeleid te onderbouwen. De focus van de huidige indicatorenset ligt vooral op oppervlakte- of voorraadindicatoren en soortindicatoren.
 Indicatoren voor genetische diversiteit ontbreken.
 
-```{r biodiversiteit}
+```{r biodiversiteit, fig.width = 7, fig.height = 5, fig.cap = "Figuur 1. Het aantal indicatoren in dit Natuurrapport gerangschikt volgens de vier organisatieniveaus en de vier invalshoeken voor het beschrijven van de biodiversiteit."}
 indicatorgegevens1 <- indicatorgegevens1 %>%
   mutate(
     kwadrant = factor(
@@ -96,15 +96,15 @@ ggplot(indicatorgegevens1, aes(x = kwadrant, y = aantal, fill = Schaal)) +
         axis.text.x = element_text(color = inbo_hoofd)) +
   guides(fill = guide_legend(ncol = 1)) +
   geom_text(
-    data = indicatorgegevens3, aes(y = lab.ypos, label = aantal), size = 6,
+    data = indicatorgegevens3, aes(y = lab.ypos, label = aantal), size = 4,
     color = "black"
   ) +
   annotate(
-    geom = "text", x = 2.5, y = 40, hjust = 0, size = 6, label = "40",
+    geom = "text", x = 2.5, y = 40, hjust = 0, size = 4, label = "40",
     color = inbo_rood
   ) +
   annotate(
-    geom = "text", x = 2.5, y = 60, hjust = 0, size = 6, label = "60",
+    geom = "text", x = 2.5, y = 60, hjust = 0, size = 4, label = "60",
     color = inbo_rood
   )
 ```
