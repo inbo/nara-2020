@@ -50,7 +50,6 @@ De oppervlakte waarbinnen natuur één of andere vorm van juridische bescherming
 + de totale oppervlakte (zonder overlappingen) waarbinnen natuur één of andere vorm van juridische bescherming geniet.
 Deze is bepaald in de fiche ‘Algemene toestand en trends in Vlaanderen - Oppervlakte juridisch beschermd’.
 + de totale oppervlakte (zonder overlappingen) met natuurgericht beheer is bepaald door het samenvoegen van volgende digitale kaartlagen:
-
   + ASBET_beheerplannen uitgezonderd de gebieden met natuurbeheerplan type 1 (dossiertyp = TYP 1) en bossen met een beperkt bosbeheerplan (dossiertyp = BBP)
   + erkende reservaten (versie 2020-03-13) aangezien deze niet in ASBET opgenomen zijn
   + Vlaamse natuurreservaten zonder gebieden met natuurbeheerplan type 4 (versie 31/12/2019) aangezien er enkele Vlaamse natuurreservaten zijn zonder goedgekeurd beheerplan

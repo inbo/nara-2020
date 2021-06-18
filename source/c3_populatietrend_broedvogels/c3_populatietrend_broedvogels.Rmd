@@ -63,27 +63,29 @@ overzicht <- read_vc("overzicht_broedvogelsoort") %>%
 
 De populaties van ongeveer de helft van de broedvogels van Europees belang nemen in Vlaanderen zowel op korte als lange termijn toe, maar evengoed gaan een aantal soorten nog steeds achteruit.
 
-```{r staafdiagram, fig.width = 4, fig.height = 4, fig.cap = "Populatietrend op korte (2007-2018) en lange (1973-2018) termijn voor zesentwintig broedvogelsoorten van Europees belang in Vlaanderen. Deze figuur verwijst naar figuur 21 in het Natuurrapport 2020."}
+```{r staafdiagram, fig.cap = "Populatietrend op korte (2007-2018) en lange (1973-2018) termijn voor zesentwintig broedvogelsoorten van Europees belang in Vlaanderen. Deze figuur verwijst naar figuur 21 in het Natuurrapport 2020."}
 gegevens <- gegevens %>%
   group_by(Periode) %>%
-  mutate(prop = Aantal / sum(Aantal) * 100) %>%
+  mutate(prop = Aantal / sum(Aantal)) %>%
   mutate(lab.ypos = cumsum(prop) - 0.5 * prop) %>%
   ungroup()
 gegevens <- gegevens %>%
   filter(Aantal > 0)
 
-p <- ggplot(gegevens, aes(x = Periode, y = prop, fill = Trend)) +
+p <- ggplot(gegevens, aes(x = Periode, y = prop, fill = Trend,
+                          text = paste(
+    "Aandeel:", scales::percent(prop, accuracy = 0.1)
+  )
+  )) +
   geom_bar(stat = "identity", width = 0.5) +
   scale_y_continuous(
-    expand = c(0, 0), labels = scales::percent_format(accuracy = 1, scale = 1),
-    limits = c(0, 100), breaks = c(0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100)
+    expand = c(0, 0),
+    labels = scales::percent_format(accuracy = 1)
   ) +
   labs(x = "", y = "POPULATIETREND  VAN BROEDVOGELS (%)") +
   theme(
-    axis.title = element_text(size = 10, margin = margin(t = 0, r = 0, b = 0,
-                                                         l = 0), hjust = 0),
-    axis.text = element_text(size = 10),
-    legend.text = element_text(size = 10),
+    axis.title = element_text(margin = margin(t = 0, r = 0, b = 0,
+                                              l = 0), hjust = 0),
     legend.title = element_blank(),
     legend.key.size = unit(0.3, "cm")
   ) +
@@ -96,8 +98,7 @@ p <- ggplot(gegevens, aes(x = Periode, y = prop, fill = Trend)) +
     labels = c("Toenemend", "Stabiel", "Fluctuerend", "Afnemend")
   )
 
-p <- p + geom_text(aes(y = lab.ypos, label = Aantal), color = "white", size = 6)
-p
+ggplotly(p, tooltip = c("Periode", "Trend", "text"))
 ```
 
 ## Definitie
@@ -107,7 +108,7 @@ De indicator toont de populatietrend op korte (2007-2018) en lange termijn (1980
 ## Bespreking
 De Vogelrichtlijn verplicht de lidstaten om zesjaarlijks te rapporteren over de populatiegrootte en -trend (op lange en korte termijn) van alle regelmatig broedende en een aantal niet-broedende, doortrekkende en overwinterende vogelsoorten op hun grondgebied [@vermeersch_resultaten_2019].
 De rapportering beperkt zich dus niet tot de Bijlage I soorten van de Vogelrichtlijn en soorten die in belangrijke aantallen op hun grondgebied voorkomen (1% norm).
-Deze indicator bespreekt de populatietrends van de 26 broedvogels van Europees belang waarvoor kwantitatieve populatiedoelen zijn geformuleerd in de gewestelijke instandhoudingsdoelen (G-IHD) [@paelinckx_gewestelijke_2009-1; @vermeersch_resultaten_2019].
+Deze indicator bespreekt de populatietrends van de 26 broedvogels van Europees belang waarvoor kwantitatieve populatiedoelen zijn geformuleerd in de gewestelijke instandhoudingsdoelen (G-IHD) [@paelinckx_gewestelijke_2009; @vermeersch_resultaten_2019].
 
 Zowel op korte als op lange termijn gaat ongeveer de helft van de broedvogelsoorten van Europees belang erop vooruit.
 Er blijven wel soorten achteruitgaan. Op korte termijn gaat het om de strandplevier, zwarte specht, kleine zilverreiger, kleine mantelmeeuw, grote stern, dwergstern en visdief.

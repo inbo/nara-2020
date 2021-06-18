@@ -85,7 +85,6 @@ veegegevens %>%
 Om de biomassa van mensen te berekenen op basis van de beschikbare databronnen deden we volgende aannames:
 
 -	Kinderen tot en met 18 jaar: we kozen hierbij voor het mediaan gewicht per jaar van de VUB groeicurven.
-
 -	Volwassen (18+): voor volwassen mensen vonden we alleen data over de BMI. We berekenden hierbij een gemiddelde BMI per leeftijdsklasse (zie ook ¨[Tabel B.9 uit Drieskens et al. 2018](https://his.wiv-isp.be/nl/Gedeelde%20%20documenten/NS_NL_2018.pdf)). 
 We corrigeerden hierbij voor geslacht: mannen hebben een gemiddelde BMI van 26 en vrouwen van 24.8, het gemiddelde voor de Vlaming bedraagt 25.5.
 Om van BMI naar gewicht te gaan hielden we rekening met de huidige gemiddelde lengte van 166 voor vrouwen en 180 voor mannen en met een [toename van 10 cm op 100 jaar tijd](https://www.gezondheid.be/index.cfm?fuseaction=art&art_id=2819#:~:text=De%20VUB%2C%20KU%20Leuven%20en,groter%20zijn%20dan%20de%20Walen). 
@@ -110,7 +109,7 @@ mensgegevens %>%
          "Gewicht (kg/pers)", "Biomassa (kg)")),
        align = c("l")) %>%
   kable_styling(latex_options = c("striped", "HOLD_position")) %>%
- scroll_box(width = "800px", height = "600px")
+ scroll_box(height = "600px")
 ```
 
 ### Herten, reeën, everzwijnen

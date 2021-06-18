@@ -45,7 +45,6 @@ databereik <- "1950-2018"
 - **Producent**: Instituut voor Natuur- en Bosonderzoek
 - **Dataset**: De Florabank is de databank met verspreidingsgegevens en soortspecifieke kenmerken over de flora van Vlaanderen. Ze omvat gegevens van vaatplanten, mossen, lichenen en kranswieren.
 Naast verspreidingsgegevens bevat de databank een 100-tal kenmerken per soort zoals synoniemen, indicatorwaarden, biotoopvoorkeur, reproductiekenmerken, morfologie, zeldzaamheid, areaal, Rode Lijst-status en wettelijke bescherming.
-
 - **Gegevensinzameling**: De meerderheid van de data werden ingezameld door botanisten met behulp van streeplijsten in vooraf gedefinieerde 1 km x 1 km hokken.
 In deze monitoring vinken botanici alle vaatplantensoorten, die ze tegenkomen tijdens een wandeling door een roostercel van 1 km², aan op een gestandaardiseerde checklist. 
 Deze checklists kunnen worden beschouwd als aan- /afwezigheidscontrolelijsten, zonder enige indicatie van de abundantie van de soort.
@@ -61,13 +60,11 @@ De index vertrekt van de jaarlijkse aan- of afwezigheden van soorten in kilomete
 Om de betrouwbaarheid van de analyse voldoende hoog te houden, werd de analyse beperkt tot goed onderzochte hokken en soorten:
 
 - selectie hokken met meer dan 100 soorten;
-
 - het aantal jaren waarin een soort genoteerd wordt moet > 20. 
 Het laatste jaar van voorkomen mag niet meer dan 8 jaar geleden zijn. 
 Het eerste jaar mag ook niet meer dan 8 jaar verschillen van de startdatum.
 Soorten moeten jaarlijks gemiddeld in meer dan 10 hokken aangetroffen worden. 
 Deze criteria zorgen ervoor dat zeldzame of verdwenen soorten of recente nieuwkomers niet meegenomen worden in deze oefening.
-
 - hybride soorten en geaggregeerde soorten (soortengroepen) worden niet geselecteerd.
 
 Het aantal goed onderzochte hokken per jaar is zeer variabel. 

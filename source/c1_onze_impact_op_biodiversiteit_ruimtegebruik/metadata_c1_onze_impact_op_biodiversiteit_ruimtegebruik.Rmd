@@ -44,9 +44,8 @@ gegevens_cls <- read_vc("datacls")
 - **Gegevensinzameling**: De bodembedekkings- en landgebruikskaarten van Corine worden opgemaakt op basis van een semi-automatische interpretatie van Europese satellietbeelden. 
 Dit gebeurt per land door lokale experten met behulp van foto's en kaartmateriaal die voor dat land beschikbaar zijn.
 Voor België interpreteert het NGI de satellietbeelden. 
-
-  De bevolkingsgegevens worden jaarlijks door Eurostat verzameld uit 37 landen in het kader van het UNIDEMO-project. De metadata zijn beschikbaar via de [data explorer](https://ec.europa.eu/eurostat/cache/metadata/en/demo_r_gind3_esms.htm) van Eurostat.
-  De economische statistieken worden elk kwartaal door Eurostat berekend op basis van gegevens uit de nationale en regionale economische rekeningen van de Europese lidstaten. De metadata zijn beschikbaar via de [data explorer](https://ec.europa.eu/eurostat/cache/metadata/en/reg_eco10_esms.htm) van Eurostat. 
+De bevolkingsgegevens worden jaarlijks door Eurostat verzameld uit 37 landen in het kader van het UNIDEMO-project. De metadata zijn beschikbaar via de [data explorer](https://ec.europa.eu/eurostat/cache/metadata/en/demo_r_gind3_esms.htm) van Eurostat.
+De economische statistieken worden elk kwartaal door Eurostat berekend op basis van gegevens uit de nationale en regionale economische rekeningen van de Europese lidstaten. De metadata zijn beschikbaar via de [data explorer](https://ec.europa.eu/eurostat/cache/metadata/en/reg_eco10_esms.htm) van Eurostat. 
 
 ## Berekeningswijze
 

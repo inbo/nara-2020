@@ -53,7 +53,7 @@ Omdat landgebruik en intensiteit veruit de belangrijkste verklarende variabelen 
 De landgebruikskaart 2016 is gebaseerd op het landgebruiksbestand Vlaanderen 2016 [@poelmans_landgebruik_2019].
 Dit bestand bestaat uit vier thematische lagen: de bodembedekking (niveau 1), verstedelijkt landgebruik (niveau 2), multifunctioneel landgebruik (niveau 3) en haventerreinen en militaire domeinen (niveau 4).
 De bodembedekkingslaag vormt de basis van de landgebruikskaart waarmee de BII berekend werd. 
-Een aantal klassen is aangepast voor het Natuurrapport 2020 (Zie fiche landgebruiksverandering).
+Een aantal klassen is aangepast voor het Natuurrapport 2020 [(Zie fiche landgebruiksverandering)](https://www.vlaanderen.be/inbo/backgroundindicatoren/landgebruiksverandering-ecosysteemvoorraad-landgebruiksbestand-vlaanderen).
 
 Tabel 1 geeft de BII-score voor elk van de landgebruiksklassen en de overeenkomstige indeling en de interpretatie van het landgebruik en de intensiteit uit @newbold_global_2015.
 De scores uit deze tabel geven de BII-Waarden ten opzichte van een niet-beïnvloede referentiesituatie (primaire vegetatie, minimale gebruiksintensiteit). 
