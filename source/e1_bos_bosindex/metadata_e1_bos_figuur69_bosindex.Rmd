@@ -57,7 +57,7 @@ Deze werd vervolgens gekalibreerd met de bosoppervlakte per administratieve regi
 Voor Vlaanderen zijn dat de gegevens van de eerste bosinventaris (1997-1999).
 De inventarisatieperiodes waarop de bosindex voor de andere regio's gebaseerd zijn, zijn gedocumenteerd op de [website van EFI](https://efi.int/knowledge/maps/forest).
 Om de bosindex per sociaaleconomische regio te berekenen, werd de EFI-boskaart gecombineerd met de kaart van de NUTS-1^[NUTS of Nomenclature d’Unités Territoriales Statistiques is een gestandaardiseerde classificatie van landen en regio’s die wordt gebruikt binnen de Europese Unie voor statistische ruimtelijke analyses. NUTS-1 omvat 92 regio’s, net onder het nationale niveau, zoals het Vlaams, het Brussels Hoofdstedelijk en het Waals Gewest.] regio's.
-Daaruit werden de negen regio's geselecteerd die de meeste gelijkenissen vertonen met het Vlaams Gewest, voor wat betreft het welvaartspeil, de oppervlakte en de bevolkingsdichtheid (Zie Algemene toestand en trends in Vlaanderen - Ruimtegebruik).
+Daaruit werden de negen regio's geselecteerd die de meeste gelijkenissen vertonen met het Vlaams Gewest, voor wat betreft het welvaartspeil, de oppervlakte en de bevolkingsdichtheid [(Zie Algemene toestand en trends in Vlaanderen - Ruimtegebruik)](https://www.vlaanderen.be/inbo/backgroundindicatoren/algemene-toestand-en-trends-in-vlaanderen-ruimtegebruik).
 
 ## Opmerkingen bij de gegevenskwaliteit en betrouwbaarheid
 

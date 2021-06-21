@@ -300,7 +300,7 @@ Deze indicator toont de evolutie van de rechtstreekse stikstofdepositie in bosse
 
 De metingen van het langetermijnmeetnet in bossen (Level II) tonen aan dat de depositie van anorganische stikstof daalde vanaf de jaren 1990, maar vertraagt of stabiliseert in het laatste decennium (Figuur 1).
 De afname was vooral het gevolg van de dalende ammoniakuitstoot door de landbouw en van een verminderde co-depositie met sulfaat [@verstraeten_impact_2012; @verstraeten_multiple_2017]. 
-De kritische last voor stikstofdepositie  wordt voor alle bossen in Vlaanderen overschreden [@vmm_oppervlakte_2019-1]. 
+De kritische last voor stikstofdepositie  wordt voor alle bossen in Vlaanderen overschreden [@vmm_oppervlakte_2019]. 
 De kritische last is de drempelwaarde waarboven schadelijke effecten op het ecosysteem optreden.
 Te hoge stikstofdepositie zorgt voor vermesting en verzuring van het ecosysteem. 
 Stikstofminnende soorten krijgen daardoor een competitief voordeel en breiden sterk uit ten koste van soorten uit stikstofarme milieus, die vaak een smalle ecologische niche hebben. 

@@ -38,7 +38,6 @@ databereik <- "VBI 1: 1997-1999 en VBI 2: 2009-2019"
 - **Dataset**: [Digitale boswijzer Vlaanderen 2009, 2012, 2015](http://www.geopunt.be/catalogus/datasetfolder/42457086-8b2c-44b6-8232-daa65cfd486b)
 Databank Vlaamse Bosinventaris (v16-03-2020). 
 De databank kan opgevraagd worden bij het [Agentschap Natuur en Bos](https://www.natuurenbos.be/beleid-wetgeving/natuurbeheer/bosinventaris/contact).
-
 - **Gegevensinzameling**: 
 De **Groenkaart Vlaanderen** is een rasterkaart (resolutie 1 m) van het groen in Vlaanderen en onderscheidt de klassen “Niet groen”, “Landbouw”, “Laag Groen” (minder dan 3 m hoog) en “Hoog Groen” (meer dan 3 m hoog).
 De Groenkaart is, net als de Boswijzer, een afgeleide van de Vegetatiekaart Vlaanderen [@van_der_linden_vegetatiekaart_2017].
@@ -100,7 +99,7 @@ De totale versnippering van het opgaand groen (bomen) ligt dan ook heel wat hoge
 Omdat de Groenkaart pas beschikbaar is vanaf 2009, kan de fragmentatiegraad niet berekend worden voor de eerste inventarisatieperiode van de VBI (1997-1999).
 We hebben ervoor gekozen om de FAD voor beide inventarisatieperiodes te berekenen op basis van de meest recente Groenkaart (2015).
 De werkelijke fragmentatiegraad voor de punten van VBI 1 (1997-1999) wijkt hoogstwaarschijnlijk dan ook af van de berekende scores op basis van de Groenkaart 2015.
-Wanneer alleen de metingen van VBI 2 in rekening worden gebracht, blijft het effect van de fragmentatiegraad op de soortenrijkdom behouden (zie *Broncode indicator*).
+Wanneer alleen de metingen van VBI 2 in rekening worden gebracht, blijft het effect van de fragmentatiegraad op de soortenrijkdom behouden (zie [*Broncode indicator*](../e1_bos_versnippering/e1_bos_versnippering.Rmd)).
 
 ## Download
 

@@ -59,7 +59,7 @@ pcbgegevens <- pcbgegevens %>%
   arrange(desc(klasse)) %>%
   mutate(lab.ypos = cumsum(prop) - 0.5 * prop)
 ```
-```{r staafdiagram, fig.width = 10, fig.height = 5, fig.cap = "Figuur 1: Procentuele klassenverdeling van PCB-concentraties in spierweefsel van paling (op vetbasis) in de periode 2015-2018 Bron: ([@teunen_veldstudies_2020-1]). Deze figuur komt overeen met figuur 106 in het Natuurrapport 2020. "}
+```{r staafdiagram, fig.width = 10, fig.height = 5, fig.cap = "Figuur 1: Procentuele klassenverdeling van PCB-concentraties in spierweefsel van paling (op vetbasis) in de periode 2015-2018 Bron: ([@teunen_veldstudies_2020]). Deze figuur komt overeen met figuur 106 in het Natuurrapport 2020. "}
 colors <- c(inbo_rood, inbo_oranje, inbo_geelgr, inbo_lichtblauw)
 fig <- plot_ly(pcbgegevens, labels = ~klasse, values = ~prop,
                hoverinfo = "label", marker = list(
@@ -83,6 +83,6 @@ De Kaderrichtlijn Water heeft voor een aantal toxische stoffen, waaronder PCB's 
 De PCB-concentraties in het spierweefsel van paling lagen in de periode 2015-2018 tussen 10 en 4292 ng/g natgewicht (mediaan 420 ng/g natgewicht).
 Dat is lager dan de concentraties in palingen gevangen in de periode tussen 1994-2005, namelijk 3,5-12.455 ng/g natgewicht (mediaan 605 ng/g natgewicht).
 De daling is echter onvoldoende.
-In de periode 2015-2018 scoort 68 procent van de 41 meetplaatsen slecht tot zeer slecht en 51 procent van de metingen overschrijdt nog altijd de humane consumptienorm [@teunen_veldstudies_2020-1].
+In de periode 2015-2018 scoort 68 procent van de 41 meetplaatsen slecht tot zeer slecht en 51 procent van de metingen overschrijdt nog altijd de humane consumptienorm [@teunen_veldstudies_2020].
 
 ## Referenties
