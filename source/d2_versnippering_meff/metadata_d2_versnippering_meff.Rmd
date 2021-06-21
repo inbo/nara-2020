@@ -59,7 +59,7 @@ De **onbebouwde ruimte** groepeert alle landgebruikscellen die geen gebouwen, in
 De landgebruikskaart 2016 vormt de basis voor de afbakening van de onbebouwde en natuurlijke ruimte.
 De landgebruikskaart is gebaseerd op het landgebruiksbestand Vlaanderen 2016 [@poelmans_landgebruik_2019].
 Dit bestand bestaat uit vier thematische lagen: de bodembedekking (niveau 1), verstedelijkt landgebruik (niveau 2), multifunctioneel landgebruik (niveau 3) en haventerreinen en militaire domeinen (niveau 4).
-De bodembedekkingslaag vormt de basis van de landgebruikskaart, maar werd licht aangepast voor het Natuurrapport 2020 (Zie Landgebruiksveranderingen - Ecosysteemvoorraad Landgebruiksbestand Vlaanderen).
+De bodembedekkingslaag vormt de basis van de landgebruikskaart, maar werd licht aangepast voor het Natuurrapport 2020 [(Zie Landgebruiksveranderingen - Ecosysteemvoorraad Landgebruiksbestand Vlaanderen)](https://www.vlaanderen.be/inbo/backgroundindicatoren/landgebruiksverandering-ecosysteemvoorraad-landgebruiksbestand-vlaanderen).
 
 Tabel 1 geeft een overzicht van de indeling van de klassen van de landgebruikskaart voor de afbakening van de onbebouwde ruimte en natuur.
 Permanente cultuurgraslanden en 'Overig laag groen' die onder natuurbeheer vallen, worden tot natuur gerekend.
@@ -84,7 +84,7 @@ Alle vectorkaarten worden omgezet naar rasters met een resolutie van 10 m.
 ## Opmerkingen bij de gegevenskwaliteit en betrouwbaarheid
 
 De Meff-score is berekend op basis van de landgebruikskaart.
-De validatie van de landgebruikskaart toont aan dat de betrouwbaarheid van de klasse 'overig' laag is (zie Landgebruiksveranderingen - Validatie).
+De validatie van de landgebruikskaart toont aan dat de betrouwbaarheid van de klasse 'overig' laag is [(zie Landgebruiksveranderingen - Validatie)](https://www.vlaanderen.be/inbo/backgroundindicatoren/landgebruiksverandering-validatie).
 'Overig' blijkt vaak onterecht geklasseerd te zijn als laag groen en vise versa. 
 Vooral in droge periodes wordt heel wat laag groen niet herkend en onterecht geklasseerd als 'overig'.
 Aangezien 'overig' geen deel uitmaakt van de onbebouwde ruimte of natuur en laag groen wel, beïnvloeden de foute classificaties de uitkomst van de Meff-berekening.

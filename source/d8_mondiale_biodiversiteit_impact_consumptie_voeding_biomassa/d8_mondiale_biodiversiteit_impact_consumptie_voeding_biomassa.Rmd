@@ -3,6 +3,8 @@ title: "Druk op de biodiversiteit wereldwijd - Impact consumptie voeding en biom
 date: 2020-07-01T10:00:00
 bibliography: ../references.bib
 link-citations: TRUE
+nocite: |
+  @jennings_risky_2019 and @chaudhary_land_2018
 hoofdstuk: 4
 thema:
   - Natuur & maatschappij
@@ -28,7 +30,6 @@ keywords:
   - koffie
   - cacao
   - palmolie
-
 lang: nl
 tab: indicator
 verantwoordelijke:
@@ -254,3 +255,5 @@ Ontbossing leidt tot een aanzienlijk biodiversiteitsverlies, maar is niet de eni
 De landvoetafdruk van de bestudeerde productstromen kan, voor de belangrijkste landen van herkomst, omgerekend worden naar een bredere maat voor **biodiversiteitsverlies op wereldschaal**. 
 Figuur 2 toont de twintig landen waarin de Belgische consumptie van de zeven goederen de grootste biodiversiteitsverliezen veroorzaakt. 
 **Palmolie uit Indonesië en Maleisië, cacao uit Ivoorkust, Ecuador en de Dominicaanse Republiek en soja uit Brazilië** hebben de grootste impact.
+
+## Referenties

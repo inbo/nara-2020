@@ -256,7 +256,7 @@ if (interactive() || opts_knit$get("rmarkdown.pandoc.to") == "html") {
 De voorraad stedelijk en bebouwd gebied nam toe met bijna 7% en zoetwater en estuarium met 15% ten opzichte van 1990. De omvang van het agro-ecosysteem daalde met bijna 3%.
 
 ```{r rekening cor-stock5-account}
-gegevens_sta_2 <- gegevens_sta[, c(1, 11, 2, 3, 4, 5, 6, 7, 8, 9, 10)]
+gegevens_sta_2 <- gegevens_sta[, c(1, 2, 11, 3, 4, 5, 6, 7, 8, 9, 10)]
 tabel_sta <- data.frame(t(gegevens_sta_2[-1])) # om gegevenstabel te transpon.
 rownames(tabel_sta) <- c("Ecosysteemvoorraad 1990", "Ecosysteemvoorraad 2018",
                          "Verlies", "Uitbreiding", "Nettoverandering",
@@ -390,6 +390,6 @@ De berekeningen gebeurden op basis van Corine, de Europese *land cover inventory
 Wegens de lage ruimtelijke resolutie van deze landgebruiksgegevens, laat de analyse geen precieze 'oppervlakteboekhouding' per ecosysteem toe. 
 Zo moet de oppervlakte 'agro-ecosysteem' veeleer worden geïnterpreteerd als 'oppervlakte waarbinnen het landschap grotendeels bestaat uit agro-ecosystemen (akkers en graslanden)'. 
 In die ruimte kunnen dus ook beperkte oppervlaktes met bebouwing en wegen, bos en natuur of water voorkomen.
-Een analyse op basis van Vlaamse landgebruiksgegevens met een hogere ruimtelijke resolutie vind je in de [fiche Landgebruiksverandering - Landgebruiksbestand Vlaanderen](https://www.vlaanderen.be/inbo/natuurrapport-2020/landgebruiksverandering-landgebruiksbestand-vlaanderen).
+Een analyse op basis van Vlaamse landgebruiksgegevens met een hogere ruimtelijke resolutie vind je in de [fiche Landgebruiksverandering - Landgebruiksbestand Vlaanderen](https://www.vlaanderen.be/inbo/backgroundindicatoren/landgebruiksverandering-ecosysteemvoorraad-landgebruiksbestand-vlaanderen).
 
 ## Referenties

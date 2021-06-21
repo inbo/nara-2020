@@ -273,7 +273,7 @@ De omvang van het agro-ecosysteem daalde met bijna 3%.
 Heide en landduin kende met een toename van ruim 10% de grootste relatieve verandering.
 
 ```{r rekening lgv-stock10-account}
-gegevens_sta_2 <- gegevens_sta[, c(1, 11, 2, 3, 4, 5, 6, 7, 8, 9, 10)]
+gegevens_sta_2 <- gegevens_sta[, c(1, 2, 11, 3, 4, 5, 6, 7, 8, 9, 10)]
 tabel_sta <- data.frame(t(gegevens_sta_2[-1])) # om gegevenstabel te transpon.
 rownames(tabel_sta) <- c("Ecosysteemvoorraad 2013", "Ecosysteemvoorraad 2016",
                          "Verlies", "Uitbreiding", "Nettoverandering",
@@ -418,7 +418,7 @@ tabel_fla %>%
 ```
 
 De cijfers van de ecosysteemvoorraden, en vooral die van de landgebruiksveranderingen tussen 2013 en 2016, moeten met de nodige voorzichtigheid worden geïnterpreteerd.
-De gemiddelde accuraatheid van de landgebruikskaart wordt op basis van een validatie geraamd op 90-91%, met 99% voor de cellen waarvan het landgebruik tussen 2013 en 2016 niet veranderde en (slechts) 20% voor de cellen die wel veranderden [zie fiche Landgebruiksverandering -  Validate](https://www.vlaanderen.be/inbo/natuurrapport-2020/landgebruiksverandering-validatie).
+De gemiddelde accuraatheid van de landgebruikskaart wordt op basis van een validatie geraamd op 90-91%, met 99% voor de cellen waarvan het landgebruik tussen 2013 en 2016 niet veranderde en (slechts) 20% voor de cellen die wel veranderden [zie fiche Landgebruiksverandering -  Validate](https://www.vlaanderen.be/inbo/backgroundindicatoren/landgebruiksverandering-validatie).
 Voor de landgebruiksverandering naar stedelijk en bebouwd gebied of naar akker is de betrouwbaarheid hoger. 
 We raden daarom aan om deze indicatoren en rekeningen veeleer te gebruiken om de grootteorde van de ecosystemen en de voornaamste landgebruiksveranderingen in te schatten maar niet voor een gedetailleerde analyse van de andere veranderingen op korte termijn.
 
