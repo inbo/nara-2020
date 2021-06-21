@@ -67,10 +67,10 @@ Het toepassen van deze typologie op de huidige indicatorenset, toont waar op dit
 
 ```{r Tabel 1, echo=FALSE, message=FALSE, warning=FALSE}
 tabel <- indicatorlijst %>%
-  rename("naam indicator" = "Naam_indicator", "invalshoek"= "kwadrant")
+  rename("naam indicator" = "Naam_indicator", "invalshoek" = "kwadrant")
 tabel %>%
-  kbl(caption = "Tabel 1. Classificatie van indicatoren van het Natuurrapport naar
-invalshoek en schaalniveau.") %>%
+  kbl(caption = "Tabel 1. Classificatie van indicatoren van het Natuurrapport
+  naar invalshoek en schaalniveau.") %>%
   kable_styling(c("striped", "hover"), full_width = FALSE) %>%
   column_spec(1, width = "5cm") %>%
   column_spec(2, width = "15cm") %>%
