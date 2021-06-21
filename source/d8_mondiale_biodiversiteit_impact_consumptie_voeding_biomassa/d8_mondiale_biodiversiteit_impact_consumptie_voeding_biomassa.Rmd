@@ -3,6 +3,8 @@ title: "Druk op de biodiversiteit wereldwijd - Impact consumptie voeding en biom
 date: 2020-07-01T10:00:00
 bibliography: ../references.bib
 link-citations: TRUE
+nocite: |
+  @jennings_risky_2019 and @chaudhary_land_2018
 hoofdstuk: 4
 thema:
   - Natuur & maatschappij
@@ -28,7 +30,6 @@ keywords:
   - koffie
   - cacao
   - palmolie
-
 lang: nl
 tab: indicator
 verantwoordelijke:
