@@ -47,11 +47,12 @@ De vegetaties uit een zeer nat en nat milieu krijgen een lager gewicht (een klei
   + de meetreeks in een peilbuis bevat **voldoende data** om aan de hand van modelsimulaties een betrouwbare tijdreeks op te bouwen. 
   + de tijdreeks vertoont **geen systematische, lineaire daling of stijging** die niet door meteorologische of andere externe factoren (opstuwen, drainage, waterwinning, etc.) verklaard kan worden. 
 Minstens tweederde van de temporele variatie in de grondwaterstanden in een peilbuis is toe te schrijven aan meteorologische factoren. 
- 
-  Van die 100 “ideale” meetpunten zijn er **momenteel slechts 58 voorhanden** die aan de laatste twee criteria beantwoorden. 
-Die meetpunten vormen de basis voor deze indicator.
 
-  Het model voor de tijdreeksanalyse gebruikt **meteorologische data** (neerslag en evapotranspiratie) als verklarende factoren. 
+
+Van die 100 “ideale” meetpunten zijn er **momenteel slechts 58 voorhanden** die aan de laatste twee criteria beantwoorden. 
+
+Die meetpunten vormen de basis voor deze indicator.
+Het model voor de tijdreeksanalyse gebruikt **meteorologische data** (neerslag en evapotranspiratie) als verklarende factoren. 
 Die data zijn afkomstig van meetstations beheerd door het Koninklijk Meteorologisch Instituut, de Vlaamse Milieumaatschappij, het Hydrologisch Informatiecentrum en het Koninklijk Nederlands Meteorologisch Instituut. 
 
 ## Berekeningswijze

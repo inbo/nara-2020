@@ -55,15 +55,15 @@ Ze vertrekt van de invoer- en uitvoergegevens per land uit de databank van [UN C
 De wederuitvoer van de goederenstromen wordt in rekening gebracht: waar België grondstoffen en/of producten invoert uit een land A dat zelf de grondstoffen en/of producten importeert uit een land B (en C, enz.), worden de importgegevens van het land A gebruikt om de werkelijke herkomst te bepalen. 
 Om die terugrekening haalbaar te houden, komen enkel landen die minstens 2% van de waarde van de Belgische invoer van een productgroep vertegenwoordigen aan bod.
 
-  Voor rundsvlees en leder en hout en papier bekijkt de studie naast de invoer ook de Belgische binnenlandse productie. 
+Voor rundsvlees en leder en hout en papier bekijkt de studie naast de invoer ook de Belgische binnenlandse productie. 
 Die data komen uit de databank van [FAOSTAT](http://www.fao.org/faostat/en/#home). 
 Voor elke productgroep wordt een schatting gemaakt van de hoeveelheid bestemd voor consumptie in België. 
 Daarbij geldt: consumptie = invoer + binnenlandse productie - export.  
 
-  Met behulp van opbrengstdata per gewas en per land (in ton of kubieke meter per hectare), afkomstig uit de [FAOSTAT](http://www.fao.org/faostat/en/#home)-databank, en gegevens over het aandeel van de goederen in verschillende consumptieproducten, berekent de studie de **landoppervlaktes die nodig zijn om onze consumptie en productie te ondersteunen**. 
+Met behulp van opbrengstdata per gewas en per land (in ton of kubieke meter per hectare), afkomstig uit de [FAOSTAT](http://www.fao.org/faostat/en/#home)-databank, en gegevens over het aandeel van de goederen in verschillende consumptieproducten, berekent de studie de **landoppervlaktes die nodig zijn om onze consumptie en productie te ondersteunen**. 
 Voor rundsvlees en leder telt alleen grasland mee als bron van diervoeder. Akkerbouwteelten die ook een grondstof vormen voor diervoeder (bv. soja) zitten niet mee in de cijfers vervat. 
 
-  Voor hout en papier en rundsvlees en leder wijkt de berekening van de benodigde landoppervlakte af van die van de andere goederenstromen. 
+Voor hout en papier en rundsvlees en leder wijkt de berekening van de benodigde landoppervlakte af van die van de andere goederenstromen. 
 Voor beide productgroepen zijn geen eenvoudige, wijd verspreide opbrengstdata beschikbaar om de ingezette hoeveelheid land in te schatten. 
 Bossen kennen een erg verschillend beheer en hout wordt het hele jaar door geoogst op uiteenlopende manieren. 
 De studie gebruikt data over de gemiddelde jaarlijkse aanwas (= de toename in het houtvolume per hectare en per jaar) van bossen, om de oppervlakte te berekenen die nodig is om een bepaald productievolume te bereiken. 
@@ -71,7 +71,7 @@ Om de opbrengst (i.e. toename in karkasgewicht) van vleesrunderen per oppervlakt
 Dat gebeurt aan de hand van cijfers over de relatieve voederconversie-efficiëntie van elk grazertype en de totale productie van elke deelsector. 
 Vleesrunderen geven twee producten: rundsvlees en leder. Het geassocieerde landgebruik wordt verdeeld over beide producten op basis van hun massa: de huid bedraagt zo’n 15% van de totale massa van het karkas en krijgt dus 15% van de landvoetafdruk toegekend.
 
-  Aan de hand van een **risicoscore voor ontbossing per land** wordt de landvoetafdruk omgerekend naar een ‘landvoetafdruk met een hoog risico op ontbossing’. 
+Aan de hand van een **risicoscore voor ontbossing per land** wordt de landvoetafdruk omgerekend naar een ‘landvoetafdruk met een hoog risico op ontbossing’. 
 Die risicoscore is gebaseerd op de deelscores voor vier criteria: 
   + het verlies aan boombedekking: het verlies aan landoppervlakte met meer dan 10% boombedekking tussen 2012 en 2016 (data van [Global Forest Watch](https://data.globalforestwatch.org/)) 
   + de ontbossingssnelheid: de verandering in de netto oppervlakte van natuurlijk bos tussen 2010 en 2015 (data [FAO Forest Resources Assessment](http://www.fao.org/forest-resources-assessment/en/))

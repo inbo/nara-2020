@@ -96,7 +96,7 @@ tabel_clslgv2 %>%
 ## Opmerkingen bij de gegevenskwaliteit en betrouwbaarheid
 
 Op de ecosysteemkaarten werd een validatie toegepast [@olofsson_good_2014].
-De procedure staat beschreven in de [fiche Landgebruiksverandering -  Validate](https://www.vlaanderen.be/inbo/natuurrapport-2020/landgebruiksverandering-validatie).
+De procedure staat beschreven in de [fiche Landgebruiksverandering -  Validate](https://www.vlaanderen.be/inbo/backgroundindicatoren/landgebruiksverandering-validatie).
 Hieruit blijkt dat cijfers van de ecosysteemvoorraden, en vooral die van de landgebruiksveranderingen tussen 2013 en 2016, met de nodige voorzichtigheid moeten worden geïnterpreteerd.
 De gemiddelde betrouwbaarheid van de bodembedekkingskaart in het aanduiden OF een cel verandert tussen 2013 en 2016, bedraagt 90-91%, met 99% voor de onveranderde cellen en (slechts) 20% voor de veranderende cellen. 
 De veranderingen worden dus sterk overschat.

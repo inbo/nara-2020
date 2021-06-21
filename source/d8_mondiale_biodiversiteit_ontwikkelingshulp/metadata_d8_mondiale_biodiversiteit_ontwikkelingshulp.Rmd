@@ -35,14 +35,13 @@ library(git2rdata)
 - **Producent**: Instituut voor Natuur- en Bosonderzoek
 - **Dataset**: data van de Federale Overheidsdienst Buitenlandse Zaken (2019). 
 De gegevens worden gebruikt voor rapportage aan de Organisatie voor Economische Samenwerking en Ontwikkeling (OESO) over financiering in het kader de Rio-Verdragen (biodiversiteit, klimaatverandering en verwoestijning). 
-
-  De gegevens over de totale Belgische ODA per jaar zijn afkomstig van [de databank van de Commissie voor Ontwikkelingssamenwerking](https://www.oecd.org/dac/financing-sustainable-development/development-finance-standards/official-development-assistance.htm) (DAC, *Development Assistance Committee*) van de OESO. 
+De gegevens over de totale Belgische ODA per jaar zijn afkomstig van [de databank van de Commissie voor Ontwikkelingssamenwerking](https://www.oecd.org/dac/financing-sustainable-development/development-finance-standards/official-development-assistance.htm) (DAC, *Development Assistance Committee*) van de OESO. 
 - **Gegevensinzameling**: De FOD Buitenlandse Zaken screent alle bilaterale projecten en bijdragen aan de officiële Belgische ontwikkelingshulp (ODA) op hun relevantie voor biodiversiteitsdoelen. 
 Een activiteit is “biodiversiteitsgerelateerd” als ze tenminste één van de drie doelen van de Conventie voor Biologische Diversiteit nastreeft: de biodiversiteit beschermen, haar componenten (ecosystemen, soorten of genen) duurzaam gebruiken of de voordelen van het gebruik van genetische hulpbronnen eerlijk en billijk verdelen. 
 De projecten krijgen een score 2 toegekend als ze een van deze biodiversiteitsdoelen als hoofddoel hebben, score 1 als biodiversiteit een significant nevendoel vormt. 
 Dezelfde oefening gebeurt voor ODA gericht op klimaatdoelen, op het tegengaan van verwoestijning en op algemene milieudoelen. 
 
-  Daarnaast worden ook de jaarlijkse bijdragen aan de centrale werking van multilaterale organisaties (*core*-bijdragen) bijgehouden. 
+Daarnaast worden ook de jaarlijkse bijdragen aan de centrale werking van multilaterale organisaties (*core*-bijdragen) bijgehouden. 
 
 ## Berekeningswijze
 De **bilaterale bijdragen** met biodiversiteit als hoofddoel (score 2) worden per jaar gesommeerd. 

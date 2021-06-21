@@ -48,7 +48,7 @@ De landgebruikskaart 2016 vormt de basis voor de afbakening van de natuurlijke r
 **Natuur** omvat de ‘natuurlijke’ ecosystemen heide, moeras, bos, kustduin, halfnatuurlijk grasland en slik en schor. 
 De landgebruikskaart is gebaseerd op het landgebruiksbestand Vlaanderen 2016 [@poelmans_landgebruik_2019].
 Dit bestand bestaat uit vier thematische lagen: de bodembedekking (niveau 1), verstedelijkt landgebruik (niveau 2), multifunctioneel landgebruik (niveau 3) en haventerreinen en militaire domeinen (niveau 4).
-De bodembedekkingslaag vormt de basis van de landgebruikskaart, maar werd licht aangepast voor het Natuurrapport 2020 (Zie Landgebruiksverandering - Ecosysteemvoorraad Landgebruiksbestand Vlaanderen).
+De bodembedekkingslaag vormt de basis van de landgebruikskaart, maar werd licht aangepast voor het Natuurrapport 2020 [(Zie Landgebruiksverandering - Ecosysteemvoorraad Landgebruiksbestand Vlaanderen)](https://www.vlaanderen.be/inbo/backgroundindicatoren/landgebruiksverandering-validatie).
 
 Tabel 1 geeft een overzicht van de indeling van de klassen van de landgebruikskaart voor de afbakening van natuur.
 Permanente cultuurgraslanden en 'Overig laag groen' die onder natuurbeheer vallen, worden tot natuur gerekend.
