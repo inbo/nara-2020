@@ -1,5 +1,5 @@
 ---
-title: "Metadata High Nature Value farming"
+title: "Metadata agro-ecosystemen - High Nature Value farming"
 date: 2020-07-01T10:00:00
 bibliography: ../references.bib
 link-citations: TRUE
@@ -340,7 +340,8 @@ De intensiteitsscore houdt rekening met diverse vegetatie- en beheerindicatoren:
 We kiezen hierbij om de drempel op een score van 3 te leggen voor zowel het perceel als zijn omgeving. 
 Deze score kwam in het Natuurrapport 2016 overeen met een soortenrijk mozaïeklandschap, zijnde een gevarieerd landschap met veel kleine landschapselementen en/of halfnatuurlijke vegetatie. 
 Ook grootschalige blijvende graslandgebieden worden hierbij als weinig intensief gekenmerkt. 
-In de huidige methode kon de blauwe dooradering niet volledig in rekening gebracht worden omdat de Vlaamse hydrografische atlas voor stromend water onvolledig is voor de niet gecategoriseerde waterlopen. 
+In de huidige methode kon de blauwe dooradering niet volledig in rekening gebracht worden omdat de Vlaamse hydrografische atlas voor stromend water onvolledig is voor de niet gecategoriseerde waterlopen.
+
 ```{r Tabel 7, echo=FALSE, message=FALSE, warning=FALSE}
 intensiteit_perceel <- read_vc("intensiteit_percelen")
 intensiteit_perceel %>%
@@ -375,8 +376,7 @@ intensiteit_omgeving <- data.frame(
 intensiteit_omgeving %>%
   mutate_all(linebreak) %>%
   kable(
-    caption = "Tabel 8. Voorbeelden van een niet-intensieve
-        omgeving",
+    caption = "Tabel 8. Voorbeelden van een niet-intensieve omgeving",
     booktabs = TRUE,
     escape = FALSE, col.names = linebreak(
       c(
@@ -680,63 +680,20 @@ In onderstaande tabel geven we de deel- en geaggregeerde scores weer.
 De geaggregeerde score is het gemiddelde van de scores voor bodemorganisch koolstofgehalte, bodemerosie, bodemverdichting, nitraatresidu en gewasbescherming. 
 Voor afgedichte bodems wordt automatisch score 5 toegekend.
 
-Tabel 17 laat toe om indicatoren te selecteren per intensiteitsklasse.
-Het is ook mogelijk om zoektermen in te geven (search) en om de indicatoren te ordenen. 
-Het resultaat kan gedownload, gekopieerd of geprint worden.
-
 ```{r Tabel 17, echo=FALSE, message=FALSE, warning=FALSE}
-options(OutDec = ",")
-intensiteitgegevens %>%
-  datatable(
-    caption = "Tabel 17. Intensiteitsscores landgebruiken",
-    colnames = c(
-      "Landgebruik", "bodem- koolstof",
-      "bodem- erosie", "bodem- verdichting",
-      "gewas- bescherming", "nitraat- residu",
-      "bodem- afdichting", "totaal", "klasse"
-    ),
-    rownames = FALSE,
-    extensions = c(
-      "KeyTable", "Buttons", "Select",
-      "SearchPanes", "Scroller"
-    ),
-    options = list(
-      dom = "Bfrtip",
-      filter = "none",
-      keys = TRUE,
-      buttons = c("copy", "print", "searchPanes"),
-      language = list(
-        searchPanes = list(
-          collapse = "Selecteer"
-        )
-      ),
-      scrollY = 390,
-      scrollX = FALSE,
-      scrollCollapse = TRUE,
-      paging = FALSE,
-      columnDefs = list(
-        list(
-          searchPanes = list(show = FALSE),
-          targets = 1:7
-        ),
-        list(
-          searchPanes = list(controls = FALSE),
-          targets = 0:8
-        ),
-        list(
-          className = "dt-center",
-          targets = 0:8
-        )
-      )
-    )
-  ) %>%
-  formatRound(c(
-    "bodemkoolstof", "bodemerosie", "bodemverdichting",
-    "gewasbescherming", "nitraatresidu",
-    "bodemafdichting", "nitraatresidu", "totaal"
-  ),
-  digits = 1
-  )
+tabel <- intensiteitgegevens %>%
+  dplyr::rename("bodem\nkoolstof" = "bodemkoolstof",
+                "bodem\nerosie" = "bodemerosie",
+                "bodem\nverdichting" = "bodemverdichting",
+                "gewas\nbescherming" = "gewasbescherming",
+                "nitraat\nresidu" = "nitraatresidu",
+                "bodem\nafdichting" = "bodemafdichting"
+                )
+tabel[is.na(tabel)] <- ""
+
+kbl(tabel, caption = "Tabel 17. Intensiteitsscores landgebruiken.") %>%
+  kable_styling(c("striped", "hover", "condensed"), full_width = FALSE) %>%
+  scroll_box(width = "100%", height = "500px")
 ```
 
 <font size="3"> D9. Correctie beheerovereenkomsten en kleine landschapselementen</font>

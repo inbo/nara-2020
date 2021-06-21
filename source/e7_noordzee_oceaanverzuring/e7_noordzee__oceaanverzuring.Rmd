@@ -45,7 +45,7 @@ revellephgegevens <- read_vc("icos_data_for_nara_report2020")
 revellephgegevens <- revellephgegevens %>%
   mutate(date = as.Date(date, format = "%d/%m/%Y"))
 ```
-```{r staafdiagram, fig.width = 10, fig.height = 8, fig.cap = "Figuur 1: Revelle factor van de Belgische wateren in de periode 2017-2019."}
+```{r staafdiagram, fig.width = 7, fig.height = 4, fig.cap = "Figuur 1: Revelle factor van de Belgische wateren in de periode 2017-2019."}
 q <- ggplot(revellephgegevens, aes(x = date)) +
   geom_point(aes(y = Revelle), color = inbo_hoofd) +
   geom_line(aes(y = Revelle), color = inbo_steun_donkerroos) +
@@ -67,7 +67,7 @@ z <- ggplotly(q)
 z[["x"]][["layout"]][["annotations"]][[1]][["x"]] <- -0.08
 z
 ```
-```{r staafdiagram_2, fig.width = 10, fig.height = 8, fig.cap = "Figuur 2: pH van de Belgische wateren in de periode 2017-2019. De pH wordt gerapporteerd op totale schaal bij 25°C. De gemiddelde pH van zeewater ligt rond 8. Deze figuur verwijst naar figuur 109 in het Natuurrapport 2020. Databron: Integrated Carbon Observation System."}
+```{r staafdiagram_2, fig.width = 7, fig.height = 4, fig.cap = "Figuur 2: pH van de Belgische wateren in de periode 2017-2019. De pH wordt gerapporteerd op totale schaal bij 25°C. De gemiddelde pH van zeewater ligt rond 8. Deze figuur verwijst naar figuur 109 in het Natuurrapport 2020. Databron: Integrated Carbon Observation System."}
 t <- ggplot(revellephgegevens, aes(x = date)) +
   geom_point(aes(y = pH), color = inbo_hoofd) +
   geom_line(aes(y = pH), color = inbo_steun_donkerroos) +
@@ -101,7 +101,7 @@ In het algemeen geldt hoe hoger de waarde, hoe lager de buffercapaciteit.
 
 Zeeën en oceanen bufferen de klimaatopwarming omdat ze CO~2~ uit de atmosfeer opnemen.
 Zodra de buffercapaciteit van het zeewater is overschreden, kan dat tot oceaanverzuring leiden, omdat de opname van CO~2~ een daling in pH van het zeewater veroorzaakt.
-Meer zure condities hebben een effect op de biogeochemische eigenschappen van het zeewater die op hun beurt een invloed hebben het fytoplankton en op kalkschalige organismen zoals schelpen en koralen [@turley_ocean_2016], [@winn_drivers_2011].
+Meer zure condities hebben een effect op de biogeochemische eigenschappen van het zeewater die op hun beurt een invloed hebben het fytoplankton en op kalkschalige organismen zoals schelpen en koralen (@turley_ocean_2016, @winn_drivers_2011).
 De bovenste figuur toont de Revelle-factor en de onderste figuur toont de pH van het zeewater. 
 Normale waarden van de Revelle-factor voor zeewater bevinden zich tussen 8 en 13. Op jaarbasis is de buffercapaciteit stabiel en schommelt ze rond 12. 
 

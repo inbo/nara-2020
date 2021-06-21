@@ -1,5 +1,5 @@
 ---
-title: "High Nature Value farming"
+title: "Agro-ecosystemen - High Nature Value farming"
 date: 2020-07-01T10:00:00
 bibliography: ../references.bib
 link-citations: TRUE
@@ -360,7 +360,7 @@ Subtypes overlappen niet en indien een perceel tot meerdere subtypes kan behoren
 De oppervlakte HNVf wordt afzonderlijk bekeken voor akker- en sierteelt, blijvende cultuurgraslanden en historische agrecosystemen. Historische agro-ecosystemen omvatten:
 
 -  halfnatuurlijke graslanden: graslanden met extensief maaibeheer of lichte begrazing ([Ecopedia](https://www.ecopedia.be/encyclopedie/halfnatuurlijk-grasland))
-- soortenrijke permanente graslanden^[soortenrijke permanente graslanden omvatten vochtig grasland gedomineerd door russen, soortenrijk permanent cultuurgrasland en soortenrijk permanent cultuurgrasland met zilte elementen][@vriens_biologische_2011-1], en
+- soortenrijke permanente graslanden^[soortenrijke permanente graslanden omvatten vochtig grasland gedomineerd door russen, soortenrijk permanent cultuurgrasland en soortenrijk permanent cultuurgrasland met zilte elementen] [@vriens_biologische_2011], en
 - hoogstamboomgaarden en landbouwgronden met veel kleine landschapselementen [@andersen_developing_2003]. 
 
 Historische agro-ecosystemen herbergen een groot aantal van Europa’s meest bedreigde habitattypes en soorten. Ze zijn voor hun voortbestaan afhankelijk van de lokale landbouwpraktijken, die vaak in de loop der eeuwen gegroeid zijn.

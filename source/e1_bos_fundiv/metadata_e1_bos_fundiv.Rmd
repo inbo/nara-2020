@@ -74,7 +74,7 @@ De functionele dispersie is een maat voor de functionele diversiteit en wordt be
 Het gemiddelde wordt gewogen op basis van het grondvlak van de soort in de plot.
 Hoe hoger FDis, hoe functioneel diverser de plot.
 De kenmerken *Seed mass* en *Pollinator-index* worden niet in de FDis berekening opgenomen, omdat er voor te veel soorten geen waarde is.
-Vervolgens wordt aan elk steekproefpunt het bostype (PNV-hoofdtype) toegekend (zie Bos - Trends in de samenstelling van boomsoorten en kruidachtigen).
+Vervolgens wordt aan elk steekproefpunt het bostype (PNV-hoofdtype) toegekend [(zie Bos - Trends in de samenstelling van boomsoorten en kruidachtigen)](https://www.vlaanderen.be/inbo/backgroundindicatoren/bos-samenstelling-van-boomsoorten-en-kruidachtigen).
 Het bostype 'wilgenvloedbos' wordt niet meegenomen omdat er te weinig steekproefpunten zijn.
 
 Voor de analyse van de trend van de functionele diversiteit tussen beide periodes van de VBI gebruiken we een bayesiaans regressiemodel (R package `brms`).

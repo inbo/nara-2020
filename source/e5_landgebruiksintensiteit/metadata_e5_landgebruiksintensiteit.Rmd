@@ -1,5 +1,5 @@
 ---
-title: "Metadata trend intensiteit landbouw"
+title: "Metadata agro-ecosystemen - Trend intensiteit landbouw"
 date: 2020-07-01T10:00:00
 bibliography: ../references.bib
 link-citations: TRUE
@@ -99,7 +99,7 @@ nitraat %>%
 
 ### Gewasbescherming
 
-Voor gewasbescherming houden we rekening met de verdeling van [de Seq-index over de verschillende teeltgroepen](https://lv.vlaanderen.be/nl/voorlichting-info/publicaties-cijfers/landbouwcijfers)voor de periode 2012-2016 (Tabel 3). 
+Voor gewasbescherming houden we rekening met de verdeling van [de Seq-index over de verschillende teeltgroepen](https://lv.vlaanderen.be/nl/voorlichting-info/publicaties-cijfers/landbouwcijfers) voor de periode 2012-2016 (Tabel 3). 
 De Seq-index is een maat voor de druk die de gewasbeschermingsmiddelen uitoefenen op het waterleven en het weegt de gebruikte hoeveelheid actieve stof op ecotoxiciteit en verblijftijd in het milieu.
 
 ```{r Tabel 3, echo=FALSE, message=FALSE, warning=FALSE}
@@ -303,7 +303,7 @@ intensiteitgegevens %>%
 ```
 
 ## Opmerkingen bij de gegevenskwaliteit en betrouwbaarheid
-
+/
 ## Download
 
 **Broncode indicator**: [e5_landgebruiksintensiteit.Rmd](../e5_landgebruiksintensiteit/e5_landgebruiksintensiteit.Rmd)

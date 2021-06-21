@@ -302,7 +302,7 @@ mywgtparestimation <- function(data, variablename, periode = NA, minreeks = 1,
 ```
 
 
-```{r doodhout, fig.width = 5, fig.height = 4, fig.cap = "Figuur 2. Gemiddelde en 95% betrouwbaarheidsinterval van het volume dood hout (staand, liggend en totaal) in private en publieke bossen in beide periodes van de Vlaamse bosinventaris (VBI). Deze figuur verwijst naar de paragraaf over de natuurlijkheidsgraad van bos in het Natuurrapport 2020."}
+```{r doodhout, fig.width = 6, fig.height = 4, fig.cap = "Figuur 2. Gemiddelde en 95% betrouwbaarheidsinterval van het volume dood hout (staand, liggend en totaal) in private en publieke bossen in beide periodes van de Vlaamse bosinventaris (VBI). Deze figuur verwijst naar de paragraaf over de natuurlijkheidsgraad van bos in het Natuurrapport 2020."}
 
 respons <- c("staand", "liggend", "totaal")
 labels <- c("staand" = "Volume staand\ndood hout",
