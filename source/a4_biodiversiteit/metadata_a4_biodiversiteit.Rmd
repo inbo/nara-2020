@@ -63,37 +63,19 @@ Deze 4X4 typologie levert 16 mogelijke combinaties op die elk een deel van het b
 
 ## Berekeningswijze
 
-Het toepassen van deze typologie op de huidige indicatorenset, toont waar op dit ogenblik de focus ligt en waar er nog grote kennishiaten zijn. Voor elke indicator ging het kernteam na welk organisatieniveau en welke ecologische invalshoek bestudeerd werd (Tabel 1).Nadien werden de aantallen per organisatieniveau en per invalshoek gesommeerd.
-
-Tabel 1 laat toe om indicatoren te selecteren per invalshoek of schaalniveau (selecteer).
-Het is ook mogelijk om zoektermen in te geven (search) en om de indicatoren te ordenen (van a tot z en omgekeerd). 
-Het resultaat kan gekopieerd of geprint worden.
+Het toepassen van deze typologie op de huidige indicatorenset, toont waar op dit ogenblik de focus ligt en waar er nog grote kennishiaten zijn. Voor elke indicator ging het kernteam na welk organisatieniveau en welke ecologische invalshoek bestudeerd werd (Tabel 1). Nadien werden de aantallen per organisatieniveau en per invalshoek gesommeerd.
 
 ```{r Tabel 1, echo=FALSE, message=FALSE, warning=FALSE}
-indicatorlijst %>%
-  mutate_all(linebreak) %>%
-  datatable(
-    caption = "Tabel 1. Classificatie van indicatoren van het Natuurrapport naar
-invalshoek en schaalniveau",
-    rownames = FALSE,
-    colnames = c(
-      "nummer", "hoofdstuk", "naam indicator", "eigenaar", "type", "invalshoek",
-      "schaal"
-    ),
-    extensions = c("KeyTable", "Select", "SearchPanes", "Scroller"),
-    options = list(
-      filter = "none", keys = TRUE,
-      language = list(searchPanes = list(collapse = "Selecteer")),
-      scrollY = 390, scrollX = FALSE, scrollCollapse = TRUE, paging = FALSE,
-      columnDefs = list(
-        list(searchPanes = list(show = FALSE), targets = 1:4),
-        list(searchPanes = list(controls = FALSE), targets = 0:2),
-        list(className = "dt-center", targets = 0:6)
-      )
-    )
-  )
+tabel <- indicatorlijst %>%
+  rename("naam indicator" = "Naam_indicator", "invalshoek"= "kwadrant")
+tabel %>%
+  kbl(caption = "Tabel 1. Classificatie van indicatoren van het Natuurrapport naar
+invalshoek en schaalniveau.") %>%
+  kable_styling(c("striped", "hover"), full_width = FALSE) %>%
+  column_spec(1, width = "5cm") %>%
+  column_spec(2, width = "15cm") %>%
+  scroll_box(width = "100%", height = "400px")
 ```
-
 
 ## Opmerkingen bij de gegevenskwaliteit en betrouwbaarheid
 Sommige indicatoren zijn samengesteld uit diverse deelindicatoren. 
