@@ -34,7 +34,7 @@ databereik <- "1991 - 2018"
 ## Databron
 
 - **Producent**: Instituut voor Natuur- en Bosonderzoek
-- **Dataset**: Om het wintermaximum van watervogels te berekenen wordt er gebruik gemaakt van de [watervogeldatabank](www.watervogels.inbo.be).
+- **Dataset**: Om het wintermaximum van watervogels te berekenen wordt er gebruik gemaakt van de [watervogeldatabank](https://watervogels.inbo.be/).
 De Zeeschelde-analyseset wordt gebruikt voor datapunten in de Zeeschelde, de analyseset van de midmaandelijkse telling wordt gebruikt voor de datapunten in de zijrivieren en de Sigmagebieden.
 - **Gegevensinzameling**: De data worden via gestandaardiseerde tellingen verzameld in het kader van MONEOS en en het INBO project 'Monitoring overwinterende watervogels'.
 
