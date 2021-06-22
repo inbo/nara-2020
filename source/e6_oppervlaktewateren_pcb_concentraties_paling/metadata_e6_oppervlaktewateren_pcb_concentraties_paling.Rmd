@@ -1,5 +1,5 @@
 ---
-title: "metadata concentratie PCB in spierweefsel van paling"
+title: "metadata oppervlaktewateren - Concentratie PCB in spierweefsel van paling"
 date: 2020-07-01T10:00:00
 bibliography: ../references.bib
 link-citations: TRUE

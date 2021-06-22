@@ -1,5 +1,5 @@
 ---
-title: "Metadata gemiddelde dichtheid van zee-eend en visdief in het BNZ"
+title: "Metadata Noordzee - gemiddelde dichtheid van zee-eend en visdief in het BNZ"
 date: 2020-07-01T10:00:00
 bibliography: ../references.bib
 link-citations: TRUE
