@@ -1,0 +1,189 @@
+---
+title: "Versnippering - Effective mesh size (Meff)"
+date: 2020-07-01T10:00:00
+bibliography: ../references.bib
+link-citations: TRUE
+hoofdstuk: 4
+thema:
+  - Natuur & maatschappij
+  - Beschermde natuur
+keywords:
+  - versnippering
+  - landgebruiksveranderingen
+  - connectiviteit
+  - open ruimte
+  - natuur
+  - onbebouwde ruimte
+lang: nl
+tab: indicator
+verantwoordelijke:
+- Maarten Stevens <maarten.stevens@inbo.be>
+output: html_document
+---
+
+```{r setup, include=FALSE}
+
+library(knitr)
+opts_chunk$set(
+  message = FALSE,
+  warning = FALSE,
+  echo = FALSE
+)
+library(tidyverse)
+library(git2rdata)
+library(plotly)
+library(INBOtheme)
+library(htmlwidgets)
+library(raster)
+
+library(leaflet)
+library(grid)
+library(here)
+
+theme_set(theme_nara()) # het nara-kleurenpallet selecteren
+switch_colour(inbo_hoofd) # het INBO-kleurenpallet activeren
+
+set.seed(20200520)
+setWidgetIdSeed(20200520)
+options(htmlwidgets.TOJSON_ARGS = list(pretty = TRUE))
+```
+
+```{r data_inlezen, cache = TRUE}
+# Kaarten (tiff) inlezen
+natuur16 <- raster("meff_natuur2016.tif")
+natuur16 <- 100 * natuur16
+onbebr16 <- raster("onbebouwde_ruimte2016.tif")
+onbebr16 <- 100 * onbebr16
+
+data_cutruw <- read_vc("data.cutruw") # Dataset voor staafdiagrammen
+```
+
+```{r data_bewerken, results='hide', cache = TRUE}
+
+data_cut <- data_cutruw %>%
+  mutate(class = cut(cut,
+    breaks = c(-0.1, 0.2, 0.4, 0.6, 0.8, 1.1),
+    labels = c("0 tot < 0.2", "0.2 tot < 0.4", "0.4 tot < 0.6",
+               "0.6 tot < 0.8", "0.8 tot 1")
+  )) %>%
+  mutate(jaar = as.factor(jaar)) %>%
+  group_by(class, jaar, type) %>%
+  summarise(n = n()) %>%
+  ungroup() %>%
+  group_by(jaar, type) %>%
+  mutate(ntot = sum(n)) %>%
+  ungroup() %>%
+  mutate(propn = n / ntot) %>%
+  mutate(class = fct_reorder(class, desc(class)))
+
+data_cut2 <- data_cutruw %>%
+  # indeling in hectareklassen zoals fragmentatierapport NARA-S
+  mutate(class = cut(cut,
+    breaks = c(-0.1, 0.01, 0.05, 0.1, 0.2, 0.3, 0.4, 0.5, 0.75, 1.1),
+    labels = c("0-1 ha", ">1-5 ha", ">5-10 ha", ">10-20 ha", ">20-30 ha",
+               ">30-40 ha", ">40-50 ha", ">50-75 ha", ">75 ha")
+  )) %>%
+  mutate(jaar = as.factor(jaar)) %>%
+  group_by(class, jaar, type) %>%
+  summarise(n = n()) %>%
+  ungroup() %>%
+  group_by(jaar, type) %>%
+  mutate(ntot = sum(n)) %>%
+  ungroup() %>%
+  mutate(propn = n / ntot) %>%
+  mutate(class = fct_reorder(class, desc(class)))
+```
+
+De open ruimte, en vooral de natuurlijke ruimte, is sterk versnipperd in Vlaanderen.
+
+```{r staafdiagram, fig.width = 5, fig.height = 5, fig.cap = "Figuur 1. Meff-score van de natuur en de onbebouwde ruimte in 2016. De score geeft aan hoeveel hectare (ha) vrije bewegingsruimte een soort heeft binnen elk hok van 1 km². De score daalt naarmate de versnipperingsgraad stijgt. Deze figuur verwijst naar figuur 36 in het Natuurrapport 2020."}
+
+colhigh <- scales::seq_gradient_pal(inbo_steun_donkerroos, "#d37ca9",
+                                    "Lab")(seq(0, 1, length.out = 2))
+colmid1 <- scales::seq_gradient_pal("#d37ca9", inbo_steun_blauw,
+                                    "Lab")(seq(0, 1, length.out = 3))
+colmid2 <- scales::seq_gradient_pal(inbo_steun_blauw, inbo_steun_geelgroen,
+                                    "Lab")(seq(0, 1, length.out = 3))
+collow <- scales::seq_gradient_pal(inbo_steun_geelgroen, inbo_groen,
+                                   "Lab")(seq(0, 1, length.out = 4))
+pal <- c(colhigh, colmid1[2:3], colmid2[2:3], collow[2:4])
+palinv <- rev(pal) # Volgorde omdraaien
+
+bar <- ggplot(
+  data_cut2 %>% filter(jaar == 2016),
+  aes(
+    x = type, y = propn, fill = class,
+    text = paste(
+      "Meff-klasse: ", class,
+      "\nAandeel: ", scales::percent(round(propn, 3))
+    )
+  )
+) +
+  geom_bar(stat = "identity", position = "stack", width = 0.5) +
+  scale_y_continuous(position = "right", labels = scales::percent) +
+  scale_x_discrete(expand = c(0, 0)) +
+  scale_fill_manual(values = palinv) +
+  labs(fill = "Meff-score", y = "% OPP. VLAANDEREN") +
+  theme(
+    text = element_text(size = 14),
+    axis.line = element_blank(),
+    axis.title.x = element_blank(),
+    axis.ticks.x = element_blank(),
+    axis.title.y = element_text(size = 14,
+                                margin = margin(t = 0, r = 15, b = 5, l = 5),
+                                hjust = 0),
+    panel.background = element_rect(
+      fill = "white", colour = "white",
+      size = 0.5, linetype = "solid"
+    ),
+    panel.grid.major = element_blank(),
+    legend.key.size = unit(0.3, "cm"),
+    legend.position = "bottom",
+    plot.margin = unit(c(0, 0, 0, 0), "cm")
+  )
+ggplotly(bar, tooltip = c("text"))
+```
+
+## Definitie
+
+Versnippering of fragmentatie is het opdelen van het leefgebied van soorten in verschillende kleinere gebieden door een barrière die de uitwisseling van soorten tussen de deelgebieden verhindert of vermindert.
+De Meff-indicator (effective mesh size) integreert de grootte van de deelgebieden en de connectiviteit en wordt op Europese schaal gebruikt om de versnipperingsgraad van het landschap op te volgen [@eea_landscape_2011]. 
+Hoe hoger de Meff-score, hoe lager de versnippering van het landschap.
+
+## Bespreking
+
+Figuur 1 geeft de versnipperingsgraad per kilometerhok voor de natuur en onbebouwde ruimte in Vlaanderen. De berekeningen zijn gebaseerd op de landgebruikskaart van 2016 (zie Landgebruiksverandering - Ecosysteemvoorraad Landgebruiksbestand Vlaanderen) en de kaarten van het (spoor)wegennet en de waterlopen.
+De onbebouwde ruimte groepeert alle landgebruikscellen die geen gebouwen, infrastructuur of afgedekte bodem zijn. 
+Natuur omvat de ‘natuurlijke’ ecosystemen heide, moeras, bos, kustduin, halfnatuurlijk grasland en slik en schor. 
+Water vormt in beide gevallen een barrière.
+
+De analyse bevestigt de hoge versnipperingsgraad van de open ruimte en vooral van de **natuurlijke ruimte**. 
+Op enkele uitzonderingen na, in het noorden en oosten van Vlaanderen, komen er geen grote aaneengesloten natuurzones voor (Figuur 2).
+In 85 procent van de hokken is de bewegingsruimte voor soorten in de natuurlijke ruimte kleiner dan 5 hectare (Figuur 1). 
+De kaart van de **onbebouwde ruimte** illustreert de sterke versnippering van de Vlaamse ruit en rond enkele stedelijke kernen daarbuiten. 
+De grote aaneengesloten zones vallen grotendeels samen met intensieve landbouwgebieden. 
+Voor de onbebouwde ruimte is slechts 8 procent van de hokken kleiner dan 5 hectare.
+
+Het Europees Milieuagentschap berekent een Europese versnipperingsindex die vergelijkbaar is met de Meff voor de onbebouwde ruimte. 
+Daaruit blijkt dat België na Malta de sterkst versnipperde lidstaat is en dat de versnippering tussen 2009 en 2015 nog toenam [@eea_landscape_2019].
+
+```{r kaart, fig.width = 10, fig.height = 5, fig.cap = "Figuur 2. Meff-score van de natuur en de onbebouwde ruimte in 2016. Deze figuur verwijst naar figuur 36 in het Natuurrapport 2020."}
+
+raster_colorpal <- colorNumeric(pal, values(natuur16), na.color = NA)
+
+leaflet() %>%
+  addTiles(group = "meff",
+           options = providerTileOptions(minZoom = 8, maxZoom = 10)) %>%
+  addRasterImage(natuur16, colors = pal, opacity = 0.8, group = "Natuur") %>%
+  addRasterImage(onbebr16, colors = pal, opacity = 0.8,
+                 group = "Onbebouwde<br>ruimte") %>%
+  addLayersControl(
+    overlayGroups = c("Natuur", "Onbebouwde<br>ruimte"),
+    options = layersControlOptions(collapsed = FALSE)
+  ) %>%
+  addLegend(values = values(natuur16), pal = raster_colorpal,
+            title = "Meff (ha)") %>%
+  hideGroup("Onbebouwde<br>ruimte")
+```
+
+## Referenties

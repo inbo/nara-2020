@@ -1,0 +1,60 @@
+..generic:
+  git2rdata: 0.2.1
+  optimize: no
+  NA string: NA
+  sorting: LandCover
+  hash: df0d66a2dadc004fccc63a5f0af642b65fd03ede
+  data_hash: 8a377c2a480f5d29aee67e8273fc00475983527b
+LandCover:
+  class: factor
+  labels:
+  - Agr
+  - For
+  - Sea
+  - Total
+  - Urb
+  - Wat
+  index:
+  - 1
+  - 2
+  - 3
+  - 4
+  - 5
+  - 6
+  ordered: no
+COpeningStock:
+  class: integer
+CLaCoFlo1:
+  class: integer
+CLaCoFlo2:
+  class: integer
+CLaCoFlo3:
+  class: integer
+CLaCoFlo4:
+  class: integer
+CLaCoFlo5:
+  class: integer
+CLaCoFlo6:
+  class: integer
+CLaCoFlo7:
+  class: integer
+CLaCoFlo8:
+  class: integer
+PLaCoFlo1:
+  class: integer
+PLaCoFlo2:
+  class: integer
+PLaCoFlo3:
+  class: integer
+PLaCoFlo4:
+  class: integer
+PLaCoFlo5:
+  class: integer
+PLaCoFlo6:
+  class: integer
+PLaCoFlo7:
+  class: integer
+PLaCoFlo8:
+  class: integer
+PClosingStock:
+  class: integer

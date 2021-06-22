@@ -1,0 +1,311 @@
+..generic:
+  git2rdata: 0.2.1
+  optimize: no
+  NA string: NA
+  hash: 4ed9339406ea05bb5ac5240f5ad5aa71cd630b16
+  data_hash: 484520de8315ba90a42041e75697a9a74711c86a
+Species:
+  class: factor
+  labels:
+  - Acer campestre
+  - Acer platanoides
+  - Acer pseudoplatanus
+  - Aesculus hippocastanum
+  - Alnus glutinosa
+  - Alnus incana
+  - Amelanchier lamarckii
+  - Betula pendula
+  - Betula pubescens
+  - Betula species
+  - Carpinus betulus
+  - Castanea sativa
+  - Corylus avellana
+  - Crataegus laevigata
+  - Crataegus monogyna
+  - Crataegus species
+  - Fagus sylvatica
+  - Frangula alnus
+  - Fraxinus excelsior
+  - Ilex aquifolium
+  - Juglans regia
+  - Larix decidua
+  - Larix kaempferi
+  - Larix species
+  - Picea abies
+  - Pinus nigra
+  - Pinus pinaster
+  - Pinus strobus
+  - Pinus sylvestris
+  - Populus alba
+  - Populus alba/canescens
+  - Populus canescens
+  - Populus species
+  - Populus tremula
+  - Populus x canadensis
+  - Prunus avium
+  - Prunus padus
+  - Prunus serotina
+  - Pseudotsuga menziesii
+  - Quercus palustris
+  - Quercus petraea
+  - Quercus robur
+  - Quercus robur/petraea
+  - Quercus rubra
+  - Robinia pseudoacacia
+  - Salix alba
+  - Salix caprea
+  - Salix cinerea
+  - Salix spec
+  - Sambucus nigra
+  - Sorbus aucuparia
+  - Tilia cordata
+  - Tilia plathyphyllos
+  - Tilia species
+  - Tilia x europaea
+  - Ulmus glabra
+  - Ulmus minor
+  - Ulmus species
+  index:
+  - 1
+  - 2
+  - 3
+  - 4
+  - 5
+  - 6
+  - 7
+  - 8
+  - 9
+  - 10
+  - 11
+  - 12
+  - 13
+  - 14
+  - 15
+  - 16
+  - 17
+  - 18
+  - 19
+  - 20
+  - 21
+  - 22
+  - 23
+  - 24
+  - 25
+  - 26
+  - 27
+  - 28
+  - 29
+  - 30
+  - 31
+  - 32
+  - 33
+  - 34
+  - 35
+  - 36
+  - 37
+  - 38
+  - 39
+  - 40
+  - 41
+  - 42
+  - 43
+  - 44
+  - 45
+  - 46
+  - 47
+  - 48
+  - 49
+  - 50
+  - 51
+  - 52
+  - 53
+  - 54
+  - 55
+  - 56
+  - 57
+  - 58
+  ordered: no
+SpeciesGroup:
+  class: factor
+  labels:
+  - Amerikaans krentenboompje
+  - Amerikaanse eik
+  - Amerikaanse vogelkers
+  - Berk
+  - Beuk
+  - Boskers
+  - Corsicaanse den
+  - Douglas
+  - Fijnspar
+  - Gewone es
+  - Gewone esdoorn
+  - Gewone vlier
+  - Gladde iep
+  - Grove den
+  - Haagbeuk
+  - Hazelaar
+  - Hulst
+  - Inlandse eik
+  - Linde
+  - Lork species
+  - Meidoorn
+  - Moeraseik
+  - Noorse esdoorn
+  - Olm
+  - Paardekastanje
+  - Populier
+  - Ratelpopulier
+  - Robinia (gewone)
+  - Ruwe iep
+  - Spaanse aak
+  - Sporkehout
+  - Tamme kastanje
+  - Vogelkers (europese)
+  - Walnoot
+  - Weymouthden
+  - Wilde lijsterbes
+  - Wilg
+  - Witte els (grauwe)
+  - Witte en Grauwe abeel
+  - Zeeden
+  - Zwarte els
+  index:
+  - 1
+  - 2
+  - 3
+  - 4
+  - 5
+  - 6
+  - 7
+  - 8
+  - 9
+  - 10
+  - 11
+  - 12
+  - 13
+  - 14
+  - 15
+  - 16
+  - 17
+  - 18
+  - 19
+  - 20
+  - 21
+  - 22
+  - 23
+  - 24
+  - 25
+  - 26
+  - 27
+  - 28
+  - 29
+  - 30
+  - 31
+  - 32
+  - 33
+  - 34
+  - 35
+  - 36
+  - 37
+  - 38
+  - 39
+  - 40
+  - 41
+  ordered: no
+Max_height:
+  class: numeric
+SLA:
+  class: numeric
+Wood_density:
+  class: numeric
+Leaf_N:
+  class: numeric
+Leaf_P:
+  class: numeric
+LQ:
+  class: numeric
+Evergreen:
+  class: integer
+Broadleaf:
+  class: integer
+Drought_tolerance:
+  class: numeric
+PM_removal:
+  class: integer
+Fire_tolerance:
+  class: integer
+Leaf_size:
+  class: numeric
+Fall_foliage:
+  class: factor
+  labels:
+  - green
+  - orange-red
+  - yellow
+  - yellow-brown
+  - yellow-green
+  - yellow-orange
+  - yellow-red
+  index:
+  - 1
+  - 2
+  - 3
+  - 4
+  - 5
+  - 6
+  - 7
+  ordered: no
+Resprouting_capacity:
+  class: integer
+Waterlogging_tolerance:
+  class: numeric
+Rooting_type:
+  class: factor
+  labels:
+  - hart/penwortel
+  - hart/vlakwortel
+  - hartwortel
+  - harwortel
+  - pen/hartwortel
+  - pen/vlakwortel
+  - penwortel
+  - schuine beworteling
+  - vlak/hartwortel
+  - vlakwortel
+  index:
+  - 1
+  - 2
+  - 3
+  - 4
+  - 5
+  - 6
+  - 7
+  - 8
+  - 9
+  - 10
+  ordered: no
+Flower_type:
+  class: factor
+  labels:
+  - flowers with open nectar
+  - flowers with partly hidden nectar
+  - flowers with totally hidden nectar
+  - hymenoptere flowers
+  - pollen flowers
+  - transition type flowers with open nectar - fly flowers
+  - transition type flowers with partly hidden nectar - nasty flowers
+  - wind flowers
+  index:
+  - 1
+  - 2
+  - 3
+  - 4
+  - 5
+  - 6
+  - 7
+  - 8
+  ordered: no
+Seed_mass:
+  class: numeric
+Pollinator_index:
+  class: numeric

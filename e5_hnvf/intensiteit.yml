@@ -1,0 +1,153 @@
+..generic:
+  git2rdata: 0.2.1
+  optimize: no
+  NA string: ''
+  sorting:
+  - Landgebruik
+  - totaal
+  hash: c95085f73ebc4f568870ca8650368d52b1f37024
+  data_hash: 8c86633b6c83638e40c11a77530ec6a3097199c3
+Landgebruik:
+  class: factor
+  labels:
+  - aardappelen
+  - akker andere bwk
+  - alluviaal bos
+  - ander open duinlandschap
+  - bieten
+  - braak
+  - cichorei
+  - cultuurgrasland blijvend
+  - gebouw
+  - gesloten duinlandschap
+  - graan
+  - grasland voedselarm droog
+  - grasland voedselarm nat
+  - grasland voedselrijk droog
+  - grasland voedselrijk nat
+  - graszoden
+  - groenbemester
+  - groenten - peulvruchten
+  - 'heide '
+  - helmduin
+  - hoogstam
+  - houtachtige gewassen
+  - kleinfruit
+  - kolen
+  - korrelmais
+  - korte omloophout
+  - kruiden
+  - laagstam
+  - loofbos
+  - moeras
+  - mosduin
+  - naaldbos
+  - noten
+  - oliehoudende zaden
+  - overig hoog groen
+  - overig laag groen
+  - overige gewassen
+  - overige groenten
+  - permante graslanden (VEN, kwetsbaar gebied natuur)
+  - populieren
+  - rietland
+  - ruigte
+  - serregroenten
+  - sierteelt
+  - slik of schorre
+  - snijmais
+  - spoorweg
+  - strand
+  - struweel
+  - tijdelijk gras
+  - vlas en hennep
+  - voeder - peulvruchten
+  - voeder -vlinderbloemige (incl menging gras)
+  - voedergewassen andere
+  - water
+  - weg
+  index:
+  - 1
+  - 2
+  - 3
+  - 4
+  - 5
+  - 6
+  - 7
+  - 8
+  - 9
+  - 10
+  - 11
+  - 12
+  - 13
+  - 14
+  - 15
+  - 16
+  - 17
+  - 18
+  - 19
+  - 20
+  - 21
+  - 22
+  - 23
+  - 24
+  - 25
+  - 26
+  - 27
+  - 28
+  - 29
+  - 30
+  - 31
+  - 32
+  - 33
+  - 34
+  - 35
+  - 36
+  - 37
+  - 38
+  - 39
+  - 40
+  - 41
+  - 42
+  - 43
+  - 44
+  - 45
+  - 46
+  - 47
+  - 48
+  - 49
+  - 50
+  - 51
+  - 52
+  - 53
+  - 54
+  - 55
+  - 56
+  ordered: no
+bodemkoolstof:
+  class: numeric
+bodemerosie:
+  class: integer
+bodemverdichting:
+  class: integer
+gewasbescherming:
+  class: numeric
+nitraatresidu:
+  class: numeric
+bodemafdichting:
+  class: integer
+totaal:
+  class: numeric
+klasse:
+  class: factor
+  labels:
+  - extensief
+  - intensief
+  - matig intensief
+  - zeer intensief
+  index:
+  - 1
+  - 2
+  - 3
+  - 4
+  ordered: no

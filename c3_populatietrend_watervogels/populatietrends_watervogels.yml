@@ -1,0 +1,12 @@
+..generic:
+  git2rdata: 0.3.1
+  optimize: no
+  NA string: NA
+  hash: 95efd7ce6805fadd8c22c1bb297615723c9e4cd6
+  data_hash: 34c1ef7c3cebf0d7cc05325344e3e690a0c7e003
+Trend:
+  class: character
+Periode:
+  class: character
+Aantal:
+  class: integer

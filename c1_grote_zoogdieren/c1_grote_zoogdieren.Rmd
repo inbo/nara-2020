@@ -46,7 +46,7 @@ wildgegevens <- read_vc("wilde_zoogdieren")
 fingegevens <- read_vc("biomassa_fin")
 ```
 
-Biomassa van grote zoogdieren bestaat in Vlaanderen in hoofdzaak uit mensen, runderen en varkens.
+De biomassa van grote zoogdieren bestaat in Vlaanderen in hoofdzaak uit mensen, runderen en varkens.
 
 ```{r totaal, fig.width = 7, fig.height = 2}
 totaalgegevens <- totaalgegevens %>%
@@ -97,7 +97,7 @@ p <- ggplot(totaalgegevens, aes(x = "", y = biomassa_kton, fill = Categorie)) +
   )
 ggplotly(p, tooltip = c("fill", "text"))
 ```
-```{r wild, fig.width = 7, fig.height = 2, fig.cap = "Figuur 1. Biomassaverdeling (in kton) van grote zoogdieren in Vlaanderen."}
+```{r wild, fig.width = 7, fig.height = 2, fig.cap = "Figuur 1. Biomassaverdeling (in kton) van grote zoogdieren in Vlaanderen. De onderste balk toont een uitvergroting van de categorie 'wilde zoogdieren' in de bovenste balk. Deze figuur verwijst naar figuur 7 uit het Natuurrapport 2020."}
 scale_fun2 <- function(x) sprintf("%.2f", x)
 q <- ggplot(wildgegevens, aes(x = "", y = biomassa_kton, fill = Categorie)) +
   geom_bar(
@@ -147,10 +147,10 @@ Nochtans spelen carnivoren een essentiële rol in het evenwicht van natuurlijke 
 
 ### Gelayoute figuur Natuurrapport 2020
 
-In het NARA2020 staat een meer gelayoute figuur. 
+In het Natuurrapport 2020 staat een meer gelayoute figuur. 
 
 ```{r layout, echo=FALSE, out.width="70%"}
-knitr::include_graphics("biomassa-layout.jpg")
+knitr::include_graphics("../c1_grote_zoogdieren/biomassalayout.jpg")
 ```
 
 ## Referenties

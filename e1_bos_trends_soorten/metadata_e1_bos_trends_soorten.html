@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+
+<html lang="nl" xml:lang="nl">
+
+<head>
+<meta name="INBO-publication-date" content="2020-07-01T10:00:00" /><!-- ISO 8601 timezone: CET/CEST -->
+<meta name="INBO-keywords" content="kruidachtigen, boomsoorten, bosinventaris, oud-bosplanten, ellenberg, stikstof, ferrarisbos" />
+<meta name="INBO-name" content="Metadata bos - Samenstelling van boomsoorten en kruidachtigen" />
+<meta name="INBO-tab" content="metadata" />
+<meta name="INBO-chapter" content="5" />
+<meta name="INBO-chapter-title" content="Trends per ecosysteem" />
+<meta name="INBO-theme" content="Bos" />
+<meta name="INBO-PureId" content="18013701" />
+<meta name="INBO-language" content="nl" /><!-- ISO 639-1 -->
+<!-- end INBO meta data-->
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+
+<title>Metadata bos - Samenstelling van boomsoorten en kruidachtigen</title>
+
+<script src="../libs/jquery-1.11.3/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="../libs/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
+<script src="../libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="../libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="../libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<style>h1 {font-size: 34px;}
+       h1.title {font-size: 38px;}
+       h2 {font-size: 30px;}
+       h3 {font-size: 24px;}
+       h4 {font-size: 18px;}
+       h5 {font-size: 16px;}
+       h6 {font-size: 12px;}
+       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+       pre:not([class]) { background-color: white }</style>
+<script src="../libs/navigation-1.1/tabsets.js"></script>
+<script src="../libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
+<script src="../libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="../libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
+
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+
+<body>
+
+
+<h1 class="title toc-ignore">Metadata bos - Samenstelling van boomsoorten en kruidachtigen</h1>
+
+<div id="technische-informatie" class="section level2">
+<h2>Technische informatie</h2>
+<p>- <strong>Periodiciteit</strong>: eenmalig - <strong>Volgende update</strong>: onbekend - <strong>Databereik</strong>: VBI 1: 1997-1999 en VBI 2: 2009-2019</p>
+</div>
+<div id="databron" class="section level2">
+<h2>Databron</h2>
+<ul>
+<li><strong>Producent</strong>: Agentschap Natuur en Bos en Instituut voor Natuur- en Bosonderzoek</li>
+<li><strong>Dataset</strong>: Databank Vlaamse Bosinventaris (v16-03-2020). De databank kan opgevraagd worden bij het <a href="https://www.natuurenbos.be/beleid-wetgeving/natuurbeheer/bosinventaris/contact">Agentschap Natuur en Bos</a></li>
+<li><strong>Gegevensinzameling</strong>: De Vlaamse bosinventaris (VBI) bestaat uit een steekproef van punten waarvoor op het terrein de toestand van het bos wordt opgemeten <span class="citation">(Westra e.a. <a href="#ref-westra_opmaak_2015" role="doc-biblioref">2015</a>; Wouters e.a. <a href="#ref-wouters_ontwerp_2008" role="doc-biblioref">2008</a>)</span>. De meetcyclus van de eerste bosinventaris (VBI 1) liep van 1997 tot 1999, de tweede meetcyclus (VBI 2) van 2009 tot 2019. De steekproef wordt gekozen uit een vast raster van 27.163 punten. Voor elk punt in het raster wordt beoordeeld of het al dan niet in bos ligt. De punten die in bos liggen worden opgemeten volgens een gestandaardiseerd veldprotocol. De website van het <a href="https://www.natuurenbos.be/beleid-wetgeving/natuurbeheer/bosinventaris/hoe-gebeuren-de-metingen">Agentschap Natuur en Bos</a> geeft een overzicht van de methodologie. De analyse van de <strong>soortenrijkdom van bomen</strong> is gebaseerd op de metingen binnen de bosbouwproefvlakken van de VBI. Een bosbouwproefvlak heeft een oppervlakte van 1018 m<sup>2</sup>. Alleen bomen groter dan 2 m worden meegeteld. De analyses van de <strong>kruidachtigen</strong> (soortenrijkdom, oud-bosplanten en Ellenbergwaarden) zijn gebaseerd op de vegetatieopnames van de VBI. De vegetatieopnames maken gebruik van de Braun-Blanquet-schaal binnen een proefvlak van 16 m x 16 m. Voor de analyses worden alleen de planten in de kruidlaag in rekening gebracht. De kruidlaag omvat de houtige planten met een hoogte tot maximaal 0,8 m en alle niet-houtige planten met een hoogte &lt; 2 m.</li>
+</ul>
+</div>
+<div id="berekeningswijze" class="section level2">
+<h2>Berekeningswijze</h2>
+<p>Het rapport van <span class="citation">Westra e.a. (<a href="#ref-westra_opmaak_2015" role="doc-biblioref">2015</a>)</span> geeft een uitgebreid overzicht van de opbouw van de analysedatabank, de analysevariabelen en van de statistische analyses. Aangezien een groot aantal observaties in de twee opeenvolgende periodes van de VBI gecorreleerd zijn (gepaarde plots), gebruiken we mixed effect regressiemodellen. Voor aantallen (bv. aantal soorten) gebruiken we een Poisson mixed model, voor continue variabelen gebruiken we een lineair mixed model. In een aantal gevallen wijkt de distributie van een continue variabele te ver af van de normale verdeling voor het gebruik een lineair model. Omdat de VBI-dataset uit een groot aantal observaties bestaat, kunnen we er echter van uitgaan dat het mixed model redelijk robuust is en dat de vertekeningen op de parameterschattingen en p-waarde in de meeste gevallen minimaal zijn <span class="citation">(Westra e.a. <a href="#ref-westra_opmaak_2015" role="doc-biblioref">2015</a>)</span>. Wanneer de assumpties voor een lineair model echter te sterk geschonden worden, gebruiken we in een enkel geval een zero-inflated gamma model. Alle statistische analyses werden uitgevoerd in R (package <code>lme4</code> voor poisson en lineaire modellen en package <code>glmmTMB</code> voor het zero-inflated model).</p>
+<p>De stuurvariabelen PNV-type en bosleeftijd worden bepaald op basis van de xy-coördinaten van de steekproefpunten en gebiedsdekkende kaarten van de potentieel natuurlijke vegetatie en de <a href="https://www.geopunt.be/catalogus/datasetfolder/12147542-5C1F-46C3-9AFD-6561268C7F1B">bosleeftijd</a>. De oorspronkelijke PNV-kaart bevat een aantal gebieden waarvoor geen PNV bepaald werd (polders, antropogene bodems, militaire domeinen). Voor een aantal steekproefpunten kan het ontbrekende PNV-type bepaald worden op basis van de aangepaste bodemkaart van 2015, waarin een aantal militaire domeinen zijn aangevuld. Het PNV-type van de resterende steekproefpunten die in een zone liggen met een ongekende bodemserie (bv. antropogeen) wordt bepaald via ruimtelijke interpolatie. Voor de polders wordt de conversietabel uit <span class="citation">Wouters e.a. (<a href="#ref-wouters_potnat_2013" role="doc-biblioref">2013</a>)</span> gebruikt om de kusteenheden om te zetten naar de klassieke bodemseries en vervolgens in PNV-types. De PNV-kaart onderscheidt 11 klassen. Voor de analyse van de VBI werden de klassen gegroepeerd in 6 hoofdtypes (Tabel 1).</p>
+<table class="table table-striped table-hover" style="width: auto !important; margin-left: auto; margin-right: auto;">
+<caption>
+Tabel 1. Groepering PNV-types in hoofdtypes.
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;">
+PNV-type
+</th>
+<th style="text-align:left;">
+PNV-hoofdtype
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+12 - Getijden wilgenvloedbos of Elzenbroekbos
+</td>
+<td style="text-align:left;">
+Wilgenvloedbos
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+14 - Getijden wilgenvloedbos of Elzen-vogelkersbos
+</td>
+<td style="text-align:left;">
+Wilgenvloedbos
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+20 - Elzenbroekbos
+</td>
+<td style="text-align:left;">
+Elzenbroekbos
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+23 - Elzenbroekbos kans op Bronbos
+</td>
+<td style="text-align:left;">
+Elzenbroekbos
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+40 - Elzen-vogelkersbos
+</td>
+<td style="text-align:left;">
+Elzen-vogelkersbos
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+43 - Elzen-vogelkersbos kans op Bronbos
+</td>
+<td style="text-align:left;">
+Elzen-vogelkersbos
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+50 - Beukenbos, Eiken-Haagbeukenbos of rijke Eiken-beukenbos
+</td>
+<td style="text-align:left;">
+Eiken-haagbeukenbos
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+68 - Typische Eiken-Beukenbos, droge variant
+</td>
+<td style="text-align:left;">
+Eiken-beukenbos
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+69 - Typische Eiken-Beukenbos, natte variant
+</td>
+<td style="text-align:left;">
+Eiken-beukenbos
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+78 - Arme Eiken-Beukenbos en Eikenbos, droge variant
+</td>
+<td style="text-align:left;">
+Arm Eiken-beukenbos
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+79 - Arme Eiken-Beukenbos en Eikenbos, natte variant
+</td>
+<td style="text-align:left;">
+Arm Eiken-beukenbos
+</td>
+</tr>
+</tbody>
+</table>
+<div id="soortenrijkdom-bomen" class="section level3">
+<h3>Soortenrijkdom bomen</h3>
+<p>De analyse van de soortenrijkdom van bomen is gebaseerd op tabel 10 van de VBI-databank (<code>tbl10Boomsoorten</code>). Deze tabel geeft per steekproefpunt (plot), segment en periode de boomsoorten die voorkomen. Voor de berekening van het aantal boomsoorten per steekproefpunt steunen we op de variabele ‘SpeciesGroup’ waarin een aantal moeilijk te onderscheiden boomsoorten samen genomen worden (bv. winter- en zomereik samen als ‘inlandse eik’ en alle berken als ‘berk’).</p>
+<p>Het Poisson mixed model gebruikt de VBI-periode en het PNV-type als fixed effects en de gepaarde plots als random effects. De responsvariabele is het aantal boomsoorten in een steekproefpunt.</p>
+</div>
+<div id="soortenrijkdom-kruidachtigen" class="section level3">
+<h3>Soortenrijkdom kruidachtigen</h3>
+<p>De analyse van de soortenrijkdom van kruidachtigen is gebaseerd op tabel 4 van de VBI-databank (<code>tbl4Vegetatie</code>). Deze tabel geeft per steekproefpunt (plot) en periode het aantal kruidachtigen in de vegetatieopnames.</p>
+<p>Het Poisson mixed model gebruikt de VBI-periode en het PNV-type als fixed effects en de gepaarde plots als random effects. De responsvariabele is het aantal kruidachtigen in een steekproefpunt.</p>
+</div>
+<div id="soortenrijkdom-oud-bosplanten" class="section level3">
+<h3>Soortenrijkdom oud-bosplanten</h3>
+<p>De analyse van de soortenrijkdom van oud-bosplanten is gebaseerd op tabel 11 van de VBI-databank (<code>tbl11VegetatieSamenstelling</code>). Deze tabel geeft per steekproefpunt (plot) en periode de bedekking van de bosplanten die voorkomen in de vegetatieopnames. De classificatie van oud-bosplanten is gebaseerd op de indeling van <span class="citation">De Keersmaeker, Cornelis, en Baeten (<a href="#ref-de_keersmaeker_oudbosplanten_2010" role="doc-biblioref">2010</a>)</span>. In de analyses definiëren we oud bos als bos dat sinds 1850 onafgebroken bos is <span class="citation">(Vandekerkhove e.a. <a href="#ref-vandekerkhove_bwk_2016" role="doc-biblioref">2016</a>)</span>. De VBI-databank geeft voor elk steekproefpunt de benaderde bosleeftijd op basis van de bosleeftijdskaart <span class="citation">(De Keersmaeker e.a. <a href="#ref-de_keersmaeker_ecosysteemvisie_2001" role="doc-biblioref">2001</a>)</span>. Voor de analyse groeperen we “Bos ontstaan voor 1775” en “Bos ontstaan tussen 1775 en 1850” als “oud” en “Bos ontstaan tussen 1850 en +/- 1930” en “Bos ontstaan na +/- 1930” als “recent”.</p>
+<p>Het Poisson mixed model gebruikt de VBI-periode en de bosleeftijd als fixed effects en de gepaarde plots als random effects. De responsvariabele is het aantal oud-bosplanten in een steekproefpunt.</p>
+</div>
+<div id="ellenbergwaarden-stikstof" class="section level3">
+<h3>Ellenbergwaarden stikstof</h3>
+<p>De analyse van de Ellenbergwaarden voor stikstof is gebaseerd op tabel 4 van de VBI-databank (<code>tbl4Vegetatie</code>). De variabele <code>v41_N</code> uit tabel 4 geeft per steekproefpunt (plot) en periode de Ellenbergwaarde voor stikstof. De Ellenbergwaarde van een steekproefpunt wordt berekend als het gewogen gemiddelde van de Ellenbergwaarden van de soorten in de kruidlaag van de vegetatieopnames. De weging gebeurt op basis van de bedekkingsgraad van de soorten. Om de steekproefpunten die in de bosrand liggen te identificeren, werden de punten geselecteerd waarvan het gewicht van het punt (plotweight) kleiner is dan 1. Het plotgewicht is gelijk aan de fractie bos binnen het proefvlak. Tijdens de eerste inventarisatieperiode (VBI 1) werden proefvlakken die niet volledig in bos lagen systematisch verschoven tot ze volledig in bos lagen. Tijdens de tweede periode (VBI 2) werden die proefvlakken niet meer verschoven. Om het effect van de bosrand in rekening te brengen, kunnen dus alleen de steekproefpunten van de tweede inventarisatieperiode gebruikt worden.</p>
+<p>Om het verschil in Ellenbergwaarde tussen beide inventarisatieperiodes te analyseren wordt een Poisson mixed model gebruikt met de VBI-Periode als fixed effect en de gepaarde plots als random effects. De responsvariabele is de gewogen gemiddelde Ellenbergwaarde van een steekproefpunt. Aangezien de analyse van het effect van de bosrand alleen rekening houdt met de data van de tweede inventarisatieperiode, zijn de data niet gepaard en beperkt de analyse zich tot een eenvoudig lineair model.</p>
+</div>
+</div>
+<div id="opmerkingen-bij-de-gegevenskwaliteit-en-betrouwbaarheid" class="section level2">
+<h2>Opmerkingen bij de gegevenskwaliteit en betrouwbaarheid</h2>
+<p>Bij de opnames in de bosbouwproefvlakken worden een aantal moeilijk te onderscheiden boomsoorten gegroepeerd in soortgroepen (bv. inlandse eik, berk, wilg). De werkelijke soortenrijkdom is dan ook hoger dan de gerapporteerde.</p>
+</div>
+<div id="download" class="section level2">
+<h2>Download</h2>
+<p><strong>Broncode indicator</strong>: <a href="../e1_bos_trends_soorten/e1_bos_trends_soorten.Rmd">E1_bos_trends-soorten.Rmd</a> - <strong>Basisdata</strong>: <a href="../e1_bos_trends_soorten/bomen_rijkdom.tsv">Analyseset boomsoorten</a>; <a href="../e1_bos_trends_soorten/kruidachtigen_rijkdom.tsv">Analyseset kruidachtigen</a>; <a href="../e1_bos_trends_soorten/oudbossoorten.tsv">Analyseset oud-bosplanten</a>; <a href="../e1_bos_trends_soorten/ellenberg.tsv">Analyseset Ellenbergwaarden</a> - <strong>Metadata basisdata</strong>: <a href="../e1_bos_trends_soorten/bomen_rijkdom.yml">Analyseset boomsoorten</a>; <a href="../e1_bos_trends_soorten/kruidachtigen_rijkdom.yml">Analyseset kruidachtigen</a>; <a href="../e1_bos_trends_soorten/oudbossoorten.yml">Analyseset oud-bosplanten</a>; <a href="../e1_bos_trends_soorten/ellenberg.yml">Analyseset Ellenbergwaarden</a></p>
+</div>
+<div id="referenties" class="section level2 unnumbered">
+<h2>Referenties</h2>
+<div id="refs" class="references">
+<div id="ref-de_keersmaeker_ecosysteemvisie_2001">
+<p>De Keersmaeker, L., Nele Rogiers, Raf Lauriks, en Bruno De Vos. 2001. “Ecosysteemvisie Bos Vlaanderen. Ruimtelijke uitwerking van de natuurlijke bostypes op basis van bodemgroeperingseenheden en historische boskaarten. Eindverslag van project VLINA C97/06.” Geraardsbergen: Instituut voor Bosbouw en Wildbeheer.</p>
+</div>
+<div id="ref-de_keersmaeker_oudbosplanten_2010">
+<p>De Keersmaeker, Luc, Johnny Cornelis, en Lander Baeten. 2010. “Oudbosplanten in Vlaanderen”. <em>Bosrevue</em>, nr. 34: 17–21. <a href="http://hdl.handle.net/1854/LU-1091113">http://hdl.handle.net/1854/LU-1091113</a>.</p>
+</div>
+<div id="ref-vandekerkhove_bwk_2016">
+<p>Vandekerkhove, Kris, Steven De Saeger, Arno Thomaes, Luc De Keersmaeker, Patrik Oosterlynck, Frank Van Oost, en Indra Jacobs. 2016. “BWK en Habitatkartering, een praktische handleiding. Deel 4: De Bossleutel: versie 1, maart 2016. (INBO.R.2016.11613777).” Brussel: Instituut voor Natuur- en Bosonderzoek.</p>
+</div>
+<div id="ref-westra_opmaak_2015">
+<p>Westra, Toon, Pieter Verschelde, Hans Van Calster, Els Lommelen, Thierry Onkelinx, Paul Quataert, en Leen Govaere. 2015. “Opmaak van een analysestramien voor de gegevens van de vlaamse bosinventarisatie (INBO.R.2015.9034827)”. Brussel: Instituut voor Natuur- en Bosonderzoek.</p>
+</div>
+<div id="ref-wouters_potnat_2013">
+<p>Wouters, Jan, Kris Decleer, Floris Vanderhaeghe, en Maarten Hens. 2013. “PotNat, een GIS-tool voor het bepalen van de abiotische kansrijkdom van natuurtypen. Deel 1: Methodologie”. Brussel: Instituut voor Natuur- en Bosonderzoek.</p>
+</div>
+<div id="ref-wouters_ontwerp_2008">
+<p>Wouters, Jasper, Paul Quataert, Thierry Onkelinx, en Dirk Bauwens. 2008. “Ontwerp en handleiding voor de tweede regionale bosinventarisatie van het Vlaamse Gewest. (INBO.R.2008.17).” Brussel: Instituut voor Natuur- en Bosonderzoek.</p>
+</div>
+</div>
+</div>
+
+<h2>Meer weten?</h2>
+
+<ul>
+<li><a href = "mailto:maarten.stevens@inbo.be">maarten.stevens@inbo.be</a></li>
+</ul>
+
+
+</body>
+</html>

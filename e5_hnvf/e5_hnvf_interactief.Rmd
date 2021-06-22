@@ -1,0 +1,374 @@
+---
+title: "Agro-ecosystemen - High Nature Value farming"
+date: 2020-07-01T10:00:00
+bibliography: ../references.bib
+link-citations: TRUE
+hoofdstuk: 5
+thema:
+  - Landbouw
+keywords:
+  - agrobiodiversiteit
+  - halfnatuurlijke graslanden
+lang: nl
+tab: indicator
+verantwoordelijke:
+- Peter Van Gossum <peter.vangossum@inbo.be>
+output: html_document
+---
+
+```{r setup, include=FALSE}
+library(knitr)
+opts_chunk$set(
+  message = FALSE,
+  warning = FALSE,
+  echo = FALSE
+)
+library(tidyverse)
+library(git2rdata)
+library(plotly)
+library(INBOtheme)
+library(htmlwidgets)
+
+theme_set(theme_nara()) # het nara-kleurenpallet selecteren
+switch_colour(inbo_hoofd) # het INBO-kleurenpallet activeren
+
+set.seed(20200520)
+setWidgetIdSeed(20200520)
+options(htmlwidgets.TOJSON_ARGS = list(pretty = TRUE))
+```
+
+```{r data_inlezen}
+oppervlakte3gegevens <- read_vc("oppervlakte2hnvf")
+
+oppervlakte3gegevens <- oppervlakte3gegevens %>%
+  mutate(type1a = type1) %>%
+  mutate(type2a = type2) %>%
+  mutate(type3a = type3) %>%
+  mutate(type1 = type1 / 1000) %>%
+  mutate(type2 = type2 / 1000) %>%
+  mutate(type3 = type3 / 1000)
+
+akker_sierteelt <- oppervlakte3gegevens %>%
+  filter(landgebruik == "akker en sierteelt")
+
+blijvend_cultuurgrasland <- oppervlakte3gegevens %>%
+  filter(landgebruik == "blijvend cultuurgrasland")
+
+historisch_agroecosysteem <- oppervlakte3gegevens %>%
+  filter(landgebruik == "historische agro-ecosystemen")
+```
+
+Vlaanderen heeft weinig High Nature Value farmland.
+
+```{r staafdiagram2, fig.cap = "High Nature Value farmland per landgebruiksklasse in 2013 en 2016 (databronnen: de door VITO gemaakte VPO-landgebruiksbestanden, de Biologische Waarderingskaart en gebruikspercelenkaarten 2009-2016). Deze figuur verwijst naar figuur 92 in het Natuurrapport 2020."}
+
+f1 <- list(
+  color = "rgb(0, 0, 0)",
+  size = 12
+)
+f2 <- list(
+  color = "rgb(0, 0, 0)",
+  size = 14
+)
+a <- list(
+  title = "OPPERVLAKTE (1000 ha)",
+  showgrid = TRUE,
+  showline = TRUE,
+  showticklabels = TRUE,
+  tickcolor = "rgb(127, 127, 127)",
+  tickfont = f1,
+  titlefont = f2,
+  ticks = "outside",
+  tickformatstops = list(
+    list(
+      dtickrange = list(0, 6),
+      value = list(1, 2, 3, 4, 5)
+    ),
+    list(
+      dtickrange = list(6, 20),
+      value = list(2, 4, 6, 8, 10, 12, 14, 16, 18)
+    ),
+    list(
+      dtickrange = list(20, 50),
+      value = list(10, 20, 30, 40)
+    ),
+    list(
+      dtickrange = list(50, 100),
+      value = list(20, 40, 60, 80)
+    )
+  ),
+  zeroline = FALSE
+)
+b <- list(
+  title = "",
+  showgrid = FALSE,
+  showline = FALSE,
+  showticklabels = TRUE,
+  tickcolor = "rgb(127, 127, 127)",
+  ticks = "outside",
+  tickfont = f1,
+  zeroline = FALSE
+)
+
+fig1 <- plot_ly(historisch_agroecosysteem,
+  x = ~type1,
+  y = ~jaar,
+  type = "bar",
+  orientation = "h",
+  legendgroup = ~"Historische agro-ecosystemen",
+  name = "Historische agro-ecosystemen",
+  hoverinfo = "text",
+  text = ~ paste(
+    "</br> Oppervlakte: ",
+    round(type1a, 0), "ha",
+    "</br> Type: ",
+    "Historische agro-ecosystemen"
+  ),
+  marker = list(
+    color = inbo_steun_blauw,
+    line = list(
+      color = inbo_steun_blauw,
+      width = 3
+    )
+  )
+) %>%
+  add_trace(
+    data = blijvend_cultuurgrasland,
+    x = ~type1,
+    legendgroup = ~"Blijvend cultuurgrasland",
+    name = "Blijvend cultuurgrasland",
+    text = ~ paste(
+      "</br> Oppervlakte: ",
+      round(type1a, 0), "ha",
+      "</br> Type: ", "Blijvend cultuurgrasland"
+    ),
+    marker = list(
+      color = inbo_groen,
+      line = list(
+        color = inbo_groen,
+        width = 3
+      )
+    )
+  ) %>%
+  add_trace(
+    data = akker_sierteelt,
+    x = ~type1,
+    legendgroup = "Akker en sierteelt",
+    name = "Akker- en sierteelt",
+    text = ~ paste(
+      "</br> Oppervlakte: ",
+      round(type1a, 0), "ha",
+      "</br> Type: ", "Akker en sierteelt"
+    ),
+    marker = list(
+      color = inbo_hoofd,
+      line = list(
+        color = inbo_hoofd,
+        width = 3
+      )
+    )
+  ) %>%
+  layout(
+    barmode = "stack",
+    xaxis = a,
+    yaxis = b,
+    legend = list(font = f1),
+    hoverlabel = list(font = f1)
+  )
+
+fig2 <- plot_ly(historisch_agroecosysteem,
+  x = ~type2,
+  y = ~jaar,
+  type = "bar",
+  orientation = "h",
+  legendgroup = ~"Historische agro-ecosystemen",
+  name = "Historische agro-ecosystemen",
+  hoverinfo = "text",
+  text = ~ paste(
+    "</br> Oppervlakte: ",
+    round(type2a, 0), "ha",
+    "</br> Type: ",
+    "Historische agro-ecosystemen"
+  ),
+  showlegend = FALSE,
+  marker = list(
+    color = inbo_steun_blauw,
+    line = list(
+      color = inbo_steun_blauw,
+      width = 3
+    )
+  )
+) %>%
+  add_trace(
+    data = blijvend_cultuurgrasland,
+    x = ~type2,
+    legendgroup = ~"Blijvend cultuurgrasland",
+    name = "Blijvend cultuurgrasland",
+    text = ~ paste(
+      "</br> Oppervlakte: ",
+      round(type2a, 0), "ha",
+      "</br> Type: ",
+      "Blijvend cultuurgrasland"
+    ),
+    marker = list(
+      color = inbo_groen,
+      line = list(
+        color = inbo_groen,
+        width = 3
+      )
+    )
+  ) %>%
+  add_trace(
+    data = akker_sierteelt,
+    x = ~type2,
+    legendgroup = "Akker en sierteelt",
+    name = "Akker- en sierteelt",
+    text = ~ paste(
+      "</br> Oppervlakte: ",
+      round(type2a, 0), "ha",
+      "</br> Type: ", "Akker en sierteelt"
+    ),
+    marker = list(
+      color = inbo_hoofd,
+      line = list(
+        color = inbo_hoofd,
+        width = 3
+      )
+    )
+  ) %>%
+  layout(
+    barmode = "stack",
+    xaxis = a,
+    yaxis = b,
+    hoverlabel = list(font = f1)
+  )
+
+fig3 <- plot_ly(historisch_agroecosysteem,
+  x = ~type3,
+  y = ~jaar,
+  type = "bar",
+  orientation = "h",
+  legendgroup = ~"Historische agro-ecosystemen",
+  name = "Historische agro-ecosystemen",
+  showlegend = FALSE,
+  hoverinfo = "text",
+  text = ~ paste(
+    "</br> Oppervlakte: ",
+    round(type3a, 0), "ha",
+    "</br> Type: ",
+    "Historische agro-ecosystemen"
+  ),
+  marker = list(
+    color = inbo_steun_blauw,
+    line = list(
+      color = inbo_steun_blauw,
+      width = 3
+    )
+  )
+) %>%
+  add_trace(
+    data = blijvend_cultuurgrasland,
+    x = ~type3,
+    legendgroup = ~"Blijvend cultuurgrasland",
+    name = "Blijvend cultuurgrasland",
+    text = ~ paste(
+      "</br> Oppervlakte: ",
+      round(type3a, 0), "ha",
+      "</br> Type: ", "Blijvend cultuurgrasland"
+    ),
+    marker = list(
+      color = inbo_groen,
+      line = list(
+        color = inbo_groen,
+        width = 3
+      )
+    )
+  ) %>%
+  add_trace(
+    data = akker_sierteelt,
+    x = ~type3,
+    legendgroup = "Akker en sierteelt",
+    name = "Akker- en sierteelt",
+    text = ~ paste(
+      "</br> Oppervlakte: ",
+      round(type3a, 0), "ha",
+      "</br> Type: ", "Akker en sierteelt"
+    ),
+    marker = list(
+      color = inbo_hoofd,
+      line = list(
+        color = inbo_hoofd,
+        width = 3
+      )
+    )
+  ) %>%
+  layout(
+    barmode = "stack",
+    xaxis = a,
+    yaxis = b,
+    hoverlabel = list(font = f1)
+  )
+
+fig <- subplot(fig1,
+  fig2,
+  fig3,
+  nrows = 3,
+  shareX = TRUE
+) %>%
+  layout(annotations = list(
+    list(
+      x = 0.4,
+      y = 1.03,
+      text = "Soortenrijke agro-ecosystemen",
+      showarrow = FALSE,
+      xref = "paper",
+      yref = "paper"
+    ),
+    list(
+      x = 0.4,
+      y = 0.66,
+      text = "Laagintensieve agro-ecosystemen",
+      showarrow = FALSE,
+      xref = "paper",
+      yref = "paper"
+    ),
+    list(
+      x = 0.4,
+      y = 0.32,
+      text = "Agro-ecosystemen met soortenbeheer",
+      showarrow = FALSE,
+      xref = "paper",
+      yref = "paper"
+    )
+  ))
+fig
+```
+
+
+## Definitie
+
+Deze indicator geeft een schatting van de oppervlakte aan landbouwgrond met hoge biodiversiteitswaarde. Landbouwgrond met hoge biodiversiteitswaarde of HNVf wordt gedefinieerd als de gebieden waar landbouw het belangrijkste (en meestal dominante) landgebruik is en waar landbouw of geassocieerd is met een hoge soorten- of habitatdiversiteit, of de aanwezigheid van soorten van Europees, nationaal of regionaal belang ondersteunt, of beide.
+
+@andersen_developing_2003 onderscheiden 3 types HNVf:
+- Type 1: landbouwgrond met een groot aandeel natuurlijke halfnatuurlijke vegetatie,
+- Type 2: landbouwgrond gedomineerd door laag intensieve landbouw of landbouwgrond met kleine landschapselementen,
+- Type 3: landbouwgrond waarop zeldzame soorten of een groot aandeel van de Europese of wereldpopulatie van een soort voorkomen.
+
+Subtypes overlappen niet en indien een perceel tot meerdere subtypes kan behoren wordt de voorkeur gegeven aan het biologisch meest waardevol subtype (1 > 2 > 3).
+
+De oppervlakte HNVf wordt afzonderlijk bekeken voor akker- en sierteelt, blijvende cultuurgraslanden en historische agrecosystemen. Historische agro-ecosystemen omvatten:
+-  halfnatuurlijke graslanden: graslanden met extensief maaibeheer of lichte begrazing ([Ecopedia](https://www.ecopedia.be/encyclopedie/halfnatuurlijk-grasland))
+- soortenrijke permanente graslanden^[soortenrijke permanente graslanden omvatten vochtig grasland gedomineerd door russen, soortenrijk permanent cultuurgrasland en soortenrijk permanent cultuurgrasland met zilte elementen] [@vriens_biologische_2011], en
+- hoogstamboomgaarden en landbouwgronden met veel kleine landschapselementen [@andersen_developing_2003]. 
+
+Historische agro-ecosystemen herbergen een groot aantal van Europa’s meest bedreigde habitattypes en soorten. Ze zijn voor hun voortbestaan afhankelijk van de lokale landbouwpraktijken, die vaak in de loop der eeuwen gegroeid zijn.
+
+## Bespreking
+
+High Nature Value farmland (HNVf) bedroeg zowel in 2013 als in 2016 5,3 procent van de oppervlakte agro-ecosystemen.
+Het aandeel lag het hoogst bij historische agro-ecosystemen (21% in 2013 en 23% in 2016) en blijvende cultuurgraslanden (14% in beide jaren).
+Achter die schijnbare stabiliteit liggen een aantal veranderingen verborgen. 
+HNVf met een goed functionerend ecosysteem (laag intensieve landbouw, vaak soortenrijke systemen) ging achteruit. HNVf met slechts elementen daarvan (met name een of enkele specifieke soorten) ging erop vooruit. 
+Die toename gebeurde zowel bij akkerbouw als bij blijvend cultuurgrasland en is het resultaat van maatregelen voor akkervogels en hamsters enerzijds en weidevogels anderzijds
+
+## Referenties

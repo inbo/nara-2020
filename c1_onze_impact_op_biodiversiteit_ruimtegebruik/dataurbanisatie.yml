@@ -1,0 +1,15 @@
+..generic:
+  git2rdata: 0.2.1
+  optimize: no
+  NA string: NA
+  sorting: NUTS1regio
+  hash: 197f2205691d39c16262bae3e930a47268b14e7d
+  data_hash: 87342d40da7f68d8695be2084e86165738b42579
+NUTS1regio:
+  class: character
+Bevolkingsdichtheid:
+  class: integer
+Urbanisatie:
+  class: integer
+Type:
+  class: character

@@ -1,0 +1,370 @@
+---
+title: "Bos - Stikstofdepositie en stikstofconcentratie in bladeren en naalden van bomen"
+date: 2020-07-01T10:00:00
+bibliography: ../references.bib
+link-citations: TRUE
+hoofdstuk: 5
+thema:
+  - Bos
+keywords:
+  - stikstof
+  - level II
+  - langetermijnmeetnet
+lang: nl
+tab: indicator
+verantwoordelijke:
+- Maarten Stevens <maarten.stevens@inbo.be>
+output: html_document
+---
+
+```{r setup, include=FALSE}
+library(knitr)
+opts_chunk$set(
+  message = FALSE,
+  warning = FALSE,
+  echo = FALSE
+)
+
+library(ggeffects) # effecten van modellen plotten
+library(segmented) # Segmented analyse
+library(tidyverse)
+library(git2rdata)
+library(ggplot2)
+library(plotly)
+library(INBOtheme)
+library(htmlwidgets)
+
+theme_set(theme_nara()) # het nara-kleurenpallet selecteren
+switch_colour(inbo_hoofd) # het INBO-kleurenpallet activeren
+
+set.seed(20200520)
+setWidgetIdSeed(20200520)
+options(htmlwidgets.TOJSON_ARGS = list(pretty = TRUE))
+```
+
+```{r data_inlezen}
+tblndepos <- read_vc("tblndepos") # Analyseset stikstofdepositie
+tblnblad <- read_vc("tblnblad") # stikstofconcentratie bladeren en naalden
+
+```
+```{r data_bewerken, results='hide'}
+# Depositie ####
+depos <- tblndepos %>%
+  dplyr::select(jaar, plot, bostype, nh4_n, no3_n, nanorg, norg)
+
+depostot_minmax <- depos %>% # minimum en maximum waarde NH4
+  group_by(plot) %>%
+  summarise(max = max(nanorg), min = min(nanorg)) %>%
+  ungroup()
+
+# Per plot
+deposbra <- depos %>%
+  filter(plot == "Brasschaat")
+deposgon <- depos %>%
+  filter(plot == "Gontrode")
+deposhoe <- depos %>%
+  filter(plot == "Hoeilaart")
+deposrav <- depos %>%
+  filter(plot == "Ravels")
+deposwij <- depos %>%
+  filter(plot == "Wijnendale")
+
+# Lineaire startmodellen
+lm_bra <- lm(data = deposbra, nanorg~jaar)
+lm_gon <- lm(data = deposgon, nanorg~jaar)
+lm_hoe <- lm(data = deposhoe, nanorg~jaar)
+lm_rav <- lm(data = deposrav, nanorg~jaar)
+lm_wij <- lm(data = deposwij, nanorg~jaar)
+
+# Stikstofconcentratie bladeren en naalden ####
+nblad <- tblnblad %>%
+  mutate(plot = recode(plot, "Zonikn" = "Hoeilaart")) %>%
+  dplyr::select(jaar, plot, bostype, N, Nkg) # N = mg/g drooggewicht;
+#Nkg = mg/kg drooggewicht
+
+nblad_minmax <- nblad %>% # minimum en maximum waarde bladoncentratie
+  group_by(plot) %>%
+  summarise(max = max(N), min = min(N)) %>%
+  ungroup()
+
+# Per plot
+nbladbra <- nblad %>%
+  filter(plot == "Brasschaat")
+nbladgon <- nblad %>%
+  filter(plot == "Gontrode")
+nbladhoe <- nblad %>%
+  filter(plot == "Hoeilaart")
+nbladrav <- nblad %>%
+  filter(plot == "Ravels")
+nbladwij <- nblad %>%
+  filter(plot == "Wijnendale")
+
+# Lineaire startmodellen
+lmb_bra <- lm(data = nbladbra, N~jaar)
+lmb_gon <- lm(data = nbladgon, N~jaar)
+lmb_hoe <- lm(data = nbladhoe, N~jaar)
+lmb_rav <- lm(data = nbladrav, N~jaar)
+lmb_wij <- lm(data = nbladwij, N~jaar)
+
+```
+```{r analyse, results='hide', cache = TRUE}
+# Depositie ####
+
+# Segmented versie
+#Via control = seg.control(...) kan je de settings van het model aanpassen
+#-> fix.npsi=FALSE: automatische check voor breakpoints: geeft foutmelding
+#als er te veel breakpoints voorgesteld worden / TRUE: vertrekken van
+#voorgestelde breakpoints /
+#psi = NA -> het aantal breakpoints laten schatten door het model
+#Stappen: eerst 1 breakpoint testen via model met npsi = 1 -> Score-test voor 1
+#breakpoint en Score-test voor 1 extra breakpoint (more.break=TRUE).
+#Als het extra BP significant is -> model 2 met npsi = 2 en
+#opnieuw Score-test voor een extra (derde) BP. Om de significantie van 2
+#BP's te testen gebruik je score.test(.., n.break=2) = test voor 2 versus
+#0 BP'en.
+
+## Opgelet: de resultaten kunnen licht afwijken van de gepubliceerde resultaten
+#omdat het algoritme van het 'Segmented'-package gebruik maakt van bootstrap
+#restarting bij het zoeken van breekpunten
+
+seglm_bra <- segmented(lm_bra, seg.Z = ~jaar, npsi = 1) # regressie met 1 BP
+pscore.test(seglm_bra, n.break = 1) # niet significant -> geen significant BP
+pscore.test(seglm_bra, n.break = 2) # niet significant
+
+seglm_gon <- segmented(lm_gon, seg.Z = ~jaar, npsi = 1) # regressie met 1 BP
+pscore.test(seglm_gon, n.break = 1) # 1ste breakpoint significant
+pscore.test(seglm_gon, n.break = 2) # 2de breakpoint  significant
+seglm_gon2 <- segmented(lm_gon, seg.Z = ~jaar, npsi = 2) # regressie met 2 BP's
+pscore.test(seglm_gon2, more.break = TRUE) # 1 extra breakpoint (3de) ns
+
+seglm_hoe <- segmented(lm_hoe, seg.Z = ~jaar, npsi = 1)
+pscore.test(seglm_hoe, n.break = 1) # 1ste breakpoint NIET significant
+pscore.test(seglm_hoe, n.break = 2) # 2de breakpoint  significant
+seglm_hoe2 <- segmented(lm_hoe, seg.Z = ~jaar, npsi = 2) # regressie met 2 BP's
+pscore.test(seglm_hoe2, more.break = TRUE) # 3de breakpoint ns
+
+seglm_rav <- segmented(lm_rav, seg.Z = ~jaar, npsi = 1) # regressie met 1 BP
+pscore.test(seglm_rav, n.break = 1) # 1ste breakpoint significant
+pscore.test(seglm_rav, n.break = 2) # 2de breakpoint  significant
+seglm_rav2 <- segmented(lm_rav, seg.Z = ~jaar, npsi = 2) # regressie met 2 BP's
+pscore.test(seglm_rav2, more.break = TRUE) # 3de breakpoint ns
+
+seglm_wij <- segmented(lm_wij, seg.Z = ~jaar, npsi = 1) # regressie met 1 BP
+pscore.test(seglm_wij, n.break = 1) # 1ste breakpoint NIET significant
+pscore.test(seglm_wij, n.break = 2) # 2de breakpoint  significant
+seglm_wij2 <- segmented(lm_wij, seg.Z = ~jaar, npsi = 2) # regressie met 2 BP's
+pscore.test(seglm_wij2, more.break = TRUE) # 3de breakpoint ns
+
+# 95% CI voor de breakpoints
+cipsitot_bra <- data.frame(confint(seglm_bra)) %>% mutate(plot = "Brasschaat")
+cipsitot_gon <- data.frame(confint(seglm_gon2)) %>% mutate(plot = "Gontrode")
+cipsitot_hoe <- data.frame(confint(seglm_hoe2)) %>% mutate(plot = "Hoeilaart")
+cipsitot_rav <- data.frame(confint(seglm_rav2)) %>% mutate(plot = "Ravels")
+cipsitot_wij <- data.frame(confint(seglm_wij2)) %>% mutate(plot = "Wijnendale")
+
+cipsi_tot <- cipsitot_bra %>%
+  bind_rows(cipsitot_gon) %>%
+  bind_rows(cipsitot_hoe) %>%
+  bind_rows(cipsitot_rav) %>%
+  bind_rows(cipsitot_wij) %>%
+  rename("xmin" = "CI.95...low") %>%
+  rename("xmax" = "CI.95...up") %>%
+  rename("jaar" = "Est.") %>%
+  mutate(plot = as.factor(plot)) %>%
+  left_join(depostot_minmax, by = "plot") %>%
+  mutate(ymin = min - 2) %>%
+  mutate(ymax = max + 2)
+
+# Stikstofconcentratie bladeren en naalden ####
+seglmb_bra <- segmented(lmb_bra, seg.Z = ~jaar, npsi = 1) # regressie met 1 BP
+pscore.test(seglmb_bra, n.break = 1) # niet significant -> geen significant BP
+pscore.test(seglmb_bra, n.break = 2) # niet significant
+summary(seglmb_bra) # lineaire trend significant dalend
+
+seglmb_gon <- segmented(lmb_gon, seg.Z = ~jaar, npsi = 1) # regressie met 1 BP
+pscore.test(seglmb_gon, n.break = 1) # 1ste breakpoint licht significant
+pscore.test(seglmb_gon, n.break = 2) # 2de breakpoint  bijna significant
+seglmb_gon2 <- segmented(lmb_gon, seg.Z = ~jaar, npsi = 2) # regress. met 2 BP's
+pscore.test(seglmb_gon2, more.break = TRUE) # 1 extra breakpoint (3de) ns
+summary(seglmb_gon) # Geen schatting breakpoints mogelijk, lineaire trend
+#stijgend (niet-significant)
+
+seglmb_hoe <- segmented(lmb_hoe, seg.Z = ~jaar, npsi = 1)
+pscore.test(seglmb_hoe, n.break = 1) # 1ste breakpoint NIET significant
+pscore.test(seglmb_hoe, n.break = 2) # 2de breakpoint  NIET significant
+seglmb_hoe2 <- segmented(lmb_hoe, seg.Z = ~jaar, npsi = 2) # regress. met 2 BP's
+pscore.test(seglmb_hoe2, more.break = TRUE) # 3de breakpoint niet significant
+summary(seglmb_hoe) # Geen schatting breakpoints mogelijk, maar lineair model
+#geeft aan dat de trend stijgend is (niet significant)
+
+seglmb_rav <- segmented(lmb_rav, seg.Z = ~jaar, npsi = 1) # regressie met 1 BP
+pscore.test(seglmb_rav, n.break = 1) # 1ste breakpoint significant
+pscore.test(seglmb_rav, n.break = 2) # 2de breakpoint  significant
+seglmb_rav2 <- segmented(lmb_rav, seg.Z = ~jaar, npsi = 2) # regress. met 2 BP's
+pscore.test(seglmb_rav2, more.break = TRUE) # 3de breakpoint niet significant
+summary(seglmb_rav2)
+
+seglmb_wij <- segmented(lmb_wij, seg.Z = ~jaar, npsi = 1) # regressie met 1 BP
+pscore.test(seglmb_wij, n.break = 1) # 1ste breakpoint NIET significant
+pscore.test(seglmb_wij, n.break = 2) # 2de breakpoint  significant
+seglmb_wij2 <- segmented(lmb_wij, seg.Z = ~jaar, npsi = 2) # regress. met 2 BP's
+pscore.test(seglmb_wij2, more.break = TRUE) # 3de breakpoint niet significant
+summary(seglmb_wij)
+
+# 95% CI voor de breakpoints
+cipsin_bra <- data.frame(confint(seglmb_bra)) %>% mutate(plot = "Brasschaat")
+cipsin_gon <- data.frame(confint(seglmb_gon)) %>% mutate(plot = "Gontrode")
+cipsin_hoe <- data.frame(confint(seglmb_hoe)) %>% mutate(plot = "Hoeilaart")
+cipsin_rav <- data.frame(confint(seglmb_rav2)) %>% mutate(plot = "Ravels")
+cipsin_wij <- data.frame(confint(seglmb_wij)) %>% mutate(plot = "Wijnendale")
+
+cipsi_n <- cipsin_bra %>%
+  #dplyr::select(-c("X2.5..", "X97.5..")) %>%
+  bind_rows(cipsin_gon) %>%
+  bind_rows(cipsin_hoe) %>%
+  bind_rows(cipsin_rav) %>%
+  bind_rows(cipsin_wij) %>%
+  rename("xmin" = "CI.95...low") %>%
+  rename("xmax" = "CI.95...up") %>%
+  rename("jaar" = "Est.") %>%
+  mutate(plot = as.factor(plot)) %>%
+  left_join(nblad_minmax, by = "plot") %>%
+  mutate(ymin = min - 2) %>%
+  mutate(ymax = max + 2)
+```
+
+De daling van de stikstofdepositie in bossen die was ingezet vanaf de jaren 1990, vertraagt of stabiliseert in het laatste decennium.
+
+```{r depos, fig.width = 7, fig.height = 4, fig.cap = "Figuur 1. Depositie van anorganische stikstof (NH~4~^+^ en NO~3~^-^) tussen 1992 en 2018 in de proefvlakken van het langetermijnmeetnet in bossen (Level II): gemeten waarden en gemodelleerde trends met 95% betrouwbaarheidsintervallen. Deze figuur verwijst naar figuur 81 uit het Natuurrapport 2020."}
+
+citot_bra <- predict(seglm_bra, interval = "confidence")
+citot_gon <- predict(seglm_gon2, interval = "confidence")
+citot_hoe <- predict(seglm_hoe2, interval = "confidence")
+citot_rav <- predict(seglm_rav2, interval = "confidence")
+citot_wij <- predict(seglm_wij2, interval = "confidence")
+
+deposbra_tot <- cbind(deposbra, citot_bra)
+deposgon_tot <- cbind(deposgon, citot_gon)
+deposhoe_tot <- cbind(deposhoe, citot_hoe)
+deposrav_tot <- cbind(deposrav, citot_rav)
+deposwij_tot <- cbind(deposwij, citot_wij)
+
+# Data aaneen plakken
+dataplot_tot <- deposbra_tot %>%
+  bind_rows(deposgon_tot) %>%
+  bind_rows(deposhoe_tot) %>%
+  bind_rows(deposrav_tot) %>%
+  bind_rows(deposwij_tot) %>%
+  arrange(plot) %>%
+  rename("Jaar" = "jaar", "Locatie" = "plot") %>%
+  mutate(Meting = round(nanorg, 1),
+         Schatting = paste(round(fit, 1), "kgN/ha*jaar",
+                    "\nBI:", round(lwr, 1), "-", round(upr, 1), "kgN/ha*jaar"))
+
+ptot <- ggplot(dataplot_tot, aes(x = Jaar, y = nanorg)) +
+  geom_ribbon(aes(ymin = lwr, ymax = upr, fill = Locatie), alpha = 0.2) +
+  geom_point(aes(colour = factor(Locatie), text = paste("Meting:", Meting,
+                                                        "kgN/ha*jaar")),
+             size = 1) +
+  geom_line(aes(y = fit, colour = Locatie, label = Schatting)) +
+  scale_x_continuous(breaks = c(1995, 2000, 2005, 2010, 2015)) +
+  labs(y = "kg N / ha * jaar") +
+  guides(colour = FALSE) +
+  theme(plot.title = element_text(margin = margin(t = 5), vjust = 5),
+        axis.title.x = element_blank(),
+        axis.title.y = element_text(margin = margin(t = 0, r = 10,
+                                                    b = 0, l = 0), hjust = 0),
+        legend.title = element_blank(),
+        legend.key.size = unit(0.3, "cm")) +
+  ylim(c(5, NA))
+
+gg <- ggplotly(ptot, tooltip = c("x", "fill", "label", "text"))
+gg <- plotly_build(gg)
+gg$x$data[[1]]$name <- "Brasschaat"
+gg$x$data[[2]]$name <- "Gontrode"
+gg$x$data[[3]]$name <- "Hoeilaart"
+gg$x$data[[4]]$name <- "Ravels"
+gg$x$data[[5]]$name <- "Wijnendale"
+
+gg
+
+```
+
+## Definitie
+
+Stikstofdepositie is het neerslaan van stikstof op een oppervlak zoals de bodem of op vegetatie.
+Boven een bepaalde drempelwaarde ondervindt een ecosysteem schade van deze depositie.
+Deze indicator toont de evolutie van de rechtstreekse stikstofdepositie in bossen en het effect ervan in de bladeren en naalden van bomen.
+
+## Bespreking
+
+De metingen van het langetermijnmeetnet in bossen (Level II) tonen aan dat de depositie van anorganische stikstof daalde vanaf de jaren 1990, maar vertraagt of stabiliseert in het laatste decennium (Figuur 1).
+De afname was vooral het gevolg van de dalende ammoniakuitstoot door de landbouw en van een verminderde co-depositie met sulfaat [@verstraeten_impact_2012; @verstraeten_multiple_2017]. 
+De kritische last voor stikstofdepositie  wordt voor alle bossen in Vlaanderen overschreden [@vmm_oppervlakte_2019]. 
+De kritische last is de drempelwaarde waarboven schadelijke effecten op het ecosysteem optreden.
+Te hoge stikstofdepositie zorgt voor vermesting en verzuring van het ecosysteem. 
+Stikstofminnende soorten krijgen daardoor een competitief voordeel en breiden sterk uit ten koste van soorten uit stikstofarme milieus, die vaak een smalle ecologische niche hebben. 
+Dat leidt tot een verlaging van de soortenrijkdom op regionale schaal [@staude_replacements_2020]. 
+Een teveel aan stikstof kan planten ook gevoeliger maken voor ziektes, insectenvraat en droogte.
+
+De concentratie van stikstof in bladeren en naalden is een indicator voor de reactie van het ecosysteem op de stikstofbelasting.
+Figuur 2 toont dat de afname van de depositie zich nog niet vertaalt in een daling van het stikstofgehalte in bladeren en naalden. 
+De effecten van stikstofdepositie op bos zullen dus nog een tijd na-ijlen, ook als de depositie verder zou dalen. 
+
+
+```{r conc, fig.width = 7, fig.height = 4, fig.cap = "Figuur 2. Gemiddelde stikstofconcentratie in bladeren en naalden tussen 1995 en 2017 in de proefvlakken van het langetermijnmeetnet in bossen (Level II): gemeten waarden en gemodelleerde trends met 95% betrouwbaarheidsintervallen. Deze figuur verwijst naar figuur 81 uit het Natuurrapport 2020."}
+cin_bra <- predict(seglmb_bra, interval = "confidence")
+cin_gon <- predict(seglmb_gon, interval = "confidence")
+cin_hoe <- predict(seglmb_hoe, interval = "confidence")
+cin_rav <- predict(seglmb_rav2, interval = "confidence")
+cin_wij <- predict(seglmb_wij, interval = "confidence")
+
+deposbra_n <- cbind(nbladbra, cin_bra)
+deposgon_n <- cbind(nbladgon, cin_gon)
+deposhoe_n <- cbind(nbladhoe, cin_hoe)
+deposrav_n <- cbind(nbladrav, cin_rav)
+deposwij_n <- cbind(nbladwij, cin_wij)
+
+# Data aaneen plakken
+dataplot_n <- deposbra_n %>%
+  bind_rows(deposgon_n) %>%
+  bind_rows(deposhoe_n) %>%
+  bind_rows(deposrav_n) %>%
+  bind_rows(deposwij_n) %>%
+  mutate(plot = factor(plot, c("Brasschaat", "Gontrode", "Hoeilaart", "Ravels",
+                               "Wijnendale"))) %>%
+  rename(Jaar = jaar, "Locatie" = "plot") %>%
+  mutate(Locatie = as.factor(Locatie),
+         Meting = round(N, 1),
+         Schatting = paste(round(fit, 1), "mgN/gDS"),
+         BI = paste(round(lwr, 1), "-", round(upr, 1), "mgN/gDS"))
+
+pblad <- ggplot(dataplot_n, aes(x = Jaar, y = N)) +
+  geom_ribbon(aes(ymin = lwr, ymax = upr, fill = Locatie, label = BI),
+              alpha = 0.2) +
+  geom_point(aes(colour = Locatie, text = paste("Meting:", Meting, "mgN/gDS")),
+             size = 1) +
+  geom_line(aes(y = fit, colour = Locatie, label = Schatting)) +
+  scale_x_continuous(limits = c(1992, NA),
+                     breaks = c(1995, 2000, 2005, 2010, 2015)) +
+  labs(y = "Mg N / g DS") +
+  guides(colour = FALSE) +
+  theme(plot.title = element_text(margin = margin(t = 5), vjust = 5),
+        axis.title.x = element_blank(),
+        axis.title.y = element_text(margin = margin(t = 0, r = 10,
+                                                    b = 0, l = 0), hjust = 0),
+        legend.key.size = unit(0.3, "cm"),
+        legend.title = element_blank()) +
+  ylim(c(15, NA))
+
+gg <- ggplotly(pblad, tooltip = c("x", "fill", "colour", "label", "text"))
+gg <- plotly_build(gg)
+gg$x$data[[1]]$name <- "Brasschaat"
+gg$x$data[[2]]$name <- "Gontrode"
+gg$x$data[[3]]$name <- "Hoeilaart"
+gg$x$data[[4]]$name <- "Ravels"
+gg$x$data[[5]]$name <- "Wijnendale"
+gg
+```
+
+## Referenties

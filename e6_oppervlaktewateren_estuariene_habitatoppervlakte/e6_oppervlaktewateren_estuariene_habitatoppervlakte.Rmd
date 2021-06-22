@@ -1,0 +1,133 @@
+---
+title: "Oppervlaktewateren - Estuariene habitatoppervlakte"
+date: 2020-07-01T10:00:00
+bibliography: ../references.bib
+link-citations: TRUE
+hoofdstuk: 5
+thema:
+  - Water
+keywords:
+  - estuaria
+  - habitatoppervlakte
+  - krw
+lang: nl
+tab: indicator
+verantwoordelijke:
+- Helen Michels <Helen.michels@inbo.be>
+output: html_document
+---
+
+```{r setup, include=FALSE}
+library(knitr)
+opts_chunk$set(
+  message = FALSE,
+  warning = FALSE,
+  echo = FALSE
+)
+library(tidyverse)
+library(git2rdata)
+library(plotly)
+library(INBOtheme)
+library(htmlwidgets)
+
+set.seed(20200520)
+setWidgetIdSeed(20200520)
+options(htmlwidgets.TOJSON_ARGS = list(pretty = TRUE))
+```
+
+Tussen 2008 en 2016 steeg de totale oppervlakte schor in alle saliniteitszones van het Schelde- en IJzer-estuarium.
+De verandering in oppervlakte slikken en schorren verschilt per saliniteitszone.
+
+```{r data_inlezen voor figuur 104, results = "hide" }
+# data formating voor figuur 104
+oppervlaktegegevens <- read_vc("ecotooptabel_ijzer_schelde_zijrivier")
+oppervlaktegegevens <- oppervlaktegegevens %>%
+  mutate(salzone = factor(salzone, levels = c("Zout variabel", "Brak variabel",
+                                              "Zwak brak", "Zoet")))
+
+# grenswaarde per ecotoop
+doelgepschor <- data.frame(salzone = c("Zout variabel", "Brak variabel",
+                                       "Zwak brak", "Zoet"),
+                           opp = c(28.8, 500, 440, 732),
+                           col = c("green3", "green3", "green3", "green")) %>%
+  mutate(salzone = factor(salzone, levels = c("Zout variabel", "Brak variabel",
+                                              "Zwak brak", "Zoet")))
+
+doelgepslik <- data.frame(salzone = c("Zout variabel", "Brak variabel",
+                                      "Zwak brak", "Zoet"),
+                          opp = c(20, 460, 398, 478),
+                          col = c("orange1", "orange1", "orange1",
+                                  "orange1")) %>%
+  mutate(salzone = factor(salzone, levels = c("Zout variabel", "Brak variabel",
+                                              "Zwak brak", "Zoet")))
+
+doelgepondiepsubtidaal <- data.frame(salzone = c("Zout variabel",
+                                                 "Brak variabel", "Zwak brak",
+                                                 "Zoet"),
+                                     opp = c(22, 378, 225, 366),
+                                     col = c("lightblue3", "lightblue3",
+                                             "lightblue3", "lightblue3")) %>%
+  mutate(salzone = factor(salzone, levels = c("Zout variabel", "Brak variabel",
+                                              "Zwak brak", "Zoet")))
+
+# Enkel recente data na 2001
+oppervlaktegegevens <- oppervlaktegegevens %>%
+  filter(jaar > 2005) %>%
+  filter(ecotoopgroep == "ondiep subtidaal" | ecotoopgroep == "slik" |
+           ecotoopgroep == "schor") %>%
+  mutate(ecotoop = ecotoopgroep)
+```
+```{r staafdiagram, fig.width = 10, fig.height = 8, fig.cap = "Figuur 1: Estuariene habitatoppervlakte van ondiep water, slik en schor in de periode 2010-2016. Deze figuur verwijst naar figuur 104 in het Natuurrapport."}
+p <- ggplot(oppervlaktegegevens, aes(x = jaar, y = opp, group = ecotoop,
+                                     color = ecotoop)) +
+  geom_line(size = 0.8) +
+  geom_point(size = 1) +
+  scale_y_log10() +
+  scale_x_continuous(breaks = seq(2008, 2025, 2)) +
+  facet_wrap(~salzone, scales = "free_y") +
+  scale_color_manual(
+    values = c("ondiep subtidaal" = inbo_steun_geelgroen,
+               "slik" = inbo_steun_blauw, "schor" = inbo_hoofd),
+    labels = c("Ondiep water", "Slik", "Schor")
+  ) +
+  geom_hline(data = doelgepschor, aes(yintercept = opp), color = inbo_hoofd,
+             linetype = 2, size = 0.5) +
+  geom_hline(data = doelgepslik, aes(yintercept = opp),
+             color = inbo_steun_blauw, linetype = 2, size = 0.5) +
+  geom_hline(data = doelgepondiepsubtidaal, aes(yintercept = opp),
+             color = inbo_steun_geelgroen, linetype = 2, size = 0.5) +
+  xlab("") +
+  ylab("OPPERVLAKTE (ha)") +
+  theme_bw(base_size = 16) +
+  theme(
+    axis.text.x = element_text(angle = 0),
+    strip.text.x = element_text(size = 9, color = "black", hjust = 0.5),
+    axis.title.y = element_text(size = 8, hjust = 0),
+    axis.text = element_text(size = 8),
+    legend.text = element_text(size = 8),
+    legend.title = element_text(size = 8),
+    legend.position = "bottom"
+  )
+
+
+t <- ggplotly(p)
+
+t[["x"]][["layout"]][["annotations"]][[1]][["x"]] <- -0.05
+t
+```
+
+## Definitie
+
+Estuariene habitatoppervlakte is de oppervlakte van laagdynamisch ondiepwatergebieden en intergetijdengebieden in een estuarium (slikken en schorren, platen).
+
+## Bespreking
+
+De figuur toont de estuariene habitaoppervlakte van ondiep water, slik en schor in de priode 2010-2016. De volle lijnen geven de verandering van de oppervlakte van ondiep water (grijsblauwe lijn) slik (groene lijn) schor (paarse lijn) weer voor de verschillende saliniteitszones. 
+Alleen het IJzer estuarium bevat een zoute zone. Het militair domein van Lombardsijde maakt sinds 2022 deel uit van het natuurgebied de IJzermonding.
+In het kader van natuurontwikkeling werd de voormalige marinebasis afgegraven.
+Op de afgegraven delen nam het schoroppervlak sterk toe van 2007 tot 2017 ten koste van het slik.
+Dat is echter nog niet voldoende om het vooropgestele oppervlaktedoel voor schoroppervlakte te halen.
+De overige saliniteitszones maken deel uit van de Zeeschelde.
+De schoproppervlakte neemt toe in alle zones.
+Dat is het gevolg van een aantal natuurontwikkelingsprojcten langs de Zeeschelde in het kader van het geactualiseerde Sigmaplan. De toename is echter onvoldoende om het vooropgestelde doel te bereiken.
+In de zoetwaterzone zorgde een verandering in morfologie ten gevolge van stroomafwaartse baggerwerken en lokale zandwinning -al dan niet voor dijkwerken- voor en daling van het slikoppervlak in 2013. Tussen 2013 en 2016 steeg de slikoppervlakte weer, maar niet tot het niveau van 2010.

@@ -1,0 +1,17 @@
+..generic:
+  git2rdata: 0.3.1
+  optimize: no
+  NA string: NA
+  sorting: jaar
+  hash: fbe8b4ea07047632ce9260645f6c64afcb1cb707
+  data_hash: 43af2d523e8123c27aab9260569520ad29a1cc54
+jaar:
+  class: integer
+trend:
+  class: numeric
+lw:
+  class: numeric
+up:
+  class: numeric
+aantal_dagen:
+  class: numeric

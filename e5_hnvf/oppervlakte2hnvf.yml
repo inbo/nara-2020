@@ -1,0 +1,35 @@
+..generic:
+  git2rdata: 0.2.1
+  optimize: no
+  NA string: NA
+  sorting:
+  - landgebruik
+  - jaar
+  hash: eda216600580568c3a5ede9193cac0e573b1c7c9
+  data_hash: 95398000ab5f2bd25ef66caaa5af2f5e964167f6
+landgebruik:
+  class: factor
+  labels:
+  - historische agro-ecosystemen
+  - blijvend cultuurgrasland
+  - akker en sierteelt
+  index:
+  - 1
+  - 2
+  - 3
+  ordered: no
+jaar:
+  class: factor
+  labels:
+  - '2013'
+  - '2016'
+  index:
+  - 1
+  - 2
+  ordered: no
+type1:
+  class: numeric
+type2:
+  class: numeric
+type3:
+  class: numeric

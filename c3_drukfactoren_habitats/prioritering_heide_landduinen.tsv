@@ -1,0 +1,25 @@
+Druk	habitat_2310	habitat_2330	habitat_4010	habitat_4030	habitat_5130	Aantal_H	Aantal_M	Score	Prioriteit
+landgebruiksverandering	M	M	GI	GI	GI	0	2	2	3
+F03	M	M	GI	GI	GI	/	/	/	/
+vermesting via de lucht	H	H	H	H	H	5	0	10	1
+A27	H	H	H	H	H	/	/	/	/
+Xo	H	H	H	H	H	/	/	/	/
+invasieve uitheemse soorten	GI	M	GI	GI	GI	0	1	1	4
+I02	GI	M	GI	GI	GI	/	/	/	/
+achterstallig of onaangepast beheer	M	M	M	M	M	0	5	5	1
+L02	M	M	M	M	M	/	/	/	/
+L03	GI	GI	GI	GI	M	/	/	/	/
+A07	M	M	M	M	M	/	/	/	/
+verdroging	GI	GI	M	GI	GI	0	1	1	4
+K01	GI	GI	M	GI	GI	/	/	/	/
+K02	GI	GI	H > M	GI	GI	/	/	/	/
+versnippering	GI	GI	GI	GI	H	1	0	2	3
+A03	GI	GI	GI	GI	H	/	/	/	/
+verzuring	M	GI	H	H	GI	2	1	5	1
+J03	M	GI	H	H	GI	/	/	/	/
+verstoring	M	GI	M	M	GI	0	3	3	2
+H08	M	GI	M	M	GI	/	/	/	/
+klimaatverandering	GI	GI	M	GI	M	0	2	2	3
+N01	GI	GI	GI	GI	L > M	/	/	/	/
+N02	GI	GI	M	GI	M	/	/	/	/
+N03	GI	GI	M	GI	M	/	/	/	/

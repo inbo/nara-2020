@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+
+<html lang="nl" xml:lang="nl">
+
+<head>
+<meta name="INBO-publication-date" content="2020-07-01T10:00:00" /><!-- ISO 8601 timezone: CET/CEST -->
+<meta name="INBO-keywords" content="functionele diversiteit, boomsoorten, functionele dispersie, functionele kenmerken" />
+<meta name="INBO-name" content="Metadata bos - functionele diversiteit van bomen" />
+<meta name="INBO-tab" content="metadata" />
+<meta name="INBO-chapter" content="5" />
+<meta name="INBO-chapter-title" content="Trends per ecosysteem" />
+<meta name="INBO-theme" content="Bos" />
+<meta name="INBO-PureId" content="18013701" />
+<meta name="INBO-language" content="nl" /><!-- ISO 639-1 -->
+<!-- end INBO meta data-->
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+
+<title>Metadata bos - functionele diversiteit van bomen</title>
+
+<script src="../libs/jquery-1.11.3/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="../libs/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
+<script src="../libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="../libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="../libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<style>h1 {font-size: 34px;}
+       h1.title {font-size: 38px;}
+       h2 {font-size: 30px;}
+       h3 {font-size: 24px;}
+       h4 {font-size: 18px;}
+       h5 {font-size: 16px;}
+       h6 {font-size: 12px;}
+       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+       pre:not([class]) { background-color: white }</style>
+<script src="../libs/navigation-1.1/tabsets.js"></script>
+<script src="../libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
+<script src="../libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="../libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
+
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+
+<body>
+
+
+<h1 class="title toc-ignore">Metadata bos - functionele diversiteit van bomen</h1>
+
+<div id="technische-informatie" class="section level2">
+<h2>Technische informatie</h2>
+<p>- <strong>Periodiciteit</strong>: eenmalig - <strong>Volgende update</strong>: onbekend - <strong>Databereik</strong>: VBI 1: 1997-1999 en VBI 2: 2009-2019</p>
+</div>
+<div id="databron" class="section level2">
+<h2>Databron</h2>
+<ul>
+<li><strong>Producent</strong>: Agentschap Natuur en Bos, Instituut voor Natuur- en Bosonderzoek, Emiel De Lombaerde (UGent)</li>
+<li><strong>Dataset</strong>: Databank Vlaamse Bosinventaris (v16-03-2020). De databank kan opgevraagd worden bij het <a href="https://www.natuurenbos.be/beleid-wetgeving/natuurbeheer/bosinventaris/contact">Agentschap Natuur en Bos</a></li>
+<li><strong>Gegevensinzameling</strong>: De Vlaamse bosinventaris (VBI) bestaat uit een steekproef van punten waarvoor op het terrein de toestand van het bos wordt opgemeten <span class="citation">(Westra e.a. <a href="#ref-westra_opmaak_2015" role="doc-biblioref">2015</a>; Wouters e.a. <a href="#ref-wouters_ontwerp_2008" role="doc-biblioref">2008</a>)</span>. De meetcyclus van de eerste bosinventaris (VBI 1) liep van 1997 tot 1999, de tweede meetcyclus (VBI 2) van 2009 tot 2019. De steekproef wordt gekozen uit een vast raster van 27.163 punten. Voor elk punt in het raster wordt beoordeeld of het al dan niet in bos ligt. De punten die in bos liggen worden opgemeten volgens een gestandaardiseerd veldprotocol. De website van het <a href="https://www.natuurenbos.be/beleid-wetgeving/natuurbeheer/bosinventaris/hoe-gebeuren-de-metingen">Agentschap Natuur en Bos</a> geeft een overzicht van de methodologie.</li>
+</ul>
+</div>
+<div id="berekeningswijze" class="section level2">
+<h2>Berekeningswijze</h2>
+<p>De analyseset voor boomsoorten wordt opgebouwd op basis van de tabel <code>tbl0Boom</code> uit de de VBI-databank. Deze tabel bevat de opmetingen van de individuele bomen in elk proefvlak van de VBI en geeft de meest gedetailleerde taxonomische informatie over de aanwezige boomsoorten. Per steekproefpunt (plot) wordt voor elke boomsoort het totale grondvlak bepaald (m²/ha). Alleen soorten die in meer dan 10 proefvlakken van de VBI voorkomen, worden in rekening gebracht. De databank met functionele kenmerken per boomsoort wordt samengesteld op basis van een aantal internationale databanken en publicaties (Tabel 1). De belangrijkste databanken zijn <a href="https://datadryad.org/stash/dataset/doi:10.5061/dryad.234">DRYAD (Global Wood Density Database)</a>, <a href="https://www.try-db.org/TryWeb/Home.php">TRY (Plant trait database)</a>, <a href="https://uol.de/en/landeco/research/leda/">LEDA (Database of life-history traits of Northwest European flora)</a> en <a href="https://eol.org/">EOL (Encyclopedia of Life)</a>.</p>
+<p>De kenmerken <em>evergreen</em>, <em>broadleaf</em> en <em>Leaf P</em> worden uit de analyse gelaten omdat ze sterk gecorreleerd zijn met andere kenmerken (<em>SLA</em> en <em>Leaf N</em>).</p>
+<div style="border: 1px solid #ddd; padding: 0px; overflow-y: scroll; height:400px; overflow-x: scroll; width:100%; ">
+<table class="table table-striped table-hover" style="width: auto !important; margin-left: auto; margin-right: auto;">
+<caption>
+Tabel 1. Functionele kenmerken van de boomsoorten die in de analyse gebruikt worden en de belangrijkste databronnen.
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+Kenmerk
+</th>
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+Beschrijving
+</th>
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+Bron
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;width: 5cm; ">
+Max height
+</td>
+<td style="text-align:left;width: 15cm; ">
+Maximale hoogte van een boomsoort zoals geobserveerd in de VBI [m]
+</td>
+<td style="text-align:left;">
+VBI
+</td>
+</tr>
+<tr>
+<td style="text-align:left;width: 5cm; ">
+Wood density
+</td>
+<td style="text-align:left;width: 15cm; ">
+Ratio drooggewicht:versgewicht hout [g/cm³]
+</td>
+<td style="text-align:left;">
+DRYAD, TRY
+</td>
+</tr>
+<tr>
+<td style="text-align:left;width: 5cm; ">
+Specific leaf area (SLA)
+</td>
+<td style="text-align:left;width: 15cm; ">
+Bladoppervlakte per bladgewicht [mm²/mg]
+</td>
+<td style="text-align:left;">
+LEDA, TRY, Liebergesell et al. (2016)
+</td>
+</tr>
+<tr>
+<td style="text-align:left;width: 5cm; ">
+Leaf N
+</td>
+<td style="text-align:left;width: 15cm; ">
+Stikstofgehalte van bladeren per eenheid gewicht [mg N/g]
+</td>
+<td style="text-align:left;">
+TRY, Encyclopedia of Life (EOL)
+</td>
+</tr>
+<tr>
+<td style="text-align:left;width: 5cm; ">
+Leaf P
+</td>
+<td style="text-align:left;width: 15cm; ">
+Fosforgehalte van bladeren per eenheid gewicht [mg N/g]
+</td>
+<td style="text-align:left;">
+TRY
+</td>
+</tr>
+<tr>
+<td style="text-align:left;width: 5cm; ">
+Seed mass
+</td>
+<td style="text-align:left;width: 15cm; ">
+Gewicht van zaden of diasporen [mg]
+</td>
+<td style="text-align:left;">
+LEDA, TRY, Liebergesell et al. (2016), EOL
+</td>
+</tr>
+<tr>
+<td style="text-align:left;width: 5cm; ">
+Litter quality
+</td>
+<td style="text-align:left;width: 15cm; ">
+Ordinale score variërend tussen 1 (zeer lage afbraaksnelheid) en 5 (zeer hoge afbraaksnelheid)
+</td>
+<td style="text-align:left;">
+Baeten et al. (2009), Hermy (1985)
+</td>
+</tr>
+<tr>
+<td style="text-align:left;width: 5cm; ">
+Drought tolerance
+</td>
+<td style="text-align:left;width: 15cm; ">
+Fysiologische tolerantie voor waterstress, morfologische en levenscyclus strategieën voor waterschaarste en de geschatte waterbeschikbaarheid op plaatsen waar de soort frequent voorkomt. Tolerantiescore gebaseerd op de locatiekenmerken van de verspreiding en de fysiologische mogelijkheden van een soort [1: zeer intolerant; 2: intolerant; 3: gematigd tolerant; 4: tolerant; 5: zeer tolerant]
+</td>
+<td style="text-align:left;">
+Niinemets &amp; Valladares (2006)
+</td>
+</tr>
+<tr>
+<td style="text-align:left;width: 5cm; ">
+Waterlogging tolerance
+</td>
+<td style="text-align:left;width: 15cm; ">
+Tolerantie voor verminderde zuurstofbeschikbaarheid in de wortelzone. Kwalitatieve tolerantieschaal voor wateroverlast [5: zeer tolerant (overleeft diepe, langdurige wateroverlast gedurende meer dan een jaar); 4: tolerant (overleeft diepe wateroverlast gedurende één groeiseizoen); 3: matig tolerant (overleeft wateroverlast of verzadigde bodems gedurende 30 opeenvolgende dagen tijdens het groeiseizoen); 2: intolerant (tolereert 1 tot 2 weken wateroverlast tijdens het groeiseizoen); 1: zeer intolerant (verdraagt geen waterverzadigde bodems gedurende meer dan een paar dagen tijdens het groeiseizoen)]
+</td>
+<td style="text-align:left;">
+Niinemets &amp; Valladares (2006)
+</td>
+</tr>
+<tr>
+<td style="text-align:left;width: 5cm; ">
+Fire tolerance
+</td>
+<td style="text-align:left;width: 15cm; ">
+Het vermogen om na een brand opnieuw te ontkiemen, opnieuw te groeien of zich te herstellen uit resterend zaad [Tolerantieklassen: niet - laag - gemiddeld - hoog]
+</td>
+<td style="text-align:left;">
+TRY
+</td>
+</tr>
+<tr>
+<td style="text-align:left;width: 5cm; ">
+PM removal capacity
+</td>
+<td style="text-align:left;width: 15cm; ">
+De relatieve efficiëntie om PM2.5 te verwijderen, gebaseerd op zeven biofysische variabelen van bomen [score]
+</td>
+<td style="text-align:left;">
+Yang et al. (2015)
+</td>
+</tr>
+<tr>
+<td style="text-align:left;width: 5cm; ">
+Resprouting capacity after disturbance
+</td>
+<td style="text-align:left;width: 15cm; ">
+De capaciteit om opnieuw uit te groeien na verstoring (bv. windworp) (binair)
+</td>
+<td style="text-align:left;">
+TRY, EOL, Liebergesell et al. (2016), Leuschner &amp; Meier (2018)
+</td>
+</tr>
+<tr>
+<td style="text-align:left;width: 5cm; ">
+Rooting type
+</td>
+<td style="text-align:left;width: 15cm; ">
+Penwortel, hartwortel of vlakwortel
+</td>
+<td style="text-align:left;">
+Fichier ecologique, Plant goed!
+</td>
+</tr>
+<tr>
+<td style="text-align:left;width: 5cm; ">
+Flower type
+</td>
+<td style="text-align:left;width: 15cm; ">
+Bloemtype
+</td>
+<td style="text-align:left;">
+TRY
+</td>
+</tr>
+<tr>
+<td style="text-align:left;width: 5cm; ">
+Leaf size
+</td>
+<td style="text-align:left;width: 15cm; ">
+De oppervlakte van het blad bij enkelbladige bladeren en van de deelbladeren bij samengestelde bladeren [mm²]
+</td>
+<td style="text-align:left;">
+LEDA, EOL, Liebergesell et al. (2016)
+</td>
+</tr>
+<tr>
+<td style="text-align:left;width: 5cm; ">
+Foliage color
+</td>
+<td style="text-align:left;width: 15cm; ">
+Bladkleur in de herfst
+</td>
+<td style="text-align:left;">
+Tree-quide.com
+</td>
+</tr>
+<tr>
+<td style="text-align:left;width: 5cm; ">
+Pollinator index
+</td>
+<td style="text-align:left;width: 15cm; ">
+De bestuiversindex is een maat voor het voedsel dat beschikbaar is voor bestuivers. Bestuivingsindex = (pollen + nectar) * bloeiperiode.
+</td>
+<td style="text-align:left;">
+TRY, Jacobs (2004)
+</td>
+</tr>
+<tr>
+<td style="text-align:left;width: 5cm; ">
+Evergreen
+</td>
+<td style="text-align:left;width: 15cm; ">
+Groenblijvend (1/0)
+</td>
+<td style="text-align:left;">
+/
+</td>
+</tr>
+<tr>
+<td style="text-align:left;width: 5cm; ">
+Broadleaf
+</td>
+<td style="text-align:left;width: 15cm; ">
+Loofboom (1/0)
+</td>
+<td style="text-align:left;">
+/
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Na koppeling van de functionele kenmerken met de boomsoorten in de plots wordt de functionele dispersie (FDis) berekend via het R package <code>FD</code> <span class="citation">(Laliberté en Legendre <a href="#ref-laliberte_distance-based_2010" role="doc-biblioref">2010</a>)</span>. De functionele dispersie is een maat voor de functionele diversiteit en wordt berekend als de gewogen gemiddelde afstand van de boomsoorten in de multidimensionale kenmerkruimte tot het zwaartepunt van alle soorten in de plot. Het gemiddelde wordt gewogen op basis van het grondvlak van de soort in de plot. Hoe hoger FDis, hoe functioneel diverser de plot. De kenmerken <em>Seed mass</em> en <em>Pollinator-index</em> worden niet in de FDis berekening opgenomen, omdat er voor te veel soorten geen waarde is. Vervolgens wordt aan elk steekproefpunt het bostype (PNV-hoofdtype) toegekend <a href="https://www.vlaanderen.be/inbo/backgroundindicatoren/bos-samenstelling-van-boomsoorten-en-kruidachtigen">(zie Bos - Trends in de samenstelling van boomsoorten en kruidachtigen)</a>. Het bostype ‘wilgenvloedbos’ wordt niet meegenomen omdat er te weinig steekproefpunten zijn.</p>
+<p>Voor de analyse van de trend van de functionele diversiteit tussen beide periodes van de VBI gebruiken we een bayesiaans regressiemodel (R package <code>brms</code>). Aangezien een groot aantal observaties in de twee opeenvolgende periodes van de VBI gecorreleerd zijn (gepaarde plots), heeft het model een mixed effect structuur. Het mixed model gebruikt de VBI-periode en het PNV-type als fixed effects en de gepaarde plots als random effects. De responsvariabele is de functionele diversiteit (FDis).</p>
+</div>
+<div id="opmerkingen-bij-de-gegevenskwaliteit-en-betrouwbaarheid" class="section level2">
+<h2>Opmerkingen bij de gegevenskwaliteit en betrouwbaarheid</h2>
+<p>De PNV-indeling wordt gebruikt in de statistische analyse om te corrigeren voor het effect van groeiplaatsfactoren op de trend van de functionele diversiteit. Het PNV-type is gebaseerd op de bodemkaart en groepeert gebieden met een gelijke potentie. Het zegt iets over waar een bostype zich zonder invloed van de mens zou ontwikkelen onder de huidige klimaatomstandigheden, maar zegt niets over het actuele bostype.</p>
+</div>
+<div id="download" class="section level2">
+<h2>Download</h2>
+<p><strong>Broncode indicator</strong>: <a href="../e1_bos_fundiv/e1_bos_fundiv.Rmd">E1_bos_FunDiv.Rmd</a> - <strong>Basisdata boomsoorten</strong>: <a href="../e1_bos_fundiv/tbl0boom.tsv">tbl0Boom.tsv</a> - <strong>Metadata basisdata boomsoorten</strong>: <a href="../e1_bos_fundiv/tbl0boom.yml">tbl0Boom.yml</a> - <strong>Functionele kenmerken</strong>: <a href="../e1_bos_fundiv/traits.tsv">Traits.tsv</a> - <strong>Metadata functionele kenmerken</strong>: <a href="../e1_bos_fundiv/traits.yml">Traits.yml</a> - <strong>Resultaten mixed model</strong>: <a href="../e1_bos_fundiv/bostypesresult.rdata">Bostypes.Rdata</a> - <strong>Tabellen PNV-types</strong>: <a href="../e1_bos_fundiv/pnv.tsv">PNV-type per plot</a>; <a href="../e1_bos_fundiv/bostypes.tsv">Groeperen PNV-types</a> - <strong>Metadata tabellen PNV-types</strong>: <a href="../e1_bos_fundiv/pnv.yml">PNV-type per plot</a>; <a href="../e1_bos_fundiv/bostypes.yml">Groeperen PNV-types</a></p>
+<p><strong>Opmerking</strong>: De geografische coördinaten van de steekproefpunten van de VBI die gebruikt worden voor de opmaak van figuur 2 worden niet meegeleverd. Wie dat wenst, kan daarvoor een aanvraag indienen bij het <a href="https://www.natuurenbos.be/beleid-wetgeving/natuurbeheer/bosinventaris/contact">Agentschap voor Natuur en Bos</a>.</p>
+</div>
+<div id="referenties" class="section level2 unnumbered">
+<h2>Referenties</h2>
+<div id="refs" class="references">
+<div id="ref-baeten_herb_2009">
+<p>Baeten, Lander, Bram Bauwens, An De Schrijver, Luc De Keersmaeker, Hans Van Calster, Kris Vandekerkhove, Bart Roelandt, Hans Beeckman, en Kris Verheyen. 2009. “Herb layer changes (1954-2000) related to the conversion of coppice-with-standards forest and soil acidification”. <em>Applied Vegetation Science</em> 12 (2): 187–97. <a href="https://doi.org/10.1111/j.1654-109X.2009.01013.x">https://doi.org/10.1111/j.1654-109X.2009.01013.x</a>.</p>
+</div>
+<div id="ref-hermy_ecologie_1985">
+<p>Hermy, M. 1985. “Ecologie en fytosociologie van oude en jonge bossen in binnen-Vlaanderen. PhD thesis”. Gent: Universiteit Gent.</p>
+</div>
+<div id="ref-laliberte_distance-based_2010">
+<p>Laliberté, Etienne, en Pierre Legendre. 2010. “A distance-based framework for measuring functional diversity from multiple traits”. <em>Ecology</em> 91 (1): 299–305. <a href="https://doi.org/10.1890/08-2244.1">https://doi.org/10.1890/08-2244.1</a>.</p>
+</div>
+<div id="ref-leuschner_ecology_2018">
+<p>Leuschner, Christoph, en Ina C. Meier. 2018. “The ecology of Central European tree species: Trait spectra, functional trade-offs, and ecological classification of adult trees”. <em>Perspectives in Plant Ecology, Evolution and Systematics</em> 33 (augustus): 89–103. <a href="https://doi.org/10.1016/j.ppees.2018.05.003">https://doi.org/10.1016/j.ppees.2018.05.003</a>.</p>
+</div>
+<div id="ref-liebergesell_functional_2016">
+<p>Liebergesell, Mario, Björn Reu, Ulrike Stahl, Martin Freiberg, Erik Welk, Jens Kattge, J. Hans C. Cornelissen, Josep Peñuelas, en Christian Wirth. 2016. “Functional Resilience against Climate-Driven Extinctions – Comparing the Functional Diversity of European and North American Tree Floras”. <em>PLOS ONE</em> 11 (2): e0148607. <a href="https://doi.org/10.1371/journal.pone.0148607">https://doi.org/10.1371/journal.pone.0148607</a>.</p>
+</div>
+<div id="ref-niinemets_tolerance_2006">
+<p>Niinemets, Ülo, en Fernando Valladares. 2006. “Tolerance to Shade, Drought, and Waterlogging of Temperate Northern Hemisphere Trees and Shrubs”. <em>Ecological Monographs</em> 76 (4): 521–47. <a href="https://doi.org/https://doi.org/10.1890/0012-9615(2006)076%5B0521:TTSDAW%5D2.0.CO;2">https://doi.org/https://doi.org/10.1890/0012-9615(2006)076[0521:TTSDAW]2.0.CO;2</a>.</p>
+</div>
+<div id="ref-norro_plant_2011">
+<p>Norro, P. 2011. “Plant goed!” Brugge: Provincie West-Vlaanderen.</p>
+</div>
+<div id="ref-petit_fichier_2017">
+<p>Petit, S., Hugues Claessens, C. Vincke, Q. Ponette, en D. Marchal. 2017. “Le Fichier écologique des essences, version 2.0”. <em>Forêt.Nature</em>, nr. 143 (april). <a href="https://orbi.uliege.be/handle/2268/216575">https://orbi.uliege.be/handle/2268/216575</a>.</p>
+</div>
+<div id="ref-westra_opmaak_2015">
+<p>Westra, Toon, Pieter Verschelde, Hans Van Calster, Els Lommelen, Thierry Onkelinx, Paul Quataert, en Leen Govaere. 2015. “Opmaak van een analysestramien voor de gegevens van de vlaamse bosinventarisatie (INBO.R.2015.9034827)”. Brussel: Instituut voor Natuur- en Bosonderzoek.</p>
+</div>
+<div id="ref-wouters_ontwerp_2008">
+<p>Wouters, Jasper, Paul Quataert, Thierry Onkelinx, en Dirk Bauwens. 2008. “Ontwerp en handleiding voor de tweede regionale bosinventarisatie van het Vlaamse Gewest. (INBO.R.2008.17).” Brussel: Instituut voor Natuur- en Bosonderzoek.</p>
+</div>
+<div id="ref-yang_ranking_2015">
+<p>Yang, Jun, Yamin Chang, en Pengbo Yan. 2015. “Ranking the suitability of common urban tree species for controlling PM2.5 pollution”. <em>Atmospheric Pollution Research</em> 6 (2): 267–77. <a href="https://doi.org/10.5094/APR.2015.031">https://doi.org/10.5094/APR.2015.031</a>.</p>
+</div>
+</div>
+</div>
+
+<h2>Meer weten?</h2>
+
+<ul>
+<li><a href = "mailto:maarten.stevens@inbo.be">maarten.stevens@inbo.be</a></li>
+</ul>
+
+
+</body>
+</html>

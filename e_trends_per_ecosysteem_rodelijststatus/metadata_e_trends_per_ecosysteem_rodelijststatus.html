@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+
+<html lang="nl" xml:lang="nl">
+
+<head>
+<meta name="INBO-publication-date" content="2020-07-01T10:00:00" /><!-- ISO 8601 timezone: CET/CEST -->
+<meta name="INBO-keywords" content="biodiversiteit, ecosysteem, natuurlijk kapitaal, natural capital accounting, ecosystem condition" />
+<meta name="INBO-name" content="Metadata rode Lijst-status - Heide, Moeras, Kustduinen" />
+<meta name="INBO-tab" content="metadata" />
+<meta name="INBO-chapter" content="5" />
+<meta name="INBO-chapter-title" content="Trends per ecosysteem" />
+<meta name="INBO-theme" content="Beschermde natuur" />
+<meta name="INBO-PureId" content="18013686" />
+<meta name="INBO-language" content="nl" /><!-- ISO 639-1 -->
+<!-- end INBO meta data-->
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+
+<title>Metadata rode Lijst-status - Heide, Moeras, Kustduinen</title>
+
+<script src="../libs/jquery-1.11.3/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="../libs/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
+<script src="../libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="../libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="../libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<style>h1 {font-size: 34px;}
+       h1.title {font-size: 38px;}
+       h2 {font-size: 30px;}
+       h3 {font-size: 24px;}
+       h4 {font-size: 18px;}
+       h5 {font-size: 16px;}
+       h6 {font-size: 12px;}
+       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+       pre:not([class]) { background-color: white }</style>
+<script src="../libs/navigation-1.1/tabsets.js"></script>
+<script src="../libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
+
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+
+<body>
+
+
+<h1 class="title toc-ignore">Metadata rode Lijst-status - Heide, Moeras, Kustduinen</h1>
+
+<div id="technische-informatie" class="section level2">
+<h2>Technische informatie</h2>
+<p>- <strong>Periodiciteit</strong>: niet gekend - <strong>Volgende update</strong>: niet gekend - <strong>Databereik</strong>: 1996 - 2017</p>
+</div>
+<div id="databron" class="section level2">
+<h2>Databron</h2>
+<ul>
+<li><strong>Producent</strong>: Instituut voor Natuur- en Bosonderzoek</li>
+<li><strong>Dataset</strong>: <a href="https://www.gbif.org/dataset/fc18b0b1-8777-4c8a-8cb8-f9f15870d6a9">Gevalideerde Rode Lijsten van Vlaanderen</a></li>
+<li><strong>Gegevensinzameling</strong>: Zie <span class="citation">(Maes e.a. <a href="#ref-maes_database_2019" role="doc-biblioref">2019</a>)</span></li>
+</ul>
+</div>
+<div id="berekeningswijze" class="section level2">
+<h2>Berekeningswijze</h2>
+<p>De Rode Lijsten worden opgesteld per taxonomische groep en kennen soorten toe aan bepaalde categorieën volgens de mate waarin die soort bedreigd is. Indien mogelijk wordt een soort toegekend aan een van de volgende categorieën: ‘regionaal uitgestorven’, ‘ernstig bedreigd’, ‘kwetsbaar’, ‘bijna in gevaar’ of ‘momenteel niet in gevaar’. Lukt dat niet dan wordt de soort toegekend aan de categorieën ‘onvoldoende data’ of ‘niet geëvalueerd’. De categorie onvoldoende data betreft soorten met onvoldoende informatie om de kans op uitsterven goed te bepalen. Er is bijvoorbeeld te weinig geweten over de verspreiding of de populatiegrootte. Niet geëvalueerde soorten zijn soorten die (nog) niet getoetst zijn aan de bedreigingscriteria.</p>
+<p>De gevalideerde Rode Lijsten bevatten zijn 2745 soorten, waaronder achttien niet-inheemse broedvogels die verder buiten beschouwing worden gelaten. Van de overige 2727 soorten zijn er 253 die vooral voorkomen in de biotopen ‘Heathlands’, ‘Marshes’ of ‘Dunes’. Negentien hiervan zijn verbonden met twee van de voornoemde biotopen.</p>
+<p>Informatie over individuele soorten is ook terug te vinden op de INBO-webpagina <a href="https://www.vlaanderen.be/inbo/rode-lijsten/">Rode lijsten</a>.</p>
+<p>De categorieën met gekende bedreigingstatus hebben een logische volgorde. Ze volgen een <a href="https://nl.wikipedia.org/wiki/Meetschaal#Ordinale_schaal">ordinale schaal</a>. We kunnen elk van de categorieën een volgnummer <span class="math inline">\(k\)</span> geven gaande van <span class="math inline">\(k = 1\)</span> voor de meest bedreigde categorie tot <span class="math inline">\(k = 6\)</span> voor de minst bedreigde. <a href="https://en.wikipedia.org/wiki/Ordinal_data">Ordinale data</a> kunnen we met behulp van een <a href="https://en.wikipedia.org/wiki/Ordinal_data#Proportional_odds_model">proprotional odds model (POM)</a> analyseren.</p>
+<p>Een POM beschrijft dat kans dat een soort <span class="math inline">\(y\)</span> tot hoogste categorie <span class="math inline">\(k\)</span> behoort als</p>
+<p><span class="math display">\[\mbox{Prob}(y \le k) = \frac{e^{\gamma_k}}{1 + e^{\gamma_k}}\]</span></p>
+<p>Hierbij hangt <span class="math inline">\(\gamma_k\)</span> af van een drempel <span class="math inline">\(\alpha_k\)</span> tussen categorie <span class="math inline">\(k\)</span> en <span class="math inline">\(k + 1\)</span> en een lineaire predictor <span class="math inline">\(\eta\)</span>.</p>
+<p><span class="math display">\[\gamma_k = \alpha_k - \eta\]</span></p>
+<p>Als lineaire predictor <span class="math inline">\(\eta\)</span> gebruiken we twee componenten: een globaal effect <span class="math inline">\(\beta_0\)</span> en effect per soortengroep <span class="math inline">\(b_i\)</span>. Het globale effect kunnen we interpreteren als het effect voor een gemiddelde soortengroep. Het effect per soortgroep kunnen we gebruiken om de verschillende soortengroepen met elkaar te vergelijken.</p>
+<p><span class="math display">\[\eta = \beta_0 + b_i \quad \quad b_i \sim \mathcal{N}(0, \sigma_s^2)\]</span></p>
+<p>De statistische analyse maakt gebruikt van R versie 4.0.1 en het INLA package.</p>
+</div>
+<div id="opmerkingen-bij-de-gegevenskwaliteit-en-betrouwbaarheid" class="section level2">
+<h2>Opmerkingen bij de gegevenskwaliteit en betrouwbaarheid</h2>
+<p>Momenteel zijn er gevalideerde Rode Lijsten beschikbaar voor amfibieën, broedvogels, dagvlinders, hogere planten, libellen, lieveheersbeestjes, loopkevers, blad-, hauw- en levermossen, reptielen, sprinkhanen en krekels, houtbewonende bladsprietkevers (o.a. vliegend hert), waterwantsen, zoetwatervissen en zoogdieren. Voor de berekening van deze indicator worden enkel de recent gevalideerde Rode Lijsten gebruikt. Ook voor de spinnen, mieren, slankpootvliegen en dansvliegen zijn er Rode Lijsten. Maar omdat er onvoldoende betrouwbare data beschikbaar zijn, kunnen die niet gevalideerd worden.</p>
+</div>
+<div id="download" class="section level2">
+<h2>Download</h2>
+<p><strong>Broncode indicator</strong>: <a href="../e_trends_per_ecosysteem_rodelijststatus/e_trends_per_ecosysteem_rodelijststatus.Rmd">e_trends_per_ecosysteem_rodelijststatus.Rmd</a> - <strong>Basisdata</strong>: <a href="../e_trends_per_ecosysteem_rodelijststatus/rodelijst_interactief.tsv">rodelijst_interactief.tsv</a> - <strong>Metadata basisdata</strong>: <a href="../e_trends_per_ecosysteem_rodelijststatus/rodelijst_interactief.yml">rodelijst_interactief.yml</a></p>
+</div>
+<div id="referenties" class="section level2 unnumbered">
+<h2>Referenties</h2>
+<div id="refs" class="references">
+<div id="ref-maes_database_2019">
+<p>Maes, Dirk, Dimitri Brosens, Filiep T’jollyn, Peter Desmet, Frederic Piesschaert, Stijn Van Hoey, Tim Adriaens, e.a. 2019. “A database of threat statuses and life-history traits of Red List species in Flanders (northern Belgium)”. <em>Biodiversity Data Journal</em> 7 (april): e34089. <a href="https://doi.org/10.3897/BDJ.7.e34089">https://doi.org/10.3897/BDJ.7.e34089</a>.</p>
+</div>
+</div>
+</div>
+
+<h2>Meer weten?</h2>
+
+<ul>
+<li><a href = "mailto:wouter.vanreeth@inbo.be">wouter.vanreeth@inbo.be</a></li>
+</ul>
+
+
+</body>
+</html>

@@ -1,0 +1,135 @@
+..generic:
+  git2rdata: 0.2.1
+  optimize: no
+  NA string: NA
+  sorting: clc_code
+  hash: 680ec952012d8e4517a8b259a03bf7a0d6bf204c
+  data_hash: e87d317ad86b22518277903d9f2b2b95b0647ced
+clc_code:
+  class: integer
+clc_label:
+  class: factor
+  labels:
+  - Airports
+  - Beaches, dunes, sands
+  - Broad-leaved forest
+  - Complex cultivation patterns
+  - Coniferous forest
+  - Construction sites
+  - Continuous urban fabric
+  - Discontinuous urban fabric
+  - Dump sites
+  - Estuaries
+  - Fruit trees and berry plantations
+  - Green urban areas
+  - Industrial or commercial units
+  - Inland marshes
+  - Intertidal flats
+  - Land principally occupied by agriculture, with significant areas of natural vegetation
+  - Mineral extraction sites
+  - Mixed forest
+  - Moors and heathland
+  - Natural grasslands
+  - Non-irrigated arable land
+  - Pastures
+  - Peat bogs
+  - Port Areas
+  - Road and rail networks and associated land
+  - Salt marshes
+  - Sea and ocean
+  - Sport and leasure facilities
+  - Transitional woodland-shrub
+  - Water bodies
+  - Water courses
+  index:
+  - 1
+  - 2
+  - 3
+  - 4
+  - 5
+  - 6
+  - 7
+  - 8
+  - 9
+  - 10
+  - 11
+  - 12
+  - 13
+  - 14
+  - 15
+  - 16
+  - 17
+  - 18
+  - 19
+  - 20
+  - 21
+  - 22
+  - 23
+  - 24
+  - 25
+  - 26
+  - 27
+  - 28
+  - 29
+  - 30
+  - 31
+  ordered: no
+nara5_code:
+  class: integer
+nara5_label:
+  class: factor
+  labels:
+  - Akker en grasland
+  - Bos en terrestrische natuur
+  - Stedelijk en bebouwd gebied
+  - Zee
+  - Zoetwater en estuarium
+  index:
+  - 1
+  - 2
+  - 3
+  - 4
+  - 5
+  ordered: no
+nara5_labels:
+  class: factor
+  labels:
+  - landbouw
+  - natuur
+  - urbaan
+  - water
+  - zee
+  index:
+  - 1
+  - 2
+  - 3
+  - 4
+  - 5
+  ordered: no
+nara10_code:
+  class: integer
+nara10_label:
+  class: factor
+  labels:
+  - Akker
+  - Bos en houtige vegetatie
+  - Grasland
+  - Heide en struiken
+  - Marien - Estuarium
+  - Marien - Zee
+  - Moeras
+  - Stedelijk en bebouwd gebied
+  - Strand en duinen
+  - Zoetwater
+  index:
+  - 1
+  - 2
+  - 3
+  - 4
+  - 5
+  - 6
+  - 7
+  - 8
+  - 9
+  - 10
+  ordered: no

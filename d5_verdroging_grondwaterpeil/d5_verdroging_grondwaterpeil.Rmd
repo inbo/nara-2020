@@ -1,0 +1,137 @@
+---
+title: "Verdroging - Grondwaterpeil in grondwaterafhankelijke vegetaties"
+date: 2020-07-01T10:00:00
+bibliography: ../references.bib
+link-citations: TRUE
+hoofdstuk: 4
+thema:
+  - Water
+  - Klimaat
+  - Bodem & lucht
+keywords:
+  - grondwater
+  - droogte
+  - verdroging
+lang: nl
+tab: indicator
+verantwoordelijke:
+- Katrijn Alaerts <katrijn.alaerts@inbo.be>
+output: html_document
+---
+
+```{r setup, include=FALSE}
+library(knitr)
+opts_chunk$set(message = FALSE, warning = FALSE, echo = FALSE)
+library(tidyverse)
+library(git2rdata)
+library(plotly)
+library(INBOtheme)
+library(htmlwidgets)
+
+theme_set(theme_nara())
+switch_colour(inbo_hoofd)
+
+set.seed(20200520)
+setWidgetIdSeed(20200520)
+options(htmlwidgets.TOJSON_ARGS = list(pretty = TRUE))
+```
+
+```{r data_inlezen} 
+gegevens <- read_vc("grondwaterpeil_vegetaties")
+```
+Het grondwaterpeil in grondwaterafhankelijke vegetaties bevindt zich steeds vaker onder een kritische drempelwaarde.
+
+```{r grafiek, fig.width = 6, fig.height = 4, fig.cap = "Figuur 1. Gemiddeld aantal dagen per jaar dat het grondwaterpeil op 58 meetlocaties onder een kritische minimumdrempel daalt (1985-2018): gemeten gemiddelden (dunne roze lijn), gemodelleerde trend (dikke roze lijn) en 95% betrouwbaarheidsinterval. De horizontale streepjeslijn is het verwachte aantal dagen per jaar dat de drempel overschreden wordt (zie metadata). De meetlocaties bevinden zich allemaal in de buurt van grondwaterafhankelijke vegetaties. Brondata: WATINA-databank [@inbo_watina_2020]. Deze figuur verwijst naar Figuur 49 in het Natuurrapport 2020."}
+
+gegevens <- gegevens %>%
+  mutate(Drempel = 18) %>%
+  mutate(
+    Meting = round(aantal_dagen, 1), Trend = round(trend, 1),
+    Betrouwbaarheidsinterval = paste(round(lw, 1), "-", round(up, 1)),
+    Jaar = jaar
+  )
+
+p <- ggplot(gegevens, aes(x = Jaar, group = 1)) +
+  geom_line(aes(y = aantal_dagen, text = paste("Gemeten gemiddelde:", Meting)),
+    color = inbo_hoofd, size = 0.3
+  ) +
+  geom_ribbon(aes(ymin = lw, ymax = up, label = Betrouwbaarheidsinterval),
+    fill = inbo_steun_donkerroos, alpha = 0.3
+  ) +
+  geom_line(aes(y = trend, label = Trend),
+    color = inbo_steun_donkerroos,
+    size = 0.6
+  ) +
+  geom_line(aes(y = Drempel, label = Drempel),
+    color = inbo_steun_blauw,
+    linetype = "dashed"
+  ) +
+  scale_y_continuous("AANTAL DAGEN ONDER KRITISCH MINIMUM",
+    expand = c(0, 0),
+    limits = c(0, 120), breaks = c(0, 30, 60, 90, 120)
+  ) +
+  scale_x_continuous("",
+    breaks = c(1985, 1990, 1995, 2000, 2005, 2010, 2015, 2020)
+  ) +
+  theme(
+    axis.title = element_text(
+      size = 9,
+      margin = margin(t = 0, r = 0, b = 0, l = 0),
+      hjust = 0
+    ),
+    axis.text = element_text(size = 9)
+  ) +
+  theme(legend.position = "none")
+
+if (interactive() || opts_knit$get("rmarkdown.pandoc.to") == "html") {
+  ggplotly(p, tooltip = c("x", "text", "label")) %>%
+    plotly::config(
+      modeBarButtonsToRemove = list(
+        "lasso2d", "select2d", "hoverClosestCartesian",
+        "hoverCompareCartesian", "toggleSpikelines"
+      ),
+      displaylogo = FALSE
+    )
+} else {
+  p
+}
+```
+
+## Definitie
+
+De indicator toont het gemiddelde aantal dagen per jaar dat het **grondwaterpeil in de buurt van grondwaterafhankelijke vegetaties onder een kritische minimumdrempel** daalt. Hoe hoger dit cijfer, hoe veelvuldiger of langduriger de periodes van droogte die de vegetaties doorheen het jaar ervaren. 
+
+## Bespreking
+
+Een hoge **piek** in het gemiddelde aantal overschrijdingsdagen wijst op **droogte**. 
+Dat is een natuurlijk verschijnsel. 
+Als gevolg van een tekort aan neerslag is er tijdelijk minder water beschikbaar voor mens en natuur. 
+Droge en natte jaren wisselen elkaar af. 
+Een toenemende **trend** over de jaren heen duidt op **verdroging**: een langetermijnproces dat voortvloeit uit de menselijke verstoring van de natuurlijke watercyclus. 
+Door grond- en oppervlaktewater op te pompen, de bodem af te dichten, rivieren recht te trekken, het mondiale klimaat te beïnvloeden … is er langzamerhand minder water voorhanden.
+
+Wanneer de grondwaterpeilen systematisch dalen, komen natuurtypes die grondwater nodig hebben voor hun voortbestaan in de problemen. 
+De laatste decennia komen **lage grondwaterpeilen** in zulke grondwaterafhankelijke vegetaties **vaker voor dan vroeger**. 
+Het jaarlijkse aantal dagen met een lage grondwaterstand vertoont een grillig, maar langzaam stijgend verloop sinds de jaren tachtig. 
+De trend is significant positief. 
+Droge jaren doen zich elk nieuw decennium frequenter voor: tussen 1985 en 1994 tekenen zich twee droogtepieken af, tussen 2005 en 2014 zijn er dat zes. 
+Sinds 2015 zijn de grondwaterpeilen goed op weg om nieuwe laagterecords te breken.
+
+Binnen de grondwaterafhankelijke vegetaties zijn er types die permanent en types die slechts tijdelijk grondwater nodig hebben. 
+Het geschetste patroon is **vergelijkbaar over alle verschillende types** heen. 
+Droge jaren hebben wel een iets sterker effect op de grondwaterpeilen in vegetaties van matig natte en vochtige milieus dan op de grondwaterpeilen in vegetaties van zeer natte en natte milieus. 
+
+De geobserveerde trend brengt een **belangrijk deel van onze natuur in gevaar**. 
+Driekwart van de voor Vlaanderen en Europa meest waardevolle natuurtypes^[Berekend voor het geheel aan Europese habitattypes en regionaal belangrijke biotopen. De grondwaterafhankelijkheid van elk habitattype of elke biotoop is gebaseerd op expertinschattingen.], steunen voor hun voortbestaan op grondwater. 
+Grondwaterafhankelijke vegetaties komen voor in en op de rand van kwelgebieden, beekvalleien, vijvers en poelen.
+De vochtige gebieden vertonen vaak veel gradiënten en herbergen daarom een hoge biodiversiteit [@de_becker_ecohydrologische_2020]. 
+Als het grondwater door verdroging van samenstelling verandert, of systematisch buiten het bereik van de plantenwortels en de bovengrondse delen van waterplanten valt, krijgen typische soorten het moeilijk. 
+Slagen die soorten er niet in om zich aan te passen of om hun leefgebied te verschuiven, dan dreigen ze te verdwijnen. 
+Dat risico wordt groter als bijvoorbeeld het landgebruik of het grondwaterregime in de omgeving de beschikbare ruimte om uit te wijken beperkt. 
+
+Grondwaterpeilen reageren met enige vertraging op de neerslag, afhankelijk van de positie in het landschap, de waterdoorlatendheid van de bodem, de aanwezige vegetatie en menselijke ingrepen. 
+Het kan dus een tijdje duren vooraleer het grondwaterpeil na een droogteperiode weer een normale toestand bereikt. 
+Het effect van een occasionele heel lage grondwaterstand is beperkt, zeker als de neerslag in de tussentijd het bodemvochtgehalte op peil houdt [@willems_uitwerking_2020]. 
+Dat de laatste jaren heel lage grondwaterstanden steeds frequenter voorkomen, vergroot de kans op **permanente wijzigingen** in grondwaterafhankelijke systemen. 
+
+## Referenties

@@ -1,0 +1,15 @@
+..generic:
+  git2rdata: 0.2.1
+  optimize: no
+  NA string: NA
+  sorting:
+  - rand
+  - opp
+  hash: f4071f4f400d40cfa6ec47e6fe79182657102071
+  data_hash: 82313702db1ccb92ac371d13a030034d68e57d86
+jaar:
+  class: integer
+rand:
+  class: numeric
+opp:
+  class: numeric

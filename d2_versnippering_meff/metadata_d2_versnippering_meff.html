@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+
+<html lang="nl" xml:lang="nl">
+
+<head>
+<meta name="INBO-publication-date" content="2020-07-01T10:00:00" /><!-- ISO 8601 timezone: CET/CEST -->
+<meta name="INBO-keywords" content="versnippering, landgebruiksveranderingen, connectiviteit, open ruimte, natuur, onbebouwde ruimte" />
+<meta name="INBO-name" content="Metadata versnippering - Effective mesh size (Meff)" />
+<meta name="INBO-tab" content="metadata" />
+<meta name="INBO-chapter" content="4" />
+<meta name="INBO-chapter-title" content="De biodiversiteit onder druk" />
+<meta name="INBO-theme" content="Natuur &amp; maatschappij, Beschermde natuur" />
+<meta name="INBO-PureId" content="18013686, 18013709" />
+<meta name="INBO-language" content="nl" /><!-- ISO 639-1 -->
+<!-- end INBO meta data-->
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+
+<title>Metadata versnippering - Effective mesh size (Meff)</title>
+
+<script src="../libs/jquery-1.11.3/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="../libs/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
+<script src="../libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="../libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="../libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<style>h1 {font-size: 34px;}
+       h1.title {font-size: 38px;}
+       h2 {font-size: 30px;}
+       h3 {font-size: 24px;}
+       h4 {font-size: 18px;}
+       h5 {font-size: 16px;}
+       h6 {font-size: 12px;}
+       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+       pre:not([class]) { background-color: white }</style>
+<script src="../libs/navigation-1.1/tabsets.js"></script>
+<script src="../libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
+<script src="../libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="../libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
+
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+
+<body>
+
+
+<h1 class="title toc-ignore">Metadata versnippering - Effective mesh size (Meff)</h1>
+
+<div id="technische-informatie" class="section level2">
+<h2>Technische informatie</h2>
+<p>- <strong>Periodiciteit</strong>: eenmalig - <strong>Volgende update</strong>: onbekend - <strong>Databereik</strong>: 2016</p>
+</div>
+<div id="databron" class="section level2">
+<h2>Databron</h2>
+<ul>
+<li><strong>Producent</strong>: Instituut voor Natuur- en Bosonderzoek</li>
+<li><strong>Dataset</strong>: <a href="https://www.geopunt.be/catalogus/datasetfolder/78e82101-8fbc-4a75-b649-b208df2b77be">Landgebruiksbestand Vlaanderen 2016</a></li>
+<li><strong>Gegevensinzameling</strong>: De opmaak van het landgebruiksbestand Vlaanderen wordt beschreven in <span class="citation">Poelmans, Janssen, en Hambsch (<a href="#ref-poelmans_landgebruik_2019" role="doc-biblioref">2019</a>)</span>.</li>
+</ul>
+</div>
+<div id="berekeningswijze" class="section level2">
+<h2>Berekeningswijze</h2>
+<p>De Meff (Mean EFFective mesh size of gemiddelde effectieve maasgrootte) is een maat voor de grootte van de mazen in het ecologische netwerk <span class="citation">(EEA <a href="#ref-eea_landscape_2011" role="doc-biblioref">2011</a>; Schneiders, De Reu, en Wils <a href="#ref-schneiders_fragmentatie-indicator_2019" role="doc-biblioref">2019</a>)</span>. Het is een maat voor de habitatvlek waarbinnen beweging van één punt naar een ander punt in het landschap mogelijk is. Meff is met andere woorden de maasgrootte waarbinnen een organisme zich nog vrij kan bewegen en wordt berekend in km²:</p>
+<p><span class="math display">\[m_{eff} = \frac{1}{A_{totaal}}\sum_{i=1}^{n} A_{i}^2\]</span> met <span class="math inline">\(n\)</span> het aantal vlekken in een rapporteringseenheid, <span class="math inline">\(A_{i}\)</span> de oppervlakte van vlek <span class="math inline">\(i\)</span> binnen de grenzen van de rapporteringseenheid en <span class="math inline">\(A_{totaal}\)</span> de oppervlakte van de rapporteringseenheid. <span class="math inline">\(m_{eff}\)</span> varieert tussen 0 (de volledige rapporteringseenheid bestaat uit infrastructuur of niet-habitat) en de oppervlakte van de rapporteringsdeenheid (1 km² in ons geval).</p>
+<p>De Meff wordt berekend voor de onbebouwde ruimte en voor de natuurlijke ruimte. De <strong>onbebouwde ruimte</strong> groepeert alle landgebruikscellen die geen gebouwen, infrastructuur of afgedekte bodem zijn. <strong>Natuur</strong> omvat de ‘natuurlijke’ ecosystemen heide, moeras, bos, kustduin, halfnatuurlijk grasland en slik en schor. De landgebruikskaart 2016 vormt de basis voor de afbakening van de onbebouwde en natuurlijke ruimte. De landgebruikskaart is gebaseerd op het landgebruiksbestand Vlaanderen 2016 <span class="citation">(Poelmans, Janssen, en Hambsch <a href="#ref-poelmans_landgebruik_2019" role="doc-biblioref">2019</a>)</span>. Dit bestand bestaat uit vier thematische lagen: de bodembedekking (niveau 1), verstedelijkt landgebruik (niveau 2), multifunctioneel landgebruik (niveau 3) en haventerreinen en militaire domeinen (niveau 4). De bodembedekkingslaag vormt de basis van de landgebruikskaart, maar werd licht aangepast voor het Natuurrapport 2020 <a href="https://www.vlaanderen.be/inbo/backgroundindicatoren/landgebruiksverandering-ecosysteemvoorraad-landgebruiksbestand-vlaanderen">(Zie Landgebruiksveranderingen - Ecosysteemvoorraad Landgebruiksbestand Vlaanderen)</a>.</p>
+<p>Tabel 1 geeft een overzicht van de indeling van de klassen van de landgebruikskaart voor de afbakening van de onbebouwde ruimte en natuur. Permanente cultuurgraslanden en ‘Overig laag groen’ die onder natuurbeheer vallen, worden tot natuur gerekend. De percelen onder natuurbeheer zijn alle percelen die eind 2016-begin 2017 in beheer en/of eigendom waren van de erkende terreinbeherende verenigingen (Natuurpunt, Limburgs Landschap en vzw Durme) en de domeinbossen, militaire domeinen en natuurdomeinen die beheerd worden door het Agentschap voor Natuur en Bos (patrimoniumdatabank 2017).</p>
+<div style="border: 1px solid #ddd; padding: 0px; overflow-y: scroll; height:400px; overflow-x: scroll; width:100%; ">
+<table class="table table-striped table-hover" style="margin-left: auto; margin-right: auto;">
+<caption>
+Tabel 1. Indeling van de klassen van de landgebruikskaart 2016 voor de afbakening van de onbebouwde en natuurlijke ruimte.
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+Landgebruiksklasse
+</th>
+<th style="text-align:center;position: sticky; top:0; background-color: #FFFFFF;">
+Onbebouwde ruimte
+</th>
+<th style="text-align:center;position: sticky; top:0; background-color: #FFFFFF;">
+Natuur
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+Ruigte
+</td>
+<td style="text-align:center;">
+x
+</td>
+<td style="text-align:center;">
+x
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Struweel
+</td>
+<td style="text-align:center;">
+x
+</td>
+<td style="text-align:center;">
+x
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Loofbos
+</td>
+<td style="text-align:center;">
+x
+</td>
+<td style="text-align:center;">
+x
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Populieren
+</td>
+<td style="text-align:center;">
+x
+</td>
+<td style="text-align:center;">
+x
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Naaldbos
+</td>
+<td style="text-align:center;">
+x
+</td>
+<td style="text-align:center;">
+x
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Alluviaal bos
+</td>
+<td style="text-align:center;">
+x
+</td>
+<td style="text-align:center;">
+x
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Halfnatuurlijk grasland
+</td>
+<td style="text-align:center;">
+x
+</td>
+<td style="text-align:center;">
+x
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Heide
+</td>
+<td style="text-align:center;">
+x
+</td>
+<td style="text-align:center;">
+x
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Kustduin
+</td>
+<td style="text-align:center;">
+x
+</td>
+<td style="text-align:center;">
+x
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Moeras
+</td>
+<td style="text-align:center;">
+x
+</td>
+<td style="text-align:center;">
+x
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Slik en schorre
+</td>
+<td style="text-align:center;">
+x
+</td>
+<td style="text-align:center;">
+x
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Akker
+</td>
+<td style="text-align:center;">
+x
+</td>
+<td style="text-align:center;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Niet geregistreerde landbouw
+</td>
+<td style="text-align:center;">
+x
+</td>
+<td style="text-align:center;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Hoogstam boomgaard
+</td>
+<td style="text-align:center;">
+x
+</td>
+<td style="text-align:center;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Laagstam boomgaard
+</td>
+<td style="text-align:center;">
+x
+</td>
+<td style="text-align:center;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Cultuurgrasland permanent
+</td>
+<td style="text-align:center;">
+x
+</td>
+<td style="text-align:center;">
+indien onder natuurbeheer
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Gebouw
+</td>
+<td style="text-align:center;">
+</td>
+<td style="text-align:center;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Overig laag groen
+</td>
+<td style="text-align:center;">
+x
+</td>
+<td style="text-align:center;">
+indien onder natuurbeheer
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Overig hoog groen
+</td>
+<td style="text-align:center;">
+x
+</td>
+<td style="text-align:center;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Weg
+</td>
+<td style="text-align:center;">
+</td>
+<td style="text-align:center;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Spoorweg
+</td>
+<td style="text-align:center;">
+</td>
+<td style="text-align:center;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Water
+</td>
+<td style="text-align:center;">
+</td>
+<td style="text-align:center;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Overig
+</td>
+<td style="text-align:center;">
+</td>
+<td style="text-align:center;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Overgangswater
+</td>
+<td style="text-align:center;">
+</td>
+<td style="text-align:center;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Marien
+</td>
+<td style="text-align:center;">
+</td>
+<td style="text-align:center;">
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Barrières zoals (spoor)wegen en waterlopen delen de habitatvlekken van de onbebouwde en natuurlijke ruimte verder op in kleinere fragmenten. Voor de <strong>wegen</strong> die als barrière fungeren worden de autosnelwegen en wegen met gescheiden rijbanen geselecteerd uit het <a href="http://www.geopunt.be/catalogus/webservicefolder/91e33906-ef95-4a1e-810b-d135d0783f43">wegenregister 2019</a>. De vectorlaag met de <strong>spoorwegen</strong> is afkomstig uit de Mercator databank 2006. Voor de <strong>waterlopen</strong> worden de bevaarbare waterlopen en de onbevaarbare waterlopen van eerste categorie uit de <a href="https://www.geopunt.be/catalogus/datasetfolder/408b8ef8-b731-4358-a5b0-9e028e074180">Vlaamse Hydrografische Atlas (VHA 2019)</a> geselecteerd. Alle vectorkaarten worden omgezet naar rasters met een resolutie van 10 m.</p>
+</div>
+<div id="opmerkingen-bij-de-gegevenskwaliteit-en-betrouwbaarheid" class="section level2">
+<h2>Opmerkingen bij de gegevenskwaliteit en betrouwbaarheid</h2>
+<p>De Meff-score is berekend op basis van de landgebruikskaart. De validatie van de landgebruikskaart toont aan dat de betrouwbaarheid van de klasse ‘overig’ laag is <a href="https://www.vlaanderen.be/inbo/backgroundindicatoren/landgebruiksverandering-validatie">(zie Landgebruiksveranderingen - Validatie)</a>. ‘Overig’ blijkt vaak onterecht geklasseerd te zijn als laag groen en vise versa. Vooral in droge periodes wordt heel wat laag groen niet herkend en onterecht geklasseerd als ‘overig’. Aangezien ‘overig’ geen deel uitmaakt van de onbebouwde ruimte of natuur en laag groen wel, beïnvloeden de foute classificaties de uitkomst van de Meff-berekening. Vooral wanneer de Meff vergeleken wordt tussen verschillende jaren, moeten de resultaten met enige voorzichtigheid geïnterpreteerd worden.</p>
+</div>
+<div id="download" class="section level2">
+<h2>Download</h2>
+<p><strong>Broncode indicator</strong>: <a href="../d2_versnippering_meff/d2_versnippering_meff.Rmd">d2_versnippering_meff.Rmd</a> - <strong>Basisdata</strong>: <a href="../d2_versnippering_meff/data.tsv">data.tsv</a> - <strong>Metadata basisdata</strong>: <a href="../d2_versnippering_meff/data.yml">data.yml</a></p>
+</div>
+<div id="referenties" class="section level2 unnumbered">
+<h2>Referenties</h2>
+<div id="refs" class="references">
+<div id="ref-eea_landscape_2011">
+<p>EEA. 2011. “Landscape fragmentation in Europe. Joint EEA-FOEN report”. Kopenhagen: European Environment Agency.</p>
+</div>
+<div id="ref-poelmans_landgebruik_2019">
+<p>Poelmans, Lien, Liliane Janssen, en Lorenz Hambsch. 2019. “Landgebruik en ruimtebeslag in Vlaanderen, toestand 2016, uitgevoerd in opdracht van het Vlaams Planbureau voor Omgeving.” Mol: VITO.</p>
+</div>
+<div id="ref-schneiders_fragmentatie-indicator_2019">
+<p>Schneiders, Anik, Jeroen De Reu, en Carine Wils. 2019. “Fragmentatie-indicator voor Vlaanderen: Technisch achtergondrapport voor de natuurverkenning 2050. Rapporten van het Instituut voor Natuur- en Bosonderzoek 2019 (5)”. Brussel: Instituut voor Natuur- en Bosonderzoek. <a href="10.21436/inbor.15785181">10.21436/inbor.15785181</a>.</p>
+</div>
+</div>
+</div>
+
+<h2>Meer weten?</h2>
+
+<ul>
+<li><a href = "mailto:maarten.stevens@inbo.be">maarten.stevens@inbo.be</a></li>
+</ul>
+
+
+</body>
+</html>

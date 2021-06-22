@@ -1,0 +1,352 @@
+---
+title: "Bos - Natuurlijkheidsgraad van bossen en volume dood hout"
+date: 2020-07-01T10:00:00
+bibliography: ../references.bib
+link-citations: TRUE
+hoofdstuk: 5
+thema:
+  - Bos
+keywords:
+  - bosindex
+  - natuurlijkheid
+  - authenticiteitsindex
+  - dood hout
+  - liggend dood hout
+  - staand dood hout
+  - bosstructuur
+  - kruidlaag
+  - boomlaag
+lang: nl
+tab: indicator
+verantwoordelijke:
+- Maarten Stevens <maarten.stevens@inbo.be>
+output: html_document
+---
+
+```{r setup, include=FALSE}
+
+library(knitr)
+opts_chunk$set(
+  message = FALSE,
+  warning = FALSE,
+  echo = FALSE
+)
+library(tidyverse)
+library(git2rdata)
+library(plotly)
+library(INBOtheme)
+library(htmlwidgets)
+library(lme4)
+library(glmmTMB)
+library(ggeffects)
+library(here)
+
+theme_set(theme_nara()) # het nara-kleurenpallet selecteren
+switch_colour(inbo_hoofd) # het INBO-kleurenpallet activeren
+
+set.seed(20200520)
+setWidgetIdSeed(20200520)
+options(htmlwidgets.TOJSON_ARGS = list(pretty = TRUE))
+```
+
+```{r data_inlezen}
+gegevens <- read_vc("dataai") %>% # Dataset voor analyse authenticiteitsindex
+  filter(HL != 0)
+
+doodhout <- read_vc("datadoodhout") %>% # Dataset voor analyse dood hout
+  drop_na(totaal) %>%
+  mutate(OwnerType = recode(OwnerType, "Public" = "Publiek",
+                            "Private" = "Privaat")) %>%
+  rename(periode = Periode)
+```
+
+```{r data_bewerken, results='hide', cache = TRUE}
+
+# Poisson mixed model voor elke deelvariabele
+
+mtot <- lmer(data = gegevens, Totalcor ~ fPeriode * StandType + (1 | IDGroup))
+# Totaalscore AI
+mfs <- lmer(data = gegevens, FScor ~ fPeriode * StandType + (1 | IDGroup))
+# Bosstructuur
+mwl <- lmer(data = gegevens, WLcor ~ fPeriode * StandType + (1 | IDGroup))
+# Boslaag
+mhl <- lmer(data = gegevens, HL ~ fPeriode * StandType + (1 | IDGroup))
+# Kruidlaag
+mdw <- glmmTMB(DWcor ~ fPeriode * StandType + (1 | IDGroup),
+  data = gegevens, # Dood hout
+  ziformula = ~1, family = ziGamma(link = "log")
+)
+
+# Voorspelde waarden berekenen voor de grafiek
+
+pred_mtot <- ggpredict(mtot, terms = c("fPeriode", "StandType")) %>%
+  mutate(x = recode(x, "1" = "VBI 1", "2" = "VBI 2")) %>%
+  mutate(index = "Totaal")
+pred_mfs <- ggpredict(mfs, terms = c("fPeriode", "StandType")) %>%
+  mutate(x = recode(x, "1" = "VBI 1", "2" = "VBI 2")) %>%
+  mutate(index = "Bosstructuur")
+pred_mwl <- ggpredict(mwl, terms = c("fPeriode", "StandType")) %>%
+  mutate(x = recode(x, "1" = "VBI 1", "2" = "VBI 2")) %>%
+  mutate(index = "Boomlaag")
+pred_mhl <- ggpredict(mhl, terms = c("fPeriode", "StandType")) %>%
+  mutate(x = recode(x, "1" = "VBI 1", "2" = "VBI 2")) %>%
+  mutate(index = "Kruidlaag")
+pred_mdw <- ggpredict(mdw, terms = c("fPeriode", "StandType"),
+                      type = "fe.zi") %>%
+  mutate(x = recode(x, "1" = "VBI 1", "2" = "VBI 2")) %>%
+  mutate(index = "Dood hout")
+
+pred_m <- base::rbind(pred_mtot, pred_mfs, pred_mwl, pred_mhl, pred_mdw)
+
+# Hernoemen bestandstypes
+pred_m <- pred_m %>%
+  mutate(groupkort = recode(group, "gemengd naaldhout" = "G\nnaald",
+                            "gemengd loofhout" = "G\nloof",
+                            "naaldhout" = "naald", "loofhout" = "loof"))
+
+# Maximale scores voor deelaspecten
+tot <- 72
+dw <- 15
+fs <- 16
+hl <- 20
+wl <- 21
+```
+
+De natuurlijkheidsgraad van bossen neemt toe, maar het volume dood hout ligt nog onder de ecologische streefcijfers.
+
+```{r staafdiagram, fig.width = 10, fig.height = 5, fig.cap = "Figuur 1. Gemiddelde en 95% betrouwbaarheidsinterval van de totaalscore en deelscores van de authenticiteitsindex voor de verschillende bestandtypes in de Vlaamse bosinventaris (VBI). G loof = gemengd loofhout, G naald = gemengd naaldhout. Boven elke figuur staat de maximaal haalbare score op basis van de deelindicatoren die in beide inventarisatieperiodes op dezelfde manier zijn gemeten. Deze figuur verwijst naar figuur 77 uit het Natuurrapport 2020."}
+
+labels <- c("Boomlaag\n(max = 21)", "Bosstructuur\n(max = 16)",
+            "Dood hout\n(max = 15)", "Kruidlaag\n(max = 20)",
+            "Totaal\n(max = 72)")
+names(labels) <- c("Boomlaag", "Bosstructuur", "Dood hout",
+                   "Kruidlaag", "Totaal")
+
+p <- ggplot(pred_m, aes(
+  x = groupkort, y = predicted, fill = x,
+  text = paste(
+    "Periode: ", x,
+    "\nSchatting: ", round(predicted, 2),
+    "\nBI: ", round(conf.low, 2), " - ", round(conf.high, 2)
+  )
+)) +
+  geom_bar(stat = "identity", position = "dodge", width = 0.8) +
+  geom_errorbar(aes(ymin = conf.low, ymax = conf.high, ), width = 0.05,
+                colour = "black", position = position_dodge(width = 0.7)) +
+  scale_y_continuous(expand = c(0, 0)) +
+  labs(y = "GEMIDDELDE SCORE", fill = "") +
+  theme(
+    axis.title.x = element_blank(),
+    axis.title.y = element_text(margin = margin(t = 0, r = 10, b = 0, l = 0),
+                                hjust = 0),
+    legend.key.size = unit(0.3, "cm"),
+    strip.background = element_rect(fill = inbo_lichtgrijs),
+  ) +
+  facet_wrap(~index, scales = "free_y", labeller = labeller(index = labels),
+             nrow = 1)
+
+t <- ggplotly(p, tooltip = c("text"))
+t[["x"]][["layout"]][["shapes"]][[2]][["y1"]] <- 35
+t[["x"]][["layout"]][["shapes"]][[6]][["y1"]] <- 35
+t[["x"]][["layout"]][["shapes"]][[8]][["y1"]] <- 35
+t[["x"]][["layout"]][["shapes"]][[10]][["y1"]] <- 35
+t[["x"]][["layout"]][["shapes"]][[4]][["y1"]] <- 35
+t[["x"]][["layout"]][["annotations"]][[1]][["x"]] <- -0.03
+
+t
+```
+
+## Definitie
+
+De authenticicteitsindex (AI) is een maat voor de natuurlijkheid van een bos en bestaat uit een aantal indicatoren die
+gegroepeerd worden in vier pijlers: de boomlaag, de bosstructuur, de kruidlaag en dood hout [@van_den_meersschaut_selectie_2001].
+
+## Bespreking
+
+Een hoge biodiversiteit gaat meestal gepaard met een hoge graad van natuurlijkheid.
+De authenticiteitsindex is het laagst voor naaldhoutbestanden, maar stijgt voor alle bestandstypes (zie Figuur 1). 
+Die stijging is grotendeels toe te schrijven aan de score voor de boomlaag (bestandsleeftijd, sluitingsgraad, boomsoortenmenging).
+Voor de pijler dood hout werden alleen staande dode bomen in rekening gebracht, en die zijn zeldzaam, waardoor de deelscore zeer laag is. 
+Als ook het liggend dood hout in rekening gebracht wordt, neemt de AI verder toe.
+
+Dood hout is essentieel voor een groot aantal soorten en speelt een belangrijke rol in de nutriëntenkringloop. 
+Het totale volume dood hout (staand en liggend) is lager in publieke (17,9 m²/ha) dan in private bossen (20,6 m²/ha) (Figuur 2). 
+Die volumes liggen ruim onder de streefcijfers die nodig zijn voor een volledige dood-houtbiodiversiteit (30 m²/ha) en voor de meest veeleisende soorten (50 m²/ha) [@vandekerkhove_hoofdstuk_2018]. 
+De hoogste volumes zijn in de praktijk haalbaar in reservaten. 
+In het oudste bosreservaat van Vlaanderen (Zoniën) nam het dood-houtvolume toe van 29 kubieke meter per hectare in 1986 tot 110 kubieke meter per hectare in 2010 [@vandekerkhove_merkwaardige_2012].
+
+```{r functie}
+# Functie voor design-based analyse (zie Westra et al., 2015)
+# Berekening gewogen gemiddelde en 95% betrouwbaarheidsintervallen op basis van
+# gewogen variantie
+
+mywgtparestimation <- function(data, variablename, periode = NA, minreeks = 1,
+                                maxreeks = 12, minyear = 1, maxyear = 9999,
+                                usestrata = rep(FALSE, 1000), strata) {
+  if (is.na(periode)) {
+    datasel <- data[data$Reeks <= maxreeks &
+      data$Reeks >= minreeks &
+      data$Year >= minyear &
+      data$Year <= maxyear, , drop = FALSE]
+  } else {
+    datasel <- data[data$periode == periode &
+      data$Reeks <= maxreeks &
+      data$Reeks >= minreeks &
+      data$Year >= minyear &
+      data$Year <= maxyear, , drop = FALSE]
+  }
+
+  i <- 1
+  # Doorloop de functie voor iedere gedefinieerde respons
+  for (Var in variablename) {
+
+    # Indien we per strata werken
+    if (usestrata[i]) {
+      s <- 1
+
+      # Loop over alle strata
+      for (Stratum in levels(datasel[, strata[i]])) {
+        datastrat <- datasel[!is.na(datasel[, strata[i]]) &
+                               (datasel[, strata[i]] == Stratum), ,
+                             drop = FALSE]
+
+        variable <- datastrat[, Var]
+
+        if (nrow(datastrat) > 0) {
+          wgtmean <- sum(datastrat$Weight * variable, na.rm = TRUE) /
+            (sum(datastrat$Weight * (!is.na(variable)), na.rm = TRUE))
+        } else {
+          wgtmean <- NA
+        }
+
+        if (nrow(datastrat) > 1) {
+          v1 <- sum(datastrat$Weight * (!is.na(variable)), na.rm = TRUE)
+
+          v2 <- sum(((datastrat$Weight) * (!is.na(variable)))^2, na.rm = TRUE)
+
+          wgtvar <- sum(datastrat$Weight * (variable - wgtmean)^2) /
+            (v1 - (v2 / v1))
+
+          lci <- wgtmean - 1.96 * sqrt(wgtvar) / sqrt(v1)
+
+          uci <- wgtmean + 1.96 * sqrt(wgtvar) / sqrt(v1)
+        } else {
+          wgtvar <- NA
+
+          lci <- NA
+
+          uci <- NA
+        }
+
+        outputs <- data.frame(
+          variabele = Var,
+          strata = strata[i],
+          stratumNaam = Stratum,
+          periode = periode,
+          minyear = ifelse(nrow(datastrat) > 0, min(datastrat$Year,
+                                                    na.rm = TRUE), NA),
+          maxyear = ifelse(nrow(datastrat) > 0, max(datastrat$Year,
+                                                    na.rm = TRUE), NA),
+          minreeks = ifelse(nrow(datastrat) > 0, min(datastrat$Reeks,
+                                                     na.rm = TRUE), NA),
+          maxreeks = ifelse(nrow(datastrat) > 0, max(datastrat$Reeks,
+                                                     na.rm = TRUE), NA),
+          nbObservaties = length(datastrat$IDPlots),
+          wgtmean = wgtmean,
+          wgtvar = wgtvar,
+          llci = lci,
+          ulci = uci
+        )
+        if (s <= 1) {
+          outputt <- outputs
+        } else {
+          outputt <- base::rbind(outputt, outputs)
+        }
+        s <- s + 1
+      }
+    } else {# Indien we niet met strata werken
+      variable <- datasel[, Var]
+      wgtmean <- sum(datasel$Weight * variable, na.rm = TRUE) /
+        sum(datasel$Weight * (!is.na(variable)), na.rm = TRUE)
+      v1 <- sum(datasel$Weight * (!is.na(variable)), na.rm = TRUE)
+      v2 <- sum(((datasel$Weight) * (!is.na(variable)))^2, na.rm = TRUE)
+      wgtvar <- sum(datasel$Weight * (variable - wgtmean)^2, na.rm = TRUE) /
+        (v1 - (v2 / v1))
+      lci <- wgtmean - 1.96 * sqrt(wgtvar) / sqrt(v1)
+      uci <- wgtmean + 1.96 * sqrt(wgtvar) / sqrt(v1)
+      outputt <- data.frame(
+        variabele = Var,
+        strata = "",
+        stratumNaam = "",
+        periode = periode,
+        minyear = min(datasel$Year),
+        maxyear = max(datasel$Year),
+        minreeks = min(datasel$Reeks),
+        maxreeks = max(datasel$Reeks),
+        nbObservaties = nrow(datasel),
+        wgtmean = wgtmean,
+        wgtvar = wgtvar,
+        llci = lci,
+        ulci = uci
+      )
+    }
+    if (i <= 1) {
+      output <- outputt
+    } else {
+      output <- base::rbind(output, outputt)
+    }
+    i <- i + 1
+  }
+  data.frame(output)
+}
+```
+
+
+```{r doodhout, fig.width = 6, fig.height = 4, fig.cap = "Figuur 2. Gemiddelde en 95% betrouwbaarheidsinterval van het volume dood hout (staand, liggend en totaal) in private en publieke bossen in beide periodes van de Vlaamse bosinventaris (VBI). Deze figuur verwijst naar de paragraaf over de natuurlijkheidsgraad van bos in het Natuurrapport 2020."}
+
+respons <- c("staand", "liggend", "totaal")
+labels <- c("staand" = "Volume staand\ndood hout",
+            "liggend" = "Volume liggend\ndood hout",
+            "totaal" = "Totaal volume\ndood hout")
+
+p1 <- mywgtparestimation(doodhout, respons, periode = 1,
+                          usestrata = c(TRUE, TRUE, TRUE),
+                          strata = c("OwnerType", "OwnerType", "OwnerType"))
+p2 <- mywgtparestimation(doodhout, respons, periode = 2,
+                          usestrata = c(TRUE, TRUE, TRUE),
+                          strata = c("OwnerType", "OwnerType", "OwnerType"))
+resultaat <- rbind(p1, p2) %>%
+  mutate(periode = as.factor(periode))
+levels(resultaat$periode) <- c("VBI 1", "VBI 2")
+
+## Grafiek
+p <- ggplot(resultaat, aes(
+  x = periode, y = wgtmean, fill = factor(stratumNaam),
+  text = paste(
+    "Eigenaarstype: ", stratumNaam,
+    "\nSchatting: ", round(wgtmean, 2), " m³/ha",
+    "\nBI: ", round(llci, 1), " m³/ha - ", round(ulci, 1), " m³/ha"
+  )
+)) +
+  geom_bar(stat = "identity", position = "dodge", width = 0.7) +
+  geom_errorbar(aes(ymin = llci, ymax = ulci), width = 0.05,
+                colour = "black", position = position_dodge(width = 0.7)) +
+  scale_y_continuous(expand = expand_scale(mult = c(0, .05))) +
+  labs(y = "Volume (m³/ha", fill = "Eigenaarstype") +
+  theme(
+    axis.title.x = element_blank(),
+    axis.title.y = element_text(margin = margin(t = 0, r = 10, b = 0, l = 0)),
+    legend.key.size = unit(0.3, "cm"),
+    strip.text.x = element_text(margin = margin(0, 0, 1, 0, "cm")),
+    strip.background = element_rect(fill = inbo_lichtgrijs),
+  ) +
+  facet_wrap(~variabele, scales = "free_y",
+             labeller = labeller(variabele = labels))
+
+t <- ggplotly(p, tooltip = c("text"))
+t[["x"]][["layout"]][["annotations"]][[1]][["x"]] <- -0.03
+
+t
+```
+
+## Referenties

@@ -1,0 +1,17 @@
+..generic:
+  git2rdata: 0.3.1
+  optimize: no
+  NA string: NA
+  sorting: date
+  hash: 29b8694c0cb2531826ef8d48b81630c400634dff
+  data_hash: bd2cd584f869ee4d5c89c72e3730e0074e89ad4c
+date:
+  class: character
+Lat:
+  class: numeric
+long:
+  class: numeric
+pH:
+  class: numeric
+Revelle:
+  class: numeric

@@ -1,0 +1,59 @@
+..generic:
+  git2rdata: 0.2.1
+  optimize: no
+  NA string: NA
+  hash: f5f4b750b95306ef909a6e33cc7640f2bd5deb2a
+  data_hash: e35b051a3bb2f26386fc0b1c5aeeda70632706d0
+Beschermingscategorie:
+  class: factor
+  labels:
+  - Extra opp. andere beschermingsregimes
+  - Extra opp. beschermd gebied geen reservaat
+  - Oppervlakte natuur- of bosreservaat
+  - rest
+  index:
+  - 1
+  - 2
+  - 3
+  - 4
+  ordered: no
+Ecosysteem:
+  class: factor
+  labels:
+  - Akker
+  - Bos
+  - Estuaria, slikken en schorren
+  - Halfnatuurlijke graslanden
+  - Heide en landduinen
+  - Kustduinen en strand
+  - Moeras
+  - Productie en overige graslanden
+  - Rivieren
+  - Stedelijk en bebouwd gebied
+  - Stilstaande wateren
+  - Vlaanderen
+  index:
+  - 1
+  - 2
+  - 3
+  - 4
+  - 5
+  - 6
+  - 7
+  - 8
+  - 9
+  - 10
+  - 11
+  - 12
+  ordered: no
+Variabele:
+  class: factor
+  labels:
+  - lengte
+  - oppervlakte
+  index:
+  - 1
+  - 2
+  ordered: no
+Waarde:
+  class: integer

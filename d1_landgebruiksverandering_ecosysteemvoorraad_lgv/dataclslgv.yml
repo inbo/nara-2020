@@ -1,0 +1,166 @@
+..generic:
+  git2rdata: 0.2.1
+  optimize: no
+  NA string: NA
+  sorting: Sorter
+  hash: 192b106dd14755b6184a5a21cd5495d5483fa212
+  data_hash: 9a6860989382a873907f99ba50496ec2e532fbfe
+AangepasteBodembedekkingskaart:
+  class: factor
+  labels:
+  - ''
+  - 1 - Ruigte
+  - 10 - Slik en schorre
+  - 11 - Akker
+  - 13 - Hoogstamboomgaard
+  - 14 - Laagstamboomgaard
+  - 15 - Blijvend cultuurgrasland
+  - 19 - Gebouw
+  - 2 - Loofbos
+  - 20 - Overig laag groen
+  - 21 - Overig hoog groen
+  - 22 - Weg
+  - 23 - Spoorweg
+  - 24 - Water
+  - 25 - Overig
+  - 26 - Overgangswater
+  - 27 - Marien
+  - 3 - Populieren
+  - 30 - Struweel
+  - 4 - Naaldbos
+  - 5 - Alluviaal bos
+  - 6 - Halfnatuurlijk grasland
+  - 7 - Heide
+  - 8 - Kustduin
+  - 9 - Moeras
+  index:
+  - 1
+  - 2
+  - 3
+  - 4
+  - 5
+  - 6
+  - 7
+  - 8
+  - 9
+  - 10
+  - 11
+  - 12
+  - 13
+  - 14
+  - 15
+  - 16
+  - 17
+  - 18
+  - 19
+  - 20
+  - 21
+  - 22
+  - 23
+  - 24
+  - 25
+  ordered: no
+AangepasteLandgebruikskaart:
+  class: factor
+  labels:
+  - '---'
+  - 1 - Ruigte
+  - 10 - Slik en schorre
+  - 11 - Akker
+  - 13 - Hoogstamboomgaard
+  - 14 - Laagstamboomgaard
+  - 15 - Blijvend cultuurgrasland
+  - 2 - Loofbos
+  - 20 - Overig laag groen
+  - 21 - Overig hoog groen
+  - 22 - Weg
+  - 23 - Spoorweg
+  - 24 - Zoetwater
+  - 25 - Overig
+  - 26 - Overgangswater
+  - 27 - Marien
+  - 3 - Populieren
+  - 30 - Struweel
+  - 31 - Huizen en tuinen
+  - 32 - Industrie
+  - 33 - Commerciële doeleinden
+  - 34 - Diensten
+  - 35 - Recreatie
+  - 36 - Landbouwgebouwen en -infrastructuur
+  - 37 - Overige bebouwde terreinen
+  - 38 - Overige onbebouwde terreinen
+  - 39 - Wegen en spoorwegen
+  - 4 - Naaldbos
+  - 40 - Groeves
+  - 41 - Luchthavens
+  - 5 - Alluviaal bos
+  - 6 - Halfnatuurlijk grasland
+  - 7 - Heide
+  - 8 - Kustduin
+  - 9 - Moeras
+  index:
+  - 1
+  - 2
+  - 3
+  - 4
+  - 5
+  - 6
+  - 7
+  - 8
+  - 9
+  - 10
+  - 11
+  - 12
+  - 13
+  - 14
+  - 15
+  - 16
+  - 17
+  - 18
+  - 19
+  - 20
+  - 21
+  - 22
+  - 23
+  - 24
+  - 25
+  - 26
+  - 27
+  - 28
+  - 29
+  - 30
+  - 31
+  - 32
+  - 33
+  - 34
+  - 35
+  ordered: no
+EcosysteemvoorraadNatuurrapport:
+  class: factor
+  labels:
+  - '---'
+  - Akker
+  - Bos
+  - Estuarium
+  - Grasland
+  - Heide en landduin
+  - Kustduin en strand
+  - Moeras
+  - Stedelijk en bebouwd gebied
+  - Zee
+  - Zoetwater
+  index:
+  - 1
+  - 2
+  - 3
+  - 4
+  - 5
+  - 6
+  - 7
+  - 8
+  - 9
+  - 10
+  - 11
+  ordered: no
+Sorter:
+  class: integer

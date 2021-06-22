@@ -1,0 +1,151 @@
+---
+title: "Agro-ecosystemen - Trend intensiteit landbouw"
+date: 2020-07-01T10:00:00
+bibliography: ../references.bib
+link-citations: TRUE
+hoofdstuk: 5
+thema:
+  - Landbouw
+keywords:
+  - intensiteit gebruik
+lang: nl
+tab: indicator
+verantwoordelijke:
+- Peter Van Gossum <peter.vangossum@inbo.be>
+output: html_document
+---
+
+```{r setup, include=FALSE}
+library(knitr)
+opts_chunk$set(
+  message = FALSE,
+  warning = FALSE,
+  echo = FALSE
+)
+library(tidyverse)
+library(segmented)
+library(git2rdata)
+library(plotly)
+library(INBOtheme)
+library(htmlwidgets)
+
+theme_set(theme_nara()) # het nara-kleurenpallet selecteren
+switch_colour(inbo_hoofd) # het INBO-kleurenpallet activeren
+
+set.seed(20200520)
+setWidgetIdSeed(20200520)
+options(htmlwidgets.TOJSON_ARGS = list(pretty = TRUE))
+```
+
+```{r data_inlezen}
+gegevens <- read_vc("landgebruiksintensiteit")
+```
+
+De intensiteit van het landbouwbeheer neemt nog steeds toe.
+
+```{r}
+rel_intensiteit_minmax <- gegevens %>%
+  group_by(Plot) %>%
+  summarise(max = max(Relintensiteit), min = min(Relintensiteit)) %>%
+  ungroup()
+gegevensvlaanderen <- gegevens %>%
+  filter(Plot == "Vlaanderen")
+
+lm <- lm(data = gegevensvlaanderen, Relintensiteit ~ Jaartal)
+seglm <- segmented(lm, seg.Z = ~Jaartal, npsi = 1)
+seglm2 <- segmented(lm, seg.Z = ~Jaartal, npsi = 2)
+
+cipsirelintensiteit <- data.frame(confint(seglm)) %>%
+  mutate(Plot = "Vlaanderen")
+
+cipsi_relintensiteit <- bind_rows(cipsirelintensiteit) %>%
+  rename("xmin" = "CI.95...low") %>%
+  rename("xmax" = "CI.95...up") %>%
+  rename("Jaartal" = "Est.") %>%
+  mutate(Plot = as.factor(Plot)) %>%
+  left_join(rel_intensiteit_minmax, by = "Plot") %>%
+  mutate(ymin = min - 2) %>%
+  mutate(ymax = max + 2)
+
+newdata <- data.frame(
+  Jaartal = c(
+    seq(min(gegevensvlaanderen$Jaartal),
+        seglm$psi[1, 2],
+        length = 10),
+    seq(seglm$psi[1, 2],
+        max(gegevensvlaanderen$Jaartal),
+        length = 10)
+  )
+)
+
+cirelintensiteit <- predict(seglm,
+                            interval = "confidence",
+                            newdata = newdata)
+datavlaanderen <- cbind(newdata, cirelintensiteit)
+
+datavlaanderen <- datavlaanderen %>% rename(Jaar = Jaartal)
+gegevensvlaanderen <- gegevensvlaanderen %>% rename(Jaar = Jaartal)
+p <- ggplot(datavlaanderen) +
+  geom_point(data = gegevensvlaanderen,
+             aes(x = Jaar,
+                 y = Relintensiteit,
+                 text = paste("Relatieve intensiteit:",
+                             sprintf("%0.3f",
+                                     round(Relintensiteit,
+                                           digits = 3)))),
+             colour = inbo_hoofd,
+             size = 1) +
+  geom_ribbon(aes(x = Jaar, ymin = lwr, ymax = upr),
+              fill = inbo_steun_donkerroos,
+              alpha = 0.3) +
+  geom_line(aes(x = Jaar, y = fit), colour = inbo_steun_donkerroos) +
+  scale_x_continuous(
+    breaks = c(1980, 1985, 1990, 1995, 2000, 2005, 2010, 2015, 2020)) +
+  scale_y_continuous(expand = c(0, 0)) +
+  labs(x = "", y = "") +
+  theme(axis.text = element_text(size = 12),
+        axis.line.x = element_line(colour = "black"),
+        axis.title.y = element_text(size = 12,
+                                    face = "plain",
+                                    margin = margin(t = 0,
+                                                    r = 10,
+                                                    b = 0,
+                                                    l = 0),
+                                    hjust = 0),
+        axis.line.y = element_line(color = "black"),
+        panel.background = element_rect(fill = "white",
+                                        colour = "white",
+                                        size = 0.5,
+                                        linetype = "solid"),
+        panel.grid.major.y = element_line(colour = "grey",
+                                          linetype = "dotted"),
+        legend.key.size = unit(0.3, "cm"),
+        legend.title = element_blank())
+
+if (interactive() || opts_knit$get("rmarkdown.pandoc.to") == "html") {
+  ggplotly(p, tooltip = c("text", "x")) %>%
+  plotly::config(
+    modeBarButtonsToRemove = list(
+      "lasso2d", "select2d", "hoverClosestCartesian",
+      "hoverCompareCartesian", "toggleSpikelines"
+    ),
+    displaylogo = FALSE
+  ) %>%
+  style(hoverinfo = "none", traces = 2:3)
+} else {
+  p
+}
+```
+
+## Definitie
+
+De indicator geeft de trend van de intensiteit van het landbouwbeheer ten opzichte van 1980 weer. 
+De intensiteit van het landbouwbeheer is een gemiddelde van de intensiteitsscore per teeltgroep en de oppervlakte van die teeltgroep.
+De intensiteitsscore per gewas houdt rekening met het gemiddeld nitraatresidu, het gebruik van gewasbeschermingsmiddelen (actieve stof), het risico op bodemverdichting en bodemerosie en de aanbreng van de hoeveelheid effectieve organische stof door het gewas.
+
+## Bespreking
+
+De intensiteitsscore nam sterk toe tot 1993, waarna een beperkte stijging volgde. 
+Beide stijgingen zijn significant. 
+Die toename houdt vooral verband met de verschuiving van minder intensieve teelten zoals blijvend grasland naar aardappelen en groenten, beide zeer intensieve teelten.
+

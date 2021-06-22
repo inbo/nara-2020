@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+
+<html lang="nl" xml:lang="nl">
+
+<head>
+<meta name="INBO-publication-date" content="2020-07-01T10:00:00" /><!-- ISO 8601 timezone: CET/CEST -->
+<meta name="INBO-keywords" content="landgebruiksverandering, ruimtebeslag, natuurlijk kapitaal, natural capital accounting, ecosystem extent" />
+<meta name="INBO-name" content="Metadata van Landgebruiksverandering - Ecosysteemvoorraad Landgebruiksbestand Vlaanderen" />
+<meta name="INBO-tab" content="metadata" />
+<meta name="INBO-chapter" content="4" />
+<meta name="INBO-chapter-title" content="De biodiversiteit onder druk" />
+<meta name="INBO-theme" content="Natuur &amp; maatschappij, Landbouw" />
+<meta name="INBO-PureId" content="18013709, 18051200" />
+<meta name="INBO-language" content="nl" /><!-- ISO 639-1 -->
+<!-- end INBO meta data-->
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+
+<title>Metadata van Landgebruiksverandering - Ecosysteemvoorraad Landgebruiksbestand Vlaanderen</title>
+
+<script src="../libs/jquery-1.11.3/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="../libs/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
+<script src="../libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="../libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="../libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<style>h1 {font-size: 34px;}
+       h1.title {font-size: 38px;}
+       h2 {font-size: 30px;}
+       h3 {font-size: 24px;}
+       h4 {font-size: 18px;}
+       h5 {font-size: 16px;}
+       h6 {font-size: 12px;}
+       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+       pre:not([class]) { background-color: white }</style>
+<script src="../libs/navigation-1.1/tabsets.js"></script>
+<script src="../libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
+<script src="../libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="../libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
+
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+
+<body>
+
+
+<h1 class="title toc-ignore">Metadata van Landgebruiksverandering - Ecosysteemvoorraad Landgebruiksbestand Vlaanderen</h1>
+
+<div id="technische-informatie" class="section level2">
+<h2>Technische informatie</h2>
+<p>- <strong>Periodiciteit</strong>: driejaarlijks - <strong>Volgende update</strong>: 2022 - <strong>Databereik</strong>: 2013-2016</p>
+</div>
+<div id="databron" class="section level2">
+<h2>Databron</h2>
+<ul>
+<li><strong>Producent</strong>: Departement Omgeving, Instituut voor Natuur- en Bosonderzoek, Departement Landbouw &amp; Visserij</li>
+<li><strong>Dataset</strong>: Landgebruiksbestand Vlaanderen (2013, 2016); Ecotopenkaart Schelde-estuarium (2013, 2016); Landbouwgebruikspercelenkaart (2008-2015)</li>
+<li><strong>Gegevensinzameling</strong>: De gegevens van het landgebruiksbestand Vlaanderen zijn gebaseerd op een interpretatie van luchtfoto’s, op administratieve aangiftes door landgebruikers en eigenaars of op terreinwaarnemingen. De ecotopenkaart is gebaseerd op terreinwaarnemingen. De landbouwgebruikspercelenkaart is gebaseerd op de jaarlijkse aangifte door landbouwers.</li>
+</ul>
+</div>
+<div id="berekeningswijze" class="section level2">
+<h2>Berekeningswijze</h2>
+<p>Het Landgebruiksbestand Vlaanderen van het Departement Omgeving combineert gegevens uit diverse GIS-lagen en andere (ruimtelijke) databanken <span class="citation">(Poelmans, Janssen, en Hambsch <a href="#ref-poelmans_landgebruik_2019" role="doc-biblioref">2019</a>)</span>. Die gegevens zijn volgens een bepaalde volgorde samengevoegd in een geodatabase met 4 rasterlagen met een 10m-resolutie (1 are): niveau 1 bodembedekking (22 klassen); niveau 2 verstedelijkt landgebruik (39 klassen); niveau 3 multifunctioneel landgebruik (6 klassen); en niveau 4 haventerreinen en militaire domeinen (2 klassen). Deze lagen worden in een bepaalde volgorde verder gecombineerd tot een éénlagige gebiedsdekkende landgebruikskaart (18 klassen) <span class="citation">(Poelmans, Janssen, en Hambsch <a href="#ref-poelmans_landgebruik_2019" role="doc-biblioref">2019</a>)</span>.</p>
+<p>Voor deze indicator is de bodembedekkingslaag van het Landgebruiksbestand Vlaanderen als volgt aangepast:</p>
+<ol style="list-style-type: decimal">
+<li>In het Schelde-estuarium zijn de slikken en schorren aangepast op basis van ecotopenkaarten voor 2013 en 2016, waarbij de slikken en schorren voorrang krijgen op de waterlaag of andere terrestrische klassen (bv. overig laag groen).</li>
+<li>In het IJzer- en het Schelde-estuarium is het water in de zone onder getijdeninvloed geherklasseerd tot een extra klasse ‘overgangswater’, het overig water wordt beschouwd als ‘zoetwater’.</li>
+<li>De wateroppervlakte voor de kust is uitgebreid tot het volledige Belgische deel van de Noordzee en als ‘marien’ geklasseerd.</li>
+<li>De bodembedekkingsklasse ‘ruigte en struweel’ is opgesplitst in ‘ruigte’ en ‘struweel’ op basis van de rasterlaag ‘BWK_natuur’.</li>
+<li>Landbouwpercelen die in 2015 (of 2012) als grasland zijn aangegeven en waarvoor in één of meer van de vier voorgaande jaren een andere teelt is aangegeven, zijn geherklasseerd als akker. Grasland krijgt hierdoor de betekenis van blijvend (vijfjarig) cultuurgrasland. Stappen 1 tot 5 resulteren in een aangepaste bodembedekkingskaart met 25 klassen (zie Tabel 3, kolom 1).</li>
+<li>De aangepaste bodembedekkingskaart is vervolgens samengevoegd met de niveaus 2 tot 4 van het Landgebruiksbestand Vlaanderen volgens de procedure beschreven in <span class="citation">(Poelmans, Janssen, en Hambsch <a href="#ref-poelmans_landgebruik_2019" role="doc-biblioref">2019</a>)</span>. Hierdoor wordt van de meeste ecosystemen een beperkte oppervlakte geherklasseerd naar stedelijk en bebouwd gebied. Er is afgeweken van de procedure van <span class="citation">(Poelmans, Janssen, en Hambsch <a href="#ref-poelmans_landgebruik_2019" role="doc-biblioref">2019</a>)</span> voor de cellen die als bodembedekking ‘overig’ (d.w.z. ‘onbekend’) hebben en die buiten de zone ‘verstedelijkt landgebruik’ (landgebruiksbestand, niveau 2) liggen. Die percelen zijn voor deze analyse meegeteld bij in de klasse ‘stedelijk en bebouwd gebied’. Dit leidt tot een aangepaste landgebruikskaart met 34 landgebruiksklassen (Zie Tabel 3, kolom 2).</li>
+<li>De aangepaste landgebruikskaart wordt herleid tot een ecosysteemkaart met 10 klassen (zie Tabel 3, kolom 3). Die indeling is gebaseerd op een ecosysteemtypologie voorgesteld door de Europese Commissie <span class="citation">(Maes e.a. <a href="#ref-maes_mapping_2013" role="doc-biblioref">2013</a>, <a href="#ref-maes_mapping_2018" role="doc-biblioref">2018</a>)</span> en de <a href="https://land.copernicus.eu/user-corner/technical-library/corine-land-cover-nomenclature-guidelines/html">richtlijnen</a> van de <a href="https://land.copernicus.eu/pan-european/corine-land-cover">Copernicus Land Monitoring Service</a>.</li>
+</ol>
+<p>Voor de indicator/rekening ecosysteemvoorraad (<em>stock account</em>) is het aantal pixels (are) per ecosysteemklasse berekend voor de jaren 2013 en 2016. Voor de indicator/rekening Ecosysteemverandering (<em>flow account</em>) is op basis van dezelfde data een kruistabel berekend en omgezet in een Sankey-stroomschema dat aangeeft welke ecosysteemklassen in welke zijn veranderd. De structuur van de rekening is gebaseerd op een voorstel van het Europees Milieuagentschap <span class="citation">(EEA <a href="#ref-eea_land_2006" role="doc-biblioref">2006</a>, <a href="#ref-eea_natural_2018" role="doc-biblioref">2018</a>)</span>.</p>
+<table class="table table-striped" style="width: auto !important; margin-left: auto; margin-right: auto;">
+<caption>
+Tabel 3: Klassen van aangepaste bodembedekkingskaart en landgebruikskaart en omzetting landgebruikskaart naar ecosysteemvoorraad.
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;font-weight: bold;color: black !important;">
+Aangepaste bodembedekkingskaart
+</th>
+<th style="text-align:left;font-weight: bold;color: black !important;">
+Aangepaste landgebruikskaart
+</th>
+<th style="text-align:left;font-weight: bold;color: black !important;">
+Ecosysteemvoorraad NARA niveau 2
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;width: 25em; font-size: x-smallpx;">
+1 - Ruigte
+</td>
+<td style="text-align:left;width: 25em; font-size: x-smallpx;">
+1 - Ruigte
+</td>
+<td style="text-align:left;width: 25em; font-size: x-smallpx;">
+Grasland
+</td>
+</tr>
+<tr>
+<td style="text-align:left;width: 25em; font-size: x-smallpx;">
+2 - Loofbos
+</td>
+<td style="text-align:left;width: 25em; font-size: x-smallpx;">
+2 - Loofbos
+</td>
+<td style="text-align:left;width: 25em; font-size: x-smallpx;">
+Bos
+</td>
+</tr>
+<tr>
+<td style="text-align:left;width: 25em; font-size: x-smallpx;">
+3 - Populieren
+</td>
+<td style="text-align:left;width: 25em; font-size: x-smallpx;">
+3 - Populieren
+</td>
+<td style="text-align:left;width: 25em; font-size: x-smallpx;">
+Bos
+</td>
+</tr>
+<tr>
+<td style="text-align:left;width: 25em; font-size: x-smallpx;">
+4 - Naaldbos
+</td>
+<td style="text-align:left;width: 25em; font-size: x-smallpx;">
+4 - Naaldbos
+</td>
+<td style="text-align:left;width: 25em; font-size: x-smallpx;">
+Bos
+</td>
+</tr>
+<tr>
+<td style="text-align:left;width: 25em; font-size: x-smallpx;">
+5 - Alluviaal bos
+</td>
+<td style="text-align:left;width: 25em; font-size: x-smallpx;">
+5 - Alluviaal bos
+</td>
+<td style="text-align:left;width: 25em; font-size: x-smallpx;">
+Bos
+</td>
+</tr>
+<tr>
+<td style="text-align:left;width: 25em; font-size: x-smallpx;">
+6 - Halfnatuurlijk grasland
+</td>
+<td style="text-align:left;width: 25em; font-size: x-smallpx;">
+6 - Halfnatuurlijk grasland
+</td>
+<td style="text-align:left;width: 25em; font-size: x-smallpx;">
+Grasland
+</td>
+</tr>
+<tr>
+<td style="text-align:left;width: 25em; font-size: x-smallpx;">
+7 - Heide
+</td>
+<td style="text-align:left;width: 25em; font-size: x-smallpx;">
+7 - Heide
+</td>
+<td style="text-align:left;width: 25em; font-size: x-smallpx;">
+Heide en landduin
+</td>
+</tr>
+<tr>
+<td style="text-align:left;width: 25em; font-size: x-smallpx;">
+8 - Kustduin
+</td>
+<td style="text-align:left;width: 25em; font-size: x-smallpx;">
+8 - Kustduin
+</td>
+<td style="text-align:left;width: 25em; font-size: x-smallpx;">
+Kustduin en strand
+</td>
+</tr>
+<tr>
+<td style="text-align:left;width: 25em; font-size: x-smallpx;">
+9 - Moeras
+</td>
+<td style="text-align:left;width: 25em; font-size: x-smallpx;">
+9 - Moeras
+</td>
+<td style="text-align:left;width: 25em; font-size: x-smallpx;">
+Moeras
+</td>
+</tr>
+<tr>
+<td style="text-align:left;width: 25em; font-size: x-smallpx;">
+10 - Slik en schorre
+</td>
+<td style="text-align:left;width: 25em; font-size: x-smallpx;">
+10 - Slik en schorre
+</td>
+<td style="text-align:left;width: 25em; font-size: x-smallpx;">
+Estuarium
+</td>
+</tr>
+<tr>
+<td style="text-align:left;width: 25em; font-size: x-smallpx;">
+11 - Akker
+</td>
+<td style="text-align:left;width: 25em; font-size: x-smallpx;">
+11 - Akker
+</td>
+<td style="text-align:left;width: 25em; font-size: x-smallpx;">
+Akker
+</td>
+</tr>
+<tr>
+<td style="text-align:left;width: 25em; font-size: x-smallpx;">
+13 - Hoogstamboomgaard
+</td>
+<td style="text-align:left;width: 25em; font-size: x-smallpx;">
+13 - Hoogstamboomgaard
+</td>
+<td style="text-align:left;width: 25em; font-size: x-smallpx;">
+Grasland
+</td>
+</tr>
+<tr>
+<td style="text-align:left;width: 25em; font-size: x-smallpx;">
+14 - Laagstamboomgaard
+</td>
+<td style="text-align:left;width: 25em; font-size: x-smallpx;">
+14 - Laagstamboomgaard
+</td>
+<td style="text-align:left;width: 25em; font-size: x-smallpx;">
+Akker
+</td>
+</tr>
+<tr>
+<td style="text-align:left;width: 25em; font-size: x-smallpx;">
+15 - Blijvend cultuurgrasland
+</td>
+<td style="text-align:left;width: 25em; font-size: x-smallpx;">
+15 - Blijvend cultuurgrasland
+</td>
+<td style="text-align:left;width: 25em; font-size: x-smallpx;">
+Grasland
+</td>
+</tr>
+<tr>
+<td style="text-align:left;width: 25em; font-size: x-smallpx;">
+19 - Gebouw
+</td>
+<td style="text-align:left;width: 25em; font-size: x-smallpx;">
+—
+</td>
+<td style="text-align:left;width: 25em; font-size: x-smallpx;">
+—
+</td>
+</tr>
+<tr>
+<td style="text-align:left;width: 25em; font-size: x-smallpx;">
+20 - Overig laag groen
+</td>
+<td style="text-align:left;width: 25em; font-size: x-smallpx;">
+20 - Overig laag groen
+</td>
+<td style="text-align:left;width: 25em; font-size: x-smallpx;">
+Grasland
+</td>
+</tr>
+<tr>
+<td style="text-align:left;width: 25em; font-size: x-smallpx;">
+21 - Overig hoog groen
+</td>
+<td style="text-align:left;width: 25em; font-size: x-smallpx;">
+21 - Overig hoog groen
+</td>
+<td style="text-align:left;width: 25em; font-size: x-smallpx;">
+Bos
+</td>
+</tr>
+<tr>
+<td style="text-align:left;width: 25em; font-size: x-smallpx;">
+22 - Weg
+</td>
+<td style="text-align:left;width: 25em; font-size: x-smallpx;">
+22 - Weg
+</td>
+<td style="text-align:left;width: 25em; font-size: x-smallpx;">
+Stedelijk en bebouwd gebied
+</td>
+</tr>
+<tr>
+<td style="text-align:left;width: 25em; font-size: x-smallpx;">
+23 - Spoorweg
+</td>
+<td style="text-align:left;width: 25em; font-size: x-smallpx;">
+23 - Spoorweg
+</td>
+<td style="text-align:left;width: 25em; font-size: x-smallpx;">
+Stedelijk en bebouwd gebied
+</td>
+</tr>
+<tr>
+<td style="text-align:left;width: 25em; font-size: x-smallpx;">
+24 - Water
+</td>
+<td style="text-align:left;width: 25em; font-size: x-smallpx;">
+24 - Zoetwater
+</td>
+<td style="text-align:left;width: 25em; font-size: x-smallpx;">
+Zoetwater
+</td>
+</tr>
+<tr>
+<td style="text-align:left;width: 25em; font-size: x-smallpx;">
+25 - Overig
+</td>
+<td style="text-align:left;width: 25em; font-size: x-smallpx;">
+25 - Overig
+</td>
+<td style="text-align:left;width: 25em; font-size: x-smallpx;">
+Stedelijk en bebouwd gebied
+</td>
+</tr>
+<tr>
+<td style="text-align:left;width: 25em; font-size: x-smallpx;">
+26 - Overgangswater
+</td>
+<td style="text-align:left;width: 25em; font-size: x-smallpx;">
+26 - Overgangswater
+</td>
+<td style="text-align:left;width: 25em; font-size: x-smallpx;">
+Estuarium
+</td>
+</tr>
+<tr>
+<td style="text-align:left;width: 25em; font-size: x-smallpx;">
+27 - Marien
+</td>
+<td style="text-align:left;width: 25em; font-size: x-smallpx;">
+27 - Marien
+</td>
+<td style="text-align:left;width: 25em; font-size: x-smallpx;">
+Zee
+</td>
+</tr>
+<tr>
+<td style="text-align:left;width: 25em; font-size: x-smallpx;">
+30 - Struweel
+</td>
+<td style="text-align:left;width: 25em; font-size: x-smallpx;">
+30 - Struweel
+</td>
+<td style="text-align:left;width: 25em; font-size: x-smallpx;">
+Bos
+</td>
+</tr>
+<tr>
+<td style="text-align:left;width: 25em; font-size: x-smallpx;">
+</td>
+<td style="text-align:left;width: 25em; font-size: x-smallpx;">
+31 - Huizen en tuinen
+</td>
+<td style="text-align:left;width: 25em; font-size: x-smallpx;">
+Stedelijk en bebouwd gebied
+</td>
+</tr>
+<tr>
+<td style="text-align:left;width: 25em; font-size: x-smallpx;">
+</td>
+<td style="text-align:left;width: 25em; font-size: x-smallpx;">
+32 - Industrie
+</td>
+<td style="text-align:left;width: 25em; font-size: x-smallpx;">
+Stedelijk en bebouwd gebied
+</td>
+</tr>
+<tr>
+<td style="text-align:left;width: 25em; font-size: x-smallpx;">
+</td>
+<td style="text-align:left;width: 25em; font-size: x-smallpx;">
+33 - Commerciële doeleinden
+</td>
+<td style="text-align:left;width: 25em; font-size: x-smallpx;">
+Stedelijk en bebouwd gebied
+</td>
+</tr>
+<tr>
+<td style="text-align:left;width: 25em; font-size: x-smallpx;">
+</td>
+<td style="text-align:left;width: 25em; font-size: x-smallpx;">
+34 - Diensten
+</td>
+<td style="text-align:left;width: 25em; font-size: x-smallpx;">
+Stedelijk en bebouwd gebied
+</td>
+</tr>
+<tr>
+<td style="text-align:left;width: 25em; font-size: x-smallpx;">
+</td>
+<td style="text-align:left;width: 25em; font-size: x-smallpx;">
+35 - Recreatie
+</td>
+<td style="text-align:left;width: 25em; font-size: x-smallpx;">
+Stedelijk en bebouwd gebied
+</td>
+</tr>
+<tr>
+<td style="text-align:left;width: 25em; font-size: x-smallpx;">
+</td>
+<td style="text-align:left;width: 25em; font-size: x-smallpx;">
+36 - Landbouwgebouwen en -infrastructuur
+</td>
+<td style="text-align:left;width: 25em; font-size: x-smallpx;">
+Stedelijk en bebouwd gebied
+</td>
+</tr>
+<tr>
+<td style="text-align:left;width: 25em; font-size: x-smallpx;">
+</td>
+<td style="text-align:left;width: 25em; font-size: x-smallpx;">
+37 - Overige bebouwde terreinen
+</td>
+<td style="text-align:left;width: 25em; font-size: x-smallpx;">
+Stedelijk en bebouwd gebied
+</td>
+</tr>
+<tr>
+<td style="text-align:left;width: 25em; font-size: x-smallpx;">
+</td>
+<td style="text-align:left;width: 25em; font-size: x-smallpx;">
+38 - Overige onbebouwde terreinen
+</td>
+<td style="text-align:left;width: 25em; font-size: x-smallpx;">
+Stedelijk en bebouwd gebied
+</td>
+</tr>
+<tr>
+<td style="text-align:left;width: 25em; font-size: x-smallpx;">
+</td>
+<td style="text-align:left;width: 25em; font-size: x-smallpx;">
+39 - Wegen en spoorwegen
+</td>
+<td style="text-align:left;width: 25em; font-size: x-smallpx;">
+Stedelijk en bebouwd gebied
+</td>
+</tr>
+<tr>
+<td style="text-align:left;width: 25em; font-size: x-smallpx;">
+</td>
+<td style="text-align:left;width: 25em; font-size: x-smallpx;">
+40 - Groeves
+</td>
+<td style="text-align:left;width: 25em; font-size: x-smallpx;">
+Stedelijk en bebouwd gebied
+</td>
+</tr>
+<tr>
+<td style="text-align:left;width: 25em; font-size: x-smallpx;">
+</td>
+<td style="text-align:left;width: 25em; font-size: x-smallpx;">
+41 - Luchthavens
+</td>
+<td style="text-align:left;width: 25em; font-size: x-smallpx;">
+Stedelijk en bebouwd gebied
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="opmerkingen-bij-de-gegevenskwaliteit-en-betrouwbaarheid" class="section level2">
+<h2>Opmerkingen bij de gegevenskwaliteit en betrouwbaarheid</h2>
+<p>Op de ecosysteemkaarten werd een validatie toegepast <span class="citation">(Olofsson e.a. <a href="#ref-olofsson_good_2014" role="doc-biblioref">2014</a>)</span>. De procedure staat beschreven in de <a href="https://www.vlaanderen.be/inbo/backgroundindicatoren/landgebruiksverandering-validatie">fiche Landgebruiksverandering - Validate</a>. Hieruit blijkt dat cijfers van de ecosysteemvoorraden, en vooral die van de landgebruiksveranderingen tussen 2013 en 2016, met de nodige voorzichtigheid moeten worden geïnterpreteerd. De gemiddelde betrouwbaarheid van de bodembedekkingskaart in het aanduiden OF een cel verandert tussen 2013 en 2016, bedraagt 90-91%, met 99% voor de onveranderde cellen en (slechts) 20% voor de veranderende cellen. De veranderingen worden dus sterk overschat. De betrouwbaarheid in het aanduiden HOE een cel verandert (d.w.z. ‘wat verandert in wat’?) bedraagt slechts 15% voor de veranderende cellen. Voor de landgebruiksverandering naar stedelijk en bebouwd gebied of naar akker is de betrouwbaarheid hoger. De onnauwkeurigheden zijn toe te schrijven aan de volgende factoren:</p>
+<ol style="list-style-type: decimal">
+<li>Fouten bij de interpretatie van luchtfoto’s bij de opmaak van de groenkaart, een van de basiskaarten in het landgebruiksbestand Vlaanderen. Zo werd in 2016 omwille van de droogte heel wat laag groen niet herkend en onterecht geklasseerd als ‘overig’. In dat geval selecteert de procedure soms (verouderde) data uit de Biologische Waarderingskaart, waardoor een reeds verdwenen bodembedekking, bv. struweel, onterecht weer in de data opduikt. Ook verschillen in de hoek of de lichtinval bij opeenvolgende luchtfoto’s dragen bij aan de overschattting van de veranderingen, bijvoorbeeld op perceelsranden.</li>
+<li>Gegevens inzake bodembedekking op basis van terreinwaarnemingen veranderen soms omwille van verbeteringen in de karteermethode. In dat geval weerspiegelt een toe- of afname van een bepaalde vegetatie geen werkelijke verandering op het terrein. Dit is onder andere het geval voor sommige types heide- en moerasvegetatie.</li>
+<li>De Biologische Waarderingskaart is sterk verouderd in zones buiten het Natura 2000-netwerk. Ook binnen dit netwerk worden de gegevens slechts met een periodiciteit van 18 jaar bijgewerkt. Daardoor kunnen de geregistreerde veranderingen niet correct aan de driejarige periode van het landgebruiksbestand worden toegeschreven.</li>
+<li>Ecosystemen komen in werkelijkheid vaak in gradiënten en complexen voor. De Biologische Waarderingskaart registreert deze als ‘habitatcomplexen’ aan de hand van meerdere karteringseenheden. Het landgebruiksbestand Vlaanderen weerhoudt enkel de eerste, dominante vegetatie-eenheid. Daardoor blijven kleinschalige veranderingen binnen habitatcomplexen soms buiten beeld.</li>
+</ol>
+<p>Ondanks de hoge ruimtelijke resolutie, het hoge aantal klassen en de frequente update (3-jaarlijks) van het landgebruiksbestand, raden we af om de kortetermijnveranderinen tussen verschillende ‘groene’ ecosysteemklassen op een strikt boekhoudkundige manier te interpreteren. De gegevens bieden wel beleidsrelevante informatie over de grootteordes van de ecosystemen, de dominante landgebruiksveranderingen en de trends op langere termijn (bv. 5 à 10 jaar).</p>
+</div>
+<div id="download" class="section level2">
+<h2>Download</h2>
+<p><strong>Broncode indicator</strong>: <a href="../d1_landgebruiksverandering_ecosysteemvoorraad_lgv/d1_landgebruiksverandering_ecosysteemvoorraad_lgv.Rmd">d1_landgebruiksverandering_ecosysteemvoorraad_lgv.Rmd</a> - <strong>Basisdata</strong>: <a href="../d1_landgebruiksverandering_ecosysteemvoorraad_lgv/datastglgv.tsv">datastglgv.tsv</a>, <a href="../d1_landgebruiksverandering_ecosysteemvoorraad_lgv/datastalgv.tsv">datastalgv.tsv</a>, <a href="../d1_landgebruiksverandering_ecosysteemvoorraad_lgv/dataflglgv.tsv">dataflglgv.tsv</a>, <a href="../d1_landgebruiksverandering_ecosysteemvoorraad_lgv/dataflglgvcode.tsv">dataflglgvcode.tsv</a>, <a href="../d1_landgebruiksverandering_ecosysteemvoorraad_lgv/dataflalgv.tsv">dataflalgv.tsv</a>, <a href="../d1_landgebruiksverandering_ecosysteemvoorraad_lgv/dataclslgv.tsv">dataclslgv.tsv</a> - <strong>Metadata basisdata</strong>: <a href="../d1_landgebruiksverandering_ecosysteemvoorraad_lgv/datastglgv.yml">datastglgv.yml</a>, <a href="../d1_landgebruiksverandering_ecosysteemvoorraad_lgv/datastalgv.yml">datastalgv.yml</a>, <a href="../d1_landgebruiksverandering_ecosysteemvoorraad_lgv/dataflglgv.yml">dataflglgv.yml</a>, <a href="../d1_landgebruiksverandering_ecosysteemvoorraad_lgv/dataflglgvcode.yml">dataflgcodelgv.yml</a>, <a href="../d1_landgebruiksverandering_ecosysteemvoorraad_lgv/dataflalgv.yml">dataflalgv.yml</a>, <a href="../d1_landgebruiksverandering_ecosysteemvoorraad_lgv/dataclslgv.yml">dataclslgv.yml</a></p>
+</div>
+<div id="referenties" class="section level2 unnumbered">
+<h2>Referenties</h2>
+<div id="refs" class="references">
+<div id="ref-eea_land_2006">
+<p>EEA. 2006. “Land accounts for Europe 1990 – 2000. Towards integrated land and ecosystem accounting. (EEA Report 11/2006).” Kopenhagen: European Environment Agency.</p>
+</div>
+<div id="ref-eea_natural_2018">
+<p>———. 2018. “Natural capital accounting in support of policy making in Europe. A review based on EEA ecosystem accounting work. (EEA Report 26/2018).” Kopenhagen: European Environment Agency.</p>
+</div>
+<div id="ref-maes_mapping_2018">
+<p>Maes, J., A. Teller, M. Erhard, B. Grizzetti, J. I. Barredo, M. L. Paracchini, F. Somma, e.a. 2018. <em>Mapping and assessment of ecosystems and their services: An analytical framework for ecosystem condition: Discussion paper – Final</em>. Luxemburg: Publications office of the European Union.</p>
+</div>
+<div id="ref-maes_mapping_2013">
+<p>Maes, J., A. Teller, M. Erhard, C. Liquete, L. Braat, P. Berry, B. Egoh, e.a. 2013. “Mapping and assessment of ecosystems and their services. An analytical framework for ecosystem assessments under action 5 of the EU Biodiversity Strategy to 2020”. Luxembourg: Publications office of the European Union.</p>
+</div>
+<div id="ref-olofsson_good_2014">
+<p>Olofsson, P., G. M. Foody, M. Herold, S. V. Stehman, C. E. Woodcock, en M. A. Wulder. 2014. “Good practices for estimating area and assessing accuracy of land change”. <em>Remote Sensing of Environment</em> 148: 42–57. <a href="https://doi.org/10.1016/j.rse.2014.02.015">https://doi.org/10.1016/j.rse.2014.02.015</a>.</p>
+</div>
+<div id="ref-poelmans_landgebruik_2019">
+<p>Poelmans, Lien, Liliane Janssen, en Lorenz Hambsch. 2019. “Landgebruik en ruimtebeslag in Vlaanderen, toestand 2016, uitgevoerd in opdracht van het Vlaams Planbureau voor Omgeving.” Mol: VITO.</p>
+</div>
+</div>
+</div>
+
+<h2>Meer weten?</h2>
+
+<ul>
+<li><a href = "mailto:wouter.vanreeth@inbo.be">wouter.vanreeth@inbo.be</a></li>
+</ul>
+
+
+</body>
+</html>

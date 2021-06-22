@@ -1,0 +1,121 @@
+---
+title: "Bescherming en beheer in Vlaanderen - Oppervlakte juridisch beschermd en natuurgericht beheerd"
+date: 2020-07-01T10:00:00
+bibliography: ../references.bib
+link-citations: TRUE
+hoofdstuk:
+- 3
+- 5
+thema:
+  - Beschermde natuur
+keywords:
+  - rechtsbescherming
+  - beheer
+lang: nl
+tab: indicator
+verantwoordelijke:
+- Inne Vught <inne.vught@inbo.be>
+output: html_document
+---
+
+```{r setup, include=FALSE}
+library(knitr)
+opts_chunk$set(
+  message = FALSE,
+  warning = FALSE,
+  echo = FALSE
+)
+library(tidyverse)
+library(git2rdata)
+library(plotly)
+library(INBOtheme)
+library(htmlwidgets)
+set.seed(20200520)
+setWidgetIdSeed(20200520)
+options(htmlwidgets.TOJSON_ARGS = list(pretty = TRUE))
+```
+
+```{r data_inlezen}
+gegevens <- read_vc("bescherming_beheer")
+```
+
+Een vierde van de oppervlakte waarbinnen natuur juridisch beschermd is, wordt in functie van natuur beheerd.
+Het gaat in totaal over zo’n 7% van de oppervlakte van Vlaanderen.
+
+```{r staafdiagram, fig.width = 10, fig.height = 4, fig.cap = "Figuur 1. Oppervlakteaandeel met alleen juridische bescherming en aandeel dat bovendien ook natuurgericht beheerd wordt voor Vlaanderen en per ecosysteemgroep. (*) Bij de rivieren gaat het om het lengteaandeel. Deze figuur verwijst naar figuur 25 in het Natuurrapport 2020."}
+gegevens <- gegevens %>%
+  group_by(Ecosysteem) %>%
+  mutate(Ecosysteem = recode(Ecosysteem, "Rivieren" = "Rivieren*")) %>%
+  mutate(prop = Waarde / sum(Waarde)) %>%
+  ungroup()
+
+gegevens <- gegevens %>%
+  filter(!Categorie == "rest")
+
+p <- ggplot(gegevens, aes(x = Ecosysteem, y = prop, fill = Categorie,
+                          text = paste(
+    "Aandeel:", scales::percent(prop, accuracy = 0.1)
+    )
+    )) +
+  geom_bar(stat = "identity", width = 0.5) +
+  labs(x = "", y = "CUMULATIEF AANDEEL MET NATUURBESCHERMING EN -BEHEER (%)") +
+  scale_y_continuous(limits = c(0, 1),
+    expand = c(0, 0), labels = scales::percent_format(accuracy = 1),
+  ) +
+  scale_fill_manual(
+    breaks = c("juridisch beschermd en beheerd", "alleen juridisch beschermd"),
+    values = c(
+      "alleen juridisch beschermd" = inbo_lichtgroen,
+      "juridisch beschermd en beheerd" = inbo_donkergroen
+    ),
+    labels = c("Juridisch beschermd en beheerd", "Alleen juridisch beschermd")
+  ) +
+  theme(
+    axis.title = element_text(margin = margin(t = 0, r = 0, b = 0, l = 0),
+                              hjust = 0),
+    axis.text = element_text(),
+    axis.ticks.y = element_blank(),
+    legend.text = element_text(margin = margin(t = 2)),
+    legend.spacing = unit(0.1, "cm"),
+    legend.title = element_blank(),
+    panel.grid.major.y = element_blank(),
+    panel.grid.major.x = element_line(colour = "grey", linetype = "dotted"),
+    legend.key.size = unit(0.3, "cm")
+  ) +
+  coord_flip()
+
+if (interactive() || opts_knit$get("rmarkdown.pandoc.to") == "html") {
+  ggplotly(p, tooltip = c("Ecosysteem", "Categorie", "text")) %>%
+    plotly::config(
+      modeBarButtonsToRemove = list(
+        "lasso2d", "select2d", "hoverClosestCartesian",
+        "hoverCompareCartesian", "toggleSpikelines"
+      ),
+      displaylogo = FALSE
+    )
+} else {
+  p
+}
+```
+
+## Definitie
+
+De indicator toont voor heel Vlaanderen en per ecosysteem het oppervlakteaandeel (lengteaandeel bij rivieren) waarbinnen natuur juridisch beschermd is en het aandeel waarbinnen natuur zowel juridisch beschermd als in functie van natuur beheerd wordt.
+
+## Bespreking
+
+Iets meer dan een vierde van de oppervlakte in Vlaanderen waarin natuur juridisch beschermd is, bestaat uit gebieden onder natuurbeheer.
+Dat wil zeggen dat natuur slechts in 7 procent van Vlaanderen zowel juridisch beschermd is als natuurgericht beheerd wordt.
+Het gaat over gebieden waarvoor een goedgekeurd (natuur)beheerplan bestaat, erkende natuurreservaten en percelen die door erkende natuurverenigingen beheerd worden, maar die formeel (nog) niet als reservaat erkend zijn. 
+
+Het aandeel beschermd gebied onder natuurbeheer is het grootst bij de meest natuurlijke terrestrische ecosystemen:
+
++ bij bossen gaat het om 41 procent, dat wil zeggen dat 39 procent van de totale ecosysteemoppervlakte onder juridische bescherming en natuurbeheer valt.
++ de volledige oppervlakte aan heide en landduinen is in Vlaanderen juridisch beschermd, iets meer dan twee derde wordt tevens in functie van natuur beheerd.
+Een groot deel van de heide en landduinen ligt namelijk in militaire domeinen met natuurbeheer – die deel uitmaken van het Natura 2000-netwerk – en in reservaten.
++ ook de volledige oppervlakte aan moerassen is beschermd, 44 procent daarvan wordt ook beheerd.
++ bij kustduinen wordt 58 procent van de beschermde oppervlakte ook in functie van natuur beheerd.
+Dat komt neer op 31 procent van de ecosysteemoppervlakte waarin natuur zowel juridisch beschermd als beheerd is.
++ bij halfnatuurlijke graslanden gaat het om 52 procent, dat wil zeggen dat zo’n 35 procent van de volledige oppervlakte aan halfnatuurlijke graslanden onder natuurbescherming en -beheer staat.
+
+De maatregelen om een goede toestand van de oppervlaktewateren te bereiken, liggen vooral vervat in de acties van de stroomgebiedbeheerplannen.
