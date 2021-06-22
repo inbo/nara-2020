@@ -243,67 +243,29 @@ In onderstaande tabel geven we de deel- en geaggregeerde scores weer.
 De geaggregeerde score is het gemiddelde van de scores voor bodemorganisch koolstofgehalte, bodemerosie, bodemverdichting, nitraatresidu en gewasbescherming. 
 Voor afgedichte bodems wordt automatisch score 5 toegekend
 
-Tabel 7 laat toe om indicatoren te selecteren per intensiteitsklasse.
-Het is ook mogelijk om zoektermen in te geven (search) en om de indicatoren te ordenen. 
-Het resultaat kan gedownload, gekopieerd of geprint worden.
-
 ```{r Tabel 7, echo=FALSE, message=FALSE, warning=FALSE}
-options(OutDec = ",")
-intensiteitgegevens %>%
-  datatable(
-    caption = "Tabel 7. Intensiteitsscores landgebruiken",
-    colnames = c(
-      "Landgebruik", "bodem- koolstof",
-      "bodem- erosie", "bodem- verdichting",
-      "gewas- bescherming", "nitraat- residu",
-      "bodem- afdichting", "totaal", "klasse"
-    ),
-    rownames = FALSE,
-    extensions = c(
-      "KeyTable", "Buttons",
-      "Select", "SearchPanes", "Scroller"
-    ),
-    options = list(
-      dom = "Bfrtip",
-      filter = "none",
-      keys = TRUE,
-      buttons = c("copy", "print", "searchPanes"),
-      language = list(
-        searchPanes = list(
-          collapse = "Selecteer"
-        )
-      ),
-      scrollY = 390,
-      scrollX = FALSE,
-      scrollCollapse = TRUE,
-      paging = FALSE,
-      columnDefs = list(
-        list(
-          searchPanes = list(show = FALSE),
-          targets = 1:7
-        ),
-        list(
-          searchPanes = list(controls = FALSE),
-          targets = 0:8
-        ),
-        list(
-          className = "dt-center",
-          argets = 0:8
-        )
-      )
-    )
-  ) %>%
-  formatRound(c(
-    "bodemkoolstof", "bodemerosie", "bodemverdichting",
-    "gewasbescherming", "nitraatresidu",
-    "bodemafdichting", "nitraatresidu", "totaal"
-  ),
-  digits = 1
-  )
+tabel <- intensiteitgegevens %>%
+  dplyr::rename("bodem-\nkoolstof" = "bodemkoolstof",
+      "bodem\n-erosie" = "bodemerosie",
+      "bodem-\nverdichting" = "bodemverdichting",
+      "gewas-\nbescherming" = "gewasbescherming",
+      "nitraat-\nresidu" = "nitraatresidu",
+      "bodem-\nafdichting" = "bodemafdichting")
+
+tabel[is.na(tabel)] <- ""
+
+tabel %>%
+  kbl(caption = "Tabel 7. Intensiteitsscores landgebruiken.",
+      align = c("l", "c", "c", "c", "c", "c", "c", "c", "c")) %>%
+  kable_styling(c("striped", "hover", "condensed"), full_width = FALSE) %>%
+  column_spec(1, width = "5cm") %>%
+  column_spec(9, width = "3cm") %>%
+  scroll_box(width = "100%", height = "600px")
 ```
 
 ## Opmerkingen bij de gegevenskwaliteit en betrouwbaarheid
-/
+
+
 ## Download
 
 **Broncode indicator**: [e5_landgebruiksintensiteit.Rmd](../e5_landgebruiksintensiteit/e5_landgebruiksintensiteit.Rmd)
