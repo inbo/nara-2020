@@ -1,8 +1,8 @@
 on:
   push:
     branches-ignore:
-      - main
-      - publish
+      - 'main'
+      - 'publish'
 
 name: render_only
 
