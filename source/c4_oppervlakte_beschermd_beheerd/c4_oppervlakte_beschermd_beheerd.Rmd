@@ -36,29 +36,7 @@ options(htmlwidgets.TOJSON_ARGS = list(pretty = TRUE))
 ```
 
 ```{r data_inlezen}
-gegevens <- read_vc("bescherming_beheer") %>%
-  mutate(Categorie = factor(Categorie,
-    ordered = TRUE,
-    levels = c("rest", "alleen juridisch beschermd", "juridisch beschermd en
-               beheerd")
-  )) %>%
-  mutate(Ecosysteem = factor(Ecosysteem,
-    ordered = TRUE,
-    levels = c(
-      "Stedelijk en bebouwd gebied", "Stilstaande wateren", "Rivieren",
-      "Estuaria, slikken en schorren", "Akker",
-      "Productie en overige graslanden",
-      "Halfnatuurlijke graslanden", "Kustduinen en strand", "Moeras",
-      "Heide en landduinen", "Bos", "Vlaanderen"
-    ),
-    labels = c(
-      "Stedelijk en bebouwd gebied", "Stilstaande wateren", "Rivieren",
-      "Estuaria, slikken en schorren", "Akker",
-      "Productie en overige graslanden",
-      "Halfnatuurlijke graslanden", "Kustduinen en strand", "Moeras",
-      "Heide en landduinen", "Bos", "Vlaanderen"
-    )
-  ))
+gegevens <- read_vc("bescherming_beheer")
 ```
 
 Een vierde van de oppervlakte waarbinnen natuur juridisch beschermd is, wordt in functie van natuur beheerd.

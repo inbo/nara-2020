@@ -1,5 +1,5 @@
 ---
-title: "Onze impact op biodiversiteit - Biodiversity intactness index (BII)"
+title: "Algemene toestand en trends in Vlaanderen - Biodiversity intactness index (BII)"
 date: 2020-07-01T10:00:00
 bibliography: ../references.bib
 link-citations: TRUE
