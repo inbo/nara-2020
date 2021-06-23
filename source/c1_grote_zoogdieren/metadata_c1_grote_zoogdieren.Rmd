@@ -100,7 +100,7 @@ mensgegevens <- mensgegevens %>%
   arrange(Orde)
 mensgegevens %>%
   mutate_all(linebreak) %>%
- kable(caption = "Tabel 1. Biomassaberekening mensen",
+ kable(caption = "Tabel 2. Biomassaberekening mensen",
        booktabs = TRUE,
        escape = FALSE,
        col.names = linebreak(
