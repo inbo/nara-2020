@@ -52,7 +52,6 @@ intensiteitgegevens <- read_vc("intensiteit")
 
 Het doel is om een verbeterde High-Nature-Value-farming (HNVf) indicator voor Vlaanderen te ontwikkelen. 
 De nieuwe indicator
-
 - meet kleine veranderingen in het agrarisch beheer,
 - is breed aanvaard door belanghebbenden, en
 - heeft een transparante methode.
@@ -64,36 +63,30 @@ De HNVf-indicator is een Europese indicator voor het opvolgen van het gemeenscha
 Deze indicator schat de biodiversiteitswaarde in van landbouwgrond. 
 @danckaert_indicatoren_2009 ontwikkelde de huidige HNVf-indicator voor Vlaanderen. 
 Deze indicator is aan een update toe omdat:
-
 1. De indicator meet geen veranderingen. 
 De waarde bleef dezelfde tijdens de volledige periode 2009-2018.
 Daarentegen nam de oppervlakte aan soortgerichte beheerovereenkomsten sterk toe.
-
 2. De Biologische Waarderingskaart is niet up-to-date voor het landbouwgebied. 
 Deze kaart is noodzakelijk voor de berekening van de indicator.
 Het INBO heeft wel de intentie om deze kaart up-to-daten met slimme beeldherkenning en door vrijwilligers in te schakelen.
 Dit project staat vermeld in de meerjarenplanning van het INBO.
-
 3. Nieuwe informatie kan de indicator verbeteren. 
 Het gaat hierbij om:
     + de landschapselementenkaart van het Departement Landbouw en Visserij (houtige elementen),
     + de watervlakkenkaart van het Instituut voor Natuur- en Bosonderzoek (stilstaande waterlichamen), en
     + de landgebruikskaart van het VITO (deze kaart is nodig voor HNVf-type 2 te berekenen, zie verder).
-
 4. Wetenschappers en beleidswerkers verbeterden de oorspronkelijke methode [zie o.a. @brunbjerg_development_2016; @lomba_reconciling_2015; @maskell_exploring_2019; @van_doorn_high_2013]. 
 We willen nagaan of dit ook voor Vlaanderen mogelijk is.
 
 Aangezien op 1 jan 2022 een nieuwe periode van het Gemeenschappelijk Landbouwbeleid (GLB) begint, kan een update en verbetering van de HNVf-indicator het beleid ondersteunen. 
 De ontwikkeling van de indicator werd begeleid door een gebruikersgroep. 
 Deze bestond uit:
-
 - Departement Landbouw en Visserij
 - Vlaamse Landmaatschappij
 - Agentschap Natuur & Bos
 - Milieurapportteam
 
 In de volgende paragrafen bespreken we achtereenvolgens: 
-
 1. de Nederlandse en Deense methode, 
 2. beschikbare kaarten, 
 3. mogelijke indicatoren, en
@@ -148,7 +141,6 @@ nl_hnvf %>%
 Hieronder geven we een overzicht van de beschikbare kaartlagen (Tabel 2). 
 De updatefrequentie varieert van jaarlijks tot éénmalig. 
 We dienen de kaarten zodanig te combineren dat de indicator:
-
 - tussentijdse veranderingen meet tijdens een GLB-periode (onder andere voor de verplichte midtermevaluatie), en 
 - meer nauwkeurig meet bij het einde van een GLB-periode.
 
@@ -158,7 +150,6 @@ Hoe hoger de grasleeftijd, hoe hoger de koolstofwaarde en hoe beter voor de bode
 Beheerovereenkomsten geeft ons na bewerking info over de opgaande kleine landschapselementen die zeker beheerd worden, de grasstroken en het aandeel landbouwgrond onder beheerovereenkomst in de omgeving van een rastercel.
 
 Nauwkeurige meting op het einde van een GLB-periode zou mogelijk zijn indien de overheidsentiteiten volgende kaarten updaten met frequentie van 6 jaar:
-
 - de landschapselementenkaart: dit was een éénmalige oefening, die mogelijks updatebaar zijn door machine learning.
 - de beheergebieden akkervogels, weidevogels, hamster, grauwe kiekendief, botanisch beheer:  het is de intentie van de VLM om naar 1 type beheergebied te gaan voor alle soortgerichte beheerovereenkomsten.
 
@@ -217,7 +208,6 @@ De indicator houdt rekening met gewasbeschermingsmiddelen, nitraatresidu en effe
 Het gaat hierbij zowel om intensiteit van het perceel als de omgeving. 
 Voor de omgeving kozen we voor een straal van 500 meter rond het perceel. 
 Deze twee subindicatoren integreren veel van de vermelde subindicatoren uit tabel 3:
-
 - aanwezigheid van halfnatuurlijke vegetaties,
 - aanwezigheid van kleine landschapselementen en beheerovereenkomsten,
 - aanwezigheid van agromilieuklimaatmaatregelen die bijvoorbeeld zorgen voor minder bodemverstoring (bv. niet-kerende bodembewerking) of verminderd gebruik van gewasbeschermingsmiddelen (bv. verwarringstechniek bij pitfruit) waardoor de intensiteit van deze percelen lager is. 
@@ -276,23 +266,19 @@ Bijkomend sluit het halfnatuurlijke graslanden uit die aangegeven zijn door erke
 In de indicator 2020 was de laatste correctie niet mogelijk omdat we niet beschikken over de volledige verzamelaanvraag.
 
 Om de halfnatuurlijke graslanden in landbouwbeheer te bepalen hielden we rekening met volgende kaartlagen:
-
 - de landgebruikspercelenkaarten vanaf 1999 (starttijdstip BWK 2) tot en met het jaar van de landgebruikskaart, en
 - de meest recente BWK ten opzichte van de landgebruikskaart. 
 
 De randvoorwaarden van deze HNVf1-subindicator zijn:
-
 - volledige periode aangegeven als gras (blijvend en tijdelijk gras, natuurlijk grasland, grasland met bomen) of op tijdstip van de landgebruikskaart grasland in natuurbeheer.
 Landbouwers geven graslanden in natuurbeheer eerder sporadisch aan waardoor we de continuöteit van het grasland niet kunnen inschatten door analyse van de landgebruikspercelenkaarten.
 - natura2000-grasland (inclusief waarschijnlijk en deels natura2000) of regionaal belangrijke biotoop op de meest recente BWK ten opzichte van de landgebruikskaart.
 
 Om de akkers in natuurbeheer te bepalen hielden we rekening met volgende kaartlagen:
-
 - de landgebruikspercelen kaart van het jaar van de landgebruikskaart, en
 - de meest recente BWK ten opzichte van de landgebruikskaart.
 
 De randvoorwaarden van deze HNVf1-subindicator zijn:
-
 - aangegeven als begraasde niet-landbouwgrond met overeenkomst, braak (voor meer detail zie Tabel 6), onverharde landingsbaan of veiligheidszones (deze stroken worden doorgaans begraasd of gemaaid) op de verzamelaanvraag.
 - natura2000-habitat (inclusief waarschijnlijk en deels natura2000) of regionaal belangrijke biotoop op de meest recente BWK ten opzichte van de landgebruikskaart.
 
@@ -329,7 +315,6 @@ De halfnatuurlijke vegetatie dient minimaal de waarde waardevol te hebben.
 
 Voor de kleinschalige mozaïeklandschappen kozen we ervoor om te werken met intensiteitsscore van het perceel en zijn omgeving. 
 De intensiteitsscore houdt rekening met diverse vegetatie- en beheerindicatoren:
-
 - de aanwezigheid van natuur en bos, 
 - het gebruik van chemisch-synthetische gewasbeschermingsmiddelen,
 - gebiedsbeperkingen inzake gewasbeschermingsmiddelen (VEN en habitatrichtlijngebieden), 
@@ -627,7 +612,6 @@ Naar schatting 30 tot 50% van de meest productieve en vruchtbare bodems in Europ
 Voor Vlaanderen zou dit neerkomen op een [areaal](https://ilvo.vlaanderen.be/nl/nieuws/hardnekkige-verdichting-onder-akker-en-graslanden) van 200.000 tot 300.000 ha. 
 Uit een recente [bevraging](https://ilvo.vlaanderen.be/nl/nieuws/hardnekkige-verdichting-onder-akker-en-graslanden) van Belgische landbouwers blijkt bovendien dat een derde (34%) problemen met bodemverdichting ervaart. 
 Recente trends in de Vlaamse landbouw werken bodemverdichting in de hand: 
-
 - de trend naar landbouwmachines met grotere wiellasten (vb. zelfrijdende oogstmachines), 
 - de groei van de groente- en aardappelverwerkende industrie met de bijbehorende evolutie naar contractteelt,
 - loonwerk afgestemd op de planning in de fabriek eerder dan op de weersomstandigheden, 
@@ -675,8 +659,7 @@ Het is een binaire variabele omdat we geen zicht hebben op semipermeabele afdich
 
 <font size="3"> D8. Geaggregeerde landgebruiksscore</font>
 
-In onderstaande tabel geven we de deel- en geaggregeerde scores weer. 
-
+In onderstaande tabel geven we de deel- en geaggregeerde scores weer.
 De geaggregeerde score is het gemiddelde van de scores voor bodemorganisch koolstofgehalte, bodemerosie, bodemverdichting, nitraatresidu en gewasbescherming. 
 Voor afgedichte bodems wordt automatisch score 5 toegekend.
 

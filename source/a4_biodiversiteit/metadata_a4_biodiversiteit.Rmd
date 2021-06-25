@@ -32,10 +32,9 @@ library(DT)
 ```{r databereik}
 databereik <- 2020
 ```
-
-- **Periodiciteit**: eenmalig
-- **Volgende update**: onbekend
-- **Databereik**: `r databereik`
+\- **Periodiciteit**: eenmalig
+\- **Volgende update**: onbekend
+\- **Databereik**: `r databereik`
 
 ## Databron
 
@@ -53,7 +52,6 @@ Om dit duidelijk te maken is een typologie opgesteld.
 Indicatoren zouden informatie moeten geven over vier interagerende biologische **organisatieniveaus**: genen, soorten, ecosystemen en landschappen.
 
 Daarnaast leveren vier diverse **ecologische invalshoeken** complementaire informatie en kennis over de toestand van de biodiversiteit en over de aanknopingspunten voor herstel:
-
 - invalshoek 1: het bestuderen van de samenstellende componenten;
 - invalshoek 2: het begrijpen van ecologische functies en processen;
 - invalshoek 3: het analyseren van ruimtelijke structuren en patronen;

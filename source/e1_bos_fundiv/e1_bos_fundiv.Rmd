@@ -337,7 +337,7 @@ cwm_stuurvariabelen <- data_cwm %>%
 
 De functionele diversiteit van de Vlaamse bossen neemt toe, vooral door de omvorming van homogene dennen- en populierenbestanden naar gemengde bestanden.
 
-```{r staafdiagram, fig.width = 7, fig.height = 4, fig.cap = "Figuur 1. Gemiddelde en 95% betrouwbaarheidsinterval van de functionele diversiteit (FDis = functionele dispersie - @laliberte_distance-based_2010) van bomen per bostype (PNV) in de bosbouwproefvlakken van de Vlaamse bosinventaris (VBI). De indicator is 0 als er maar één soort aanwezig is, maar heeft geen bovengrens."}
+```{r staafdiagram, fig.width = 7, fig.height = 4, fig.cap = "Figuur 1. Gemiddelde en 95% betrouwbaarheidsinterval van de functionele diversiteit (FDis = functionele dispersie - @laliberte_distance-based_2010) van bomen per bostype (PNV) in de bosbouwproefvlakken van de Vlaamse bosinventaris (VBI). De indicator is 0 als er maar één soort aanwezig is, maar heeft geen bovengrens. Deze figuur verwijst naar figuur 76 in het Natuurrapport 2020."}
 
 pred_m <- ggpredict(brm_Bostypes, terms = c("Periode", "Bostype")) %>%
   mutate(x = dplyr::recode(x, "1" = "VBI1", "2" = "VBI2")) %>%

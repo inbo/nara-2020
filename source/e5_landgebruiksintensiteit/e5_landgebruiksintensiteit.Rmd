@@ -140,9 +140,7 @@ if (interactive() || opts_knit$get("rmarkdown.pandoc.to") == "html") {
 ## Definitie
 
 De indicator geeft de trend van de intensiteit van het landbouwbeheer ten opzichte van 1980 weer. 
-
 De intensiteit van het landbouwbeheer is een gemiddelde van de intensiteitsscore per teeltgroep en de oppervlakte van die teeltgroep.
-
 De intensiteitsscore per gewas houdt rekening met het gemiddeld nitraatresidu, het gebruik van gewasbeschermingsmiddelen (actieve stof), het risico op bodemverdichting en bodemerosie en de aanbreng van de hoeveelheid effectieve organische stof door het gewas.
 
 ## Bespreking

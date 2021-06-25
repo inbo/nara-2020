@@ -96,7 +96,7 @@ data_cut2 <- data_cutruw %>%
 
 De open ruimte, en vooral de natuurlijke ruimte, is sterk versnipperd in Vlaanderen.
 
-```{r staafdiagram, fig.width = 5, fig.height = 5, fig.cap = "Figuur 1. Meff-score van de natuur en de onbebouwde ruimte in 2016. De score geeft aan hoeveel hectare (ha) vrije bewegingsruimte een soort heeft binnen elk hok van 1 km². De score daalt naarmate de versnipperingsgraad stijgt."}
+```{r staafdiagram, fig.width = 5, fig.height = 5, fig.cap = "Figuur 1. Meff-score van de natuur en de onbebouwde ruimte in 2016. De score geeft aan hoeveel hectare (ha) vrije bewegingsruimte een soort heeft binnen elk hok van 1 km². De score daalt naarmate de versnipperingsgraad stijgt. Deze figuur verwijst naar figuur 36 in het Natuurrapport 2020."}
 
 colhigh <- scales::seq_gradient_pal(inbo_steun_donkerroos, "#d37ca9",
                                     "Lab")(seq(0, 1, length.out = 2))
@@ -167,7 +167,7 @@ Voor de onbebouwde ruimte is slechts 8 procent van de hokken kleiner dan 5 hecta
 Het Europees Milieuagentschap berekent een Europese versnipperingsindex die vergelijkbaar is met de Meff voor de onbebouwde ruimte. 
 Daaruit blijkt dat België na Malta de sterkst versnipperde lidstaat is en dat de versnippering tussen 2009 en 2015 nog toenam [@eea_landscape_2019].
 
-```{r kaart, fig.width = 10, fig.height = 5, fig.cap = "Figuur 2. Meff-score van de natuur en de onbebouwde ruimte in 2016."}
+```{r kaart, fig.width = 10, fig.height = 5, fig.cap = "Figuur 2. Meff-score van de natuur en de onbebouwde ruimte in 2016. Deze figuur verwijst naar figuur 36 in het Natuurrapport 2020."}
 
 raster_colorpal <- colorNumeric(pal, values(natuur16), na.color = NA)
 
