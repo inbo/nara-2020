@@ -284,8 +284,7 @@ rownames(tabel_sta) <- c("Ecosysteemvoorraad 2013", "Ecosysteemvoorraad 2016",
 tabel_sta %>%
   kable(
     caption = "Tabel 1: Rekening ecosysteemvoorrraad (km²) in 2013 en 2016
-    (Bron: Departement Omgeving, INBO). Deze tabel verwijst naar Tabel 6
-    in het Natuurrapport 2020.",
+    (Bron: Departement Omgeving, INBO).",
     col.names = c("Stedelijk en bebouwd gebied", "Akker", "Grasland",
                   "Bos en houtige vegetatie", "Heide en landduin",
                   "Strand en kustduin", "Moeras", "Zoetwater",

@@ -60,7 +60,7 @@ historisch_agroecosysteem <- oppervlakte3gegevens %>%
 
 Vlaanderen heeft weinig High Nature Value farmland.
 
-```{r staafdiagram2, fig.cap = "High Nature Value farmland per landgebruiksklasse in 2013 en 2016 (databronnen: de door VITO gemaakte VPO-landgebruiksbestanden, de Biologische Waarderingskaart en gebruikspercelenkaarten 2009-2016)"}
+```{r staafdiagram2, fig.cap = "High Nature Value farmland per landgebruiksklasse in 2013 en 2016 (databronnen: de door VITO gemaakte VPO-landgebruiksbestanden, de Biologische Waarderingskaart en gebruikspercelenkaarten 2009-2016). Deze figuur verwijst naar figuur 92 in het Natuurrapport 2020."}
 
 f1 <- list(
   color = "rgb(0, 0, 0)",
@@ -350,7 +350,6 @@ fig
 Deze indicator geeft een schatting van de oppervlakte aan landbouwgrond met hoge biodiversiteitswaarde. Landbouwgrond met hoge biodiversiteitswaarde of HNVf wordt gedefinieerd als de gebieden waar landbouw het belangrijkste (en meestal dominante) landgebruik is en waar landbouw of geassocieerd is met een hoge soorten- of habitatdiversiteit, of de aanwezigheid van soorten van Europees, nationaal of regionaal belang ondersteunt, of beide.
 
 @andersen_developing_2003 onderscheiden 3 types HNVf:
-
 - Type 1: landbouwgrond met een groot aandeel natuurlijke halfnatuurlijke vegetatie,
 - Type 2: landbouwgrond gedomineerd door laag intensieve landbouw of landbouwgrond met kleine landschapselementen,
 - Type 3: landbouwgrond waarop zeldzame soorten of een groot aandeel van de Europese of wereldpopulatie van een soort voorkomen.
@@ -358,7 +357,6 @@ Deze indicator geeft een schatting van de oppervlakte aan landbouwgrond met hoge
 Subtypes overlappen niet en indien een perceel tot meerdere subtypes kan behoren wordt de voorkeur gegeven aan het biologisch meest waardevol subtype (1 > 2 > 3).
 
 De oppervlakte HNVf wordt afzonderlijk bekeken voor akker- en sierteelt, blijvende cultuurgraslanden en historische agrecosystemen. Historische agro-ecosystemen omvatten:
-
 -  halfnatuurlijke graslanden: graslanden met extensief maaibeheer of lichte begrazing ([Ecopedia](https://www.ecopedia.be/encyclopedie/halfnatuurlijk-grasland))
 - soortenrijke permanente graslanden^[soortenrijke permanente graslanden omvatten vochtig grasland gedomineerd door russen, soortenrijk permanent cultuurgrasland en soortenrijk permanent cultuurgrasland met zilte elementen] [@vriens_biologische_2011], en
 - hoogstamboomgaarden en landbouwgronden met veel kleine landschapselementen [@andersen_developing_2003]. 

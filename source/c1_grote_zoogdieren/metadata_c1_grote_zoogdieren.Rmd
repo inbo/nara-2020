@@ -34,26 +34,26 @@ veegegevens <- read_vc("biomassa_vee")
 ```{r databereik}
 databereik <- 2018
 ```
-- **Periodiciteit**: eenmalig
-- **Volgende update**: onbekend
-- **Databereik**: `r databereik`
+\- **Periodiciteit**: eenmalig
+\- **Volgende update**: onbekend
+\- **Databereik**: `r databereik`
 
 ## Databron
 
 - **Producent**: Instituut voor Natuur- en Bosonderzoek
 - **Datasets**: 
-  * runderen en varkens: [STATBEL landbouwdata  2018](https://statbel.fgov.be/nl/themas/landbouw-visserij/land-en-tuinbouwbedrijven#figures);
-  * mensen: Structuur van de Vlaamse bevolking op basis van [het rijksregister in STATBEL](https://statbel.fgov.be/nl/themas/bevolking/structuur-van-de-bevolking#news), BMI op basis van  [gezondheidsenquête](https://his.wiv-isp.be/nl/Gedeelde%20%20documenten/NS_NL_2018.pdf), groeicurven van kinderen op basis van VUB-onderzoek ([meisjes](https://www.vub.be/groeicurven/files/1-20050604-EP2-20F.pdf), [jongens](https://www.vub.be/groeicurven/files/1-20050604-EP2-20M.pdf));
-  * herten, reeën, everzwijnen: INBO terreinwaarnemingen.
+  * Runderen en varkens: [STATBEL landbouwdata  2018](https://statbel.fgov.be/nl/themas/landbouw-visserij/land-en-tuinbouwbedrijven#figures);
+  * Mensen: Structuur van de Vlaamse bevolking op basis van [het rijksregister in STATBEL](https://statbel.fgov.be/nl/themas/bevolking/structuur-van-de-bevolking#news), BMI op basis van  [gezondheidsenquête](https://his.wiv-isp.be/nl/Gedeelde%20%20documenten/NS_NL_2018.pdf), groeicurven van kinderen op basis van VUB-onderzoek ([meisjes](https://www.vub.be/groeicurven/files/1-20050604-EP2-20F.pdf), [jongens](https://www.vub.be/groeicurven/files/1-20050604-EP2-20M.pdf));
+  * Herten, reeën, everzwijnen: INBO terreinwaarnemingen.
 - **Gegevensinzameling**: 
-  * mensen: 
-    * leeftijdsdistributie: deze gegevens komen uit het rijksregister, wat betekent dat er een lichte onderschatting is omdat niet iedereen een rijksregisternummer heeft (bv. illegalen);
-    * de gezondheidsenquête voor het inzamelen van de BMI gebeurt door middel van een gestratificeerde steekproef (gewest, provincie) uit het rijksregister.
+  * Mensen: 
+    * Leeftijdsdistributie: deze gegevens komen uit het rijksregister, wat betekent dat er een lichte onderschatting is omdat niet iedereen een rijksregisternummer heeft (bv. illegalen);
+    * De gezondheidsenquête voor het inzamelen van de BMI gebeurt door middel van een gestratificeerde steekproef (gewest, provincie) uit het rijksregister.
 Het aantal gemeenten dat per provincie geselecteerd zal worden, staat in functie van de grootte van de provincie (aantal inwoners) en de grootte van de
 gemeenten/steden binnen de provincie. 
 De grootte van de provincie bepaalt het aantal groepen (van 50 te bevragen personen) dat geselecteerd wordt. 
-  * vee (databron is STATBEL): 
-    * het aantal runderen en varkens binnen STATBEL wordt bepaald via het Systeem van registratie en van toezicht op de Belgische veestapel [SANITEL](https://www.vlaanderen.be/identificatie-en-registratie-van-landbouwdieren-via-sanitel).
+  * Vee (databron is STATBEL): 
+    * Het aantal runderen en varkens binnen STATBEL wordt bepaald via het Systeem van registratie en van toezicht op de Belgische veestapel [SANITEL](https://www.vlaanderen.be/identificatie-en-registratie-van-landbouwdieren-via-sanitel).
 
 ## Berekeningswijze
 
@@ -83,7 +83,6 @@ veegegevens %>%
 ### Mensen
 
 Om de biomassa van mensen te berekenen op basis van de beschikbare databronnen deden we volgende aannames:
-
 -	Kinderen tot en met 18 jaar: we kozen hierbij voor het mediaan gewicht per jaar van de VUB groeicurven.
 -	Volwassen (18+): voor volwassen mensen vonden we alleen data over de BMI. We berekenden hierbij een gemiddelde BMI per leeftijdsklasse (zie ook ¨[Tabel B.9 uit Drieskens et al. 2018](https://his.wiv-isp.be/nl/Gedeelde%20%20documenten/NS_NL_2018.pdf)). 
 We corrigeerden hierbij voor geslacht: mannen hebben een gemiddelde BMI van 26 en vrouwen van 24.8, het gemiddelde voor de Vlaming bedraagt 25.5.
@@ -115,7 +114,6 @@ mensgegevens %>%
 ### Herten, reeën, everzwijnen
 
 De aantallen en gewichten werden ingeschat op basis van terreinwaarnemingen beschikbaar op het INBO. Het betreft dus een ruwe schatting van de grootteorde van de totale biomassa. De schattingen zijn:
-
 - everzwijnen: tussen 2500 en 6000, in de berekening werd er rekening gehouden met 3500 everzwijnen,
 - reeën tussen 20.000 en 45.000, in de berekening werd er rekening gehouden met 30.000 reeën,
 - edelherten: 80,
@@ -139,7 +137,6 @@ CBS data geeft een gemiddelde van 121 kg bij slachtingen.
 
 ### Mensen
 Volgende aannames kunnen het resultaat beïnvloed hebben:
-
 -	de correctie man en vrouw gebeurde uniform per leeftijdsklasse
 -	we gebruikte een lineaire  afname van de lengte per stijging van 10 jaar van de leeftijd.
 
