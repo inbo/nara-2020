@@ -80,7 +80,7 @@ pred_boom <- ggpredict(m_boom, terms = c("fPeriode", "fpnvGroup")) %>%
 
 # Poisson mixed model
 m_kruid <- glmer(
-  data = datakruid, NbHerb ~ fPeriode * fpnvGroup + (1 | IDPlots),
+  data = datakruid, NbHerb ~ fPeriode * fpnvGroup + (1 | IDGroup),
   family = "poisson",
   glmerControl(
     optimizer = "bobyqa",
@@ -97,7 +97,7 @@ pred_kruid <- ggpredict(m_kruid, terms = c("fPeriode", "fpnvGroup")) %>%
 # Poisson mixed model
 m_oudbos <- glmer(
   data = datakruidob,
-  NbOudbos ~ fPeriode * ForestAge + (1 | IDPlots),
+  NbOudbos ~ fPeriode * ForestAge + (1 | IDGroup),
   family = "poisson"
 )
 
