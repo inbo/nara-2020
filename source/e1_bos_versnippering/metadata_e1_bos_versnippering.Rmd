@@ -34,7 +34,7 @@ databereik <- "VBI 1: 1997-1999 en VBI 2: 2009-2019"
 
 ## Databron
 
-- **Producent**: Instituut voor Natuur- en Bosonderzoek
+- **Producent**: Agentschap Natuur en Bos, Agentschap Informatie Vlaanderen, Instituut voor Natuur- en Bosonderzoek
 - **Dataset**: [Digitale boswijzer Vlaanderen 2009, 2012, 2015](http://www.geopunt.be/catalogus/datasetfolder/42457086-8b2c-44b6-8232-daa65cfd486b)
 Databank Vlaamse Bosinventaris (v16-03-2020). 
 De databank kan opgevraagd worden bij het [Agentschap Natuur en Bos](https://www.natuurenbos.be/beleid-wetgeving/natuurbeheer/bosinventaris/contact).

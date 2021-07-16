@@ -40,7 +40,7 @@ databereik <- "VBI 1: 1997-1999 en VBI 2: 2009-2019"
 
 ## Databron
 
-- **Producent**: Instituut voor Natuur- en Bosonderzoek
+- **Producent**: Agentschap Natuur en Bos en Instituut voor Natuur- en Bosonderzoek
 - **Dataset**: Transitiematrix Vlaamse Bosinventaris (11/05/2020)
 - **Gegevensinzameling**: De Vlaamse bosinventaris (VBI) bestaat uit een steekproef van punten waarvoor op het terrein de toestand van het bos wordt opgemeten [@westra_opmaak_2015; @wouters_ontwerp_2008].
 De meetcyclus van de eerste bosinventaris (VBI 1) liep van 1997 tot 1999, de tweede meetcyclus (VBI 2) van 2009 tot 2019.
