@@ -1,4 +1,4 @@
 type	vegetatie	agrarisch_beheer	biodiversiteit
 HNV1	Natura2000-habitats en regionaal belangrijke biotopen	Blijvend grasland (minimaal 5 jaar) of voor de overige natuurhabitats geen akker- of tuinbouw 	BWK: biologisch (zeer) waardevol
 HNV2	Alle landgebruiken, zolang ze in aangegeven zijn in de verzamelaanvraag	Landgebruiksintensiteit perceel kleiner dan of gelijk aan 3	BWK: biologisch (zeer) waardevol
-HNV3	-	Soortgerichte beheerovereenkomst	Beheergebied voor soortgerichte beheerovereenkomsten
+HNV3	Geen	Soortgerichte beheerovereenkomst	Beheergebied voor soortgerichte beheerovereenkomsten
