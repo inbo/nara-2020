@@ -55,8 +55,10 @@ gegevens <- read_vc("dataai") %>% # Dataset voor analyse authenticiteitsindex
 
 doodhout <- read_vc("datadoodhout") %>% # Dataset voor analyse dood hout
   drop_na(totaal) %>%
-  mutate(OwnerType = recode(OwnerType, "Public" = "Publiek",
-                            "Private" = "Privaat")) %>%
+  mutate(OwnerType = recode(OwnerType,
+    "Public" = "Publiek",
+    "Private" = "Privaat"
+  )) %>%
   rename(periode = Periode) # Hoofdletter
 ```
 
@@ -91,8 +93,10 @@ pred_mwl <- ggpredict(mwl, terms = c("fPeriode", "StandType")) %>%
 pred_mhl <- ggpredict(mhl, terms = c("fPeriode", "StandType")) %>%
   mutate(x = recode(x, "1" = "VBI 1", "2" = "VBI 2")) %>%
   mutate(index = "Kruidlaag")
-pred_mdw <- ggpredict(mdw, terms = c("fPeriode", "StandType"),
-                      type = "fe.zi") %>%
+pred_mdw <- ggpredict(mdw,
+  terms = c("fPeriode", "StandType"),
+  type = "fe.zi"
+) %>%
   mutate(x = recode(x, "1" = "VBI 1", "2" = "VBI 2")) %>%
   mutate(index = "Dood hout")
 
@@ -100,9 +104,11 @@ pred_m <- base::rbind(pred_mtot, pred_mfs, pred_mwl, pred_mhl, pred_mdw)
 
 # Hernoemen bestandstypes
 pred_m <- pred_m %>%
-  mutate(groupkort = recode(group, "gemengd naaldhout" = "G\nnaald",
-                            "gemengd loofhout" = "G\nloof",
-                            "naaldhout" = "naald", "loofhout" = "loof"))
+  mutate(groupkort = recode(group,
+    "gemengd naaldhout" = "G\nnaald",
+    "gemengd loofhout" = "G\nloof",
+    "naaldhout" = "naald", "loofhout" = "loof"
+  ))
 
 # Maximale scores voor deelaspecten
 tot <- 72
@@ -116,11 +122,15 @@ De natuurlijkheidsgraad van bossen neemt toe, maar het volume dood hout ligt nog
 
 ```{r staafdiagram, fig.width = 10, fig.height = 5, fig.cap = "Figuur 1. Gemiddelde en 95% betrouwbaarheidsinterval van de totaalscore en deelscores van de authenticiteitsindex voor de verschillende bestandtypes in de Vlaamse bosinventaris (VBI). G loof = gemengd loofhout, G naald = gemengd naaldhout. Boven elke figuur staat de maximaal haalbare score op basis van de deelindicatoren die in beide inventarisatieperiodes op dezelfde manier zijn gemeten. Deze figuur verwijst naar figuur 77 uit het Natuurrapport 2020."}
 
-labels <- c("Boomlaag\n(max = 21)", "Bosstructuur\n(max = 16)",
-            "Dood hout\n(max = 15)", "Kruidlaag\n(max = 20)",
-            "Totaal\n(max = 72)")
-names(labels) <- c("Boomlaag", "Bosstructuur", "Dood hout",
-                   "Kruidlaag", "Totaal")
+labels <- c(
+  "Boomlaag\n(max = 21)", "Bosstructuur\n(max = 16)",
+  "Dood hout\n(max = 15)", "Kruidlaag\n(max = 20)",
+  "Totaal\n(max = 72)"
+)
+names(labels) <- c(
+  "Boomlaag", "Bosstructuur", "Dood hout",
+  "Kruidlaag", "Totaal"
+)
 
 p <- ggplot(pred_m, aes(
   x = groupkort, y = predicted, fill = x,
@@ -131,19 +141,25 @@ p <- ggplot(pred_m, aes(
   )
 )) +
   geom_bar(stat = "identity", position = "dodge", width = 0.8) +
-  geom_errorbar(aes(ymin = conf.low, ymax = conf.high, ), width = 0.05,
-                colour = "black", position = position_dodge(width = 0.7)) +
+  geom_errorbar(aes(ymin = conf.low, ymax = conf.high, ),
+    width = 0.05,
+    colour = "black", position = position_dodge(width = 0.7)
+  ) +
   scale_y_continuous(expand = c(0, 0)) +
   labs(y = "GEMIDDELDE SCORE", fill = "") +
   theme(
     axis.title.x = element_blank(),
-    axis.title.y = element_text(margin = margin(t = 0, r = 10, b = 0, l = 0),
-                                hjust = 0),
+    axis.title.y = element_text(
+      margin = margin(t = 0, r = 10, b = 0, l = 0),
+      hjust = 0
+    ),
     legend.key.size = unit(0.3, "cm"),
     strip.background = element_rect(fill = inbo_lichtgrijs),
   ) +
-  facet_wrap(~index, scales = "free_y", labeller = labeller(index = labels),
-             nrow = 1)
+  facet_wrap(~index,
+    scales = "free_y", labeller = labeller(index = labels),
+    nrow = 1
+  )
 
 t <- ggplotly(p, tooltip = c("text"))
 t[["x"]][["layout"]][["shapes"]][[2]][["y1"]] <- 35
@@ -181,8 +197,8 @@ In het oudste bosreservaat van Vlaanderen (Zoniën) nam het dood-houtvolume toe 
 # gewogen variantie
 
 mywgtparestimation <- function(data, variablename, periode = NA, minreeks = 1,
-                                maxreeks = 12, minyear = 1, maxyear = 9999,
-                                usestrata = rep(FALSE, 1000), strata) {
+                               maxreeks = 12, minyear = 1, maxyear = 9999,
+                               usestrata = rep(FALSE, 1000), strata) {
   if (is.na(periode)) {
     datasel <- data[data$Reeks <= maxreeks &
       data$Reeks >= minreeks &
@@ -207,8 +223,9 @@ mywgtparestimation <- function(data, variablename, periode = NA, minreeks = 1,
       # Loop over alle strata
       for (Stratum in levels(datasel[, strata[i]])) {
         datastrat <- datasel[!is.na(datasel[, strata[i]]) &
-                               (datasel[, strata[i]] == Stratum), ,
-                             drop = FALSE]
+          (datasel[, strata[i]] == Stratum), ,
+        drop = FALSE
+        ]
 
         variable <- datastrat[, Var]
 
@@ -244,13 +261,17 @@ mywgtparestimation <- function(data, variablename, periode = NA, minreeks = 1,
           stratumNaam = Stratum,
           periode = periode,
           minyear = ifelse(nrow(datastrat) > 0, min(datastrat$Year,
-                                                    na.rm = TRUE), NA),
+            na.rm = TRUE
+          ), NA),
           maxyear = ifelse(nrow(datastrat) > 0, max(datastrat$Year,
-                                                    na.rm = TRUE), NA),
+            na.rm = TRUE
+          ), NA),
           minreeks = ifelse(nrow(datastrat) > 0, min(datastrat$Reeks,
-                                                     na.rm = TRUE), NA),
+            na.rm = TRUE
+          ), NA),
           maxreeks = ifelse(nrow(datastrat) > 0, max(datastrat$Reeks,
-                                                     na.rm = TRUE), NA),
+            na.rm = TRUE
+          ), NA),
           nbObservaties = length(datastrat$IDPlots),
           wgtmean = wgtmean,
           wgtvar = wgtvar,
@@ -264,7 +285,7 @@ mywgtparestimation <- function(data, variablename, periode = NA, minreeks = 1,
         }
         s <- s + 1
       }
-    } else {# Indien we niet met strata werken
+    } else { # Indien we niet met strata werken
       variable <- datasel[, Var]
       wgtmean <- sum(datasel$Weight * variable, na.rm = TRUE) /
         sum(datasel$Weight * (!is.na(variable)), na.rm = TRUE)
@@ -305,16 +326,22 @@ mywgtparestimation <- function(data, variablename, periode = NA, minreeks = 1,
 ```{r doodhout, fig.width = 6, fig.height = 4, fig.cap = "Figuur 2. Gemiddelde en 95% betrouwbaarheidsinterval van het volume dood hout (staand, liggend en totaal) in private en publieke bossen in beide periodes van de Vlaamse bosinventaris (VBI). Deze figuur verwijst naar de paragraaf over de natuurlijkheidsgraad van bos in het Natuurrapport 2020."}
 
 respons <- c("staand", "liggend", "totaal")
-labels <- c("staand" = "Volume staand\ndood hout",
-            "liggend" = "Volume liggend\ndood hout",
-            "totaal" = "Totaal volume\ndood hout")
+labels <- c(
+  "staand" = "Volume staand\ndood hout",
+  "liggend" = "Volume liggend\ndood hout",
+  "totaal" = "Totaal volume\ndood hout"
+)
 
-p1 <- mywgtparestimation(doodhout, respons, periode = 1,
-                          usestrata = c(TRUE, TRUE, TRUE),
-                          strata = c("OwnerType", "OwnerType", "OwnerType"))
-p2 <- mywgtparestimation(doodhout, respons, periode = 2,
-                          usestrata = c(TRUE, TRUE, TRUE),
-                          strata = c("OwnerType", "OwnerType", "OwnerType"))
+p1 <- mywgtparestimation(doodhout, respons,
+  periode = 1,
+  usestrata = c(TRUE, TRUE, TRUE),
+  strata = c("OwnerType", "OwnerType", "OwnerType")
+)
+p2 <- mywgtparestimation(doodhout, respons,
+  periode = 2,
+  usestrata = c(TRUE, TRUE, TRUE),
+  strata = c("OwnerType", "OwnerType", "OwnerType")
+)
 resultaat <- rbind(p1, p2) %>%
   mutate(periode = as.factor(periode))
 levels(resultaat$periode) <- c("VBI 1", "VBI 2")
@@ -329,8 +356,10 @@ p <- ggplot(resultaat, aes(
   )
 )) +
   geom_bar(stat = "identity", position = "dodge", width = 0.7) +
-  geom_errorbar(aes(ymin = llci, ymax = ulci), width = 0.05,
-                colour = "black", position = position_dodge(width = 0.7)) +
+  geom_errorbar(aes(ymin = llci, ymax = ulci),
+    width = 0.05,
+    colour = "black", position = position_dodge(width = 0.7)
+  ) +
   scale_y_continuous(expand = expand_scale(mult = c(0, .05))) +
   labs(y = "Volume (m³/ha", fill = "Eigenaarstype") +
   theme(
@@ -340,8 +369,10 @@ p <- ggplot(resultaat, aes(
     strip.text.x = element_text(margin = margin(0, 0, 1, 0, "cm")),
     strip.background = element_rect(fill = inbo_lichtgrijs),
   ) +
-  facet_wrap(~variabele, scales = "free_y",
-             labeller = labeller(variabele = labels))
+  facet_wrap(~variabele,
+    scales = "free_y",
+    labeller = labeller(variabele = labels)
+  )
 
 t <- ggplotly(p, tooltip = c("text"))
 t[["x"]][["layout"]][["annotations"]][[1]][["x"]] <- -0.03
