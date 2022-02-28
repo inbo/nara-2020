@@ -170,8 +170,8 @@ Voor de pijler dood hout werden alleen staande dode bomen in rekening gebracht, 
 Als ook het liggend dood hout in rekening gebracht wordt, neemt de AI verder toe.
 
 Dood hout is essentieel voor een groot aantal soorten en speelt een belangrijke rol in de nutriëntenkringloop. 
-Het totale volume dood hout (staand en liggend) is lager in publieke (17,9 m²/ha) dan in private bossen (20,6 m²/ha) (Figuur 2). 
-Die volumes liggen ruim onder de streefcijfers die nodig zijn voor een volledige dood-houtbiodiversiteit (30 m²/ha) en voor de meest veeleisende soorten (50 m²/ha) [@vandekerkhove_hoofdstuk_2018]. 
+Het totale volume dood hout (staand en liggend) is lager in publieke (17,9 m³/ha) dan in private bossen (20,6 m³/ha) (Figuur 2). 
+Die volumes liggen ruim onder de streefcijfers die nodig zijn voor een volledige dood-houtbiodiversiteit (30 m³/ha) en voor de meest veeleisende soorten (50 m³/ha) [@vandekerkhove_hoofdstuk_2018]. 
 De hoogste volumes zijn in de praktijk haalbaar in reservaten. 
 In het oudste bosreservaat van Vlaanderen (Zoniën) nam het dood-houtvolume toe van 29 kubieke meter per hectare in 1986 tot 110 kubieke meter per hectare in 2010 [@vandekerkhove_merkwaardige_2012].
 
