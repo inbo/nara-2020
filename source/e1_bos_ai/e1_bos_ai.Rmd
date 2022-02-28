@@ -57,7 +57,7 @@ doodhout <- read_vc("datadoodhout") %>% # Dataset voor analyse dood hout
   drop_na(totaal) %>%
   mutate(OwnerType = recode(OwnerType, "Public" = "Publiek",
                             "Private" = "Privaat")) %>%
-  rename(periode = Periode)
+  rename(periode = Periode) # Hoofdletter
 ```
 
 ```{r data_bewerken, results='hide', cache = TRUE}
