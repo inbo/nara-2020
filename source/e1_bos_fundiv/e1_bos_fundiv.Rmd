@@ -129,22 +129,22 @@ trait_coverage <- function(trait_name, threshold) {
   # threshold en aantal plots per periode hoger dan threshold
   a <- master_data %>%
     mutate(Trait01 = ifelse(is.na(!!sym(trait_name)), 0, 1)) %>%
-    mutate(BasalAreaxTrait01 = Species_BasalArea_ha * Trait01) %>%
-    group_by(ID, IDPlots, Periode, Total_basal_area) %>%
+    mutate(BasalAreaxTrait01 = .data$Species_BasalArea_ha * .data$Trait01) %>%
+    group_by(.data$ID, .data$IDPlots, .data$Periode, .data$Total_basal_area) %>%
     mutate(
-      Sum_BasalAreaxTrait01 = sum(BasalAreaxTrait01),
-      !!name := Sum_BasalAreaxTrait01 / Total_basal_area * 100
+      Sum_BasalAreaxTrait01 = sum(.data$BasalAreaxTrait01),
+      !!name := .data$Sum_BasalAreaxTrait01 / .data$Total_basal_area * 100
     ) %>%
     ungroup()
   b <- a %>%
     filter(!!sym(name) > threshold)
 
   c <- b %>%
-    dplyr::select(ID, IDPlots, Periode, !!name) %>%
-    group_by(ID, IDPlots, Periode) %>%
+    dplyr::select(.data$ID, .data$IDPlots, .data$Periode, !!name) %>%
+    group_by(.data$ID, .data$IDPlots, .data$Periode) %>%
     summarise(!!sym(name) := mean(!!sym(name)))
   d <- c %>% # aantal plots per periode met coverage groter dan threshold
-    group_by(Periode) %>%
+    group_by(.data$Periode) %>%
     summarise(Aantal_plots_boven_threshold = n())
   list <- list(a, b, c, d)
   return(list)
@@ -273,12 +273,14 @@ cwm_continuous_trait <- function(data, trait_name) {
   name <- paste(trait_name, "_cwm", sep = "")
   data %>%
     na.omit() %>%
-    group_by(ID, IDPlots, Periode) %>%
-    mutate(Total_basal_area_adjusted = sum(Species_BasalArea_ha)) %>%
-    mutate(traitxBA = Species_BasalArea_ha * !!sym(trait_name)) %>%
-    group_by(ID, IDPlots, Periode, Total_basal_area_adjusted) %>%
-    summarise(sumtraitxBA = sum(traitxBA)) %>%
-    mutate(!!name := sumtraitxBA / Total_basal_area_adjusted) %>%
+    group_by(.data$ID, .data$IDPlots, .data$Periode) %>%
+    mutate(Total_basal_area_adjusted = sum(.data$Species_BasalArea_ha)) %>%
+    mutate(traitxBA = .data$Species_BasalArea_ha * !!sym(trait_name)) %>%
+    group_by(
+      .data$ID, .data$IDPlots, .data$Periode, .data$Total_basal_area_adjusted
+    ) %>%
+    summarise(sumtraitxBA = sum(.data$traitxBA)) %>%
+    mutate(!!name := .data$sumtraitxBA / .data$Total_basal_area_adjusted) %>%
     ungroup()
 }
 
