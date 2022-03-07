@@ -150,7 +150,9 @@ Nochtans spelen carnivoren een essentiële rol in het evenwicht van natuurlijke 
 In het Natuurrapport 2020 staat een meer gelayoute figuur. 
 
 ```{r layout, echo=FALSE, out.width="70%"}
-knitr::include_graphics("../c1_grote_zoogdieren/biomassalayout.jpg")
+knitr::include_graphics(
+  file.path("..", "c1_grote_zoogdieren", "biomassalayout.jpg")
+)
 ```
 
 ## Referenties

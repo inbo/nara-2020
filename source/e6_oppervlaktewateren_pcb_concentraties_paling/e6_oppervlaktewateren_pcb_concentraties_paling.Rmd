@@ -45,11 +45,17 @@ pcbgegevens <- read_vc("data_pcb_2015_2018")
 
 pcbgegevens <- pcbgegevens %>%
   mutate(p = as.factor(klasse)) %>%
-  mutate(klasse = factor(klasse, , ordered = TRUE,
-                         levels = c("niet afwijkend (< 603 ng/g vet)",
-                                    "licht afwijkend (603 - 1514 ng/g vet)",
-                                    "afwijkend (1514 - 3804 ng/g vet)",
-                                    "sterk afwijkend (>3804 ng/g vet)")))
+  mutate(
+    klasse = factor(
+      klasse, ordered = TRUE,
+      levels = c(
+        "niet afwijkend (< 603 ng/g vet)", # nolint: nonportable_path_linter
+        "licht afwijkend (603 - 1514 ng/g vet)", # nolint: nonportable_path_linter, line_length_linter.
+        "afwijkend (1514 - 3804 ng/g vet)", # nolint: nonportable_path_linter.
+        "sterk afwijkend (>3804 ng/g vet)" # nolint: nonportable_path_linter.
+      )
+    )
+  )
 
 pcbgegevens <- pcbgegevens %>%
   mutate(prop = aantal_meetplaatsen / sum(aantal_meetplaatsen) * 100) %>%

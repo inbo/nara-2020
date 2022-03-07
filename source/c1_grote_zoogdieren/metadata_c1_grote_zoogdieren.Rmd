@@ -105,7 +105,7 @@ mensgegevens %>%
        col.names = linebreak(
          c("nr", "Leeftijdsgroep", "Geslacht", "Aantal",
          "Gemiddelde BMI", "BMI geslacht", "Lengte (m)",
-         "Gewicht (kg/pers)", "Biomassa (kg)")),
+         "Gewicht (kg/pers)", "Biomassa (kg)")), # nolint: nonportable_path_linter, line_length_linter.
        align = c("l")) %>%
   kable_styling(latex_options = c("striped", "HOLD_position")) %>%
  scroll_box(height = "600px")

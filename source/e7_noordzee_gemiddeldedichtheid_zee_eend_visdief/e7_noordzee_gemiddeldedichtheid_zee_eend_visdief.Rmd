@@ -97,7 +97,7 @@ b <- list(
   ticks = "outside", zeroline = FALSE
 )
 c <- list(
-  title = "DICHTHEID (N/km²)",
+  title = "DICHTHEID (N/km²)", # nolint: nonportable_path_linter.
   showgrid = TRUE,
   showline = TRUE,
   showticklabels = TRUE,

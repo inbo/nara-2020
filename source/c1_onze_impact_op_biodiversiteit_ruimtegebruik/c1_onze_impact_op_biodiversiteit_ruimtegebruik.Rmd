@@ -207,7 +207,7 @@ t <- ggplot(gegevens3, aes(x = Urbanisatie, y = Welvaartspeil,
     breaks = c(5, 10, 15, 20, 25, 30)
   ) +
   xlab("AANDEEL STEDELIJK EN BEBOUWD GEBIED (%)") +
-  ylab("WELVAARTSPEIL (bbp/capita)") +
+  ylab("WELVAARTSPEIL (bbp/capita)") + # nolint: nonportable_path_linter, line_length_linter.
   theme(
     axis.title.y = element_text(margin = margin(t = 0, r = 10, b = 0, l = 0),
                                 hjust = 0),

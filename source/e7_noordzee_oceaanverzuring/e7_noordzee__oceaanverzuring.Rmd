@@ -43,7 +43,7 @@ Op jaarbasis is de buffercapaciteit van het zeewater in de Belgische wateren sta
 # data formating voor figuur 112
 revellephgegevens <- read_vc("icos_data_for_nara_report2020")
 revellephgegevens <- revellephgegevens %>%
-  mutate(date = as.Date(date, format = "%d/%m/%Y"))
+  mutate(date = as.Date(date, format = "%d/%m/%Y")) # nolint: nonportable_path_linter, line_length_linter.
 ```
 ```{r staafdiagram, fig.width = 7, fig.height = 4, fig.cap = "Figuur 1: Revelle factor van de Belgische wateren in de periode 2017-2019."}
 q <- ggplot(revellephgegevens, aes(x = date)) +

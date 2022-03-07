@@ -350,7 +350,7 @@ intensiteit_perceel %>%
     col.names = linebreak(
       c(
         "Teeltcombinaties",
-        "Percentage en type KLE/beheerovereenkomst",
+        "Percentage en type KLE/beheerovereenkomst", # nolint: nonportable_path_linter, line_length_linter.
         "Bescherming of biologische landbouw", "Score"
       )
     ),
@@ -465,7 +465,7 @@ nitraat %>%
     col.names = linebreak(
       c(
         "Teeltgroep",
-        "Mediaan nitraatresidu (kg nitraat-N/ha, klasse)",
+        "Mediaan nitraatresidu (kg nitraat-N/ha, klasse)", # nolint: nonportable_path_linter, line_length_linter.
         "Intensiteitsscore"
       )
     ),
@@ -516,7 +516,7 @@ seqscore %>%
     booktabs = TRUE,
     escape = FALSE,
     col.names = linebreak(c(
-      "Teeltgroep", "Gemiddelde seq/ha",
+      "Teeltgroep", "Gemiddelde seq/ha", # nolint: nonportable_path_linter, line_length_linter.
       "Klasse", "Intensiteitsscore"
     )),
     align = c("l")

@@ -124,7 +124,7 @@ p <- ggplot(table.vgl_sbp, aes(
   scale_fill_manual(values = col) +
   labs(
     fill = "beoordeling",
-    y = "ECOLOGICHE TOESTAND/POTENTIEEL (% waterlichamen)"
+    y = "ECOLOGICHE TOESTAND/POTENTIEEL (% waterlichamen)" # nolint: nonportable_path_linter, line_length_linter.
   ) + # titel legende = fill
   theme(
     text = element_text(size = 10),

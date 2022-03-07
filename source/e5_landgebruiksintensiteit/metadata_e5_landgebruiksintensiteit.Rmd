@@ -114,7 +114,7 @@ seqscore %>%
     escape = FALSE,
     col.names = linebreak(
       c(
-        "Teeltgroep", "Gemiddelde seq/ha", "Klasse",
+        "Teeltgroep", "Gemiddelde seq/ha", "Klasse", # nolint: nonportable_path_linter, line_length_linter.
         "Intensiteitsscore"
       )
     ),

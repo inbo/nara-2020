@@ -45,7 +45,7 @@ options(htmlwidgets.TOJSON_ARGS = list(pretty = TRUE))
 
 ```{r data_inlezen, cache = TRUE}
 # BII-kaart (tiff) inlezen
-bii16 <- raster("./bii_abund_2016_klassen_100m.tif")
+bii16 <- raster("bii_abund_2016_klassen_100m.tif")
 
 gegevens <- read_vc("bii_lgnara2020")# Dataset voor staafdiagrammen
 

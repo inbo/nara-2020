@@ -336,18 +336,18 @@ dataplot_n <- deposbra_n %>%
   rename(Jaar = jaar, "Locatie" = "plot") %>%
   mutate(Locatie = as.factor(Locatie),
          Meting = round(N, 1),
-         Schatting = paste(round(fit, 1), "mgN/gDS"),
-         BI = paste(round(lwr, 1), "-", round(upr, 1), "mgN/gDS"))
+         Schatting = paste(round(fit, 1), "mgN/gDS"), # nolint: nonportable_path_linter, line_length_linter.
+         BI = paste(round(lwr, 1), "-", round(upr, 1), "mgN/gDS")) # nolint: nonportable_path_linter, line_length_linter.
 
 pblad <- ggplot(dataplot_n, aes(x = Jaar, y = N)) +
   geom_ribbon(aes(ymin = lwr, ymax = upr, fill = Locatie, label = BI),
               alpha = 0.2) +
-  geom_point(aes(colour = Locatie, text = paste("Meting:", Meting, "mgN/gDS")),
+  geom_point(aes(colour = Locatie, text = paste("Meting:", Meting, "mgN/gDS")), # nolint: nonportable_path_linter, line_length_linter.
              size = 1) +
   geom_line(aes(y = fit, colour = Locatie, label = Schatting)) +
   scale_x_continuous(limits = c(1992, NA),
                      breaks = c(1995, 2000, 2005, 2010, 2015)) +
-  labs(y = "Mg N / g DS") +
+  labs(y = "Mg N / g DS") + # nolint: nonportable_path_linter, line_length_linter.
   guides(colour = FALSE) +
   theme(plot.title = element_text(margin = margin(t = 5), vjust = 5),
         axis.title.x = element_blank(),
