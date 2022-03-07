@@ -97,7 +97,7 @@ col <- c(
 ) # Kleuren klassen
 
 # vergelijking tussen de verschillende periodes
-table.vgl_sbp <- bind_rows(summary_eco_2012, summary_eco_2018, .id = NULL) %>%
+table_vgl_sbp <- bind_rows(summary_eco_2012, summary_eco_2018, .id = NULL) %>%
   mutate(beoordeling = fct_relevel(
     beoordeling,
     "Niet beoordeeld",
@@ -107,14 +107,14 @@ table.vgl_sbp <- bind_rows(summary_eco_2012, summary_eco_2018, .id = NULL) %>%
     "Goed",
     "Zeer goed"
   ))
-table.vgl_sbp <- table.vgl_sbp %>%
+table_vgl_sbp <- table_vgl_sbp %>%
   mutate(categorie_n = factor(categorie_n,
     levels = c("estuaria", "meer", "rivier"),
     labels = c("Estuaria", "Meer", "Rivier")
   ))
 ```
 ```{r staafdiagram, fig.width = 6, fig.height = 5, fig.cap = "Figuur 1: Percentage Vlaamse en lokale rivieren, meren en estuaria per beoordelingsklasse voor de ecologishe toestand of het ecologisch potentieel. Periode 1 komt overeen met de periode tussen 2007 en 2012 en periode 2 komt overeen met de periode tussen 2013 en 2018. Deze figuur verwijst naar figuur 101 in het Natuurrapport 2020. "}
-p <- ggplot(table.vgl_sbp, aes(
+p <- ggplot(table_vgl_sbp, aes(
   x = biologisch_kwaliteitselement,
   y = proportie,
   fill = beoordeling
