@@ -1,0 +1,61 @@
+on:
+  schedule:
+    # elke maandag om 06:00 UTC
+    - cron: '0 6 * * 1'
+  workflow_dispatch:
+
+name: scan-publish-cdn
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  scan:
+    runs-on: ubuntu-latest
+    name: Scan publish-branch op gekaapte CDN-domeinen
+    steps:
+      - name: Publish-branch uitchecken
+        uses: actions/checkout@v4
+        with:
+          ref: publish
+          fetch-depth: 1
+
+      - name: Zoeken naar verdachte CDN-referenties
+        id: scan
+        run: |
+          set -uo pipefail
+          # Domeinen die bekend gekaapt of overgenomen zijn en die door oudere
+          # rmarkdown/pandoc-templates werden geinjecteerd. Zie incident SecID_20260702.
+          patterns='polyfill\.io|polyfill-fastly\.io|bootcss\.com|bootcdn\.net|staticfile\.org'
+          hits=$(grep -rInE "$patterns" --include='*.html' --include='*.htm' --include='*.js' . || true)
+          if [ -n "$hits" ]; then
+            {
+              echo "### Verdachte CDN-referenties gevonden in de \`publish\`-branch"
+              echo
+              echo '```'
+              echo "$hits" | head -50
+              echo '```'
+            } >> "$GITHUB_STEP_SUMMARY"
+            echo "$hits" | head -50
+            echo "::error::Verdachte CDN-referenties gevonden in de publish-branch. Deze content wordt door de INBO-website ingelezen en publiek geserveerd."
+            exit 1
+          fi
+          echo "Geen verdachte CDN-referenties gevonden in de publish-branch." >> "$GITHUB_STEP_SUMMARY"
+          echo "Geen verdachte CDN-referenties gevonden."
+
+      - name: Issue aanmaken bij een vondst
+        if: failure()
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh issue create \
+            --repo "$GITHUB_REPOSITORY" \
+            --title "Verdachte CDN-referenties in de publish-branch (scan-publish-cdn)" \
+            --body "De geplande scan vond referenties naar een bekend gekaapt CDN-domein in de \`publish\`-branch.
+
+          Deze branch wordt elke 30 minuten door de INBO-website ingelezen (Umbraco scheduled task) en publiek geserveerd op www.vlaanderen.be/inbo, dus dit is meteen zichtbaar voor bezoekers.
+
+          Details staan in de run: ${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}
+
+          Meest waarschijnlijke oorzaak: een her-render met een verouderde toolchain (oude rmarkdown of pandoc injecteert het polyfill.io-script). Zie incident SecID_20260702."
